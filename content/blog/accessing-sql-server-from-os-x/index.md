@@ -144,7 +144,6 @@ Following the instructions at [http://www.unixodbc.org/doc/FreeTDS.html](http://
 Description=v0.63 with protocol v8.0
 Driver=/usr/local/lib/libtdsodbc.so
 UsageCount=1
-{% endcodeblock %}
 ```
 
 and
