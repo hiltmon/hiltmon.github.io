@@ -1,0 +1,120 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Easy SSH to local linux VM</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Feb 22, 2014 2:03 PM</span>
+</p>
+<h1 class=post-title>
+Easy SSH to local linux VM
+</h1>
+<div class=post-body>
+<p><em>TL;DR: Run <code>avahi</code> on the VM, <code>ssh</code> to the VM name dot local.</em></p>
+<p>Many of the <a href=https://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/>Simple C++ Projects</a> I work on, whether <a href=https://hiltmon.com/blog/2013/07/05/xcode-and-the-simple-c-plus-plus-project-structure/>I use Xcode or not</a>, land up needing to be recompiled on a Linux Virtual Machine prior to being deployed to the production Linux server. I do this because I want to be sure the I know what needs to be set up in the Linux environment, that the compile succeeds without errors in a production-like environment and the code works properly before deploying.</p>
+<p>I spin up these virtual machines all the time. But connecting to them to copy the code over and perform these compiles is a hassle because their IP addresses change all the time. <span class=light>Aside: Setting a static IP address does not work because I often clone these virtual machines to try different settings requiring a new IP address to be set up and remembered manually. Also, static IP addresses sometimes conflict on different networks.</span></p>
+<p>But there is a solution. <code>avahi</code>.</p>
+<h2 id=the-problem-in-detail>The Problem in Detail</h2>
+<figure class=image-right><img src=images/vm-network.jpg width=412 height=255>
+</figure>
+<p>I spin up Linux VM&rsquo;s in my local VMware Fusion using the exact same Linux distribution as production. Since these are never to be exposed to the wide world out there, I set the network to &ldquo;Share with my MAC&rdquo; which makes it a local VM. I could use &ldquo;Bridged Networking&rdquo; but this problem then recurs when I work from home or a coffee shop.</p>
+<p>I <code>yum</code> install all the packages as per production, even set up a <code>deploy</code> user. I then need to <code>ssh</code> into that deploy user on that VM as if I were <code>ssh</code>-ing into production to build and test the code.</p>
+<p>The problem is that each time the Linux VM boots, or I use it outside the office, it gets a new DHCP IP address. Which means that I need to find out what the IP address is every time before I can SSH in. Too many steps:</p>
+<figure class=image-right><img src=images/vm-ip.png width=384 height=250>
+</figure>
+<ul>
+<li>Log in</li>
+<li>Run an <code>ifconfig</code></li>
+<li>Find the IP address (172.16.112.141 this time)</li>
+<li>Press <code>⌃⌘</code> to release the mouse</li>
+<li>Open a terminal locally</li>
+<li><code>ssh deploy@172.16.112.141</code> <em>this time</em>!</li>
+</ul>
+<p>What a Pain! Next time I use this VM, I&rsquo;ll have to perform the same dance.</p>
+<h2 id=the-solution-in-detail>The Solution in Detail</h2>
+<p>Run <code>avahi</code> on the VM.</p>
+<p>When you build the Linux VM (I use CentOS 6), first set the host name to a unique name. Edit <code>/etc/sysconfig/network</code> <em>as root</em> and set the <code>HOSTNAME</code> attribute:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>NETWORKING=yes
+HOSTNAME=witch.noverse.local
+</code></pre></div><p>You may need to restart some distributions after doing this.</p>
+<p>Then execute the following commands <em>as root</em> to install <code>avahi</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ yum -y install avahi
+...
+$ service avahi-daemon start
+...
+$ chkconfig avahi-daemon on
+</code></pre></div><p>This installs the <code>avahi</code> daemon, starts it and sets it to start on every reboot.</p>
+<p>What the <code>avahi</code> daemon does is publishes the VM&rsquo;s basename (the first part of the hostname before the dot) on the <a href=http://en.wikipedia.org/wiki/Zero-configuration_networking>ZeroConf</a> (or to use Apple&rsquo;s word <a href=https://www.apple.com/support/bonjour/>Bonjour</a>) network.</p>
+<p>Which means you can always see it as <code>basename.local</code>. So, instead of <code>ssh</code>-ing to an new IP address every time, just <code>ssh</code> to the basename and add a <code>.local</code>. For example, this works for the above Linux VM:</p>
+<pre><code>ssh deploy@witch.local
+</code></pre>
+<p>Then, no matter where you are or what IP address the VM gets, <strong>you can always access it by the same name</strong>. You can even add this to your <code>.ssh/config</code> file as a shortcut, which never changes!</p>
+<p>I have been totally surprised how much fiddling and time this simple trick has saved me.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Feb 22, 2014 2:03 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2014/03/02/from-tool-maker-to-tool-user/>&larr; From Tool Maker to Tool User</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2014/02/17/choose-not-to-be-anonymous/>I Choose not to be Anonymous &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

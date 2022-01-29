@@ -1,0 +1,184 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>My TextMate 2 Setup</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Apr 15, 2013 2:42 PM</span>
+</p>
+<h1 class=post-title>
+My TextMate 2 Setup
+</h1>
+<div class=post-body>
+<p>I switched back to <a href=https://github.com/textmate/textmate>TextMate 2</a> from <a href=http://www.sublimetext.com/2>Sublime Text 2</a> full time a while back and I am really happy with the way I have it looking and working. My &ldquo;<a href=https://hiltmon.com/blog/2012/08/14/my-sublime-text-2-setup/>My Sublime Text 2 Setup</a>&rdquo; post is quite popular, so I though I&rsquo;d create the same for TextMate 2.</p>
+<figure><img src=images/textmate-themes.jpg width=600 height=240>
+</figure>
+<h2 id=theme>Theme</h2>
+<p>I am using my <a href=https://hiltmon.com/blog/2013/02/22/multiple-themes-in-textmate-2/>CombinedCasts</a> theme which merges a modified RailsCasts theme for coding and a light theme for markdown and text editing. You can download the <a href=https://hiltmon.com/files/CombinedCasts.tmTheme>CombinedCasts.tmTheme file here</a> then double-click the downloaded file to install it.</p>
+<p>One problem with the default Markdown preferences in TextMate 2 is that it uses a horrible font. So I created a new set of preferences in a bundle to override these and make headings use the <code>Menlo</code> font instead of <code>Baskerville</code>. This bundle is available at <a href=https://github.com/hiltmon/hiltons-bundle>https://github.com/hiltmon/hiltons-bundle</a> and the installation instructions are in the <code>README</code> file.</p>
+<h2 id=bundles>Bundles</h2>
+<figure class=image-right><img src=images/textmate-auto-lang.jpg width=350 height=231>
+</figure>
+<p>One of the benefits of TextMate 2 over Sublime Text 2 is that adding new bundles, themes and languages is all built-in, you do not need a third party package manager. The first time TextMate 2 encounters a file it does not recognize, it gives you the option to download and install the bundle for it.</p>
+<p>You can manually choose the bundles you want to start with by going into <strong>TextMate / Preferences…</strong> or typing <code>⌘,</code> and switching to the <strong>Bundles</strong> tab. Some bundles I really like include:</p>
+<ul>
+<li><strong>CSS</strong>, <strong>HTML</strong> and <strong>JavaScript</strong> for web work,</li>
+<li><strong>Ruby</strong>, <strong>Ruby on Rails</strong>, <strong>CoffeeScript</strong>, <strong>JavaScript</strong>, <strong>JSON</strong>, and <strong>YAML</strong> which is where TextMate has traditionally excelled,</li>
+<li><strong>Git</strong> for source code control,</li>
+<li><strong>Shell Script</strong> for all my automation,</li>
+<li><strong>TODO</strong> to track and show TODO comments,</li>
+<li>My <strong>Gists</strong> bundle to integrate with Github Gists,</li>
+<li>And of course, <strong>Markdown</strong> for writing.</li>
+</ul>
+<h2 id=properties>Properties</h2>
+<p>You don&rsquo;t really need to do anything else. TextMate 2 automatically saves your global, font, theme and language specific preferences as you set them. Whenever you go back to a file, the preferences are just there.</p>
+<p>But if you really do want to tweak TextMate 2 even more, you can create a <code>.tm_properties</code> in your home folder for global settings and a <code>.tm_properties</code> file at the root of each project for project specific settings.</p>
+<p>My global <code>.tm_properties</code> is this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Settings
+
+encoding         = UTF-8
+fontName         = &#34;Menlo&#34;
+fontSize         = 12
+lineEndings      = &#39;\n&#39;
+showInvisibles   = false
+softWrap         = true
+tabSize          = 2
+
+# Now using CombinedCasts theme (of course)
+
+theme            = 570BB45C-486D-44A6-8683-CFE4F63CE651
+
+# Hide log, vendor and tmp directories from search popups.
+
+myExtraExcludes = &#34;log,vendor,tmp&#34;
+excludeInFileChooser  = &#34;{$excludeInFileChooser,$myExtraExcludes}&#34; 
+excludeInFolderSearch = &#34;{$excludeInFolderSearch,$myExtraExcludes}&#34; 
+fileBrowserGlob  = &#34;{*,.tm_properties,.htaccess}&#34;
+
+# Variables
+
+PATH   = &#34;$PATH:$HOME/Scripts&#34;
+TM_GIT = &#34;/usr/bin/git&#34;
+TM_RUBY = &#34;/Users/Hiltmon/.rvm/bin/rvm-auto-ruby&#34;
+
+[ text ]
+spellChecking    = true
+softWrap         = false
+wrapColumn       = &#34;Use Window Frame&#34;
+softTabs         = true
+tabSize          = 2
+
+[ text.plain ]
+spellChecking    = true
+softWrap         = true
+wrapColumn       = &#34;Use Window Frame&#34;
+softTabs         = false
+tabSize          = 4
+
+[ text.html.markdown ]
+spellChecking    = true
+softWrap         = true
+wrapColumn       = &#34;Use Window Frame&#34;
+softTabs         = false
+tabSize          = 4
+
+[ source ]
+softWrap         = true
+wrapColumn       = &#34;Use Window Frame&#34;
+softTabs         = true
+tabSize          = 2
+
+[ source.plist ]
+softTabs       = false
+tabSize        = 4
+
+[ source.tm-properties ]
+spellChecking  = false
+
+[ &#34;{Capfile,Gemfile,Gemfile.lock,Guardfile}&#34; ]
+fileType         = source.ruby
+
+[ Procfile ]
+fileType         = source.yaml
+</code></pre></div><p>This mostly sets tabs and spaces for the most common languages that I use, as well as forces a reset of the theme and font whenever I load the application.</p>
+<p>For the <a href=http://www.kifuapp.com>Kifu</a> project, I have a <code>.tm_properties</code> in its root containing:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>projectDirectory = &#34;$CWD&#34;
+windowTitle      = &#34;$TM_DISPLAYNAME — Kifu App (git: $TM_SCM_BRANCH)&#34;
+
+TM_ORGANIZATION_NAME = &#39;Noverse LLC&#39;
+
+[ attr.untitled ]
+fileType         = source.ruby.rails
+</code></pre></div><p>This shows the Git branch in the title bar and assumes all blank files are rails files.</p>
+<h2 id=works-for-me>Works for Me</h2>
+<p>I also run the file browser to the right, have Software Update set for <code>Nightly Builds</code>, show command output in a new window and use the <code>rvm</code> version of ruby from my <a href=https://hiltmon.com/blog/2013/01/16/rvm-in-textmate-2/>RVM in TextMate 2</a> post.</p>
+<p>With these minor changes, I feel I have the best programmer&rsquo;s editor environment in TextMate 2 <em>for my own needs</em> and use it every single day.</p>
+<p>See also: <a href=https://hiltmon.com/blog/2013/11/09/textmate-2-basics/>TextMate 2 Basics</a></p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Apr 15, 2013 2:42 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/04/17/add-ga-os-and-browser-to-status-board/>&larr; Add GA OS and Browser to Status Board</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/04/15/hourly-analytics-for-status-board/>Hourly Analytics for Status Board &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

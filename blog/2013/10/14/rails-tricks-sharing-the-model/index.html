@@ -1,0 +1,135 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Rails Tricks - Sharing the Model</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Oct 14, 2013 1:58 PM</span>
+</p>
+<h1 class=post-title>
+Rails Tricks - Sharing the Model
+</h1>
+<div class=post-body>
+<p>I am building a series of Rails applications for different users and use cases, but they all hang off the <em>same</em> database schema. Using canonical Rails, that means a single, massive rails app with a bunch of controllers, a heap of views and a complex security model.</p>
+<p>I prefer small, focussed apps, so I decided to share the model instead. Here&rsquo;s how it works.</p>
+<h2 id=sharing-the-model>Sharing the model</h2>
+<p>Lets call the the first rails project <em>Master</em>. Generate it as usual and create a few models and migrations to set up the database. In my case, the <em>Master</em> rails application is used to do nothing more than import, export and allow users to view the data in the model&rsquo;s database tables.</p>
+<pre><code>rails new Master --database postgresql
+cd Master
+rails generate model model1 ...
+...
+rake db:create
+rake db:migrate
+</code></pre>
+<p>Lets now create a reporting app, called <em>Reporting</em> that will use the same model as <em>Master</em>.</p>
+<pre><code>cd ..
+rails new Reporting --database postgresql
+cd Reporting
+</code></pre>
+<p><strong>Do not create any models or migrations in this project, you do them all in <em>Master</em>.</strong></p>
+<p>To copy the models, create a new <code>rake</code> task in a new file in <em>Reporting</em> called <code>lib/tasks/sync.rake</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>namespace <span style=color:#f60>:sync</span> <span style=color:red>do</span>
+  
+  desc <span style=color:#87ceeb>&#39;Copy common models and tests from Master&#39;</span>
+  task <span style=color:#f60>:copy</span> <span style=color:red>do</span>
+    source_path = <span style=color:#87ceeb>&#39;/Users/Hiltmon/Projects/Master&#39;</span>
+    dest_path = <span style=color:#87ceeb>&#39;/Users/Hiltmon/Projects/Reporting&#39;</span>
+        
+    <span style=color:#0f0># Copy all models &amp; tests</span>
+    <span style=color:#87ceeb>%x{cp </span><span style=color:#87ceeb>#{</span>source_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/app/models/*.rb </span><span style=color:#87ceeb>#{</span>dest_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/app/models/}</span>
+    <span style=color:#87ceeb>%x{cp </span><span style=color:#87ceeb>#{</span>source_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/test/models/*_test.rb </span><span style=color:#87ceeb>#{</span>dest_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/test/models/}</span>
+
+    <span style=color:#0f0># Fixtures</span>
+    <span style=color:#87ceeb>%x{cp </span><span style=color:#87ceeb>#{</span>source_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/test/fixtures/*.yml </span><span style=color:#87ceeb>#{</span>dest_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/test/fixtures/}</span>
+    
+    <span style=color:#0f0># Database YML</span>
+    <span style=color:#87ceeb>%x{cp </span><span style=color:#87ceeb>#{</span>source_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/config/database.yml </span><span style=color:#87ceeb>#{</span>dest_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/config/database.yml}</span>
+  <span style=color:red>end</span>
+<span style=color:red>end</span>
+</code></pre></div><p>Change the <code>source_path</code> to point to the root of the <em>Master</em> project and the <code>dest_path</code> to point to the root of the <em>Reporting</em> project. The run it:</p>
+<pre><code>rake sync:copy
+</code></pre>
+<p>The script copies the <code>app/models</code>, <code>test/models</code>, <code>test/fixtures</code> and <code>database.yml</code> files from <em>Master</em> to <em>Reporting</em>. As far as Rails is concerned, these were created via genuine rails commands and the Rails engine will make these models available in your reporting views and controllers. The <code>database.yml</code> file will also make Rails point to the same database as <em>Master</em>.</p>
+<p>Two rules need to be followed to make this work:</p>
+<ol>
+<li>All models or migrations are done in <em>Master</em> and only in <em>Master</em>. That includes any changes to model files.</li>
+<li>Run a <code>rake sync:copy</code> every once in a while to bring the <em>Reporting</em> project up to date after changes in <em>Master</em>.</li>
+</ol>
+<p>Top Tips:</p>
+<ul>
+<li>If you run <code>rake db:migrate</code> in the <em>Reporting</em> project, no harm will be done (because there are no migrations in it). But the <code>schema.rb</code> file will be regenerated. Which is cool.</li>
+<li>You can add additional projects that use the same shared model, I have 5 at the moment.</li>
+</ul>
+<h2 id=rejected-options>Rejected Options</h2>
+<p>I could have just symlinked the model and db folders between the projects, and therefore not needed the <code>rake</code> task. But that only works for a single development system and single developer. I would have to relink for each new computer or developer that needs to work on these projects.</p>
+<p>I also could have used <code>git</code> submodules to provide a common repository for the copied code, but that would mean that I could not use the regular <code>rails</code> and <code>rake</code> commands for models and migrations, which defeats the purpose of using Rails.</p>
+<h2 id=result>Result</h2>
+<p>As a result of sharing (ok, copying) the models this way, I have several Rails applications running off different servers providing different services to different users all running off the same back-end database. Each application is smaller, simpler, easier to manage and easier to code and maintain. As long as discipline is maintained in that the models and migrations are only performed in the <em>Master</em> project, this trick works great.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Oct 14, 2013 1:58 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/10/14/detox-expands-t-dot-co-links/>&larr; Sanity Saver: Detox expands t.co links</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/10/13/why-microsoft-word-must-die/>Why Microsoft Word must Die &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

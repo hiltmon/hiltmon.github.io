@@ -1,0 +1,130 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>MathJax in Markdown</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Jan 28, 2017 2:39 PM</span>
+</p>
+<h1 class=post-title>
+MathJax in Markdown
+</h1>
+<div class=post-body>
+<p>Adding mathematical formulae to HTML pages is easy these days using <a href=https://www.mathjax.org>MathJax</a>. But I create all my documents in <a href=https://hiltmon.com/blog/categories/markdown/>Markdown</a> format on my Mac. This post shows how to add mathematical formulae to your Markdown documents on the Mac and have them preview and export to PDF correctly.</p>
+<h3 id=mathjax-in-markdown>MathJax in Markdown</h3>
+<p>Adding mathematical formulae to a markdown document simply requires you to use the MathJax delimiters to start and end each formula as follows:</p>
+<ul>
+<li>For centered formulae, use <code>\\[</code> and <code>\\]</code>.</li>
+<li>For inline formulae, use <code>\\(</code> and <code>\\)</code>.</li>
+</ul>
+<p>For example, the formula:</p>
+<pre><code>\\[ x = {-b \pm \sqrt{b^2-4ac} \over 2a} \\]
+</code></pre>
+<p>Renders like this from markdown:</p>
+<p>$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}
+$$</p>
+<p>Or we can go inline where the code <code>\\( ax^2 + \sqrt{bx} + c = 0 \\)</code> renders as <span>\(ax^2 + \sqrt{bx} + c = 0 \)</span>.</p>
+<h3 id=preview-ia-writer-byword-ulysses>Preview: iA Writer, Byword, Ulysses</h3>
+<p>Most Markdown Editors have a Preview function, but do not include MathJax by default. To add MathJax rendering in <a href=https://ia.net/writer>iA Writer</a>, <a href=https://www.bywordapp.com>Byword</a>, <a href=https://ulyssesapp.com>Ulysses</a> and most others, you need to create a custom template to render the document (I assume you have done this already - see <a href=https://hiltmon.com/blog/2013/05/23/letterhead-markdown-style/>Letterhead - Markdown Style</a> for an example).</p>
+<p>For iA Writer, for example, go to <strong>Preferences</strong>, select the <strong>Templates</strong> tab and click the plus below <strong>Custom Templates</strong>, and choose <strong>Open Documentation</strong> to learn how to create your own template. Or copy an existing one and rename it.</p>
+<p>In the main html file, called <code>document.html</code> in the iA template, add the MathJax javascript header line:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>&lt;script type=&#34;text/javascript&#34;
+  src=&#34;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+&lt;/script&gt;
+</code></pre></div><p>My template file is very simple:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>    &lt;!doctype html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    	&lt;meta charset=&#34;UTF-8&#34;&gt;
+        &lt;link rel=&#34;stylesheet&#34; media=&#34;all&#34; href=&#34;normalize.css&#34;&gt;
+        &lt;link rel=&#34;stylesheet&#34; media=&#34;all&#34; href=&#34;core.css&#34;&gt;
+    	&lt;link rel=&#34;stylesheet&#34; media=&#34;all&#34; href=&#34;style.css&#34;&gt;
+    	&lt;script type=&#34;text/javascript&#34;
+        src=&#34;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;&gt;
+      &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body data-document&gt;&amp;nbsp;&lt;/body&gt;
+    &lt;/html&gt;
+</code></pre></div><p>Next time iA Writer, Byword or Ulysses loads its preview pane and renders the page, the javascript will run and render the MathJax as mathematical formulae. For example, in iA Writer:</p>
+<figure><img src=images/mathjax-1.jpeg width=640 height=379>
+</figure>
+<figure class=image-right><img src=images/mathjax-2.jpeg width=340 height=123>
+</figure>
+<p><strong>Note</strong>: Occasionally the preview will fail to render the MathJax, either because the MathJax is invalid or the refresh fails to reload the Javascript. If you see something like the image on the right, just right-click on the preview-pane and click <code>Reload</code>. That forces the preview pane to reload both the rendering template and the page.</p>
+<figure class=image-right><img src=images/mathjax-3.jpeg width=340 height=332>
+</figure>
+<h3 id=preview-marked-2>Preview: Marked 2</h3>
+<p>On the other hand, if you use the magnificent <a href=http://marked2app.com>Marked 2</a> program to render your HTML, well, it has MathJax support built-in. Under <strong>Preferences</strong>, choose the <strong>Style</strong> tab and check <strong>Enable MathJax</strong>.</p>
+<p><strong>Note</strong>: Marked 2 does <em>not</em> have the intermittent problem of failing to render MathJax properly while you are editing the document.</p>
+<hr>
+<br>
+So there it is, simply add the MathJax using delimiters to your Markdown file and update the previewer to render it.
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Jan 28, 2017 2:39 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>&larr; Coding Style Standards in 2017</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2016/11/06/on-the-new-macbook-pros/>On the New MacBook Pros &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

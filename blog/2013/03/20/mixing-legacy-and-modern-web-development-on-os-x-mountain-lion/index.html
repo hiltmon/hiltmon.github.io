@@ -1,0 +1,184 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Mixing Legacy and Modern Web Development on OS X Mountain Lion</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Mar 20, 2013 4:42 PM</span>
+</p>
+<h1 class=post-title>
+Mixing Legacy and Modern Web Development on OS X Mountain Lion
+</h1>
+<div class=post-body>
+<p>Over the past few years I have been developing <em>modern</em> web applications like <a href=http://www.kifuapp.com>Kifu</a> on my laptop using <a href=https://rubyonrails.org/>Ruby on Rails</a>, <a href=http://www.sinatrarb.com>Sinatra</a>, <a href=http://octopress.org>Octopress</a>, and <a href=http://nodejs.org>Node.js</a> powered by <a href=http://pow.cx>Pow</a>. But over the next few weeks I&rsquo;ll be helping a friend upgrade a bunch of older legacy static (plain HTML), <a href=http://php.net>PHP</a> and <a href=http://wordpress.org>Wordpress</a> sites.</p>
+<p>I <em>do</em> want to keep using the same smooth workflow processes as I have now. But I do <em>not</em> want to clutter up my pristine OS X installation to do it. So this is how I have my <em>modern</em> web development environment set up, and how I have added <em>almost seamless</em> legacy development capability to it.</p>
+<p><em>If you want to skip the details and see how to set up <a href=http://pow.cx>Pow</a> and Apache on OS X Mountain Lion to work together, <a href=#fast>click here</a>.</em></p>
+<h2 id=my-modern-web-development-setup>My Modern Web Development Setup</h2>
+<p>The <em>modern</em> platform is:</p>
+<ul>
+<li><a href=http://www.postgresql.org>PostgreSQL</a> is my development database because that&rsquo;s what all my production databases are. But instead of using the <a href=http://mxcl.github.com/homebrew/>Homebrew</a> or a native install (and therefore having it running when I do <em>not</em> need it), I run the <a href=http://postgresapp.com>Postgres.app</a> by Matt Thompson at Heroku. This app starts a PostgreSQL server instantly on launch and stores it in <code>~/Library/Application Support</code>. I have a <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> macro set up on ⇧⌃⌥⌘P to start and kill this app when needed<a href=#fn:1 id=fnref:1><sup>[1]</sup></a>.</li>
+<li>I use <a href=http://pow.cx>Pow</a> as my development web server because all my modern web sites are Rack apps. Pow is great because it <em>just works</em> by intercepting DNS requests and automatically redirecting you to your development web servers on the <code>.dev</code> domain (no more <code>/etc/hosts</code> hacks needed, still pristine). Just follow <a href=http://pow.cx>the link</a> to install <a href=http://pow.cx>Pow</a> and see how to symlink sites to activate them. I also created Safari bookmarks for each and every <code>.dev</code> site I work on so I can easily get to them for demo or development purposes.</li>
+<li>I use <a href=https://rvm.io>rvm</a> to manage the versions of ruby and the gemsets I need for each project (and it works automatically with <a href=http://pow.cx>Pow</a>).</li>
+<li>I use the <a href=https://github.com/ddollar/foreman>foreman</a> gem to launch and manage additional services needed, such as <a href=http://redis.io>redis</a>, worker threads and a development web server.</li>
+</ul>
+<p>So, lets say I want to <strong>work</strong> on <a href=http://www.kifuapp.com>Kifu</a>. I have a <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> macro that does the following:</p>
+<ul>
+<li>Starts <a href=http://postgresapp.com>Postgres.app</a> if it is <em>not</em> already running.</li>
+<li>Opens a new <a href=http://www.iterm2.com/#/section/home>iTerm 2</a> session, and <code>cd</code>&rsquo;s to the Kifu folder.</li>
+<li>Kicks off a <a href=https://github.com/textmate/textmate>TextMate 2</a> session with the Kifu code in it.</li>
+<li>Opens a second terminal tab and kicks off <a href=https://github.com/ddollar/foreman>foreman</a> so all the services needed start up.</li>
+<li>Launches a new web browser window that takes me to the development site.</li>
+<li>Triggers <a href=http://manytricks.com/moom/>Moom</a> to place all the windows where I want them (I&rsquo;m still old school spatial).</li>
+</ul>
+<p>If I want to <strong>demo</strong> Kifu, I just have to start <a href=http://postgresapp.com>Postgres.app</a> with ⇧⌃⌥⌘P and launch a browser.</p>
+<p>Done with that, and want to blog? Another macro kills off the development environment leaving me with a <em>clean</em> system.</p>
+<p>A key benefit of the <em>modern</em> setup is since my blog is an <a href=http://octopress.org>Octopress</a> site, I can always view it locally via <a href=http://pow.cx>Pow</a> - it does not need a database running. While writing, I leave a <code>rake watch</code> running in a terminal. Easy.</p>
+<p>So my <em>modern</em> environment relies on <a href=http://pow.cx>Pow</a> for serving most pages and <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> macros to start and stop what I need. Its quick to start up, and does not chew up resources when I do not need it.</p>
+<h2 id=enabling-legacy>Enabling Legacy</h2>
+<p>The legacy sites I <em>will</em> be working on need a few things my current environment does not support:</p>
+<ul>
+<li>A <a href=http://www.mysql.com>MySQL</a> database for <a href=http://wordpress.org>Wordpress</a></li>
+<li>A server to process <a href=http://php.net>PHP</a> (<a href=http://pow.cx>Pow</a> does not do PHP)</li>
+</ul>
+<p><a href=http://www.mamp.info/en/index.html>MAMP</a> is the platform most developers use on OS X when they need to deal with MySQL or PHP because it&rsquo;s <em>easy</em> to set up, <em>easy</em> to start and <em>easy</em> to use.</p>
+<p>But it does <em>not</em> work for me. <em>Here&rsquo;s why</em>:</p>
+<ol>
+<li>First, both Apache and PHP are already installed on OS X and I do not want to have to launch something else just to <em>demo</em> a site. I am spoilt by Pow.</li>
+<li>Secondly, if you are working on more than one site, you need to purchase and install the Pro version of <a href=http://www.mamp.info/en/index.html>MAMP</a>.</li>
+<li>Thirdly, I deleted <a href=http://www.mamp.info/en/index.html>MAMP</a> once before and forgot that I had a valuable database in it&rsquo;s folder, ouch!</li>
+</ol>
+<p>For my needs, it&rsquo;s just easier to bite the bullet and run a local MySql Server <em>when</em> I need it.</p>
+<p>Since there is no app for <a href=http://www.mysql.com>MySQL</a> like <a href=http://postgresapp.com>Postgres.app</a>, I installed the latest <a href=http://dev.mysql.com/downloads/mysql/>MySql 64-bit Mac version</a> directly from MySQL. Choose the <code>DMG</code> version to download and hit &ldquo;No thanks, just start my download.&rdquo; to bypass the Oracle sign-up irritant. The reason you want the <code>DMG</code> version is that it contains an installer for the database - which makes it easy to install - and the Preference Pane to manage it - double click to install that. I did <em>not</em> install the Startup Item because I only want MySQL running when I need it (just like PostgreSQL). If you are doing this on a desktop computer, by all means set that up too.</p>
+<p>Since Apache and PHP is already installed, we just have to start it. And &mldr;</p>
+<p>Wait, what? Really, Apple, really?</p>
+<p>Under previous versions of OS X, the option to start and stop Apache was in <strong>Preferences.app</strong> / <strong>Sharing</strong>. But that was <strong>removed</strong> in OS X Mountain Lion. <em>Whomever the lowlife at Apple is who decided to remove it shall face my wrath if and when I ever meet them (or needs to bribe me with excellent scotch to stop whining about it)</em>.</p>
+<p>One solution to this lunacy is to purchase and install OS X Server which kindly gives you limited access to the Apache startup and a full PostgreSQL database install, but this is a development laptop, I don&rsquo;t need all that running all the time. Another is to install the <a href=http://clickontyler.com/blog/2012/02/web-sharing-mountain-lion/>Web Sharing Prefpane</a> by Tyler Hall; but I did not do this, it feels too much like a hack.</p>
+<p>The third option is to use the terminal to start Apache:</p>
+<pre><code>sudo apachectl restart
+</code></pre>
+<p>The <em>good</em> part about this is that OS X <em>remembers</em> that you started Apache before and does so again on the next reboot. No need to run this command again.</p>
+<p>But with <a href=http://pow.cx>Pow</a> installed, how do you access Apache and PHP for <em>legacy</em> work since Pow redirects <em>all</em> local web requests to it&rsquo;s own server for <em>modern</em> work? I configured the <a href=http://37signals.com>37signals</a> trick to serve <em>legacy</em> from Apache and <em>modern</em> from Pow.</p>
+<p><em>Aside: I did try using <code>Rack::Legacy</code> to convert <em>legacy</em> apps into rack apps that Pow can serve, but I hated that you have to build your own PHP stack to access the commands needed. And I failed to get it working anyway.</em></p>
+<h2 id=a-namefastamaking-pow-and-apache-work-together><a name=fast></a>Making Pow and Apache work together</h2>
+<p>You can find the <em>37signals trick</em> details at <a href=https://github.com/37signals/pow/wiki/Running-Pow-with-Apache>Running Pow with Apache</a>, but they gloss over a few issues and steps that I cover in more detail here.</p>
+<p>Run the following commands as per the trick, one after the other <span class=light>(you uninstall Pow, reconfigure it, reconfigure Apache, reinstall Pow)</span>:</p>
+<pre><code>$ curl get.pow.cx/uninstall.sh | sh #if you have pow installed
+$ echo 'export POW_DST_PORT=88' &gt;&gt; ~/.powconfig
+$ sudo curl https://raw.github.com/gist/1058580/zzz_pow.conf -o /private/etc/apache2/other/zzz_pow.conf
+$ sudo apachectl restart
+$ curl get.pow.cx | sh
+</code></pre>
+<p>If you try your <em>modern</em> sites now (in my case, say <code>https://hiltmon.dev</code>), they should still work. Pow still takes over the DNS handling of the <code>.dev</code> domain, but now it redirects all calls to Apache, which then passes them through to the Pow web server. A smidge slower performance, but it works.</p>
+<p>Time to set up the legacy sites. We need to tell Apache to serve these and <em>not</em> pass them through.</p>
+<p>Create a file in <code>/etc/apache2/other</code> called <em>yoursite</em>.conf (where <em>yoursite</em> is the site name). For example, I have a <code>testwordpress</code> site so the file name is <code>testwordpress.conf</code>. Then add the following text to it:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-xml data-lang=xml>&lt;VirtualHost *:80&gt;
+    DocumentRoot /Users/Hiltmon/Projects/Wordpress/code/testwordpress
+	ServerName testwordpress.dev
+
+    &lt;Directory &#34;/Users/Hiltmon/Projects/Wordpress/code/testwordpress&#34;&gt;
+        Options Indexes FollowSymLinks
+	    AllowOverride All
+    	Order allow,deny
+      	Allow from all
+	&lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre></div><p>Replace <code>/Users/Hiltmon/Projects/Wordpress/code/testwordpress</code> with the path to the root of your legacy site and make sure that the <code>ServerName</code> matches the <code>.dev</code> domain you would like to use.</p>
+<p>Then start MySQL and restart apache</p>
+<pre><code>$ sudo /usr/local/mysql/support-files/mysql.server start
+$ sudo apachectl restart
+</code></pre>
+<p>If you go to your <em>legacy</em> <code>.dev</code> path from your browser (in my case <code>http://testwordpress.dev</code>), you should get the <em>legacy</em> site back. Apache and PHP are happily serving it. Try a <em>modern</em> <code>.dev</code> path (<code>https://hiltmon.dev</code> again), and after a tick, it should come up too as Pow serves it. Brilliant!</p>
+<p>To make this work for me the same as <em>modern</em> development, I created a <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> macro on ⇧⌃⌥⌘O to start and stop MySQL<a href=#fn:2 id=fnref:2><sup>[2]</sup></a>. I leave Apache running like Pow, it does not use any resources when not in use.</p>
+<p>Note that:</p>
+<ul>
+<li>These <em>legacy</em> sites do not need to be in <code>public</code> folders like rack apps as they are plain old web sites.</li>
+<li>If you get an error from Apache, it&rsquo;s usually permissions, but check the following:
+<ul>
+<li><code>chmod 755</code> all the folders in the path to the legacy site root</li>
+<li>Check the path in the <code>.conf</code> file is correct and restart Apache</li>
+<li>Make sure your <code>.conf</code> file is not lexically after <code>zzz_pow.conf</code></li>
+<li>Make sure that <code>NameVirtualHost *:80</code> is uncommented in <code>/etc/apache2/extra/httpd-vhosts.conf</code>.</li>
+</ul>
+</li>
+<li>Because its read-only for Apache, the Wordpress installer cannot write the <code>wp-config.php</code> file, but if you&rsquo;re doing this, I&rsquo;m sure you can cope.</li>
+</ul>
+<h2 id=modern-and-legacy-together>Modern and Legacy Together</h2>
+<p>As a result of all this hackage, I can now develop and demo both <em>modern</em> and <em>legacy</em> web sites on my laptop reliably using the same flows and tools I prefer by triggering a different set of keyboard macros. And then kill off unnecessary services when I no longer need them with more macros. All without cluttering up OS X outside my home folder too much and without fear that I&rsquo;m going to delete any key databases.</p>
+<p>Now to see if I remember any PHP!</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+<hr>
+<div class=footnotes>
+<ol>
+<li id=fn:1>The Keyboard Maestro Macro to toggle <strong>Postgres.app</strong> is on the left.<a href=#fnref:1 title="Back to Post"><sup>&#160;&#8617;</sup></a></li>
+<li id=fn:2>The Keyboard Maestro Macro to toggle <strong>MySQL</strong> is on the right. <strong>Replace the `sudo ...` in each script line with `echo&nbsp;myPassword | sudo -S ...` to make it work.</strong><a href=#fnref:2 title="Back to Post"><sup>&#160;&#8617;</sup></a></li>
+</ol>
+</div>
+<figure><img src=images/toggle-databases.jpg width=700 height=579>
+</figure>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Mar 20, 2013 4:42 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/03/25/bjango-photoshop-actions/>&larr; Bjango's Photoshop Actions</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/03/19/rss-address-change/>RSS Address Change &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

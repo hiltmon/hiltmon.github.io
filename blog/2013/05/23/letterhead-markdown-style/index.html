@@ -1,0 +1,132 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Letterhead - Markdown Style</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>May 23, 2013 8:47 AM</span>
+</p>
+<h1 class=post-title>
+Letterhead - Markdown Style
+</h1>
+<div class=post-body>
+<p>So I get this request yesterday to send a document on <a href=http://en.wikipedia.org/wiki/Letterhead>letterhead</a>. You all may remember letterheads from back in the day when companies had professional printers print their fancy logos on fancy paper that you then ran through the &ldquo;good&rdquo; laser printer that then went into matching fancy envelopes and someone stuck stamps on and mailed them.</p>
+<figure><img src=images/letterhead.jpg width=500 height=153>
+</figure>
+<p>I thought that letterheads went the way of the dodo about the same time <a href=http://en.wikipedia.org/wiki/Fax>fax machines</a> and <a href=http://en.wikipedia.org/wiki/United_States_Postal_Service>US Mail</a> both died out. <em>I was wrong</em>. It turns out, sometimes to make something &ldquo;official&rdquo; <span class=light>(whatever the heck that means)</span> you need it on letterhead. And since it&rsquo;s 2013, a PDF version is acceptable.</p>
+<p>Now I could have just dragged a logo into a <a href="https://itunes.apple.com/us/app/pages/id409201541?mt=12&uo=4&at=10l894">Pages</a> document, added the letterhead text, written the document, manually formatted it, PDF&rsquo;d it and emailed it. But since I am probably going to do more of these, I decided to integrate letterheads into my regular <a href=http://daringfireball.net/projects/markdown/>Markdown</a> process.</p>
+<p>For this to work, I needed a markdown file for the document, a logo image and a stylesheet. I already have a logo and a CSS stylesheet for rendering Markdown in <a href="https://itunes.apple.com/us/app/marked/id448925439?mt=12&uo=4&at=10l894">Marked</a>, which I use to generate business documentation from Markdown source in my preferred business style for all my client engagements. Look and feel, covered.</p>
+<p>So the only difference between a letterhead version of a document and a regular document is the logo, a silly header and a silly footer.</p>
+<p>No problem, I created these with Markdown using a smidgen of HTML code and plonked them at the top and bottom of my document. I then saved them as <a href="https://itunes.apple.com/us/app/textexpander-for-mac/id405274824?mt=12&uo=4&at=10l894">TextExpander</a> snippets for when I need them again.</p>
+<p>Preview in <a href="https://itunes.apple.com/us/app/marked/id448925439?mt=12&uo=4&at=10l894">Marked</a>. Print to PDF. Sent. Easy as Pie.</p>
+<p>The letterhead document source in Markdown looks like this. Note that it contains my standard <a href=https://hiltmon.com/blog/2012/06/18/markdown-metadata/>Markdown Metadata</a> headers as well.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>Title:          Sample Letterhead Document  
+Subtitle:         
+Project:        hiltmon.com   
+Author:         Hilton Lipschitz  
+Affiliation:    Noverse LLC  
+Web:            http://www.noverse.com  
+Date:           May 22, 2013  
+
+![](noverse-logo-160-40.png)  
+**Noverse LLC**  &lt;span class=&#34;light&#34;&gt;A New York Company&lt;/span&gt;
+
+# Sample Letterhead Document
+22 May 2013  
+
+**Client Company Name**  
+Client Street Address  
+New York NY 10019  
+
+## RE: You need a letterhead?
+
+Yadda yadda yadda.
+
+More yadda yadda yadda.
+
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+
+**Hilton Lipschitz**  
+Noverse LLC
+&lt;span class=&#34;light&#34;&gt; **&amp;middot;** +1 (917) 555-1234 **&amp;middot;** www.noverse.com **&amp;middot;** contact@noverse.com **&amp;middot;** @noversellc&lt;/span&gt;  
+&lt;span class=&#34;light&#34;&gt;--- My Office Street, City, State, Zip ---&lt;/span&gt;
+</code></pre></div><p>Notes on the markdown source:</p>
+<ul>
+<li>There are two spaces after each line in the address and in the name block at the bottom. That way Markdown places them on different lines without creating paragraph gaps.</li>
+<li>The <code>&lt;br/></code> lines are needed to create space for a signature which you used to use an instrument called a pen to scrawl your name in that space. For PDF letterheads, you can upload a signature image. But in this case, the recipient did not need the signature. &ldquo;Official&rdquo; but unsigned was weirdly fine too.</li>
+<li>I like putting a subject at the top of things, such as in this case <code>Sample Letterhead Document</code>. In the 19th century, you used to put the title where the <code>RE: You need a letterhead?</code> is.</li>
+</ul>
+<p>And the result, an &ldquo;official&rdquo; looking document while remaining in the <a href=https://hiltmon.com/blog/2012/02/20/the-markdown-mindset/>Markdown Mindset</a>. Sweet!</p>
+<figure><img src=images/markdown-letterhead.png width=588 height=470>
+</figure>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>May 23, 2013 8:47 AM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/05/28/my-mac-indie-writing-workflow/>&larr; My Mac Indie Writing Workflow</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/05/20/the-one-person-product/>The One-Person Product &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

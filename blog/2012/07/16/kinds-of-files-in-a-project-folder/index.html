@@ -1,0 +1,313 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Kinds of Files in a Project Folder</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Jul 16, 2012 12:47 PM</span>
+</p>
+<h1 class=post-title>
+Kinds of Files in a Project Folder
+</h1>
+<div class=post-body>
+<p>In preparation for a client call, I wrote a quick and dirty script to count the kinds of files in a project folder to show them what&rsquo;s involved. I wanted a nice presentation, and the files grouped into categories. I also added parameters to <em>exclude</em> certain folder patterns from the counter.</p>
+<p>The command is</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ ~/Scripts/cfile.rb ~/Projects/Kifu/code/kifu log tmp doc versions
+</code></pre></div><p>The output is</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Project File Counter v0.1 ©hiltmon.com 2012 https://hiltmon.com
+
+Project: kifu
+-------------------------------------------------------
+Text Files:
+    Markdown              :      1
+    Plain Text            :      1
+-------------------------------------------------------
+Code Files:
+    CoffeeScript          :      7
+    CSS                   :     10
+    ERB                   :    251
+    HTML                  :      3
+    JavaScripts           :     10
+    Ruby                  :    265
+    SCSS                  :     10
+-------------------------------------------------------
+Data Files:
+    XML                   :      1
+-------------------------------------------------------
+Image Files:
+    GIF Images            :      2
+    Icon Images           :      1
+    PNG Images            :    168
+-------------------------------------------------------
+Configuration Files:
+    Configuration         :      3
+    Rackup                :      1
+    YML                   :      4
+-------------------------------------------------------
+Other Files:
+    Unknown Kind          :      6
+    .eot files            :      2
+    Locks                 :      1
+    Rake                  :      8
+    .rdb files            :      1
+    Fonts                 :      4
+-------------------------------------------------------
+TOTAL                     :    760 Files
+-------------------------------------------------------
+</code></pre></div><p>It aint pretty, as it was written very quickly. The script in a <a href=https://gist.github.com/hiltmon/3123720>gist</a> is:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0>#! /usr/bin/ruby</span>
+
+<span style=color:#0f0># cfile.rb</span>
+<span style=color:#0f0># Hilton Lipschitz</span>
+<span style=color:#0f0># Use and modify freely, attribution appreciated</span>
+<span style=color:#0f0>#</span>
+<span style=color:#0f0># This script counts the number and kinds of files in a project. Any additional</span>
+<span style=color:#0f0># parameters are treated as exclude folder regexes</span>
+<span style=color:#0f0>#</span>
+<span style=color:#0f0># Requirements:</span>
+<span style=color:#0f0># </span>
+<span style=color:#0f0>#</span>
+<span style=color:#0f0># Examples:</span>
+<span style=color:#0f0># cfile ~/Folder/DBFS</span>
+<span style=color:#0f0># cfile ~/Folder/DBFS libs # Will exclude any folders with /libs/</span>
+<span style=color:#0f0># ~/Scripts/cfile.rb ~/Projects/Kifu/code/kifu log tmp doc versions # To skip all unnecessary rails trees</span>
+
+require <span style=color:#87ceeb>&#39;rubygems&#39;</span>
+require <span style=color:#87ceeb>&#39;fileutils&#39;</span>
+
+<span style=color:#0f0># No need to report these individually, so merge the counts</span>
+@merge_keys = {
+	<span style=color:#87ceeb>&#34;.xcbkptlist&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.xcodeproj&#34;</span>,
+	<span style=color:#87ceeb>&#34;.xcscheme&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.xcodeproj&#34;</span>,
+	<span style=color:#87ceeb>&#34;.xcuserstate&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.xcodeproj&#34;</span>,
+	<span style=color:#87ceeb>&#34;.pbxproj&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.xcodeproj&#34;</span>,
+	<span style=color:#87ceeb>&#34;.xcworkspacedata&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.xcodeproj&#34;</span>,
+	<span style=color:#87ceeb>&#34;.xcsettings&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.xcodeproj&#34;</span>,
+	<span style=color:#87ceeb>&#34;.scssc&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.scss&#34;</span>,
+	<span style=color:#87ceeb>&#34;.fnt&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.ttf&#34;</span>,
+	<span style=color:#87ceeb>&#34;.woff&#34;</span> =&gt; <span style=color:#87ceeb>&#34;.ttf&#34;</span>
+}
+
+<span style=color:#0f0># Make nice names for these</span>
+@descriptive = {
+	<span style=color:#87ceeb>&#34;.xcodeproj&#34;</span> =&gt; <span style=color:#87ceeb>&#34;Xcode Project&#34;</span>,
+	<span style=color:#87ceeb>&#34;.c&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;C/Objective-C&#34;</span>,
+	<span style=color:#87ceeb>&#34;.h&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;C/C++ Headers&#34;</span>,
+	<span style=color:#87ceeb>&#34;.m&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;Objective-C&#34;</span>,
+	<span style=color:#87ceeb>&#34;.pch&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;Precompiled Headers&#34;</span>,
+	<span style=color:#87ceeb>&#34;.plist&#34;</span> 	 =&gt; <span style=color:#87ceeb>&#34;Plists&#34;</span>,
+	<span style=color:#87ceeb>&#34;.png&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;PNG Images&#34;</span>,
+	<span style=color:#87ceeb>&#34;.txt&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;Plain Text&#34;</span>,
+	<span style=color:#87ceeb>&#34;.strings&#34;</span> 	 =&gt; <span style=color:#87ceeb>&#34;Strings&#34;</span>,
+	<span style=color:#87ceeb>&#34;.coffee&#34;</span>    =&gt; <span style=color:#87ceeb>&#34;CoffeeScript&#34;</span>,
+	<span style=color:#87ceeb>&#34;.conf&#34;</span>      =&gt; <span style=color:#87ceeb>&#34;Configuration&#34;</span>,
+	<span style=color:#87ceeb>&#34;.css&#34;</span>       =&gt; <span style=color:#87ceeb>&#34;CSS&#34;</span>,
+	<span style=color:#87ceeb>&#34;.csv&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;CSV&#34;</span>,
+	<span style=color:#87ceeb>&#34;.erb&#34;</span>       =&gt; <span style=color:#87ceeb>&#34;ERB&#34;</span>,
+	<span style=color:#87ceeb>&#34;.gif&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;GIF Images&#34;</span>,
+	<span style=color:#87ceeb>&#34;.god&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;GOD Configs&#34;</span>,
+	<span style=color:#87ceeb>&#34;.html&#34;</span> 	 =&gt; <span style=color:#87ceeb>&#34;HTML&#34;</span>,
+	<span style=color:#87ceeb>&#34;.ico&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;Icon Images&#34;</span>,
+	<span style=color:#87ceeb>&#34;.js&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;JavaScripts&#34;</span>,
+	<span style=color:#87ceeb>&#34;.lock&#34;</span> 	 =&gt; <span style=color:#87ceeb>&#34;Locks&#34;</span>,
+	<span style=color:#87ceeb>&#34;.log&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;Logs&#34;</span>,
+	<span style=color:#87ceeb>&#34;.markdown&#34;</span>  =&gt; <span style=color:#87ceeb>&#34;Markdown&#34;</span>,
+	<span style=color:#87ceeb>&#34;.old&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;OLD&#34;</span>,
+	<span style=color:#87ceeb>&#34;.pdf&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;PDFs&#34;</span>,
+	<span style=color:#87ceeb>&#34;.rake&#34;</span> 	 =&gt; <span style=color:#87ceeb>&#34;Rake&#34;</span>,
+	<span style=color:#87ceeb>&#34;.rb&#34;</span> 		 =&gt; <span style=color:#87ceeb>&#34;Ruby&#34;</span>,
+	<span style=color:#87ceeb>&#34;.scss&#34;</span> 	 =&gt; <span style=color:#87ceeb>&#34;SCSS&#34;</span>,
+	<span style=color:#87ceeb>&#34;.ttf&#34;</span>		 =&gt; <span style=color:#87ceeb>&#34;Fonts&#34;</span>,
+	<span style=color:#87ceeb>&#34;.xml&#34;</span>		 =&gt; <span style=color:#87ceeb>&#34;XML&#34;</span>,
+	<span style=color:#87ceeb>&#34;.yml&#34;</span>		 =&gt; <span style=color:#87ceeb>&#34;YML&#34;</span>,
+	<span style=color:#87ceeb>&#34;.ru&#34;</span>		 =&gt; <span style=color:#87ceeb>&#34;Rackup&#34;</span>,
+	<span style=color:#87ceeb>&#34;.xib&#34;</span>		 =&gt; <span style=color:#87ceeb>&#34;XIBs&#34;</span>,
+	<span style=color:#87ceeb>&#34;.storyboard&#34;</span> =&gt; <span style=color:#87ceeb>&#34;StoryBoards&#34;</span>,
+}
+
+<span style=color:#0f0># Group the ones we know</span>
+@categories = {
+	<span style=color:#87ceeb>&#34;Code&#34;</span> =&gt; [<span style=color:#87ceeb>&#34;.c&#34;</span>, <span style=color:#87ceeb>&#34;.h&#34;</span>, <span style=color:#87ceeb>&#34;.m&#34;</span>, <span style=color:#87ceeb>&#34;.coffee&#34;</span>, <span style=color:#87ceeb>&#34;.erb&#34;</span>, <span style=color:#87ceeb>&#34;.js&#34;</span>, <span style=color:#87ceeb>&#34;.rb&#34;</span>, <span style=color:#87ceeb>&#34;.css&#34;</span>, <span style=color:#87ceeb>&#34;.scss&#34;</span>, <span style=color:#87ceeb>&#34;.pch&#34;</span>, <span style=color:#87ceeb>&#34;.html&#34;</span>, <span style=color:#87ceeb>&#34;.xib&#34;</span>, <span style=color:#87ceeb>&#34;.storyboard&#34;</span>],
+	<span style=color:#87ceeb>&#34;Image&#34;</span> =&gt; [<span style=color:#87ceeb>&#34;.gif&#34;</span>, <span style=color:#87ceeb>&#34;.ico&#34;</span>, <span style=color:#87ceeb>&#34;.png&#34;</span>, <span style=color:#87ceeb>&#34;.pdf&#34;</span>],
+	<span style=color:#87ceeb>&#34;Configuration&#34;</span> =&gt; [<span style=color:#87ceeb>&#34;.xcodeproj&#34;</span>, <span style=color:#87ceeb>&#34;.plist&#34;</span>, <span style=color:#87ceeb>&#34;.conf&#34;</span>, <span style=color:#87ceeb>&#34;.yml&#34;</span>, <span style=color:#87ceeb>&#34;.ru&#34;</span>, <span style=color:#87ceeb>&#34;strings&#34;</span>],
+	<span style=color:#87ceeb>&#34;Data&#34;</span> =&gt; [<span style=color:#87ceeb>&#34;.xml&#34;</span>, <span style=color:#87ceeb>&#34;.csv&#34;</span>],
+	<span style=color:#87ceeb>&#34;Text&#34;</span> =&gt; [<span style=color:#87ceeb>&#34;.txt&#34;</span>, <span style=color:#87ceeb>&#34;.markdown&#34;</span>],
+}
+
+@excludes = []
+@counter_hash = {}
+
+<span style=color:#0f0># Increment the count</span>
+<span style=color:red>def</span> <span style=color:#ff0>increment_key</span>(key, value = <span style=color:#f60>1</span>)
+	<span style=color:red>if</span> @counter_hash[key].nil?
+		@counter_hash[key] = value
+	<span style=color:red>else</span>
+		@counter_hash[key] = @counter_hash[key] + value
+	<span style=color:red>end</span>
+<span style=color:red>end</span>
+
+<span style=color:#0f0># Analyze a file by extension</span>
+<span style=color:red>def</span> <span style=color:#ff0>analyze_file</span>(source)
+	extension = <span style=color:#7fffd4>File</span>.extname(source)
+<span style=color:#0f0># 	return if extension.length == 0</span>
+	increment_key extension
+<span style=color:red>end</span>
+
+<span style=color:red>def</span> <span style=color:#ff0>process_folder</span>(source)
+
+	@excludes.each <span style=color:red>do</span> |pattern|
+		<span style=color:red>return</span> <span style=color:red>if</span> source =~ <span style=color:#7fffd4>Regexp</span>.new(pattern)
+	<span style=color:red>end</span>
+
+	source_dir = <span style=color:#7fffd4>Dir</span>.new(source)
+	source_dir.entries.each <span style=color:red>do</span> |source_file|
+		<span style=color:#0f0># Skip dot files and hidden files</span>
+		<span style=color:red>next</span> <span style=color:red>if</span> source_file =~ <span style=color:#87ceeb>/^\./</span>
+		full_path = <span style=color:#7fffd4>File</span>.expand_path(source_file, source_dir.path)
+<span style=color:#0f0># 		puts full_path</span>
+		<span style=color:red>if</span> <span style=color:#7fffd4>File</span>.directory?(full_path)
+			process_folder full_path
+		<span style=color:red>else</span>
+			analyze_file full_path
+		<span style=color:red>end</span>
+	<span style=color:red>end</span>
+<span style=color:red>end</span>
+
+<span style=color:red>def</span> <span style=color:#ff0>merge_keys</span>
+	@merge_keys.keys.each <span style=color:red>do</span> |key|
+		<span style=color:red>unless</span> @counter_hash[key].nil?
+			increment_key @merge_keys[key], @counter_hash[key]
+			@counter_hash.delete(key)
+		<span style=color:red>end</span>
+	<span style=color:red>end</span>
+<span style=color:red>end</span>
+
+<span style=color:red>if</span> <span style=color:#7fffd4>ARGV</span>.length == <span style=color:#f60>0</span>
+  puts <span style=color:#87ceeb>&#34;USAGE: cfile ~/Folder/DBFS &lt;excludes&gt;&#34;</span>
+  exit
+<span style=color:red>end</span>
+
+source = <span style=color:#7fffd4>ARGV</span>[<span style=color:#f60>0</span>]
+<span style=color:red>if</span> <span style=color:#7fffd4>ARGV</span>.length &gt; <span style=color:#f60>1</span>
+	@excludes = <span style=color:#7fffd4>ARGV</span>[<span style=color:#f60>1</span>..(<span style=color:#7fffd4>ARGV</span>.length)]
+<span style=color:#0f0># 	puts @excludes</span>
+<span style=color:red>end</span>
+
+<span style=color:red>unless</span> <span style=color:#7fffd4>File</span>.directory?(source)
+  puts <span style=color:#87ceeb>&#34;  ERROR: Parameter 1 must be a project folder...&#34;</span>
+  exit
+<span style=color:red>end</span>
+
+process_folder source
+
+merge_keys
+
+puts
+puts <span style=color:#87ceeb>&#34;Project File Counter v0.1 ©hiltmon.com 2012 https://hiltmon.com&#34;</span>
+puts
+puts <span style=color:#87ceeb>&#34;Project: </span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>File</span>.basename(source)<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>
+
+used_keys = []
+counter = <span style=color:#f60>0</span>
+@categories.keys.each <span style=color:red>do</span> |category|
+	array = @categories[category]
+	header_printed = <span style=color:red>false</span>
+	@counter_hash.keys.sort.each <span style=color:red>do</span> |key|
+		<span style=color:red>next</span> <span style=color:red>if</span> array.index(key).nil?
+		<span style=color:red>unless</span> header_printed
+			puts <span style=color:#87ceeb>&#34;-------------------------------------------------------&#34;</span>
+			puts <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>category<span style=color:#87ceeb>}</span><span style=color:#87ceeb> Files:&#34;</span>
+			header_printed = <span style=color:red>true</span>
+		<span style=color:red>end</span>
+		used_keys &lt;&lt; key <span style=color:red>if</span> used_keys.index(key).nil?
+		descriptive = (@descriptive[key] || <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>key<span style=color:#87ceeb>}</span><span style=color:#87ceeb> files&#34;</span>).ljust(<span style=color:#f60>22</span>)
+		puts <span style=color:#87ceeb>&#34;    </span><span style=color:#87ceeb>#{</span>descriptive<span style=color:#87ceeb>}</span><span style=color:#87ceeb>: </span><span style=color:#87ceeb>#{</span>@counter_hash[key].to_s.rjust(<span style=color:#f60>6</span>)<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>
+		counter = counter + @counter_hash[key]
+	<span style=color:red>end</span>
+<span style=color:red>end</span>
+
+header_printed = <span style=color:red>false</span>
+@counter_hash.keys.sort.each <span style=color:red>do</span> |key|
+	<span style=color:red>next</span> <span style=color:red>unless</span> used_keys.index(key).nil?
+	<span style=color:red>unless</span> header_printed
+		puts <span style=color:#87ceeb>&#34;-------------------------------------------------------&#34;</span>
+		puts <span style=color:#87ceeb>&#34;Other Files:&#34;</span>
+		header_printed = <span style=color:red>true</span>
+	<span style=color:red>end</span>
+	descriptive = (@descriptive[key] || <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>key<span style=color:#87ceeb>}</span><span style=color:#87ceeb> files&#34;</span>).ljust(<span style=color:#f60>22</span>)
+	descriptive = <span style=color:#87ceeb>&#34;Unknown Kind&#34;</span>.ljust(<span style=color:#f60>22</span>) <span style=color:red>if</span> key.length == <span style=color:#f60>0</span>
+	puts <span style=color:#87ceeb>&#34;    </span><span style=color:#87ceeb>#{</span>descriptive<span style=color:#87ceeb>}</span><span style=color:#87ceeb>: </span><span style=color:#87ceeb>#{</span>@counter_hash[key].to_s.rjust(<span style=color:#f60>6</span>)<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>
+	counter = counter + @counter_hash[key]
+<span style=color:red>end</span>
+
+puts <span style=color:#87ceeb>&#34;-------------------------------------------------------&#34;</span>
+puts <span style=color:#87ceeb>&#34;TOTAL                     : </span><span style=color:#87ceeb>#{</span>counter.to_s.rjust(<span style=color:#f60>6</span>)<span style=color:#87ceeb>}</span><span style=color:#87ceeb> Files&#34;</span>
+puts <span style=color:#87ceeb>&#34;-------------------------------------------------------&#34;</span>
+</code></pre></div>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Jul 16, 2012 12:47 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2012/07/18/estimating-software-like-it-is/>&larr; Estimating Software like it is</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2012/07/15/textexpander-in-terminal/>TextExpander in Terminal &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

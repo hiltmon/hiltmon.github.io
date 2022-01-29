@@ -1,0 +1,114 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Fast SSH Windows with iTerm 2</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Jul 18, 2013 10:14 PM</span>
+</p>
+<h1 class=post-title>
+Fast SSH Windows with iTerm 2
+</h1>
+<div class=post-body>
+<p>I have a bunch of Linux boxes that I need to access via SSH, whether to install things, start or stop processes or browse log files.</p>
+<p>But it is a pain to have to launch a new terminal window and type in the whole SSH command line:</p>
+<pre><code>$ ssh hiltmon@servername.domainname.local
+</code></pre>
+<p>Yep, I am that lazy. Or really, I do this so often I needed a faster way to do this.</p>
+<p>Enter <a href=http://www.iterm2.com/#/section/home>iTerm 2</a> profiles with shortcut keys. You can SSH to any of your servers by pressing a single keystroke, cool huh? For example, to access my <em>Farragut</em> server in a new <a href=http://www.iterm2.com/#/section/home>iTerm 2</a> tab, I press <code>⌃⌘F</code>, to access <em>Hipper</em>, <code>⌃⌘H</code>. Here&rsquo;s how to set it up.</p>
+<h2 id=using-iterm-2-profiles>Using iTerm 2 Profiles</h2>
+<p>In <a href=http://www.iterm2.com/#/section/home>iTerm 2</a> preferences, access profiles and add a new profile. I name these after the my server <em>colloquial</em> names (because who can remember those IT names like <code>XYZZYDEVDBWX907.domainname.local</code>).</p>
+<figure><img src=images/iterm-profiles.jpg width=700 height=410>
+</figure>
+<p>Set the shortcut key you want to use, and input the full SSH command:</p>
+<pre><code>ssh -R 52698:localhost:52698 hiltmon@servername.domainname.local
+</code></pre>
+<p>The -R port mapping enables me to use <code>rmate</code> from these terminals.</p>
+<p>And that&rsquo;s it.</p>
+<p>To activate a new terminal tab and SSH into that server, just press the shortcut key.</p>
+<h3 id=bonus-top-tips>Bonus Top Tips</h3>
+<p>I change the <code>PS1</code> on each server to show the colloquial name, so at a glance you can see which server the terminal window represents. Add the following to <code>.bash_profile</code> or whichever file configures your shell (In this case, the colloquial name is <em>Farragut</em>):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>...
+# \u -&gt; user, \W is basename, the rest are terminal colors
+PS1=&#39;\[\e[0;35m\]\u\[\e[0;33m\]@\[\e[1;34m\]Farragut:\[\e[0;33m\]\W \[\e[0m\]\$ &#39;
+...
+</code></pre></div><figure class=image-right><img src=images/iterm-ps1.jpg%20181%2058>
+</figure>
+<p>Which gives us this:</p>
+<p>I also slightly change the terminal background color and the colors used in the prompt, not enough to make it garish, but enough to tint the black and change the look. That way my eye can sense different terminals by the slight color variances as well.</p>
+<h2 id=other-options>Other Options</h2>
+<p>You could use <a href=http://smilesoftware.com/TextExpander/index.html>TextExpander</a> macros, but that requires you to create a new terminal first, more keystrokes. I used to do this until I found these profiles.</p>
+<p>If you have <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a>, you could create AppleScripts to create new terminal windows and launch SSH sessions.</p>
+<p>If you have <a href=http://www.alfredapp.com>Alfred 2</a> you could use scripts in workflows to launch a new SSH terminal.</p>
+<p>Or you could even use the free <a href=http://fitztrev.github.io/shuttle/>Shuttle</a> app that puts your list of SSH sites in your menu bar.</p>
+<p>Or just use <a href=http://www.iterm2.com/#/section/home>iTerm 2&rsquo;s</a> profiles.</p>
+<p><em>Is it not wonderful that we can each find our own way out of an unlimited number of ways to do the same thing, and all be cool about it.</em></p>
+<p>Related Reading: <a href=https://hiltmon.com/blog/2013/02/13/make-iterm-2-more-mac-like/>Make iTerm 2 more Mac-like</a></p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Jul 18, 2013 10:14 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/07/19/the-work-computer-software-loadout/>&larr; The Work Computer Software Loadout</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/07/07/xcode-4-code-completion-for-external-build-projects/>Xcode 4 Code Completion for External Build Projects &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

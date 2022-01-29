@@ -1,0 +1,191 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Accessing SQL Server from OS X</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Jun 9, 2013 10:56 AM</span>
+</p>
+<h1 class=post-title>
+Accessing SQL Server from OS X
+</h1>
+<div class=post-body>
+<p>Every once in a while I need to access a Microsoft SQL Server database from my Mac, usually to create a data migration script. In the past I used a <a href=http://www.actualtech.com>commercial ODBC driver</a>. But ODBC on OS X was deprecated ages ago.</p>
+<p>In this post, I&rsquo;ll talk about my current stack for accessing SQL Server databases via Ruby and Python and how to set it up. <span class=light>Note that I do not use <a href=http://mxcl.github.io/homebrew/>homebrew</a>, so these are all native installs.</span></p>
+<p>You will need Xcode and the command line tools installed, <em>which of course you already have</em>.</p>
+<h2 id=freetds>FreeTDS</h2>
+<p><a href=http://www.freetds.org>FreeTDS</a> is a set of libraries that one can use from UNIX based systems to natively talk to SQL Server. Download it from their <a href=ftp://ftp.freetds.org/pub/freetds/stable/freetds-stable.tgz>stable release</a> link to your <code>Downloads</code> folder (current version 0.91 as of writing).</p>
+<p>Then, to build and install it:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ tar zxvf freetds-stable.tar
+$ cd freetds-0.91
+$ ./configure --prefix=/usr/local
+$ make
+$ sudo make install
+</code></pre></div><p>To have FreeTDS default to the newer protocols for newer SQL servers, edit <code>/usr/local/etc/freetds.conf</code> and set:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[global]
+# TDS protocol version
+tds version = 7.1 # or 8.0
+</code></pre></div><p>This works with SQL Server 2000, 2005 and 2008.</p>
+<h2 id=ruby>Ruby</h2>
+<p>You need the <a href=https://github.com/rails-sqlserver/tiny_tds>tiny_tds</a> Ruby gem to access SQL Server via FreeTDS from Ruby. I had a lot of trouble getting this gem to build on OS X 10.8.4 with Ruby 1.9.3 under RVM until I figured out the parameters needed to make it work with my FreeTDS and Apple&rsquo;s <code>iconv</code> library. Use the following <em>rather long</em> command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ gem install tiny_tds -- --with-iconv-include=/usr/include --with-iconv-lib=/usr/lib <span style=color:#87ceeb>\
+</span><span style=color:#87ceeb></span>--with-freetds-include=/usr/local/include/freetds --with-freetds-lib=/usr/local/lib
+</code></pre></div><p>This compiles the gem with Apple&rsquo;s <code>iconv</code> lib and the FreeTDS we just installed.</p>
+<p>After that, accessing a SQL Server database is easy. Here&rsquo;s a script to dump a table or a query to a CSV file:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>require <span style=color:#87ceeb>&#39;rubygems&#39;</span>
+require <span style=color:#87ceeb>&#39;tiny_tds&#39;</span>
+require <span style=color:#87ceeb>&#39;csv&#39;</span>
+
+<span style=color:red>def</span> <span style=color:#ff0>write_csv</span>(table, result)
+  <span style=color:#7fffd4>CSV</span>.open(<span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>table<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.csv&#34;</span>, <span style=color:#87ceeb>&#34;wb&#34;</span>) <span style=color:red>do</span> |csv|
+    result.each <span style=color:red>do</span> |row|
+      csv &lt;&lt; row.values
+    <span style=color:red>end</span>
+  <span style=color:red>end</span>
+<span style=color:red>end</span>
+
+<span style=color:red>def</span> <span style=color:#ff0>dump_table</span>(table)
+  puts <span style=color:#87ceeb>&#34;dump_table: </span><span style=color:#87ceeb>#{</span>table<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>
+  result = @client.execute(<span style=color:#87ceeb>&#34;SELECT * FROM </span><span style=color:#87ceeb>#{</span>table<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>)
+  write_csv table, result
+<span style=color:red>end</span>
+
+<span style=color:red>def</span> <span style=color:#ff0>dump_query</span>(table, query)
+  puts <span style=color:#87ceeb>&#34;dump_query: </span><span style=color:#87ceeb>#{</span>table<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>
+  result = @client.execute(query)
+  write_csv table, result
+<span style=color:red>end</span>
+
+@client = <span style=color:#7fffd4>TinyTds</span>::<span style=color:#7fffd4>Client</span>.new(
+	<span style=color:#f60>:username</span> =&gt; <span style=color:#87ceeb>&#39;username&#39;</span>, 
+	<span style=color:#f60>:password</span> =&gt; <span style=color:#87ceeb>&#39;password&#39;</span>, 
+	<span style=color:#f60>:host</span> =&gt; <span style=color:#87ceeb>&#39;192.168.x.x&#39;</span>, 
+	<span style=color:#f60>:database</span> =&gt; <span style=color:#87ceeb>&#39;database _name&#39;</span>
+)
+
+dump_table(<span style=color:#87ceeb>&#39;table_name&#39;</span>)
+dump_query(<span style=color:#87ceeb>&#39;table_name&#39;</span>, <span style=color:#87ceeb>&#34;select * from table_name where date &gt;= &#39;2013-01-01&#39;&#34;</span>)
+
+@client.close()
+</code></pre></div><h2 id=python>Python</h2>
+<p>For Python, I tried the <a href=http://code.google.com/p/pymssql/>pymssql</a> language extension. Installing this was quite easy:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ sudo easy_install pip
+$ sudo pip install cython
+$ sudo pip install pymssql
+</code></pre></div><p>And in a simple script:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=color:red>import</span> pymssql
+connection = pymssql.connect(
+	host = <span style=color:#87ceeb>r</span><span style=color:#87ceeb>&#39;192.168.x.y:1433&#39;</span>, 
+	user = <span style=color:#87ceeb>&#39;username&#39;</span>, 
+	password = <span style=color:#87ceeb>r</span><span style=color:#87ceeb>&#39;password&#39;</span>, 
+	database = <span style=color:#87ceeb>&#39;database_name&#39;</span>
+)
+
+cursor = connection.cursor()
+
+cursor.execute(<span style=color:#87ceeb>&#39;SELECT count(*) FROM table_name &#39;</span>)
+<span style=color:red>for</span> row in cursor:
+    print row
+</code></pre></div><p><strong>Note</strong> the use of Python raw strings for the host and password.</p>
+<h2 id=bonus-round-isql>Bonus Round: <code>isql</code></h2>
+<p>If you are old school like me and want access to SQL Server from the command line, you really need the old <code>isql</code> command line. FreeTDS does have a <code>tsql</code> command to test access from the command line, but it is not fully featured.</p>
+<p>But <code>isql</code> is part of ODBC which is deprecated. Oh, well, time to install <a href=http://www.unixodbc.org>unixODBC</a>. It&rsquo;s an oldie, but a goodie. Download from this <a href=ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.1.tar.gz>link</a> or the downloads page. Then:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ ./configure --prefix=/usr/local
+$ make
+$ sudo make install
+</code></pre></div><p>You also need to recompile FreeTDS with support for <code>unixODBC</code>, so go back to your FreeTDS folder and:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ cd freetds-0.91
+$ ./configure --prefix=/usr/local --with-tdsver=8.0 --with-unixodbc=/usr/local
+$ make
+$ sudo make install
+</code></pre></div><p>Following the instructions at <a href=http://www.unixodbc.org/doc/FreeTDS.html>http://www.unixodbc.org/doc/FreeTDS.html</a>, you need to register FreeTDS and create your first data source. My files look like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[FreeTDS]
+Description=v0.63 with protocol v8.0
+Driver=/usr/local/lib/libtdsodbc.so
+UsageCount=1
+</code></pre></div><p>and</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[TEST]
+Driver=FreeTDS
+Description=Test Database
+Trace=No
+Address=192.168.x.y
+Port=1433
+Database=database_name
+TDS_Version=7.1
+</code></pre></div><p>To see if this is working, use the <code>osql</code> tool:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ osql -S TEST -U user_name -P password -I /usr/local/etc
+</code></pre></div><p>You can then access this database using good old <code>isql</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ isql TEST user_name password
+</code></pre></div><p><strong>Note</strong> that you may need to put <code>"</code> characters around the password if there are special characters in it.</p>
+<h2 id=commentary>Commentary</h2>
+<p>It&rsquo;s quite sad that the popular Open Source databases like MySQL, PostgreSQL and MongoDB all have wonderful, fast, easy to install, native libraries for OS X and Linux, but the big commercial databases like SQL Server and Oracle still require these unpleasant hacks, ancient deprecated libraries or worse, Java!</p>
+<p>A lot of companies are moving their servers off Microsoft Windows and on to Linux, but they still need access to legacy data, and these hacks are just not that elegant or robust enough for true production use. Until these companies can migrate their databases off Microsoft and Oracle, they are going to have to live in transition and hope these hacks hold.</p>
+<p>I think it&rsquo;s in Microsoft and Oracle&rsquo;s interest to release public libraries to access their databases from anywhere, including other platforms, in order to stay relevant and in the game.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Jun 9, 2013 10:56 AM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/06/15/wwdc-2013-post-game-review/>&larr; WWDC 2013 Post-Game Review</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/06/06/horizons/>Horizons &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

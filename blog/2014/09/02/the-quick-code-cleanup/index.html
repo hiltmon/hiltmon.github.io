@@ -1,0 +1,114 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>The Quick Code Cleanup</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Sep 2, 2014 11:29 PM</span>
+</p>
+<h1 class=post-title>
+The Quick Code Cleanup
+</h1>
+<div class=post-body>
+<p>The quick code cleanup is a process whereby you run through some or all of the files in a software project and tidy them up. Think about it as the regular tidying of your desk (or room) and filing things away &ndash; versus the rearranging and rewiring of a full code refactor. You can get a lot more done on a tidy desk.</p>
+<p>Quick code cleanups can and do include some minor refactoring, but they are mostly about renaming items, reformatting code and commenting on or cleaning up messy sections. No features are added or changed.</p>
+<p>So why do quick code cleanups? <strong>Because they save tremendous time as the project progresses.</strong> And the best part is, you do not need to do much thinking or need the zone (See the <a href=https://hiltmon.com/blog/2011/12/03/the-four-hour-rule/>Four Hour Rule</a>). For example, I just spent the last few hours doing a quick code cleanup while watching the US Open tennis!</p>
+<p>Here are some of the things to do in a quick code cleanup:</p>
+<h3 id=fix-bad-names>Fix Bad Names</h3>
+<p>Naming classes, functions and variables is hard. Knowing how they <em>may</em> be used or evolve is almost impossible beforehand. When you name new classes, functions or variables, you have an idea of how <em>you think</em> they will be used. But as the program evolves, these old names may no longer be sufficiently explanatory or correct.</p>
+<p>In a quick code cleanup, you revisit naming after-the-fact, but close enough to remember your thinking, knowing how the elements are <em>now</em> being used. You will find that you have a much easier time finding and choosing better names in cleanup. It also means that, when writing new code, you can relax a bit knowing you&rsquo;ll come back and rename the items you are unsure of.</p>
+<p><em>It makes the code more understandable for later.</em></p>
+<h3 id=fix-lazy-formatting>Fix Lazy Formatting</h3>
+<p>While coding, we often forget to format our code properly. Or the IDE (I&rsquo;m glaring at you, Xcode) <em>helpfully</em> generates its own code layouts for you.</p>
+<p>In a quick code cleanup, you reformat the code to whatever standard you prefer, add white space, and rearrange the functions in files to make more sense. For example, I like to have functions that call each other closer to each other in the file so it&rsquo;s easier to see them on the same screen. At coding time, I may not have written them or know which, at cleanup time I do. I also like to separate <em>paragraphs</em> of code with white space and comments, which I add in cleanup.</p>
+<p><em>It makes the code a lot more readable and browsable for later.</em></p>
+<h3 id=explain-some-decisions>Explain Some Decisions</h3>
+<p>If you have ever been in a code review you&rsquo;ll know that the most common question is &ldquo;WTF were you thinking?&rdquo;. We know what we were thinking when coding, and we remember that thinking for a short while. But we all forget that thinking over time as other thoughts take over.</p>
+<p>In a quick code cleanup, you add comments where necessary to explain your thinking. Why did you design a class this way, or write something that way. Or how does this complex calculation work? What was I thinking at the time?</p>
+<p><em>It makes the code a lot more maintainable for later.</em></p>
+<h3 id=early-cruft-removal>Early Cruft Removal</h3>
+<p>We all create classes and functions, use them for a while, and then replace them. We do <em>not</em> always remember to remove unreferenced classes or comment them out from the code base. Later on, when searching for how something went badly wrong, we get confused by this extra code. Is <em>this</em> the function called or another? This, to me, is how cruft starts.</p>
+<p>In a quick code cleanup, while your mind is fresh, remove all classes and functions that are <em>not</em> being used. If you need them again later, you can get them back from source code control. If unsure whether something is being used, use search in your IDE to see if the function or class is referenced (or just comment it out and compile &ndash; if the compile passes, it is cruft).</p>
+<p><em>It makes code smaller, simpler and less confusing for later.</em></p>
+<h3 id=basic-refactoring>Basic Refactoring</h3>
+<p>Other than renaming classes and variables, a quick code cleanup also usually entails:</p>
+<ul>
+<li>Pulling up common and duplicated code into functions, or replacing long, complex, deep <code>if</code> clauses with function calls</li>
+<li>Adding standard file headers (if necessary)</li>
+<li>Hiding public variables behind setters and getters (one or both)</li>
+<li>Commenting out or deleting surplus debug statements</li>
+<li>Adding missing <code>asserts</code> to document your assumptions</li>
+</ul>
+<p><em>It reduces the number of potential bugs for later.</em></p>
+<h2 id=when-to-run-a-quick-code-cleanup>When to run a quick code cleanup?</h2>
+<p>I <em>try</em> to do this every few weeks on current projects, when the code is still fresh in my mind and when I have some time. This often coincides with a minor release or the few hours at the end of the week when I know I will not have enough time to enter the <a href=https://hiltmon.com/blog/2011/12/03/the-four-hour-rule/>zone</a> and work on a new feature.</p>
+<p>The quick code cleanup may not seem to be a productive use of your time, but it pays off tremendously as the software grows in size and complexity. As the code-base expands, it yet remains understandable, readable, maintainable, simpler and with fewer bugs, enabling you to spend <em>more</em> time crafting new code and <em>less</em> time figuring out what the hell happened in the past and untangling a knotted mess.</p>
+<p>You can start doing quick code cleanups anytime.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Sep 2, 2014 11:29 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2014/09/03/standard-markdown/>&larr; Standard Markdown</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2014/08/22/aral-on-spyware-2-dot-0/>Aral on Spyware 2.0 &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

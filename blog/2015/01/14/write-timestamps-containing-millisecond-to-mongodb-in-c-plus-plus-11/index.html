@@ -1,0 +1,119 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Write Timestamps containing Milliseconds to MongoDB in C++11</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Jan 14, 2015 6:42 PM</span>
+</p>
+<h1 class=post-title>
+Write Timestamps containing Milliseconds to MongoDB in C++11
+</h1>
+<div class=post-body>
+<p><span class=light>It took me several hours today to figure this one out, so I thought I&rsquo;d write it up lest I forget.</span></p>
+<p>I have a C++11 application that rapidly writes new documents to a <a href=http://www.mongodb.org>MongoDB</a> instance and I need high-resolution timestamps to determine the order things were written.</p>
+<p>The problem is that the C++ standard <code>time_t</code> structure reports in seconds, so</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>builder.appendTimeT(&#34;updated_at&#34;,
+		std::chrono::system_clock::to_time_t(std::chrono::system_clock::now())
+);
+</code></pre></div><p>creates an ISODate <em>without</em> milliseconds in MongoDB.</p>
+<p>There are many solutions to be found using <code>Boost::time</code><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, but since my code needs to be dependency-free and pure, I needed a C++11 clean solution.</p>
+<p>MongoDB helps with its own <code>Date_t</code> class which is really just a <code>long long</code> number of milliseconds since the UNIX Epoch. So if I can generate that, we&rsquo;d we dancing.</p>
+<p>The solution in my <code>utilities</code> namespace, <code>DateTime</code> class is:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>namespace utilities {
+
+	struct DateTime {
+
+		...
+
+		static int64_t millisSinceEpoch()
+		{
+			std::chrono::system_clock::duration duration{
+				std::chrono::system_clock::now().time_since_epoch()
+			};
+			return std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(duration).count();
+		}
+
+		...
+	}
+}  
+</code></pre></div><p>This function constructs a C++11 <code>duration</code> object containing the number we need in an internal format, and then converts it to <code>milliseconds</code> for use.</p>
+<p>The MongoDB c++ code also changes to:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>builder.appendDate(&#34;updated_at&#34;, utilities::DateTime::millisSinceEpoch());
+</code></pre></div><p>And now we have <a href=http://www.mongodb.org>MongoDB</a> ISODates with milliseconds that work perfectly.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>Yes, I know MongoDB uses Boost, but all I do is link to MongoDB&rsquo;s precompiled library, so my app remains <em>plausibly</em> independent. And I do not need to deal with matching MongoDB&rsquo;s boost version with my own.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Jan 14, 2015 6:42 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2015/01/17/stackoverflow-programming/>&larr; StackOverflow Programming</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2014/12/11/coderunner-2/>CodeRunner 2 &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

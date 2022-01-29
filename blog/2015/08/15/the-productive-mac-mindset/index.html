@@ -1,0 +1,147 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>The Productive Mac Mindset</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Aug 15, 2015 12:42 PM</span>
+</p>
+<h1 class=post-title>
+The Productive Mac Mindset
+</h1>
+<div class=post-body>
+<p>I have been using a set of productivity enhancement tools on my Mac for so long now that the standard, out-of-box OS X user experience seems challenging, crawling, cumbersome and somewhat convoluted.</p>
+<p>So much so that <em>it has become frustrating for me to use another person&rsquo;s Mac.</em></p>
+<p>In this post, I intend to outline how the limited set of productivity tools I use give me &ldquo;ludicrous speed&rdquo;. <em>Note that I have invested the time to learn these tools and to create the productivity shortcuts they provide.</em> Maybe it will help you with ideas to be more productive too.</p>
+<h3 id=keyboard-maestro>Keyboard Maestro</h3>
+<figure class=image-right><img src=images/keyboard-maestro-icon-64.png width=128 height=128>
+</figure>
+<p><a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> is my primary productivity tool. Over the years I have added more and more macros to the point that I forget how to do things without them. It has also replaced other productivity utilities as its functionality has grown. <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> initially started out as a way to run a series of commands using keyboard shortcuts and has grown into a tool that can do these from menus, from application launches, startup, disk mounts, even scheduled. If you can imagine it, it can probably do it.</p>
+<p>My <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> macros include:</p>
+<figure class=image-right><img src=images/keyboard-maestro-menus.png width=173 height=220>
+</figure>
+<ul>
+<li>Launching new Safari windows from a keyboard shortcut, with additional shortcuts for Rails development, the common web applications I open at work or blog posting. For less common sets, I use the menu feature.</li>
+<li>Shortcuts to speed up blog article creation.</li>
+<li>Markdown tools to enable markdown formatting in other applications.</li>
+<li>Setting fixed width text in Mail messages (for code snippets) with a single keystroke.</li>
+<li>Mounting and un-mounting the network shares at work.</li>
+<li>Kicking off <a href=http://iterm2.com/>iTerm 2</a> sessions, either a single new shell or a set of shells remotely logged into our servers and running key applications. I launch complex development environments with a single keystroke.</li>
+<li>Preventing me from <code>⌘Q</code> in Safari and losing all my windows.</li>
+<li>Generating and sending product release notes.</li>
+<li>Creating tweets and <a href=http://facebook.com/hiltmoncom/>Facebook</a> links for new blog posts.</li>
+<li>Reopening a page in Google Chrome on the rare occasions I need to see Flash content.</li>
+</ul>
+<figure class=image-right><img src=images/dev-screen.png width=320 height=180>
+</figure>
+<p>For example, to spin up my test environment which involves launching six applications, log viewers, a web server and a calculation engine, all in different terminal windows arranged so I can see what is going on, I could manually create new terminals for each application, type in the command to launch each one, then rearrange the windows. Which takes a lot of time.</p>
+<p>Or press a single key and let <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> do it for me.</p>
+<h3 id=textexpander>TextExpander</h3>
+<figure class=image-right><img src=images/text-expander-icon-64.png width=64 height=64>
+</figure>
+<p><a href=https://smilesoftware.com/TextExpander/index.html>TextExpander</a> then takes over to reduce the number of keystrokes to type almost anything. In many cases, I have <a href=https://smilesoftware.com/TextExpander/index.html>TextExpander</a> snippets for specific applications.</p>
+<p>My <a href=https://smilesoftware.com/TextExpander/index.html>TextExpander</a> quiver includes:</p>
+<figure class=image-right><img src=images/textexpander-snippets.png width=173 height=289>
+</figure>
+<ul>
+<li>My source code snippets for headers, code blocks and other common patterns. This allows me to use them across IDEs.</li>
+<li>Expansions in the terminal for:
+<ul>
+<li>Changing to project folders.</li>
+<li>Launching applications.</li>
+<li>Managing <code>git</code> with fewer keystrokes.</li>
+<li>Build (<code>make</code>) commands.</li>
+<li>Popular <code>rake</code> commands.</li>
+</ul>
+</li>
+<li>Typing symbols (who ever remembers the keys to press to get these).</li>
+<li>Frequently retyped email content.</li>
+<li>Additional snippets used for blogging in <a href=http://octopress.org/>Octopress</a>.</li>
+<li>Common blocks of Markdown text.</li>
+</ul>
+<p>For example, to build my current product, I type <code>;cdcbs</code> (which expands to <code>cd ~/Projects/Maritime/cb/ChesapeakeBayServer</code>) to change to the product folder, then <code>;m8i</code> (which expands to <code>git pull; make clean; make -j 8; make install</code>). So much faster.</p>
+<p>It has taken a lot of time to create the macros, perfect them and convert them into habits. But the time invested has paid off incredibly. <strong>These two products on their own as configured enable me to spend more time on the keyboard, more time thinking and programming and significantly less time doing manual labor on the computer.</strong> And that means I get more done in less time with fewer frustrations and screw-ups.</p>
+<h3 id=three-more>Three More</h3>
+<p>There are three additional tools that in their own ways complete the limited package: <a href=https://agilebits.com/onepassword>1Password</a>, <a href=http://www.noodlesoft.com/hazel.php>Hazel</a> and <a href=http://www.indev.ca/MailActOn.html>Mail Act-On</a>.</p>
+<figure class=image-right><img src=images/1password-icon-64.png width=64 height=64>
+</figure>
+<p><a href=https://agilebits.com/onepassword>1Password</a> does one thing well, it manages all my passwords so I only have to remember one. It speeds me up as I use it as a web site launcher and I never lose time mistyping passwords. <code>⌘\</code> in <a href=https://agilebits.com/onepassword>1Password</a> is your friend!</p>
+<figure class=image-right><img src=images/hazel-icon-64.png width=64 height=64>
+</figure>
+<p><a href=http://www.noodlesoft.com/hazel.php>Hazel</a> takes care of housekeeping for me, so I do not have to. It cleans up my desktop and downloads folders, it files my bills and creates OmniFocus payment reminders. The hardest part of using <a href=http://www.noodlesoft.com/hazel.php>Hazel</a> is to figure out what you want it to do for you, setting that up and forgetting about it is the easy part.</p>
+<figure class=image-right><img src=images/mail-act-on-icon-64.png width=64 height=64>
+</figure>
+<p>And <a href=http://www.indev.ca/MailActOn.html>Mail Act-On</a> gives Apple&rsquo;s Mail superpowers. We all get too much email, and, unfortunately, we need to hang on to it. I mainly use <a href=http://www.indev.ca/MailActOn.html>Mail Act-On</a> for its single key shortcuts to file emails in folders and keep my Inbox clean (but not zero).</p>
+<h3 id=there-are-others>There are Others</h3>
+<figure class=image-right><img src=images/launchbar-icon-64.png width=64 height=64>
+</figure>
+<p>You may have noticed that the two most popular productivity tools, <a href=https://www.obdev.at/products/launchbar/index.html>LaunchBar</a> and <a href=https://www.alfredapp.com/>Alfred</a> are not mentioned. I <em>used</em> to use them a lot, and both are still installed, just not running. With all my <a href=http://www.keyboardmaestro.com/main/>Keyboard Maestro</a> macros running well, I was down to using them as application launchers only. I tried using Spotlight in Yosemite as an Application Launcher, and it worked well enough to stick.</p>
+<p>Consider the amount of time you spend performing menial tasks on your computer, launching the same windows, typing in the same commands and text, filing, tidying up, doing the same thing over and over again. Computers are awesome at this, and these productivity tools make it easy to set up and do. <strong>The money invested in buying these tools and the time invested in setting them up pays off tremendously.</strong> To the point that the OS X experience without them seems slow and cumbersome.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Aug 15, 2015 12:42 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2015/08/23/how-the-apple-watch-has-changed-my-behavior-for-the-better/>&larr; How the Apple Watch has changed my Behavior for the Better</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2015/08/09/c-plus-plus-11-on-centos-6-dot-6/>C++11 on CentOS 6.6 &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

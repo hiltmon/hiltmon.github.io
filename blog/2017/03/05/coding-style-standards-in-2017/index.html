@@ -1,0 +1,126 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Coding Style Standards in 2017</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Mar 5, 2017 12:25 PM</span>
+</p>
+<h1 class=post-title>
+Coding Style Standards in 2017
+</h1>
+<div class=post-body>
+<p>I&rsquo;ve been writing software for well over 30 years, I&rsquo;ve spent well over my 10,000 hours and gotten rather good at it. And I still write to a very rigorous coding style standard.</p>
+<p><strong>You&rsquo;re kidding right? Its 2017, code style guides are so <em>passé.</em></strong></p>
+<p>Nope. I&rsquo;m deadly serious.</p>
+<h3 id=get-off-my-lawn>Get off my lawn</h3>
+<p>Some of us remember when coding styles were <em>de rigeur</em>. When you climbed off your commuter dinosaur and joined a coding team, the first document they gave you was the coding style guideline. It was a thick, three-ring binder that covered everything from naming, spacing, commenting, position of braces, white space rules, spaces or tabs and the line length rule.</p>
+<p>And, when you tried to submit your first code, the code you were so proud of, the team destroyed you in review for not following their <em>stupid</em> guidelines. There you sat, knowing your code worked, wondering why these people were being so anal about spaces and where your effin brackets were and why you could not use the letter <code>m</code> as a variable name. &ldquo;The code works, dammit,&rdquo; you thought to yourself, &ldquo;what is wrong with these people!&rdquo;</p>
+<p>The reality was that these folks knew something we rookies did not. That it was easier for them to read, review and smell-check code written the way they expected than to try to decipher yet another programmer&rsquo;s conventions. It saved them time, saved them effort and allowed the pattern matching engines in their brains to take over to enhance their understanding.</p>
+<p>Back then, <strong>code quality depended on other people reading, reviewing, understanding and smell-testing your code. It was up to humans to see if things could go wrong, find the issues and get you to fix them before the system failed</strong>. This was how the Apollo code was done.</p>
+<p>The coding style guideline made that job a whole bunch easier.</p>
+<h3 id=the-bazaar>The Bazaar</h3>
+<p>The rise of open source, good semantic tools, formatters, linters and rise of the code ninja, have led to the demise in many cases of the coding style standard.</p>
+<p>Most open source projects are a hodgepodge of coding styles because there is no leader, no team-boss and no benevolent dictator. Some, like LLVM and Python, do have such a character, and therefore a style guide. Most do not.</p>
+<p>Some languages, like <code>go</code>, have an opinionated style and provide a formatter. And some teams use formatters to make they code look &ldquo;better&rdquo;.</p>
+<p>And don&rsquo;t get me started on projects that intermix various open-source code-bases that uses conflicting styles. <em>Aside: generated code has to be excluded as it gets regenerated on each compile. I&rsquo;m looking at you, Google protobuf!</em></p>
+<p><strong>The big issue is that code these days is less readable by humans, and is less frequently reviewed by humans</strong>. Much code is written using a mishmash of open source code, pastes from StackOverflow and a bit pf programmer code. Paying homage to some random management mandated format using a tool does not improve the quality, readability and maintainability of the code.</p>
+<h3 id=the-great-debates>The great debates</h3>
+<p>Those of us who do care believe that our coding styles are the best. Of course we do, we came up with them. We use them daily. We find code to our style easier to read. Writing to our style is now a habit.</p>
+<p>Bring in another programmer and the war begins. Arguments erupt on line lengths, tabs or spaces to indent, indent sizes, brace positions, early exit, and function lengths. Of course, the other programmer is wrong, their habits are bad, they are idiots and their code looks terrible.</p>
+<p>The truth is that these arguments are stupid since no side is &ldquo;correct&rdquo;. It&rsquo;s a taste thing, a personal preferences thing, a habit thing and sometimes a power play.</p>
+<p>At the end of the day, <strong>it really does not matter what you choose, as long as you all agree and all adhere to the agreement</strong>. Win some, lose some, it does not matter.</p>
+<p>What matters is being able to read, review, and fix each-others code with ease. And that requires a coding style standard.</p>
+<h3 id=so-why-still-standardize-in-2017>So why still standardize in 2017</h3>
+<p>Because:</p>
+<ul>
+<li><strong>Code is meant to be read, reviewed, modified and refactored by humans first, and compiled second</strong>. Code written to an agreed style is way easier to for humans to process.</li>
+<li><strong>When not sure what to do or how to write something, the standard steps in</strong>. When to switch from a long parameter list to a parameter object, how far you can take a function before refactoring to smaller functions, and where in the code-base to place a certain file are all decided by the style standard.</li>
+<li><strong>Naming in code is a nightmare</strong>. Styles define how to name things, and what case to use, making it easier to choose the right name. Most importantly, the reader can jump to the right inference when reading a name in the code.</li>
+<li>We don&rsquo;t care who wrote the buggy line, blame is not what we do. <strong>But everyone in the team should be able to read, diagnose and fix it</strong>. If you want to find the fastest way to speed up maintenance times and bug detection times, write to an agreed style.</li>
+<li>The debates are over, we can start to form habits, and <strong>we can all focus on writing great code</strong>.</li>
+</ul>
+<h3 id=so-i-guess-you-use-an-old-standard>So I guess you use an old standard?</h3>
+<p>Nope, we update ours every year. Most of the time it changes little. The original space vs indent vs line length stuff remains mostly the same. Those debates are over and the habits formed.</p>
+<p>But languages change, language practices change, and these lead to changes in the standard. We learn more about our own code over time. Misunderstandings in naming inferences change the naming conventions, identified bugs lead to file layout changes and better patterns identified by team members get added. And old, unnecessary guidelines are removed.</p>
+<p>For example, our 2016 standard added the requirement that single line block statements must be wrapped in braces in C++, so a heartbleed like issue would never affect us. It finally allowed the use of function templates now that our tools can handle them properly — and we programmers finally got a handle on them. It changed the file extension on all our C++ headers to &ldquo;.hpp&rdquo; because our compilers treated them differently. And it moved function parameter lists to their own lines in headers so we could improve header file commenting and document generation. Nothing earth-shaking, but still huge improvements to readability.</p>
+<h3 id=so-all-code-is-to-standard>So all code is to standard?</h3>
+<p>Yes, and no. All <em>new</em> code is to standard. We do not stop all work, go back and correct old code, there is too much of it and we have better things to do.</p>
+<p>But, each team member knows that if they <em>ever</em> need to touch, change or fix old code, they need to refactor to the new standard at the same time. We do not commit non-standard code. Over time, the old code changes to match the new standard.</p>
+<h3 id=ok-summarize-this-for-me>Ok, summarize this for me</h3>
+<ul>
+<li>Code is meant to be read by humans first.</li>
+<li>Code written in an agreed style is way easier for humans to find, read, understand, diagnose and maintain.</li>
+<li>Moving to a new standard takes time to build the habit, but once it becomes a habit, writing to standard becomes just part of the flow.</li>
+<li>The standard needs to change as languages change, as programmers get better and as new members join the team.</li>
+<li>All new code is written to the latest standard, all code committed is to the new standard, all old code is refactored on touch.</li>
+<li>Coding style guidelines are just as important in 2017 as they were when we rode dinosaurs to work.</li>
+</ul>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Mar 5, 2017 12:25 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>&larr; Notification City</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2017/01/28/mathjax-in-markdown/>MathJax in Markdown &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

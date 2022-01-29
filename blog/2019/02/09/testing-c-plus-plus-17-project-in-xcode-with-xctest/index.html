@@ -1,0 +1,461 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Testing C++17 Projects in Xcode with XCTest</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Feb 9, 2019 1:55 PM</span>
+</p>
+<h1 class=post-title>
+Testing C++17 Projects in Xcode with XCTest
+</h1>
+<div class=post-body>
+<p>The vast majority of development I perform is in C++17 on an Apple Mac Computer using Xcode. For a while now, I have been using <a href=https://github.com/catchorg/Catch2>Catch2</a> as my Unit Testing framework, and its absolutely excellent. But its not integrated into the Xcode IDE and I wanted the ability to use Xcode&rsquo;s excellent testing and test debugging tools to improve my productivity and workflow.</p>
+<p>In this post I will show you how to set up a simple standard C++17 library project in Xcode 10 and then add XCTests to it.</p>
+<p><span class=light>You can find and download the sample project from Github at <a href=https://github.com/hiltmon/HiltmonLibrary-with-XCTest>HiltmonLibrary-with-XCTest</a>.</span></p>
+<h2 id=setting-up-the-library>Setting Up the Library</h2>
+<h3 id=create-the-project>Create the Project</h3>
+<p>I am going to start with my standard, designed for cross platform, C++17 library project. In a terminal, lets create the folders needed:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash>cd Projects
+mkdir HiltmonLibrary
+cd HiltmonLibrary/
+mkdir -p doc include/hmlib src test
+touch README.md
+git init
+</code></pre></div><p><span class=light>NOTE: <code>hmlib</code> above is the namespace I will be using for the standard library project.</span></p>
+<p>Now we will create the Xcode Project:</p>
+<figure class=image-right><img src=images/hmlib-01.png>
+</figure>
+<ul>
+<li>In Xcode, choose <strong>File</strong> / <strong>New Project</strong>.</li>
+<li>Select <strong>macOS</strong> at the top, then <strong>Library</strong> and click <strong>Next</strong>.</li>
+<li>Fill in the project details, choose <strong>C++</strong> and click <strong>Next</strong>.</li>
+<li>Select the Project Folder we just created, then click <strong>Done</strong>.</li>
+<li>Close the project Xcode window. Do this because we need to move some files around.</li>
+</ul>
+<figure class=image-right><img src=images/hmlib-02.png>
+</figure>
+<p>The next two steps clean up that which we just created:</p>
+<ul>
+<li>In Finder, go to the Project Folder.</li>
+<li>Drag and drop the <code>*.xcodeproj</code> up a level, then delete the new folder (<code>HiltmonLibrary</code> under <strong>HiltmonLibrary</strong>).</li>
+<li>Double-click to open the project in Xcode.</li>
+<li><figure class=image-right><img src=images/hmlib-03.png>
+</figure>
+Right-Click on the red folder and select <strong>Delete</strong> to remove the Xcode created folder and files.</li>
+<li>Right-click on the Project (at the top of the tree) and select <strong>Add files to &ldquo;HiltmonLibrary&rdquo;&mldr;</strong>.</li>
+<li>Press <code>CMD-A</code> to Select all, then click <strong>Add</strong>.</li>
+</ul>
+<p>The standard library template is almost ready.</p>
+<figure><img src=images/hmlib-04.png>
+</figure>
+<h3 id=update-for-c17>Update for C++17</h3>
+<p>Lets make it C++17 compliant, add extra warnings and expose inline methods from the library:</p>
+<ul>
+<li>Click on the Project Name at the top to see the project settings panel.</li>
+<li>Click on <strong>Build Settings</strong>, then type <code>C++</code> in the search box. Change the <strong>C++ Language Dialect</strong> to <code>C++17 [-std=c++17]</code>.</li>
+<li>Search for <code>Inline</code> and change <strong>Inline Methods Hidden</strong> to <code>No</code>.</li>
+<li>Search for <code>Other Warning</code> and double-click to the right of <strong>Other Warning Flags</strong>. Click <code>+</code> to add the following flags:
+<ul>
+<li><code>-Wall</code></li>
+<li><code>-Wextra</code></li>
+</ul>
+</li>
+<li><figure class=image-right><img src=images/hmlib-06.png>
+</figure>
+Search for <code>Search</code> and double-click to the right of <strong>Header Search Paths</strong>. Click <code>+</code> to add the following flags:
+<ul>
+<li><code>$SRCROOT/include/hmlib</code></li>
+<li><code>/usr/local/include</code></li>
+</ul>
+</li>
+<li>While there, double-click to the right of <strong>Library Search Paths</strong>. Click <code>+</code> to add the following flags:
+<ul>
+<li><code>/usr/local/lib</code></li>
+</ul>
+</li>
+</ul>
+<p>If you clear the search, and select <strong>Customized</strong> at the top, you should see something like this:</p>
+<figure><img src=images/hmlib-05.png>
+</figure>
+<h3 id=add-project-code>Add Project Code</h3>
+<p>And finally, lets add our first items to test. We&rsquo;ll create a utilities namespace to host some string manipulation functions to test:</p>
+<ul>
+<li>Right-click on the <code>src</code> folder and choose <strong>New File</strong> or select the <code>src</code> folder and hit <code>CMD-N</code>.</li>
+<li>Choose <strong>C++ File</strong> and click <strong>Next</strong>.</li>
+<li><figure class=image-right><img src=images/hmlib-07.png>
+</figure>
+Create the C++ File, in this case <code>string_utilities</code>, make sure create header file is checked, and click <strong>Next</strong>.</li>
+<li>Make sure it goes in the <code>src</code> folder and that the target is checked (in my case <code>HiltmonLibrary</code>, and click <strong>Create</strong>.</li>
+<li>Finally, drag and drop the <code>.hpp</code> file under the <code>include/hmlib</code> folder.</li>
+</ul>
+<figure><img src=images/hmlib-08.png>
+</figure>
+<p>Ok, lets create some code to test, say a function that converts a string to lowercase.</p>
+<p>In <code>string_utilities.hpp</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===------------------------------------------------------------*- C++ -*-===//
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  string_utilities.hpp
+</span><span style=color:#0f0>//  HiltmonLibrary
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
+</span><span style=color:#0f0></span>
+<span style=color:#e5e5e5>#ifndef hmlib_string_utilities_hpp
+</span><span style=color:#e5e5e5>#define hmlib_string_utilities_hpp
+</span><span style=color:#e5e5e5></span>
+<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;algorithm&gt;</span><span style=color:#e5e5e5>
+</span><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;string&gt;</span><span style=color:#e5e5e5>
+</span><span style=color:#e5e5e5></span>
+<span style=color:red>namespace</span> hmlib::utilities {
+
+  <span style=color:#0f0>/// @brief Copy a string to a lower case string
+</span><span style=color:#0f0></span>  <span style=color:#0f0>/// NOTE: The copy is intentional
+</span><span style=color:#0f0></span>  std::string toLower(
+    <span style=color:red>const</span> std::string&amp; sourceString
+  );
+
+} <span style=color:#0f0>// Namespace hmlib::utilities
+</span><span style=color:#0f0></span>
+<span style=color:#e5e5e5>#endif </span><span style=color:#0f0>// hmlib_string_utilities_hpp
+</span></code></pre></div><p>In <code>string_utilities.cpp</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===------------------------------------------------------------*- C++ -*-===//
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  string_utilities.cpp
+</span><span style=color:#0f0>//  HiltmonLibrary
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
+</span><span style=color:#0f0></span>
+<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;string_utilities.hpp&#34;</span><span style=color:#e5e5e5>
+</span><span style=color:#e5e5e5></span>
+<span style=color:red>namespace</span> hmlib::utilities {
+
+  std::string toLower(<span style=color:red>const</span> std::string&amp; sourceString)
+  {
+    std::string destString = sourceString; <span style=color:#0f0>// Copy Mutable
+</span><span style=color:#0f0></span>    std::transform(destString.begin(), destString.end(),
+      destString.begin(), ::tolower);
+    <span style=color:red>return</span> destString;
+  }
+
+} <span style=color:#0f0>// Namespace hmlib::utilities
+</span></code></pre></div><p>Compile with <code>CMD-B</code> and the library should compile OK. If you expand the <code>Products</code> folder, you should see the compiled library. <em>Note that a bug in Xcode 10 means that you may need to restart Xcode for it to stop showing as red.</em></p>
+<h2 id=setting-up-the-tests>Setting Up the Tests</h2>
+<p>Great, we have an awesome library, how do we go about testing it?</p>
+<h3 id=create-and-integrate-the-test-target>Create and integrate the Test Target</h3>
+<figure class=image-right><img src=images/hmlib-09.png>
+</figure>
+<ul>
+<li>Press <code>CMD-6</code> to show the Test Navigator (or select the icon to the right)</li>
+</ul>
+<figure class=image-right><img src=images/hmlib-10.png>
+</figure>
+<ul>
+<li>At the bottom, click the plus and choose <strong>New Unit Test Target&mldr;</strong></li>
+<li>I prefer to make a strong name for test targets, so I named mine <code>TestHiltmonLibrary</code>.</li>
+<li>Make sure <code>Objective-C</code> is selected as the language and that the test target is your library (in my case <code>HiltmonLibrary</code>)</li>
+<li>Click <strong>Finish</strong> to create the target</li>
+</ul>
+<p>Xcode helpfully shows you the new Target configuration page.</p>
+<h3 id=update-for-c17-1>Update for C++17</h3>
+<p>Lets bring it up to C++17 standard (same as for the main library project):</p>
+<ul>
+<li>Click on <strong>Build Settings</strong>, then type <code>C++</code> in the search box. Change the <strong>C++ Language Dialect</strong> to <code>C++17 [-std=c++17]</code>.</li>
+<li>Search for <code>Inline</code> and change <strong>Inline Methods Hidden</strong> to <code>No</code>.</li>
+<li>Search for <code>Other Warning</code> and double-click to the right of <strong>Other Warning Flags</strong>. Click <code>+</code> to add the following flags:
+<ul>
+<li><code>-Wall</code></li>
+<li><code>-Wextra</code></li>
+</ul>
+</li>
+<li>Search for <code>Search</code> and double-click to the right of <strong>Header Search Paths</strong>. Click <code>+</code> to add the following flags:
+<ul>
+<li><code>$SRCROOT/include/hmlib</code></li>
+<li><code>/usr/local/include</code></li>
+</ul>
+</li>
+<li>While there, double-click to the right of <strong>Library Search Paths</strong>. Click <code>+</code> to add the following flags:
+<ul>
+<li><code>/usr/local/lib</code></li>
+</ul>
+</li>
+</ul>
+<p>And to standardize the project:</p>
+<ul>
+<li>Drag and drop the <code>Info.plist</code> and <code>TestHiltmonLibrary.m</code> file to under the <code>tests</code> folder.</li>
+<li>Delete the <strong>TestHiltmonLibrary</strong> folder.</li>
+</ul>
+<p>The reconnect the <code>Info.plist</code></p>
+<ul>
+<li>Click on the Project name in the Project Navigator, and choose the test target.</li>
+<li>Change the <strong>Info.plist File</strong> entry to <code>test/Info.plist</code>.</li>
+</ul>
+<figure><img src=images/hmlib-11.png>
+</figure>
+<h3 id=integrate-with-the-main-library-project>Integrate with the Main Library Project</h3>
+<p>And finally, hook it all up:</p>
+<ul>
+<li>Click on <strong>Product</strong>, <strong>Scheme</strong>, <strong>Edit Scheme&mldr;</strong>, right-click on the scheme in the tool bar and choose <strong>Edit Scheme</strong>, or press <code>CMD-&lt;</code>.</li>
+</ul>
+<figure class=image-right><img src=images/hmlib-12.png>
+</figure>
+<ul>
+<li>Make sure the scheme selected is the Library scheme (<code>HiltmonLibrary</code>), not the Test scheme (<code>TestHiltmonLibrary</code>) in the top left of the sheet that shows up.</li>
+<li>Click on <strong>Test</strong> on the left.</li>
+<li>Click the plus at the bottom to add a test target and choose the test target (now add <code>TestHiltmonLibrary</code>).</li>
+<li>Click <strong>Close</strong> when done.</li>
+</ul>
+<p>Lets Compile and Run the tests to see what happens. Press <code>CMD-U</code>. Xcode will:</p>
+<ul>
+<li>Compile the main Library</li>
+<li>Compile the test Target</li>
+<li>Run the tests</li>
+<li>Switch you to the Test Navigator</li>
+</ul>
+<p>Since no tests have been created, it should have no failures.</p>
+<figure><img src=images/hmlib-13.png>
+</figure>
+<p>Thats it, the hoops have been jumped through to set things up. From now on, all you need to care about is developing your project code and your new tests.</p>
+<h2 id=adding-the-first-tests>Adding The First Tests</h2>
+<p>Let&rsquo;s add our first C++17 tests.</p>
+<p>Rename the default file <code>TestHiltmonLibrary.m</code> to better reflect the tests being run, in this case we&rsquo;re testing our String Utilities, so rename it to <code>TestStringUtilities.mm</code></p>
+<p><strong>NOTE THE FILE EXTENSION CHANGE FROM <code>.m</code> TO <code>.mm.</code> This is the secret, it tells Clang to compile the file as Objective-C++ which is how we get XCTest to talk C++.</strong></p>
+<ul>
+<li>Include the header of the class being tested</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;string_utilities.hpp&#34;</span><span style=color:#e5e5e5>
+</span></code></pre></div><ul>
+<li>Remove the current functions and add the test function</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>- (<span style=color:violet>void</span>)testCaseChanges {
+
+}
+</code></pre></div><p><strong>FOR XCTEST TO WORK, THE FUNCTION MUST START WITH <code>test.</code></strong></p>
+<ul>
+<li>Add the test code:</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  std::string upper1 = <span style=color:#87ceeb>&#34;HILTMON.COM&#34;</span>;
+  XCTAssert(hmlib::utilities::toLower(upper1) == <span style=color:#87ceeb>&#34;hiltmon.com&#34;</span>);
+</code></pre></div><p>The <code>XCTAssert</code> macro is used to evaluate an expression and pass if <code>true</code>.</p>
+<p>The final file should look like:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===---------------------------------------------------------*- objC++ -*-===//
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  TestStringUtilities.mm
+</span><span style=color:#0f0>//  TestHiltmonLibrary
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
+</span><span style=color:#0f0></span>
+<span style=color:#e5e5e5>#import &lt;XCTest/XCTest.h&gt;
+</span><span style=color:#e5e5e5></span>
+<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;string_utilities.hpp&#34;</span><span style=color:#e5e5e5>
+</span><span style=color:#e5e5e5></span>
+@interface TestStringUtilities : XCTestCase
+
+@end
+
+@implementation TestStringUtilities
+
+- (<span style=color:violet>void</span>)testCaseChanges {
+  std::string upper1 = <span style=color:#87ceeb>&#34;HILTMON.COM&#34;</span>;
+  XCTAssert(hmlib::utilities::toLower(upper1) == <span style=color:#87ceeb>&#34;hiltmon.com&#34;</span>);
+}
+
+@end
+</code></pre></div><p><figure class=image-right><img src=images/hmlib-14.png>
+</figure>
+Press <code>CMD-U</code> to run the tests. Xcode will run the tests and put a bezel up that tests have passed and puts a green checkmark next to the test functions that passed.</p>
+<p>Lets create a failing test:</p>
+<ul>
+<li>Add to the <code>testCaseChanges</code> code:</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>  std::string lower1 = &#34;hiltmon.com&#34;;
+  XCTAssert(hmlib::utilities::toUpper(lower1) == &#34;HILTMON.COM&#34;);
+</code></pre></div><p>And press <code>CMD-U</code>. Xcode compiles the tests and fails because the <code>toUpper</code> function has not yet been written. As expected.</p>
+<p>Lets add it:</p>
+<ul>
+<li>In <code>string_utilities.hpp</code>, add:</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  <span style=color:#0f0>/// @brief Copy a string to an upper case string
+</span><span style=color:#0f0></span>  <span style=color:#0f0>/// NOTE: The copy is intentional
+</span><span style=color:#0f0></span>  std::string toUpper(
+    <span style=color:red>const</span> std::string&amp; sourceString
+  );
+</code></pre></div><ul>
+<li>In <code>string_utilities.cpp</code>, add:</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  std::string toUpper(<span style=color:red>const</span> std::string&amp; sourceString)
+  {
+    std::string destString = sourceString; <span style=color:#0f0>// Copy Mutable
+</span><span style=color:#0f0></span>    std::transform(destString.begin(), destString.end(),
+      destString.begin(), ::toupper);
+    <span style=color:red>return</span> destString;
+  }
+</code></pre></div><p>Ok, lets test again. Press <code>CMD-U</code>. Tests succeeded.</p>
+<h2 id=adding-more-test-targets>Adding More Test Targets</h2>
+<p>Lets add another class to test. But this time, lets make it header-only so under normal circumstances, the library compiler will ignore it.</p>
+<ul>
+<li>Create <code>numeric_utilities.hpp</code> (Header File only) under <code>include/hmlib</code> as:</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===------------------------------------------------------------*- C++ -*-===//
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  numeric_utilities.hpp
+</span><span style=color:#0f0>//  HiltmonLibrary
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
+</span><span style=color:#0f0></span>
+<span style=color:#e5e5e5>#ifndef hmlib_numeric_utilities_hpp
+</span><span style=color:#e5e5e5>#define hmlib_numeric_utilities_hpp
+</span><span style=color:#e5e5e5></span>
+<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;iostream&gt;</span><span style=color:#e5e5e5>
+</span><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;cmath&gt;</span><span style=color:#e5e5e5>
+</span><span style=color:#e5e5e5></span>
+<span style=color:red>namespace</span> hmlib::utilities {
+
+  <span style=color:#0f0>/// @brief Generate a static round function at compile time to get
+</span><span style=color:#0f0></span>  <span style=color:#0f0>/// a given precision. Not bankers, relies on C++ round.
+</span><span style=color:#0f0></span>  <span style=color:red>template</span> &lt;<span style=color:violet>int</span> precision&gt;
+  <span style=color:violet>double</span> roundTo(<span style=color:violet>double</span> value) {
+
+    <span style=color:red>static_assert</span>(precision &gt; <span style=color:#f60>0</span>, <span style=color:#87ceeb>&#34;Precision must be &gt; 0&#34;</span>);
+
+    <span style=color:violet>double</span> factor = std::pow(<span style=color:#f60>10.0</span>, <span style=color:red>static_cast</span>&lt;<span style=color:violet>double</span>&gt;(precision));
+    <span style=color:red>return</span> std::round(value * factor) / factor;
+  }
+
+} <span style=color:#0f0>// Namespace hmlib::utilities
+</span><span style=color:#0f0></span>
+<span style=color:#e5e5e5>#endif </span><span style=color:#0f0>// hmlib_numeric_utilities_hpp
+</span></code></pre></div><p>Since this is a header-only file, the compiler will pretty much do nothing with it when building the library. So let&rsquo;s add a test to get it to compile and see it this mad round code works.</p>
+<ul>
+<li>Go to the test Navigator. Click the plus and choose <strong>New Unit Test Class&mldr;</strong>.</li>
+<li>Name it <code>TestNumericUtilities.mm</code>. <strong>REMEMBER the <code>.mm</code> extension to get C++</strong>.</li>
+<li>Clean it up and make it ready for the test.</li>
+<li>Include the header file <code>#include "numeric_utilities.hpp"</code>.</li>
+<li>The add a test function and some test Asserts.</li>
+</ul>
+<p>The file will now look like this:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===---------------------------------------------------------*- objC++ -*-===//
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  TestNumericUtilities.mm
+</span><span style=color:#0f0>//  TestHiltmonLibrary
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#0f0>//
+</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
+</span><span style=color:#0f0></span>
+<span style=color:#e5e5e5>#import &lt;XCTest/XCTest.h&gt;
+</span><span style=color:#e5e5e5></span>
+<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;numeric_utilities.hpp&#34;</span><span style=color:#e5e5e5>
+</span><span style=color:#e5e5e5></span>
+@interface TestNumericUtilities : XCTestCase
+
+@end
+
+@implementation TestNumericUtilities
+
+- (<span style=color:violet>void</span>)testRounding {
+
+  <span style=color:violet>double</span> number = <span style=color:#f60>0.123456789</span>;
+  XCTAssert(hmlib::utilities::roundTo&lt;<span style=color:#f60>2</span>&gt;(number) == <span style=color:#f60>0.12</span>);
+  XCTAssert(hmlib::utilities::roundTo&lt;<span style=color:#f60>3</span>&gt;(number) == <span style=color:#f60>0.123</span>);
+  XCTAssert(hmlib::utilities::roundTo&lt;<span style=color:#f60>4</span>&gt;(number) == <span style=color:#f60>0.1235</span>);
+  XCTAssert(hmlib::utilities::roundTo&lt;<span style=color:#f60>5</span>&gt;(number) == <span style=color:#f60>0.12346</span>);
+
+}
+
+@end
+
+</code></pre></div><figure class=image-right><img src=images/hmlib-15.png>
+</figure>
+<p>Press <code>CMD-U</code> to compile the Library and run the tests.</p>
+<p>Since the header file is included in the test compile, the compiler looks at it (and will fail if there are any issues).</p>
+<p>If the compilation succeeds, it will run the tests.</p>
+<h2 id=c17-tests-with-xctest-in-xcode>C++17 Tests with XCTest in Xcode</h2>
+<p>And there you have it, a standard C++17 project, editable and compilable in Xcode, with single key access to tests and all the IDE features of Xcode to help debug and analyze your project.</p>
+<p>A few tricks you can add:</p>
+<ul>
+<li>Setting a breakpoint in a test case will work as expected. Xcode will stop testing there and you&rsquo;ll be able to use all the debugger tools in Xcode to see what is going on.</li>
+<li>Hover over a Test Class in the Test Navigator or place your mouse on any line, and you will see a small right triangle icon with a circle appear. Click that to run just that one test class. That way you can work an individual test until such time as it works without having to wait for and run <em>all</em> test cases.</li>
+</ul>
+<p>Happy Testing C++17 in Xcode with XCtest.</p>
+<p>Reminder: You can find and download the sample project from Github at <a href=https://github.com/hiltmon/HiltmonLibrary-with-XCTest>HiltmonLibrary-with-XCTest</a>.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Feb 9, 2019 1:55 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>&larr; An iPad and a Pencil</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

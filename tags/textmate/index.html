@@ -1,0 +1,213 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>TextMate</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<h4>Layout: List</h4>
+<article>
+<section></section>
+<section>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Oct 18, 2014 12:44 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2014/10/18/gist-textmate-bundle-updated-for-yosemite/>Gist TextMate Bundle updated for Yosemite</a>
+</h1>
+<p class=summary-body>
+Thanks to Michael Sheets, the Gist TextMate bundle now works in TextMate 2 on Yosemite. The issue was that the UI code in TextMate 2 relied on Ruby 1.8, and Ruby 1.8 is deprecated and no longer installed in OS X 10.10.
+Michael created a shim to fake Ruby 1.8 until such time as the code base moves to Ruby 2.0, implemented the change in the Gist bundle and it&rsquo;s working now.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2014/10/18/gist-textmate-bundle-updated-for-yosemite/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Jan 20, 2014 2:07 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2014/01/20/more-textmate-2-basics/>More TextMate 2 Basics</a>
+</h1>
+<p class=summary-body>
+Previously, I wrote about the TextMate 2 Basics that I use all the time, and I recommend you read that post first. This post follows up with a mish-mash of more tools, ideas and tricks that I also use surprisingly frequently.
+Text Tools TextMate 2 tries to reduce the number of keystrokes you need to make to generate good code. There are many ways it does this but today I want to talk about auto-pairs and completions.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2014/01/20/more-textmate-2-basics/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Nov 9, 2013 3:00 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2013/11/09/textmate-2-basics/>TextMate 2 Basics</a>
+</h1>
+<p class=summary-body>
+I have been using TextMate for years as my primary programmer&rsquo;s editor, but it turns out that I only use a subset of its amazing features. I&rsquo;ve been speaking with users of other awesome programmer&rsquo;s editors and they wanted to know what it is in TextMate that I love so much and keeps me using it.
+So here are the basic parts of TextMate 2 that I use regularly. Maybe you can divine some tips from it.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2013/11/09/textmate-2-basics/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Aug 11, 2013 3:31 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2013/08/11/gist-textmate-2-bundle-updates/>Gist TextMate 2 Bundle Updates</a>
+</h1>
+<p class=summary-body>
+New updates to the Gist.tmbundle for TextMate 2:
+Changed the launch key from ⌃⌘G to ⇧⌃⌘J as it interferes with the Find and Replace All (the TextMate 2 defaults changed) Am now having GitHub guess the language of a &ldquo;Gist from Selection&rdquo; by taking the file extension from the source file you copied from and using that in the pushed file name. Was hoping to use the scope language but could not figure how to get that and map the right extensions for GitHub.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2013/08/11/gist-textmate-2-bundle-updates/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Jul 28, 2013 11:37 AM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2013/07/28/laravel-4-textmate-bundle/>Laravel 4 Blade TextMate Bundle</a>
+</h1>
+<p class=summary-body>
+In the comments of My TextMate 2 Setup, reader Bob Rockerfeller wondered if the Sublime Text Laravel 4 Blade bundle could be ported to TextMate 2. So I did.
+It was easy because Sublime Text uses TextMate&rsquo;s .tmLanguage file format for syntax highlighting. I just created a new bundle using the Bundle Editor, created a new Syntax file and pasted in Eric Percifield&rsquo;s (@medalink7) code. Then tested it with the example in his repo.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2013/07/28/laravel-4-textmate-bundle/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Mar 11, 2013 4:59 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2013/03/11/gist-dot-tmbundle-updates/>Gist.tmbundle Updates</a>
+</h1>
+<p class=summary-body>
+I just pushed a few small updates to my Gists bundle for TextMate 2. These include:
+Adding progress bars for network access (Thanks for the suggestion and tip from Allan Odgaard). New: Add file to Gist command to add the current file to an existing Gist to create multi-file Gists. For example, use this to gist the header and implementation code files in the same gist. This gets cached so you can blindly update any of the files in a multi-file gist without remembering the gist ID.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2013/03/11/gist-dot-tmbundle-updates/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Feb 25, 2013 3:44 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2013/02/25/gist-textmate-bundle-and-command/>Gist TextMate Bundle and Command Line</a>
+</h1>
+<p class=summary-body>
+I was having a conversation on Twitter with Shawn Hansen (@geekles) this weekend and he mentioned that Sublime Text 2 has a great plugin for Github Gists, and TextMate 2 was missing this awesomeness.
+Not anymore (the Oscars were on).
+Announcing the first release of my TextMate 2 bundle and a separate command line tool for retrieving, creating and updating GitHub Gists.
+The main difference between this and other implementations is that this one caches gist mappings (gist id to file names in ~/.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2013/02/25/gist-textmate-bundle-and-command/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Feb 22, 2013 6:02 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2013/02/22/multiple-themes-in-textmate-2/>Multiple Themes in TextMate 2</a>
+</h1>
+<p class=summary-body>
+One thing I like to do is to have different themes for different file types in my text editor. That way, at a glance, I can guess what kind of file a text-filled window contains, especially when zoomed out using Mission Control. I’ve been using Custom Language Preferences in BBEdit preferences to set up the color scheme for each file type there, and I have set up Multiple Themes in Sublime Text 2 previously.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2013/02/22/multiple-themes-in-textmate-2/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Feb 15, 2013 12:38 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2013/02/15/criticmarkup-bundle-for-textmate-2/>CriticMarkup Bundle for TextMate 2</a>
+</h1>
+<p class=summary-body>
+Update: Christian Tietze (@DivineDominion) has created a bundle that&rsquo;s included in the official toolkit, so I contributed my bundle&rsquo;s commands to that, and will be using and contributing to that one from now on. Get the full toolkit at CriticMarkup-toolkit or just the TextMate bundle at criticmarkup.tmbundle. I&rsquo;ve already taken my repo down to prevent confusion.
+Recently, @macdrifter and @themindfulbit announced CriticMarkup, a way for authors and editors to track changes to documents in plain text.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2013/02/15/criticmarkup-bundle-for-textmate-2/>Read on &rarr;</a>
+</p>
+</div></div>
+<div><div class=summary>
+<p class=meta-data>
+<span class=post-date>Jan 16, 2013 8:04 PM</span>
+</p>
+<h1 class=summary-title>
+<a href=https://hiltmon.github.io/blog/2013/01/16/rvm-in-textmate-2/>RVM in TextMate 2</a>
+</h1>
+<p class=summary-body>
+I use Ruby Version Manager (rvm) to manage the interpreters and gemsets for all of my projects. But the default install of TextMate 2 uses the system ruby interpreter for internal command execution as well as for external runs. Here is how to use your rvm environment for both.
+tl;dr: Set the TM_RUBY variable in preferences or your ~/.tm_properties file to the path returned by which rvm-auto-ruby and restart. That will set the internal runner.
+</p>
+<p class=read-on>
+<a href=https://hiltmon.github.io/blog/2013/01/16/rvm-in-textmate-2/>Read on &rarr;</a>
+</p>
+</div></div>
+</section>
+</article>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></body>
+</html>

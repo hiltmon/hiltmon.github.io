@@ -1,0 +1,127 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Using Mac Navigation Keys in Visual Studio</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Oct 10, 2013 12:32 PM</span>
+</p>
+<h1 class=post-title>
+Using Mac Navigation Keys in Visual Studio
+</h1>
+<div class=post-body>
+<p>As a developer, sometimes I am forced to use Visual Studio to code for Windows. Just like a lot of Mac developers, I therefore run Visual Studio in a <a href=http://www.vmware.com/products/fusion/>VMWare Fusion</a> VM. And it works great.</p>
+<p>Except it drives me nuts that keyboard navigation in the Visual Studio editor does not use the same keys as on the Mac. Which means I am constantly seeing the window move around when I am trying to get to a line end. And even if I did remap my brain to Visual Studio&rsquo;s keys, it assumes I have a <code>Home</code> and an <code>End</code> key to use, which the Mac mini wireless keyboard and laptops do not have.</p>
+<p>I tried changing keys in <strong>Tools / Options / Environment / Keyboard</strong> but Visual Studio studiously <em>ignores</em> any shortcuts which use the <code>Windows</code> key which <em>just happens</em> to be the <code>Command</code> key on the Mac keyboard which <em>just happens</em> to be a commonly used shortcut for navigation on the Mac.</p>
+<p>The solution I found is to install <a href=http://www.autohotkey.com>AutoHotKey</a> on the VM and remap the Visual Studio keys you need. Here is my AutoHotKey script file so far:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>; AutoHotKey Script
+
+SetTitleMatchMode, 2  ; Move this line to the top of your script
+
+#IfWinActive, Microsoft Visual Studio
+#Right::End
+#Left::!Left
+#Up::^Home
+#Down::^End
+!Right::^Right
+!Left::^Left
+#b::^B
+#K::^M
+#/::!/
+
+#IfWinActive
+</code></pre></div><p>I have set this up so the changes only apply to Visual Studio. All other Windows applications will remain unaffected. The <code>SetTitleMatchMode</code> is needed to make it so that the matcher sees the right title.</p>
+<p>The <code>#IfWinActive, Microsoft Visual Studio</code> line means that all changes that follow until the next <code>#IfWinActive</code> apply only to Visual Studio windows.</p>
+<p>My mapping changes are as follows:</p>
+<ul>
+<li>⌘→: <strong>Edit.LineEnd</strong> (Default windows key <code>End</code>, original behavior: Snap window to right of screen)</li>
+<li>⌘←: <strong>Edit.LineStart</strong> (Default windows key <code>Home</code>, original behavior: Snap window to left of screen) <em>but I had to map this to <code>ALT-←</code> and change the mapping in Visual Studio</em> (see below). This is because Windows 8 intercepts the <code>Home</code> key, minimizes all other windows and does not pass it on to Visual Studio.</li>
+<li>⌘↑: <strong>Edit.DocumentStart</strong> (Default windows key <code>CTRL+HOME</code>)</li>
+<li>⌘↓: <strong>Edit.DocumentEnd</strong> (Default windows key <code>CTRL+END</code>)</li>
+<li>⌘/: <strong>Edit.CommentSelection</strong> (Visual Studio <code>CTRL+K,CTRL+C</code>) mapped to <code>ALT+/</code> and remapped in Visual Studio.</li>
+<li>⌥→: <strong>Edit.WordNext</strong> (Default windows key <code>CTRL+RIGHT</code>) but somehow this combination does not work on my system natively or adjusted.</li>
+<li>⌥←: <strong>Edit.WordPrevious</strong> (Default Windows key <code>CTRL+LEFT</code>) also not working.</li>
+<li>⌘b: <strong>Build.BuildSolution</strong> (Visual Studio <code>CTRL-SHIFT-B</code>) to match Xcode.</li>
+<li>⌘K: <strong>Build.CleanSolution</strong> (No key) Manually mapped to <code>CTRL-SHIFT-M</code>.</li>
+</ul>
+<p>Some of these mappings require you to change the Visual Studio keys. To do so, go to <strong>Tools / Options / Environment / Keyboard</strong>.</p>
+<figure><img src=images/vs_keyboard.jpg width=785 height=469>
+</figure>
+<p>First, find the key mapping you would like to change (See 1). In this case, I am remapping <code>Edit.LineStart</code>. You should see <code>Home (Text Editor)</code> under <strong>Shortcuts for selected command:</strong> (I have already changed mine).</p>
+<p>To set the new shortcut, see 2:</p>
+<ul>
+<li>Make sure that <code>Text Editor</code> is chosen under <strong>Use new shortcut in:</strong></li>
+<li>Press the shortcut key in the blank space and make sure that it gets shown correctly.</li>
+<li>Click <strong>Assign</strong> to save it.</li>
+</ul>
+<p>I have only just started using this solution, but already its 100% easier for me to navigate around my Visual Studio code files (and the window no longer jumps around).</p>
+<p><em>If you try this out and find any other tricks, let me know in the comments and I&rsquo;ll add the best ones here.</em></p>
+<p>Back to coding in Visual Studio on a Mac!</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Oct 10, 2013 12:32 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/10/13/why-microsoft-word-must-die/>&larr; Why Microsoft Word must Die</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/09/29/homebrew-happiness/>Homebrew Happiness &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Top Pages in Status Board</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Apr 10, 2013 4:06 PM</span>
+</p>
+<h1 class=post-title>
+Top Pages in Status Board
+</h1>
+<div class=post-body>
+<p><span class=light>Google has finally deprecated their GAPI interface which this used to talk to Google Analytics, sorry folks, it will no longer work. See the <a href=https://hiltmon.com/blog/2015/06/07/new-google-analytics-for-status-board-server-edition/>New Google Analytics for Status Board Server Edition</a> for an updated version. </span></p>
+<p>Following up this morning&rsquo;s <a href=https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/>Google Analytics for Status Board</a> graph on <a href="https://itunes.apple.com/us/app/status-board/id449955536?mt=8&uo=4&at=10l894">Status Board</a>, I also wanted a <strong>top pages for today</strong> view for Hiltmon.com.</p>
+<p><span class=light>See also <a href=https://hiltmon.com/blog/2013/04/15/hourly-analytics-for-status-board/>Hourly Stats</a> and <a href=https://hiltmon.com/blog/2013/04/17/add-ga-os-and-browser-to-status-board/>OS and Browser Stats</a>.</span></p>
+<figure><img src=images/status-board-pages.jpg width=640 height=480>
+</figure>
+<p>The steps are all the same as <a href=https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/>Google Analytics for Status Board</a>, so follow along, only replace those script and the launcher files with these.</p>
+<p>The script code is in <code>status_board_pages.rb</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0>#!/usr/bin/env ruby</span>
+
+<span style=color:#0f0># status_board_pages.rb</span>
+<span style=color:#0f0># Hilton Lipschitz</span>
+<span style=color:#0f0># Twitter/ADN: @hiltmon </span>
+<span style=color:#0f0># Web: https://hiltmon.com</span>
+<span style=color:#0f0># Use and modify freely, attribution appreciated</span>
+<span style=color:#0f0>#</span>
+<span style=color:#0f0># Script to generate @panic status board files for Google Analytics web stats</span>
+<span style=color:#0f0>#</span>
+<span style=color:#0f0># Run this regularly to update status board</span>
+<span style=color:#0f0>#</span>
+<span style=color:#0f0># For how to set up, see https://hiltmon.com/blog/2013/04/10/top-pages-in-status-board/</span>
+
+<span style=color:#0f0># Include the gem</span>
+require <span style=color:#87ceeb>&#39;rubygems&#39;</span>
+require <span style=color:#87ceeb>&#39;gattica&#39;</span>
+require <span style=color:#87ceeb>&#39;date&#39;</span>
+require <span style=color:#87ceeb>&#39;json&#39;</span>
+
+<span style=color:#0f0># Your Settings</span>
+google_email   = <span style=color:#87ceeb>&#39;hiltmon@gmail.com&#39;</span>  <span style=color:#0f0># Your google login</span>
+google_pwd     = <span style=color:#87ceeb>&#39;I_aint_sayin&#39;</span>   <span style=color:#0f0># Must be a single use password if 2 factor is set up</span>
+the_title      = <span style=color:#87ceeb>&#34;Hiltmon.Com Top Pages Today&#34;</span>
+file_name      = <span style=color:#87ceeb>&#34;hiltmonpages&#34;</span>       <span style=color:#0f0># The file name to use (Assumes .CSV)</span>
+dropbox_folder = <span style=color:#87ceeb>&#34;/Users/Hiltmon/Dropbox/Data&#34;</span> <span style=color:#0f0># The path to a folder on your local DropBox</span>
+
+<span style=color:#0f0># Configuration</span>
+metrics = [<span style=color:#87ceeb>&#39;pageviews&#39;</span>] <span style=color:#0f0>#, &#39;uniquePageviews&#39;, &#39;newVisits&#39;]</span>
+colors = [<span style=color:#87ceeb>&#39;red&#39;</span>, <span style=color:#87ceeb>&#39;green&#39;</span>, <span style=color:#87ceeb>&#39;blue&#39;</span>]
+
+<span style=color:#0f0># Login</span>
+ga = <span style=color:#7fffd4>Gattica</span>.new({ 
+    <span style=color:#f60>:email</span> =&gt; google_email, 
+    <span style=color:#f60>:password</span> =&gt; google_pwd
+})
+
+
+<span style=color:#0f0># Get a list of accounts</span>
+accounts = ga.accounts
+
+<span style=color:#0f0># Choose the first account</span>
+ga.profile_id = accounts.first.profile_id
+<span style=color:#0f0># ga.profile_id = accounts[1].profile_id # OR second account</span>
+
+<span style=color:#0f0># Get the data</span>
+data = ga.get({ 
+    <span style=color:#f60>:start_date</span>   =&gt; <span style=color:#7fffd4>Date</span>.today.to_s.split(<span style=color:#87ceeb>&#39;T&#39;</span>)[<span style=color:#f60>0</span>],
+    <span style=color:#f60>:end_date</span>     =&gt; <span style=color:#7fffd4>Date</span>.today.to_s.split(<span style=color:#87ceeb>&#39;T&#39;</span>)[<span style=color:#f60>0</span>],
+    <span style=color:#f60>:dimensions</span>   =&gt; [<span style=color:#87ceeb>&#39;pageTitle&#39;</span>],
+    <span style=color:#f60>:metrics</span>      =&gt; metrics,
+    <span style=color:#f60>:sort</span>         =&gt; [<span style=color:#87ceeb>&#39;-pageviews&#39;</span>]
+})
+
+<span style=color:#0f0># # Make the CSV file</span>
+<span style=color:#7fffd4>File</span>.open(<span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>dropbox_folder<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/</span><span style=color:#87ceeb>#{</span>file_name<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.csv&#34;</span>, <span style=color:#87ceeb>&#34;w&#34;</span>) <span style=color:red>do</span> |f|
+  f.write <span style=color:#87ceeb>&#34;15%, 85%</span><span style=color:#87ceeb>\n</span><span style=color:#87ceeb>&#34;</span>
+  count = <span style=color:#f60>0</span>
+  data.to_h[<span style=color:#87ceeb>&#39;points&#39;</span>].each <span style=color:red>do</span> |point|
+    the_page = point.to_h[<span style=color:#87ceeb>&#34;dimensions&#34;</span>].first[<span style=color:#f60>:pageTitle</span>].gsub(<span style=color:#87ceeb>&#39;,&#39;</span>, <span style=color:#87ceeb>&#39;&#39;</span>).gsub(<span style=color:#87ceeb>&#39; - The Hiltmon&#39;</span>, <span style=color:#87ceeb>&#39;&#39;</span>)
+    the_data = point.to_h[<span style=color:#87ceeb>&#34;metrics&#34;</span>].map { |e| e.values.first }
+    f.write the_data.join(<span style=color:#87ceeb>&#39;,&#39;</span>) + <span style=color:#87ceeb>&#34;,&#34;</span> + the_page + <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>\n</span><span style=color:#87ceeb>&#34;</span>
+    count += <span style=color:#f60>1</span>
+    <span style=color:red>break</span> <span style=color:red>if</span> count &gt;= <span style=color:#f60>20</span>
+  <span style=color:red>end</span>
+<span style=color:red>end</span>
+</code></pre></div><p>Once again, edit the script to change:</p>
+<ul>
+<li>The <strong>email</strong> and <strong>password</strong> you use to access Google Analytics.</li>
+<li>The <strong>title</strong>, <strong>file_name</strong> and <strong>dropbox_path</strong> to save the data on your computer and dropbox.</li>
+<li>The home title at line 60: replace <code> - The Hiltmon</code> with your own tagline.</li>
+</ul>
+<p>The launcher code is in <code>com.hiltmon.status_board_pages.plist</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;
+&lt;plist version=&#34;1.0&#34;&gt;
+&lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;com.hiltmon.status_board_pages&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;/Users/Hiltmon/Dropbox/Scripts/status_board_pages.rb&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;StartInterval&lt;/key&gt;
+    &lt;integer&gt;300&lt;/integer&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></div><p>Update it too for your paths and names, the copy and load it.</p>
+<p><strong>Add it to Status Board</strong></p>
+<p>Follow the instructions in <a href=http://www.panic.com/statusboard/docs/table_tutorial.pdf>Table Tutorial (PDF)</a>:</p>
+<ul>
+<li>Share the CSV file on your DropBox</li>
+<li>Mail that link to yourself</li>
+<li>Tap the link in the email on your iPad to open it in Safari</li>
+<li>Copy the link from Safari (minus the bit after the <code>?</code>)</li>
+<li>Add a new <strong>table</strong> to your Status Board and paste in the link (it offers to do this by default).</li>
+</ul>
+<p>Enjoy.</p>
+<p><em>Update: All the scripts can be downloaded from Github at <a href=https://github.com/hiltmon/status-board-ga>https://github.com/hiltmon/status-board-ga</a>.</em></p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Apr 10, 2013 4:06 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/04/11/natsukashii-ipulse-sighting/>&larr; Natsukashii - iPulse Sighting</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/04/10/google-analytics-for-status-board/>Google Analytics for Status Board &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

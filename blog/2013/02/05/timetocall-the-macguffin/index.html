@@ -1,0 +1,129 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>TimeToCall - The MacGuffin</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Feb 5, 2013 10:15 AM</span>
+</p>
+<h1 class=post-title>
+TimeToCall - The MacGuffin
+</h1>
+<div class=post-body>
+<p><em><a href=https://hiltmon.com/timetocall/>TimeToCall</a> is a simple, universal iOS application I developed to help people choose the best time to call when calling internationally. This is <a href=https://hiltmon.com/blog/categories/timetocall/><strong>part 8</strong> in a series of posts</a> about the thinking and work done. My goal is to share just how much effort it really does take to craft an iPhone app and ship it. I hope this series helps you to understand why it costs so much and takes so long to create beautiful software. <a href=https://hiltmon.com/blog/2013/02/04/timetocall-polishing-the-app/>Back to part 7</a> or <a href=https://hiltmon.com/blog/2013/01/29/timetocall-the-effort-and-the-return/>start at part 1 first</a>.</em></p>
+<h2 id=the-macguffin>The MacGuffin</h2>
+<p>Not all the work <a href=https://hiltmon.com/blog/2013/02/03/timetocall-sweating-the-details/>Sweating the Details</a> and <a href=https://hiltmon.com/blog/2013/02/04/timetocall-polishing-the-app/>Polishing</a> is about making things better, correct or even perfect. Sometimes it’s also about personality, giving the application some character, or throwing in a <a href=http://en.wikipedia.org/wiki/MacGuffin>MacGuffin</a> or two, features that are expected, hidden on purpose, and not really needed.</p>
+<blockquote>
+<p>The point of this post is to show that all software has features that user’s expect, demand and will most likely never ever use. But you still have to think about it, design it, program it, test it, sweat its details and polish it. It adds time and cost to the application, but just as the MacGuffin is a useless plot point that sets up a movie, so these features are needed to ‘complete’ the application, compete in the market on feature comparison lists, or just check the customer’s “I must have this” list.</p>
+</blockquote>
+<p>The optimizer in <a href=https://hiltmon.com/timetocall/>TimeToCall</a> is my MacGuffin feature, it’s expected to be there, but not useful at all. The purpose of the app is to ‘play’ with time, <em>not solve it for you</em>. And an optimizer cannot really pick the best time anyway. So, instead of developing a cold, boring, and logically correct one, I intentionally developed and shipped a faulty, opinionated one. It does not crash, it just picks the wrong times with regularity.</p>
+<h2 id=the-optimizer>The Optimizer</h2>
+<p>As you by now know, the primary purpose of <a href=https://hiltmon.com/timetocall/>TimeToCall</a> is to help people figure out the best time to call other timezones such that all participants are involved at convenient time in their locations.</p>
+<p>The user can figure this out by ‘playing’ with time to see when these moments occur.</p>
+<p>The idea of an optimizer is to come up with the single best <em>Time to Call</em> given an arbitrary source and destination set. That would not work as the optimal time is somewhere within a <em>window</em> of time, from a certain hour to certain hour.</p>
+<p>Instead, I decided to find the <em>earliest best time</em> and <em>latest best time</em> to call, the ends of the window. But I needed to set some constraints to ensure these times were ‘good’. I did not want the earliest calls to happen before 7AM as that’s just too early, nor did I want the latest calls to happen after 10PM. Constraints set.</p>
+<p>The optimizer logic is simple. The earliest optimizer finds the location furthest west, bumps it to 7AM, adjusts the remaining times and presents that as the best early time to call. Actually, it adjusts the source time such that the westernmost location is at 7AM. Tap the <code>AM</code> button to see it in action.</p>
+<p>The latest optimizer does the same with the easternmost location, bumps it to 10PM and calculates back. Tap the <code>PM</code> button to see it in action.</p>
+<p>Not bad. But not good either.</p>
+<p>It has three glaring faults. Do you see them?</p>
+<ol>
+<li>It fails to optimize across the date line.</li>
+<li>It still optimizes to ‘bad’ times</li>
+<li>The edges of the ‘good’ window are generally the least-‘good’ <em>Times to Call</em>.</li>
+</ol>
+<h3 id=optimize-across-the-date-line>Optimize across the date line</h3>
+<p>Try Los Angeles and Sydney and optimize. The <code>PM</code> optimizer picks Sydney at 10PM making LA 3AM, yet optimally 10AM in Sydney is a great time to call LA at 3PM.</p>
+<p>This happens because the starting point of the optimizer is the east/west divide, or GMT. It goes west of GMT and east of GMT. It should, instead, use the ‘distance’ in hours from a calculated midpoint, not east and west. An optimizer like that would pick better call times for the example set.</p>
+<p>But I chose not to implement it. I wanted a faulty optimizer. This is the app’s MacGuffin feature, it can’t work, and it’s not supposed to work.</p>
+<h3 id=optimized-to-bad-hours>Optimized to ‘bad’ hours</h3>
+<p>Try Los Angeles, Sydney and London, hit <code>PM</code> and Los Angeles is in a ‘bad’ time to call (Sydney gets 10PM, LA is 3AM).</p>
+<p>So why the ‘bad’ time? The time excluded by the optimizer’s constraints is three hours <em>longer</em> than the ‘bad’ hours (see <a href=https://hiltmon.com/blog/2013/02/02/timetocall-good-and-bad-times-to-call/>Good and Bad Times to Call</a>). It means that there are sets of locations such as the above where at least one location will have a ‘bad’ time picked by the optimizer.</p>
+<p>This issue is also easy to fix. I could adjust the optimizer’s constraints to be 6AM on the earliest and 12AM on the latest, and it would work much better (all ‘good’ times to call). But in reality, even though the hours are ‘good’, they are not the way people <em>normally</em> work and think. I tried the change, and it made the app feel soulless and mechanical.</p>
+<p>A faulty, or worse, optimizer just <em>felt</em> better. Then again, it is the MacGuffin feature.</p>
+<h3 id=optimize-to-the-edges>Optimize to the Edges</h3>
+<p>The earliest best time and the latest best time are both valid times for the optimizer, but are pretty useless to the user. Times somewhere <em>within</em> the time window are going to be much better. The question is <em>which time within the window is best?</em></p>
+<p>I don’t know.</p>
+<p>It depends on the user’s schedule, the people they are calling’s schedules, the day of the week, differing office hours, meetings, commute times, habits, etc. It may even change from call to call as people’s lifestyles change. There is no way for this simple app to know.</p>
+<p>I could have written the optimizer to pick the middle time in the window. One could argue that logically that’s the best <em>Time to Call</em> given no other knowledge. But that is Vulcan thinking, not human.</p>
+<p>Since we do not know the people involved’s schedules, the optimizer can only be a MacGuffin feature.</p>
+<h2 id=shipping-the-optimizer-issue>Shipping the Optimizer Issue</h2>
+<p>So I left the optimizer with its smaller constraint window, faulty starting point and edge seeker as is. But why?</p>
+<p>One, it makes the application feel and work more naturally for the vast majority of timezones combinations, especially the closer ones. It only <em>screws up</em> when the locations are too far apart or there is nothing near GMT.</p>
+<p>Secondly, the goal of the app is to enable the user to ‘play’ with time, <strong>not solve it for them</strong>. Moving the time slider up and down is interactive, fun and helps the user achieve their goal of choosing the best <em>Time to Call</em>. It really does not need an optimizer, but <em>should</em> have one, hence the MacGuffin.</p>
+<p>Thirdly, I wanted my users to know they are smarter than the app. I hoped that my test users would <em>not</em> notice these intentional screw-ups. And I received no feedback on it during the beta. Instead, something amazing happened. My users gained a feeling of superiority, reward and achievement, because <em>they</em> could and did find a ‘better’ <em>Time to Call</em> than the software.</p>
+<p>Fourthly, users want a suitable <em>Time to Call</em> within the ‘good’ window, not at the edges that are found by a mechanical optimizer. So they ‘play’ with time to find it. And optimizer really does not help here, it gets in the way (even a perfectly correct one) and that is why I made accessing it less intuitive.</p>
+<p>And finally, the optimizer cannot choose <em>suitable</em>. The best <em>Time to Call</em> from the user’s perspective is somewhere inside the ‘good’ window, but where inside that window is a <em>subjective</em> decision, a user decision. You can’t write an optimizer to pick the best subjective time for call without access to everyone’s schedules. Which makes this a truly MacGuffin-esque feature. But since it is expected, best to give it quirks and a personality.</p>
+<p>Once the application is released and in the wild, I will continue to monitor. I’m treating the optimizer as this application’s <a href=http://en.wikipedia.org/wiki/MacGuffin>MacGuffin</a> feature. I expect this MacGuffin will forgotten as people ‘play’ with time. If I get feedback that the optimizer is useful and not a MacGuffin, and my users want a less faulty one (note I did not write ‘correct’ one), I will release it in an update. If I get no feedback at all, which I expect to be the case, I will leave it as is, or even remove it quietly later.</p>
+<p><strong>Next:</strong> <a href=https://hiltmon.com/blog/2013/02/06/timetocall-dawdle-to-the-finish/>Part 9: Dawdle to the Finish</a>.</p>
+<hr>
+<p> <br>
+<em><a href=https://hiltmon.com/timetocall/>TimeToCall</a> can be downloaded from the <a href="https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8">App Store</a> for 99c.</em></p>
+<p><em>I hope you enjoy <a href=https://hiltmon.com/blog/categories/timetocall/>this series of articles</a> on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy <a href=https://hiltmon.com/timetocall/>TimeToCall</a> from the <a href="https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8">App Store</a>, it helps me continue to write, and please tell your friends about these articles and this product.</em></p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Feb 5, 2013 10:15 AM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/02/06/timetocall-dawdle-to-the-finish/>&larr; TimeToCall - Dawdle to the Finish</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/02/04/timetocall-polishing-the-app/>TimeToCall - Polishing the App &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

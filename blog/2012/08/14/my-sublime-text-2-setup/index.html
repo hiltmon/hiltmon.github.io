@@ -1,0 +1,148 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>My Sublime Text 2 Setup</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Aug 14, 2012 12:38 PM</span>
+</p>
+<h1 class=post-title>
+My Sublime Text 2 Setup
+</h1>
+<div class=post-body>
+<p>I have been using Sublime Text 2 for a month or so now, and I still do <em>not</em> love it. Here’s hoping TextMate 2 gets it’s game on. But at least I have it working closer to the way I want it to work and look now. Here are the minor changes I have made to make it work for me and how it compares to TextMate 2 <span class=light>(Updated: See <a href=https://hiltmon.com/blog/2013/04/15/my-textmate-2-setup/>My TextMate 2 Setup - The Hiltmon</a>).</span></p>
+<h2 id=packages>Packages</h2>
+<p>Of course, the first thing you do with Sublime Text 2 is install <a href=http://wbond.net/sublime_packages/package_control>Package Control</a>. Why this is not part of the product astounds me, but that’s the way it is. You use Package Control to install the packages you need to run Sublime Text.</p>
+<p>Then I installed the following packages (mostly for Ruby on Rails work):</p>
+<ul>
+<li><a href=http://wbond.net/sublime_packages/alignment>Alignment</a></li>
+<li><a href=https://github.com/Xavura/CoffeeScript-Sublime-Plugin>CoffeeScript</a></li>
+<li><a href=https://github.com/phillipkoebbe/DetectSyntax>DetectSyntax</a> - so <code>.rb</code> files get the right format</li>
+<li><a href=https://github.com/eddorre/SublimeERB>ERB Insert and Toggle Commands</a></li>
+<li><a href=https://github.com/kemayo/sublime-text-2-git>Git</a></li>
+<li><a href=https://github.com/mrmartineau/HTML5>HTML5</a></li>
+<li><a href=https://github.com/mrmartineau/jQuery>jQuery</a></li>
+<li><a href=https://github.com/SublimeText/RSpec>rSpec</a></li>
+<li><a href=https://github.com/kuroir/SCSS.tmbundle>SCSS</a></li>
+<li><a href=http://wbond.net/sublime_packages/sftp>SFTP</a></li>
+<li><a href=https://github.com/titoBouzout/SideBarEnhancements/>SideBarEnhancements</a></li>
+<li><a href=https://github.com/Kronuz/SublimeCodeIntel>SublimeCodeIntel</a></li>
+<li><a href=https://github.com/buymeasoda/soda-theme/>Theme - Soda</a> - to make it look useable</li>
+</ul>
+<p>I had a few others installed, but they conflicted with each other. Surprised that that happened, had to remove them.</p>
+<h2 id=defaults>Defaults</h2>
+<p>I love the RailsCasts theme, so I copied the <code>RailsCasts.tmTheme</code> file to the correct folder (on OS X that is <code>~/Library/Application Support/Sublime Text 2/Packages/User/</code>). My <strong>Preferences / Settings - User</strong> looks like:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>{
+	&#34;color_scheme&#34;: <span style=color:#87ceeb>&#34;Packages/User/Railscasts.tmTheme&#34;</span>,
+	&#34;ensure_newline_at_eof_on_save&#34;: <span style=color:red>false</span>,
+	&#34;folder_exclude_patterns&#34;:
+	[
+		<span style=color:#87ceeb>&#34;.svn&#34;</span>,
+		<span style=color:#87ceeb>&#34;.git&#34;</span>,
+		<span style=color:#87ceeb>&#34;.hg&#34;</span>,
+		<span style=color:#87ceeb>&#34;CVS&#34;</span>,
+		<span style=color:#87ceeb>&#34;.sass-cache&#34;</span>
+	],
+	&#34;highlight_line&#34;: <span style=color:red>true</span>,
+	&#34;ignored_packages&#34;:
+	[
+		<span style=color:#87ceeb>&#34;Vintage&#34;</span>
+	],
+	&#34;rulers&#34;:
+	[
+		<span style=color:#f60>80</span>
+	],
+	&#34;save_on_focus_lost&#34;: <span style=color:red>true</span>,
+	&#34;tab_size&#34;: <span style=color:#f60>2</span>,
+	&#34;theme&#34;: <span style=color:#87ceeb>&#34;Soda Light.sublime-theme&#34;</span>,
+	&#34;word_wrap&#34;: <span style=color:red>true</span>
+}
+</code></pre></div><p>In short, I set the Soda Light theme as the default dark theme is ugly and use RailsCasts for editor colors, nuke the <code>vi</code> support, trigger save on lost focus and fix-up the folder exclude patterns to hide some Octopress folders.</p>
+<p>I also changed 2 keybindings, in <strong>Preferences / Key Bindings - User</strong>, I have:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>[
+	{ &#34;keys&#34;: [<span style=color:#87ceeb>&#34;ctrl+shift+d&#34;</span>], &#34;command&#34;: <span style=color:#87ceeb>&#34;duplicate_line&#34;</span> }, <span style=color:#0f0>// Like TextMate and BBedit
+</span><span style=color:#0f0></span>	{ &#34;keys&#34;: [<span style=color:#87ceeb>&#34;ctrl+shift+.&#34;</span>], &#34;command&#34;: <span style=color:#87ceeb>&#34;erb&#34;</span>, &#34;context&#34;:
+    [
+      { &#34;key&#34;: <span style=color:#87ceeb>&#34;selector&#34;</span>, &#34;operator&#34;: <span style=color:#87ceeb>&#34;equal&#34;</span>, &#34;operand&#34;: <span style=color:#87ceeb>&#34;text.html.ruby, text.haml, source.yaml, source.css, source.scss, source.js, source.coffee&#34;</span> }
+    ]
+  }
+]
+</code></pre></div><p>And that’s about it.</p>
+<h2 id=compared-to-textmate-2>Compared to TextMate 2</h2>
+<p>So now Sublime Text 2 looks just like my TextMate 2 setup:</p>
+<figure><img src=images/sublime-textmate-match.jpg width=640 height=230>
+</figure>
+<p>But there are subtleties that are still driving me nuts:</p>
+<ul>
+<li>TextMate 2 is a Mac application, uses Mac conventions and components, works like a Mac application. Sublime Text 2 does not, whether it’s the look of the find box or the use of the same drop-down for everything from commands to navigation, it’s just not right as a Mac user experience.</li>
+<li>The Bundles a.k.a. Packages in Sublime Text 2 seem half done. I can forgive that the product is new and the bundles need to catch up, but since most of them are just TextMate bundles re-wrapped, I’m surprised they don’t feel like better quality. And there does not seem to be a way to figure out how good a package is until you install it and things go awry.</li>
+</ul>
+<p>I’m going to stick with Sublime Text 2 for now, but am keeping an eye out for something better.</p>
+<p>See also <a href=https://hiltmon.com/blog/2012/11/07/multiple-themes-in-sublime-text-2/>Multiple Themes in Sublime Text 2</a> and <a href=https://hiltmon.com/blog/2012/11/26/multi-platform-editing-is-sublime/>Multi-Platform Editing Is Sublime</a>. And follow me at <a href=https://https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=https://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Aug 14, 2012 12:38 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2012/08/17/rip-twitter/>&larr; RIP Twitter</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2012/08/13/choosing-sunglasses/>Choosing Sunglasses &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

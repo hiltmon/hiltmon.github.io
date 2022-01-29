@@ -1,0 +1,177 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Better Bash Shell Expansion</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Mar 12, 2013 12:33 PM</span>
+</p>
+<h1 class=post-title>
+Better Bash Shell Expansion
+</h1>
+<div class=post-body>
+<p>I&rsquo;ve been doing a lot of work on TextMate 2 plugins recently and the way shell expansion works in the terminal has been annoying me. Here are some tips to</p>
+<ul>
+<li>speed up access to the <code>Application Support</code> folder,</li>
+<li>create case insensitive tab completions,</li>
+<li>reduce typing to <code>cd</code> to common folders</li>
+<li>and to reuse the TAB key for additional completions.</li>
+</ul>
+<h3 id=getting-to-application-support>Getting to Application Support</h3>
+<p>The TextMate bundles I am working on are hidden in the <strong>Library</strong> → <strong>Application Support</strong> Folder. If you type this in your shell (⇥ is the TAB key):</p>
+<pre><code>$ cd ~/Library/App⇥
+</code></pre>
+<p>I&rsquo;ll bet it completes to <code>cd ~/Library/Application\ S</code> and stops. That&rsquo;s because there are two folders that could match: <code>Application Scripts</code> and <code>Application Support</code>. Since I never need to use <code>Application Scripts</code>, I&rsquo;d like bash completion to ignore it.</p>
+<p>Add the following in your <code>.bash_profile</code> file:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=color:#0f0># So I can tab to Application Support</span>
+<span style=color:#eedd82>FIGNORE</span>=<span style=color:#87ceeb>&#34;.o:~:Application Scripts&#34;</span>
+</code></pre></div><p>The <code>FIGNORE</code> shell variable tells bash completion to ignore files or folders with the matching patterns (colon separated list). Quit and restart your terminal and</p>
+<pre><code>$ cd ~/Library/App⇥
+</code></pre>
+<p>correctly maps to</p>
+<pre><code>$ cd ~/Library/Application\ Support/
+</code></pre>
+<p>Thanks Allan Odgaard for the tip in <a href=http://sigpipe.macromates.com/2012/08/10/path-completion-bash/>Path Completion (bash)</a>.</p>
+<h3 id=case-insensitive-completion>Case Insensitive Completion</h3>
+<p>I drive myself nuts with case sensitive file and folder names, and then using the wrong case when attempting completion in a shell. I often type</p>
+<pre><code>$ cd ~/l⇥
+</code></pre>
+<p>instead of</p>
+<pre><code>$ cd ~/L⇥
+</code></pre>
+<p>To get to <code>~/Library</code>.</p>
+<p>To get case-insensitive completion, add the following to a file called <code>~/.inputrc</code> (<code>.inputrc</code> in your home folder):</p>
+<pre><code>set completion-ignore-case on
+</code></pre>
+<p>And restart your terminal. Tab completion will now work no matter what case the file or folder name is.</p>
+<p><strong>Tip</strong>: If you want it to work with hyphens and underscores as well, add:</p>
+<pre><code>set completion-map-case on
+</code></pre>
+<h3 id=shorter-cd>Shorter CD</h3>
+<p>All my code and projects are in <code>~/Projects/</code>, so I often need to type</p>
+<pre><code>$ cd ~/Projects/Kifu/code
+</code></pre>
+<p>to get to the code base on <a href=http://www.kifuapp.com>Kifu</a>. I also have a <code>Pictures</code> and a <code>Public</code> folder so tab completing <code>cd ~/P</code> is a pain (see below).</p>
+<p>Then I learned about the <code>CDPATH</code> variable in bash. Add folders to this and the <code>cd</code> command will look there as well for the folder you want. In your <code>.bash_profile</code>:</p>
+<pre><code># So I can cd to projects quickly
+CDPATH=$CDPATH:$HOME/Projects
+</code></pre>
+<p>Now I can type</p>
+<pre><code>$ cd Kifu/code
+</code></pre>
+<p>from anywhere to get to the same place.</p>
+<p><strong>Warning:</strong> Using <code>CDPATH</code> can screw up some scripts where the <code>cd</code> will work on your machine and not on others, use with care.</p>
+<p>Also, in OS X, tab completion does not work with <code>CDPATH</code>, you need to type in the full folder name, with the correct case. Or you could install <code>bash-completion</code> using HomeBrew or MacPorts, something I choose not to do (<a href=https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion>Instructions here</a>).</p>
+<p><em>Aside: For more frequently accessed folders, I use <a href="https://itunes.apple.com/us/app/textexpander-for-mac/id405274824?mt=12&uo=4&at=10l894">TextExpander</a> snippets to reduce typing; in this case, the expansion of <code>;cdki</code> takes me to the same place. I just don&rsquo;t create expansions for all projects. Yes, I know, I could just as easily use shell <code>alias</code> to do the same.</em></p>
+<h3 id=tab-for-more-completions>TAB for more completions</h3>
+<p>In my `.inputrc , I also have</p>
+<pre><code>set mark-symlinked-directories on
+set show-all-if-ambiguous on
+</code></pre>
+<p>The first line just makes symlinks look better, the second is brilliant. If there are ambiguous files that <em>could</em> match your tab completion, <code>show-all-if-ambiguous</code> shows them all and returns you the same prompt to help you type more to get a match.</p>
+<p>So typing</p>
+<pre><code>$ cd ~/P⇥
+</code></pre>
+<p>Presents the expansion options:</p>
+<pre><code>$ cd ~/P⇥
+Pictures/ Projects/ Public/
+$ cd ~/P
+</code></pre>
+<p>Thats <em>nice</em> but I&rsquo;d like to tab through the options instead. Add this to your <code>.inputrc</code> and restart the terminal:</p>
+<pre><code>TAB: menu-complete
+</code></pre>
+<p>So typing</p>
+<pre><code>$ cd ~/P⇥
+</code></pre>
+<p>now gives</p>
+<pre><code>$ cd ~/Pictures/
+</code></pre>
+<p>Press TAB again gives</p>
+<pre><code>$ cd ~/Projects/
+</code></pre>
+<p><em>Update</em>: Thanks to Brett Terpstra&rsquo;s <a href=http://brettterpstra.com/2011/09/25/quick-tip-some-inputrc-fun/>Quick Tip: some .inputrc fun</a>, you can use SHIFT-TAB to complete in reverse, just add this to your <code>.inputrc</code>:</p>
+<pre><code>&quot;\e[Z&quot;: &quot;\e-1\C-i&quot;
+</code></pre>
+<h3 id=summary>Summary</h3>
+<p>My .inputrc</p>
+<pre><code>set completion-ignore-case on
+set mark-symlinked-directories on
+set show-all-if-ambiguous on
+TAB: menu-complete
+&quot;\e[Z&quot;: &quot;\e-1\C-i&quot;
+</code></pre>
+<p>Parts of my <code>.bash_profile</code></p>
+<pre><code># So I can tab to Application Support
+FIGNORE=&quot;.o:~:Application Scripts&quot;
+
+# So I can cd to projects quickly
+CDPATH=$CDPATH:$HOME/Projects
+</code></pre>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Mar 12, 2013 12:33 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/03/12/sharing-bash-profiles-across-computers/>&larr; Sharing Bash Profiles across Computers</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/03/11/gist-dot-tmbundle-updates/>Gist.tmbundle Updates &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

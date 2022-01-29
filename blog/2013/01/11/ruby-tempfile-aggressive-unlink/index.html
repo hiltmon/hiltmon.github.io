@@ -1,0 +1,97 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Ruby Tempfile Aggressive Unlink</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Jan 11, 2013 10:49 AM</span>
+</p>
+<h1 class=post-title>
+Ruby Tempfile Aggressive Unlink
+</h1>
+<div class=post-body>
+<p>I often use Ruby’s <code>Tempfile</code> class when generating files in Rails for download. But something went wrong in the Rails 3.2.11 update.</p>
+<p>Here is the code I normally use (as per the <a href=http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html>Tempfile documentation</a>):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>...
+<span style=color:red>begin</span> 
+  temp = <span style=color:#7fffd4>Tempfile</span>.new(“temp-file-name.xlsx”) 
+  report = <span style=color:#7fffd4>ReportClass</span>.new(temp.path, params)
+  report.generate
+  send_file temp.path, <span style=color:#f60>:filename</span> =&gt; “<span style=color:#0f0>#{user_file_name}.xlsx&#34;, :type =&gt; &#34;application/xlsx&#34;</span>
+<span style=color:red>ensure</span>
+  temp.close
+  temp.unlink
+<span style=color:red>end</span>
+...
+</code></pre></div><p>In short, create a temp file, stream the data to it in the report class, then send the file to the user. Ensure the file is closed and deleted after. Prior to Rails 3.2.11, this worked fine.</p>
+<p>The problem after the 3.2.11 update is that the <code>temp.unlink</code> was happening <em>before</em> the file got sent (or maybe while it was being sent), leading to blank or corrupted files.</p>
+<p>It turns out, the <code>temp.unlink</code> is not necessary any more. As long as you close a Tempfile using <code>temp.close</code>, Ruby’s Garbage Collector will delete the file for you, <em>once it no longer needs it</em>. Which means that the <code>send_file</code> will have a file available to send. I monitored my temp folder and it does indeed do this.</p>
+<p>So, remove the <code>temp.unlink</code> line in Rails 3.2.11 projects, and ignore the documentation. You can now generate and send files from Rails again.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Jan 11, 2013 10:49 AM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/01/12/workable-social-network-connection-heuristics/>&larr; Workable Social Network Connection Heuristics</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/01/07/reprogramming-my-brace-style-mind/>Reprogramming my Brace Style Mind &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

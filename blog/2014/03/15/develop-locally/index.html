@@ -1,0 +1,175 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Develop Locally, Stage Nearby, Production Anywhere</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Mar 15, 2014 1:12 PM</span>
+</p>
+<h1 class=post-title>
+Develop Locally, Stage Nearby, Production Anywhere
+</h1>
+<div class=post-body>
+<p>One of the things that surprised me as I moved back into the land of corporate software is the number of developers I talk to that commute and work in offices <strong>and yet develop on remote computers</strong>. I thought, as you probably do, that by now <em>all</em> software development would be local, as in on the developer&rsquo;s own computer.</p>
+<p>Instead, it is not uncommon for corporate developers to rely on remote shells or desktop virtualization to access remote development computers and use them to code. It&rsquo;s slow, unproductive, frustrating and so pre-1990&rsquo;s.</p>
+<p><em>Aside: Back then, remote development was the norm. Mainframes were too expensive to give to developers and most production platforms were not available in desktop form. You had to develop remotely.</em></p>
+<p>In this post, I want to point out how delusional remote development is in the 21<sup>st</sup> century and how local development can meet all Corporate needs.</p>
+<h2 id=the-remote-development-delusion>The Remote Development Delusion</h2>
+<p>There are several reasons given by Corporates for this old-school behavior, all of which are bogus.</p>
+<blockquote>
+<p>bo·gus ˈbōgəs/ adjective</p>
+<ol>
+<li>not genuine or true; fake.</li>
+</ol>
+</blockquote>
+<ul>
+<li>
+<p><strong>Security and Access Control</strong>: The argument is that companies want to be sure that their developers do not run off with their source code, or that nothing is lost when computers get stolen or lost, that only authorized developers access the right parts of the code and that they can track who did what.</p>
+<p>Bogus because the average developer can still copy the code, or even rewrite it from scratch. Modern source code control systems and good network access control will resolve any security concern. Encrypted hard drives and startup passwords secure computers, even after theft.</p>
+</li>
+<li>
+<p><strong>Big or Sensitive Data</strong>: The argument is that the amount of data processed by developers is huge, or the data itself is so sensitive, that they need to develop close to the data.</p>
+<p>Bogus because networks are plenty fast, developer databases do not need to be that huge and storage is cheap, so making local (or nearby) copies of data is simple. Bogus because sensitive data can be changed via scripts, or fake data generated.</p>
+</li>
+<li>
+<p><strong>Cost Savings</strong>: The argument is that companies can share development resources such as licenses and installations and can therefore purchase cheaper computers for their developers.</p>
+<p>Bogus because the productivity losses in remote development by far outweigh the cost of a few measly licenses or computers. If a company cannot afford its development tools, it should not be using them. And developer tools these days are cheap or free, as are powerful computers, <em>and are licensed for local development</em>.</p>
+</li>
+<li>
+<p><strong>It&rsquo;s Policy</strong>: The argument is that the company has a policy of remote development.</p>
+<p><em>Bogus because the policy argument is always bogus</em>. Policies are made-up rules created by business people who generally know nothing about reality, or were written so long ago that no-one has cared to change them. Staff are forced to follow these bogus policies or be fired. It has nothing to do with right, productivity, cost or any other reality.</p>
+</li>
+</ul>
+<p>In each case, the argument put forward for remote development is bogus. Development on remote computers is slow, unproductive, subject to outages, and guaranteed to frustrate good developers and encourage them to leave.</p>
+<h2 id=the-local-development-model>The Local Development Model</h2>
+<p>The local development model&rsquo;s mantra is simple, to:</p>
+<blockquote>
+<ol>
+<li>Develop Locally</li>
+<li>Stage Nearby</li>
+<li>Production Anywhere</li>
+</ol>
+</blockquote>
+<p>Developers code and compile on their own computers, using locally installed tools. All projects are staged (and continuously integrated) on servers nearby (as in the same office or on the same network). And then code can be deployed anywhere to run in production.</p>
+<p>It&rsquo;s simple, local development makes sense and is the most productive way to develop.</p>
+<ul>
+<li>It&rsquo;s responsive, developers press a key and the response is instant.</li>
+<li>Developers can work anywhere, any time. Give a developer a laptop and they can work from home or at night.</li>
+<li>Developers can use their favorite tools and productivity enhancers to speed up development.</li>
+<li>Developers are only constrained by their own abilities, and not by the resources available on shared development machines, network flakiness or the slowness of remote operation.</li>
+<li>All development tools can and do run locally, and are designed and licensed to do so. Local development is the <em>expected</em> model.</li>
+</ul>
+<p>Staging nearby also makes sense.</p>
+<ul>
+<li>For large and complex code bases you can run continuous integration tools to build and report on errors far quicker than attempting production builds.</li>
+<li>You can use virtualization to spin up clean staging virtual machines on cheap retail hardware.</li>
+<li>If a developer does break something, it&rsquo;s close bye and easy to recover. And no other developers are affected.</li>
+</ul>
+<p>Only production need be remote, and that can and usually is anywhere.</p>
+<h2 id=secure-local-development-for-corporates>Secure Local Development for Corporates</h2>
+<p>But corporates need their controls and security blankets. It turns out that the local development model can easily be made as secure and controlled as needed without punishing developers and throttling productivity.</p>
+<p>Lets take each core remote development argument one at a time.</p>
+<h3 id=security-and-access-control>Security and Access Control</h3>
+<p>Corporates want to be sure that the code and data is secure and only authorized personnel can access it. Easy:</p>
+<ul>
+<li>All modern computers and Operating Systems support encrypted hard drives. A password is needed to unlock the hard disk and yet another is needed to log in. A stolen encrypted hard drive is useless, and many systems can be remote wiped.</li>
+<li>All modern operating systems are built to keep folks out, and only to enable access by authorized users. Strong passwords are good enough, and even biometric access is available.</li>
+<li>If the data and access are secured, then communication needs to be as well. All systems come with built-in encrypted Virtual Private Networking to secure communications.</li>
+<li>Access to code can be controlled using an in-house hosted Source Code Control system. Developers can only see the projects that the company wants them to see, and the code is saved, logged, tracked and maintained in-house.</li>
+</ul>
+<p>In short, no problem here.</p>
+<h3 id=big-or-sensitive-data>Big or Sensitive Data</h3>
+<p>Corporates argue that their data is too large, or is so sensitive that it needs to be tightly secured so development has to happen remotely. We&rsquo;ve already covered securing code, the same applies to data, so what about data size? Well, assuming the developer needs access to <em>the whole</em> data set, easy:</p>
+<ul>
+<li>Modern hard drives are cheap and huge. And to be clear, there are exceptionally few corporate databases that cannot fit easily on a modern laptop drive. Big data is real, but rare. And even if the data is bigger than modern laptop drives, desktops with lots of drive bays or even SAN&rsquo;s are ridiculously cheap.</li>
+<li>If data is too sensitive, run a script on a copy of the database to remove or change sensitive information. For example, replace all credit card numbers with fake ones. Or use scripts to generate accurate yet fake data for developers. There are lots of tools out there to help do this.</li>
+<li>If the data is stored in a commercial database product, and the company is so cheap it does not buy licenses for developers, then maybe they cannot run it locally. Fine, but modern networks are fast, and running a one additional license as a development database server nearby, close to staging, accessible via VPN, is cheap.</li>
+<li>And if the company really wants to be tight, it can create and clone secure virtual machines that developers can spin up and run whenever they need data access.</li>
+</ul>
+<p>It is rare that a developer needs access to the entirety of a database, and even rarer that the data does not fit on a local disk. Big data is not a problem. And there are solutions to sensitive data, so that too is not a problem.</p>
+<h3 id=cost-savings>Cost Savings</h3>
+<p>But what about the cost of all these powerful laptops, tool licenses and staging servers? I could point out that maintaining development servers, licensing and the infrastructure to support remote development is just as high cost (oh, I just did). But:</p>
+<ul>
+<li>Computers are cheap, ridiculously so. And for the price you get lots of fast cores, oodles of RAM and massive hard disks. People and people&rsquo;s time is expensive. What would you rather spend money on?</li>
+<li>Modern development tools assume local development and so license terms and conditions expect this. The cost of giving each developer a licensed copy vs running a the same licensing centrally is exactly the same.</li>
+<li>And then there is the free and open source option. Instead of using expensive proprietary tools, try using open source languages that all the cool companies are using. The cost of getting support on Open Source is negligible and the products are being used by millions.</li>
+</ul>
+<p>Choosing between needing more expensive developers using cheaper computers versus having fewer, more productive ones is easy when you look at the cost. Local development is cheaper.</p>
+<h3 id=policies>Policies</h3>
+<p>And then there is the legacy of policy. A business that is too rigid to change in the face of changing technologies, costs and realities has no right to survive. A business that is constrained by policy cannot evolve.</p>
+<p>If a company wants to hang on to their developers, and get development done quicker and better, local development is the way to go. And if the only thing that&rsquo;s holding the company back is a few silly written rules, er policies, <em>burn them</em>.</p>
+<h2 id=develop-locally-stage-nearby-production-anywhere>Develop Locally, Stage Nearby, Production Anywhere</h2>
+<p>Back in the 1970&rsquo;s, 1980&rsquo;s and early 1990&rsquo;s, remote development was the norm. Because it had to be. Mainframes and server platforms were expensive and unavailable on desktops. Computers were not secure and networks were unavailable or slow. And the tools were designed for this model.</p>
+<p>The downsides were the same as modern remote development: key press delays, slowdowns as other users took too many resources, layers of security and technology needed to enable remote access and all sorts of flakiness and problems. The upside, well, it was the only way to develop.</p>
+<p>But since then we&rsquo;ve moved on. A computer on every desk (and now lap and pocket) is the norm. Servers and server platforms can run on laptops as well as on big iron in production. Computers are secure and fast, encrypted networking is ubiquitous.</p>
+<p>There is no downside to local development. The last 20 years have been spent making local development a reality. The upside is huge. Faster, anytime, anywhere, productive developers result.</p>
+<p>There is no downside to nearby (or even local) staging. The upside is also huge. Better, faster builds, quicker identification of issues, and better testing all result.</p>
+<p>Welcome to the 21<sup>st</sup> century. <strong>Develop Locally, Stage Nearby, Production Anywhere.</strong> Remote development&rsquo;s time has passed.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Mar 15, 2014 1:12 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2014/03/20/open-source-compiles-in-an-xcode-5-world/>&larr; Open Source Compiles in an Xcode 5.1 World</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2014/03/02/from-tool-maker-to-tool-user/>From Tool Maker to Tool User &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

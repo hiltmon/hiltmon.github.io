@@ -1,0 +1,306 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Simple C++: From Makefiles to Xcode Builds</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Aug 1, 2015 11:25 AM</span>
+</p>
+<h1 class=post-title>
+Simple C++: From Makefiles to Xcode Builds
+</h1>
+<div class=post-body>
+<p>This post will present a step-by-step process to convert C++/C++11 Makefile-based projects to Xcode build tools. I use it all the time to set up, convert, build and debug Unix/Linux executables that I develop on my Macintosh.</p>
+<h2 id=context-and-benefits>Context and Benefits</h2>
+<p>I write a lot of concurrent, complex, real-time C++11 code these days using my Macintosh. I prefer the look, feel, tools and services that the Macintosh and its ecosystem provides.</p>
+<p>But the applications I build all run on Linux CentOS 6.6 Servers.</p>
+<p>I could do this development on a Linux desktop, as a lot of people do. The tools exist and the Linux desktop sure is maturing. But, in my opinion, the OS X tools, third party productivity products, robustness, ecosystem and my habits make me far more productive on OS X. I can leverage Xcode and its amazing compilers, debuggers and IDE tools to help me build better C++11 products quicker, and then deploy using <code>git</code> and <code>make</code> to Linux. Since I use only clean C++11 and open source dependencies, all available via <a href=https://hiltmon.com/blog/2013/09/29/homebrew-happiness/>HomeBrew</a>, this model works great.</p>
+<p><strong>Xcode provides an amazing set of tools over and above the code editor.</strong> The integrated <code>clang</code> compiler detects far more potential issues than others. The integrated <code>llvm</code> debugger and inspectors make it easy to view the content of objects at breakpoints. The thread, memory and networking panels show exactly what the program is doing and Instruments is pure wizardry. There is no reason not to take advantage of all of these robust and easy to use technologies when developing.</p>
+<h2 id=an-example-c-makefile-with-dependencies>An Example C++ Makefile with Dependencies</h2>
+<p>Lets start with a <em>real</em> Makefile I use for a semi-complex product with many dependencies. Its a long Makefile, but I&rsquo;ll go though the highlights below.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-make data-lang=make><span style=color:#0f0>#
+</span><span style=color:#0f0>#  Makefile
+</span><span style=color:#0f0>#  CoralSeaServer
+</span><span style=color:#0f0>#
+</span><span style=color:#0f0>#  Created by Hilton Lipschitz on 2014-10-20.
+</span><span style=color:#0f0>#  Copyright (c) 2014 Maritime Capital LP. All rights reserved.
+</span><span style=color:#0f0>#
+</span><span style=color:#0f0></span>
+<span style=color:#0f0># HIL: No spaces or comments after otherwise it captures them!
+</span><span style=color:#0f0># Determine the platform
+</span><span style=color:#0f0></span><span style=color:#eedd82>UNAME_S</span> := <span style=color:red>$(</span>shell uname -s<span style=color:red>)</span>
+
+ifeq (<span style=color:red>$(</span><span style=color:#eedd82>UNAME_S</span><span style=color:red>)</span>,Darwin)
+	<span style=color:#eedd82>CC</span> := clang++ -arch x86_64
+else
+	<span style=color:#eedd82>CC</span> := g++
+endif
+
+<span style=color:#eedd82>SRCDIR</span> := src
+<span style=color:#eedd82>LIBDIR</span> := lib
+<span style=color:#eedd82>BUILDDIR</span> := build
+<span style=color:#eedd82>TARGETDIR</span> := bin
+<span style=color:#eedd82>INSTALLBINDIR</span> := /usr/local/bin
+<span style=color:#eedd82>TARGET</span> := bin/CoralSeaServer
+
+<span style=color:#0f0># Normal CPP files
+</span><span style=color:#0f0></span><span style=color:#eedd82>SRCEXT</span> := cpp
+<span style=color:#eedd82>SOURCES</span> := <span style=color:red>$(</span>shell find <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span> -type f -name *.<span style=color:red>$(</span>SRCEXT<span style=color:red>))</span>
+<span style=color:#eedd82>OBJECTS</span> := <span style=color:red>$(</span>patsubst <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>SOURCES:.<span style=color:red>$(</span>SRCEXT<span style=color:red>)</span>=.o<span style=color:red>))</span>
+
+<span style=color:#0f0># Protobuf CC files
+</span><span style=color:#0f0></span><span style=color:#eedd82>SRCEXT2</span> := cc
+<span style=color:#eedd82>SOURCES2</span> := <span style=color:red>$(</span>shell find <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span>/proto -type f -name *.<span style=color:red>$(</span>SRCEXT2<span style=color:red>))</span>
+<span style=color:#eedd82>OBJECTS2</span> := <span style=color:red>$(</span>patsubst <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>SOURCES2:.<span style=color:red>$(</span>SRCEXT2<span style=color:red>)</span>=.o<span style=color:red>))</span>
+
+<span style=color:#eedd82>CFLAGS</span> := -c
+ifeq (<span style=color:red>$(</span><span style=color:#eedd82>UNAME_S</span><span style=color:red>)</span>,Linux)
+	<span style=color:#eedd82>CFLAGS</span> += -std=gnu++11 -O2 <span style=color:#0f0># -fPIC</span>
+else
+	<span style=color:#eedd82>CFLAGS</span> += -std=c++11 -stdlib=libc++ -O2
+endif
+
+<span style=color:#eedd82>LIB</span> := -L /usr/local/lib -lcorinth -lprotobuf -lzmq
+<span style=color:#eedd82>INC</span> := -I include -I include/proto -I /usr/local/include
+
+<span style=color:#ff0>$(TARGET)</span>: <span style=color:red>$(</span><span style=color:#eedd82>OBJECTS</span><span style=color:red>)</span> <span style=color:red>$(</span><span style=color:#eedd82>OBJECTS</span>2<span style=color:red>)</span>
+	@mkdir -p <span style=color:red>$(</span>TARGETDIR<span style=color:red>)</span>
+	@echo <span style=color:#87ceeb>&#34; Linking...&#34;</span>
+	@echo <span style=color:#87ceeb>&#34; </span><span style=color:red>$(</span>CC<span style=color:red>)</span><span style=color:#87ceeb> </span>$<span style=color:#87ceeb>^ -o </span><span style=color:red>$(</span>TARGET<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>LIB<span style=color:red>)</span><span style=color:#87ceeb>&#34;</span>; <span style=color:red>$(</span>CC<span style=color:red>)</span> $^ -o <span style=color:red>$(</span>TARGET<span style=color:red>)</span> <span style=color:red>$(</span>LIB<span style=color:red>)</span>
+
+<span style=color:#ff0>$(BUILDDIR)/%.o</span>: <span style=color:red>$(</span><span style=color:#eedd82>SRCDIR</span><span style=color:red>)</span>/%.<span style=color:red>$(</span><span style=color:#eedd82>SRCEXT</span><span style=color:red>)</span>
+	@mkdir -p <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>
+	@echo <span style=color:#87ceeb>&#34; </span><span style=color:red>$(</span>CC<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>CFLAGS<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>INC<span style=color:red>)</span><span style=color:#87ceeb> -c -o </span><span style=color:#eedd82>$@</span><span style=color:#87ceeb> </span>$<span style=color:#87ceeb>&lt;&#34;</span>; <span style=color:red>$(</span>CC<span style=color:red>)</span> <span style=color:red>$(</span>CFLAGS<span style=color:red>)</span> <span style=color:red>$(</span>INC<span style=color:red>)</span> -c -o <span style=color:#eedd82>$@</span> $&lt;
+
+<span style=color:#ff0>$(BUILDDIR)/proto/%.o</span>: <span style=color:red>$(</span><span style=color:#eedd82>SRCDIR</span><span style=color:red>)</span>/proto/%.<span style=color:red>$(</span><span style=color:#eedd82>SRCEXT</span>2<span style=color:red>)</span>
+	@mkdir -p <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>
+	@mkdir -p <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>/proto
+	@echo <span style=color:#87ceeb>&#34; </span><span style=color:red>$(</span>CC<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>CFLAGS<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>INC<span style=color:red>)</span><span style=color:#87ceeb> -c -o </span><span style=color:#eedd82>$@</span><span style=color:#87ceeb> </span>$<span style=color:#87ceeb>&lt;&#34;</span>; <span style=color:red>$(</span>CC<span style=color:red>)</span> <span style=color:red>$(</span>CFLAGS<span style=color:red>)</span> <span style=color:red>$(</span>INC<span style=color:red>)</span> -c -o <span style=color:#eedd82>$@</span> $&lt;
+
+<span style=color:#ff0>clean</span>:
+	@echo <span style=color:#87ceeb>&#34; Cleaning...&#34;</span>;
+	@echo <span style=color:#87ceeb>&#34; </span><span style=color:red>$(</span>RM<span style=color:red>)</span><span style=color:#87ceeb> -r </span><span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>TARGET<span style=color:red>)</span><span style=color:#87ceeb>&#34;</span>; <span style=color:red>$(</span>RM<span style=color:red>)</span> -r <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span> <span style=color:red>$(</span>TARGET<span style=color:red>)</span>
+
+<span style=color:#ff0>install</span>:
+	@echo <span style=color:#87ceeb>&#34; Installing...&#34;</span>;
+	@echo <span style=color:#87ceeb>&#34; cp </span><span style=color:red>$(</span>TARGET<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>INSTALLBINDIR<span style=color:red>)</span><span style=color:#87ceeb>&#34;</span>; cp <span style=color:red>$(</span>TARGET<span style=color:red>)</span> <span style=color:red>$(</span>INSTALLBINDIR<span style=color:red>)</span>
+	
+<span style=color:#ff0>distclean</span>:
+	@echo <span style=color:#87ceeb>&#34; Un-Installing...&#34;</span>;
+	@echo <span style=color:#87ceeb>&#34; rm /usr/local/bin/CoralSeaServer&#34;</span>; rm /usr/local/bin/CoralSeaServer
+
+<span style=color:#ff0>.PHONY</span>: clean
+</code></pre></div><p>Since this is a multi-platform Makefile, I determine the platform on line <strong>11</strong>. Lines <strong>13</strong> to <strong>17</strong> then select the compiler, <code>clang</code> for OS X and <code>g++</code> for Linux. Lines <strong>37</strong> to <strong>41</strong> set the platform specific compiler flags. Everything else is the same for all platforms.</p>
+<p>Also, note line <strong>43</strong>, this product has three dependencies, libraries called <code>corinth</code> (my common code), <code>protobuf</code> (Google&rsquo;s protocol buffers) and <code>zmq</code> (ZeroMQ). These are installed in OS X using HomeBrew and on Linux using <code>yum</code> or the standard source distributions. All third party libraries on my OS X development box and in CentOS are in <code>/usr/local</code>.</p>
+<p>To build this product on any supported platform, I just type the command:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>make clean; make -j 8
+</code></pre></div><p>To install the product:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>sudo make install
+</code></pre></div><p><span class=light>Note: On OS X I do not use <code>sudo</code> for installs.</span></p>
+<h2 id=building-the-xcode-project>Building the Xcode Project</h2>
+<p>We will go through several steps to build the Xcode project:</p>
+<ul>
+<li>Create the Xcode Project file (and then move it)</li>
+<li>Add existing project files to the project</li>
+<li>Remove unnecessary Target Memberships</li>
+<li>Add <code>/usr/local/..</code> to searches</li>
+<li>Select the libraries to link in (and create a <code>lib</code> group)</li>
+<li>Live long and prosper</li>
+</ul>
+<h3 id=creating-the-xcode-project>Creating the Xcode Project</h3>
+<p>Launch Xcode and select <strong>Create a new Xcode project</strong>.</p>
+<figure><img src=images/xbuild-001.png width=602 height=353>
+</figure>
+<p>Choose <strong>Command Line Tool</strong> under <strong>OS X</strong> / <strong>Application</strong>. Click <strong>Next</strong>.</p>
+<figure><img src=images/xbuild-002.png width=548 height=323>
+</figure>
+<p>Type in the Project Name (I use the name of the executable) and make sure that you choose a <code>C++</code> project. Click <strong>Next</strong>.</p>
+<figure><img src=images/xbuild-003.png width=548 height=323>
+</figure>
+<p>Save the new project file in the root of the project folder (the same place the Makefile is). Click <strong>Create</strong>.</p>
+<figure><img src=images/xbuild-004.png width=572 height=387>
+</figure>
+<p>The basic project should look like this (no source files have been added yet).</p>
+<figure><img src=images/xbuild-005.png width=720 height=450>
+</figure>
+<p>Right-click on project (in this case CoralSeaServer) in the left pane and choose <strong>Show in Finder</strong></p>
+<figure><img src=images/xbuild-006.png width=578 height=328>
+</figure>
+<p>Unfortunately, Xcode has created a new folder <em>inside</em> the project folder and placed the <code>.xcodeproj</code> file inside that. We need it at the same level as the Makefile. It has also created its own code folder and a new <code>main.cpp</code> which we no longer need. Here is how to fix it (<strong>the project file trick</strong>):</p>
+<ul>
+<li><strong>Quit Xcode</strong>, we&rsquo;re going to move things around in the Finder.</li>
+<li>In <strong>Finder</strong>, drag and drop the <code>.xcodeproj</code> up a folder level to be in the same place as the Makefile.</li>
+</ul>
+<figure><img src=images/xbuild-007.png width=578 height=328>
+</figure>
+<ul>
+<li>Then, delete the project folder created by Xcode</li>
+</ul>
+<figure><img src=images/xbuild-008.png width=578 height=328>
+</figure>
+<p>Resulting in a clean file system.</p>
+<figure><img src=images/xbuild-009.png width=578 height=328>
+</figure>
+<figure class=image-right><img src=images/xbuild-010.png width=222 height=113>
+</figure>
+<p>Double-click the <code>.xcodeproj</code> file to launch and open the project in Xcode. You will see the <code>main.cpp</code> is now in red, indicating that it does not exist. This is what we expect because we deleted Xcode&rsquo;s created <code>main.cpp</code> in Finder. Right-click the group above the missing <code>main.cpp</code> and choose <strong>Delete</strong>. Your left pane should look something like the one on the right.</p>
+<h3 id=add-existing-files-to-the-project>Add existing files to the Project</h3>
+<p>We now need to add the existing code files to the Xcode project so that it can compile and index them. Right-click on the project in the top-left and select <strong>Add files to &ldquo;&mldr;"</strong>.</p>
+<figure><img src=images/xbuild-011.png width=720 height=450>
+</figure>
+<p>Select all files <em>except</em> the <code>bin</code> and <code>build</code> folders (if they exist). Make sure <strong>Create groups</strong> is selected and <strong>Add to targets</strong> refers to your new project. Click <strong>Add</strong>.</p>
+<p><span class=light>For more information on the folders and files I use, see <a href=https://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/>A Simple C++ Project Structure</a>.</span></p>
+<figure><img src=images/xbuild-012.png width=720 height=450>
+</figure>
+<p>Xcode will create groups for the folders in the project.</p>
+<figure><img src=images/xbuild-013.png width=720 height=450>
+</figure>
+<h3 id=remove-any-unnecessary-target-memberships>Remove any unnecessary Target Memberships</h3>
+<p>By default, Xcode tries to compile every file (except headers) that you add. Since Makefiles and Markdown files cannot be compiled, you will get errors when you first try to build the application. This happens because we added all files to the target when importing above.</p>
+<p>Select the Makefile and <em>un</em>check <strong>Target Membership</strong>. If this is not shown, click the top-right toolbar item to show it.</p>
+<figure><img src=images/xbuild-014.png width=720 height=450>
+</figure>
+<p>Repeat the <em>un</em>check for any other non-compilable files. In my case, that includes the <code>README.markdown</code> file. <strong>Do not remove any source-code files from the target or the project will not build.</strong></p>
+<h3 id=add-usrlocal-to-searches>Add <code>/usr/local/...</code> to searches</h3>
+<p>Since this C++11 project uses shared libraries, we need to tell the compiler where they are.</p>
+<p>Select the Project in the top-left, and then the target. Then scroll down until you see <strong>Search Paths</strong>.</p>
+<figure><img src=images/xbuild-015.png width=720 height=450>
+</figure>
+<p>Double-click the column <em>to the right</em> of <strong>Header Search Paths</strong>. It brings up a panel of search paths.</p>
+<figure><img src=images/xbuild-016.png width=408 height=196>
+</figure>
+<p>Click the <code>+</code> at the bottom to add a new search path and type in <code>/usr/local/include</code>. This tells the compiler to look for headers in the public tree.</p>
+<figure><img src=images/xbuild-017.png width=408 height=196>
+</figure>
+<p>Double-click the column <em>to the right</em> of <strong>Library Search Paths</strong>. It brings up a panel of search paths. Add <code>/usr/local/lib</code> to tell the compiler where to find the shared libraries.</p>
+<figure><img src=images/xbuild-018.png width=408 height=196>
+</figure>
+<h3 id=choose-the-libraries-to-be-linked>Choose the Libraries to be linked</h3>
+<p>Now we need to add the libraries that are included in Line <strong>43</strong> of the Makefile to the compilation.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>LIB := -L /usr/local/lib -lcorinth -lprotobuf -lzmq
+</code></pre></div><p>Click <strong>Build Phases</strong> and then expand <strong>Link Binary With Libraries</strong>.</p>
+<figure><img src=images/xbuild-019.png width=720 height=450>
+</figure>
+<p>There are 2 ways to add libraries, drag and drop from finder or manual add.</p>
+<h4 id=either-drag-and-drop-from-finder>EITHER Drag and Drop from Finder</h4>
+<p>Open a Finder window and press <code>⌘⇧G</code> (Command-Shift-G) or select <strong>Go</strong> / <strong>Go to Folder&mldr;</strong> from the menu. Type in <code>/usr/local/lib/</code> to select the public libraries folder.</p>
+<figure><img src=images/xbuild-020.png width=720 height=450>
+</figure>
+<p>Drag and drop the libraries you need into the space called <strong>Add frameworks and libraries here</strong>.</p>
+<p><strong>Tip</strong>: Libraries in UNIX are named <code>libxxx.dylib</code> where <code>xxx</code> is the same name as the <code>-l</code> in the makefile. So, in my makefile I have a <code>-lzmq</code>, then the library to drag over will be named <code>libzmq.dylib</code>. There may be other names, extensions and versions, do <em>not</em> drag these over. Only drag over the plain one. Xcode will add the correct and latest version to your project.</p>
+<figure><img src=images/xbuild-021.png width=720 height=450>
+</figure>
+<p>Repeat for all the libraries in the Makefile.</p>
+<h4 id=or-manually-add-libraries>OR Manually Add Libraries</h4>
+<p>Click the <code>+</code> below <strong>Add frameworks and libraries here</strong>. Choose <strong>Add Other&mldr;</strong>.</p>
+<figure><img src=images/xbuild-022.png width=300 height=345>
+</figure>
+<p>This brings up a standard OS X Open Sheet. Here&rsquo;s the trick: press <code>⌘⇧G</code> (Command-Shift-G) to access the <em>hidden</em> Go to Folder window. Type in <code>/usr/local/lib/</code> and click <strong>Open</strong>.</p>
+<figure><img src=images/xbuild-023.png width=528 height=342>
+</figure>
+<p>Select the library file you want to add. Since I am adding the file for <code>-lzmq</code>, I add <code>libzmq.dylib</code>. Click <strong>Open</strong>.</p>
+<p>Repeat for all the libraries in the Makefile.</p>
+<h3 id=create-a-lib-group>Create a lib group</h3>
+<p>After adding all the libraries, your list of libraries to link should match the Makefile.</p>
+<figure><img src=images/xbuild-025.png width=720 height=450>
+</figure>
+<p>Select all the <code>lib</code> files in the left-hand pane, then right-click and choose <strong>New Group from Selection</strong>. Type <code>lib</code> to create a nice lib group and drag it down the project. <span class=light>I do this to keep the left-hand pane clean.</span></p>
+<figure><img src=images/xbuild-026.png width=720 height=450>
+</figure>
+<h3 id=build-and-run>Build and Run</h3>
+<p>We have created an Xcode project, added the source files, removed unnecessary target memberships, added search paths and link libraries, so we&rsquo;re ready to build and run.</p>
+<p>Hit <code>⌘B</code> or click the Xcode run arrow.</p>
+<p>The project should compile and run.</p>
+<h3 id=what-if-it-does-not-compile-and-run>What if it does not Compile and Run</h3>
+<p>Check the following:</p>
+<ul>
+<li>You added all the sources needed</li>
+<li>You typed in the search paths properly</li>
+<li>You added all the dependent libraries</li>
+<li>Most Makefiles do not include all the project include files and rely on the programmer to <em>know</em> where each header is. The programmer then has to add paths to internal includes. Xcode (and good Makefiles) do not need this. If you see an error on a <code>#include "this/that.h"</code>, replace it with <code>#include "that.h"</code> and fix the Makefile (see re-testing the Makefile below on how).</li>
+<li>Read the <code>clang</code> error (not warning) messages, they will tell you what went wrong and what needs to change.</li>
+</ul>
+<h2 id=re-testing-the-makefile>Re-testing the Makefile</h2>
+<p>The project is now building in Xcode and you gain all the benefits of the Xcode ecosystem. But it is worth checking that the Makefile version still works, especially if you have made code changes.</p>
+<p>Open a terminal, <code>cd</code> to the project folder and:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>make clean; make -j 8
+</code></pre></div><p>If all is well, the project will compile as well.</p>
+<p>If it does not compile, chances are you changed <code>#include</code> paths. Add the missing include paths as per my line <strong>44</strong>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>INC := -I include -I include/proto -I /usr/local/include
+</code></pre></div><br>
+<h2 id=live-long-and-prosper>Live Long and Prosper</h2>
+<p>You now have a C++ project that compiles both ways, from a Makefile and via the Xcode build system and get the best of both worlds:</p>
+<ul>
+<li>The Makefile version works cross platform and can be used for production deploys.</li>
+<li>The Xcode build system gives you access to IDE error checking, inspection, monitors and Instruments.</li>
+</ul>
+<p>For more <strong>C++</strong> articles, see my <a href=https://hiltmon.com/blog/categories/c-plus-plus/>C++ Category</a>.</p>
+<p>Enjoy</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Aug 1, 2015 11:25 AM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2015/08/05/in-the-press-this-weeks-hedge-fund-alert/>&larr; In the Press: This Week's Hedge Fund Alert</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2015/07/05/kindred-family/>Kindred-Family &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

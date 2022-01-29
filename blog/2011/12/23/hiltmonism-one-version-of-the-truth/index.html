@@ -1,0 +1,93 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Hiltmonism - One version of the truth</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Dec 23, 2011 10:52 AM</span>
+</p>
+<h1 class=post-title>
+Hiltmonism - One version of the truth
+</h1>
+<div class=post-body>
+<p>Its not uncommon for different software systems in a company to contain the <em>same kinds</em> information as others. However, it is <em>very</em> uncommon for this information to be the <em>same</em> across all systems. Often the accounting system has different information than the trading system, for example. Inventory systems often have different stock levels than sales systems.</p>
+<p>The impact of this is that traders trade on what they know, accountants report profit on what they know, and sales happens on what they know. Since all have different information, none of them has the <em>correct</em> information.</p>
+<p>These discrepancies eventually get noticed. Traders trade something they no longer have, accountants have numbers that are rejected by managers who know otherwise, and sales fail because the stock is not present. These hard to detect discrepancies get noticed, and the finger pointing, blaming, and yelling begins.</p>
+<p>Most organizations are aware of this issue. The few that decide to do something about it usually kludge together some scripts and integration tools to move data between systems, to try to reconcile between systems, trying as best as they can to keep them in sync, or at least know when they are out of sync and use manual processes to fix it. This &lsquo;glue&rsquo; code is usually hard to write, hard to maintain and it&rsquo;s still hard to trace when data does get of alignment. Never-mind the cost of people and time to <em>maintain</em> these copies of the truth.</p>
+<p><em>There should be only one place and one place only in your entire suite of systems to add and edit a piece of information</em>, there should be &lsquo;one version of the truth&rsquo;. At this single control point, the information should be checked and validated, traced and controlled, and this source of the truth should feed all other systems automatically. There should be no way to edit this truth in the other systems, so that the truth remains as such.</p>
+<p>That way, everybody in the organization is working off the same page, and each responsibility is clear.</p>
+<p>I learned this Hiltmonism from a clothing retail chain. They were having lots of problems matching inventory with point of sales as they were on different systems. So they redesigned the point of sales system to take in the inventory data. After that, they could only sell what the inventory system said (not what the point of sales system said) and any inventory changes could only be made in one place, <em>in the inventory system</em>. With this &lsquo;one version of the truth&rsquo;, they all but eliminated their stock problems.</p>
+<p>Of course, &lsquo;one version of the truth&rsquo; is also quite risky. What if the truth is actually a bad piece of information, and this bad information flows to all other systems?</p>
+<p>In theory this is a huge problem, in practice, not so much.</p>
+<p>In theory, all other systems report bad information, bad decisions get made on this bad information and business fail. In practice, the bad data will either cause a later process to fail or a report to produce noticeably incorrect results, in which case the cause is easy to detect and correct, since you know where the truth comes from. In practice, you are always dealing with bad information, but if it&rsquo;s the best you have, you&rsquo;re making the best decisions. Usually though, a few unnoticed bad data points have no impact, so there is no real problem.</p>
+<p>The retailer I mentioned did have invalid information in their systems, especially where &lsquo;shrinkage&rsquo; of stock was occurring, but the impact was negligible, and very quickly picked up.</p>
+<p>I wrote an entire Hedge Fund trading platform that relied on &lsquo;one version of the truth&rsquo;. Our error rates were the lowest in the industry by a country mile, and our support team was the smallest.</p>
+<p>There should be <em>one version of the truth</em> in all systems in an organization. That way, all decisions are based on the same data, all processes predicated on the same data, all decisions use the same data and errors are easy to detect and repair, without playing the blame game.</p>
+<p>If you have the same data in two systems, and one of them is not the source for the other, and the data in the other is not read-only, you have a problem. One version of the truth.</p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Dec 23, 2011 10:52 AM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2011/12/23/the-cartoon-villain-behind-sopa/>&larr; The cartoon villain behind SOPA</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2011/12/21/smoke-screening/>Smoke Screening &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>

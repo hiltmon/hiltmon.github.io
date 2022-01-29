@@ -1,0 +1,179 @@
+<!doctype html><html><head>
+<link rel=stylesheet href=/css/main.css>
+<link rel=stylesheet href=/css/all.css>
+<link rel=stylesheet href=/css/fusion.css>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<title>Setup ODBC for R on OS X</title>
+</head>
+<body>
+<div id=container><header id=header>
+<img id=logo src=/images/hiltmon-logo-174.png>
+<h1 id=title><a href=/>Hiltmon</a></h1>
+<h2 id=sub-title>On walkabout in life and technology</h2>
+</header>
+<nav id=menu>
+<ul>
+<li>
+<a href=/about/ title="about me">About</a>
+</li>
+<li>
+<a href=/code/ title=code>Code</a>
+</li>
+<li>
+<a href=/products/ title=products>Products</a>
+</li>
+<li>
+<a href=/ title="blog section">Blog</a>
+</li>
+<li>
+<a href=/archives/ title="archives section">Archives</a>
+</li>
+</ul>
+</nav>
+<section id=content>
+<p class=meta-data>
+<span class=post-date>Sep 18, 2013 12:59 PM</span>
+</p>
+<h1 class=post-title>
+Setup ODBC for R on OS X
+</h1>
+<div class=post-body>
+<p><strong>Hi Folks, Please do not follow this advice, its an old article that somehow has stayed way past its welcome in the search engines. Use the <code>RPostgresSQL</code> package that connects directly using the C drivers, its a lot faster to set up and run. ~Hilton.</strong></p>
+<p>At work, we use <a href=http://www.r-project.org>R</a> to analyze data and calculate risk. The data is in a <a href=http://www.postgresql.org>PostgreSQL</a> database, so we use the <a href=http://cran.r-project.org/web/packages/RODBC/index.html>RODBC</a> package to access the database from <a href=http://www.r-project.org>R</a>.</p>
+<p>But this does not work under Macintosh OS X.</p>
+<p>For two reasons.</p>
+<p>One, it uses the <a href=http://www.iodbc.org>iODBC</a> libraries that come with OS X and these do not work out of the box. And two, even if you do install the <a href=http://support.apple.com/kb/DL895>ODBC Administrator</a> tool and configure iODBC, it does not work with unicode drivers and databases.</p>
+<p>So here&rsquo;s how to set up <a href=http://www.r-project.org>R</a> with <a href=http://www.unixodbc.org>unixODBC</a> on OS X to access a <a href=http://www.postgresql.org>PostgreSQL</a> database.</p>
+<h2 id=prerequisites>Prerequisites</h2>
+<p>It is assumed you have the following installed and running:</p>
+<ul>
+<li><a href=https://developer.apple.com/xcode/>Xcode</a> with command line tools installed (needed to compile the ODBC drivers and RODBC)</li>
+<li><a href=http://www.r-project.org>R</a></li>
+<li><a href=http://www.rstudio.com>RStudio</a> (optional, but so much better than the standard <a href=http://www.r-project.org>R</a> GUI)</li>
+<li>The database (in my case PostgreSQL, with developer libraries, so that the compiles will work. I installed mine using Homebrew)</li>
+<li><a href=http://brew.sh>Homebrew</a></li>
+</ul>
+<h2 id=install-unixodbc>Install unixODBC</h2>
+<p>This turns out to be easy, just use <a href=http://brew.sh>Homebrew</a>:</p>
+<pre><code>$ brew update
+$ brew install unixodbc
+</code></pre>
+<h2 id=install-the-postgresql-odbc-driver>Install the PostgreSQL ODBC Driver</h2>
+<p>The best way to install this is to download and compile it manually. Download the latest driver file from <a href=http://www.postgresql.org/ftp/odbc/versions/msi/>the postgres file browser</a> and then (only commands shown):</p>
+<pre><code>$ tar zxvf psqlodbc-09.02.0100.tar.gz
+$ cd psqlodbc-09.02.0100/
+$ ./configure
+$ make
+$ sudo make install
+</code></pre>
+<h2 id=setup-the-odbc-driver>Setup the ODBC Driver</h2>
+<p>Establish the driver in <code>/usr/local/etc/odbcinst.ini</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[PostgreSQL]
+Description     = PostgreSQL ODBC driver (Unicode 9.2)
+Driver          = /usr/local/lib/psqlodbcw.so
+Debug           = 0
+CommLog         = 1
+UsageCount      = 1
+</code></pre></div><p>And set up a connection in <code>/usr/local/etc/odbc.ini</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[ODBC Data Sources]
+database1 = My Cool Database
+
+[database1]
+Driver      = PostgreSQL
+ServerName  = db.domain.local
+Port        = 5432
+Database    = database1
+Username    = hiltmon
+Password    = itsasecret
+Protocol    = 9.2
+Debug       = 1
+</code></pre></div><p>You could also set the connection in <code>~/.odbc.ini</code> but I find system level connections work better, especially when moving code into production.</p>
+<p>Test the connection using <code>isql</code></p>
+<pre><code>$ isql -v database1
+</code></pre>
+<p>and you should see</p>
+<pre><code>+---------------------------------------+
+| Connected!                            |
+|                                       |
+| sql-statement                         |
+| help [tablename]                      |
+| quit                                  |
+|                                       |
++---------------------------------------+
+SQL&gt;
+</code></pre>
+<p>Ok, ODBC is working and set up.</p>
+<h2 id=compile-and-install-rodbc>Compile and install RODBC</h2>
+<p><em><strong>Warning</strong>: If you install RODBC the usual way, i.e. <code>packages.install("RODBC")</code>, you will get a version compiled with the non-working iODBC libraries. If you have already done this, <code>remove.packages("RODBC")</code> in R to get rid of it.</em></p>
+<p>The goal here is to link RODBC with the installed unixODBC library to make it work.</p>
+<p>Download the source code of RODBC from <a href=http://cran.r-project.org/web/packages/RODBC/index.html>CRAN RODBC</a> and choose the <a href=http://cran.r-project.org/src/contrib/RODBC_1.3-8.tar.gz>package source</a> link (refers to the 1.3-8 version).</p>
+<p>To compile and install it properly, first do:</p>
+<pre><code>$ DYLD_LIBRARY_PATH=/usr/local/lib
+</code></pre>
+<p>This tells the compiler to use the unixODBC ODBC libraries installed by Homebrew in <code>/usr/local/lib</code> and not the iODBC ones installed by Apple in <code>/usr/lib</code>.</p>
+<p>Then manually compile and install RODBC (you need the full path to the downloaded file for it to work):</p>
+<pre><code>$ R CMD INSTALL /Users/Hiltmon/Downloads/RODBC_1.3-8.tar.gz
+</code></pre>
+<p>After a pile of configure and compile messages, you should see:</p>
+<pre><code>** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+   'RODBC.Rnw'
+** testing if installed package can be loaded
+* DONE (RODBC)
+</code></pre>
+<h2 id=test>Test</h2>
+<p>All the installer does is test that the library loads. To see if it actually works, launch <a href=http://www.rstudio.com>RStudio</a> and type:</p>
+<pre><code>library(&quot;RODBC&quot;)
+odbcDataSources()
+</code></pre>
+<p>The response should be:
+database1
+&ldquo;PostgreSQL&rdquo;</p>
+<p>If you get an error message that contains <code>[iODBC]</code> in it, or a message that says <code>named character(0)</code>, it means you are using the wrong library version (the default and not the newly compiled one). Remove RODBC and start again.</p>
+<p>Let me know if this works for you too.</p>
+<p>Off to write some database queries now.</p>
+<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+<p class=post-mark>
+<span class="fas fa-envelope"></span>
+<span>Posted By Hilton Lipschitz</span>
+&#183;
+<span class="fas fa-clock"></span>
+<span>Sep 18, 2013 12:59 PM</span>
+</p>
+<div class=pagination>
+<ul>
+<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/09/28/sonicwall-netextender-for-os-x-mavericks/>&larr; SonicWall NetExtender for OS X Mavericks</a></li>
+<li class=post-center>&nbsp;</li>
+<li class=post-next><a href=https://hiltmon.github.io/blog/2013/09/14/a-reliable-script-file-layout/>A Reliable Script File Layout &rarr;</a></li>
+</ul>
+</div>
+</section><aside id=sidebar>
+<section>
+<h1>The Hiltmon Dot Com</h1>
+<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
+</section><section>
+<h1>Recent Posts</h1>
+<ul>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
+<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
+</ul>
+<section></aside><footer id=footer>
+<p>Copyright &copy; 2022 Hilton Lipschitz</p>
+</footer></div>
+</body>
+</html>
