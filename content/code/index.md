@@ -4,7 +4,7 @@ date: 2013-02-26T09:10:50-04:00
 author: Hilton Lipschitz
 ---
 
-This page contains a list of the *free* products, plugins, themes or source code that I have made available to fellow developers. For products and paid applications, see my [products]((https://hiltmon.com/products) page.
+This page contains a list of the *free* products, plugins, themes or source code that I have made available to fellow developers. For products and paid applications, see my [products](https://hiltmon.com/products) page.
 
 Go ahead and download, contribute to and use them. **Please do me the courtesy  of letting me know if you do**. The source code assumes you are a developer and know how to use it, so I cannot provide support.
 
