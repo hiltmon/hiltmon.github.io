@@ -1,0 +1,34 @@
+  {{ $mainSections := .Site.Params.mainSections | default (slice "blog") }}
+  {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+  {{ $section_count := len $section }}
+
+  {{ if ge $section_count 1 }}
+
+    {{ range $section }}
+      
+      <article class="archives-block">
+        <span class="archives-date">{{ .Date.Format "2006-03-02" }}</span>
+        <span class="archives-link">
+
+					<a href="{{ .Permalink }}">
+						{{ .Title }}&nbsp;
+					</a>
+
+					{{ if eq .Layout "writing"}}
+						<span class="fas fa-pencil-alt"></span>
+					{{ end }}
+
+					{{ if eq .Layout "hiltmonism"}}
+						<span class="fas fa-cog"></span>
+					{{ end }}
+					
+					{{ if eq .Layout "news"}}
+						<span class="fas fa-newspaper"></span>
+					{{ end }}
+				</span>
+      </article>
+      
+    {{ end }}
+
+  {{ end }}
+  

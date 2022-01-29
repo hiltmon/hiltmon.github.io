@@ -1,0 +1,20 @@
+<section>
+
+  <h1>Recent Posts</h1>
+  
+  {{ $mainSections := .Site.Params.mainSections | default (slice "blog") }}
+  {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
+  {{ $section_count := len $section }}
+
+  {{ if ge $section_count 1 }}
+
+    {{ $n_posts := $.Param "recent_posts_number" | default 10 }}
+    <ul>
+    {{ range (first $n_posts $section) }}
+      <li><a class="sidebar-link" href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+    </ul>
+
+  {{ end }}
+
+<section>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+{{- partial "head.html" . -}}
+
+<body>
+
+  <div id="container">
+
+    {{- partial "header.html" . -}}
+    {{- partial "navigation.html" . -}}
+
+    <section id="content">
+      <!-- <h4>Writing</h4> -->
+      <div class="writing">
+
+        <p class="meta-data">
+          <span class="writing-date">{{ .Date.Format "Jan 2, 2006 3:04 PM" }}</span>
+        </p>
+        <h1 class="writing-title">
+          <span class="fas fa-pencil-alt"></span>
+          {{ .Title }}
+        </h1>
+
+        <div class="writing-body">
+          {{ .Content }}
+        </div>
+  
+        <p class="writing-mark">
+          <span class="fas fa-envelope"></span>
+          <span>Posted By {{ .Params.author | default "Hilton Lipschitz" }}</span>
+          &middot;
+          <span class="fas fa-clock"></span>
+          <span>{{ .Date.Format "Jan 2, 2006 3:04 PM" }}</span>
+        </p>
+      </div>
+      
+      <div class="pagination">
+        <ul>
+        {{ with .NextInSection }}
+          <li class="writing-previous"><a href="{{.Permalink}}">&larr;  {{.Title}}</a></li>
+        {{ end }}
+        
+        <li class="writing-center">&nbsp;</li>
+        
+        {{ with .PrevInSection }}
+          <li class="writing-next"><a  href="{{.Permalink}}">{{.Title}} &rarr;</a></li>
+        {{ end }}
+        
+        </ul>
+      </div>
+  
+    </section>
+
+    {{- partial "sidebar.html" . -}}
+    {{- partial "footer.html" . -}}
+
+  </div>
+  
+</body>
+
+</html>

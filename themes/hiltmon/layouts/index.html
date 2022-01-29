@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+  {{ $mainSections := .Site.Params.mainSections | default (slice "blog") }}
+  
+  {{ $paginator := .Paginate (where .Site.RegularPages "Section" "in" $mainSections) }}
+  
+  {{ range $paginator.Pages }}
+    {{ partial "summary.html" . }}
+  {{ end }}
+  
+  {{ $paginator := .Paginator }}
+  
+  <div class="pagination">
+    <ul>
+      
+      {{ if $paginator.HasNext }}
+        <li class="page-left"><a href="{{ $paginator.Next.URL }}">&larr; Older</a></li>
+      {{ end }}
+    
+      <li class="page-center"><a href="/archives/">Blog Archives</a></li>
+    
+      {{ if $paginator.HasPrev }}
+        <li class="page-right"><a href="{{ $paginator.Prev.URL }}">Newer &rarr;</a></li>
+      {{ end }}
+    
+    </ul>
+  </div>
+
+{{ end }}

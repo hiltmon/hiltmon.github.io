@@ -1,0 +1,18 @@
+<div class="summary">
+  <p class="meta-data">
+    <span class="post-date">{{ .Date.Format "Jan 2, 2006 3:04 PM" }}</span>
+  </p>
+
+  <h1 class="summary-title">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </h1>
+
+  <p class="summary-body">
+    {{ .Summary  }}
+  </p>
+  
+  <p class="read-on">
+    <a href="{{.Permalink}}" >{{ i18n "readOn" }} &rarr;</a>
+  </p>
+
+</div>

@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+  <h4>Layout: List</h4>
+  
+  <article>
+    <section>
+      {{- .Content -}}
+    </section>  
+    
+    <section>
+      {{ range .Paginator.Pages }}
+        <div>
+          {{- partial "summary.html" . -}}
+        </div>
+      {{ end }}
+    </section>  
+    
+  </article>
+  
+{{ end }}
