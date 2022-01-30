@@ -32,4 +32,4 @@ jobs:
           publish_dir: ./public
 #          publish_dir: _site
 #          publish_branch: main
-#          publish_branch: gh-pages
+         publish_branch: gh-pages
