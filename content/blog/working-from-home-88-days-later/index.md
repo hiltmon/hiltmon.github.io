@@ -5,8 +5,6 @@ tags:
 ---
 
 > Follow on post to [Working From Home ... Here We Go!](https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/) written in March.
-> 
-> TEST FROM DEPLOY
 
 88 Days ago in New York we all started working from home. 88 Days ago we stopped commuting, sat down for the first time at our fledgeling home workspaces, launched our first Zoom or Slack meetings and started figuring out how best to do our jobs from there. 88 Days later, we're still doing it and will be for the foreseeable future.
 
