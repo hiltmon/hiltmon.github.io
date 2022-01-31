@@ -1,7 +1,7 @@
 ---
 title: "Design needs an Advocate"
 date: 2012-02-07 08:58:00-0400
-tags: Design
+tags: [ Design ]
 ---
 
 Felicity Evans, writing in the Smashing Magazine article [When A Thousand Words Is Worth A Picture

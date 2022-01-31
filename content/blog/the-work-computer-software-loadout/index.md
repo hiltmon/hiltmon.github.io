@@ -1,7 +1,7 @@
 ---
 title: "The Work Computer Software Loadout"
 date: 2013-07-19 07:23:00-0400
-tags: 
+
 ---
 
 I got [Back in the Saddle](https://hiltmon.com/blog/2013/06/25/back-in-the-saddle/) over three weeks ago and purchased a new Haswell 13-inch MacBook Air as my primary work computer. I plan to write more about it after at least 30 days use. But with the new computer, my plan was to only install that which I needed *as and when* I needed it. It turns out, I use a lot of different tools for work activities.

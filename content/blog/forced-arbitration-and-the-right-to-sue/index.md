@@ -1,7 +1,7 @@
 ---
 title: "Forced Arbitration and the Right to Sue"
 date: 2012-12-05 09:36:00-0400
-tags: 
+
 ---
 
 One of the things that is bothering me these days is the number of vendors changing their contracts *unilaterally* to require us to use their own arbitration and giving up our right to sue. You can ‘opt out’ of this change, where ‘opt out’ means they will immediately terminate service. The mobile carriers in the USA have had these for a while, as have the credit card companies and many employers. Paypal is implementing it now.

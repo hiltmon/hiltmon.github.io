@@ -1,7 +1,7 @@
 ---
 title: "Good news - online retailers do not hate their customers"
 date: 2011-12-06 09:42:00-0400
-tags: 
+
 ---
 
 Sarah Perez gets it completely wrong writing in a Techcrunch article entitled [Retailers Aren’t Ready For iPad Shopping Trend](http://techcrunch.com/2011/12/05/retailers-arent-ready-for-ipad-shopping-trend/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Techcrunch+%28TechCrunch%29)

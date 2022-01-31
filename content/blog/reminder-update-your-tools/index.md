@@ -1,7 +1,7 @@
 ---
 title: "Reminder: Update your Tools"
 date: 2014-01-19 12:06:25 -0500
-tags: 
+
 ---
 
 At the start of every new year, I spend a the time to update all my tools and recompile all my products with them. At the cost of a few hours (or at worst, days) work, I get rid of most the maintenance hassles I faced before I used to do this and gain the benefits of all the new features and performance from updated tools.

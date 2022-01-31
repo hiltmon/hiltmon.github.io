@@ -1,7 +1,7 @@
 ---
 title: "The whole world is watching while the USA collapses"
 date: 2011-12-23 11:14:00-0400
-tags: Politics
+tags: [ Politics ]
 ---
 
 On Reddit a few days ago, *spiderfarmer* put up a post entitled [The whole world is watching while the USA collapses](http://www.reddit.com/r/politics/comments/nhb6f/the_whole_world_is_watching_while_the_usa/).  I have reproduced it here in case it gets lost, but I thoroughly recommend you look through the comments thread.  In short, based on the comments alone, he ain't wrong.

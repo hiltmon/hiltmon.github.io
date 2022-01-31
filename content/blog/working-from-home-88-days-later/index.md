@@ -1,7 +1,7 @@
 ---
 title: "Working from Home ... 88 Days Later"
 date: 2020-06-07 11:00:50 -0400
-tags: 
+
 ---
 
 > Follow on post to [Working From Home ... Here We Go!](https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/) written in March.

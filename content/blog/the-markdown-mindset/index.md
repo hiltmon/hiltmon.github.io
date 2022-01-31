@@ -1,7 +1,7 @@
 ---
 title: "The Markdown Mindset"
 date: 2012-02-20 20:07:00-0400
-tags: Markdown
+tags: [ Markdown ]
 ---
 
 Over the last year, I have moved all my non-code writing to [Markdown](http://daringfireball.net/projects/markdown/) format. I don't even have Microsoft Word installed on my laptop anymore. Here's why:

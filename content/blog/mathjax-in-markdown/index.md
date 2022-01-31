@@ -1,7 +1,7 @@
 ---
 title: "MathJax in Markdown"
 date: 2017-01-28 14:39:08 -0500
-tags: 
+
 ---
 
 Adding mathematical formulae to HTML pages is easy these days using [MathJax](https://www.mathjax.org). But I create all my documents in [Markdown](https://hiltmon.com/blog/categories/markdown/) format on my Mac. This post shows how to add mathematical formulae to your Markdown documents on the Mac and have them preview and export to PDF correctly.

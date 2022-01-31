@@ -1,7 +1,7 @@
 ---
 title: "How Google failed to fix the mobile market"
 date: 2012-01-16 12:21:00-0400
-tags: 
+
 ---
 
 MG Siegler, in his blog [parislemon](http://parislemon.com), wrote an excellent but badly titled article called [Why I Hate Android](http://parislemon.com/post/15604811641/why-i-hate-android) on how Google blew its, and therefore our, chances at an equitable mobile phone market in the USA.

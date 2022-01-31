@@ -1,7 +1,7 @@
 ---
 title: "De Fault with Default"
 date: 2012-12-11 17:03:00-0400
-tags: 
+
 ---
 
 The word **default** has many meanings:

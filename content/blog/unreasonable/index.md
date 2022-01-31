@@ -2,7 +2,7 @@
 layout: writing
 title: "Unreasonable"
 date: 2013-08-04 14:06:00-0400
-tags: 
+
 ---
 
 There are two ways to deal with "the ways things are" in an environment where one *can* change them:

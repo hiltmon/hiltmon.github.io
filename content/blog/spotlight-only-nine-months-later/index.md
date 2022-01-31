@@ -1,7 +1,7 @@
 ---
 title: "Spotlight Only - Nine Months Later"
 date: 2016-04-10 11:20:22 -0400
-tags: Productivity
+tags: [ Productivity ]
 ---
 
 <span class="light">I think one should review one's productivity tool load-out every once in a while. Operating system updates, other productivity tool updates and your own work practices change over time. Your tool load-out should too. Changing the muscle-memory, it turns out, is surprisingly simple, quick and easy. And your productivity usually increases.</span>

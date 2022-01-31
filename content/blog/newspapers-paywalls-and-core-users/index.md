@@ -1,7 +1,7 @@
 ---
 title: "Newspapers, Paywalls, and Core Users"
 date: 2012-01-16 12:44:00-0400
-tags: 
+
 ---
 
 Clay Shirky exposes the story behind [Newspapers, Paywalls, and Core Users](http://www.shirky.com/weblog/2012/01/newspapers-paywalls-and-core-users/). 

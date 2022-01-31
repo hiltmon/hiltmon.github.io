@@ -1,7 +1,6 @@
 ---
 title: "BuyReply: Email, Text, Tweet, Click to Buy"
 date: 2013-02-26 11:48:00-0400
-tags: 
 ---
 
 Prior to online purchases, the only innovation in purchasing was credit cards. The move to online electronic purchasing has seen only one more real innovation, 1-click by Amazon. The current online purchasing experience really just replicates the same onerous manual purchasing process that’s been around since money was invented.

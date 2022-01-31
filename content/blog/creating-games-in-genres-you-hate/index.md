@@ -1,7 +1,7 @@
 ---
 title: "Creating games in genres you hate"
 date: 2011-12-30 18:05:00-0400
-tags: 
+
 ---
 
 Ben Kuchera, writing in Ars Technical in [SpellTower on iOS shows power of creating games in genres you hate](http://arstechnica.com/gaming/news/2011/12/spelltower-on-ios-shows-the-power-of-creating-games-in-genres-you-hate.ars) resonates with me because I do *dislike* word games, yet I really enjoy [SpellTower](http://spelltower.com/).

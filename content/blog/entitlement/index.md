@@ -1,7 +1,7 @@
 ---
 title: "Entitlement"
 date: 2012-09-28 14:29:00-0400
-tags: iPhone
+tags: [ iPhone ]
 ---
 
 Excellent post by Aaron Mahnke called [Entitlement](http://aaronmahnke.com/blog/2012/9/27/entitlement) about all those moaning about the new iPhone (although I think it applies to all new products), please read and share it:

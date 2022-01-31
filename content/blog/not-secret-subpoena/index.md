@@ -1,7 +1,7 @@
 ---
 title: "Not secret subpoena"
 date: 2011-12-30 17:23:00-0400
-tags: Politics
+tags: [ Politics ]
 ---
 
 Kudos to Twitter this week for not giving in and and responding to a Subpoena for user records without notifying the users in question. Twitter, according to their privacy policy, always notifies users when they can:

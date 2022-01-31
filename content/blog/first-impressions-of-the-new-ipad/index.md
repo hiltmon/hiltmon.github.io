@@ -1,7 +1,7 @@
 ---
 title: "First impressions of the new iPad"
 date: 2012-03-16 14:19:00-0400
-tags: iPad
+tags: [ iPad ]
 ---
 
 In short, between the iPad 2 and the new iPad (retina):

@@ -1,7 +1,7 @@
 ---
 title: "The missing feature"
 date: 2011-12-19 23:07:00-0400
-tags: 
+
 ---
 
 My new product seems to be missing a key feature. One that every client so far has asked about. They are almost incredulous that I do not provide it. Come to think of it, none of the software created in my career, that's 21 years folks, has ever had this feature. The feature I am talking about is *export to Excel* for users*.

@@ -1,7 +1,7 @@
 ---
 title: "Machine-driven"
 date: 2011-12-16 08:32:00-0400
-tags: 
+
 ---
 
 Via [Buzz Andersen](http://log.scifihifi.com/), 

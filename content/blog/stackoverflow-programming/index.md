@@ -2,7 +2,7 @@
 layout: hiltmonism
 title: "StackOverflow Programming"
 date: 2015-01-17 16:11:13 -0500
-tags: 
+
 ---
 
 StackOverflow Programming happens when much of the functionality of an application is copied and pasted from the code examples found on [StackOverflow](https://stackoverflow.com). Unfortunately, it's becoming the most popular and common programming paradigm amongst younger programmers, leading to (1) shockingly shoddy, bug laden, slow, incomprehensible, unmaintainable programs that work only once, and (2) to programmers who do not understand what they are doing, their work and how to solve problems.

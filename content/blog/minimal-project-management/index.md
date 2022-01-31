@@ -1,7 +1,7 @@
 ---
 title: "Minimal Project Management"
 date: 2016-03-05 17:20:56 -0500
-tags: 
+
 ---
 
 With my team starting to grow at work, its time to add some Project Management to our process. However, I do not want this to add any additional time, meetings or burden on them (or myself) and so all of the popular formal processes are no good for my needs.

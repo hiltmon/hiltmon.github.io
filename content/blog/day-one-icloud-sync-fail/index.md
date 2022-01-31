@@ -1,7 +1,7 @@
 ---
 title: "Day One iCloud Sync Fail"
 date: 2012-11-17 14:08:00-0400
-tags: Slogger
+tags: [ Slogger ]
 ---
 
 > This post seems to have become popular. To clarify, the problem is with iCloud, Day One is just plain brilliant and you should all be using it.

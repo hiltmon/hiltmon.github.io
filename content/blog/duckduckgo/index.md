@@ -1,7 +1,7 @@
 ---
 title: "DuckDuckGo"
 date: 2015-06-27 15:59:40 -0400
-tags: 
+
 ---
 
 {{< figure src="images/duckduckgo-logo.png" width=206 height=164 class="image-right" >}}

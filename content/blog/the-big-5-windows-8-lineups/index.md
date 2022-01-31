@@ -1,7 +1,7 @@
 ---
 title: "The Big 5 Windows 8 Lineups"
 date: 2012-10-24 09:51:00-0400
-tags: Microsoft
+tags: [ Microsoft ]
 ---
 
 My thoughts on announced hardware for Windows 8 being released this week.

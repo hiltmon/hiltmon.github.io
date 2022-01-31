@@ -1,7 +1,7 @@
 ---
 title: "The Perfect Keyboard(s) (for me)"
 date: 2015-03-08 14:14:56 -0400
-tags: 
+
 ---
 
 I'm not a keyboard snob. But I love using my current keyboards now. 

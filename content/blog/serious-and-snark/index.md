@@ -1,7 +1,7 @@
 ---
 title: "Serious and Snark"
 date: 2012-03-05 11:18:00-0400
-tags: 
+
 ---
 
 One of the key reasons I separated [hiltmon.com](https://hiltmon.com) and [noverse.com](http://www.noverse.com) at the start of this year was to separate my serious business voice from my larrakin personal voice.

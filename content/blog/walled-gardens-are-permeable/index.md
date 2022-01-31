@@ -1,7 +1,7 @@
 ---
 title: "Walled Gardens are Permeable"
 date: 2012-10-15 12:36:00-0400
-tags: Computers
+tags: [ Computers ]
 ---
 
 There is an incredible amount of Fear, Uncertainty and Doubt (FUD) on the internet about *walled gardens*, or closed ecosystems, especially focussed on Apple and ignoring everyone else. The open versus closed ecosystem holy war is in full force, with a lot of words written in absolute and extreme terms. Yet the so-called walled garden systems appear to be most popular and most successful.

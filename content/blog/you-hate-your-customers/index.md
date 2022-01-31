@@ -1,7 +1,7 @@
 ---
 title: "If your site does ..., you hate your Customers"
 date: 2011-11-27 11:01:00-0400
-tags: 
+
 ---
 
 There has been a lot of talk on the Internet lately on the inability for web site visitors to actually read the content on publisher's pages because of all the annoyances and clutter on these pages.  If you are one of these publishers, read on, this is to help you identify what frustrates your customers.  If you are a reader like me, let me know of any major annoyances I may have missed out on.

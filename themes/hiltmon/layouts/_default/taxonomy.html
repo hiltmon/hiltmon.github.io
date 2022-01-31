@@ -1,0 +1,18 @@
+{{ define "main" }}
+	<div class="container">
+	    <p class="meta-data">
+        	<span class="post-date">Taxonomy</span>
+      	</p>
+      
+		<h1 class="post-title">
+			{{ .Type | singularize | title }} "{{ .Title | title }}"
+		</h1>	
+		<ul>
+		  {{ range .Data.Pages }}
+			<li>
+			  <a href="{{ .Permalink }}">{{ .Title }}</a>
+			</li>
+		  {{ end }}
+		</ul>
+	</div>
+{{ end }}

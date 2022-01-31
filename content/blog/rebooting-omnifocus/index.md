@@ -1,7 +1,7 @@
 ---
 title: "Rebooting OmniFocus"
 date: 2014-03-29 15:08:47 -0400
-tags: 
+
 ---
 
 {{< figure src="images/omnifocus.png" width=256 height=256 class="image-right" >}}

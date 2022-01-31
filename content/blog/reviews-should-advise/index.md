@@ -1,7 +1,7 @@
 ---
 title: "Reviews should advise"
 date: 2011-12-28 18:37:00-0400
-tags: 
+
 ---
 
 Matt "Legend" Gemmell, writing in [Opinions in Journalism](http://mattgemmell.com/2011/12/28/opinions-in-journalism/) summarizes and continues recent internet discussions on how Tech Journalism has become too bland, impartial and hedged:

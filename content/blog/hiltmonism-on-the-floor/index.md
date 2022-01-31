@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - On the floor"
 date: 2014-06-22 11:37:20 -0400
-tags: hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 <span class="light">At least once a month, step out of your cubicle or office and spend a day *on the floor*. It will make you a better software designer and developer, it will help you make better software for the folks *on the floor*, and it will build a better relationship with them so issues and ideas can flow.</span>

@@ -1,7 +1,7 @@
 ---
 title: "The 4G deception"
 date: 2012-02-17 12:45:00-0400
-tags: Carriers
+tags: [ Carriers ]
 ---
 
 These days, all the US mobile carriers are touting their allegedly hot new 4G networks, pushing people to upgrade their phones and get up to 10x faster mobile data speeds.

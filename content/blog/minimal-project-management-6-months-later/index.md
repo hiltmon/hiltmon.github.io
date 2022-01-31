@@ -1,7 +1,7 @@
 ---
 title: "Minimal Project Management - 6 Months Later"
 date: 2016-08-28 12:53:50 -0400
-tags: 
+
 ---
 
 Just short of six months ago, I wrote about how I was transitioning to [Minimal Project Management](https://hiltmon.com/blog/2016/03/05/minimal-project-management/) as my team was growing at work. So, how did it go? Did it work? Any Problems?

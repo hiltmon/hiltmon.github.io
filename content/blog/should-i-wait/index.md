@@ -1,7 +1,7 @@
 ---
 title: "Should I wait?"
 date: 2011-11-25 15:24:00-0400
-tags: 
+
 ---
 
 As a technologist, I am often asked by friends and family whether they should buy a new gizmo now or wait a while for the next release of said gizmo.

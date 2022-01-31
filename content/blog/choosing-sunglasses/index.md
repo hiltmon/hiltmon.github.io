@@ -1,7 +1,7 @@
 ---
 title: "Choosing Sunglasses"
 date: 2012-08-13 15:33:00-0400
-tags: Purchasing
+tags: [ Purchasing ]
 ---
 
 Two weeks ago I went kayaking on Long Island sound, and lost my sunglasses. Once again, my friends, it was time to research the next pair.

@@ -1,7 +1,7 @@
 ---
 title: "Markdown Quick Look"
 date: 2012-03-22 15:24:00-0400
-tags: Markdown
+tags: [ Markdown ]
 ---
 
 If you use markdown like I do on a Mac, you *may* notice that [Quick Look](http://en.wikipedia.org/wiki/Quick_Look) does not render `.markdown` files as documents, instead providing an icon only. If you have tools like [iAWriter](http://www.iawriter.com/) installed (I used to), they install a Quick Look plugin, and the markdown is rendered readable.

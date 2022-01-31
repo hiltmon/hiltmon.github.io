@@ -1,7 +1,7 @@
 ---
 title: "They will not come"
 date: 2014-06-28 16:39:10 -0400
-tags: 
+
 ---
 
 {{< figure src="images/kifu-is-going-dark.png" width=225 height=215 class="image-right" >}}

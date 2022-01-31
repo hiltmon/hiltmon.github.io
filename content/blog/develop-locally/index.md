@@ -1,7 +1,7 @@
 ---
 title: "Develop Locally, Stage Nearby, Production Anywhere"
 date: 2014-03-15 13:12:08 -0400
-tags: 
+
 ---
 
 One of the things that surprised me as I moved back into the land of corporate software is the number of developers I talk to that commute and work in offices **and yet develop on remote computers**. I thought, as you probably do, that by now *all* software development would be local, as in on the developer's own computer. 

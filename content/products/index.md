@@ -5,3 +5,4 @@ draft: true
 author: Hilton Lipschitz
 ---
 
+I used to host my paid-for products on this page. Maybe one day I'll make some more. Whenever I get back to being an indie.

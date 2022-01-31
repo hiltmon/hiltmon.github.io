@@ -1,7 +1,7 @@
 ---
 title: "Free Instagram Ad Image for Advertisers"
 date: 2012-12-19 13:09:00-0400
-tags: 
+
 ---
 
 Dear Instagram,

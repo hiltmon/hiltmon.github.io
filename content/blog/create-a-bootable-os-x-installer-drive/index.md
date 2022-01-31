@@ -1,7 +1,7 @@
 ---
 title: "Create a Bootable OS X Installer Drive"
 date: 2014-10-18 12:02:52 -0400
-tags: 
+
 ---
 
 {{< figure src="images/r2d2usb.jpg" width=200 height=278 class="image-right" >}}

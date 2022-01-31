@@ -1,7 +1,7 @@
 ---
 title: "Less Wasting Time"
 date: 2012-01-26 10:18:00-0400
-tags: Productivity
+tags: [ Productivity ]
 ---
 
 The sub-theme this week is on trying to find ways to improve developer happiness and to reduce unpleasant time wasters.

@@ -1,7 +1,7 @@
 ---
 title: "CodeRunner 2"
 date: 2014-12-11 21:35:50 -0500
-tags: 
+
 ---
 
 {{< figure src="images/CodeRunner.png" width=160 height=160 class="image-right" >}}

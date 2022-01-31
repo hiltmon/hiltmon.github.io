@@ -1,7 +1,7 @@
 ---
 title: "Lose the WWW"
 date: 2014-10-26 17:22:46 -0400
-tags: 
+
 ---
 
 I have finally removed the `www` from `hiltmon.com`. The 1990's have passed and `www` no longer makes sense in URL's. *Maybe it's time you did the same to your site too.*

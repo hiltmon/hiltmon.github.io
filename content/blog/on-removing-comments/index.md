@@ -1,7 +1,7 @@
 ---
 title: "On Removing Comments"
 date: 2018-06-17 09:58:09 -0400
-tags: 
+
 ---
 
 Today I removed the comments from *hiltmon.com* for one reason and one reason only — the comment service, Disqus, that I used — was tracking you across a multitude of sites and is selling your data to strangers without your (or my) permission. I no longer want *hiltmon.com* to be one of those collection points.

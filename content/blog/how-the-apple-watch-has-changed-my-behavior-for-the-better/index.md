@@ -1,7 +1,7 @@
 ---
 title: "How the Apple Watch has changed my Behavior for the Better"
 date: 2015-08-23 12:49:49 -0400
-tags: 
+
 ---
 
 I have the nerd watch, the [42mm Space Gray Aluminum with the Black Sport Band](http://www.apple.com/shop/buy-watch/apple-watch-sport/42mm-space-gray-aluminum-case-black-sport-band?product=MJ3T2LL/A&step=detail). It was ordered at launch and arrived late. I have been wearing and using it every day since.

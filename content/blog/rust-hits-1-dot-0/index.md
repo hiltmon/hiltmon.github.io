@@ -1,7 +1,7 @@
 ---
 title: "Rust hits 1.0"
 date: 2015-05-17 15:28:00 -0400
-tags: 
+
 ---
 
 {{< figure src="images/rust-logo-blk.png" width=144 height=144 class="image-right" >}}

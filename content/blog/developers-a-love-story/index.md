@@ -1,7 +1,7 @@
 ---
 title: "Developers, A Love Story"
 date: 2012-01-23 12:58:00-0400
-tags: 
+
 ---
 
 By [@macdrifter](https://twitter.com/#!/macdrifter), [Developers, A Love Story](http://www.macdrifter.com/2012/01/developers-a-love-story/#fn:1).

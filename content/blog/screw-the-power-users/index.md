@@ -1,7 +1,7 @@
 ---
 title: "Screw the Power Users"
 date: 2012-06-03 17:11:00-0400
-tags: 
+
 ---
  
 Nick Bradbury in [Screw the Power Users](http://nick.typepad.com/blog/2012/05/screw-the-power-users.html):

@@ -1,7 +1,7 @@
 ---
 title: "Upgrading Octopress to Jekyll 2.0"
 date: 2014-06-21 16:28:04 -0400
-tags: octopress
+tags: [ Octopress ]
 ---
 
 So this happened today:

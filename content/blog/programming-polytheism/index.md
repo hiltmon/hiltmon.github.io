@@ -1,7 +1,7 @@
 ---
 title: "Programming polytheism"
 date: 2011-12-26 12:51:00-0400
-tags: 
+
 ---
 
 One of the worst things a programmer can be is a monotheist, a single language and platform developer. Whether you are a corporate programming drone, or a hot-shot indie, you should be a software polytheist.

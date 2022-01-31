@@ -1,7 +1,7 @@
 ---
 title: "Marco and the Surface"
 date: 2012-10-27 11:39:00-0400
-tags: 
+
 ---
 
 Marco Arment, of [Instapaper](http://instapaper.com) and The Magazine fame, went to a Microsoft Store yesterday to try out the new Surface and wrote about the experience in his blog in [An alternate universe](http://www.marco.org/2012/10/26/an-alternate-universe). Go read it. I’ll wait.

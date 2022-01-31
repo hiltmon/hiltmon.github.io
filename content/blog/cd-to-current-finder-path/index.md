@@ -1,7 +1,7 @@
 ---
 title: "CD to Current Finder Path"
 date: 2012-12-21 08:29:00-0400
-tags: Productivity
+tags: [ Productivity ]
 ---
 
 To open a *new* terminal in the current Finder path in OS X, you can use the built-in service (See below on how to enable). But if you are *already* in a Terminal session, you need to leave the keyboard, mouse to Finder and drag and drop the path back. Here’s a trick that gets you to the frontmost Finder path without leaving the Terminal or keyboard.

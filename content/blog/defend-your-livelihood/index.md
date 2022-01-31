@@ -1,7 +1,7 @@
 ---
 title: "Defend your Livelihood"
 date: 2013-03-06 12:36:00-0400
-tags: 
+
 ---
 
 Adii Pienaar, of WooThemes, in [Don’t Be Defensive, But Defend Your Livelihood](http://adii.me/dont-be-defensive-defend-your-livelihood) on dealing with negative reviews:

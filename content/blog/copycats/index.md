@@ -1,7 +1,7 @@
 ---
 title: "Copycats"
 date: 2011-11-28 11:16:00-0400
-tags: 
+
 ---
 
 [Matt Legend Gemmell](http://mattgemmell.com/about/) writing on [Copycats](http://mattgemmell.com/2011/11/27/copycats/):

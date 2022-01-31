@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Minimize the Glue"
 date: 2012-10-08 15:19:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 Glue is bad. Too much glue and your systems and processes become rigid, inflexible and incomprehensible. In technology and in business, you need to minimize the glue.

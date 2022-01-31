@@ -1,8 +1,7 @@
 ---
 title: "Browser Windows on all Desktops"
 date: 2013-01-19 14:05:00-0400
-tags: 
-- Productivity
+tags: [ Productivity ]
 ---
 
 In [Being Productive With Virtual Desktops](https://hiltmon.com/blog/2013/01/17/being-productive-with-virtual-desktops/), I talked about how I pin certain applications to certain Mission Control virtual desktops to create context specific environments.

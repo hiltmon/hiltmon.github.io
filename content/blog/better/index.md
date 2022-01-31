@@ -1,7 +1,6 @@
 ---
 title: "Better?"
 date: 2013-03-02 12:27:00-0400
-tags: 
 ---
 
 We all seem to spend a lot of time looking for better things, writing about them and arguing that our choices are better than others' choices of things. These jeans are better than those jeans, this laptop is better that that laptop, this app is better than that app, this coffee is better than that one. 

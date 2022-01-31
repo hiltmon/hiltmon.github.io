@@ -1,7 +1,7 @@
 ---
 title: "On the topic of talent"
 date: 2011-12-16 08:43:00-0400
-tags: 
+
 ---
 
 Jorge Quinteros, writing [on the Topic of Talent](http://folio.jorgeq.com/post/14221217462/on-the-topic-of-talent).

@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Close to the Business"
 date: 2011-12-01 21:20:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 The best software designers and developers are the ones who completely understand the business and flows for which they are creating product. This understanding allows them to apply their technical skills to business problems and create great product.  And the best way to understand is to be a part of the business, *to be close to it*.

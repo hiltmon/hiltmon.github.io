@@ -1,7 +1,7 @@
 ---
 title: "Adverse Apple Articles"
 date: 2012-11-08 11:30:00-0400
-tags: Apple
+tags: [ Apple ]
 ---
 
 As part of my research into [AAPL vs AMZN Performance Madness](https://hiltmon.com/blog/2012/11/05/aapl-vs-amzn-performance-madness/), I noticed a lot of negative press on AAPL's share price. So I decided to wait until after the election, then sample the press again to see whether it was a blip or a trend.

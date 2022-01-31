@@ -1,7 +1,7 @@
 ---
 title: "Why I Subscribed to Apple Music"
 date: 2015-10-04 13:54:22 -0400
-tags: 
+
 ---
 
 {{< figure src="images/apple-music.jpg" width=640 height=135 >}}

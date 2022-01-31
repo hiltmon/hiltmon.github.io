@@ -1,7 +1,7 @@
 ---
 title: "This Industry Is Full Of Crap"
 date: 2012-04-25 12:56:00-0400
-tags: 
+
 ---
 
 Lovely rant by Amber Weinberg in [This Industry Is Full of Crap](http://www.amberweinberg.com/this-industry-is-full-of-crap/):

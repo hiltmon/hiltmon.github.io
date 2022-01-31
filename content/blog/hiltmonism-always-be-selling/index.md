@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Always Be Selling"
 date: 2012-01-09 18:43:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 There is no right time to start selling.

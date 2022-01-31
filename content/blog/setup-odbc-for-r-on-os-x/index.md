@@ -1,7 +1,7 @@
 ---
 title: "Setup ODBC for R on OS X"
 date: 2013-09-18 12:59:00-0400
-tags: 
+
 ---
 
 **Hi Folks, Please do not follow this advice, its an old article that somehow has stayed way past its welcome in the search engines. Use the `RPostgresSQL` package that connects directly using the C drivers, its a lot faster to set up and run. ~Hilton.**

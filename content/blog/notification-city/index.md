@@ -1,7 +1,7 @@
 ---
 title: "Notification City"
 date: 2017-03-12 12:11:29 -0400
-tags: 
+
 ---
 
 **It is best for your technology stack to tell you what went wrong as soon as it goes wrong to get the right level of attention in the correct timespan.**

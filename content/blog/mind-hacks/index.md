@@ -1,7 +1,7 @@
 ---
 title: "Mind hacks"
 date: 2012-12-28 13:28:00-0400
-tags: 
+
 ---
 
 A lot of people, including myself, talk a lot about organization, productivity and *life hacks* that make things run better for us, and share it with others. But on a more personal note, some of us also need additional hacks just to function *normally* in *normal* situations.

@@ -1,7 +1,7 @@
 ---
 title: "Four Keys to Apple's Success"
 date: 2011-11-22 23:47:00-0400
-tags: 
+
 ---
 
 Greg Joswiak, Apple’s vice president of worldwide iPod, iPhone, and iOS product marketing, speaking at the “Silicon Valley Comes to Cambridge” event in the UK, shared what he believes to be the four keys to Apple’s success.

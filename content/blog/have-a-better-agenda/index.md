@@ -1,7 +1,7 @@
 ---
 title: "Have a Better Agenda"
 date: 2013-02-27 12:46:00-0400
-tags: 
+
 ---
 
 Many, many years ago I went on one of those corporate week-long training courses to learn how to negotiate. Back then I was too young and too green to learn anything from it except I remember this mantra:

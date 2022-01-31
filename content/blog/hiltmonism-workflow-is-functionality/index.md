@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Workflow is Functionality"
 date: 2012-11-27 17:39:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 Functionality, *the range of operations that can be run in a computer system*, is the foundation upon which all software product collateral, designs, discussions and comparisons are based. Customers buy on functionality. Developers create functionality. Users question *what* the product can do.

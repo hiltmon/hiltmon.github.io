@@ -1,7 +1,7 @@
 ---
 title: "Zombie email"
 date: 2012-05-18 12:52:00-0400
-tags: 
+
 ---
 
 So, I decided today to archive my old emails, and that meant connecting to the Google Apps holding pen for my last hedge fund which closed in 2009. This is a zombie email account I have not looked at in more than two years.

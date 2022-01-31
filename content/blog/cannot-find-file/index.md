@@ -1,7 +1,6 @@
 ---
 title: "Cannot find File"
 date: 2013-12-24 17:08:00-0400
-tags: 
 ---
 
 > "Can you please send me that file again? I cannot find it"

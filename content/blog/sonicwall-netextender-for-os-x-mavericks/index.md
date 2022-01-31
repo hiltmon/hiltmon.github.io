@@ -1,7 +1,7 @@
 ---
 title: "SonicWall NetExtender for OS X Mavericks"
 date: 2013-09-28 12:22:00-0400
-tags: 
+
 ---
 
 **UPDATE:** 10.9 or above users, use the [Sonicwall Mobile Connect](https://itunes.apple.com/us/app/sonicwall-mobile-connect/id822514576?mt=12&uo=4&at=10l894) app on the Mac App Store (or learn more at [Sonicwall Mobile Connect for OS X Mavericks](https://hiltmon.com/blog/2014/07/07/sonicwall-mobile-connect-for-os-x-mavericks/)).

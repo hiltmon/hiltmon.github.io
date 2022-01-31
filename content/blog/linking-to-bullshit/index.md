@@ -1,7 +1,7 @@
 ---
 title: "Linking to Bullshit"
 date: 2012-11-08 16:11:00-0400
-tags: 
+
 ---
 
 While I was working on my [Adverse Apple Articles](https://hiltmon.com/blog/2012/11/08/adverse-apple-articles/) post this morning, Marco Arment was writing this: [Linking to bullshit](http://www.marco.org/2012/11/07/linking-to-bullshit):

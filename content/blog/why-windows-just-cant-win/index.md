@@ -1,7 +1,7 @@
 ---
 title: "Why Windows Just Can’t Win"
 date: 2012-10-19 10:27:00-0400
-tags: Microsoft
+tags: [ Microsoft ]
 ---
 
 Mat Honan, writing in Wired in [Why Windows Just Can't Win](http://www.wired.com/gadgetlab/2012/10/why-windows-just-cant-win/), concludes:

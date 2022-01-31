@@ -15,6 +15,17 @@
       <p class="meta-data">
         <span class="post-date">{{ .Date.Format "Jan 2, 2006 3:04 PM" }}</span>
       </p>
+      
+      <div class="tag-group">
+		{{ range .Params.tags }}
+		  <div class="tag">
+		    <span class="tag-text">
+		      | <a href="/tags/{{. | urlize }}">{{.}}</a>
+		    </span>
+	      </div>
+        {{end}}
+	  </div>
+
     <h1 class="post-title">
       <!-- <span class="fas fa-align-right"></span> -->
       {{ .Title }}
@@ -24,7 +35,7 @@
       <div class="post-body">
         {{ .Content }}
       </div>
-  
+        
       <p class="post-mark">
         <span class="fas fa-envelope"></span>
         <span>Posted By {{ .Params.author | default "Hilton Lipschitz" }}</span>

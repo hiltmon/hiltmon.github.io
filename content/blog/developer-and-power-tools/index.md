@@ -1,7 +1,7 @@
 ---
 title: "Developer and Power Tools"
 date: 2011-12-19 18:21:00-0400
-tags: 
+
 ---
 
 Justin Williams has a pretty good list of tools he uses both for daily use and for development in [My Ultimate Developer and Power Users Tool List for Mac OS X (2011 Edition)](http://carpeaqua.com/2011/12/19/my-ultimate-developer-and-power-users-tool-list-for-mac-os-x-2011-edition-/).

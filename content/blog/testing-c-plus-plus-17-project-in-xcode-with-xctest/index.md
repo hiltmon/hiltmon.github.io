@@ -1,7 +1,7 @@
 ---
 title: "Testing C++17 Projects in Xcode with XCTest"
 date: 2019-02-09 13:55:39 -0500
-tags: 
+tags: [ C++ ]
 ---
 
 The vast majority of development I perform is in C++17 on an Apple Mac Computer using Xcode. For a while now, I have been using [Catch2](https://github.com/catchorg/Catch2) as my Unit Testing framework, and its absolutely excellent. But its not integrated into the Xcode IDE and I wanted the ability to use Xcode's excellent testing and test debugging tools to improve my productivity and workflow.

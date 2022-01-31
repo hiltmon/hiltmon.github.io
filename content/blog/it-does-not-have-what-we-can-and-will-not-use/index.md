@@ -1,7 +1,7 @@
 ---
 title: "No Sale: It does not have what we can and will not use"
 date: 2012-11-16 12:11:00-0400
-tags: 
+
 ---
 
 As a buyer of software, I always focus on what the software *does* do. If it does what I need to do well, and the price is right, I buy it, I use it and I gain the productivity benefits from it.

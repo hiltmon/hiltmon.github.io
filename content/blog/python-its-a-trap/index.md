@@ -1,7 +1,7 @@
 ---
 title: "Python: It's a Trap"
 date: 2014-01-04 14:38:00-0400
-tags: 
+
 ---
 
 <span class="light">TL;DR: Python is the best language for quantitative scripting (because of its libraries). But it's a trap. Almost all programmers and libraries require Python 2 when Python 3 is out and way better. **Choosing to use an old language for new project traps us into supporting old languages, libraries and platforms. And that's not smart.** The intent of this post is to point out this odd stagnation and encourage the migration and adoption of Python 3, or, as it has happened in the past, we'll have to look elsewhere for a solution.</span>

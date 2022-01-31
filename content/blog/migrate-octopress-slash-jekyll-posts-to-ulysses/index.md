@@ -1,7 +1,7 @@
 ---
 title: "Migrate Octopress / Jekyll Posts to Ulysses"
 date: 2017-08-31 07:49:38 -0400
-tags: 
+
 ---
 
 I wanted to move my published writing stashed in my Octopress/Jekyll site into my current writing workflow environment, [Ulysses](https://ulyssesapp.com). Dragging and dropping the files from the `_posts` folder was not an option, because:

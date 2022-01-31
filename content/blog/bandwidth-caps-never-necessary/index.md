@@ -1,7 +1,6 @@
 ---
 title: "Bandwidth caps never necessary"
 date: 2012-01-06 10:03:00-0400
-tags: 
 ---
 
 The carriers blame a small proportion of their users with hogging all the available bandwidth on their networks and thus explain why their networks are so slow. They then use this excuse to cap and throttle their users, us, and to charge us more per month.

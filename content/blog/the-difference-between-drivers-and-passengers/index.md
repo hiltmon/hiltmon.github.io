@@ -1,7 +1,7 @@
 ---
 title: "The difference between drivers and passengers"
 date: 2011-12-30 18:12:00-0400
-tags: 
+
 ---
 
 Douglas Rushkoff, Author of [Program or Be Programmed](http://www.amazon.com/Program-Be-Programmed-Commands-Digital/dp/1935928155), in an interview on [ReadWriteWeb](http://www.readwriteweb.com/hack/2011/05/douglas-rushkoff-interview.php)

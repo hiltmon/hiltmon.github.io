@@ -1,7 +1,7 @@
 ---
 title: "The Markdown File Extension"
 date: 2012-03-07 11:39:00-0400
-tags: Markdown
+tags: [ Markdown ]
 ---
 
 The correct file extension for markdown files is:

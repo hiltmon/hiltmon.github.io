@@ -1,7 +1,7 @@
 ---
 title: "Explaining the Internet to Old Powerbrokers"
 date: 2012-04-09 11:39:00-0400
-tags: 
+
 ---
 
 Ben Hammersley gave a speech to the IAAC and reproduced it online at [Check Against Delivery. My speech to the IAAC](https://www.benhammersley.com/2011/09/my-speech-to-the-iaac/). Instapaper it and read the whole thing, it's one of the best things I have read in a while.

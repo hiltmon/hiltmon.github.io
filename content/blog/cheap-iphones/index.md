@@ -1,7 +1,7 @@
 ---
 title: "Cheap iPhones, Wealthy Workers, Pick One?"
 date: 2012-02-03 10:19:00-0400
-tags: Apple
+tags: [ Apple ]
 ---
 
 Randy Murray presents a different view in [An Observer From Shenzhen—Thoughts on Apple’s Recent Bad Press](http://whowritesforyou.com/2012/02/02/an-observer-from-shenzhen-thoughts-on-apples-recent-bad-press/).

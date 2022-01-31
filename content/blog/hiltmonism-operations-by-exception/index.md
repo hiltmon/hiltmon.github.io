@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Operations by Exception"
 date: 2012-01-23 17:14:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 If we define operations as "a piece of organized and concerted activity involving a number of people", then all businesses consist of a lot of operations. Back offices, accounting groups, processing units, operations departments, call them what you may, there are departments and departments of operations.

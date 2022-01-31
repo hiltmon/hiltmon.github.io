@@ -1,7 +1,7 @@
 ---
 title: "Structure First. Content Always."
 date: 2012-02-07 08:54:00-0400
-tags: Design
+tags: [ Design ]
 ---
 
 Mark Boulton makes good points in [Structure First. Content Always.](http://www.markboulton.co.uk/journal/comments/structure-first-content-always)

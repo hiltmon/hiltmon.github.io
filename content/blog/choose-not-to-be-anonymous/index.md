@@ -1,7 +1,6 @@
 ---
 title: "I Choose not to be Anonymous"
 date: 2014-02-17 11:53:47 -0500
-tags: 
 ---
 
 <span class="light">A simple premise.</span>

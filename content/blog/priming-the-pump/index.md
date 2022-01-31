@@ -1,7 +1,7 @@
 ---
 title: "Priming the Pump"
 date: 2013-01-14 09:32:00-0400
-tags: Apple
+tags: [ Apple ]
 ---
 
 When it comes to stocks, *priming the pump* works like this:

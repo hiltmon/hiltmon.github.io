@@ -1,7 +1,7 @@
 ---
 title: "User Experience Shmecsperience"
 date: 2013-09-28 14:11:00-0400
-tags: 
+
 ---
 
 We designers of software spend a lot of our time thinking about user experience. We try to eliminate complexity, simplify interactions and to create delightful experiences.

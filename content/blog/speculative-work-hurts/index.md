@@ -1,7 +1,7 @@
 ---
 title: "Speculative work hurts"
 date: 2011-12-16 08:36:00-0400
-tags: 
+
 ---
 
 [Sebastiaan de With](https://twitter.com/#!/sdw), a really great designer, posts on Facebook of all places on [how speculative work hurts the design industry at large](http://www.facebook.com/sdewith/posts/213110135435417).

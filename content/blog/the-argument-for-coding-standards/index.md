@@ -1,7 +1,7 @@
 ---
 title: "The argument for coding standards"
 date: 2011-12-04 10:33:00-0400
-tags: 
+
 ---
 
 [cbloom rants](http://cbloomrants.blogspot.com/) in [The Mature Programmer](http://cbloomrants.blogspot.com/2011/11/11-22-11-mature-programmer.html) on the value of coding standards:

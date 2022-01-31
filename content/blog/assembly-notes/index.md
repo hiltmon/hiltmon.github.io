@@ -1,7 +1,6 @@
 ---
 title: "Assembly Notes"
 date: 2013-01-03 11:27:00-0400
-tags: 
 ---
 
 **Assembly Notes** are documentation that a programmer creates to record all the steps they go through when crafting an application, setting up a new server or configuring a new device. The idea is to log all the things they do *and all the commands they type in* so that they can reproduce the process again later. Assembly Notes are personal or project internal, not shared.

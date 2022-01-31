@@ -1,7 +1,7 @@
 ---
 title: "The best Steve Jobs quote"
 date: 2011-12-04 09:55:00-0400
-tags: 
+
 ---
 
 This may be it.

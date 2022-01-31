@@ -1,7 +1,7 @@
 ---
 title: "Lodsys still trolling"
 date: 2011-12-30 17:40:00-0400
-tags: Politics
+tags: [ Politics ]
 ---
 
 Jacqui Cheng over at Ars Technica reminds us that [iOS developers go into 2012 still battling patent troll Lodsys](http://arstechnica.com/apple/news/2011/12/ios-developers-go-into-2012-still-slugging-against-patent-troll-lodsys.ars?utm_source=rss&utm_medium=rss&utm_campaign=rss). Of course she interviewed [Mike Lee](http://mur.mu.rs):

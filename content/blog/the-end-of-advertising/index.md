@@ -1,7 +1,7 @@
 ---
 title: "The End of Advertising"
 date: 2012-03-01 11:03:00-0400
-tags: 
+
 ---
 
 Daniel Jalkut, writing in his Red Sweater blog in [The End Of Advertising](http://www.red-sweater.com/blog/2367/the-end-of-advertising):

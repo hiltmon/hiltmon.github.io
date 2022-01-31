@@ -1,7 +1,7 @@
 ---
 title: "From Tool Maker to Tool User"
 date: 2014-03-02 10:04:34 -0500
-tags: 
+
 ---
 
 <span class="light">Abstract: Programming is still seen as a single-language, single-platform tool-maker role. That has not been true for a long time. Over the years, the platforms, tools and libraries available have multiplied. We're tool users now, where a programmer can pick up a new platform with ease, and use the tools available to create complex, reliable products a lot quicker. **That which was impossible then is commonplace now.**</span>

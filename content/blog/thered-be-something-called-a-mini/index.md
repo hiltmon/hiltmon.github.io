@@ -1,7 +1,7 @@
 ---
 title: "There’d be something called a mini"
 date: 2012-10-23 20:15:00-0400
-tags: Apple
+tags: [ Apple ]
 ---
 
 My thoughts on today’s announcements by Apple.

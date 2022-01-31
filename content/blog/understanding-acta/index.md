@@ -1,7 +1,7 @@
 ---
 title: "Understanding ACTA"
 date: 2012-01-23 18:20:00-0400
-tags: 
+
 ---
 
 Lets see if I understand ACTA, the [Anti-Counterfeiting Trade Agreement](http://en.wikipedia.org/wiki/Anti-Counterfeiting_Trade_Agreement):

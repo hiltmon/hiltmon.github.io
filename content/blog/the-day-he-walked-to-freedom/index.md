@@ -2,7 +2,7 @@
 layout: writing
 title: "The day he walked to freedom"
 date: 2013-12-06 08:40:00-0400
-tags: 
+
 ---
 
 I remember it as a clear day. Sunny, not hot, not windy, just crystal clear blue skies. The rumor mill had it that he would be released on that day. It had been building up for a while. But no-one knew for sure.

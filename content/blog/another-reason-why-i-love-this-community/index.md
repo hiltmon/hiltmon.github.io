@@ -1,7 +1,6 @@
 ---
 title: "Another Reason to love this Community"
 date: 2012-11-12 18:13:00-0400
-tags: 
 ---
 
 Friendly competition, another reason to love this community.

@@ -1,7 +1,7 @@
 ---
 title: "The usage lifecycle"
 date: 2011-12-13 09:10:00-0400
-tags: 
+
 ---
 
 Joshua Porter writes about the Usage Lifecycle in [Designing for the Social Web: The Usage Lifecycle](http://bokardo.com/archives/designing-for-the-social-web-the-usage-lifecycle/), well worth reading.

@@ -1,7 +1,7 @@
 ---
 title: "TSA:Fail"
 date: 2012-03-01 10:53:00-0400
-tags: 
+
 ---
 
 Steve Moore, an experienced ex-FBI Counterterrorist Agent writing in [TSA: Fail](http://gmancasefile.blogspot.com/2012/01/tsa-fail.html):

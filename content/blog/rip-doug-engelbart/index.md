@@ -1,7 +1,7 @@
 ---
 title: "RIP Doug Engelbart"
 date: 2013-07-04 15:43:00-0400
-tags: 
+
 ---
 
 Doug Engelbart passed away last night at age 88. I remember him as one of the names behind the beginnings of modern computers, inventing the mouse, hypertext, video conferencing and collaboration. But these were not the ends of his contributions, these were the *means* by which he tried to achieve [his intent](http://www.dougengelbart.org/pubs/augment-3906.html), to augment human intellect.

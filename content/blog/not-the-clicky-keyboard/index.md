@@ -1,7 +1,7 @@
 ---
 title: "Not the Clicky Keyboard"
 date: 2013-09-05 20:32:00-0400
-tags: 
+
 ---
 
 It's pretty popular these days for popular bloggers, writers and programmers to use mechanical-switch, or clicky, old-school keyboards like the [DAS Keyboard](http://www.daskeyboard.com/product/model-s-professional-for-mac/), old IBM keyboards or the original Apple Extended Keyboard. So much so that Jeff "Coding Horror" Attwood went as far as to design the [CODE Keyboard](http://codekeyboards.com) with Weyman Kwong of WASD Keyboards<span class="light"> which looks droolworthy</span>.

@@ -1,7 +1,7 @@
 ---
 title: "On Customer and Developer Entitlements"
 date: 2012-12-11 13:52:00-0400
-tags: 
+
 ---
 
 > en·ti·tle·ment /enˈtītlmənt/ Noun  

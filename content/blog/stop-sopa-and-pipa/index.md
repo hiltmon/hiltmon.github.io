@@ -1,7 +1,7 @@
 ---
 title: "Stop SOPA and PIPA, a personal request"
 date: 2012-01-18 08:27:00-0400
-tags: 
+
 ---
 
 This blog exists due to the confluence of a few cool things

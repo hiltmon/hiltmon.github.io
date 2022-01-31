@@ -1,7 +1,7 @@
 ---
 title: "The definition of open"
 date: 2011-12-30 18:33:00-0400
-tags: 
+
 ---
 
 The tweet that *was*, then *was not*, then *was* again, saved for claim chowder:

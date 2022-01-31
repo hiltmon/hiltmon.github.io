@@ -1,7 +1,6 @@
 ---
 title: "Can't innovate anymore, my ass"
 date: 2013-12-27 09:26:00-0400
-tags: 
 ---
 
 Over the past few days I have seen so many references to the Quartz post [2013 was a lost year for tech](http://qz.com/161443/2013-was-a-lost-year-for-tech/) that it has become a [meme](http://en.wikipedia.org/wiki/Meme). "Innovation is dead", "2013 proves it", "RIP Innovation", it screams.

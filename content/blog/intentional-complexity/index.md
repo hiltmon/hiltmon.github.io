@@ -1,7 +1,7 @@
 ---
 title: "Intentional Complexity"
 date: 2013-08-24 15:21:00-0400
-tags: 
+
 ---
 
 > John Duns Scotus' (1265-1308) book Ordinatio: "Pluralitas non est ponenda sine necessitate", i.e., "Plurality is not to be posited without necessity"

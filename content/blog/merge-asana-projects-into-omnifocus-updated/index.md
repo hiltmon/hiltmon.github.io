@@ -1,7 +1,7 @@
 ---
 title: "Merge Asana Projects into OmniFocus (Updated)"
 date: 2015-03-01 18:18:59 -0500
-tags: 
+
 ---
 
 {{< figure src="images/asana_to_omnifocus.png" width=363 height=130 class="image-right" >}}

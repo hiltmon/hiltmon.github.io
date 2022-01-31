@@ -1,7 +1,7 @@
 ---
 title: "Design is Horseshit"
 date: 2011-12-16 08:25:00-0400
-tags: 
+
 ---
 
 [@yongfook](https://twitter.com/#!/yongfook), writing in [Design is Horseshit!](http://yongfook.com/post/14295124427/design-is-horseshit), makes a good point:

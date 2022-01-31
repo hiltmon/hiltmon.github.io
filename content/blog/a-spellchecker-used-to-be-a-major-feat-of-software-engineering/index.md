@@ -1,7 +1,7 @@
 ---
 title: "A Spellchecker Used to Be a Major Feat of Software Engineering"
 date: 2012-01-23 12:52:00-0400
-tags: Software
+tags: [ Software ]
 ---
 
 A classic by James Hague entitled [A Spellchecker Used to Be a Major Feat of Software Engineering](http://prog21.dadgum.com/29.html).

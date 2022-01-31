@@ -2,7 +2,7 @@
 layout: writing
 title: "Writers: Thank You"
 date: 2013-12-25 12:03:00-0400
-tags: 
+
 ---
 
 I want to say *thank you* to a bunch of writers, to people who do what they do because they love to do it, from an anonymous one that reads and appreciates what they do every day.

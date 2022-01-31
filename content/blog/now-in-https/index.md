@@ -1,7 +1,7 @@
 ---
 title: "Now in HTTPS"
 date: 2016-01-31 17:05:36 -0500
-tags: 
+
 ---
 
 My host, [Dreamhost](https://www.dreamhost.com/), is offering free web site certificates through [Let's Encrypt](https://letsencrypt.org), a new initative to make encrypted connections the default standard through the internet. They started with free SSL certificates.

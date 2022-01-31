@@ -1,7 +1,7 @@
 ---
 title: "Seek the Criticism"
 date: 2011-12-14 12:42:00-0400
-tags: 
+
 ---
 
 Brendan Baker nails it in [Fuck the Accolades. Seek the Criticism](http://www.quora.com/Brendan-Baker/Fuck-the-Accolades-Seek-the-Criticism) on Quora.  Just read it. It's short.

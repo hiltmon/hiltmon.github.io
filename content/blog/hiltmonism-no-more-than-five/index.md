@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - No more than Five"
 date: 2012-06-09 13:35:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 We've all seen those interfaces: [Internet Explorer](http://windows.microsoft.com/en-us/internet-explorer/products/ie/home) windows with racks upon racks of toolbars, forms with hundreds of fields to fill in or applications with menus that run off the bottom of the screen, or worse, have unending levels of sub-menus. They are confusing, messy, hard to use and even harder to navigate.

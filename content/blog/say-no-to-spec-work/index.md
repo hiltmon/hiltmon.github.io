@@ -1,7 +1,7 @@
 ---
 title: "Say NO to Spec Work"
 date: 2012-10-19 11:55:00-0400
-tags: Business
+tags: [ Business ]
 ---
 
 *TL;DR: Spec work is delivering creative work for free to prospective clients, encouraged by a bunch of work-listing or contest-hosting services. Say NO, even if that means you have quiet times, or you’ll never become a professional.*

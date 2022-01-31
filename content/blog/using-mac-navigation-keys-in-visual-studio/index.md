@@ -1,7 +1,7 @@
 ---
 title: "Using Mac Navigation Keys in Visual Studio"
 date: 2013-10-10 12:32:00-0400
-tags: 
+
 ---
 
 As a developer, sometimes I am forced to use Visual Studio to code for Windows. Just like a lot of Mac developers, I therefore run Visual Studio in a [VMWare Fusion](http://www.vmware.com/products/fusion/) VM. And it works great.

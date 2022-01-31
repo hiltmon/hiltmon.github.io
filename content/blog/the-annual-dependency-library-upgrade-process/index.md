@@ -1,7 +1,7 @@
 ---
 title: "The Annual Dependency Library Upgrade Process"
 date: 2016-09-25 14:10:56 -0400
-tags: 
+
 ---
 
 At work, we write a lot of code. In order to remain productive, we reuse the same proven dependent libraries and tools over and over again. Which is fine. Until we start seeing end-of-life notices, vulnerabilities, deprecations, performance improvements and bug-fixes passing us by. At some point we need to update our dependencies for performance and security.

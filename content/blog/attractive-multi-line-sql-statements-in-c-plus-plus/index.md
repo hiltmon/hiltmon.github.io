@@ -1,7 +1,6 @@
 ---
 title: "Attractive Multi-Line SQL Statements in C++"
 date: 2016-04-26 20:19:26 -0400
-tags: 
 ---
 
 I often need to embed SQL statements in C++ code. Unfortunately, many of mine are long and complex. Even the simple ones are wide. This leads to the following ugly code:

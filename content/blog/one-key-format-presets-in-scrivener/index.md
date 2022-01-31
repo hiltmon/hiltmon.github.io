@@ -1,7 +1,7 @@
 ---
 title: "One-Key Format Presets in Scrivener"
 date: 2015-03-07 17:37:51 -0500
-tags: Scrivener
+tags: [ Scrivener ]
 ---
 
 {{< figure src="images/scrivener-format.png" width=520 height=254 class="image-right" >}}

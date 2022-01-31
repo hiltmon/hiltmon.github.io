@@ -1,7 +1,7 @@
 ---
 title: "The App Store playing field"
 date: 2012-02-16 18:52:00-0400
-tags: Apple
+tags: [ Apple ]
 ---
 
 Excellent article by Emeric Thoa in [The Game Bakers](http://thegamebakers.com/) called [Money And The App Store: A Few Figures That Might Help An Indie Developer](http://thegamebakers.com/money-and-the-app-store-a-few-figures-that-might-help-an-indie-developer.html) where he covers some myths about the app store and provides advice to indies trying to make it there.

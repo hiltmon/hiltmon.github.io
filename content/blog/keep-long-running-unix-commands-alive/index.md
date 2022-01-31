@@ -1,7 +1,7 @@
 ---
 title: "Keep long running UNIX commands alive"
 date: 2014-04-19 12:43:53 -0400
-tags: 
+
 ---
 
 Here's the situation: you have a UNIX script that takes a long time to run, but gets killed when your computer goes to sleep and the SSH terminal or VPN disconnects. *Ouch*.

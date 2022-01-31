@@ -2,7 +2,7 @@
 layout: news
 title: "In the Press: This Week's Hedge Fund Alert"
 date: 2015-08-05 11:14:29 -0400
-tags: 
+
 ---
 
 <span class="light">I'm quoted in Hedge Fund Alert, Aug 5, 2015, reproduced without permission.</span>

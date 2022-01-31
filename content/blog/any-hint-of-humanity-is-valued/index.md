@@ -1,7 +1,6 @@
 ---
 title: "Any hint of humanity is valued"
 date: 2014-10-01 09:09:04 -0400
-tags: 
 ---
 
 > For decades we have had corporatization, mass-production, and everything becoming the same, having personality drained from it. That became what was common and what was the norm. And then in the last, you know, 5, 10 years, this concept of like the artisanal, the special, the hand-made, like this is coming back ...

@@ -1,7 +1,7 @@
 ---
 title: "Hundreds of sites ordered deindexed"
 date: 2011-11-29 18:53:00-0400
-tags: 
+
 ---
 
 A judge has ruled 700 domain names to be seized and removed from Facebook, Twitter, Google+, Bing, Yahoo and Google searches, on suspicion, *not proof*, of selling counterfeit goods.  Whether the domain names are local or foreign, infringing or not, or even valid but caught-in-the-net business sites is immaterial.  They are ordered seized and taken down without notice or recourse.

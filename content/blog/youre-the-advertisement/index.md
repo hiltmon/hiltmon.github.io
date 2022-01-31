@@ -1,7 +1,7 @@
 ---
 title: "You’re the Advertisement"
 date: 2012-12-17 16:03:00-0400
-tags: Social
+tags: [ Social ]
 ---
 
 It used to be said that:

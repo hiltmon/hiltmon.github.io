@@ -1,7 +1,7 @@
 ---
 title: "No Service Competition in New York"
 date: 2011-12-02 18:47:00-0400
-tags: 
+
 ---
 
 Just a quick check on my choices for 21st century data services available at my apartment in New York city:

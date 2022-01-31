@@ -1,7 +1,7 @@
 ---
 title: "Magical Migrations"
 date: 2014-02-08 11:46:50 -0500
-tags: 
+
 ---
 
 <span class="light">As I am writing this, I am using magical migrations to perform a full data transplant across three servers, each with 100+GB of data, with a single command. Yep, I'm chilling and writing a blog post while replacing the entire data scaffolding of my firm as if it were just another cold Saturday. Magical indeed.</span>

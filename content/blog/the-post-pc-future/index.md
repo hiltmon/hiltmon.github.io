@@ -1,7 +1,7 @@
 ---
 title: "The Post-PC future, iCloud turns one"
 date: 2012-10-14 11:20:00-0400
-tags: Apple
+tags: [ Apple ]
 ---
 
 Apple's iCloud service turned 1-year old on October 12, 2012. The day passed with a whimper in a tech press focussed on irrelevant issues such scratching, purple flares, maps and other Apple so-called "failures".

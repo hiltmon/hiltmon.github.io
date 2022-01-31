@@ -1,7 +1,7 @@
 ---
 title: "The paradox of choice"
 date: 2012-02-01 10:41:00-0400
-tags: Business
+tags: [ Business ]
 ---
 
 **People desire more choices, yet are unable to choose when the selection is greater, that is the paradox of choice.**

@@ -1,7 +1,7 @@
 ---
 title: "Textmate 2 Tips"
 date: 2011-12-28 18:31:00-0400
-tags: 
+
 ---
 
 For those of you who, like me, have already switched to Textmate 2 alpha as a daily programmer's editor, check out [Textmate 2 Tips](http://tm2tips.tumblr.com/) on tumblr. Lots of useful tips there.

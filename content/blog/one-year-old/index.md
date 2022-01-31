@@ -1,7 +1,7 @@
 ---
 title: "Hiltmon.com - One Year Old"
 date: 2012-11-24 16:49:00-0400
-tags: 
+
 ---
 
 {{< figure src="images/hiltmon-one-year.jpg" width=640 height=127 >}}

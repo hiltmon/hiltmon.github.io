@@ -1,7 +1,6 @@
 ---
 title: "Apples and Rotten Oranges"
 date: 2013-10-23 21:41:00-0400
-tags: 
 ---
 
 So Frank Shaw, Corporate Vice President of Communications at Microsoft wrote a thing called [Apples and Oranges](http://blogs.technet.com/b/microsoft_blog/archive/2013/10/23/apples-and-oranges.aspx) in response to the Apple Laptop, iPad, iWork, iLife and Mac Pro event yesterday, and sadly, it got a lot of coverage.

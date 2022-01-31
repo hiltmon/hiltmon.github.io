@@ -1,7 +1,6 @@
 ---
 title: "Brown M&Ms: A Quick Way to Determine Code Quality"
 date: 2015-10-14 19:31:20 -0400
-tags: 
 ---
 
 {{< figure src="images/vanhalenmm.png" width=320 height=320 class="image-right" >}}

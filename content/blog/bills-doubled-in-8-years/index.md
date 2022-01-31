@@ -1,7 +1,6 @@
 ---
 title: "Bills Doubled in 8 Years"
 date: 2012-12-02 11:21:00-0400
-tags: 
 ---
 
 While shredding old, unnecessary paperwork today, I noticed that the cost of our monthly utilities have more than doubled in 8 years, yet almost nothing in our way of life has changed.

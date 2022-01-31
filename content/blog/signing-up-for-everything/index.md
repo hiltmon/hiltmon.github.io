@@ -1,7 +1,7 @@
 ---
 title: "Signing up for Everything"
 date: 2011-11-23 17:45:00-0400
-tags: 
+
 ---
 
 I sign up for every new service that comes along. Every single one.  Most of them I never log into again, except to unsubscribe from their mailing lists.  Every single new social network, professional network, graphics sharing site, instant messenger, free email provider, free home page display, free blogging app, book reading site, iPhone community app and all the hundreds I am missing, all have one thing in common.  A **hiltmon** login.  My **hiltmon** login.

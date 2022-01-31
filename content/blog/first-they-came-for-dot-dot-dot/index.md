@@ -1,7 +1,7 @@
 ---
 title: "First they came for..."
 date: 2014-02-01 14:52:23 -0500
-tags: 
+
 ---
 
 ## A Modern Version

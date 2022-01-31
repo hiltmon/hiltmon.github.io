@@ -1,7 +1,7 @@
 ---
 title: "Hit by a Bus"
 date: 2013-01-14 12:48:00-0400
-tags: 
+
 ---
 
 > What would happen to my clients and my products if I got hit by a bus?

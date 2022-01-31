@@ -1,7 +1,7 @@
 ---
 title: "Easy SSH to local linux VM"
 date: 2014-02-22 14:03:54 -0500
-tags: 
+
 ---
 
 *TL;DR: Run `avahi` on the VM, `ssh` to the VM name dot local.*

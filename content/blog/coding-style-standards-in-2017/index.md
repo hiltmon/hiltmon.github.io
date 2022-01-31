@@ -1,7 +1,7 @@
 ---
 title: "Coding Style Standards in 2017"
 date: 2017-03-05 12:25:52 -0500
-tags: 
+
 ---
 
 I've been writing software for well over 30 years, I've spent well over my 10,000 hours and gotten rather good at it. And I still write to a very rigorous coding style standard.

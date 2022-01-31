@@ -1,7 +1,7 @@
 ---
 title: "On the New MacBook Pros"
 date: 2016-11-06 11:20:29 -0500
-tags: 
+
 ---
 
 Much has been written, tweeted and complained about the new MacBook Pros released by Apple last week. Complaints about the 16GB limit, all-in switch to Thunderbolt 3 (USB-C), the removal of the SD-card and MagSafe, the new keyboard, the aged CPUs, the slow GPU, dongles, that they are not "Pro" level machines, and more. More and more influential folks are writing that Apple has forgotten the Mac, that the Mac is doomed or dead.

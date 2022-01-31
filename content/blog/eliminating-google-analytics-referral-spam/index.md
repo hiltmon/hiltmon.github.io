@@ -1,7 +1,7 @@
 ---
 title: "Eliminating Google Analytics Referral Spam"
 date: 2015-01-18 10:42:51 -0500
-tags: 
+
 ---
 
 {{< figure src="images/google-analytics.png" width=100 height=101 class="image-right" >}}

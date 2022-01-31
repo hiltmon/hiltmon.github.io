@@ -1,7 +1,7 @@
 ---
 title: "TimeToCall Removed from App Store"
 date: 2014-10-02 12:14:26 -0400
-tags: 
+
 ---
 
 {{< figure src="images/timetocall-128.jpg" width=128 height=128 class="image-right" >}}

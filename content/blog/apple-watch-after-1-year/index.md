@@ -1,7 +1,6 @@
 ---
 title: "Apple Watch - After 1 Year"
 date: 2016-04-24 10:56:49 -0400
-tags: 
 ---
 
 {{< figure src="images/watch-1yr-0.png" width=312 height=356 class="image-right" >}}

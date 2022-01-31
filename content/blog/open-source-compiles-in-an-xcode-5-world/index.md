@@ -1,7 +1,7 @@
 ---
 title: "Open Source Compiles in an Xcode 5.1 World"
 date: 2014-03-20 12:21:04 -0400
-tags: 
+
 ---
 
 So today I needed to work on an older, open-source based C++ application on my Mac and there was no way to compile it under Xcode 5 even though the development tools were installed and working perfectly.

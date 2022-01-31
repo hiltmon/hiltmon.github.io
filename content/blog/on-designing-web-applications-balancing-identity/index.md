@@ -1,7 +1,7 @@
 ---
 title: "On Designing Web Applications balancing Identity, Usability and Familiarity"
 date: 2011-11-29 22:06:00-0400
-tags: 
+
 ---
 
 Graphic design without understanding the user, the flow and site interaction leads to pretty, uniquely identifiable web applications that are quite unusable and fail to connect with their users. Web applications that mimic the graphic design of others may seem to be more useable, because they are so familiar, but look like someone else's product, have no identity, seem bland and boring, and also fail to connect with their users.

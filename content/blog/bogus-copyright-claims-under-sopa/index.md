@@ -1,7 +1,7 @@
 ---
 title: "Bogus copyright claims under SOPA"
 date: 2011-12-30 17:32:00-0400
-tags: Politics
+tags: [ Politics ]
 ---
 
 Mike Masnyck, writing in Techdirt asks a valid question: [Shouldn't There Be Significant Punishment For Bogus Copyright Claims That Kill Companies?](http://www.techdirt.com/articles/20111229/03234617223/shouldnt-their-be-significant-punishment-bogus-copyright-claims-that-kill-companies.shtml)

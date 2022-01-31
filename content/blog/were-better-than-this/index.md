@@ -2,7 +2,7 @@
 layout: writing
 title: "We're better than this"
 date: 2015-11-25 09:46:47 -0500
-tags: 
+
 ---
 
 <span class="light">My thoughts on the toxic hell-stew that my Twitter feed is becoming. I follow (and occasionally interact with) a bunch of intelligent, opinionated, sensible tech folks *whom I respect immensely* and whose timelines and lives are being ruined by an impersonator, a gang of misogynists and their flock of followers.</span>

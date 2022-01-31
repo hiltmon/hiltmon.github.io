@@ -1,7 +1,7 @@
 ---
 title: "The Quick Code Cleanup"
 date: 2014-09-02 23:29:19 -0400
-tags: 
+
 ---
 
 The quick code cleanup is a process whereby you run through some or all of the files in a software project and tidy them up. Think about it as the regular tidying of your desk (or room) and filing things away -- versus the rearranging and rewiring of a full code refactor. You can get a lot more done on a tidy desk.

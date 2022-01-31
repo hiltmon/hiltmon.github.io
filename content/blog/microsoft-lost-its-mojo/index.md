@@ -1,7 +1,7 @@
 ---
 title: "Microsoft Lost its Mojo"
 date: 2012-10-10 09:56:00-0400
-tags: Microsoft
+tags: [ Microsoft ]
 ---
 
 Another well written article today in Vanity Faire, [How Microsoft Lost Its Mojo: Steve Ballmer and Corporate America’s Most Spectacular Decline](http://www.vanityfair.com/business/2012/08/microsoft-lost-mojo-steve-ballmer), which visits Microsoft’s lost decade and current structural problems. Well worth [Instapering](http://www.instapaper.com/) (Is that a word?).

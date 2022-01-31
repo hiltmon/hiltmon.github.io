@@ -1,7 +1,7 @@
 ---
 title: "AAPL vs AMZN Performance Madness"
 date: 2012-11-05 13:26:00-0400
-tags: Apple
+tags: [ Apple ]
 ---
 
 Philip Elmer-DeWitt	noted something interesting on Saturday in Fortune magazine, [Amazon's price-to-earnings ratio is now 2,767. Apple's is 13](http://tech.fortune.cnn.com/2012/11/03/amazons-price-to-earnings-ratio-is-now-2767-apples-is-13/)! In the last quarter, Apple's earnings were **up** and the stock went **down**, whereas Amazon reported a loss and the stock went up. 

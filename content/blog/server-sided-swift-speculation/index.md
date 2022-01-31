@@ -1,7 +1,7 @@
 ---
 title: "Server-sided Swift Speculation"
 date: 2014-06-06 19:02:20 -0400
-tags: Apple
+tags: [ Apple ]
 ---
 
 <span class="light">Note: This is not a thing, it's just some idle speculation on my behalf. But maybe, just maybe, Apple will do something like this. Or not. Maybe we will do it.</span>

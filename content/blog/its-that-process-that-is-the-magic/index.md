@@ -1,7 +1,7 @@
 ---
 title: "It's that process that is the magic"
 date: 2014-03-29 10:04:40 -0400
-tags: 
+
 ---
 
 > <strong>CRINGLY: What's important to you in the development of a product?</strong>

@@ -1,7 +1,7 @@
 ---
 title: "How I use OS X Tools to build a Linux-only Product"
 date: 2014-03-27 20:43:24 -0400
-tags: 
+
 ---
 
 {{< figure src="images/osx-mavericks-100px.png" width=100 height=91 class="image-right" >}}

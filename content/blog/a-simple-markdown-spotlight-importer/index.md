@@ -1,7 +1,7 @@
 ---
 title: "A simple Markdown Spotlight importer"
 date: 2015-06-27 14:33:43 -0400
-tags: Markdown
+tags: [ Markdown ]
 ---
 
 **Note: This is for Yosemite or before, for El Capitan or later, see [A Yosemite Markdown Spotlight Importer](https://hiltmon.com/blog/2015/11/17/a-yosemite-markdown-spotlight-importer/).**

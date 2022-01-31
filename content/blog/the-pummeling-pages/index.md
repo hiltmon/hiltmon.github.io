@@ -1,7 +1,7 @@
 ---
 title: "The Pummeling Pages"
 date: 2011-11-23 17:34:00-0400
-tags: 
+
 ---
 
 [Brent Simmons](http://www.inessential.com), original author of [NetNewsWire](http://netnewswireapp.com/) and [MarsEdit](http://www.red-sweater.com/marsedit/), on visiting modern publication websites:

@@ -1,7 +1,6 @@
 ---
 title: "Aral on Spyware 2.0"
 date: 2014-08-22 08:05:08 -0400
-tags: 
 ---
 
 > That word is spyware.

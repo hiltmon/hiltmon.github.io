@@ -1,7 +1,7 @@
 ---
 title: "Windows 8 Launch MIA"
 date: 2012-10-25 14:07:00-0400
-tags: Microsoft
+tags: [ Microsoft ]
 ---
 
 So I sat back today to watch the live stream of the Microsoft Windows 8 launch. I was excited, this is the first Windows launch that interested me since Windows 95. And I waited for them to show me the product, its features and its pricing. And I waited, and waited, and then the show ended. Information about Windows 8 was **missing in action** at the launch.

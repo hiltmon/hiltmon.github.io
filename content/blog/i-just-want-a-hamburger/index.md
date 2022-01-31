@@ -1,7 +1,7 @@
 ---
 title: "I just want a Hamburger"
 date: 2011-11-25 12:30:00-0400
-tags: 
+
 ---
 
 Or **too many choices lead to the inability to choose**.

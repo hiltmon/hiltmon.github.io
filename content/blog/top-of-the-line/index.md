@@ -1,7 +1,7 @@
 ---
 title: "Top of the Line"
 date: 2012-03-09 15:12:00-0400
-tags: Computers
+tags: [ Computers ]
 ---
 
 I'm not rich, but when I buy technology, I always get the top-of-the-line model *within my product range*. Why? **Longevity** and **Productivity**. I choose the range to suit my needs and skill levels. And the long-term benefits of productivity and time savings way exceed the short-term incremental cost.

@@ -1,7 +1,7 @@
 ---
 title: "The readable future"
 date: 2011-11-28 17:10:00-0400
-tags: 
+
 ---
 
 Brent Simmons nails it again in [The Readable Future](http://inessential.com/2011/11/25/the_readable_future), talking about the tools we all use to bypass all the ads and clutter of publisher's sites.

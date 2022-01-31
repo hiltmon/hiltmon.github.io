@@ -1,7 +1,7 @@
 ---
 title: "Don't give up on your techs"
 date: 2011-12-13 22:48:00-0400
-tags: 
+
 ---
 
 My good friend, Brad Lindenberg, writing in [The diminishing value of technical founders in startups](http://www.lindventures.com/blog/2011/12/07/the-diminishing-value-of-technical-founders-in-startups/) talks about the value of the super technical people needed to perform the heavy lifting at the beginning of a startup.

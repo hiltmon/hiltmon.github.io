@@ -1,7 +1,7 @@
 ---
 title: "Solutions born from deep experience"
 date: 2012-10-22 11:36:00-0400
-tags: 
+
 ---
 
 Comment of the Day:

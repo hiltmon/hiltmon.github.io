@@ -1,7 +1,7 @@
 ---
 title: "Care"
 date: 2012-08-22 08:58:00-0400
-tags: [Good Reads]
+tags: [ "Good Reads" ]
 ---
 
 > As a species , we have proven that there is nothing we can’t do if we set out to do so. We have cured the incurable countless times before. I fervently believe that, if we can send robots to Mars and fix elections with money, we can cure cancer. All it takes is the same thing it always has for every one of those challenges…

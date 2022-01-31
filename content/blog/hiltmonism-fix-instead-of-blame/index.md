@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Fix instead of Blame"
 date: 2012-02-11 09:49:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 *I was saving this one up for later, but events of this week prompted me to write it now.*

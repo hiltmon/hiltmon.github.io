@@ -1,7 +1,7 @@
 ---
 title: "On Ihnatko Switching to Android"
 date: 2013-03-06 11:12:00-0400
-tags: 
+
 ---
 
 Andy Ihnatko ([@ihnatko](https://twitter.com/Ihnatko)) is writing one of his usual clear and cogent articles on his choice to switch from the iPhone to Android at TechHive, see [Part One](http://www.techhive.com/article/2030042/why-i-switched-from-iphone-to-android.html) and [Part Two](http://www.techhive.com/article/2030116/customize-and-collaborate-why-i-switched-from-iphone-to-android-part-2.html).

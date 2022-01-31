@@ -1,7 +1,7 @@
 ---
 title: "Working from Home ... here we go!"
 date: 2020-03-14 09:57:53 -0400
-tags: 
+
 ---
 
 It’s been many years since I worked from home and much is different since I ran Noverse from here. First, my wife has taken over my workspace as hers, so the desk, good keyboard, mouse and monitor are her domain now. Secondly, it’s likely this is not a one-day disaster recovery test, so I need to find a way settle in instead of use the laptop on the dining table. And thirdly, Slack has changed the way we communicate internally, which makes it as easy to maintain contact as it does in our open plan office.

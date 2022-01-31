@@ -1,7 +1,7 @@
 ---
 title: "Mischief Managed: Google 2-Factor Authentication"
 date: 2012-08-06 11:45:00-0400
-tags: Mischief-Managed
+tags: [ "Mischief Managed" ]
 ---
 
 ***Mischief Managed** is a series of posts on tasks and technologies I use to maintain my computing environment. It’s part of what I do between projects. Try it out.*

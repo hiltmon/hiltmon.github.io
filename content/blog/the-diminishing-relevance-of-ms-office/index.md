@@ -1,7 +1,7 @@
 ---
 title: "The diminishing relevance of MS Office"
 date: 2013-03-07 18:25:00-0400
-tags: 
+
 ---
 
 It used to be a given that we purchased our computers to run [MS Office](http://office.microsoft.com/en-us/), because that's all the software we *used* on our computers. But over the years, we started to use our computing devices for more than work and the use and need for MS Office has declined in importance. 

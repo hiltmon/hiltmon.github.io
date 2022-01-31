@@ -1,7 +1,7 @@
 ---
 title: "Standard Markdown"
 date: 2014-09-03 20:25:56 -0400
-tags: Markdown
+tags: [ Markdown ]
 ---
 
 {{< figure src="images/markdown.png" width=208 height=128 class="image-right" >}}

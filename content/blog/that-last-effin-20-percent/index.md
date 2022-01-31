@@ -1,7 +1,7 @@
 ---
 title: "That last effin 20%"
 date: 2015-05-29 16:02:43 -0400
-tags: 
+
 ---
 
 I love creating new products. I love shipping new products more. That last effin 20% of work to create a new product that takes 80% of all the development time kills me. I really want to ship, but it has to be right.

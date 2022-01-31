@@ -1,7 +1,7 @@
 ---
 title: "News Logic"
 date: 2012-02-03 10:12:00-0400
-tags: 
+
 ---
 
 Paddy Harrington, writing in [Wanna Figure Out If Your Product Is Any Good? Think Like A News Editor](http://www.fastcodesign.com/1668945/wanna-figure-out-if-your-work-is-any-good-think-like-a-news-editor)

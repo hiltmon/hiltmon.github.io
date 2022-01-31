@@ -1,7 +1,7 @@
 ---
 title: "You are not your Customer"
 date: 2011-11-24 12:41:00-0400
-tags: 
+
 ---
 
 One of the most common memes in software development is that great products come from a programmer scratching an itch.  They needed software to do something, did not like what was out there, and created a great product.  They were their own customer, they knew what they wanted and they made the software for themselves.

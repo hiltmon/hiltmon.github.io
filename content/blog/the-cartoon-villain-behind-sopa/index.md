@@ -1,7 +1,7 @@
 ---
 title: "The cartoon villain behind SOPA"
 date: 2011-12-23 10:59:00-0400
-tags: Politics
+tags: [ Politics ]
 ---
 
 Kevin Fogarty, writing in [Best idea of 2011: Give control of Internet content to group that sued a dead grandmother](http://m.itworld.com/security/234685/best-idea-2011-give-control-internet-content-group-sued-dead-grandmother) via IT World, goes after the backers of SOPA, especially the RIAA.

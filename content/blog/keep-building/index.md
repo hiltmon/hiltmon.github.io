@@ -1,7 +1,7 @@
 ---
 title: "Keep Building"
 date: 2013-07-03 20:18:00-0400
-tags: 
+
 ---
 
 Marco Arment ([@marco](http://twitter.com/marcoarment)) on his blog in [Lockdown](http://www.marco.org/2013/07/03/lockdown), writes:

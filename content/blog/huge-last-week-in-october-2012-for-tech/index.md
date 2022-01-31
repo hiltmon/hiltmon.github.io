@@ -1,7 +1,7 @@
 ---
 title: "Huge Last Week in October 2012 for Tech"
 date: 2012-10-22 12:05:00-0400
-tags: Computing
+tags: [ Computing ]
 ---
 
 It’s going to be a huge week in tech this week, with launches and events from the big three, Microsoft, Google and Apple. Here’s what happening and my take on each.

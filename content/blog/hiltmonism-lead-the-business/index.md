@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Lead the Business"
 date: 2012-08-01 13:37:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 There exists a common situation in business where management wants to take the business in a certain direction, but the technical and operations staff declare that it *cannot* be done. They then bring out a litany of reasons which boil down to two: the current systems *cannot* do it and current processes *cannot* support it. Therefore, management *cannot* make the change. And if management *cannot* make the changes, may the business *cannot* compete, *cannot* be successful and *cannot* continue.

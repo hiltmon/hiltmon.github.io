@@ -1,7 +1,6 @@
 ---
 title: "ChronoSync Back to My Mac"
 date: 2013-08-15 22:45:00-0400
-tags: 
 ---
 
 *TL;DR: You can use [ChronoSync][cs1] to access a remote [ChronoAgent][ca1] if [Back to My Mac][btmm] is turned on for both computers. Which means you can sync from anywhere!*

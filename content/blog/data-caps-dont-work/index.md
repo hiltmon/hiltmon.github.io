@@ -1,7 +1,7 @@
 ---
 title: "Data caps don't work"
 date: 2011-12-02 18:41:00-0400
-tags: 
+
 ---
 
 Nate Anderson, writing for Ars Technica in [Data caps a "crude and unfair tool" for easing online congestion](http://arstechnica.com/tech-policy/news/2011/12/data-caps-a-crude-and-unfair-tool-for-easing-online-congestion.ars)

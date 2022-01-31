@@ -1,7 +1,7 @@
 ---
 title: "View on an Insider as CEO for Microsoft"
 date: 2014-02-04 20:01:28 -0500
-tags: 
+
 ---
 
 Today, Microsoft announced [Satya Nadella](http://www.microsoft.com/en-us/news/ceo/index.html) as its new CEO, a 22-year veteran of the business and a true Insider. <span class="light">I wish him the best of luck and success.</span> But is choosing an Insider as CEO good for a *mature* Microsoft or bad? 

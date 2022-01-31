@@ -1,7 +1,7 @@
 ---
 title: "Social Network Precedents for Connecting and Friending"
 date: 2014-04-02 19:23:13 -0400
-tags: 
+
 ---
 
 {{< figure src="images/donut.jpg" width=250 height=326 class="image-right" >}}As are we all, I too am active on a bunch of social networks. But I too do not connect or friend everyone on every network. I think we all want some semblance of control as to what we share and with whom we share it. To help me decide, I created *my precedents*, a set of guidelines as to whom I will connect with on which network and what I share there.

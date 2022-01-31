@@ -1,7 +1,7 @@
 ---
 title: "The four hour rule"
 date: 2011-12-03 09:52:00-0400
-tags: 
+
 ---
 
 Programming is a craft of the mind. Programmers need to think through the feature they are writing, build up the code and a solution in their heads, maintain the product architecture, structure and conventions in the background and plan and design the next part of the code they are assembling. And then they need the time to execute all that. Once in The Zone&trade;, programmers are exceptionally productive. But The Zone&trade; has limits. **A four hour limit**.

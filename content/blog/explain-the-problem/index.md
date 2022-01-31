@@ -1,7 +1,7 @@
 ---
 title: "Explain the Problem - Not your Solution"
 date: 2011-12-02 09:48:00-0400
-tags: 
+
 ---
 
 Something that drives me quite batty is when people turn to me for help and request a solution without explaining the problem.  In other words, they tell me their answer to a puzzle, without explaining what the puzzle is, and expect me to understand what to do. *They want the answer to be 42, but what is the question being asked?*

@@ -1,7 +1,7 @@
 ---
 title: "My Favorite Mac Apps of 2011"
 date: 2012-01-05 18:48:00-0400
-tags: 
+
 ---
 
 I've compiled a list of my favorite Mac apps for 2011.  Just wanted to mention the ones that make my life that much easier. I am intentionlly excluding all built-in applications or anything from Apple, such as [iWork](http://www.apple.com/iwork/), [iLife](http://www.apple.com/ilife/) and [Aperture](http://www.apple.com/aperture/) which are mainstays. 

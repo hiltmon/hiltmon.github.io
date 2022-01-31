@@ -1,7 +1,7 @@
 ---
 title: "Vegemite Sandwich"
 date: 2012-11-22 14:04:00-0400
-tags: Food
+tags: [ Food ]
 ---
 
 It's Thanksgiving here in the USA today and all us good Aussies are making our own comfort food, **Vegemite Sandwiches**. If you have listened to the Men at Work song [Down Under](http://www.youtube.com/watch?v=xhnn6yb4Mmc), you've heard of this magical foodstuff. 

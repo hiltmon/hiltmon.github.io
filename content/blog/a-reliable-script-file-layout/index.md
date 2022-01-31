@@ -1,7 +1,7 @@
 ---
 title: "A Reliable Script File Layout"
 date: 2013-09-14 14:44:00-0400
-tags: 
+
 ---
 
 I write a surfeit[^1] of Ruby scripts that I use every day at work, everything from sending, transforming and retrieving files to monitoring systems to glueing platforms together. Keeping these under control, forgettable[^2] and maintainable is very important to me. So over the past few years, I have migrated to a file layout and programming pattern that enables me to spin these up quickly, forget about them and yet get back and maintain them when things change.

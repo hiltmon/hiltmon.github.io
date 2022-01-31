@@ -1,7 +1,7 @@
 ---
 title: "Adam Savage on SOPA"
 date: 2011-12-21 16:29:00-0400
-tags: Politics
+tags: [ Politics ]
 ---
 
 Adam Savage from Mythbusters writing in [SOPA Could Destroy the Internet as We Know It](http://www.popularmechanics.com/science/mythbusters/articles/mythbuster-adam-savage-sopa-could-destroy-the-internet-as-we-know-it-6620300) at Popular Mechanics (sorry about their ads folks).

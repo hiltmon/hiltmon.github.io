@@ -1,7 +1,7 @@
 ---
 title: "VC tries to sell a con"
 date: 2011-11-29 19:26:00-0400
-tags: 
+
 ---
 
 In [Startups Are Hard. So Work More, Cry Less, And Quit All The Whining](http://uncrunched.com/2011/11/27/startups-are-hard-so-work-more-cry-less-and-quit-all-the-whining/), Michael Arrington uses the [1994 post](http://www.jwz.org/gruntle/nscpdorm.html) by overworked engineer [Jamie Zawinski](http://www.jwz.org) to make his point that startups are hard, Silicon Valley is awesome, you must work long hours, and if you do, the rewards are worth it.  He states

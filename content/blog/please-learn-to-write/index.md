@@ -1,7 +1,7 @@
 ---
 title: "Please Learn to Write"
 date: 2012-05-25 16:11:00-0400
-tags: 
+
 ---
 
 Michael Lopp, writing in Rands in Repose, counterpoints the current meme of "Learning to Code" in [Please Learn to Write](http://www.randsinrepose.com/archives/2012/05/16/please_learn_to_write.html), great article. Love how he compares writing to programming:

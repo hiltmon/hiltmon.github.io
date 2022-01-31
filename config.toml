@@ -46,24 +46,64 @@ blog = "/blog/:year/:month/:day/:filename/"
   name = "Archives"
   title = "archives section"
   url = "/archives/"
-  weight = -10
+  weight = -30
+
+#   [[menu.main]]
+#   identifier = "tags"
+#   name = "Tags"
+#   title = "tags section"
+#   url = "/tags/"
+#   weight = -10
+
   
 [markup]
 
   # To allow html in the article
   defaultMarkdownHandler = "goldmark"
+  
   [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      [markup.goldmark.parser.attribute]
+        block = false
+        title = true
     [markup.goldmark.renderer]
+      hardWraps = false
       unsafe = true
+      xhtml = false
       
+#   [markup.highlight]
+#     codeFences = true
+#     guessSyntax = true
+#     hl_Lines = ""
+#     lineNoStart = 1
+#     lineNos = false
+#     lineNumbersInTable = true
+#     noClasses = true
+#     style = "rrt"
+#     tabWidth = 2
   [markup.highlight]
+    anchorLineNos = false
     codeFences = true
-    guessSyntax = true
-    hl_Lines = ""
+    guessSyntax = false
+    hl_Lines = ''
+    lineAnchors = ''
     lineNoStart = 1
     lineNos = false
     lineNumbersInTable = true
     noClasses = true
-    style = "rrt"
+    style = 'xcode'
     tabWidth = 2
-      
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2

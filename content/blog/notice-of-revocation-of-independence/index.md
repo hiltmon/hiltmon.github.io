@@ -2,7 +2,7 @@
 layout: writing
 title: "Notice of Revocation of Independence"
 date: 2012-06-03 17:38:00-0400
-tags: 
+
 ---
 
 Since it's Jubilee day in the UK, I'm taking this opportunity to reprint a fake "John Cleese Letter to America" from 2005, otherwise known as the "Notice of Revocation of Independence". Note that John Cleese do not, in fact, write this. It's just a really great internet joke, and appropriate for jubilee day.

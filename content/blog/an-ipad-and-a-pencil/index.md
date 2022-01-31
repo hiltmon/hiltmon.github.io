@@ -1,7 +1,6 @@
 ---
 title: "An iPad and a Pencil"
 date: 2019-02-16 11:36:39 -0500
-tags: 
 ---
 
 In 2018, I switched to using an iPad Pro and Apple Pencil when not using my computer, replacing notebooks, scraps of paper, Post-It notes, and ink-leaking pens. After a year of being digital, here are some of the processes and habits I have picked up.

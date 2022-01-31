@@ -1,7 +1,7 @@
 ---
 title: "On Digital Hoarding"
 date: 2012-03-27 10:47:00-0400
-tags: 
+
 ---
 
 Melinda Beck writing in the WSJ in [Drowning in Email, Photos, Files? Hoarding Goes Digital](http://online.wsj.com/article/SB10001424052702303404704577305520318265602.html?mod=wsj_share_tweet) presents a fact-less and ridiculous claim that we are doing something *wrong* by storing all the emails and files that we do. In the article, she equates the rest of us, people and companies alike, with those crazy nutters who fill their houses with junk.

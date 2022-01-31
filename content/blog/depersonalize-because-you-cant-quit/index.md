@@ -1,7 +1,7 @@
 ---
 title: "Depersonalize because you can’t quit"
 date: 2012-12-18 12:58:00-0400
-tags: Social
+tags: [ Social ]
 ---
 
 My Twitter stream today is full of people quitting Instagram because of the new Terms of Service, see [You’re the Advertisement](https://hiltmon.com/blog/2012/12/17/youre-the-advertisement/). Six months ago, it was Twitter, and six months before that it was Facebook. Quitting over privacy.

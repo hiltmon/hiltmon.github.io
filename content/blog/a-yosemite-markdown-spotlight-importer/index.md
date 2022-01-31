@@ -1,7 +1,7 @@
 ---
 title: "A Yosemite Markdown Spotlight importer"
 date: 2015-11-17 12:26:13 -0500
-tags: Markdown
+tags: [ Markdown ]
 ---
 
 All my text and writing is in [Markdown](https://hiltmon.com/blog/categories/markdown/) formatted files and I would like to search them using Spotlight. The editors I use do not have an importer (they have Quicklook only), so this is not available directly.

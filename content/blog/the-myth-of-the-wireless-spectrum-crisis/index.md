@@ -1,7 +1,7 @@
 ---
 title: "The myth of the wireless spectrum crisis"
 date: 2012-10-22 17:23:00-0400
-tags: Carriers
+tags: [ Carriers ]
 ---
 
 Great article by Tim Farrar, a real pro on Gigaom entitled [The myth of the wireless spectrum crisis](http://gigaom.com/2012/10/21/the-myth-of-the-wireless-spectrum-crisis/), presents the fact that wireless data growth has stalled because of tiered pricing, low caps and market saturation instead of growing out of control:

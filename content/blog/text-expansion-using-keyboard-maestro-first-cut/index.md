@@ -1,7 +1,7 @@
 ---
 title: "Text Expansion using Keyboard Maestro (First Cut)"
 date: 2016-04-08 08:43:08 -0400
-tags: 
+
 ---
 
 This post presents how I have set up [Keyboard Maestro](http://www.keyboardmaestro.com/main/) to replace basic text expansion from [TextExpander](https://smilesoftware.com/textexpander) ... so far. This post covers <span class="light">(More to follow at some point.)</span>:

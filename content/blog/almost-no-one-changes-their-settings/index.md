@@ -1,7 +1,6 @@
 ---
 title: "Almost no-one changes their settings"
 date: 2011-11-27 18:13:00-0400
-tags: 
 ---
 
 Following up on my recent [I just want a Hamburger](https://hiltmon.com/blog/2011/11/25/i-just-want-a-hamburger/) post, I came across a wonderful article by Jared Spool entitled [Do users change their settings?](http://www.uie.com/brainsparks/2011/09/14/do-users-change-their-settings/).

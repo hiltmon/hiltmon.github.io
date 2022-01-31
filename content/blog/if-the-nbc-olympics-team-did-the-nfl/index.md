@@ -1,7 +1,7 @@
 ---
 title: "If the NBC Olympics team did the NFL"
 date: 2012-07-30 13:04:00-0400
-tags: 
+
 ---
 
 The current NBC Olympics coverage is the absolute worst thing to ever happen to TV, sports and the Olympics. Talk about [#NBCFail](https://twitter.com/#!/search/%23nbcfail), here’s it is in context if the NBC Olympics team were responsible for NFL broadcasts:

@@ -1,7 +1,7 @@
 ---
 title: "Dog with a Bone"
 date: 2013-01-24 09:38:00-0400
-tags: 
+
 ---
 
 I think one thing that is unique about programmers is that we are tenacious about getting a problem solved. As tenacious as a dog with a bone to chew. It irks us when things are not perfect, but instead of ignoring it or putting up with it, we put in the time and effort to solve it. No matter how small the niggle.

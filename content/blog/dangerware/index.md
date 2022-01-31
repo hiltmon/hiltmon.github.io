@@ -1,7 +1,7 @@
 ---
 title: "Dangerware"
 date: 2015-11-22 13:13:57 -0500
-tags: 
+
 ---
 
 Dangerware is common in business and government. Dangerware is just ordinary software, but the way it comes into being creates the danger.

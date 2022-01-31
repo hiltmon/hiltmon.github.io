@@ -1,7 +1,7 @@
 ---
 title: "Workable Social Network Connection Heuristics"
 date: 2013-01-12 21:35:00-0400
-tags: Social
+tags: [ Social ]
 ---
 
 I’m not sure how other people decide these things, but I have created my own [heuristics](http://en.wikipedia.org/wiki/Heuristic) as to whom I connect with on different social networks. In case you wish to blame me for *your* decisions — *you’re welcome* — here they are:

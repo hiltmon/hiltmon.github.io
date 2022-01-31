@@ -1,7 +1,7 @@
 ---
 title: "The Way of the Code Samurai"
 date: 2011-11-23 00:02:00-0400
-tags: 
+
 ---
 
 [Wil Shipley](http://blog.wilshipley.com) has been programming for decades, like me.  Recently, he reposted a link to an [old post](http://blog.wilshipley.com/2005/02/free-programming-tips-are-worth-every.html) that I think all programmers should read. Go on, [read it](http://blog.wilshipley.com/2005/02/free-programming-tips-are-worth-every.html) now.  I'll wait.

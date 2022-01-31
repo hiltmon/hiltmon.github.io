@@ -2,7 +2,7 @@
 layout: writing
 title: "Saturday Afternoons Watching Rugby Union"
 date: 2015-09-20 14:48:38 -0400
-tags: 
+
 ---
 
 Growing up, Saturday afternoons were for watching Rugby Union games with friends and family. No matter what was going on at home, with friends, at school, or in the country I lived, the world stopped for the two games that were televised live. I am as far away from that world as one can be, yet it is with me right now.

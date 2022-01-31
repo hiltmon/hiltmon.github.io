@@ -1,7 +1,7 @@
 ---
 title: "The 'It has happened before, it will happen again.' Apple"
 date: 2015-09-05 12:50:09 -0400
-tags: 
+
 ---
 
 The Apple I know and loved was doomed, so the press said. It was the crazy, emo teenager of a company. Willing to try anything, mad, crazy, radical, different and apt to succeed and fail in spectacular fashion. Against all odds, the Apple of old did not fail. Because of this we now have amazing computers, thin and light laptops, iPods, OS X, iPhones and iPads. *Can you imagine a world without Apple products?*

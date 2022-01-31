@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - One version of the truth"
 date: 2011-12-23 10:52:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 Its not uncommon for different software systems in a company to contain the *same kinds* information as others. However, it is *very* uncommon for this information to be the *same* across all systems. Often the accounting system has different information than the trading system, for example.  Inventory systems often have different stock levels than sales systems.

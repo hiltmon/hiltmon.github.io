@@ -1,7 +1,7 @@
 ---
 title: "Managing Multiple Project's Assembly Notes in One"
 date: 2013-12-07 13:50:00-0400
-tags: 
+
 ---
 
 The problem I have is that I regularly need to open a specific set of [Markdown](https://hiltmon.com/blog/2012/02/20/the-markdown-mindset/) documents scattered all over my file system while I work and have them available at my fingertips. But I need  a *different* set open when working at home and available the same way. The best solution I have found is to use [BBEdit](https://itunes.apple.com/us/app/bbedit/id404009241?mt=12&uo=4&at=10l894) projects to manage these document sets. Here's why and how to do it.

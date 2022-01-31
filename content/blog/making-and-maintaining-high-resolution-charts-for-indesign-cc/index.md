@@ -1,7 +1,7 @@
 ---
 title: "Making and maintaining high resolution charts for Indesign CC"
 date: 2015-11-02 19:41:45 -0500
-tags: 
+
 ---
 
 One of the biggest headaches I have using [Adobe Indesign](http://www.adobe.com/products/indesign.html) is the creation and *especially* maintenance of charts and graphs. In my case, my fund publishes several high quality books and one-pagers monthly and I need to update a bunch of charts and graphs. I also need to print these at a very high DPI, hence Indesign.

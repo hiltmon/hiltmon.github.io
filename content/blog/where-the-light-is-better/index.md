@@ -1,7 +1,7 @@
 ---
 title: "Where the light is better"
 date: 2012-01-26 10:30:00-0400
-tags: Business
+tags: [ Business ]
 ---
 
 > A woman comes across a man crawling under a street lamp. "I've lost my car keys," he explains.

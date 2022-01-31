@@ -1,7 +1,7 @@
 ---
 title: "45 Revolutions"
 date: 2012-10-20 13:49:00-0400
-tags: 
+
 ---
 
 When the Earth was in the same relative position to the sun 45 revolutions ago, a baby boy was born at the southernmost point of a continent called Africa. The Earth did not stop, or even pause as it continued its solitary journey.

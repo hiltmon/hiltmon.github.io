@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Information, not Data"
 date: 2011-12-06 19:22:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 How many times have you opened a spreadsheet or a system, and seen pages and pages of numbers and gone 'Ugh, its too hard to find what I want!'. 

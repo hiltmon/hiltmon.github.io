@@ -1,7 +1,6 @@
 ---
 title: "BBEdit lives long and prospers"
 date: 2013-09-02 09:16:00-0400
-tags: 
 ---
 
 On Twitter today:

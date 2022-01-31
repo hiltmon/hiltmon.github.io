@@ -1,7 +1,7 @@
 ---
 title: "Being Productive with Virtual Desktops"
 date: 2013-01-17 10:16:00-0400
-tags: Productivity
+tags: [ Productivity ]
 ---
 
 There are a bunch of applications I always want running on my computer, such as [Mail.app](http://www.apple.com/osx/apps/#mail), [OmniFocus](https://itunes.apple.com/us/app/omnifocus/id402835630?mt=12&uo=4&at=10l894), [Billings Pro](https://itunes.apple.com/us/app/billings-pro/id434514810?mt=12&uo=4&at=10l894) and [Tweetbot](https://itunes.apple.com/us/app/tweetbot-for-twitter/id557168941?mt=12&uo=4&at=10l894), but I also do not want to be distracted by them. One option is to hide them using `⌘H` on the Mac, the other way is to use virtual desktops. 

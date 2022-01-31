@@ -1,7 +1,7 @@
 ---
 title: "Gist TextMate Bundle updated for Yosemite"
 date: 2014-10-18 12:44:44 -0400
-tags: textmate
+tags: [ TextMate ]
 ---
 
 {{< figure src="images/textmate.png" width=128 height=128 class="image-right" >}}

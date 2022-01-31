@@ -1,7 +1,7 @@
 ---
 title: "The coming war on general computation"
 date: 2012-01-02 19:43:00-0400
-tags: 
+
 ---
 
 Excellent talk by Cory Doctorow on [The coming war on general computation](http://www.youtube.com/watch?v=HUEvRyemKSg), transcript [here](https://github.com/jwise/28c3-doctorow/blob/master/transcript.md), talking about the war between copyright holders and reality, and why it needs to be fought:

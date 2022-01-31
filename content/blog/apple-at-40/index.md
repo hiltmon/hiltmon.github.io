@@ -1,7 +1,6 @@
 ---
 title: "Apple at 40"
 date: 2016-04-03 12:13:14 -0400
-tags: 
 ---
 
 {{< figure src="images/apple-at-40-1.png" width=230 height=133 class="image-right" >}}

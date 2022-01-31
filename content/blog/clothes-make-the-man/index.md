@@ -1,7 +1,6 @@
 ---
 title: "Clothes make the Man"
 date: 2013-01-30 21:11:00-0400
-tags: 
 ---
 
 We all know the old English proverb, “**Clothes don't make the man**", declaring that we should not judge a person by their appearance.

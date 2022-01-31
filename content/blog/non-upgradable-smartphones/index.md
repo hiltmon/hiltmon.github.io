@@ -1,7 +1,7 @@
 ---
 title: "Non-upgradable Smartphones"
 date: 2012-06-20 19:07:00-0400
-tags: 
+
 ---
 
 Today, Microsoft announced it's new Windows 8 smartphone platform, and it looks quite good. But they also announced that their recently released Windows 7.x phones cannot be upgraded to Windows 8. Which means all those early Metro interface adopters who purchased the brilliant Nokia Lumia smartphones are screwed until their lock-ins expire in two years time.

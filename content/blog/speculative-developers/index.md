@@ -1,7 +1,7 @@
 ---
 title: "Speculative Developers"
 date: 2012-02-07 09:19:00-0400
-tags: 
+
 ---
 
 I totally agree with the sentiment in David Sparks's note [Speculative Developers](http://www.macsparky.com/blog/2012/2/6/speculative-developers.html) where he compares developers who 'barf' out volumes of bad apps versus developers who lovingly craft a single great app.

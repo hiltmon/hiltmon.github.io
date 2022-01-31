@@ -1,9 +1,7 @@
 ---
 title: "Sanity Saver: NoMoreiTunes"
 date: 2013-01-19 12:54:00-0400
-tags: 
-- Safari Extensions
-- Sanity Saver
+tags: [ "Safari Extensions", "Sanity Saver" ]
 ---
 
 *Sanity Savers are quick tips that help you stay sane when using your computer.*

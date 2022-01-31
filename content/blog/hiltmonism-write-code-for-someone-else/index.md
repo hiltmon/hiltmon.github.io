@@ -1,7 +1,7 @@
 ---
 title: "Hiltmonism - Write code for someone else"
 date: 2011-12-12 09:25:00-0400
-tags: Hiltmonism
+tags: [ Hiltmonism ]
 ---
 
 Whether you are just hacking up a script, writing the next must-have app, or working for the man, always be writing code as if someone else has to read it and understand it. Usually, that someone else is you, six months into the future, older, wiser, with a different mindset.  And you'd hate to piss yourself off then, right?

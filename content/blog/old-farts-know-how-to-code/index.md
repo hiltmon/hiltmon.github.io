@@ -1,7 +1,7 @@
 ---
 title: "Old Farts Know How to Code"
 date: 2012-05-25 16:14:00-0400
-tags: 
+
 ---
 
 Nick Bradbury nails it in [Old Farts Know How to Code](http://nick.typepad.com/blog/2012/05/old-farts-know-how-to-code.html):

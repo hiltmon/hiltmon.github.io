@@ -1,7 +1,7 @@
 ---
 title: "International Terpstra Day"
 date: 2012-07-19 11:06:00-0400
-tags: 
+
 ---
 
 One of the nicest things I have ever seen for one of the nicest guys on our corner of the internet. It's [Brett Terpstra's](http://brettterpstra.com) birthday today and all his friends have taken the time to celebrate him and his works, including:

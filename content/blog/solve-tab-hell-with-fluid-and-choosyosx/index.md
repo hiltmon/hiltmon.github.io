@@ -1,7 +1,7 @@
 ---
 title: "Solve Tab Hell with Fluid and ChoosyOSX"
 date: 2014-05-23 15:49:52 -0400
-tags: 
+
 ---
 
 More and more of our data, applications, communications, reading and work happens via a browser tab on the internet. I don't know about you but I often have several browser windows open on several virtual desktops all with multiple tabs open.

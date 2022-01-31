@@ -1,7 +1,7 @@
 ---
 title: "Data presentation at its best"
 date: 2012-06-28 09:47:00-0400
-tags: 
+
 ---
 
 One thing we all try to do is to simplify the presentation of data and tell a story. That's why charts, graphs, infographics and dashboards are so popular these days.

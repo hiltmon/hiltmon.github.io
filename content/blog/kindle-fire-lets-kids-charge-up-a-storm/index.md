@@ -1,7 +1,7 @@
 ---
 title: "Kindle Fire lets kids charge up a storm"
 date: 2011-12-07 08:44:00-0400
-tags: 
+
 ---
 
 Reuters, today, in [Amazon's Kindle Fire lets kids charge up a storm](http://sg.finance.yahoo.com/news/Amazon-Kindle-Fire-lets-kids-rsg-3752604696.html?x=0&.v=1) writes:

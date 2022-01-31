@@ -1,7 +1,7 @@
 ---
 title: "Recent Travels and Tech"
 date: 2012-05-15 10:46:00-0400
-tags: 
+
 ---
 
 My wife and I have been on vacation the past two weeks, the real vacation kind where you go to exotic places and are too busy seeing, trying, doing, eating and drinking things to keep up with email, tweets and blogging. We travelled to three European destinations with four iPhones, two iPads, a MacBook Pro and two plug adapter sets. Here's how they performed.

@@ -1,7 +1,7 @@
 ---
 title: "e-reader roundup"
 date: 2011-12-02 20:23:00-0400
-tags: 
+
 ---
 
 [Marco Arment](http://www.marco.org), developer of [Instapaper](http://www.instapaper.com/), writing in an amazingly comprehensive review of [current e-readers](http://www.marco.org/2011/12/02/kindle-touch-vs-nook-simple-touch-kobo-touch-kindle-4) (including e-ink devices and new low-end tablets), writes

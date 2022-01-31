@@ -1,7 +1,7 @@
 ---
 title: "Does money even exist anymore?"
 date: 2012-01-06 10:45:00-0400
-tags: 
+
 ---
 
 Dave Caolo, writing in [Does money even exist anymore?](http://52tiger.net/does-money-even-exist-anymore/):

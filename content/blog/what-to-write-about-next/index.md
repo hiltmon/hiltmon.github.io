@@ -1,7 +1,7 @@
 ---
 title: "What to write about next?"
 date: 2014-11-15 15:27:06 -0500
-tags: Writing
+tags: [ Writing ]
 ---
 
 I was asked in a [blog comment](https://hiltmon.com/blog/2013/05/28/my-mac-indie-writing-workflow/#comment-1694439329) today how I decide *what* to write about. And once decided, how do I go about doing it. In this case, the answer was easy, I decided to try to answer the question. And deconstruct the process I go through as it happens. 

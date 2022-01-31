@@ -2,7 +2,7 @@
 layout: writing
 title: "The Gentleman James V"
 date: 2016-10-07 08:31:11 -0400
-tags: 
+
 ---
 
 Last evening a package arrived from Amazon. A package that neither I nor my wife had ordered. A mysterious, enigmatic package. From the outside, there was no indication of its content or providence.

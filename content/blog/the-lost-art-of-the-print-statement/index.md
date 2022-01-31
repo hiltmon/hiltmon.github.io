@@ -1,7 +1,7 @@
 ---
 title: "The lost art of the print statement"
 date: 2011-12-12 09:28:00-0400
-tags: 
+
 ---
 
 Debugging software is hard, especially if you were not the original author. All programming languages come with debugging tools, from the arcane GDB to the dead sexy step-through debuggers in Xcode and Visual Studio. But, having watched some newbies recently attempt to debug some code using these tools, I noticed something. With all the data in the world on their screens, breakpoints, stacks, watches and code hovers, the information they needed to solve the bug was being lost is the mix.

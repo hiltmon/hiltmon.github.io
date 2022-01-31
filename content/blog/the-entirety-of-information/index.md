@@ -1,7 +1,7 @@
 ---
 title: "The Entirety Of Information"
 date: 2013-01-07 12:26:00-0400
-tags: 
+
 ---
 
 > I possess a device in my pocket that is capable of accessing the entirety of information known to man.

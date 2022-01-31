@@ -1,7 +1,7 @@
 ---
 title: "Is America Giving Up on the Future?"
 date: 2011-12-26 15:23:00-0400
-tags: Politics
+tags: [ Politics ]
 ---
 
 Umair Haque, writing in the Harvard Business Review in [Is America Giving Up on the Future?](http://blogs.hbr.org/haque/2011/09/is_america_giving_up_on_the_fu.html) writes:

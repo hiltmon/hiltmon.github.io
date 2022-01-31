@@ -1,7 +1,7 @@
 ---
 title: "Gun Control does Work"
 date: 2012-12-16 10:06:00-0400
-tags: Politics
+tags: [ Politics ]
 ---
 
 *Personal note: I have lived in the USA for 9 years now, and think this place is magnificent. Two days ago, in Newtown CT, 20 children and 6 adults were massacred. The dark side of America that is in denial about gun violence, that refuses to even discuss gun control, that treats massacres as a normal and regular part of life, a country that gives up its civil rights over a single terrorist act, but takes no action on a score of massacres of its children, well, that just scares the shit out of me. Whether you are religious or not, parent or not, patriotic or not, surely we can all agree that we can and should do everything in our power to prevent this kind of horror. It can be done, it has been done elsewhere, lets make it happen here.*

@@ -1,7 +1,7 @@
 ---
 title: "Surface RT is not a Duck"
 date: 2012-10-27 16:45:00-0400
-tags: Microsoft
+tags: [ Microsoft ]
 ---
 
 What is a duck? Well, if it looks like a duck, floats like a duck, and quacks like a duck, it’s a duck. The just-released Microsoft Surface RT fails the duck test, it looks like a tablet, but it is not a tablet. Windows 8 RT also fails the duck test, it looks like Windows 8, but it is not Windows 8.

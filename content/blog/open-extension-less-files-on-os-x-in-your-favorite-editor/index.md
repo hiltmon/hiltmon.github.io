@@ -1,7 +1,7 @@
 ---
 title: "Open Extension-less Files in your Favorite Editor on OS X"
 date: 2015-09-04 09:40:47 -0400
-tags: 
+
 ---
 
 {{< figure src="images/less-1.png" width=263 height=453 class="image-right" >}}

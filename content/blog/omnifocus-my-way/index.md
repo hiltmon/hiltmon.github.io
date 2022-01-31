@@ -1,7 +1,7 @@
 ---
 title: "Omnifocus My Way"
 date: 2014-05-26 15:39:03 -0400
-tags: Productivity
+tags: [ Productivity ]
 ---
 
 {{< figure src="images/omnifocus.png" width=128 height=128 class="image-right" >}}

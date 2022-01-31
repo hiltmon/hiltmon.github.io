@@ -1,7 +1,7 @@
 ---
 title: "Get it brilliant"
 date: 2011-12-30 18:20:00-0400
-tags: 
+
 ---
 
 I wrote a post in September 2011 in the [Noverse Blog](http://www.noverse.com/blog/) called [Get It Brilliant](http://www.noverse.com/blog/2011/09/get-it-brilliant/) on the what you really need to achieve to create amazing software products. They are:

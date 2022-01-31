@@ -1,7 +1,7 @@
 ---
 title: "Don't be a free user"
 date: 2011-12-06 18:49:00-0400
-tags: 
+
 ---
 
 Maciej Ceglowski, writing on the [Pinboard](http://pinboard.in/) blog in [Don't Be A Free User](http://blog.pinboard.in/2011/12/don_t_be_a_free_user/) calling it as it is.

@@ -1,7 +1,7 @@
 ---
 title: "Google's Schmidt Solution to Android"
 date: 2012-01-16 17:37:00-0400
-tags: 
+
 ---
 
 Following on to my earlier post on [How Google Failed to Fix the Mobile Market](https://hiltmon.com/blog/2012/01/16/how-google-failed-to-fix-the-mobile-market/), Jamie Lendino writes in [Hey, Google: Here's What Fragmentation Means](http://www.pcmag.com/article2/0,2817,2398783,00.asp) in PCMag:

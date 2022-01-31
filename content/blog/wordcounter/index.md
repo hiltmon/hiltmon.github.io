@@ -1,7 +1,7 @@
 ---
 title: "WordCounter"
 date: 2014-07-14 18:24:10 -0400
-tags: 
+
 ---
 
 {{< figure src="images/WordCounter.png" width=128 height=128 class="left-right" >}}

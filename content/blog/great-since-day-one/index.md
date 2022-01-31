@@ -1,7 +1,7 @@
 ---
 title: "Great since day one"
 date: 2012-07-11 23:01:00-0400
-tags: 
+
 ---
 
 Marco Arment nails it in [Great since day one](http://www.marco.org/2010/07/04/great-since-day-one):

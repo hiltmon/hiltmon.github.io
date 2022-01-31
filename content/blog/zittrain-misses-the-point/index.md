@@ -1,7 +1,7 @@
 ---
 title: "Zittrain misses the point"
 date: 2011-12-04 11:43:00-0400
-tags: 
+
 ---
 
 Via [slashdot](http://yro.slashdot.org/story/11/12/04/1450244/have-walled-gardens-killed-the-personal-computer?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+Slashdot%2Fslashdot+%28Slashdot%29), directly quoted:

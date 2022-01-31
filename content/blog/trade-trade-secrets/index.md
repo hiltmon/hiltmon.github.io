@@ -1,7 +1,7 @@
 ---
 title: "Trade Trade Secrets"
 date: 2012-01-24 09:38:00-0400
-tags: Business
+tags: [ Business ]
 ---
 
 A brilliant essay by Danielle Fong called [Trade Trade Secrets](http://einfall.wordpress.com/2012/01/23/trade-trade-secrets/), very worth a read, covers everything from Intellectual Property, to explaining the differences between theft, transcription, transformation and inspiration, to how the law stifles all four of them.

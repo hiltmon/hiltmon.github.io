@@ -2,7 +2,7 @@
 layout: hiltmonism
 title: "Seeing the Bigger Picture"
 date: 2015-01-31 10:23:51 -0500
-tags: 
+
 ---
 
 It is quite astounding to me that an astonishing amount of work is done and code written without any knowledge, view or understanding of the bigger picture. And yet no-one seems to have taken the time to consider just how remarkably ridiculous this common situation is. How can people be expected to perform at their best and create the best products when they have no clue as to what the big picture or goal is?

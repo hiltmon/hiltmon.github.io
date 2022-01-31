@@ -1,7 +1,7 @@
 ---
 title: "Python Zen"
 date: 2012-11-15 16:18:00-0400
-tags: Python
+tags: [ Python ]
 ---
 
 After reading Federico Viticci's [Automating iOS: How Pythonista Changed My Workflow](http://www.macstories.net/stories/automating-ios-how-pythonista-changed-my-workflow/), I think its time I added the [Python](http://www.python.org) Programming Language to my repertoire.

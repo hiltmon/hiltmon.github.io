@@ -1,7 +1,7 @@
 ---
 title: "Misconceptions About iOS Multitasking"
 date: 2012-01-02 20:02:00-0400
-tags: 
+
 ---
 
 There is a meme going aroung that you need to terminate applications on your iOS device to prevent the device from slowing down, running out of memory or chewing up battery.
