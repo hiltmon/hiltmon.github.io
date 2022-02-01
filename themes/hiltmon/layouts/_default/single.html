@@ -11,26 +11,15 @@
     {{- partial "navigation.html" . -}}
 
     <section id="content">
-      <!-- <h4>Single</h4> -->
-      <p class="meta-data">
-        <span class="post-date">{{ .Date.Format "Jan 2, 2006 3:04 PM" }}</span>
-      </p>
-      
-      <div class="tag-group">
-		{{ range .Params.tags }}
-		  <div class="tag">
-		    <span class="tag-text">
-		      | <a href="/tags/{{. | urlize }}">{{.}}</a>
-		    </span>
-	      </div>
-        {{end}}
-	  </div>
+    
+			{{- partial "post-date.html" . -}}
+    	{{- partial "tag-group.html" . -}}
 
-    <h1 class="post-title">
-      <!-- <span class="fas fa-align-right"></span> -->
-      {{ .Title }}
-      <!-- <span class="fas fa-align-left"></span> -->
-    </h1>
+			<h1 class="post-title">
+				<!-- <span class="fas fa-align-right"></span> -->
+				{{ .Title }}
+				<!-- <span class="fas fa-align-left"></span> -->
+			</h1>
 
       <div class="post-body">
         {{ .Content }}

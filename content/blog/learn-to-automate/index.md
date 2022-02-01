@@ -1,7 +1,7 @@
 ---
 title: "Learn to Automate"
 date: 2012-06-20 08:57:00-0400
-tags: [Business, Productivity]
+tags: [Business, Productivity, Hiltmonism]
 ---
 
 It's been almost six months since the [Codecademy](http://www.codecademy.com) launched [learn to code in 2012](http://codeyear.com), headlined by [Mayor Bloomberg](https://twitter.com/mikebloomberg/status/154999795159805952). Lots of people pledged, lots signed up.

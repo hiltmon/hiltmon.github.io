@@ -11,12 +11,14 @@
     {{- partial "navigation.html" . -}}
 
     <section id="content">
-      <!-- <h4>Writing</h4> -->
       <div class="writing">
 
         <p class="meta-data">
           <span class="writing-date">{{ .Date.Format "Jan 2, 2006 3:04 PM" }}</span>
         </p>
+        
+		{{- partial "tag-group.html" . -}}
+
         <h1 class="writing-title">
           <span class="fas fa-pencil-alt"></span>
           {{ .Title }}

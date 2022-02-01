@@ -1,4 +1,5 @@
 ---
+layout: hiltmonism
 title: "Hiltmonism - Information, not Data"
 date: 2011-12-06 19:22:00-0400
 tags: [ Hiltmonism ]

@@ -1,4 +1,5 @@
 ---
+layout: hiltmonism
 title: "Hiltmonism - Minimize the Glue"
 date: 2012-10-08 15:19:00-0400
 tags: [ Hiltmonism ]

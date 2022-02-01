@@ -5,21 +5,21 @@
 
 <body>
 
-  <div id="container">
+	<div id="container">
 
-    {{- partial "header.html" . -}}
-    {{- partial "navigation.html" . -}}
+		{{- partial "header.html" . -}}
+		{{- partial "navigation.html" . -}}
 
-    <section id="content">
-      <!-- <h4>Hiltmonism</h4> -->
-      <p class="meta-data">
-        <span class="post-date">{{ .Date.Format "Jan 2, 2006 3:04 PM" }}</span>
-      </p>
-    <h1 class="post-title">
-      <span class="fas fa-cog"></span>
-      {{ .Title }}
-      <!-- <span class="fas fa-align-left"></span> -->
-    </h1>
+		<section id="content">
+		
+			{{- partial "post-date.html" . -}}
+			{{- partial "tag-group.html" . -}}
+      
+			<h1 class="post-title">
+				<span class="fas fa-cog"></span>
+				{{ .Title }}
+	      <!-- <span class="fas fa-align-left"></span> -->
+    	</h1>
 
       <div class="post-body">
         {{ .Content }}

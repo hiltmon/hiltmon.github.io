@@ -1,4 +1,5 @@
 ---
+layout: hiltmonism
 title: "Hiltmonism - One version of the truth"
 date: 2011-12-23 10:52:00-0400
 tags: [ Hiltmonism ]

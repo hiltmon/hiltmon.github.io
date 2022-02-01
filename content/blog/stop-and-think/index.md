@@ -2,7 +2,7 @@
 layout: hiltmonism
 title: "Stop and Think"
 date: 2018-06-17 09:21:04 -0400
-
+tags: [ Hiltmonism ]
 ---
 
 When I started out as a developer and designer, I know I was clever. When folks asked me to design and develop a software product, I would ask a few questions to confirm that I understood what was asked of me, listen to their answers, then set about making the product. Request, build, ship. Easy!

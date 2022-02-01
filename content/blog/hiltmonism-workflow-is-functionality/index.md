@@ -1,4 +1,5 @@
 ---
+layout: hiltmonism
 title: "Hiltmonism - Workflow is Functionality"
 date: 2012-11-27 17:39:00-0400
 tags: [ Hiltmonism ]

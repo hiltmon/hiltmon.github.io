@@ -5,11 +5,17 @@
 	<meta name="description" content="{{ if .Params.Description }}{{ trim .Params.Description "\n" }}{{else if .Site.Params.Description}}{{ trim .Site.Params.Description "\n"}}{{ end }}">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
+  {{ template "_internal/google_analytics.html" . }}
+    
   {{ if eq (getenv "HUGO_ENV") "production" }}
 		<meta name="robots" content="index,follow">
 	{{ else }}
 		<meta name="robots" content="noindex,nofollow">
 	{{ end }}
+	
+	{{ range .AlternativeOutputFormats -}}
+	  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end -}}
 	
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/all.css">
