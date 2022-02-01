@@ -55,6 +55,10 @@ blog = "/blog/:year/:month/:day/:filename/"
 #   url = "/tags/"
 #   weight = -10
 
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
   
 [markup]
 

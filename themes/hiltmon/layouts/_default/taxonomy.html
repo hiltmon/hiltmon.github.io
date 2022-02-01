@@ -10,6 +10,8 @@
 		<ul>
 		  {{ range .Data.Pages }}
 			<li>
+			  <span class="light>">{{ .Date.Format "2006-01-02" }}</span> 
+			  &nbsp;
 			  <a href="{{ .Permalink }}">{{ .Title }}</a>
 			</li>
 		  {{ end }}
