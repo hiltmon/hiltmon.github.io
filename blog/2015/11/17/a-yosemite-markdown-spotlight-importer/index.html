@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Nov 17, 2015 12:26 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/markdown>Markdown</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 A Yosemite Markdown Spotlight importer
 </h1>
@@ -50,21 +62,21 @@ A Yosemite Markdown Spotlight importer
 <li>Started a <code>terminal</code> shell</li>
 </ul>
 <p>In the command prompt, I executed the following to activate the importer:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>mdimport -r ~/Library/Spotlight/Markdown.mdimporter
-</code></pre></div><p>And then, <em>when nothing seemed to have happened</em>, I recreated the entire Spotlight index on my computer.</p>
+<pre tabindex=0><code>mdimport -r ~/Library/Spotlight/Markdown.mdimporter
+</code></pre><p>And then, <em>when nothing seemed to have happened</em>, I recreated the entire Spotlight index on my computer.</p>
 <p>There are two ways to do this.</p>
 <p>The GUI way is to open <strong>System Preferences</strong>, select <strong>Spotlight</strong> and the <strong>Privacy</strong> tab. Drag and drop your <code>Macintosh HD</code> onto the big open space. Wait 20 seconds or so, then click the <code>minus</code> sign to delete it. OS X will start to recreate your Spotlight index.</p>
 <p>Or use the following command:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>sudo mdutil -E /
-</code></pre></div><p>To see if this is working, run</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>mdimport -L
-</code></pre></div><p>I get</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>2015-11-17 12:40:40.400 mdimport[53046:588670] Paths: id(501) (
-  	&#34;/Users/Hiltmon/Library/Spotlight/Markdown.mdimporter&#34;,
-  	&#34;/Library/Spotlight/iBooksAuthor.mdimporter&#34;,
-  	&#34;/Library/Spotlight/iWork.mdimporter&#34;,
+<pre tabindex=0><code>sudo mdutil -E /
+</code></pre><p>To see if this is working, run</p>
+<pre tabindex=0><code>mdimport -L
+</code></pre><p>I get</p>
+<pre tabindex=0><code>2015-11-17 12:40:40.400 mdimport[53046:588670] Paths: id(501) (
+  	&quot;/Users/Hiltmon/Library/Spotlight/Markdown.mdimporter&quot;,
+  	&quot;/Library/Spotlight/iBooksAuthor.mdimporter&quot;,
+  	&quot;/Library/Spotlight/iWork.mdimporter&quot;,
   	...
-</code></pre></div><p>After a long while, all my Markdown files were once again searchable in Spotlight. Thanks Brett!</p>
+</code></pre><p>After a long while, all my Markdown files were once again searchable in Spotlight. Thanks Brett!</p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
 </div>
 <p class=post-mark>

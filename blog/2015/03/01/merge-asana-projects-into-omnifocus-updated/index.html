@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Mar 1, 2015 6:18 PM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 Merge Asana Projects into OmniFocus (Updated)
 </h1>
@@ -51,15 +58,15 @@ Merge Asana Projects into OmniFocus (Updated)
 <p>First, follow the instructions from the <a href=https://hiltmon.com/blog/2013/11/03/merge-asana-projects-into-omnifocus/>original post</a> to set up Omnifocus and get your API keys.</p>
 <p>Download the updated script from <a href=https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca>https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca</a>.</p>
 <p>Open it in a text editor and insert Your API Key and Profile Name in the slots provided. You can also change the date format to suit.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>class MergeAsanaIntoOmnifocus
+<pre tabindex=0><code>class MergeAsanaIntoOmnifocus
   
-  API_KEY = &#39;&lt;YOUR KEY HERE&gt;&#39;
-  ASIGNEE_NAME = &#39;&lt;YOUR PROFILE NAME HERE&gt;&#39;
+  API_KEY = '&lt;YOUR KEY HERE&gt;'
+  ASIGNEE_NAME = '&lt;YOUR PROFILE NAME HERE&gt;'
   SUBTASKS = true
-  DATE_FORMAT = &#39;%A %B %d, %Y at %H:%M:%S&#39; # (Try http://strftimer.com to build your own)
-</code></pre></div><p>Make sure the prerequisites are in-place from the old post and then run it</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ ruby merge_asana_into_omnifocus.rb
-</code></pre></div><p><span class=light>Warning: This is just my script, it may or may not work for you. <strong>Backup your OmniFocus before running it the first time.</strong> And use at your own peril. <em>Inelegant, alpha-level, probably quite buggy, my first AppleScripts, you get the drift.</em></span></p>
+  DATE_FORMAT = '%A %B %d, %Y at %H:%M:%S' # (Try http://strftimer.com to build your own)
+</code></pre><p>Make sure the prerequisites are in-place from the old post and then run it</p>
+<pre tabindex=0><code>$ ruby merge_asana_into_omnifocus.rb
+</code></pre><p><span class=light>Warning: This is just my script, it may or may not work for you. <strong>Backup your OmniFocus before running it the first time.</strong> And use at your own peril. <em>Inelegant, alpha-level, probably quite buggy, my first AppleScripts, you get the drift.</em></span></p>
 <p>But if you do use it, let me know in the comments or via Twitter. And if you have any ideas for changes or enhancements, let me know.</p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
 </div>

@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Jun 21, 2014 4:28 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/octopress>Octopress</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Upgrading Octopress to Jekyll 2.0
 </h1>
@@ -58,7 +70,7 @@ rake generate
 </code></pre>
 <p><strong>And it failed.</strong></p>
 <p>One thing went wrong and it was because of a old change in <a href=http://jekyllrb.com>Jekyll</a>. You see, before the upgrade I was using the positively ancient <a href=http://jekyllrb.com>Jekyll</a> 0.12. Since 1.11, <a href=http://jekyllrb.com>Jekyll</a> has added <code>excerpts</code>, where it takes the first markdown paragraph in a post and generates that as the excerpt, which it then runs through <a href=http://liquidmarkup.org>Liquid</a>. However, I often start a post with the <a href=http://octopress.org/docs/plugins/blockquote/>blockquote</a> tag and many of these quotes have multiple paragraphs. The result:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Hiltmon@Dauntless:HiltmonDotCom (master *) $ rake generate
+<pre tabindex=0><code>Hiltmon@Dauntless:HiltmonDotCom (master *) $ rake generate
 ## Generating Site with Jekyll
 identical source/stylesheets/screen.css
 Configuration file: /Users/Hiltmon/Projects/Spikes/HiltmonDotCom/_config.yml
@@ -66,10 +78,10 @@ Configuration file: /Users/Hiltmon/Projects/Spikes/HiltmonDotCom/_config.yml
        Destination: public
       Generating...
   Liquid Exception: blockquote tag was never closed in _posts/2012-01-26-where-the-light-is-better.markdown/#excerpt
-</code></pre></div><p><strong>The post had the closing tag, but the excerpt did not.</strong></p>
+</code></pre><p><strong>The post had the closing tag, but the excerpt did not.</strong></p>
 <p>To correct this problem, I added the following line in my <code>_config.yml</code> to excerpt manually or the whole post:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>excerpt_separator: &#34;&lt; !--more--&gt;&#34;
-</code></pre></div><p>The site now generates just fine.</p>
+<pre tabindex=0><code>excerpt_separator: &quot;&lt; !--more--&gt;&quot;
+</code></pre><p>The site now generates just fine.</p>
 <p><span class=light>Once again, my utmost respect and thanks to <a href=http://brandonmathis.com>Brandon Mathis</a> for creating and maintaining this lovely <a href=http://octopress.org>Octopress</a> blog wrapper on top of the excellent work by <a href=http://tom.preston-werner.com>Tom Preston Werner</a> and the team who create and maintain <a href=http://jekyllrb.com>Jekyll</a>.</span></p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
 </div>

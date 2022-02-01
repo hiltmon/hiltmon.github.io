@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Feb 22, 2014 2:03 PM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 Easy SSH to local linux VM
 </h1>
@@ -63,16 +70,16 @@ Easy SSH to local linux VM
 <h2 id=the-solution-in-detail>The Solution in Detail</h2>
 <p>Run <code>avahi</code> on the VM.</p>
 <p>When you build the Linux VM (I use CentOS 6), first set the host name to a unique name. Edit <code>/etc/sysconfig/network</code> <em>as root</em> and set the <code>HOSTNAME</code> attribute:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>NETWORKING=yes
+<pre tabindex=0><code>NETWORKING=yes
 HOSTNAME=witch.noverse.local
-</code></pre></div><p>You may need to restart some distributions after doing this.</p>
+</code></pre><p>You may need to restart some distributions after doing this.</p>
 <p>Then execute the following commands <em>as root</em> to install <code>avahi</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ yum -y install avahi
+<pre tabindex=0><code>$ yum -y install avahi
 ...
 $ service avahi-daemon start
 ...
 $ chkconfig avahi-daemon on
-</code></pre></div><p>This installs the <code>avahi</code> daemon, starts it and sets it to start on every reboot.</p>
+</code></pre><p>This installs the <code>avahi</code> daemon, starts it and sets it to start on every reboot.</p>
 <p>What the <code>avahi</code> daemon does is publishes the VM&rsquo;s basename (the first part of the hostname before the dot) on the <a href=http://en.wikipedia.org/wiki/Zero-configuration_networking>ZeroConf</a> (or to use Apple&rsquo;s word <a href=https://www.apple.com/support/bonjour/>Bonjour</a>) network.</p>
 <p>Which means you can always see it as <code>basename.local</code>. So, instead of <code>ssh</code>-ing to an new IP address every time, just <code>ssh</code> to the basename and add a <code>.local</code>. For example, this works for the above Linux VM:</p>
 <pre><code>ssh deploy@witch.local

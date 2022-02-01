@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,44 +40,56 @@
 <p class=meta-data>
 <span class=post-date>Feb 27, 2012 10:46 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/ruby-on-rails>Ruby On Rails</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/textmate>TextMate</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Quick and Dirty Rails Performance Profiling
 </h1>
 <div class=post-body>
 <p>When I find some Ruby on Rails or Rake tasks running slowly, I throw a quick and dirty profiler around the suspect code to find the bottlenecks with ease. Here&rsquo;s how I do it, maybe this approach can help you too.</p>
 <p>To profile in Ruby on Rails, add the following to your <code>Gemfile</code></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>gem <span style=color:#87ceeb>&#39;ruby-prof&#39;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>gem</span> <span style=color:#c41a16>&#39;ruby-prof&#39;</span>
 </code></pre></div><p>And don&rsquo;t forget to run <code>bundle</code>.</p>
 <p>Add the following file <a href=https://gist.github.com/hiltmon/1929287>Gist 1929287</a> into your <code>lib</code> folder</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:red>class</span> DevelopmentProfiler
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>class</span> <span style=color:#3f6e75>DevelopmentProfiler</span>
   
-  <span style=color:red>def</span> self.<span style=color:#ff0>prof</span>(file_name)
+  <span style=color:#a90d91>def</span> <span style=color:#3f6e75>self</span><span style=color:#000>.</span><span style=color:#000>prof</span>(<span style=color:#000>file_name</span>)
     
-    <span style=color:#7fffd4>RubyProf</span>.start
-    <span style=color:red>yield</span>
-    results = <span style=color:#7fffd4>RubyProf</span>.stop
+    <span style=color:#000>RubyProf</span><span style=color:#000>.</span><span style=color:#000>start</span>
+    <span style=color:#a90d91>yield</span>
+    <span style=color:#000>results</span> <span style=color:#000>=</span> <span style=color:#000>RubyProf</span><span style=color:#000>.</span><span style=color:#000>stop</span>
     
-    <span style=color:#0f0># Print a flat profile to text</span>
-    <span style=color:#7fffd4>File</span>.open <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>Rails</span>.root<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/tmp/performance/</span><span style=color:#87ceeb>#{</span>file_name<span style=color:#87ceeb>}</span><span style=color:#87ceeb>-graph.html&#34;</span>, <span style=color:#87ceeb>&#39;w&#39;</span> <span style=color:red>do</span> |file|
-      <span style=color:#7fffd4>RubyProf</span>::<span style=color:#7fffd4>GraphHtmlPrinter</span>.new(results).print(file)
-    <span style=color:red>end</span>
+    <span style=color:#177500># Print a flat profile to text</span>
+    <span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>open</span> <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>Rails</span><span style=color:#000>.</span><span style=color:#000>root</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/tmp/performance/</span><span style=color:#c41a16>#{</span><span style=color:#000>file_name</span><span style=color:#c41a16>}</span><span style=color:#c41a16>-graph.html&#34;</span>, <span style=color:#c41a16>&#39;w&#39;</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>file</span><span style=color:#000>|</span>
+      <span style=color:#000>RubyProf</span><span style=color:#000>::</span><span style=color:#000>GraphHtmlPrinter</span><span style=color:#000>.</span><span style=color:#000>new</span>(<span style=color:#000>results</span>)<span style=color:#000>.</span><span style=color:#000>print</span>(<span style=color:#000>file</span>)
+    <span style=color:#a90d91>end</span>
  
-    <span style=color:#7fffd4>File</span>.open <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>Rails</span>.root<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/tmp/performance/</span><span style=color:#87ceeb>#{</span>file_name<span style=color:#87ceeb>}</span><span style=color:#87ceeb>-flat.txt&#34;</span>, <span style=color:#87ceeb>&#39;w&#39;</span> <span style=color:red>do</span> |file|
-      <span style=color:#0f0># RubyProf::FlatPrinter.new(results).print(file)</span>
-      <span style=color:#7fffd4>RubyProf</span>::<span style=color:#7fffd4>FlatPrinterWithLineNumbers</span>.new(results).print(file)
-    <span style=color:red>end</span>
+    <span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>open</span> <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>Rails</span><span style=color:#000>.</span><span style=color:#000>root</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/tmp/performance/</span><span style=color:#c41a16>#{</span><span style=color:#000>file_name</span><span style=color:#c41a16>}</span><span style=color:#c41a16>-flat.txt&#34;</span>, <span style=color:#c41a16>&#39;w&#39;</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>file</span><span style=color:#000>|</span>
+      <span style=color:#177500># RubyProf::FlatPrinter.new(results).print(file)</span>
+      <span style=color:#000>RubyProf</span><span style=color:#000>::</span><span style=color:#000>FlatPrinterWithLineNumbers</span><span style=color:#000>.</span><span style=color:#000>new</span>(<span style=color:#000>results</span>)<span style=color:#000>.</span><span style=color:#000>print</span>(<span style=color:#000>file</span>)
+    <span style=color:#a90d91>end</span>
  
-    <span style=color:#7fffd4>File</span>.open <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>Rails</span>.root<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/tmp/performance/</span><span style=color:#87ceeb>#{</span>file_name<span style=color:#87ceeb>}</span><span style=color:#87ceeb>-stack.html&#34;</span>, <span style=color:#87ceeb>&#39;w&#39;</span> <span style=color:red>do</span> |file|
-      <span style=color:#7fffd4>RubyProf</span>::<span style=color:#7fffd4>CallStackPrinter</span>.new(results).print(file)
-    <span style=color:red>end</span>
+    <span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>open</span> <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>Rails</span><span style=color:#000>.</span><span style=color:#000>root</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/tmp/performance/</span><span style=color:#c41a16>#{</span><span style=color:#000>file_name</span><span style=color:#c41a16>}</span><span style=color:#c41a16>-stack.html&#34;</span>, <span style=color:#c41a16>&#39;w&#39;</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>file</span><span style=color:#000>|</span>
+      <span style=color:#000>RubyProf</span><span style=color:#000>::</span><span style=color:#000>CallStackPrinter</span><span style=color:#000>.</span><span style=color:#000>new</span>(<span style=color:#000>results</span>)<span style=color:#000>.</span><span style=color:#000>print</span>(<span style=color:#000>file</span>)
+    <span style=color:#a90d91>end</span>
  
-  <span style=color:red>end</span>
+  <span style=color:#a90d91>end</span>
   
-<span style=color:red>end</span>
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>To use it, just wrap the slow code as follows. Note that the name <code>import</code> is the prefix I want to use on the output files:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#7fffd4>DevelopmentProfiler</span>::prof(<span style=color:#87ceeb>&#34;import&#34;</span>) <span style=color:red>do</span>
-	<span style=color:#0f0># Your slow code here</span>
-<span style=color:red>end</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>DevelopmentProfiler</span><span style=color:#000>::</span><span style=color:#000>prof</span>(<span style=color:#c41a16>&#34;import&#34;</span>) <span style=color:#a90d91>do</span>
+	<span style=color:#177500># Your slow code here</span>
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>Next time you call this code, via a URL or in a Rake task, it will be profiled and three files will be written to <code>tmp/performance</code>:</p>
 <ul>
 <li><code>import-flat.txt</code>: A text file listing all functions called, the time spent in each and the number of calls made to that function</li>

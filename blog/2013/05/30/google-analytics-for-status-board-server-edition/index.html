@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>May 30, 2013 4:59 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/status-board>Status Board</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Google Analytics for Status Board Server Edition
 </h1>
@@ -61,12 +73,12 @@ Google Analytics for Status Board Server Edition
 <li><code>gapi.class.php</code> is required to access Google Analytics, but this one has been hacked to use the v2.4 API.</li>
 </ul>
 <p>For each of the <code>analytics_*.php</code> pages, change the first few lines with your own information:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-php data-lang=php>define(<span style=color:#87ceeb>&#39;ga_email&#39;</span>,<span style=color:#87ceeb>&#39;hiltmon@gmail.com&#39;</span>);
-define(<span style=color:#87ceeb>&#39;ga_password&#39;</span>,<span style=color:#87ceeb>&#39;i_aint_sayin&#39;</span>);
-define(<span style=color:#87ceeb>&#39;which_profile&#39;</span>,<span style=color:#f60>0</span>); <span style=color:#0f0>// The first profile
-</span><span style=color:#0f0></span>define(<span style=color:#87ceeb>&#39;days_to_report&#39;</span>, <span style=color:#f60>7</span>); <span style=color:#0f0>// No of days excluding today!
-</span><span style=color:#0f0></span>define(<span style=color:#87ceeb>&#39;ga_title&#39;</span>,<span style=color:#87ceeb>&#39;Hiltmon.com Stats&#39;</span>);
-date_default_timezone_set(<span style=color:#87ceeb>&#39;America/New_York&#39;</span>);
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-php data-lang=php><span style=color:#000>define</span>(<span style=color:#c41a16>&#39;ga_email&#39;</span>,<span style=color:#c41a16>&#39;hiltmon@gmail.com&#39;</span>);
+<span style=color:#000>define</span>(<span style=color:#c41a16>&#39;ga_password&#39;</span>,<span style=color:#c41a16>&#39;i_aint_sayin&#39;</span>);
+<span style=color:#000>define</span>(<span style=color:#c41a16>&#39;which_profile&#39;</span>,<span style=color:#1c01ce>0</span>); <span style=color:#177500>// The first profile
+</span><span style=color:#177500></span><span style=color:#000>define</span>(<span style=color:#c41a16>&#39;days_to_report&#39;</span>, <span style=color:#1c01ce>7</span>); <span style=color:#177500>// No of days excluding today!
+</span><span style=color:#177500></span><span style=color:#000>define</span>(<span style=color:#c41a16>&#39;ga_title&#39;</span>,<span style=color:#c41a16>&#39;Hiltmon.com Stats&#39;</span>);
+<span style=color:#000>date_default_timezone_set</span>(<span style=color:#c41a16>&#39;America/New_York&#39;</span>);
 </code></pre></div><p>If you have more than one Google Analytics profile (i.e. more than one site), you may need to change the profile, with 0 being the first profile in your list. I also recommend setting the timezone to your server timezone so that you don&rsquo;t fill your web logs with PHP errors.</p>
 <p>Why choose these technologies?</p>
 <ul>

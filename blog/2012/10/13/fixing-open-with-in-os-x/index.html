@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Oct 13, 2012 12:11 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/os-x>OS X</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Fixing Open With in OS X
 </h1>
@@ -44,8 +56,8 @@ Fixing Open With in OS X
 <figure><img src=images/open-with-before.jpeg width=576 height=603>
 </figure>
 <p>What a mess. Open a Terminal session from <strong>Applications/Utilities</strong> and type the following command:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
-</code></pre></div><p>Make sure the whole thing is on a single line and wait for it to finish.</p>
+<pre tabindex=0><code>/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user
+</code></pre><p>Make sure the whole thing is on a single line and wait for it to finish.</p>
 <p>Then restart Finder. Hold the control key and the option key and right-click on the Finder icon in the dock to bring up the menu:</p>
 <figure><img src=images/open-with-relaunch.jpeg width=220 height=335>
 </figure>

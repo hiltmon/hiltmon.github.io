@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>May 8, 2013 5:30 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/octopress>Octopress</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Octopress now has Footnotes
 </h1>
@@ -42,15 +54,15 @@ Octopress now has Footnotes
 <p>If you update to the latest Octopress and you still use the <code>rdiscount</code> markdown processor, you now get footnotes like this <sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. <span class=light>I was previously using a CSS workaround because I prefer the speed of <code>rdiscount</code> for my growing site<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> and still wanted footnotes.</span></p>
 <p>To create a footnote, use the standard MultiMarkdown <code>[^1]</code> anchor to create the footnote reference link, and add <code>[^1]: The footnote content.</code> to the bottom of the file<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.</p>
 <p>I also prefer my footnotes a tad smaller, lighter and closer together, so I added the following CSS to my <code>sass/custom/_styles.css</code> file:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sass data-lang=sass>.footnotes {
-  font-size: <span style=color:#f60>13</span><span style=color:violet>px</span>;
-  line-height: <span style=color:#f60>16</span><span style=color:violet>px</span>;
-  color: <span style=color:#f60>#666</span>;
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sass data-lang=sass><span style=color:#3f6e75>.footnotes</span> <span style=color:#000>{</span>
+<span style=color:#000>  </span><span style=color:#836c28>font-size</span><span style=color:#000>:</span> <span style=color:#1c01ce>13</span><span style=color:#a90d91>px</span><span style=color:#000>;</span>
+<span style=color:#000>  </span><span style=color:#836c28>line-height</span><span style=color:#000>:</span> <span style=color:#1c01ce>16</span><span style=color:#a90d91>px</span><span style=color:#000>;</span>
+<span style=color:#000>  </span><span style=color:#836c28>color</span><span style=color:#000>:</span> <span style=color:#1c01ce>#666</span><span style=color:#000>;</span>
   
-  p {
-	  margin-bottom: <span style=color:#f60>6</span><span style=color:violet>px</span>;
-  }
-}
+  <span style=color:#000>p</span> <span style=color:#000>{</span>
+<span style=color:#000>	  </span><span style=color:#836c28>margin-bottom</span><span style=color:#000>:</span> <span style=color:#1c01ce>6</span><span style=color:#a90d91>px</span><span style=color:#000>;</span>
+  <span style=color:#000>}</span>
+<span style=color:#000>}</span>
 </code></pre></div><p>If you prefer popover style footnotes (which I do not), try the <a href=https://github.com/mattgemmell/footnotes-popover>Footnotes Popover</a> by <a href=http://mattgemmell.com>Matt Gemmell</a>.</p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
 <section class=footnotes role=doc-endnotes>

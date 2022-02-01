@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Dec 19, 2012 1:19 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/software>Software</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/design>Design</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 How to Flexify a Class
 </h1>
@@ -59,8 +76,8 @@ How to Flexify a Class
 </ul>
 <p><em>That’s right, use <a href=http://en.wikipedia.org/wiki/Test-driven_development>test driven development</a> and good old <a href=http://en.wikipedia.org/wiki/Code_refactoring>refactoring</a> techniques to do it right.</em></p>
 <p>Finding where a class is used is not as hard as it seems. Just do a search through the code-base to find the class name. IDE’s and programmers editors have it built in. Or use a shell command like:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback> find -type f -name &#34;*&#34; | xargs grep ‘&lt;classname&gt;’
-</code></pre></div><p>If the class already has a test suite, check to make sure that all methods are tested for both success and failure conditions, and that the tests run and run correctly. If the test suite does not exist, take the time to write one. You’d be surprised how quickly you can do this after creating your first few. Test each method with a bunch of expected valid values, and a bunch of invalid values. Do a quick scan of existing uses to determine any edge cases. Then run the suite.</p>
+<pre tabindex=0><code> find -type f -name &quot;*&quot; | xargs grep ‘&lt;classname&gt;’
+</code></pre><p>If the class already has a test suite, check to make sure that all methods are tested for both success and failure conditions, and that the tests run and run correctly. If the test suite does not exist, take the time to write one. You’d be surprised how quickly you can do this after creating your first few. Test each method with a bunch of expected valid values, and a bunch of invalid values. Do a quick scan of existing uses to determine any edge cases. Then run the suite.</p>
 <p>Now refactor the class, add the new features or add the flexibility. As you go along, keep running the test suite making sure the original tests continue to pass. Oh, and while you are at it, add tests for the new flexibility and features.</p>
 <p>When the new flexibility has been added and you have a passing test suite, you can be sure that existing code will run with the new flexible class. The best parts of doing it right are that the existing code can now take advantage of the new class features, maintenance and cruft are minimized and you have the tools in place to come back and add more flexibility later.</p>
 <p>But you are not done yet. Invariably adding flexibility adds dependencies, either meta-data files or artwork. Document the dependencies, so that future users of the class can find them quickly. Then walk through all uses of the pre-flexed class and ensure the dependencies are added and compile properly.</p>

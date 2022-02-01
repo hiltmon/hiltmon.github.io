@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Aug 31, 2017 7:49 AM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 Migrate Octopress / Jekyll Posts to Ulysses
 </h1>
@@ -56,45 +63,45 @@ Migrate Octopress / Jekyll Posts to Ulysses
 </ul>
 <p>After that, I just dragged and dropped the Markdown files into Ulysses which kept the formatting and dates.</p>
 <p>The script itself is below. <em>Its terrible and you dare not use it.</em> But maybe it has some ideas to help you run your own conversion.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0>#!/usr/bin/env ruby</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby</span>
 
-require <span style=color:#87ceeb>&#39;rubygems&#39;</span>
-require <span style=color:#87ceeb>&#39;yaml&#39;</span>
-require <span style=color:#87ceeb>&#39;time&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;rubygems&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;yaml&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;time&#39;</span>
   
-<span style=color:#0f0># IN_PATH = &#34;/Users/hiltmon/Projects/Personal/HiltmonDotCom/source/_posts/&#34;</span>
-<span style=color:#0f0># IN_PATH = &#34;/Users/hiltmon/Projects/Personal/NoverseDotCom/code/noverse/source/_posts/&#34;</span>
-<span style=color:#7fffd4>IN_PATH</span> = <span style=color:#87ceeb>&#34;/Users/hiltmon/Downloads/_posts/&#34;</span>
-<span style=color:#7fffd4>OUT_PATH</span> = <span style=color:#87ceeb>&#34;/Users/hiltmon/Desktop/Blog/&#34;</span>
+<span style=color:#177500># IN_PATH = &#34;/Users/hiltmon/Projects/Personal/HiltmonDotCom/source/_posts/&#34;</span>
+<span style=color:#177500># IN_PATH = &#34;/Users/hiltmon/Projects/Personal/NoverseDotCom/code/noverse/source/_posts/&#34;</span>
+<span style=color:#000>IN_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/hiltmon/Downloads/_posts/&#34;</span>
+<span style=color:#000>OUT_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/hiltmon/Desktop/Blog/&#34;</span>
 
-<span style=color:#7fffd4>Dir</span>.new(<span style=color:#7fffd4>IN_PATH</span>).each <span style=color:red>do</span> |path|
-  <span style=color:red>next</span> <span style=color:red>if</span> path =~ <span style=color:#87ceeb>/^\./</span>
+<span style=color:#000>Dir</span><span style=color:#000>.</span><span style=color:#000>new</span>(<span style=color:#000>IN_PATH</span>)<span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>path</span><span style=color:#000>|</span>
+  <span style=color:#a90d91>next</span> <span style=color:#a90d91>if</span> <span style=color:#000>path</span> <span style=color:#000>=~</span> <span style=color:#c41a16>/^\./</span>
   
-  basename = <span style=color:#7fffd4>File</span>.basename(path)
-  puts <span style=color:#87ceeb>&#34;Processing </span><span style=color:#87ceeb>#{</span>basename<span style=color:#87ceeb>}</span><span style=color:#87ceeb>...&#34;</span>
+  <span style=color:#000>basename</span> <span style=color:#000>=</span> <span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>basename</span>(<span style=color:#000>path</span>)
+  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;Processing </span><span style=color:#c41a16>#{</span><span style=color:#000>basename</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
 
-  posthead = <span style=color:#7fffd4>YAML</span>.load_file(<span style=color:#7fffd4>IN_PATH</span> + path)
-  title = posthead[<span style=color:#87ceeb>&#39;title&#39;</span>].sub(<span style=color:#87ceeb>&#34;&#39;&#34;</span>, <span style=color:#87ceeb>&#39;&#39;</span>)
+  <span style=color:#000>posthead</span> <span style=color:#000>=</span> <span style=color:#000>YAML</span><span style=color:#000>.</span><span style=color:#000>load_file</span>(<span style=color:#000>IN_PATH</span> <span style=color:#000>+</span> <span style=color:#000>path</span>)
+  <span style=color:#000>title</span> <span style=color:#000>=</span> <span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;title&#39;</span><span style=color:#000>].</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#34;&#39;&#34;</span>, <span style=color:#c41a16>&#39;&#39;</span>)
   
-  <span style=color:#0f0># Create a new file and add the H1</span>
-  cmd2 = <span style=color:#87ceeb>&#34;echo </span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb># </span><span style=color:#87ceeb>#{</span>posthead[<span style=color:#87ceeb>&#39;title&#39;</span>].strip<span style=color:#87ceeb>}</span><span style=color:#87ceeb>\n\&#34;</span><span style=color:#87ceeb> &gt; </span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>OUT_PATH</span> + title<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.md</span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>&#34;</span>
-  <span style=color:#87ceeb>%x{</span><span style=color:#87ceeb>#{</span>cmd2<span style=color:#87ceeb>}</span><span style=color:#87ceeb>}</span>
+  <span style=color:#177500># Create a new file and add the H1</span>
+  <span style=color:#000>cmd2</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;echo </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16># </span><span style=color:#c41a16>#{</span><span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;title&#39;</span><span style=color:#000>].</span><span style=color:#000>strip</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\n\&#34;</span><span style=color:#c41a16> &gt; </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
+  <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd2</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
   
-  <span style=color:#0f0># Append the original Markdown</span>
-  cmd1 = <span style=color:#87ceeb>&#34;cat </span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>IN_PATH</span> + path<span style=color:#87ceeb>}</span><span style=color:#87ceeb> &gt;&gt; </span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>OUT_PATH</span> + title<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.md</span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>&#34;</span>
-  <span style=color:#87ceeb>%x{</span><span style=color:#87ceeb>#{</span>cmd1<span style=color:#87ceeb>}</span><span style=color:#87ceeb>}</span>
+  <span style=color:#177500># Append the original Markdown</span>
+  <span style=color:#000>cmd1</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;cat </span><span style=color:#c41a16>#{</span><span style=color:#000>IN_PATH</span> <span style=color:#000>+</span> <span style=color:#000>path</span><span style=color:#c41a16>}</span><span style=color:#c41a16> &gt;&gt; </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
+  <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd1</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
   
-  <span style=color:#0f0># Mess with the file time</span>
-  <span style=color:red>if</span> posthead[<span style=color:#87ceeb>&#39;date&#39;</span>].is_a?(<span style=color:#7fffd4>Time</span>)
-    cmd3 = <span style=color:#87ceeb>&#34;touch -t </span><span style=color:#87ceeb>#{</span>posthead[<span style=color:#87ceeb>&#39;date&#39;</span>].strftime(<span style=color:#87ceeb>&#34;%Y%m%d%H%M&#34;</span>)<span style=color:#87ceeb>}</span><span style=color:#87ceeb> </span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>OUT_PATH</span> + title<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.md</span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>&#34;</span>
-    <span style=color:#87ceeb>%x{</span><span style=color:#87ceeb>#{</span>cmd3<span style=color:#87ceeb>}</span><span style=color:#87ceeb>}</span>
-  <span style=color:red>else</span>
-    file_date = <span style=color:#7fffd4>Time</span>.parse(posthead[<span style=color:#87ceeb>&#39;date&#39;</span>])
+  <span style=color:#177500># Mess with the file time</span>
+  <span style=color:#a90d91>if</span> <span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>].</span><span style=color:#000>is_a?</span>(<span style=color:#000>Time</span>)
+    <span style=color:#000>cmd3</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;touch -t </span><span style=color:#c41a16>#{</span><span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>].</span><span style=color:#000>strftime</span>(<span style=color:#c41a16>&#34;%Y%m%d%H%M&#34;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
+    <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd3</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
+  <span style=color:#a90d91>else</span>
+    <span style=color:#000>file_date</span> <span style=color:#000>=</span> <span style=color:#000>Time</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>]</span>)
   
-    cmd3 = <span style=color:#87ceeb>&#34;touch -t </span><span style=color:#87ceeb>#{</span>file_date.strftime(<span style=color:#87ceeb>&#34;%Y%m%d%H%M&#34;</span>)<span style=color:#87ceeb>}</span><span style=color:#87ceeb> </span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>OUT_PATH</span> + title<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.md</span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>&#34;</span>
-    <span style=color:#87ceeb>%x{</span><span style=color:#87ceeb>#{</span>cmd3<span style=color:#87ceeb>}</span><span style=color:#87ceeb>}</span>
-  <span style=color:red>end</span>
-<span style=color:red>end</span>
+    <span style=color:#000>cmd3</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;touch -t </span><span style=color:#c41a16>#{</span><span style=color:#000>file_date</span><span style=color:#000>.</span><span style=color:#000>strftime</span>(<span style=color:#c41a16>&#34;%Y%m%d%H%M&#34;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
+    <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd3</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
+  <span style=color:#a90d91>end</span>
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>The result:</p>
 <figure><img src=images/blog-in-ulysses.jpg width=550 height=278>
 </figure>

@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Jan 7, 2013 1:24 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/programming>programming</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/c++>c++</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Reprogramming my Brace Style Mind
 </h1>
@@ -43,31 +60,31 @@ Reprogramming my Brace Style Mind
 <p>Recently, I have had to change my choices, they were wrong. But a bit of history first.</p>
 <h2 id=the-1980s1990s-compact-style>The 1980’s/1990’s Compact Style</h2>
 <p>When I started programming, we use <em>tab</em> characters because it kept files smaller, limited code to <em>80-columns</em> because we had to print out code <em>a lot</em> on 80-column dot-matrix printers and we followed Kernighan and Ritchie’s <em>original</em> <a href="http://www.amazon.com/gp/product/0131103628/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=hiltmon-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0131103628">C Programming Language</a> book’s convention of braces on the same line. Code looked like this:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c data-lang=c><span style=color:violet>int</span> <span style=color:#ff0>main</span>(<span style=color:violet>int</span> argc, <span style=color:violet>char</span> *argv[]) {
-        <span style=color:violet>int</span> a = rand() % <span style=color:#f60>100</span>;
-        <span style=color:red>if</span> (a &gt; <span style=color:#f60>25</span>) {
-                call_a_function();
-                call_another_function();
-        } <span style=color:red>else</span> {
-                call_b_function();
-        } <span style=color:#0f0>// end if
-</span><span style=color:#0f0></span>} <span style=color:#0f0>// end main
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c data-lang=c><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> <span style=color:#000>*</span><span style=color:#000>argv</span>[]) {
+        <span style=color:#a90d91>int</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#000>rand</span>() <span style=color:#000>%</span> <span style=color:#1c01ce>100</span>;
+        <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>25</span>) {
+                <span style=color:#000>call_a_function</span>();
+                <span style=color:#000>call_another_function</span>();
+        } <span style=color:#a90d91>else</span> {
+                <span style=color:#000>call_b_function</span>();
+        } <span style=color:#177500>// end if
+</span><span style=color:#177500></span>} <span style=color:#177500>// end main
 </span></code></pre></div><p>This style worked. Tabs in those days were always 8 stops wide, which meant that you could not indent much before slamming into the 80-column limit, forcing you create lots of smaller functions, a good thing. And braces on the same line meant more code would appear printed on each page.</p>
 <p>But there were some bad things too. We started using shorter variable names to gain additional indent levels within files, making the code harder to read and maintain. We did not put any whitespace between lines of code to cram more on the printed page, making the start and end of blocks harder to find (and so we would comment block ends so we’d know what they were). And we lost a lot of limited coding space because the indents were so wide.</p>
 <h2 id=2000s-expansive-style>2000’s Expansive Style</h2>
 <p>In the 2000’s, we all seemed to switch to Microsoft’s C and C# conventions, namely 4 spaces instead of tabs, unlimited line length and all braces on their own lines, like so:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c# data-lang=c#><span style=color:violet>int</span> main(<span style=color:violet>int</span> argc, <span style=color:violet>char</span> *argv[])
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c# data-lang=c#><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> *<span style=color:#000>argv</span>[])
 {
-    <span style=color:violet>int</span> a = rand() % <span style=color:#f60>100</span>;
+    <span style=color:#a90d91>int</span> <span style=color:#000>a</span> = <span style=color:#000>rand</span>() % <span style=color:#1c01ce>100</span>;
 	
-    <span style=color:red>if</span> (a &gt; <span style=color:#f60>25</span>)
+    <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> &gt; <span style=color:#1c01ce>25</span>)
     {
-        call_a_function();
-        call_another_function();
+        <span style=color:#000>call_a_function</span>();
+        <span style=color:#000>call_another_function</span>();
     } 
-    <span style=color:red>else</span>
+    <span style=color:#a90d91>else</span>
     {
-        call_b_function();
+        <span style=color:#000>call_b_function</span>();
     }
 }
 </code></pre></div><p>Spaces for indents meant we did not have to deal with different editors’ tab sizes (or their fickle users’ preferences). And since we had stopped printing code, we could focus on trying to make it more readable using white space, longer variable names and braces on blank lines to make our blocks stand out (so we could see the start and end of block by matching columns).</p>
@@ -78,13 +95,13 @@ Reprogramming my Brace Style Mind
 <p>Until now. Or really until I started using Xcode 4’s intelligence and snippets.</p>
 <p>You see, Xcode defaults to 4 space indents, so that stays the same. I think it handles limited line lengths rather well with intelligent wrapping, which means the scroll to the right issue and the 2-up issues are resolved. But it started to drive me nuts that it’s default brace style in snippets seemed <em>inconsistent</em>. Sometimes braces would be on the <em>same</em> line and sometimes on their <em>own</em>. What? No! I need consistency.</p>
 <p>Take the default <code>initWithNibName</code> code snippet:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-objective-c data-lang=objective-c>- (<span style=color:violet>id</span>)<span style=color:#ff0>initWithNibName:</span>(NSString *)<span style=color:#eedd82>nibNameOrNil</span> <span style=color:#ff0>bundle:</span>(NSBundle *)<span style=color:#eedd82>nibBundleOrNil</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-objective-c data-lang=objective-c>- (<span style=color:#a90d91>id</span>)<span style=color:#000>initWithNibName:</span>(<span style=color:#000>NSString</span> <span style=color:#000>*</span>)<span style=color:#000>nibNameOrNil</span> <span style=color:#000>bundle:</span>(<span style=color:#000>NSBundle</span> <span style=color:#000>*</span>)<span style=color:#000>nibBundleOrNil</span>
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    <span style=color:red>if</span> (self) {
-        self.title = NSLocalizedString(<span style=color:#87ceeb>@&#34;Detail&#34;</span>, <span style=color:#87ceeb>@&#34;Detail&#34;</span>);
+    <span style=color:#a90d91>self</span> <span style=color:#000>=</span> [<span style=color:#a90d91>super</span> <span style=color:#000>initWithNibName</span>:<span style=color:#000>nibNameOrNil</span> <span style=color:#000>bundle</span>:<span style=color:#000>nibBundleOrNil</span>];
+    <span style=color:#a90d91>if</span> (<span style=color:#a90d91>self</span>) {
+        <span style=color:#a90d91>self</span>.<span style=color:#000>title</span> <span style=color:#000>=</span> <span style=color:#000>NSLocalizedString</span>(<span style=color:#c41a16>@&#34;Detail&#34;</span>, <span style=color:#c41a16>@&#34;Detail&#34;</span>);
     }
-    <span style=color:red>return</span> self;
+    <span style=color:#a90d91>return</span> <span style=color:#a90d91>self</span>;
 }
 </code></pre></div><p><em>The function block braces are on their own line, ala 2000’s C#, but the <code>if</code> block braces are not, ala 1990’s C style.</em> Surely this is a royal screw-up! From Apple! The style gurus!</p>
 <p>It turns out that no, it’s not a screwup, the hybrid brace style that they are using is the <em>original</em> Kernighan and Ritchie style which was <em>messed up in the early printings of the C book</em> to save space. The brace style rules, as per K&R are:</p>
@@ -95,15 +112,15 @@ Wikipedia <a href=http://en.wikipedia.org/wiki/Indent_style#K.26R_style>http://e
 <p>It turns out, that this <em>true</em> K&R style is the <em>canonical</em> form for braces for all C derivative languages, including C++, C# and Objective-C. That’s from the designers of the languages themselves.</p>
 <p>Guess I’ve been doing it wrong and arguing it wrong all these years.</p>
 <p>So I have changed my brace style mind. I am still a 4 space man. I still run a 80-column page guide, and try to keep within it, but now rely more on the editor to smart-wrap long lines. But I now adhere to the <em>true</em> K&R brace style:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c data-lang=c><span style=color:violet>int</span> <span style=color:#ff0>main</span>(<span style=color:violet>int</span> argc, <span style=color:violet>char</span> *argv[]) 
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c data-lang=c><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> <span style=color:#000>*</span><span style=color:#000>argv</span>[]) 
 {
-    <span style=color:violet>int</span> a = rand() % <span style=color:#f60>100</span>;
+    <span style=color:#a90d91>int</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#000>rand</span>() <span style=color:#000>%</span> <span style=color:#1c01ce>100</span>;
 		
-    <span style=color:red>if</span> (a &gt; <span style=color:#f60>25</span>) {
-        call_a_function();
-        call_another_function();
-    } <span style=color:red>else</span> {
-        call_b_function();
+    <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>25</span>) {
+        <span style=color:#000>call_a_function</span>();
+        <span style=color:#000>call_another_function</span>();
+    } <span style=color:#a90d91>else</span> {
+        <span style=color:#000>call_b_function</span>();
     }
 }
 </code></pre></div><p>I’m still getting used to it.</p>

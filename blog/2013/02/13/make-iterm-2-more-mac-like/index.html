@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Feb 13, 2013 12:08 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/macintosh>Macintosh</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Make iTerm 2 more Mac-like
 </h1>
@@ -82,23 +94,23 @@ Make iTerm 2 more Mac-like
 <figure><img src=images/iterm2-macro.png width=559 height=411>
 </figure>
 <p>The first step, the AppleScript code, launches a new “Default” terminal, and it does so on the <em>current</em> space:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-applescript data-lang=applescript><span style=color:red>tell</span> application <span style=color:#87ceeb>&#34;System Events&#34;</span>
-    <span style=color:red>set</span> <span style=color:#eedd82>mycount</span> <span style=color:red>to</span> count (every <span style=color:#eedd82>process</span> whose name is <span style=color:#87ceeb>&#34;iTerm&#34;</span>)
-<span style=color:red>end</span> <span style=color:red>tell</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-applescript data-lang=applescript><span style=color:#a90d91>tell</span> <span style=color:#a90d91>application</span> <span style=color:#c41a16>&#34;System Events&#34;</span>
+    <span style=color:#a90d91>set</span> <span style=color:#000>mycount</span> <span style=color:#a90d91>to</span> <span style=color:#a90d91>count</span> (<span style=color:#a90d91>every</span> <span style=color:#000>process</span> <span style=color:#a90d91>whose</span> <span style=color:#836c28>name</span> <span style=color:#000>is</span> <span style=color:#c41a16>&#34;iTerm&#34;</span>)
+<span style=color:#a90d91>end</span> <span style=color:#a90d91>tell</span>
 
-<span style=color:red>tell</span> application <span style=color:#87ceeb>&#34;iTerm&#34;</span>
-    <span style=color:#0f0>-- Nuke the default new terminal on first launch</span>
-    <span style=color:#0f0>-- And ignore other terminals otherwise</span>
-    <span style=color:red>if</span> <span style=color:#eedd82>mycount</span> = <span style=color:#f60>0</span> <span style=color:red>then</span>
-        activate
-        <span style=color:#eedd82>terminate</span> the first <span style=color:#eedd82>session</span> <span style=color:red>of</span> the first <span style=color:#eedd82>terminal</span>
-    <span style=color:red>end</span> <span style=color:red>if</span>
+<span style=color:#a90d91>tell</span> <span style=color:#a90d91>application</span> <span style=color:#c41a16>&#34;iTerm&#34;</span>
+    <span style=color:#177500>-- Nuke the default new terminal on first launch</span>
+    <span style=color:#177500>-- And ignore other terminals otherwise</span>
+    <span style=color:#a90d91>if</span> <span style=color:#000>mycount</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0</span> <span style=color:#a90d91>then</span>
+        <span style=color:#a90d91>activate</span>
+        <span style=color:#000>terminate</span> <span style=color:#a90d91>the</span> <span style=color:#a90d91>first</span> <span style=color:#000>session</span> <span style=color:#a90d91>of</span> <span style=color:#a90d91>the</span> <span style=color:#a90d91>first</span> <span style=color:#000>terminal</span>
+    <span style=color:#a90d91>end</span> <span style=color:#a90d91>if</span>
     
-    <span style=color:red>tell</span> (make new <span style=color:#eedd82>terminal</span>)
-        launch <span style=color:#eedd82>session</span> <span style=color:#87ceeb>&#34;Default&#34;</span>
-    <span style=color:red>end</span> <span style=color:red>tell</span>
-    activate
-<span style=color:red>end</span> <span style=color:red>tell</span>
+    <span style=color:#a90d91>tell</span> (<span style=color:#a90d91>make</span> <span style=color:#a90d91>new</span> <span style=color:#000>terminal</span>)
+        <span style=color:#a90d91>launch</span> <span style=color:#000>session</span> <span style=color:#c41a16>&#34;Default&#34;</span>
+    <span style=color:#a90d91>end</span> <span style=color:#a90d91>tell</span>
+    <span style=color:#a90d91>activate</span>
+<span style=color:#a90d91>end</span> <span style=color:#a90d91>tell</span>
 </code></pre></div><p>The second step resizes the window so that it is 100 x 42 lines, my personally preferred terminal window size.</p>
 <p>So far, I am really enjoying the small touches that make <a href=http://www.iterm2.com/#/section/home>iTerm 2</a> that much better than Terminal.app.</p>
 <p>Related Reading: <a href=https://hiltmon.com/blog/2013/07/18/fast-ssh-windows-with-iterm-2/>Fast SSH Windows With iTerm 2</a></p>

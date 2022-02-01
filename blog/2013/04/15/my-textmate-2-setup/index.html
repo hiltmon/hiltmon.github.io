@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Apr 15, 2013 2:42 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/text-editors>Text Editors</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 My TextMate 2 Setup
 </h1>
@@ -63,12 +80,12 @@ My TextMate 2 Setup
 <p>You don&rsquo;t really need to do anything else. TextMate 2 automatically saves your global, font, theme and language specific preferences as you set them. Whenever you go back to a file, the preferences are just there.</p>
 <p>But if you really do want to tweak TextMate 2 even more, you can create a <code>.tm_properties</code> in your home folder for global settings and a <code>.tm_properties</code> file at the root of each project for project specific settings.</p>
 <p>My global <code>.tm_properties</code> is this:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Settings
+<pre tabindex=0><code># Settings
 
 encoding         = UTF-8
-fontName         = &#34;Menlo&#34;
+fontName         = &quot;Menlo&quot;
 fontSize         = 12
-lineEndings      = &#39;\n&#39;
+lineEndings      = '\n'
 showInvisibles   = false
 softWrap         = true
 tabSize          = 2
@@ -79,41 +96,41 @@ theme            = 570BB45C-486D-44A6-8683-CFE4F63CE651
 
 # Hide log, vendor and tmp directories from search popups.
 
-myExtraExcludes = &#34;log,vendor,tmp&#34;
-excludeInFileChooser  = &#34;{$excludeInFileChooser,$myExtraExcludes}&#34; 
-excludeInFolderSearch = &#34;{$excludeInFolderSearch,$myExtraExcludes}&#34; 
-fileBrowserGlob  = &#34;{*,.tm_properties,.htaccess}&#34;
+myExtraExcludes = &quot;log,vendor,tmp&quot;
+excludeInFileChooser  = &quot;{$excludeInFileChooser,$myExtraExcludes}&quot; 
+excludeInFolderSearch = &quot;{$excludeInFolderSearch,$myExtraExcludes}&quot; 
+fileBrowserGlob  = &quot;{*,.tm_properties,.htaccess}&quot;
 
 # Variables
 
-PATH   = &#34;$PATH:$HOME/Scripts&#34;
-TM_GIT = &#34;/usr/bin/git&#34;
-TM_RUBY = &#34;/Users/Hiltmon/.rvm/bin/rvm-auto-ruby&#34;
+PATH   = &quot;$PATH:$HOME/Scripts&quot;
+TM_GIT = &quot;/usr/bin/git&quot;
+TM_RUBY = &quot;/Users/Hiltmon/.rvm/bin/rvm-auto-ruby&quot;
 
 [ text ]
 spellChecking    = true
 softWrap         = false
-wrapColumn       = &#34;Use Window Frame&#34;
+wrapColumn       = &quot;Use Window Frame&quot;
 softTabs         = true
 tabSize          = 2
 
 [ text.plain ]
 spellChecking    = true
 softWrap         = true
-wrapColumn       = &#34;Use Window Frame&#34;
+wrapColumn       = &quot;Use Window Frame&quot;
 softTabs         = false
 tabSize          = 4
 
 [ text.html.markdown ]
 spellChecking    = true
 softWrap         = true
-wrapColumn       = &#34;Use Window Frame&#34;
+wrapColumn       = &quot;Use Window Frame&quot;
 softTabs         = false
 tabSize          = 4
 
 [ source ]
 softWrap         = true
-wrapColumn       = &#34;Use Window Frame&#34;
+wrapColumn       = &quot;Use Window Frame&quot;
 softTabs         = true
 tabSize          = 2
 
@@ -124,21 +141,21 @@ tabSize        = 4
 [ source.tm-properties ]
 spellChecking  = false
 
-[ &#34;{Capfile,Gemfile,Gemfile.lock,Guardfile}&#34; ]
+[ &quot;{Capfile,Gemfile,Gemfile.lock,Guardfile}&quot; ]
 fileType         = source.ruby
 
 [ Procfile ]
 fileType         = source.yaml
-</code></pre></div><p>This mostly sets tabs and spaces for the most common languages that I use, as well as forces a reset of the theme and font whenever I load the application.</p>
+</code></pre><p>This mostly sets tabs and spaces for the most common languages that I use, as well as forces a reset of the theme and font whenever I load the application.</p>
 <p>For the <a href=http://www.kifuapp.com>Kifu</a> project, I have a <code>.tm_properties</code> in its root containing:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>projectDirectory = &#34;$CWD&#34;
-windowTitle      = &#34;$TM_DISPLAYNAME — Kifu App (git: $TM_SCM_BRANCH)&#34;
+<pre tabindex=0><code>projectDirectory = &quot;$CWD&quot;
+windowTitle      = &quot;$TM_DISPLAYNAME — Kifu App (git: $TM_SCM_BRANCH)&quot;
 
-TM_ORGANIZATION_NAME = &#39;Noverse LLC&#39;
+TM_ORGANIZATION_NAME = 'Noverse LLC'
 
 [ attr.untitled ]
 fileType         = source.ruby.rails
-</code></pre></div><p>This shows the Git branch in the title bar and assumes all blank files are rails files.</p>
+</code></pre><p>This shows the Git branch in the title bar and assumes all blank files are rails files.</p>
 <h2 id=works-for-me>Works for Me</h2>
 <p>I also run the file browser to the right, have Software Update set for <code>Nightly Builds</code>, show command output in a new window and use the <code>rvm</code> version of ruby from my <a href=https://hiltmon.com/blog/2013/01/16/rvm-in-textmate-2/>RVM in TextMate 2</a> post.</p>
 <p>With these minor changes, I feel I have the best programmer&rsquo;s editor environment in TextMate 2 <em>for my own needs</em> and use it every single day.</p>

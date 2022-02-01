@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,23 @@
 <p class=meta-data>
 <span class=post-date>Aug 1, 2015 11:25 AM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/programming>programming</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/development>development</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/c++>c++</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Simple C++: From Makefiles to Xcode Builds
 </h1>
@@ -47,85 +69,85 @@ Simple C++: From Makefiles to Xcode Builds
 <p><strong>Xcode provides an amazing set of tools over and above the code editor.</strong> The integrated <code>clang</code> compiler detects far more potential issues than others. The integrated <code>llvm</code> debugger and inspectors make it easy to view the content of objects at breakpoints. The thread, memory and networking panels show exactly what the program is doing and Instruments is pure wizardry. There is no reason not to take advantage of all of these robust and easy to use technologies when developing.</p>
 <h2 id=an-example-c-makefile-with-dependencies>An Example C++ Makefile with Dependencies</h2>
 <p>Lets start with a <em>real</em> Makefile I use for a semi-complex product with many dependencies. Its a long Makefile, but I&rsquo;ll go though the highlights below.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-make data-lang=make><span style=color:#0f0>#
-</span><span style=color:#0f0>#  Makefile
-</span><span style=color:#0f0>#  CoralSeaServer
-</span><span style=color:#0f0>#
-</span><span style=color:#0f0>#  Created by Hilton Lipschitz on 2014-10-20.
-</span><span style=color:#0f0>#  Copyright (c) 2014 Maritime Capital LP. All rights reserved.
-</span><span style=color:#0f0>#
-</span><span style=color:#0f0></span>
-<span style=color:#0f0># HIL: No spaces or comments after otherwise it captures them!
-</span><span style=color:#0f0># Determine the platform
-</span><span style=color:#0f0></span><span style=color:#eedd82>UNAME_S</span> := <span style=color:red>$(</span>shell uname -s<span style=color:red>)</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-make data-lang=make><span style=color:#177500>#
+</span><span style=color:#177500>#  Makefile
+</span><span style=color:#177500>#  CoralSeaServer
+</span><span style=color:#177500>#
+</span><span style=color:#177500>#  Created by Hilton Lipschitz on 2014-10-20.
+</span><span style=color:#177500>#  Copyright (c) 2014 Maritime Capital LP. All rights reserved.
+</span><span style=color:#177500>#
+</span><span style=color:#177500></span>
+<span style=color:#177500># HIL: No spaces or comments after otherwise it captures them!
+</span><span style=color:#177500># Determine the platform
+</span><span style=color:#177500></span><span style=color:#000>UNAME_S</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>shell uname -s<span style=color:#a90d91>)</span>
 
-ifeq (<span style=color:red>$(</span><span style=color:#eedd82>UNAME_S</span><span style=color:red>)</span>,Darwin)
-	<span style=color:#eedd82>CC</span> := clang++ -arch x86_64
-else
-	<span style=color:#eedd82>CC</span> := g++
-endif
+<span style=color:#000>ifeq</span> <span style=color:#000>(</span><span style=color:#a90d91>$(</span><span style=color:#000>UNAME_S</span><span style=color:#a90d91>)</span><span style=color:#000>,Darwin)</span>
+	<span style=color:#000>CC</span> <span style=color:#000>:=</span> clang++ -arch x86_64
+<span style=color:#000>else</span>
+	<span style=color:#000>CC</span> <span style=color:#000>:=</span> g++
+<span style=color:#000>endif</span>
 
-<span style=color:#eedd82>SRCDIR</span> := src
-<span style=color:#eedd82>LIBDIR</span> := lib
-<span style=color:#eedd82>BUILDDIR</span> := build
-<span style=color:#eedd82>TARGETDIR</span> := bin
-<span style=color:#eedd82>INSTALLBINDIR</span> := /usr/local/bin
-<span style=color:#eedd82>TARGET</span> := bin/CoralSeaServer
+<span style=color:#000>SRCDIR</span> <span style=color:#000>:=</span> src
+<span style=color:#000>LIBDIR</span> <span style=color:#000>:=</span> lib
+<span style=color:#000>BUILDDIR</span> <span style=color:#000>:=</span> build
+<span style=color:#000>TARGETDIR</span> <span style=color:#000>:=</span> bin
+<span style=color:#000>INSTALLBINDIR</span> <span style=color:#000>:=</span> /usr/local/bin
+<span style=color:#000>TARGET</span> <span style=color:#000>:=</span> bin/CoralSeaServer
 
-<span style=color:#0f0># Normal CPP files
-</span><span style=color:#0f0></span><span style=color:#eedd82>SRCEXT</span> := cpp
-<span style=color:#eedd82>SOURCES</span> := <span style=color:red>$(</span>shell find <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span> -type f -name *.<span style=color:red>$(</span>SRCEXT<span style=color:red>))</span>
-<span style=color:#eedd82>OBJECTS</span> := <span style=color:red>$(</span>patsubst <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>SOURCES:.<span style=color:red>$(</span>SRCEXT<span style=color:red>)</span>=.o<span style=color:red>))</span>
+<span style=color:#177500># Normal CPP files
+</span><span style=color:#177500></span><span style=color:#000>SRCEXT</span> <span style=color:#000>:=</span> cpp
+<span style=color:#000>SOURCES</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>shell find <span style=color:#a90d91>$(</span>SRCDIR<span style=color:#a90d91>)</span> -type f -name *.<span style=color:#a90d91>$(</span>SRCEXT<span style=color:#a90d91>))</span>
+<span style=color:#000>OBJECTS</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>patsubst <span style=color:#a90d91>$(</span>SRCDIR<span style=color:#a90d91>)</span>/%,<span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span>/%,<span style=color:#a90d91>$(</span>SOURCES:.<span style=color:#a90d91>$(</span>SRCEXT<span style=color:#a90d91>)</span><span style=color:#000>=</span>.o<span style=color:#a90d91>))</span>
 
-<span style=color:#0f0># Protobuf CC files
-</span><span style=color:#0f0></span><span style=color:#eedd82>SRCEXT2</span> := cc
-<span style=color:#eedd82>SOURCES2</span> := <span style=color:red>$(</span>shell find <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span>/proto -type f -name *.<span style=color:red>$(</span>SRCEXT2<span style=color:red>))</span>
-<span style=color:#eedd82>OBJECTS2</span> := <span style=color:red>$(</span>patsubst <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>SOURCES2:.<span style=color:red>$(</span>SRCEXT2<span style=color:red>)</span>=.o<span style=color:red>))</span>
+<span style=color:#177500># Protobuf CC files
+</span><span style=color:#177500></span><span style=color:#000>SRCEXT2</span> <span style=color:#000>:=</span> cc
+<span style=color:#000>SOURCES2</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>shell find <span style=color:#a90d91>$(</span>SRCDIR<span style=color:#a90d91>)</span>/proto -type f -name *.<span style=color:#a90d91>$(</span>SRCEXT2<span style=color:#a90d91>))</span>
+<span style=color:#000>OBJECTS2</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>patsubst <span style=color:#a90d91>$(</span>SRCDIR<span style=color:#a90d91>)</span>/%,<span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span>/%,<span style=color:#a90d91>$(</span>SOURCES2:.<span style=color:#a90d91>$(</span>SRCEXT2<span style=color:#a90d91>)</span><span style=color:#000>=</span>.o<span style=color:#a90d91>))</span>
 
-<span style=color:#eedd82>CFLAGS</span> := -c
-ifeq (<span style=color:red>$(</span><span style=color:#eedd82>UNAME_S</span><span style=color:red>)</span>,Linux)
-	<span style=color:#eedd82>CFLAGS</span> += -std=gnu++11 -O2 <span style=color:#0f0># -fPIC</span>
-else
-	<span style=color:#eedd82>CFLAGS</span> += -std=c++11 -stdlib=libc++ -O2
-endif
+<span style=color:#000>CFLAGS</span> <span style=color:#000>:=</span> -c
+<span style=color:#000>ifeq</span> <span style=color:#000>(</span><span style=color:#a90d91>$(</span><span style=color:#000>UNAME_S</span><span style=color:#a90d91>)</span><span style=color:#000>,Linux)</span>
+	<span style=color:#000>CFLAGS</span> <span style=color:#000>+=</span> -std<span style=color:#000>=</span>gnu++11 -O2 <span style=color:#177500># -fPIC</span>
+<span style=color:#000>else</span>
+	<span style=color:#000>CFLAGS</span> <span style=color:#000>+=</span> -std<span style=color:#000>=</span>c++11 -stdlib<span style=color:#000>=</span>libc++ -O2
+<span style=color:#000>endif</span>
 
-<span style=color:#eedd82>LIB</span> := -L /usr/local/lib -lcorinth -lprotobuf -lzmq
-<span style=color:#eedd82>INC</span> := -I include -I include/proto -I /usr/local/include
+<span style=color:#000>LIB</span> <span style=color:#000>:=</span> -L /usr/local/lib -lcorinth -lprotobuf -lzmq
+<span style=color:#000>INC</span> <span style=color:#000>:=</span> -I include -I include/proto -I /usr/local/include
 
-<span style=color:#ff0>$(TARGET)</span>: <span style=color:red>$(</span><span style=color:#eedd82>OBJECTS</span><span style=color:red>)</span> <span style=color:red>$(</span><span style=color:#eedd82>OBJECTS</span>2<span style=color:red>)</span>
-	@mkdir -p <span style=color:red>$(</span>TARGETDIR<span style=color:red>)</span>
-	@echo <span style=color:#87ceeb>&#34; Linking...&#34;</span>
-	@echo <span style=color:#87ceeb>&#34; </span><span style=color:red>$(</span>CC<span style=color:red>)</span><span style=color:#87ceeb> </span>$<span style=color:#87ceeb>^ -o </span><span style=color:red>$(</span>TARGET<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>LIB<span style=color:red>)</span><span style=color:#87ceeb>&#34;</span>; <span style=color:red>$(</span>CC<span style=color:red>)</span> $^ -o <span style=color:red>$(</span>TARGET<span style=color:red>)</span> <span style=color:red>$(</span>LIB<span style=color:red>)</span>
+<span style=color:#000>$(TARGET)</span><span style=color:#000>:</span> <span style=color:#a90d91>$(</span><span style=color:#000>OBJECTS</span><span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span><span style=color:#000>OBJECTS</span>2<span style=color:#a90d91>)</span>
+	@mkdir -p <span style=color:#a90d91>$(</span>TARGETDIR<span style=color:#a90d91>)</span>
+	@echo <span style=color:#c41a16>&#34; Linking...&#34;</span>
+	@echo <span style=color:#c41a16>&#34; </span><span style=color:#a90d91>$(</span>CC<span style=color:#a90d91>)</span><span style=color:#c41a16> </span>$<span style=color:#c41a16>^ -o </span><span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span><span style=color:#c41a16> </span><span style=color:#a90d91>$(</span>LIB<span style=color:#a90d91>)</span><span style=color:#c41a16>&#34;</span>; <span style=color:#a90d91>$(</span>CC<span style=color:#a90d91>)</span> $^ -o <span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>LIB<span style=color:#a90d91>)</span>
 
-<span style=color:#ff0>$(BUILDDIR)/%.o</span>: <span style=color:red>$(</span><span style=color:#eedd82>SRCDIR</span><span style=color:red>)</span>/%.<span style=color:red>$(</span><span style=color:#eedd82>SRCEXT</span><span style=color:red>)</span>
-	@mkdir -p <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>
-	@echo <span style=color:#87ceeb>&#34; </span><span style=color:red>$(</span>CC<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>CFLAGS<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>INC<span style=color:red>)</span><span style=color:#87ceeb> -c -o </span><span style=color:#eedd82>$@</span><span style=color:#87ceeb> </span>$<span style=color:#87ceeb>&lt;&#34;</span>; <span style=color:red>$(</span>CC<span style=color:red>)</span> <span style=color:red>$(</span>CFLAGS<span style=color:red>)</span> <span style=color:red>$(</span>INC<span style=color:red>)</span> -c -o <span style=color:#eedd82>$@</span> $&lt;
+<span style=color:#000>$(BUILDDIR)/%.o</span><span style=color:#000>:</span> <span style=color:#a90d91>$(</span><span style=color:#000>SRCDIR</span><span style=color:#a90d91>)</span>/%.<span style=color:#a90d91>$(</span><span style=color:#000>SRCEXT</span><span style=color:#a90d91>)</span>
+	@mkdir -p <span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span>
+	@echo <span style=color:#c41a16>&#34; </span><span style=color:#a90d91>$(</span>CC<span style=color:#a90d91>)</span><span style=color:#c41a16> </span><span style=color:#a90d91>$(</span>CFLAGS<span style=color:#a90d91>)</span><span style=color:#c41a16> </span><span style=color:#a90d91>$(</span>INC<span style=color:#a90d91>)</span><span style=color:#c41a16> -c -o </span><span style=color:#000>$@</span><span style=color:#c41a16> </span>$<span style=color:#c41a16>&lt;&#34;</span>; <span style=color:#a90d91>$(</span>CC<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>CFLAGS<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>INC<span style=color:#a90d91>)</span> -c -o <span style=color:#000>$@</span> $&lt;
 
-<span style=color:#ff0>$(BUILDDIR)/proto/%.o</span>: <span style=color:red>$(</span><span style=color:#eedd82>SRCDIR</span><span style=color:red>)</span>/proto/%.<span style=color:red>$(</span><span style=color:#eedd82>SRCEXT</span>2<span style=color:red>)</span>
-	@mkdir -p <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>
-	@mkdir -p <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>/proto
-	@echo <span style=color:#87ceeb>&#34; </span><span style=color:red>$(</span>CC<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>CFLAGS<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>INC<span style=color:red>)</span><span style=color:#87ceeb> -c -o </span><span style=color:#eedd82>$@</span><span style=color:#87ceeb> </span>$<span style=color:#87ceeb>&lt;&#34;</span>; <span style=color:red>$(</span>CC<span style=color:red>)</span> <span style=color:red>$(</span>CFLAGS<span style=color:red>)</span> <span style=color:red>$(</span>INC<span style=color:red>)</span> -c -o <span style=color:#eedd82>$@</span> $&lt;
+<span style=color:#000>$(BUILDDIR)/proto/%.o</span><span style=color:#000>:</span> <span style=color:#a90d91>$(</span><span style=color:#000>SRCDIR</span><span style=color:#a90d91>)</span>/<span style=color:#000>proto</span>/%.<span style=color:#a90d91>$(</span><span style=color:#000>SRCEXT</span>2<span style=color:#a90d91>)</span>
+	@mkdir -p <span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span>
+	@mkdir -p <span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span>/proto
+	@echo <span style=color:#c41a16>&#34; </span><span style=color:#a90d91>$(</span>CC<span style=color:#a90d91>)</span><span style=color:#c41a16> </span><span style=color:#a90d91>$(</span>CFLAGS<span style=color:#a90d91>)</span><span style=color:#c41a16> </span><span style=color:#a90d91>$(</span>INC<span style=color:#a90d91>)</span><span style=color:#c41a16> -c -o </span><span style=color:#000>$@</span><span style=color:#c41a16> </span>$<span style=color:#c41a16>&lt;&#34;</span>; <span style=color:#a90d91>$(</span>CC<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>CFLAGS<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>INC<span style=color:#a90d91>)</span> -c -o <span style=color:#000>$@</span> $&lt;
 
-<span style=color:#ff0>clean</span>:
-	@echo <span style=color:#87ceeb>&#34; Cleaning...&#34;</span>;
-	@echo <span style=color:#87ceeb>&#34; </span><span style=color:red>$(</span>RM<span style=color:red>)</span><span style=color:#87ceeb> -r </span><span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>TARGET<span style=color:red>)</span><span style=color:#87ceeb>&#34;</span>; <span style=color:red>$(</span>RM<span style=color:red>)</span> -r <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span> <span style=color:red>$(</span>TARGET<span style=color:red>)</span>
+<span style=color:#000>clean</span><span style=color:#000>:</span>
+	@echo <span style=color:#c41a16>&#34; Cleaning...&#34;</span>;
+	@echo <span style=color:#c41a16>&#34; </span><span style=color:#a90d91>$(</span>RM<span style=color:#a90d91>)</span><span style=color:#c41a16> -r </span><span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span><span style=color:#c41a16> </span><span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span><span style=color:#c41a16>&#34;</span>; <span style=color:#a90d91>$(</span>RM<span style=color:#a90d91>)</span> -r <span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span>
 
-<span style=color:#ff0>install</span>:
-	@echo <span style=color:#87ceeb>&#34; Installing...&#34;</span>;
-	@echo <span style=color:#87ceeb>&#34; cp </span><span style=color:red>$(</span>TARGET<span style=color:red>)</span><span style=color:#87ceeb> </span><span style=color:red>$(</span>INSTALLBINDIR<span style=color:red>)</span><span style=color:#87ceeb>&#34;</span>; cp <span style=color:red>$(</span>TARGET<span style=color:red>)</span> <span style=color:red>$(</span>INSTALLBINDIR<span style=color:red>)</span>
+<span style=color:#000>install</span><span style=color:#000>:</span>
+	@echo <span style=color:#c41a16>&#34; Installing...&#34;</span>;
+	@echo <span style=color:#c41a16>&#34; cp </span><span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span><span style=color:#c41a16> </span><span style=color:#a90d91>$(</span>INSTALLBINDIR<span style=color:#a90d91>)</span><span style=color:#c41a16>&#34;</span>; cp <span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>INSTALLBINDIR<span style=color:#a90d91>)</span>
 	
-<span style=color:#ff0>distclean</span>:
-	@echo <span style=color:#87ceeb>&#34; Un-Installing...&#34;</span>;
-	@echo <span style=color:#87ceeb>&#34; rm /usr/local/bin/CoralSeaServer&#34;</span>; rm /usr/local/bin/CoralSeaServer
+<span style=color:#000>distclean</span><span style=color:#000>:</span>
+	@echo <span style=color:#c41a16>&#34; Un-Installing...&#34;</span>;
+	@echo <span style=color:#c41a16>&#34; rm /usr/local/bin/CoralSeaServer&#34;</span>; rm /usr/local/bin/CoralSeaServer
 
-<span style=color:#ff0>.PHONY</span>: clean
+<span style=color:#000>.PHONY</span><span style=color:#000>:</span> <span style=color:#000>clean</span>
 </code></pre></div><p>Since this is a multi-platform Makefile, I determine the platform on line <strong>11</strong>. Lines <strong>13</strong> to <strong>17</strong> then select the compiler, <code>clang</code> for OS X and <code>g++</code> for Linux. Lines <strong>37</strong> to <strong>41</strong> set the platform specific compiler flags. Everything else is the same for all platforms.</p>
 <p>Also, note line <strong>43</strong>, this product has three dependencies, libraries called <code>corinth</code> (my common code), <code>protobuf</code> (Google&rsquo;s protocol buffers) and <code>zmq</code> (ZeroMQ). These are installed in OS X using HomeBrew and on Linux using <code>yum</code> or the standard source distributions. All third party libraries on my OS X development box and in CentOS are in <code>/usr/local</code>.</p>
 <p>To build this product on any supported platform, I just type the command:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>make clean; make -j 8
-</code></pre></div><p>To install the product:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>sudo make install
-</code></pre></div><p><span class=light>Note: On OS X I do not use <code>sudo</code> for installs.</span></p>
+<pre tabindex=0><code>make clean; make -j 8
+</code></pre><p>To install the product:</p>
+<pre tabindex=0><code>sudo make install
+</code></pre><p><span class=light>Note: On OS X I do not use <code>sudo</code> for installs.</span></p>
 <h2 id=building-the-xcode-project>Building the Xcode Project</h2>
 <p>We will go through several steps to build the Xcode project:</p>
 <ul>
@@ -206,8 +228,8 @@ endif
 </figure>
 <h3 id=choose-the-libraries-to-be-linked>Choose the Libraries to be linked</h3>
 <p>Now we need to add the libraries that are included in Line <strong>43</strong> of the Makefile to the compilation.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>LIB := -L /usr/local/lib -lcorinth -lprotobuf -lzmq
-</code></pre></div><p>Click <strong>Build Phases</strong> and then expand <strong>Link Binary With Libraries</strong>.</p>
+<pre tabindex=0><code>LIB := -L /usr/local/lib -lcorinth -lprotobuf -lzmq
+</code></pre><p>Click <strong>Build Phases</strong> and then expand <strong>Link Binary With Libraries</strong>.</p>
 <figure><img src=images/xbuild-019.png width=720 height=450>
 </figure>
 <p>There are 2 ways to add libraries, drag and drop from finder or manual add.</p>
@@ -252,11 +274,11 @@ endif
 <h2 id=re-testing-the-makefile>Re-testing the Makefile</h2>
 <p>The project is now building in Xcode and you gain all the benefits of the Xcode ecosystem. But it is worth checking that the Makefile version still works, especially if you have made code changes.</p>
 <p>Open a terminal, <code>cd</code> to the project folder and:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>make clean; make -j 8
-</code></pre></div><p>If all is well, the project will compile as well.</p>
+<pre tabindex=0><code>make clean; make -j 8
+</code></pre><p>If all is well, the project will compile as well.</p>
 <p>If it does not compile, chances are you changed <code>#include</code> paths. Add the missing include paths as per my line <strong>44</strong>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>INC := -I include -I include/proto -I /usr/local/include
-</code></pre></div><br>
+<pre tabindex=0><code>INC := -I include -I include/proto -I /usr/local/include
+</code></pre><br>
 <h2 id=live-long-and-prosper>Live Long and Prosper</h2>
 <p>You now have a C++ project that compiles both ways, from a Makefile and via the Xcode build system and get the best of both worlds:</p>
 <ul>

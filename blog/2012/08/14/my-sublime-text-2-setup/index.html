@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Aug 14, 2012 12:38 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/text-editors>Text Editors</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 My Sublime Text 2 Setup
 </h1>
@@ -61,38 +78,38 @@ My Sublime Text 2 Setup
 <p>I had a few others installed, but they conflicted with each other. Surprised that that happened, had to remove them.</p>
 <h2 id=defaults>Defaults</h2>
 <p>I love the RailsCasts theme, so I copied the <code>RailsCasts.tmTheme</code> file to the correct folder (on OS X that is <code>~/Library/Application Support/Sublime Text 2/Packages/User/</code>). My <strong>Preferences / Settings - User</strong> looks like:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>{
-	&#34;color_scheme&#34;: <span style=color:#87ceeb>&#34;Packages/User/Railscasts.tmTheme&#34;</span>,
-	&#34;ensure_newline_at_eof_on_save&#34;: <span style=color:red>false</span>,
-	&#34;folder_exclude_patterns&#34;:
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>{
+	<span style=color:#000>&#34;color_scheme&#34;</span>: <span style=color:#c41a16>&#34;Packages/User/Railscasts.tmTheme&#34;</span>,
+	<span style=color:#000>&#34;ensure_newline_at_eof_on_save&#34;</span>: <span style=color:#a90d91>false</span>,
+	<span style=color:#000>&#34;folder_exclude_patterns&#34;</span>:
 	[
-		<span style=color:#87ceeb>&#34;.svn&#34;</span>,
-		<span style=color:#87ceeb>&#34;.git&#34;</span>,
-		<span style=color:#87ceeb>&#34;.hg&#34;</span>,
-		<span style=color:#87ceeb>&#34;CVS&#34;</span>,
-		<span style=color:#87ceeb>&#34;.sass-cache&#34;</span>
+		<span style=color:#c41a16>&#34;.svn&#34;</span>,
+		<span style=color:#c41a16>&#34;.git&#34;</span>,
+		<span style=color:#c41a16>&#34;.hg&#34;</span>,
+		<span style=color:#c41a16>&#34;CVS&#34;</span>,
+		<span style=color:#c41a16>&#34;.sass-cache&#34;</span>
 	],
-	&#34;highlight_line&#34;: <span style=color:red>true</span>,
-	&#34;ignored_packages&#34;:
+	<span style=color:#000>&#34;highlight_line&#34;</span>: <span style=color:#a90d91>true</span>,
+	<span style=color:#000>&#34;ignored_packages&#34;</span>:
 	[
-		<span style=color:#87ceeb>&#34;Vintage&#34;</span>
+		<span style=color:#c41a16>&#34;Vintage&#34;</span>
 	],
-	&#34;rulers&#34;:
+	<span style=color:#000>&#34;rulers&#34;</span>:
 	[
-		<span style=color:#f60>80</span>
+		<span style=color:#1c01ce>80</span>
 	],
-	&#34;save_on_focus_lost&#34;: <span style=color:red>true</span>,
-	&#34;tab_size&#34;: <span style=color:#f60>2</span>,
-	&#34;theme&#34;: <span style=color:#87ceeb>&#34;Soda Light.sublime-theme&#34;</span>,
-	&#34;word_wrap&#34;: <span style=color:red>true</span>
+	<span style=color:#000>&#34;save_on_focus_lost&#34;</span>: <span style=color:#a90d91>true</span>,
+	<span style=color:#000>&#34;tab_size&#34;</span>: <span style=color:#1c01ce>2</span>,
+	<span style=color:#000>&#34;theme&#34;</span>: <span style=color:#c41a16>&#34;Soda Light.sublime-theme&#34;</span>,
+	<span style=color:#000>&#34;word_wrap&#34;</span>: <span style=color:#a90d91>true</span>
 }
 </code></pre></div><p>In short, I set the Soda Light theme as the default dark theme is ugly and use RailsCasts for editor colors, nuke the <code>vi</code> support, trigger save on lost focus and fix-up the folder exclude patterns to hide some Octopress folders.</p>
 <p>I also changed 2 keybindings, in <strong>Preferences / Key Bindings - User</strong>, I have:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>[
-	{ &#34;keys&#34;: [<span style=color:#87ceeb>&#34;ctrl+shift+d&#34;</span>], &#34;command&#34;: <span style=color:#87ceeb>&#34;duplicate_line&#34;</span> }, <span style=color:#0f0>// Like TextMate and BBedit
-</span><span style=color:#0f0></span>	{ &#34;keys&#34;: [<span style=color:#87ceeb>&#34;ctrl+shift+.&#34;</span>], &#34;command&#34;: <span style=color:#87ceeb>&#34;erb&#34;</span>, &#34;context&#34;:
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>[
+	{ <span style=color:#000>&#34;keys&#34;</span>: [<span style=color:#c41a16>&#34;ctrl+shift+d&#34;</span>], <span style=color:#000>&#34;command&#34;</span>: <span style=color:#c41a16>&#34;duplicate_line&#34;</span> }, <span style=color:#177500>// Like TextMate and BBedit
+</span><span style=color:#177500></span>	{ <span style=color:#000>&#34;keys&#34;</span>: [<span style=color:#c41a16>&#34;ctrl+shift+.&#34;</span>], <span style=color:#000>&#34;command&#34;</span>: <span style=color:#c41a16>&#34;erb&#34;</span>, <span style=color:#000>&#34;context&#34;</span>:
     [
-      { &#34;key&#34;: <span style=color:#87ceeb>&#34;selector&#34;</span>, &#34;operator&#34;: <span style=color:#87ceeb>&#34;equal&#34;</span>, &#34;operand&#34;: <span style=color:#87ceeb>&#34;text.html.ruby, text.haml, source.yaml, source.css, source.scss, source.js, source.coffee&#34;</span> }
+      { <span style=color:#000>&#34;key&#34;</span>: <span style=color:#c41a16>&#34;selector&#34;</span>, <span style=color:#000>&#34;operator&#34;</span>: <span style=color:#c41a16>&#34;equal&#34;</span>, <span style=color:#000>&#34;operand&#34;</span>: <span style=color:#c41a16>&#34;text.html.ruby, text.haml, source.yaml, source.css, source.scss, source.js, source.coffee&#34;</span> }
     ]
   }
 ]

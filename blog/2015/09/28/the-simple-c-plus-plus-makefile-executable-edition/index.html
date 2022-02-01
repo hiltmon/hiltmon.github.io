@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Sep 28, 2015 10:07 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/c++>C++</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 The Simple C++ Makefile - Executable Edition
 </h1>
@@ -44,7 +56,7 @@ The Simple C++ Makefile - Executable Edition
 <p>In this post I will show you the Makefile I use for multi-platform C++ <em>executable</em> builds and explain what each line and command does in detail. <span class=light>For Library builds, I have a similar, but different Makefile, see The Simple C++ Makefile - Library Edition (Coming Soon).</span></p>
 <h2 id=the-standard-project>The Standard Project</h2>
 <p>I have selected one of my real projects for this post. The project is laid out as follows <span class=light>(most of the source files have been removed to shorten the list)</span>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>.
+<pre tabindex=0><code>.
 ├── Makefile
 ├── README.markdown
 ├── SantaCruzServer.xcodeproj
@@ -65,131 +77,131 @@ The Simple C++ Makefile - Executable Edition
     ├── connections
     ├── workers
   	└── main.cpp
-</code></pre></div><p>As expected, the C++ source files are under the <code>src</code> folder and includes are in the <code>include</code> tree.</p>
+</code></pre><p>As expected, the C++ source files are under the <code>src</code> folder and includes are in the <code>include</code> tree.</p>
 <p>And here is the Makefile, the actual one I am using. Scroll below to see the breakdown and why I did it this way.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-make data-lang=make><span style=color:#0f0>#
-</span><span style=color:#0f0>#  Makefile
-</span><span style=color:#0f0>#  SantaCruzServer
-</span><span style=color:#0f0>#
-</span><span style=color:#0f0>#  Created by Hilton Lipschitz on 2015-09-01.
-</span><span style=color:#0f0>#  Copyright (c) 2015 Maritime Capital LP. All rights reserved.
-</span><span style=color:#0f0>#
-</span><span style=color:#0f0></span>
-<span style=color:#0f0># HIL: No spaces or comments after otherwise it captures them!
-</span><span style=color:#0f0># Determine the platform
-</span><span style=color:#0f0></span><span style=color:#eedd82>UNAME_S</span> := <span style=color:red>$(</span>shell uname -s<span style=color:red>)</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-make data-lang=make><span style=color:#177500>#
+</span><span style=color:#177500>#  Makefile
+</span><span style=color:#177500>#  SantaCruzServer
+</span><span style=color:#177500>#
+</span><span style=color:#177500>#  Created by Hilton Lipschitz on 2015-09-01.
+</span><span style=color:#177500>#  Copyright (c) 2015 Maritime Capital LP. All rights reserved.
+</span><span style=color:#177500>#
+</span><span style=color:#177500></span>
+<span style=color:#177500># HIL: No spaces or comments after otherwise it captures them!
+</span><span style=color:#177500># Determine the platform
+</span><span style=color:#177500></span><span style=color:#000>UNAME_S</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>shell uname -s<span style=color:#a90d91>)</span>
 
-<span style=color:#0f0># CC
-</span><span style=color:#0f0></span>ifeq (<span style=color:red>$(</span><span style=color:#eedd82>UNAME_S</span><span style=color:red>)</span>,Darwin)
-	<span style=color:#eedd82>CC</span> := clang++ -arch x86_64
-else
-	<span style=color:#eedd82>CC</span> := g++
-endif
+<span style=color:#177500># CC
+</span><span style=color:#177500></span><span style=color:#000>ifeq</span> <span style=color:#000>(</span><span style=color:#a90d91>$(</span><span style=color:#000>UNAME_S</span><span style=color:#a90d91>)</span><span style=color:#000>,Darwin)</span>
+	<span style=color:#000>CC</span> <span style=color:#000>:=</span> clang++ -arch x86_64
+<span style=color:#000>else</span>
+	<span style=color:#000>CC</span> <span style=color:#000>:=</span> g++
+<span style=color:#000>endif</span>
 
-<span style=color:#0f0># Folders
-</span><span style=color:#0f0></span><span style=color:#eedd82>SRCDIR</span> := src
-<span style=color:#eedd82>BUILDDIR</span> := build
-<span style=color:#eedd82>TARGETDIR</span> := bin
+<span style=color:#177500># Folders
+</span><span style=color:#177500></span><span style=color:#000>SRCDIR</span> <span style=color:#000>:=</span> src
+<span style=color:#000>BUILDDIR</span> <span style=color:#000>:=</span> build
+<span style=color:#000>TARGETDIR</span> <span style=color:#000>:=</span> bin
 
-<span style=color:#0f0># Targets
-</span><span style=color:#0f0></span><span style=color:#eedd82>EXECUTABLE</span> := SantaCruzServer
-<span style=color:#eedd82>TARGET</span> := <span style=color:red>$(</span>TARGETDIR<span style=color:red>)</span>/<span style=color:red>$(</span>EXECUTABLE<span style=color:red>)</span>
+<span style=color:#177500># Targets
+</span><span style=color:#177500></span><span style=color:#000>EXECUTABLE</span> <span style=color:#000>:=</span> SantaCruzServer
+<span style=color:#000>TARGET</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>TARGETDIR<span style=color:#a90d91>)</span>/<span style=color:#a90d91>$(</span>EXECUTABLE<span style=color:#a90d91>)</span>
 
-<span style=color:#0f0># Final Paths
-</span><span style=color:#0f0></span><span style=color:#eedd82>INSTALLBINDIR</span> := /usr/local/bin
+<span style=color:#177500># Final Paths
+</span><span style=color:#177500></span><span style=color:#000>INSTALLBINDIR</span> <span style=color:#000>:=</span> /usr/local/bin
 
-<span style=color:#0f0># Code Lists
-</span><span style=color:#0f0></span><span style=color:#eedd82>SRCEXT</span> := cpp
-<span style=color:#eedd82>SOURCES</span> := <span style=color:red>$(</span>shell find <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span> -type f -name *.<span style=color:red>$(</span>SRCEXT<span style=color:red>))</span>
-<span style=color:#eedd82>OBJECTS</span> := <span style=color:red>$(</span>patsubst <span style=color:red>$(</span>SRCDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>SOURCES:.<span style=color:red>$(</span>SRCEXT<span style=color:red>)</span>=.o<span style=color:red>))</span>
+<span style=color:#177500># Code Lists
+</span><span style=color:#177500></span><span style=color:#000>SRCEXT</span> <span style=color:#000>:=</span> cpp
+<span style=color:#000>SOURCES</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>shell find <span style=color:#a90d91>$(</span>SRCDIR<span style=color:#a90d91>)</span> -type f -name *.<span style=color:#a90d91>$(</span>SRCEXT<span style=color:#a90d91>))</span>
+<span style=color:#000>OBJECTS</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>patsubst <span style=color:#a90d91>$(</span>SRCDIR<span style=color:#a90d91>)</span>/%,<span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span>/%,<span style=color:#a90d91>$(</span>SOURCES:.<span style=color:#a90d91>$(</span>SRCEXT<span style=color:#a90d91>)</span><span style=color:#000>=</span>.o<span style=color:#a90d91>))</span>
 
-<span style=color:#0f0># Folder Lists
-</span><span style=color:#0f0># Note: Intentionally excludes the root of the include folder so the lists are clean
-</span><span style=color:#0f0></span><span style=color:#eedd82>INCDIRS</span> := <span style=color:red>$(</span>shell find include/**/* -name <span style=color:#87ceeb>&#39;*.h&#39;</span> -exec dirname {} <span style=color:#87ceeb>\;</span> | sort | uniq<span style=color:red>)</span>
-<span style=color:#eedd82>INCLIST</span> := <span style=color:red>$(</span>patsubst include/%,-I include/%,<span style=color:red>$(</span>INCDIRS<span style=color:red>))</span>
-<span style=color:#eedd82>BUILDLIST</span> := <span style=color:red>$(</span>patsubst include/%,<span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span>/%,<span style=color:red>$(</span>INCDIRS<span style=color:red>))</span>
+<span style=color:#177500># Folder Lists
+</span><span style=color:#177500># Note: Intentionally excludes the root of the include folder so the lists are clean
+</span><span style=color:#177500></span><span style=color:#000>INCDIRS</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>shell find include/**/* -name <span style=color:#c41a16>&#39;*.h&#39;</span> -exec dirname <span style=color:#000>{}</span> <span style=color:#c41a16>\;</span> | sort | uniq<span style=color:#a90d91>)</span>
+<span style=color:#000>INCLIST</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>patsubst include/%,-I include/%,<span style=color:#a90d91>$(</span>INCDIRS<span style=color:#a90d91>))</span>
+<span style=color:#000>BUILDLIST</span> <span style=color:#000>:=</span> <span style=color:#a90d91>$(</span>patsubst include/%,<span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span>/%,<span style=color:#a90d91>$(</span>INCDIRS<span style=color:#a90d91>))</span>
 
-<span style=color:#0f0># Shared Compiler Flags
-</span><span style=color:#0f0></span><span style=color:#eedd82>CFLAGS</span> := -c
-<span style=color:#eedd82>INC</span> := -I include <span style=color:red>$(</span>INCLIST<span style=color:red>)</span> -I /usr/local/include
-<span style=color:#eedd82>LIB</span> := -L /usr/local/lib -lsantacruzengine -lsantacruzlib -larcadia -lcorinth -lyaml-cpp -lzmq -lhiredis -lbondoas
+<span style=color:#177500># Shared Compiler Flags
+</span><span style=color:#177500></span><span style=color:#000>CFLAGS</span> <span style=color:#000>:=</span> -c
+<span style=color:#000>INC</span> <span style=color:#000>:=</span> -I include <span style=color:#a90d91>$(</span>INCLIST<span style=color:#a90d91>)</span> -I /usr/local/include
+<span style=color:#000>LIB</span> <span style=color:#000>:=</span> -L /usr/local/lib -lsantacruzengine -lsantacruzlib -larcadia -lcorinth -lyaml-cpp -lzmq -lhiredis -lbondoas
 
-<span style=color:#0f0># Platform Specific Compiler Flags
-</span><span style=color:#0f0></span>ifeq (<span style=color:red>$(</span><span style=color:#eedd82>UNAME_S</span><span style=color:red>)</span>,Linux)
-    <span style=color:#eedd82>CFLAGS</span> += -std=gnu++11 -O2 <span style=color:#0f0># -fPIC</span>
+<span style=color:#177500># Platform Specific Compiler Flags
+</span><span style=color:#177500></span><span style=color:#000>ifeq</span> <span style=color:#000>(</span><span style=color:#a90d91>$(</span><span style=color:#000>UNAME_S</span><span style=color:#a90d91>)</span><span style=color:#000>,Linux)</span>
+    <span style=color:#000>CFLAGS</span> <span style=color:#000>+=</span> -std<span style=color:#000>=</span>gnu++11 -O2 <span style=color:#177500># -fPIC</span>
     
-    <span style=color:#0f0># PostgreSQL Special</span>
-    PG_VER := 9.3
-    <span style=color:#eedd82>INC</span> += -I /usr/pgsql-<span style=color:red>$(</span>PG_VER<span style=color:red>)</span>/include
-    <span style=color:#eedd82>LIB</span> += -L /usr/pgsql-<span style=color:red>$(</span>PG_VER<span style=color:red>)</span>/lib 
-else
-	<span style=color:#eedd82>CFLAGS</span> += -std=c++11 -stdlib=libc++ -O2
-endif
+    <span style=color:#177500># PostgreSQL Special</span>
+    PG_VER :<span style=color:#000>=</span> 9.3
+    <span style=color:#000>INC</span> <span style=color:#000>+=</span> -I /usr/pgsql-<span style=color:#a90d91>$(</span>PG_VER<span style=color:#a90d91>)</span>/include
+    <span style=color:#000>LIB</span> <span style=color:#000>+=</span> -L /usr/pgsql-<span style=color:#a90d91>$(</span>PG_VER<span style=color:#a90d91>)</span>/lib 
+<span style=color:#000>else</span>
+	<span style=color:#000>CFLAGS</span> <span style=color:#000>+=</span> -std<span style=color:#000>=</span>c++11 -stdlib<span style=color:#000>=</span>libc++ -O2
+<span style=color:#000>endif</span>
 
-<span style=color:#ff0>$(TARGET)</span>: <span style=color:red>$(</span><span style=color:#eedd82>OBJECTS</span><span style=color:red>)</span>
-	@mkdir -p <span style=color:red>$(</span>TARGETDIR<span style=color:red>)</span>
-	@echo <span style=color:#87ceeb>&#34;Linking...&#34;</span>
-	@echo <span style=color:#87ceeb>&#34;  Linking </span><span style=color:red>$(</span>TARGET<span style=color:red>)</span><span style=color:#87ceeb>&#34;</span>; <span style=color:red>$(</span>CC<span style=color:red>)</span> $^ -o <span style=color:red>$(</span>TARGET<span style=color:red>)</span> <span style=color:red>$(</span>LIB<span style=color:red>)</span>
+<span style=color:#000>$(TARGET)</span><span style=color:#000>:</span> <span style=color:#a90d91>$(</span><span style=color:#000>OBJECTS</span><span style=color:#a90d91>)</span>
+	@mkdir -p <span style=color:#a90d91>$(</span>TARGETDIR<span style=color:#a90d91>)</span>
+	@echo <span style=color:#c41a16>&#34;Linking...&#34;</span>
+	@echo <span style=color:#c41a16>&#34;  Linking </span><span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span><span style=color:#c41a16>&#34;</span>; <span style=color:#a90d91>$(</span>CC<span style=color:#a90d91>)</span> $^ -o <span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>LIB<span style=color:#a90d91>)</span>
 
-<span style=color:#ff0>$(BUILDDIR)/%.o</span>: <span style=color:red>$(</span><span style=color:#eedd82>SRCDIR</span><span style=color:red>)</span>/%.<span style=color:red>$(</span><span style=color:#eedd82>SRCEXT</span><span style=color:red>)</span>
-	@mkdir -p <span style=color:red>$(</span>BUILDLIST<span style=color:red>)</span>
-	@echo <span style=color:#87ceeb>&#34;Compiling </span>$<span style=color:#87ceeb>&lt;...&#34;</span>; <span style=color:red>$(</span>CC<span style=color:red>)</span> <span style=color:red>$(</span>CFLAGS<span style=color:red>)</span> <span style=color:red>$(</span>INC<span style=color:red>)</span> -c -o <span style=color:#eedd82>$@</span> $&lt;
+<span style=color:#000>$(BUILDDIR)/%.o</span><span style=color:#000>:</span> <span style=color:#a90d91>$(</span><span style=color:#000>SRCDIR</span><span style=color:#a90d91>)</span>/%.<span style=color:#a90d91>$(</span><span style=color:#000>SRCEXT</span><span style=color:#a90d91>)</span>
+	@mkdir -p <span style=color:#a90d91>$(</span>BUILDLIST<span style=color:#a90d91>)</span>
+	@echo <span style=color:#c41a16>&#34;Compiling </span>$<span style=color:#c41a16>&lt;...&#34;</span>; <span style=color:#a90d91>$(</span>CC<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>CFLAGS<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>INC<span style=color:#a90d91>)</span> -c -o <span style=color:#000>$@</span> $&lt;
 
-<span style=color:#ff0>clean</span>:
-	@echo <span style=color:#87ceeb>&#34;Cleaning </span><span style=color:red>$(</span>TARGET<span style=color:red>)</span><span style=color:#87ceeb>...&#34;</span>; <span style=color:red>$(</span>RM<span style=color:red>)</span> -r <span style=color:red>$(</span>BUILDDIR<span style=color:red>)</span> <span style=color:red>$(</span>TARGET<span style=color:red>)</span>
+<span style=color:#000>clean</span><span style=color:#000>:</span>
+	@echo <span style=color:#c41a16>&#34;Cleaning </span><span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span><span style=color:#c41a16>...&#34;</span>; <span style=color:#a90d91>$(</span>RM<span style=color:#a90d91>)</span> -r <span style=color:#a90d91>$(</span>BUILDDIR<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span>
 
-<span style=color:#ff0>install</span>:
-	@echo <span style=color:#87ceeb>&#34;Installing </span><span style=color:red>$(</span>EXECUTABLE<span style=color:red>)</span><span style=color:#87ceeb>...&#34;</span>; cp <span style=color:red>$(</span>TARGET<span style=color:red>)</span> <span style=color:red>$(</span>INSTALLBINDIR<span style=color:red>)</span>
+<span style=color:#000>install</span><span style=color:#000>:</span>
+	@echo <span style=color:#c41a16>&#34;Installing </span><span style=color:#a90d91>$(</span>EXECUTABLE<span style=color:#a90d91>)</span><span style=color:#c41a16>...&#34;</span>; cp <span style=color:#a90d91>$(</span>TARGET<span style=color:#a90d91>)</span> <span style=color:#a90d91>$(</span>INSTALLBINDIR<span style=color:#a90d91>)</span>
 	
-<span style=color:#ff0>distclean</span>:
-	@echo <span style=color:#87ceeb>&#34;Removing </span><span style=color:red>$(</span>EXECUTABLE<span style=color:red>)</span><span style=color:#87ceeb>&#34;</span>; rm <span style=color:red>$(</span>INSTALLBINDIR<span style=color:red>)</span>/<span style=color:red>$(</span>EXECUTABLE<span style=color:red>)</span>
+<span style=color:#000>distclean</span><span style=color:#000>:</span>
+	@echo <span style=color:#c41a16>&#34;Removing </span><span style=color:#a90d91>$(</span>EXECUTABLE<span style=color:#a90d91>)</span><span style=color:#c41a16>&#34;</span>; rm <span style=color:#a90d91>$(</span>INSTALLBINDIR<span style=color:#a90d91>)</span>/<span style=color:#a90d91>$(</span>EXECUTABLE<span style=color:#a90d91>)</span>
 
-<span style=color:#ff0>.PHONY</span>: clean
+<span style=color:#000>.PHONY</span><span style=color:#000>:</span> <span style=color:#000>clean</span>
 </code></pre></div><br>
 <h2 id=breaking-the-makefile-down>Breaking the Makefile down</h2>
 <p>This Makefile compiles a program called <code>SantaCruzServer</code> into the local <code>bin</code> folder, and installs it into the standard shared OS X and Linux <code>/usr/local/bin</code> folder. Lets see how it does it, line by line.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>UNAME_S := $(shell uname -s)
-</code></pre></div><p>The first step is to determine which platform the <code>make</code> is running on. I look for <code>Darwin</code> indicating an OS X computer or <code>Linux</code> for Linux.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># CC
+<pre tabindex=0><code>UNAME_S := $(shell uname -s)
+</code></pre><p>The first step is to determine which platform the <code>make</code> is running on. I look for <code>Darwin</code> indicating an OS X computer or <code>Linux</code> for Linux.</p>
+<pre tabindex=0><code># CC
 ifeq ($(UNAME_S),Darwin)
 	CC := clang++ -arch x86_64
 else
 	CC := g++
 endif
-</code></pre></div><p>OS X uses the new LLVM Clang compiler (I choose the C++ version), but my Linux servers run GCC 4.8. The <code>$(CC)</code> variable now contains the compiler command for the current platform.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Folders
+</code></pre><p>OS X uses the new LLVM Clang compiler (I choose the C++ version), but my Linux servers run GCC 4.8. The <code>$(CC)</code> variable now contains the compiler command for the current platform.</p>
+<pre tabindex=0><code># Folders
 SRCDIR := src
 BUILDDIR := build
 TARGETDIR := bin
-</code></pre></div><p>These variables set the location of the Source Code (<code>src</code>), where the build object files will go (<code>build</code>) and where the target will be saved (<code>bin</code>).</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Targets
+</code></pre><p>These variables set the location of the Source Code (<code>src</code>), where the build object files will go (<code>build</code>) and where the target will be saved (<code>bin</code>).</p>
+<pre tabindex=0><code># Targets
 EXECUTABLE := SantaCruzServer
 TARGET := $(TARGETDIR)/$(EXECUTABLE)
-</code></pre></div><p>This sets up the Makefile target to make <code>bin/SantaCruzServer</code>. Note that, by default, this Makefile builds to a local <code>bin</code> folder so it does not overwrite the running application in case of a failed compile on deploy.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Final Paths
+</code></pre><p>This sets up the Makefile target to make <code>bin/SantaCruzServer</code>. Note that, by default, this Makefile builds to a local <code>bin</code> folder so it does not overwrite the running application in case of a failed compile on deploy.</p>
+<pre tabindex=0><code># Final Paths
 INSTALLBINDIR := /usr/local/bin
-</code></pre></div><p>This sets where the executable will be installed.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Code Lists
+</code></pre><p>This sets where the executable will be installed.</p>
+<pre tabindex=0><code># Code Lists
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-</code></pre></div><p><code>Make</code> needs a list of source code files to compile to object files. This list gets built here. I use the <code>$(SRCEXT)</code> variable to store my source code file extension. I then use a shell command to search the <code>src</code> folder (and its subfolders) for all <code>.cpp</code> files and build the <code>$(SOURCES)</code> list. I then create an <code>$(OBJECTS)</code> list from the <code>$(SOURCES)</code> substituting the source path and extension with the build path and the object extension. This makes our compile rule simpler.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Folder Lists
+</code></pre><p><code>Make</code> needs a list of source code files to compile to object files. This list gets built here. I use the <code>$(SRCEXT)</code> variable to store my source code file extension. I then use a shell command to search the <code>src</code> folder (and its subfolders) for all <code>.cpp</code> files and build the <code>$(SOURCES)</code> list. I then create an <code>$(OBJECTS)</code> list from the <code>$(SOURCES)</code> substituting the source path and extension with the build path and the object extension. This makes our compile rule simpler.</p>
+<pre tabindex=0><code># Folder Lists
 # Note: Intentionally excludes the root of the include folder so the lists are clean
-INCDIRS := $(shell find include/**/* -name &#39;*.h&#39; -exec dirname {} \; | sort | uniq)
+INCDIRS := $(shell find include/**/* -name '*.h' -exec dirname {} \; | sort | uniq)
 INCLIST := $(patsubst include/%,-I include/%,$(INCDIRS))
 BUILDLIST := $(patsubst include/%,$(BUILDDIR)/%,$(INCDIRS))
-</code></pre></div><p>The next set of lists are used to build the list of include folders and related lists.</p>
+</code></pre><p>The next set of lists are used to build the list of include folders and related lists.</p>
 <p><span class=light>Aside: I am one of those quirky C++ programmers that does not use pathed <code>#includes</code> (e.g. Instead of <code>#include "../caches/session_cache.h"</code> I simply use <code>#include "session_cache.h"</code>) and expect the compiler to figure it where things are. This way I can re-arrange the code-base by moving files around, not change anything and it still compiles and runs. Xcode behaves the same way by default.</span></p>
 <p>So, the <code>$(INCDIRS)</code> variable contains a unique list of subfolders under the <code>include</code> folder where all my header files reside. The <code>$(INCLIST)</code> variable is a transformation of <code>$(INCDIRS)</code> into the format needed as compiler flags. For example <code>include/caches</code> is transformed into <code>-I include/caches</code>. The <code>$(BUILDLIST)</code> variable creates a list of pathed subfolders for the <code>build</code> folder, where <code>include/caches</code> becomes <code>build/caches</code> for the compile step.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Shared Compiler Flags
+<pre tabindex=0><code># Shared Compiler Flags
 CFLAGS := -c
 INC := -I include $(INCLIST) -I /usr/local/include
 LIB := -L /usr/local/lib -lsantacruzengine -lsantacruzlib -larcadia -lcorinth -lyaml-cpp -lzmq -lhiredis -lbondoas
-</code></pre></div><p>Most of the compiler flags are shared across both platforms and are set here. In this case, <code>$(CFLAGS)</code> is set to tell the compiler to compile only.</p>
+</code></pre><p>Most of the compiler flags are shared across both platforms and are set here. In this case, <code>$(CFLAGS)</code> is set to tell the compiler to compile only.</p>
 <p>The <code>$(INC)</code> variable is set to help the compiler find include files automatically, so it adds the <code>include</code> folder where the root header files are, the list of include subfolders determined above and the system shared <code>/usr/local/include</code> folder for shared library includes. Now I no longer need to worry when I move files around the code-base.</p>
 <p>The <code>$(LIB)</code> variable adds the shared system <code>/usr/local/lib</code> folder where the shared libraries can be found. The rest of that line contains a long list of libraries that this real program needs to link with (<em>and is project specific - you need to set these for each project based on that project&rsquo;s needs</em>). Note that all my shared libraries are in <code>/usr/local</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Platform Specific Compiler Flags
+<pre tabindex=0><code># Platform Specific Compiler Flags
 ifeq ($(UNAME_S),Linux)
   	CFLAGS += -std=gnu++11 -O2 # -fPIC
   
@@ -200,43 +212,43 @@ ifeq ($(UNAME_S),Linux)
 else
 	CFLAGS += -std=c++11 -stdlib=libc++ -O2
 endif
-</code></pre></div><p>Not all settings are the same, which is why the Makefile now adds platform-specific parameters to our variables.</p>
+</code></pre><p>Not all settings are the same, which is why the Makefile now adds platform-specific parameters to our variables.</p>
 <p>On Linux, I use the <code>gnu++11</code> system library (to go with <code>g++</code>) and this gets added to the <code>$(CFLAGS)</code> variable. Also, for some unknowable reason, the PostgreSQL include and library files are in a non-standard location in Linux, so they get added to the <code>$(INC)</code> and <code>$(LIB)</code> variables too.</p>
 <p>On OS X, I set <code>clang</code> to use the <code>c++11</code> language and to link with the <code>libc++</code> system library.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$(TARGET): $(OBJECTS)
+<pre tabindex=0><code>$(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
-	@echo &#34;Linking...&#34;
-	@echo &#34;  Linking $(TARGET)&#34;; $(CC) $^ -o $(TARGET) $(LIB)
-</code></pre></div><p>As a habit, I set the final goal of the Makefile first. In this case, <code>make</code> needs to make the <code>$(TARGET)</code> which is <code>bin/SantaCruzServer</code> given the list of <code>$(OBJECTS)</code> we generated above.</p>
+	@echo &quot;Linking...&quot;
+	@echo &quot;  Linking $(TARGET)&quot;; $(CC) $^ -o $(TARGET) $(LIB)
+</code></pre><p>As a habit, I set the final goal of the Makefile first. In this case, <code>make</code> needs to make the <code>$(TARGET)</code> which is <code>bin/SantaCruzServer</code> given the list of <code>$(OBJECTS)</code> we generated above.</p>
 <p>First it creates the <code>bin</code> folder if it does not exist, then links the objects into an executable. The <code>$^</code> represents the list of targets.</p>
 <p><span class=light>Aside: I am also not one of those people who has to see a busy screen of detailed commands as they compile. So, for Makefile rules, I prepend them with a friendly message and do not print out the actual multi-line incomprehensible command. See the output later on for examples.</span></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+<pre tabindex=0><code>$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDLIST)
-	@echo &#34;Compiling $&lt;...&#34;; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;
-</code></pre></div><p>The Makefile needs to know how to generate the <code>$(OBJECTS)</code>, and that&rsquo;s where the compile step comes in. For all files in the <code>src</code> folder, it compiles to a matching object file in the <code>build</code> folder.</p>
+	@echo &quot;Compiling $&lt;...&quot;; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;
+</code></pre><p>The Makefile needs to know how to generate the <code>$(OBJECTS)</code>, and that&rsquo;s where the compile step comes in. For all files in the <code>src</code> folder, it compiles to a matching object file in the <code>build</code> folder.</p>
 <p>That&rsquo;s all we need to build the application, but the Makefile has to do more.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>clean:
-	@echo &#34;Cleaning $(TARGET)...&#34;; $(RM) -r $(BUILDDIR) $(TARGET)
-</code></pre></div><p>The <code>clean</code> target tells <code>make</code> to remove the target <code>bin/SantaCruzServer</code> and the <code>build</code> folder. This gives us the ability to force a full recompile.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>install:
-	@echo &#34;Installing $(EXECUTABLE)...&#34;; cp $(TARGET) $(INSTALLBINDIR)
-</code></pre></div><p>The <code>install</code> target copies <code>SantaCruzServer</code> to <code>/usr/local/bin</code> where it will run in production.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>distclean:
-	@echo &#34;Removing $(EXECUTABLE)&#34;; rm $(INSTALLBINDIR)/$(EXECUTABLE)
-</code></pre></div><p>And to uninstall, we have the <code>distclean</code> target.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>.PHONY: clean
-</code></pre></div><p>This final line of code tricks <code>make</code> into being able to run the <code>clean</code> rules. If it were not here, <code>make</code> would try to build a file called <code>clean</code> and fail.</p>
+<pre tabindex=0><code>clean:
+	@echo &quot;Cleaning $(TARGET)...&quot;; $(RM) -r $(BUILDDIR) $(TARGET)
+</code></pre><p>The <code>clean</code> target tells <code>make</code> to remove the target <code>bin/SantaCruzServer</code> and the <code>build</code> folder. This gives us the ability to force a full recompile.</p>
+<pre tabindex=0><code>install:
+	@echo &quot;Installing $(EXECUTABLE)...&quot;; cp $(TARGET) $(INSTALLBINDIR)
+</code></pre><p>The <code>install</code> target copies <code>SantaCruzServer</code> to <code>/usr/local/bin</code> where it will run in production.</p>
+<pre tabindex=0><code>distclean:
+	@echo &quot;Removing $(EXECUTABLE)&quot;; rm $(INSTALLBINDIR)/$(EXECUTABLE)
+</code></pre><p>And to uninstall, we have the <code>distclean</code> target.</p>
+<pre tabindex=0><code>.PHONY: clean
+</code></pre><p>This final line of code tricks <code>make</code> into being able to run the <code>clean</code> rules. If it were not here, <code>make</code> would try to build a file called <code>clean</code> and fail.</p>
 <h2 id=using-the-makefile>Using the Makefile</h2>
 <p>To start</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ make clean
-</code></pre></div><p>This resets the environment. The output in this project is:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Cleaning bin/SantaCruzServer...
-</code></pre></div><p>To build the executable</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ make -j
-</code></pre></div><p>This tells <code>make</code> to build the primary target - in this case the first and only one in the file.</p>
+<pre tabindex=0><code>$ make clean
+</code></pre><p>This resets the environment. The output in this project is:</p>
+<pre tabindex=0><code>Cleaning bin/SantaCruzServer...
+</code></pre><p>To build the executable</p>
+<pre tabindex=0><code>$ make -j
+</code></pre><p>This tells <code>make</code> to build the primary target - in this case the first and only one in the file.</p>
 <p><span class=light>Tip: The <code>-j</code> parameter parallelizes the build for speed. The documentation for <code>make</code> specifies that you need a number of jobs as part of this parameter, but if you set none, <code>make</code> uses all cores.</span></p>
 <p>In my case, the output is:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Compiling src/connections/control_channel_responder.cpp...
+<pre tabindex=0><code>Compiling src/connections/control_channel_responder.cpp...
 Compiling src/connections/request_listener.cpp...
 Compiling src/connections/response_publisher.cpp...
 Compiling src/caches/session_cache.cpp...
@@ -248,20 +260,20 @@ Compiling src/workers/worker.cpp...
 Compiling src/workers/worker_pool.cpp...
 Linking...
   Linking bin/SantaCruzServer
-</code></pre></div><p>The executable can now be found in <code>bin/SantaCruzServer</code> and run.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ bin/SantaCruzServer
+</code></pre><p>The executable can now be found in <code>bin/SantaCruzServer</code> and run.</p>
+<pre tabindex=0><code>$ bin/SantaCruzServer
 2015-09-28 21:50:53.999 Info: SantaCruz V0.01 Alpha Server Starting...
 2015-09-28 21:50:53.006 Debug: Using SantaCruzLIB Version 0.1 Alpha
 2015-09-28 21:50:53.013 Debug: Using SantaCruzEngine Version 0.1 Alpha
-</code></pre></div><p>To install the executable in production:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>sudo make install
-</code></pre></div><p>This will copy the new executable into production. <span class=light>For development deploys, you do not need the <code>sudo</code>.</span></p>
+</code></pre><p>To install the executable in production:</p>
+<pre tabindex=0><code>sudo make install
+</code></pre><p>This will copy the new executable into production. <span class=light>For development deploys, you do not need the <code>sudo</code>.</span></p>
 <p>The output is:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Installing SantaCruzServer...
-</code></pre></div><p>And to uninstall:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ make distclean
+<pre tabindex=0><code>Installing SantaCruzServer...
+</code></pre><p>And to uninstall:</p>
+<pre tabindex=0><code>$ make distclean
 Removing SantaCruzServer
-</code></pre></div><p>And the executable is all gone.</p>
+</code></pre><p>And the executable is all gone.</p>
 <h2 id=reusing-this-makefile-in-the-next-project>Reusing this Makefile in the next project</h2>
 <p>The entire Makefile can be copied to the next project. Only a few changes are needed:</p>
 <ul>

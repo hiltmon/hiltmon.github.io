@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,23 @@
 <p class=meta-data>
 <span class=post-date>Feb 22, 2013 6:02 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/text-editors>Text Editors</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/textmate>TextMate</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Multiple Themes in TextMate 2
 </h1>
@@ -49,7 +71,7 @@ Multiple Themes in TextMate 2
 <p>But creating a theme for TextMate 2 (or Sublime Text 2) is hard. You see, the theme file is actually a <code>.plist</code> file which is a large and complex XML file. I don&rsquo;t know about you, but I find them hard to navigate and edit.</p>
 <p><em>So I got my geek on today and created <a href=https://github.com/hiltmon/textmate-theme-csv>https://github.com/hiltmon/textmate-theme-csv</a>, a TextMate 2 bundle and some scripts to enable me to use a simple CSV file format to create and iterate on a theme from <em>within</em> TextMate 2</em>. With the included <code>ThemeCSV</code> bundle installed in your version of TextMate 2, you can easily create and iterate over theme design. Then again, I suspect I&rsquo;m the only one who will ever use this.</p>
 <p>After installing the bundle, get started by creating a <code>.tmcsv</code> file in TextMate (or start with the provided <code>BlankTheme.tmcsv</code>), and start editing. A <code>tmcsv</code> file looks something like this:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>// Type, author, name, semanticClass, uuid
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>// Type, author, name, semanticClass, uuid
 Header, Hilton Lipschitz, CombinedCasts, theme.combinedcasts, 570BB45C-486D-44A6-8683-CFE4F63CE651
 // Type, background, foreground, caret, selection, invisibles, lineHighlight
 Main, #232323, #E6E1DC, #888888, #5A647EE0, #404040, #333435

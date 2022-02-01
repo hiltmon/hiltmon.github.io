@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Sep 18, 2013 12:59 PM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 Setup ODBC for R on OS X
 </h1>
@@ -69,14 +76,14 @@ $ sudo make install
 </code></pre>
 <h2 id=setup-the-odbc-driver>Setup the ODBC Driver</h2>
 <p>Establish the driver in <code>/usr/local/etc/odbcinst.ini</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[PostgreSQL]
+<pre tabindex=0><code>[PostgreSQL]
 Description     = PostgreSQL ODBC driver (Unicode 9.2)
 Driver          = /usr/local/lib/psqlodbcw.so
 Debug           = 0
 CommLog         = 1
 UsageCount      = 1
-</code></pre></div><p>And set up a connection in <code>/usr/local/etc/odbc.ini</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[ODBC Data Sources]
+</code></pre><p>And set up a connection in <code>/usr/local/etc/odbc.ini</code>:</p>
+<pre tabindex=0><code>[ODBC Data Sources]
 database1 = My Cool Database
 
 [database1]
@@ -88,7 +95,7 @@ Username    = hiltmon
 Password    = itsasecret
 Protocol    = 9.2
 Debug       = 1
-</code></pre></div><p>You could also set the connection in <code>~/.odbc.ini</code> but I find system level connections work better, especially when moving code into production.</p>
+</code></pre><p>You could also set the connection in <code>~/.odbc.ini</code> but I find system level connections work better, especially when moving code into production.</p>
 <p>Test the connection using <code>isql</code></p>
 <pre><code>$ isql -v database1
 </code></pre>

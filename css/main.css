@@ -377,6 +377,17 @@ aside#sidebar a:hover {
   text-transform: uppercase;
 }
 
+.tag {
+	display: inline-block;
+}
+
+.tag-text {
+  font-family: var(--heading-font);
+  color: var(--metal-gray);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
 .summary-title {
 }
 

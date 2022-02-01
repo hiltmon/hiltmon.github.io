@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,23 @@
 <p class=meta-data>
 <span class=post-date>Oct 26, 2014 2:34 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/development>development</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/programming>programming</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/c++>c++</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Simple C++ Testing with Catch in Xcode
 </h1>
@@ -56,62 +78,62 @@ Simple C++ Testing with Catch in Xcode
 <p>Ok, back? Good. You have seen how simple it is to spin up a <code>TEST_CASE</code>, break it down into several <code>SECTION</code> elements and test results using <code>CHECK</code> and <code>REQUIRE</code>.</p>
 <p>Lets do something more complex, lets test a sample class. This sample project is what I used to test Catch when I first saw it and helped me choose it.</p>
 <p>First, the tests:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;catch.hpp&#34;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;SampleClass.h&#34;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-TEST_CASE(<span style=color:#87ceeb>&#34;Testing Sample Class&#34;</span>) {
-  SampleClass sc;
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#include</span> <span style=color:#633820>&#34;catch.hpp&#34;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#633820>#include</span> <span style=color:#633820>&#34;SampleClass.h&#34;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#000>TEST_CASE</span>(<span style=color:#c41a16>&#34;Testing Sample Class&#34;</span>) {
+  <span style=color:#000>SampleClass</span> <span style=color:#000>sc</span>;
   
-  SECTION(<span style=color:#87ceeb>&#34;setting the str&#34;</span>) {
-    INFO(<span style=color:#87ceeb>&#34;Using TestStr&#34;</span>) <span style=color:#0f0>// Only appears on a FAIL
-</span><span style=color:#0f0></span>    sc.setStr(<span style=color:#87ceeb>&#34;TestStr&#34;</span>);
-    CAPTURE(sc.getStr()); <span style=color:#0f0>// Displays this variable on a FAIL
-</span><span style=color:#0f0></span>    
-    CHECK(sc.getStr() == <span style=color:#87ceeb>&#34;TestStr&#34;</span>);
+  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;setting the str&#34;</span>) {
+    <span style=color:#000>INFO</span>(<span style=color:#c41a16>&#34;Using TestStr&#34;</span>) <span style=color:#177500>// Only appears on a FAIL
+</span><span style=color:#177500></span>    <span style=color:#000>sc</span>.<span style=color:#000>setStr</span>(<span style=color:#c41a16>&#34;TestStr&#34;</span>);
+    <span style=color:#000>CAPTURE</span>(<span style=color:#000>sc</span>.<span style=color:#000>getStr</span>()); <span style=color:#177500>// Displays this variable on a FAIL
+</span><span style=color:#177500></span>    
+    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getStr</span>() <span style=color:#000>==</span> <span style=color:#c41a16>&#34;TestStr&#34;</span>);
   }
   
-  SECTION(<span style=color:#87ceeb>&#34;test bigStr&#34;</span>) {
-    sc.setStr(<span style=color:#87ceeb>&#34;TestStr&#34;</span>);
-    REQUIRE(sc.bigStr() == <span style=color:#87ceeb>&#34;TestStr : 7&#34;</span>);
+  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;test bigStr&#34;</span>) {
+    <span style=color:#000>sc</span>.<span style=color:#000>setStr</span>(<span style=color:#c41a16>&#34;TestStr&#34;</span>);
+    <span style=color:#000>REQUIRE</span>(<span style=color:#000>sc</span>.<span style=color:#000>bigStr</span>() <span style=color:#000>==</span> <span style=color:#c41a16>&#34;TestStr : 7&#34;</span>);
   }
   
-  SECTION(<span style=color:#87ceeb>&#34;Test doubles&#34;</span>) {
-    sc.setD(<span style=color:#f60>1</span>);
-    CHECK(sc.getD() == <span style=color:#f60>1</span>);
-    sc.setD(<span style=color:#f60>1.0</span>/<span style=color:#f60>3.0</span>);
-    CHECK(sc.getD() == Approx(<span style=color:#f60>0.33333</span>)); <span style=color:#0f0>// Nice
-</span><span style=color:#0f0></span>  }
+  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;Test doubles&#34;</span>) {
+    <span style=color:#000>sc</span>.<span style=color:#000>setD</span>(<span style=color:#1c01ce>1</span>);
+    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getD</span>() <span style=color:#000>==</span> <span style=color:#1c01ce>1</span>);
+    <span style=color:#000>sc</span>.<span style=color:#000>setD</span>(<span style=color:#1c01ce>1.0</span><span style=color:#000>/</span><span style=color:#1c01ce>3.0</span>);
+    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getD</span>() <span style=color:#000>==</span> <span style=color:#000>Approx</span>(<span style=color:#1c01ce>0.33333</span>)); <span style=color:#177500>// Nice
+</span><span style=color:#177500></span>  }
 }
 </code></pre></div><p>In this example, we have a single <code>TEST_CASE</code> and three sections. Inside the <code>TEST_CASE</code> we instantiate the object and each <code>SECTION</code> tests a function in the sample class. Note that in the example, I arbitrarily switch between <code>CHECK</code> (no stop test) and <code>REQUIRE</code> (stop test), whereas in a real testing environment, I use them appropriately.</p>
 <p>Here&rsquo;s the sample class that we&rsquo;re testing&rsquo;s header, it really is quite a useless class but gives us a range of things to try:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;string&gt;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-<span style=color:red>class</span> SampleClass {
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#include</span> <span style=color:#633820>&lt;string&gt;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#a90d91>class</span> <span style=color:#3f6e75>SampleClass</span> {
  
-<span style=color:red>public</span>:
-  std::string getStr() { <span style=color:red>return</span> _str; };
-  <span style=color:violet>void</span> <span style=color:#ff0>setStr</span>(<span style=color:red>const</span> std::string&amp; s) { _str = s; };
+<span style=color:#a90d91>public</span><span style=color:#000>:</span>
+  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>getStr</span>() { <span style=color:#a90d91>return</span> <span style=color:#000>_str</span>; };
+  <span style=color:#a90d91>void</span> <span style=color:#000>setStr</span>(<span style=color:#a90d91>const</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span><span style=color:#000>&amp;</span> <span style=color:#000>s</span>) { <span style=color:#000>_str</span> <span style=color:#000>=</span> <span style=color:#000>s</span>; };
   
-  <span style=color:violet>double</span> <span style=color:#ff0>getD</span>() { <span style=color:red>return</span> _d; };
-  <span style=color:violet>void</span> <span style=color:#ff0>setD</span>(<span style=color:violet>double</span> x) { _d = x; };
+  <span style=color:#a90d91>double</span> <span style=color:#000>getD</span>() { <span style=color:#a90d91>return</span> <span style=color:#000>_d</span>; };
+  <span style=color:#a90d91>void</span> <span style=color:#000>setD</span>(<span style=color:#a90d91>double</span> <span style=color:#000>x</span>) { <span style=color:#000>_d</span> <span style=color:#000>=</span> <span style=color:#000>x</span>; };
   
-  std::string bigStr();
+  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>bigStr</span>();
   
-<span style=color:red>private</span>:
-  std::string _str;
-  <span style=color:violet>double</span> _d;
+<span style=color:#a90d91>private</span><span style=color:#000>:</span>
+  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>_str</span>;
+  <span style=color:#a90d91>double</span> <span style=color:#000>_d</span>;
 };
 </code></pre></div><p>And its body:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;SampleClass.h&#34;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;sstream&gt;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-std::string SampleClass::bigStr()
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#include</span> <span style=color:#633820>&#34;SampleClass.h&#34;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#633820>#include</span> <span style=color:#633820>&lt;sstream&gt;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>SampleClass</span><span style=color:#000>::</span><span style=color:#000>bigStr</span>()
 {
-  std::stringstream ss;
-  ss &lt;&lt; _str &lt;&lt; <span style=color:#87ceeb>&#34; : &#34;</span> &lt;&lt; _str.length();
-  <span style=color:red>return</span> ss.str();
+  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>stringstream</span> <span style=color:#000>ss</span>;
+  <span style=color:#000>ss</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>_str</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#c41a16>&#34; : &#34;</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>_str</span>.<span style=color:#000>length</span>();
+  <span style=color:#a90d91>return</span> <span style=color:#000>ss</span>.<span style=color:#000>str</span>();
 }
 </code></pre></div><h3 id=testing-in-xcode>Testing In Xcode</h3>
 <figure class=image-right><img src=images/catch-tests.png width=255 height=276>
@@ -119,8 +141,8 @@ std::string SampleClass::bigStr()
 <p>I setup testing in Xcode using a separate tests folder and a second tests target and scheme. In this sample case, the main project code is in the <code>SampleProject</code> group (usually a library project) and the test target code is in the <code>TestSampleProject</code> group. This group (and its matching file system folder) are automatically created when you add an Xcode command-line target.</p>
 <p>To create this target, select the project at the top and click <code>+</code> or choose <strong>File</strong> \ <strong>New</strong> \ <strong>Target</strong> from the menu, choose <strong>OS X</strong> \ <strong>Application</strong> \ <strong>Command Line Tool</strong>, choose <code>C++</code> as the language and give it a name.</p>
 <p>I then add <code>catch.hpp</code> and edit the <code>main.cpp</code> file. The <code>main.cpp</code> in the test target uses the default Catch main function, there is no point in writing my own:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#e5e5e5>#define CATCH_CONFIG_MAIN  </span><span style=color:#0f0>// This tells Catch to provide a main() - only do this in one cpp file
-</span><span style=color:#0f0></span><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;catch.hpp&#34;</span><span style=color:#e5e5e5>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#define CATCH_CONFIG_MAIN  </span><span style=color:#177500>// This tells Catch to provide a main() - only do this in one cpp file
+</span><span style=color:#177500></span><span style=color:#633820>#include</span> <span style=color:#633820>&#34;catch.hpp&#34;</span><span style=color:#633820>
 </span></code></pre></div><p>I also add the following command-line options to the test target scheme and toggle when needed:</p>
 <figure class=image-right><img src=images/catch-command-line.png>
 </figure>
@@ -135,10 +157,10 @@ std::string SampleClass::bigStr()
 </figure>
 <p>Finally, you also need to add each class that is being tested to the Test target as well or it will not compile.</p>
 <p>Running the test target delivers the following console output <em>on success</em>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-plain data-lang=plain>===============================================================================
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-plain data-lang=plain>===============================================================================
 All tests passed (8 assertions in 2 test cases)
 </code></pre></div><p>If any test cases fail, you get:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-plain data-lang=plain>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-plain data-lang=plain>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 TestSampleProject is a Catch v1.0 b53 host application.
 Run with -? for options
 

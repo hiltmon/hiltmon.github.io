@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Jul 18, 2013 10:14 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/macintosh>Macintosh</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Fast SSH Windows with iTerm 2
 </h1>
@@ -57,11 +69,11 @@ Fast SSH Windows with iTerm 2
 <p>To activate a new terminal tab and SSH into that server, just press the shortcut key.</p>
 <h3 id=bonus-top-tips>Bonus Top Tips</h3>
 <p>I change the <code>PS1</code> on each server to show the colloquial name, so at a glance you can see which server the terminal window represents. Add the following to <code>.bash_profile</code> or whichever file configures your shell (In this case, the colloquial name is <em>Farragut</em>):</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>...
+<pre tabindex=0><code>...
 # \u -&gt; user, \W is basename, the rest are terminal colors
-PS1=&#39;\[\e[0;35m\]\u\[\e[0;33m\]@\[\e[1;34m\]Farragut:\[\e[0;33m\]\W \[\e[0m\]\$ &#39;
+PS1='\[\e[0;35m\]\u\[\e[0;33m\]@\[\e[1;34m\]Farragut:\[\e[0;33m\]\W \[\e[0m\]\$ '
 ...
-</code></pre></div><figure class=image-right><img src=images/iterm-ps1.jpg%20181%2058>
+</code></pre><figure class=image-right><img src=images/iterm-ps1.jpg%20181%2058>
 </figure>
 <p>Which gives us this:</p>
 <p>I also slightly change the terminal background color and the colors used in the prompt, not enough to make it garish, but enough to tint the black and change the look. That way my eye can sense different terminals by the slight color variances as well.</p>

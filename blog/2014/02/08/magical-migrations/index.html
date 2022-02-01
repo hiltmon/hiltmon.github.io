@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Feb 8, 2014 11:46 AM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 Magical Migrations
 </h1>
@@ -69,96 +76,96 @@ Magical Migrations
 <ul>
 <li>Create all tables as Rails models which create migrations. It adds a bit of code to the project, but makes it easy to test the database or create web views of the data later. For example:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash>$ rails generate model Table description:string price:decimal{12-2}
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash>$ rails generate model Table description:string price:decimal<span style=color:#000>{</span>12-2<span style=color:#000>}</span>
 </code></pre></div><ul>
 <li><strong>Do not be afraid to use raw SQL in migrations</strong>. That which Rails migrations cannot do, can be done with SQL in migrations. I use it all the time to transform or backup data. For example:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>...
-<span style=color:#0f0># Fixup codes</span>
-execute <span style=color:#87ceeb>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;LKD&#39;&#34;</span>
-execute <span style=color:#87ceeb>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;ADJ&#39;&#34;</span>
-execute <span style=color:#87ceeb>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;SPC&#39;&#34;</span>
-...
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>...</span>
+<span style=color:#177500># Fixup codes</span>
+<span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;LKD&#39;&#34;</span>
+<span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;ADJ&#39;&#34;</span>
+<span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;SPC&#39;&#34;</span>
+<span style=color:#000>...</span>
 </code></pre></div><ul>
 <li><strong>Make all <code>up</code> migrations reversible</strong>. This is easy as Rails takes care of most of these as long as the migrations are non-destructive. For destructive migrations, such as when you are moving data to new tables or removing columns, I create temporary tables or dump files to save the data being deleted, and reverse these in the <code>down</code> part. Only when I am very sure that these changes are fixed and deployed to production do I create migrations to drop these temporary tables - these being the only non-reversible migrations I have. For example, in an <code>up</code> migration for a changing table, I first back it up:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:red>def</span> <span style=color:#ff0>up</span>
-	execute <span style=color:#87ceeb>%Q{
-</span><span style=color:#87ceeb>		CREATE TABLE ex_table (
-</span><span style=color:#87ceeb>			id     INTEGER     NOT NULL,
-</span><span style=color:#87ceeb>			column_1 character varying(255),
-</span><span style=color:#87ceeb>			...
-</span><span style=color:#87ceeb>		CONSTRAINT ex_table_pkey UNIQUE(id)
-</span><span style=color:#87ceeb>	);}</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>def</span> <span style=color:#000>up</span>
+	<span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
+</span><span style=color:#c41a16>		CREATE TABLE ex_table (
+</span><span style=color:#c41a16>			id     INTEGER     NOT NULL,
+</span><span style=color:#c41a16>			column_1 character varying(255),
+</span><span style=color:#c41a16>			...
+</span><span style=color:#c41a16>		CONSTRAINT ex_table_pkey UNIQUE(id)
+</span><span style=color:#c41a16>	);}</span>
     
-    execute <span style=color:#87ceeb>%Q{
-</span><span style=color:#87ceeb>    	INSERT INTO ex_table (id, column_1, ...)
-</span><span style=color:#87ceeb>    	SELECT id, column_1, ...
-</span><span style=color:#87ceeb>		FROM table;
-</span><span style=color:#87ceeb>	}</span>
+    <span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
+</span><span style=color:#c41a16>    	INSERT INTO ex_table (id, column_1, ...)
+</span><span style=color:#c41a16>    	SELECT id, column_1, ...
+</span><span style=color:#c41a16>		FROM table;
+</span><span style=color:#c41a16>	}</span>
     
-	remove_column <span style=color:#f60>:table</span>, <span style=color:#f60>:column_1</span>
-<span style=color:red>end</span>
+	<span style=color:#000>remove_column</span> <span style=color:#c41a16>:table</span>, <span style=color:#c41a16>:column_1</span>
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>In some cases, I even dump data to files to enable reverses or just to have backup copies. For example, in a <code>down</code> (reverse) migration where I dropped a table in the <code>up</code>, I may have:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:red>def</span> <span style=color:#ff0>up</span>
-	<span style=color:#0f0># Save the data for Justin Case :)</span>
-	execute <span style=color:#87ceeb>%Q{
-</span><span style=color:#87ceeb>		COPY (SELECT cusip, price_date, price, yield) 
-</span><span style=color:#87ceeb>		FROM historical_prices) TO &#39;/tmp/hp.csv&#39; WITH CSV;
-</span><span style=color:#87ceeb>	}</span>
-	drop_table <span style=color:#f60>:historical_prices</span>
-<span style=color:red>end</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>def</span> <span style=color:#000>up</span>
+	<span style=color:#177500># Save the data for Justin Case :)</span>
+	<span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
+</span><span style=color:#c41a16>		COPY (SELECT cusip, price_date, price, yield) 
+</span><span style=color:#c41a16>		FROM historical_prices) TO &#39;/tmp/hp.csv&#39; WITH CSV;
+</span><span style=color:#c41a16>	}</span>
+	<span style=color:#000>drop_table</span> <span style=color:#c41a16>:historical_prices</span>
+<span style=color:#a90d91>end</span>
 	
-<span style=color:red>def</span> <span style=color:#ff0>down</span>
-    create_table <span style=color:#f60>:historical_prices</span>, { id: <span style=color:red>false</span> } <span style=color:red>do</span> |t|
-		t.string <span style=color:#f60>:cusip</span>, <span style=color:#f60>limit</span>: <span style=color:#f60>9</span>
-		t.date <span style=color:#f60>:price_date</span>
-		t.decimal <span style=color:#f60>:price</span>, <span style=color:#f60>precision</span>: <span style=color:#f60>12</span>, <span style=color:#f60>scale</span>: <span style=color:#f60>4</span>
-		t.decimal <span style=color:#f60>:yield</span>, <span style=color:#f60>precision</span>: <span style=color:#f60>12</span>, <span style=color:#f60>scale</span>: <span style=color:#f60>6</span>
-    <span style=color:red>end</span>
+<span style=color:#a90d91>def</span> <span style=color:#000>down</span>
+    <span style=color:#000>create_table</span> <span style=color:#c41a16>:historical_prices</span>, { <span style=color:#a90d91>id</span>: <span style=color:#a90d91>false</span> } <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
+		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:cusip</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>9</span>
+		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>date</span> <span style=color:#c41a16>:price_date</span>
+		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>decimal</span> <span style=color:#c41a16>:price</span>, <span style=color:#c41a16>precision</span>: <span style=color:#1c01ce>12</span>, <span style=color:#c41a16>scale</span>: <span style=color:#1c01ce>4</span>
+		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>decimal</span> <span style=color:#c41a16>:yield</span>, <span style=color:#c41a16>precision</span>: <span style=color:#1c01ce>12</span>, <span style=color:#c41a16>scale</span>: <span style=color:#1c01ce>6</span>
+    <span style=color:#a90d91>end</span>
     
-    <span style=color:#0f0># Get it back</span>
-    execute <span style=color:#87ceeb>&#34;%Q{
-</span><span style=color:#87ceeb>    	COPY historical_prices (cusip, price_date, price, yield) 
-</span><span style=color:#87ceeb>    	FROM &#39;/tmp/hp.csv&#39; WITH CSV;
-</span><span style=color:#87ceeb>    }
-</span><span style=color:#87ceeb>    
-</span><span style=color:#87ceeb>    add_index :historical_prices, :cusip
-</span><span style=color:#87ceeb>    add_index :historical_prices, :price_date
-</span><span style=color:#87ceeb>end
+    <span style=color:#177500># Get it back</span>
+    <span style=color:#000>execute</span> <span style=color:#c41a16>&#34;%Q{
+</span><span style=color:#c41a16>    	COPY historical_prices (cusip, price_date, price, yield) 
+</span><span style=color:#c41a16>    	FROM &#39;/tmp/hp.csv&#39; WITH CSV;
+</span><span style=color:#c41a16>    }
+</span><span style=color:#c41a16>    
+</span><span style=color:#c41a16>    add_index :historical_prices, :cusip
+</span><span style=color:#c41a16>    add_index :historical_prices, :price_date
+</span><span style=color:#c41a16>end
 </span></code></pre></div><ul>
 <li>One big negative of Rails migrations when creating tables is that they create an <code>id</code> field automatically. This is useful if running a Rails web app or using ActiveModel. But for tables that have no need of these, or are being accessed by applications that do not need <code>id</code> columns, here&rsquo;s how to get rid of it: Just add <code>{ id: false }</code> to the <code>create_table</code> line as in:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:red>class</span> CreateNoIDTable &lt; <span style=color:#7fffd4>ActiveRecord</span>::<span style=color:#7fffd4>Migration</span>
-	<span style=color:red>def</span> <span style=color:#ff0>change</span>
-		create_table <span style=color:#f60>:no_id_table</span>, { id: <span style=color:red>false</span> } <span style=color:red>do</span> |t|
-			t.string <span style=color:#f60>:my_key</span>, <span style=color:#f60>limit</span>: <span style=color:#f60>9</span>
-			t.string <span style=color:#f60>:my_text</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CreateNoIDTable</span> <span style=color:#000>&lt;</span> <span style=color:#000>ActiveRecord</span><span style=color:#000>::</span><span style=color:#000>Migration</span>
+	<span style=color:#a90d91>def</span> <span style=color:#000>change</span>
+		<span style=color:#000>create_table</span> <span style=color:#c41a16>:no_id_table</span>, { <span style=color:#a90d91>id</span>: <span style=color:#a90d91>false</span> } <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
+			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:my_key</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>9</span>
+			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:my_text</span>
 
-			t.timestamps
-    	<span style=color:red>end</span>
-	<span style=color:red>end</span>
-<span style=color:red>end</span>
+			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>timestamps</span>
+    	<span style=color:#a90d91>end</span>
+	<span style=color:#a90d91>end</span>
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>You can also get rid of the Rails <code>created_at</code> and <code>updated_at</code> columns by commenting out the <code>t.timestamps</code> code.</p>
 <ul>
 <li><strong>Seed data in migrations</strong>. Sometimes you need to put data into tables when creating them, for example when creating code to string reference tables. Put the data into the migration and have the migration load it. For example, using Rails model creates:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:red>class</span> CreatePurposeClasses &lt; <span style=color:#7fffd4>ActiveRecord</span>::<span style=color:#7fffd4>Migration</span>
-	<span style=color:red>def</span> <span style=color:#ff0>up</span>
-		create_table <span style=color:#f60>:purpose_classes</span> <span style=color:red>do</span> |t|
-			t.string <span style=color:#f60>:class_code</span>, <span style=color:#f60>limit</span>: <span style=color:#f60>4</span>
-			t.string <span style=color:#f60>:class_name</span>, <span style=color:#f60>limit</span>: <span style=color:#f60>32</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CreatePurposeClasses</span> <span style=color:#000>&lt;</span> <span style=color:#000>ActiveRecord</span><span style=color:#000>::</span><span style=color:#000>Migration</span>
+	<span style=color:#a90d91>def</span> <span style=color:#000>up</span>
+		<span style=color:#000>create_table</span> <span style=color:#c41a16>:purpose_classes</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
+			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:class_code</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>4</span>
+			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:class_name</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>32</span>
 
-			t.timestamps
-		<span style=color:red>end</span>
+			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>timestamps</span>
+		<span style=color:#a90d91>end</span>
 		
-		add_index <span style=color:#f60>:purpose_classes</span>, <span style=color:#f60>:class_code</span>, <span style=color:#f60>unique</span>: <span style=color:red>true</span>
+		<span style=color:#000>add_index</span> <span style=color:#c41a16>:purpose_classes</span>, <span style=color:#c41a16>:class_code</span>, <span style=color:#c41a16>unique</span>: <span style=color:#a90d91>true</span>
     
-		<span style=color:#0f0># Populate</span>
-		<span style=color:#7fffd4>PurposeClass</span>.create!(<span style=color:#f60>class_code</span>: <span style=color:#87ceeb>&#39;AUTH&#39;</span>, <span style=color:#f60>class_name</span>: <span style=color:#87ceeb>&#39;Authority&#39;</span>)
-		<span style=color:#7fffd4>PurposeClass</span>.create!(<span style=color:#f60>class_code</span>: <span style=color:#87ceeb>&#39;BAN&#39;</span>, <span style=color:#f60>class_name</span>: <span style=color:#87ceeb>&#39;Bond Anticipation Note&#39;</span>)
-		<span style=color:#7fffd4>PurposeClass</span>.create!(<span style=color:#f60>class_code</span>: <span style=color:#87ceeb>&#39;BLDG&#39;</span>, <span style=color:#f60>class_name</span>: <span style=color:#87ceeb>&#39;Building &#39;</span>)
-		...
+		<span style=color:#177500># Populate</span>
+		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;AUTH&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Authority&#39;</span>)
+		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;BAN&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Bond Anticipation Note&#39;</span>)
+		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;BLDG&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Building &#39;</span>)
+		<span style=color:#000>...</span>
 </code></pre></div><h3 id=deploying-database-schema-migrations>Deploying Database Schema Migrations</h3>
 <p>I have been using <a href=http://capistranorb.com>Capistrano</a> for years to deploy Rails applications. And it works well. I use it now to deploy my main database Rails project that contains all the necessary migrations to all servers.</p>
 <p>It takes just one command to send the code over and one more to make all the changes and I can be sure all my staging and production databases are perfect.</p>
@@ -170,10 +177,10 @@ execute <span style=color:#87ceeb>&#34;UPDATE securities SET coupon_type = &#39;
 </code></pre>
 <p>I prefer to do this in two steps in case the initial deploy fails, in which case Capistrano rolls it back safely without affecting the database. I do worry about Mr Murphy.</p>
 <p>In order to choose <em>which</em> server and database to migrate, I use Capistrano&rsquo;s multistage extension. Each database gets a stage. For example, I have the following at the top of my main project&rsquo;s <code>config/deploy.rb</code> file:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0># Enable multi-stage support</span>
-set <span style=color:#f60>:stages</span>, <span style=color:#87ceeb>%w(staging analytics production)</span>
-set <span style=color:#f60>:default_stage</span>, <span style=color:#87ceeb>&#34;production&#34;</span>
-require <span style=color:#87ceeb>&#39;capistrano/ext/multistage&#39;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500># Enable multi-stage support</span>
+<span style=color:#000>set</span> <span style=color:#c41a16>:stages</span>, <span style=color:#c41a16>%w(staging analytics production)</span>
+<span style=color:#000>set</span> <span style=color:#c41a16>:default_stage</span>, <span style=color:#c41a16>&#34;production&#34;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;capistrano/ext/multistage&#39;</span>
 </code></pre></div><p>I then have separate files in the <code>config/deploy/</code> folder for each server (stage) that sets the server names and roles. For example the <code>config/deploy/analytics.rb</code> file sets the <code>:db</code> role to the analytics database server, and the <code>config/deploy/production.rb</code> file sets <code>:db</code> to the production server.</p>
 <p>I can then easily run:</p>
 <pre><code>$ cap analytics deploy:migrate

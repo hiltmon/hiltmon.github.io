@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Jan 3, 2013 11:27 AM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 Assembly Notes
 </h1>
@@ -45,76 +52,76 @@ Assembly Notes
 <p>Assembly notes are different to to-do’s (although they often contain to-do notes). It is a record of what <em>was</em> tried, what <em>was</em> done, what worked, what did not, and how it all can be reproduced.</p>
 <h2 id=project-assembly-notes>Project Assembly Notes</h2>
 <p>Here is a sample of the top of one of my Assembly Notes for Kifu (scroll down as it’s quite long):</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-mysql data-lang=mysql>Title:    Kifu Assembly Notes  
-Subtitle: Week <span style=color:#f60>38</span> (Week <span style=color:#f60>45</span> of Project)  
+<pre tabindex=0><code>Title:    Kifu Assembly Notes  
+Subtitle: Week 38 (Week 45 of Project)  
 Author: Hilton Lipschitz  
 Affiliation: Noverse LLC  
 Web:    http://www.noverse.com  
-<span style=color:violet>Date</span>:   March <span style=color:#f60>2</span>, <span style=color:#f60>2012</span>  
+Date:   March 2, 2012  
 
-<span style=color:#0f0># Optimization 
-</span><span style=color:#0f0></span>
-Now that we have a large dataset, need <span style=color:red>to</span> speed things up. Running performance stats <span style=color:red>to</span> find the bottlenecks.
+# Optimization 
 
-BRANCH: <span style=color:red>optimize</span>-<span style=color:#f60>1</span>
+Now that we have a large dataset, need to speed things up. Running performance stats to find the bottlenecks.
 
-- <span style=color:red>Add</span> TEST <span style=color:red>to</span> project so I can run benchmarks <span style=color:red>and</span> profile tests
+BRANCH: optimize-1
+
+- Add TEST to project so I can run benchmarks and profile tests
 
 Here goes
 
     rails generate performance_test aging_by_event_summary
     
-<span style=color:red>And</span> added the `DevelopmentProfiler` class
+And added the `DevelopmentProfiler` class
 
-<span style=color:red>Use</span> <span style=color:red>as</span>
+Use as
 
-    DevelopmentProfiler::<span style=color:#ff0>prof</span>(<span style=color:#87ceeb>&#34;&lt;profile_file_name&gt;&#34;</span>) do
-      <span style=color:#0f0># CODE TO PROFILE
-</span><span style=color:#0f0></span>    end
+    DevelopmentProfiler::prof(&quot;&lt;profile_file_name&gt;&quot;) do
+      # CODE TO PROFILE
+    end
     
-<span style=color:#0f0>## Improvements
-</span><span style=color:#0f0></span>
-Start @<span style=color:#f60>36</span>.<span style=color:#f60>02</span>
+## Improvements
 
-- `aging_by_event_summary`/<span style=color:#f60>0</span>.<span style=color:#f60>4</span>s: Fewer billings calls <span style=color:red>and</span> assed `this_bill_` variants
-- `aging_by_account_detail`/<span style=color:#f60>2</span>.<span style=color:#f60>0</span>s: No include phones <span style=color:red>and</span> emails <span style=color:red>in</span> <span style=color:#ff0>query</span> (this will slow down the collections report)
+Start @36.02
+
+- `aging_by_event_summary`/0.4s: Fewer billings calls and assed `this_bill_` variants
+- `aging_by_account_detail`/2.0s: No include phones and emails in query (this will slow down the collections report)
 - `import`
-    - No validations after saving an allocation /<span style=color:#f60>2</span>.<span style=color:#f60>0</span>s
-    - No validations <span style=color:red>on</span> creating an attending/<span style=color:#f60>1</span>.<span style=color:#f60>0</span>s
-    - No validations <span style=color:red>on</span> others/<span style=color:#f60>0</span>.<span style=color:#f60>8</span>s
-    - Move some observers <span style=color:red>into</span> classes/<span style=color:#f60>0</span>.<span style=color:#f60>06</span>s @<span style=color:#f60>27</span>.<span style=color:#f60>31</span>
-    - Move more <span style=color:red>into</span> classes/<span style=color:#f60>0</span>.<span style=color:#f60>16</span>s @<span style=color:#f60>27</span>.<span style=color:#f60>15</span>
-    - Move more <span style=color:red>into</span> classes/-.--s @<span style=color:#f60>26</span>.<span style=color:#f60>44</span>
-    - Move <span style=color:red>all</span> <span style=color:red>into</span> classes/-.--s @<span style=color:#f60>26</span>.<span style=color:#f60>20</span>
+    - No validations after saving an allocation /2.0s
+    - No validations on creating an attending/1.0s
+    - No validations on others/0.8s
+    - Move some observers into classes/0.06s @27.31
+    - Move more into classes/0.16s @27.15
+    - Move more into classes/-.--s @26.44
+    - Move all into classes/-.--s @26.20
 
-<span style=color:#0f0>## TODO
-</span><span style=color:#0f0></span>
-- ✓ <span style=color:red>Use</span> `this_bill_` variant <span style=color:red>when</span> getting `Billing` outstanding, payable <span style=color:red>or</span> allocated
-- ☐ `aging_by_account_detail` PDF <span style=color:red>is</span> <span style=color:#f60>62</span> seconds after <span style=color:#ff0>changes</span> (<span style=color:red>all</span> <span style=color:red>in</span> the PRAWN module!)
+## TODO
 
-<span style=color:#0f0>## More
-</span><span style=color:#0f0></span>
+- ✓ Use `this_bill_` variant when getting `Billing` outstanding, payable or allocated
+- ☐ `aging_by_account_detail` PDF is 62 seconds after changes (all in the PRAWN module!)
+
+## More
+
 - Fix billing messages
-- BUG <span style=color:red>in</span> parse_date <span style=color:red>on</span> Event -&gt; <span style=color:red>all</span> observers need a self tag
+- BUG in parse_date on Event -&gt; all observers need a self tag
 
 - Cleaned up models, removed old observers
-- <span style=color:red>Starting</span> <span style=color:red>on</span> Controllers
+- Starting on Controllers
 
 MERGE: develop
 
-<span style=color:#0f0>## Rename things
-</span><span style=color:#0f0></span>
-BRANCH: <span style=color:red>rename</span>-<span style=color:#f60>1</span>
+## Rename things
 
-- ✓ <span style=color:red>Rename</span> review account <span style=color:red>and</span> make it more RESTful
-- ✓ <span style=color:red>Rename</span> roll event
-- ☐ <span style=color:red>Rename</span> billings
+BRANCH: rename-1
 
-<span style=color:red>IN</span> VIEWS:
+- ✓ Rename review account and make it more RESTful
+- ✓ Rename roll event
+- ☐ Rename billings
 
-- ✓ Disable editing <span style=color:red>on</span> closed events
-- ☐ Sort events <span style=color:red>and</span> some sub-<span style=color:red>tables</span> <span style=color:red>in</span> review
-</code></pre></div><p>About these notes:</p>
+IN VIEWS:
+
+- ✓ Disable editing on closed events
+- ☐ Sort events and some sub-tables in review
+</code></pre><p>About these notes:</p>
 <ul>
 <li>They are written as <a href=http://daringfireball.net/projects/markdown/>Markdown</a> files (using <a href=http://fletcherpenney.net/multimarkdown/>MultiMarkdown</a> extensions).</li>
 <li>I have <a href="https://itunes.apple.com/us/app/bbedit/id404009241?mt=12&uo=4&at=10l894">BBEdit</a> running all the time with the current project and week’s Assembly Notes file open.</li>
@@ -126,7 +133,7 @@ BRANCH: <span style=color:red>rename</span>-<span style=color:#f60>1</span>
 </ul>
 <h2 id=server-build-notes>Server Build Notes</h2>
 <p>Here is an except from another project’s Server Build Notes:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>## Step 3 - Postgres
+<pre tabindex=0><code>## Step 3 - Postgres
 
 As per `http://yum.postgresql.org/howtoyum.php`, edit the repo to exclude their postgres builds.
 
@@ -208,7 +215,7 @@ Test
 	gem --version
 		
 OK
-</code></pre></div><p>On build notes:</p>
+</code></pre><p>On build notes:</p>
 <ul>
 <li>I include all dependencies and their installation commands.</li>
 <li>I include all version numbers so I can ‘clone’ the server easily and get the same environment back.</li>
@@ -226,7 +233,7 @@ OK
 </ul>
 <h2 id=tips-and-tricks>Tips and Tricks</h2>
 <p>I use a lot of snippets to make these. The Assembly Note header is a <a href="https://itunes.apple.com/us/app/textexpander-for-mac/id405274824?mt=12&uo=4&at=10l894">TextExpander</a> snippet <code>;mma</code> that uses fill-ins and a form as follows:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Title:          %filltext:name=Project:default=Kifu% Assembly Notes  
+<pre tabindex=0><code>Title:          %filltext:name=Project:default=Kifu% Assembly Notes  
 Subtitle:       Week %filltext:default=2:width=10% of Project  
 Project:        %filltext:name=Project:default=Kifu%  
 Author:         Hilton Lipschitz  
@@ -234,20 +241,20 @@ Affiliation:    Noverse LLC
 Web:            http://www.noverse.com  
 Date:           %B %e, %Y  
 
-</code></pre></div><p>Which gives:</p>
+</code></pre><p>Which gives:</p>
 <figure><img src=images/mmas.jpg width=604 height=221>
 </figure>
 <p>I also use a <a href="https://itunes.apple.com/us/app/textexpander-for-mac/id405274824?mt=12&uo=4&at=10l894">TextExpander</a> snippet to break it up into days <code>;mmd</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>---
+<pre tabindex=0><code>---
 
 **%A %B %e, %Y**
 
-</code></pre></div><p>Which gives me:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>---
+</code></pre><p>Which gives me:</p>
+<pre tabindex=0><code>---
 
 **Thursday January 3, 2013**
 
-</code></pre></div><p>Finally, I track who reported what using a set of key marks (also <a href="https://itunes.apple.com/us/app/textexpander-for-mac/id405274824?mt=12&uo=4&at=10l894">TextExpander</a> snippets), and use them in release notes:</p>
+</code></pre><p>Finally, I track who reported what using a set of key marks (also <a href="https://itunes.apple.com/us/app/textexpander-for-mac/id405274824?mt=12&uo=4&at=10l894">TextExpander</a> snippets), and use them in release notes:</p>
 <ul>
 <li>β/HL - <code>;bm</code> : Bug Mark (Bug reported by HL)</li>
 <li>⨍/HL - <code>;fm</code> : Feature Mark</li>

@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Jul 15, 2012 10:21 AM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 TextExpander in Terminal
 </h1>
@@ -75,24 +87,24 @@ TextExpander in Terminal
 <li><code>;gca</code> -> <code>gca "%|"</code></li>
 </ul>
 <p>The bash macro in <code>.bash_profile</code> (OS X) is</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:red>function</span> gca(){
-  <span style=color:#eedd82>msg</span>=<span style=color:#eedd82>$*</span>
-  <span style=color:#eedd82>path</span>=<span style=color:red>$(</span>pwd<span style=color:red>)</span>
-  ~/scripts/LogtoDayOne.rb <span style=color:#87ceeb>&#34;@</span><span style=color:#87ceeb>${</span><span style=color:#eedd82>path</span>##*/<span style=color:#87ceeb>}</span><span style=color:#87ceeb> </span><span style=color:#eedd82>$msg</span><span style=color:#87ceeb>&#34;</span>
-  git commit -am <span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$msg</span><span style=color:#87ceeb>&#34;</span>
-}
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#a90d91>function</span> gca<span style=color:#000>(){</span>
+  <span style=color:#000>msg</span><span style=color:#000>=</span><span style=color:#000>$*</span>
+  <span style=color:#000>path</span><span style=color:#000>=</span><span style=color:#a90d91>$(</span><span style=color:#a90d91>pwd</span><span style=color:#a90d91>)</span>
+  ~/scripts/LogtoDayOne.rb <span style=color:#c41a16>&#34;@</span><span style=color:#c41a16>${</span><span style=color:#000>path</span>##*/<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#000>$msg</span><span style=color:#c41a16>&#34;</span>
+  git commit -am <span style=color:#c41a16>&#34;</span><span style=color:#000>$msg</span><span style=color:#c41a16>&#34;</span>
+<span style=color:#000>}</span>
 </code></pre></div><p>So to commit my current branch and merge it into development I could do the following:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ git status
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ git status
 $ git add .
-$ git commit -m <span style=color:#87ceeb>&#34;Amazing commit message&#34;</span>
-$ ~/scripts/LogtoDayOne.rb <span style=color:#87ceeb>&#34;@kifu Amazing commit message&#34;</span>
+$ git commit -m <span style=color:#c41a16>&#34;Amazing commit message&#34;</span>
+$ ~/scripts/LogtoDayOne.rb <span style=color:#c41a16>&#34;@kifu Amazing commit message&#34;</span>
 $ git checkout develop
 $ git merge --no-edit --no-ff branchname
 $ git push origin
 </code></pre></div><p>or, with TextExpander (showing typing only)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ ;gs
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ ;gs
 $ ;ga
-$ ;gca <span style=color:#87ceeb>&#34;Amazing commit message&#34;</span>
+$ ;gca <span style=color:#c41a16>&#34;Amazing commit message&#34;</span>
 $ ;gcd
 $ ;gm branchname
 $ ;gpo
@@ -103,17 +115,17 @@ $ ;gpo
 <li><code>;sshxxx</code> -> <code>ssh deploy@xxxxxxxx.kifuapp.com</code></li>
 </ul>
 <p><strong>Aside</strong>: I like my remote terminals to look different, so I have set the following functions up in my bash profile:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:red>function</span> tabc() {
-	<span style=color:#eedd82>NAME</span>=<span style=color:#eedd82>$1</span>; <span style=color:red>if</span> [ -z <span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$NAME</span><span style=color:#87ceeb>&#34;</span> ]; <span style=color:red>then</span> <span style=color:#eedd82>NAME</span>=<span style=color:#87ceeb>&#34;Default&#34;</span>; <span style=color:red>fi</span>
-	osascript -e <span style=color:#87ceeb>&#34;tell application \&#34;Terminal\&#34; to set current settings of front window to settings set \&#34;</span><span style=color:#eedd82>$NAME</span><span style=color:#87ceeb>\&#34;&#34;</span>
-}
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#a90d91>function</span> tabc<span style=color:#000>()</span> <span style=color:#000>{</span>
+	<span style=color:#000>NAME</span><span style=color:#000>=</span><span style=color:#000>$1</span>; <span style=color:#a90d91>if</span> <span style=color:#000>[</span> -z <span style=color:#c41a16>&#34;</span><span style=color:#000>$NAME</span><span style=color:#c41a16>&#34;</span> <span style=color:#000>]</span>; <span style=color:#a90d91>then</span> <span style=color:#000>NAME</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;Default&#34;</span>; <span style=color:#a90d91>fi</span>
+	osascript -e <span style=color:#c41a16>&#34;tell application \&#34;Terminal\&#34; to set current settings of front window to settings set \&#34;</span><span style=color:#000>$NAME</span><span style=color:#c41a16>\&#34;&#34;</span>
+<span style=color:#000>}</span>
 
-<span style=color:#0f0># Change the terminal color when remote</span>
-<span style=color:red>function</span> ssh {
-  tabc <span style=color:#87ceeb>&#34;Hiltmon-Remote&#34;</span>
-  /usr/bin/ssh <span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$@</span><span style=color:#87ceeb>&#34;</span>
-  tabc <span style=color:#87ceeb>&#34;Hiltmon&#34;</span>
-}
+<span style=color:#177500># Change the terminal color when remote</span>
+<span style=color:#a90d91>function</span> ssh <span style=color:#000>{</span>
+  tabc <span style=color:#c41a16>&#34;Hiltmon-Remote&#34;</span>
+  /usr/bin/ssh <span style=color:#c41a16>&#34;</span><span style=color:#000>$@</span><span style=color:#c41a16>&#34;</span>
+  tabc <span style=color:#c41a16>&#34;Hiltmon&#34;</span>
+<span style=color:#000>}</span>
 </code></pre></div><p>Whenever I execute a ssh command, my current terminal gets a new color scheme, which gets restored on exit from the remote session (local to the left, remote to the right).</p>
 <figure><img src=images/terminal-compare.png width=590 height=420>
 </figure>

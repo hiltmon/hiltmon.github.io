@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,12 +40,24 @@
 <p class=meta-data>
 <span class=post-date>Aug 3, 2012 11:50 AM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/text-editors>Text Editors</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Setting up BBEdit for Markdown
 </h1>
 <div class=post-body>
 <p>Two advanced settings are needed to make <a href=http://www.barebones.com/products/bbedit/index.html>BBEdit</a> treat all <em>new</em> documents as Markdown format, and to save with the correct file extension. They are:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>defaults write com.barebones.bbedit PreferredFilenameExtension_Markdown -string <span style=color:#87ceeb>&#34;markdown&#34;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>defaults write com.barebones.bbedit PreferredFilenameExtension_Markdown -string <span style=color:#c41a16>&#34;markdown&#34;</span>
 defaults write com.barebones.bbedit DefaultLanguageNameForNewDocuments Markdown
 </code></pre></div><p>If you use <a href=http://www.barebones.com/products/TextWrangler/>TextWrangler</a>, replace the “bbedit” in the above with “textwrangler”. But I’d recommend purchasing BBEdit instead.</p>
 </div>

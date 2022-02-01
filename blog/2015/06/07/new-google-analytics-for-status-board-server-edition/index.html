@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Jun 7, 2015 7:47 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/status-board>Status Board</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 New Google Analytics for Status Board Server Edition
 </h1>
@@ -108,15 +120,15 @@ New Google Analytics for Status Board Server Edition
 <li>Your profile ID is the set of digits after the &lsquo;p&rsquo; at the end of the URL (in this case a fake 9999999). Paste that into the &ldquo;&lt;Use Yours>&rdquo; in each analytics PHP file.</li>
 </ol>
 <p>The top of each file should look something like this (codes are fake):</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>define(&#39;ga_profile_id&#39;,&#39;9999999&#39;);
+<pre tabindex=0><code>define('ga_profile_id','9999999');
 
-require &#39;gapi.class.php&#39;;
+require 'gapi.class.php';
 
-date_default_timezone_set(&#39;America/New_York&#39;);
+date_default_timezone_set('America/New_York');
 
-$ga = new gapi(&#39;729847129341293-938825he75l8mdabcxsh72hdqkdmpfobq273@developer.gserviceaccount.com&#39;, 
-  &#39;My-GAPI-Project-384idsucy44f.p12&#39;);
-</code></pre></div><h3 id=accessing-from-status-board>Accessing from Status Board</h3>
+$ga = new gapi('729847129341293-938825he75l8mdabcxsh72hdqkdmpfobq273@developer.gserviceaccount.com', 
+  'My-GAPI-Project-384idsucy44f.p12');
+</code></pre><h3 id=accessing-from-status-board>Accessing from Status Board</h3>
 <p>For the &lsquo;hourly&rsquo; &ldquo;and &lsquo;views&rsquo; graphs, create a new Status Board chart panel and set the URL to &ldquo;&lt;your domain>/status_board/analytics_hourly.php&rdquo; and &ldquo;&lt;your domain>/status_board/analytics_views.php&rdquo; respectively. For the Top pages list, create a new Status Board table and set the URL to &ldquo;&lt;your domain>/status_board/analytics_pages.php&rdquo;.</p>
 <p>Enjoy.</p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>

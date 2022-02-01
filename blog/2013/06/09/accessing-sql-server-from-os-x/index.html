@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,28 @@
 <p class=meta-data>
 <span class=post-date>Jun 9, 2013 10:56 AM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/scripting>Scripting</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/python>python</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/ruby>ruby</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/microsoft>microsoft</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Accessing SQL Server from OS X
 </h1>
@@ -45,95 +72,95 @@ Accessing SQL Server from OS X
 <h2 id=freetds>FreeTDS</h2>
 <p><a href=http://www.freetds.org>FreeTDS</a> is a set of libraries that one can use from UNIX based systems to natively talk to SQL Server. Download it from their <a href=ftp://ftp.freetds.org/pub/freetds/stable/freetds-stable.tgz>stable release</a> link to your <code>Downloads</code> folder (current version 0.91 as of writing).</p>
 <p>Then, to build and install it:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ tar zxvf freetds-stable.tar
-$ cd freetds-0.91
-$ ./configure --prefix=/usr/local
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ tar zxvf freetds-stable.tar
+$ <span style=color:#a90d91>cd</span> freetds-0.91
+$ ./configure --prefix<span style=color:#000>=</span>/usr/local
 $ make
 $ sudo make install
 </code></pre></div><p>To have FreeTDS default to the newer protocols for newer SQL servers, edit <code>/usr/local/etc/freetds.conf</code> and set:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[global]
+<pre tabindex=0><code>[global]
 # TDS protocol version
 tds version = 7.1 # or 8.0
-</code></pre></div><p>This works with SQL Server 2000, 2005 and 2008.</p>
+</code></pre><p>This works with SQL Server 2000, 2005 and 2008.</p>
 <h2 id=ruby>Ruby</h2>
 <p>You need the <a href=https://github.com/rails-sqlserver/tiny_tds>tiny_tds</a> Ruby gem to access SQL Server via FreeTDS from Ruby. I had a lot of trouble getting this gem to build on OS X 10.8.4 with Ruby 1.9.3 under RVM until I figured out the parameters needed to make it work with my FreeTDS and Apple&rsquo;s <code>iconv</code> library. Use the following <em>rather long</em> command:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ gem install tiny_tds -- --with-iconv-include=/usr/include --with-iconv-lib=/usr/lib <span style=color:#87ceeb>\
-</span><span style=color:#87ceeb></span>--with-freetds-include=/usr/local/include/freetds --with-freetds-lib=/usr/local/lib
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ gem install tiny_tds -- --with-iconv-include<span style=color:#000>=</span>/usr/include --with-iconv-lib<span style=color:#000>=</span>/usr/lib <span style=color:#c41a16>\
+</span><span style=color:#c41a16></span>--with-freetds-include<span style=color:#000>=</span>/usr/local/include/freetds --with-freetds-lib<span style=color:#000>=</span>/usr/local/lib
 </code></pre></div><p>This compiles the gem with Apple&rsquo;s <code>iconv</code> lib and the FreeTDS we just installed.</p>
 <p>After that, accessing a SQL Server database is easy. Here&rsquo;s a script to dump a table or a query to a CSV file:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>require <span style=color:#87ceeb>&#39;rubygems&#39;</span>
-require <span style=color:#87ceeb>&#39;tiny_tds&#39;</span>
-require <span style=color:#87ceeb>&#39;csv&#39;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;rubygems&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;tiny_tds&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;csv&#39;</span>
 
-<span style=color:red>def</span> <span style=color:#ff0>write_csv</span>(table, result)
-  <span style=color:#7fffd4>CSV</span>.open(<span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>table<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.csv&#34;</span>, <span style=color:#87ceeb>&#34;wb&#34;</span>) <span style=color:red>do</span> |csv|
-    result.each <span style=color:red>do</span> |row|
-      csv &lt;&lt; row.values
-    <span style=color:red>end</span>
-  <span style=color:red>end</span>
-<span style=color:red>end</span>
+<span style=color:#a90d91>def</span> <span style=color:#000>write_csv</span>(<span style=color:#000>table</span>, <span style=color:#000>result</span>)
+  <span style=color:#000>CSV</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>table</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.csv&#34;</span>, <span style=color:#c41a16>&#34;wb&#34;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>csv</span><span style=color:#000>|</span>
+    <span style=color:#000>result</span><span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>row</span><span style=color:#000>|</span>
+      <span style=color:#000>csv</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>row</span><span style=color:#000>.</span><span style=color:#000>values</span>
+    <span style=color:#a90d91>end</span>
+  <span style=color:#a90d91>end</span>
+<span style=color:#a90d91>end</span>
 
-<span style=color:red>def</span> <span style=color:#ff0>dump_table</span>(table)
-  puts <span style=color:#87ceeb>&#34;dump_table: </span><span style=color:#87ceeb>#{</span>table<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>
-  result = @client.execute(<span style=color:#87ceeb>&#34;SELECT * FROM </span><span style=color:#87ceeb>#{</span>table<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>)
-  write_csv table, result
-<span style=color:red>end</span>
+<span style=color:#a90d91>def</span> <span style=color:#000>dump_table</span>(<span style=color:#000>table</span>)
+  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;dump_table: </span><span style=color:#c41a16>#{</span><span style=color:#000>table</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>
+  <span style=color:#000>result</span> <span style=color:#000>=</span> <span style=color:#000>@client</span><span style=color:#000>.</span><span style=color:#000>execute</span>(<span style=color:#c41a16>&#34;SELECT * FROM </span><span style=color:#c41a16>#{</span><span style=color:#000>table</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>)
+  <span style=color:#000>write_csv</span> <span style=color:#000>table</span>, <span style=color:#000>result</span>
+<span style=color:#a90d91>end</span>
 
-<span style=color:red>def</span> <span style=color:#ff0>dump_query</span>(table, query)
-  puts <span style=color:#87ceeb>&#34;dump_query: </span><span style=color:#87ceeb>#{</span>table<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>
-  result = @client.execute(query)
-  write_csv table, result
-<span style=color:red>end</span>
+<span style=color:#a90d91>def</span> <span style=color:#000>dump_query</span>(<span style=color:#000>table</span>, <span style=color:#000>query</span>)
+  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;dump_query: </span><span style=color:#c41a16>#{</span><span style=color:#000>table</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>
+  <span style=color:#000>result</span> <span style=color:#000>=</span> <span style=color:#000>@client</span><span style=color:#000>.</span><span style=color:#000>execute</span>(<span style=color:#000>query</span>)
+  <span style=color:#000>write_csv</span> <span style=color:#000>table</span>, <span style=color:#000>result</span>
+<span style=color:#a90d91>end</span>
 
-@client = <span style=color:#7fffd4>TinyTds</span>::<span style=color:#7fffd4>Client</span>.new(
-	<span style=color:#f60>:username</span> =&gt; <span style=color:#87ceeb>&#39;username&#39;</span>, 
-	<span style=color:#f60>:password</span> =&gt; <span style=color:#87ceeb>&#39;password&#39;</span>, 
-	<span style=color:#f60>:host</span> =&gt; <span style=color:#87ceeb>&#39;192.168.x.x&#39;</span>, 
-	<span style=color:#f60>:database</span> =&gt; <span style=color:#87ceeb>&#39;database _name&#39;</span>
+<span style=color:#000>@client</span> <span style=color:#000>=</span> <span style=color:#000>TinyTds</span><span style=color:#000>::</span><span style=color:#000>Client</span><span style=color:#000>.</span><span style=color:#000>new</span>(
+	<span style=color:#c41a16>:username</span> <span style=color:#000>=&gt;</span> <span style=color:#c41a16>&#39;username&#39;</span>, 
+	<span style=color:#c41a16>:password</span> <span style=color:#000>=&gt;</span> <span style=color:#c41a16>&#39;password&#39;</span>, 
+	<span style=color:#c41a16>:host</span> <span style=color:#000>=&gt;</span> <span style=color:#c41a16>&#39;192.168.x.x&#39;</span>, 
+	<span style=color:#c41a16>:database</span> <span style=color:#000>=&gt;</span> <span style=color:#c41a16>&#39;database _name&#39;</span>
 )
 
-dump_table(<span style=color:#87ceeb>&#39;table_name&#39;</span>)
-dump_query(<span style=color:#87ceeb>&#39;table_name&#39;</span>, <span style=color:#87ceeb>&#34;select * from table_name where date &gt;= &#39;2013-01-01&#39;&#34;</span>)
+<span style=color:#000>dump_table</span>(<span style=color:#c41a16>&#39;table_name&#39;</span>)
+<span style=color:#000>dump_query</span>(<span style=color:#c41a16>&#39;table_name&#39;</span>, <span style=color:#c41a16>&#34;select * from table_name where date &gt;= &#39;2013-01-01&#39;&#34;</span>)
 
-@client.close()
+<span style=color:#000>@client</span><span style=color:#000>.</span><span style=color:#000>close</span>()
 </code></pre></div><h2 id=python>Python</h2>
 <p>For Python, I tried the <a href=http://code.google.com/p/pymssql/>pymssql</a> language extension. Installing this was quite easy:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ sudo easy_install pip
+<pre tabindex=0><code>$ sudo easy_install pip
 $ sudo pip install cython
 $ sudo pip install pymssql
-</code></pre></div><p>And in a simple script:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=color:red>import</span> pymssql
-connection = pymssql.connect(
-	host = <span style=color:#87ceeb>r</span><span style=color:#87ceeb>&#39;192.168.x.y:1433&#39;</span>, 
-	user = <span style=color:#87ceeb>&#39;username&#39;</span>, 
-	password = <span style=color:#87ceeb>r</span><span style=color:#87ceeb>&#39;password&#39;</span>, 
-	database = <span style=color:#87ceeb>&#39;database_name&#39;</span>
+</code></pre><p>And in a simple script:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=color:#a90d91>import</span> <span style=color:#000>pymssql</span>
+<span style=color:#000>connection</span> <span style=color:#000>=</span> <span style=color:#000>pymssql</span><span style=color:#000>.</span><span style=color:#000>connect</span>(
+	<span style=color:#000>host</span> <span style=color:#000>=</span> <span style=color:#c41a16>r</span><span style=color:#c41a16>&#39;192.168.x.y:1433&#39;</span>, 
+	<span style=color:#000>user</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;username&#39;</span>, 
+	<span style=color:#000>password</span> <span style=color:#000>=</span> <span style=color:#c41a16>r</span><span style=color:#c41a16>&#39;password&#39;</span>, 
+	<span style=color:#000>database</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;database_name&#39;</span>
 )
 
-cursor = connection.cursor()
+<span style=color:#000>cursor</span> <span style=color:#000>=</span> <span style=color:#000>connection</span><span style=color:#000>.</span><span style=color:#000>cursor</span>()
 
-cursor.execute(<span style=color:#87ceeb>&#39;SELECT count(*) FROM table_name &#39;</span>)
-<span style=color:red>for</span> row in cursor:
-    print row
+<span style=color:#000>cursor</span><span style=color:#000>.</span><span style=color:#000>execute</span>(<span style=color:#c41a16>&#39;SELECT count(*) FROM table_name &#39;</span>)
+<span style=color:#a90d91>for</span> <span style=color:#000>row</span> <span style=color:#000>in</span> <span style=color:#000>cursor</span>:
+    <span style=color:#a90d91>print</span> <span style=color:#000>row</span>
 </code></pre></div><p><strong>Note</strong> the use of Python raw strings for the host and password.</p>
 <h2 id=bonus-round-isql>Bonus Round: <code>isql</code></h2>
 <p>If you are old school like me and want access to SQL Server from the command line, you really need the old <code>isql</code> command line. FreeTDS does have a <code>tsql</code> command to test access from the command line, but it is not fully featured.</p>
 <p>But <code>isql</code> is part of ODBC which is deprecated. Oh, well, time to install <a href=http://www.unixodbc.org>unixODBC</a>. It&rsquo;s an oldie, but a goodie. Download from this <a href=ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.1.tar.gz>link</a> or the downloads page. Then:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ ./configure --prefix=/usr/local
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ ./configure --prefix<span style=color:#000>=</span>/usr/local
 $ make
 $ sudo make install
 </code></pre></div><p>You also need to recompile FreeTDS with support for <code>unixODBC</code>, so go back to your FreeTDS folder and:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ cd freetds-0.91
-$ ./configure --prefix=/usr/local --with-tdsver=8.0 --with-unixodbc=/usr/local
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ <span style=color:#a90d91>cd</span> freetds-0.91
+$ ./configure --prefix<span style=color:#000>=</span>/usr/local --with-tdsver<span style=color:#000>=</span>8.0 --with-unixodbc<span style=color:#000>=</span>/usr/local
 $ make
 $ sudo make install
 </code></pre></div><p>Following the instructions at <a href=http://www.unixodbc.org/doc/FreeTDS.html>http://www.unixodbc.org/doc/FreeTDS.html</a>, you need to register FreeTDS and create your first data source. My files look like this:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[FreeTDS]
+<pre tabindex=0><code>[FreeTDS]
 Description=v0.63 with protocol v8.0
 Driver=/usr/local/lib/libtdsodbc.so
 UsageCount=1
-</code></pre></div><p>and</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>[TEST]
+</code></pre><p>and</p>
+<pre tabindex=0><code>[TEST]
 Driver=FreeTDS
 Description=Test Database
 Trace=No
@@ -141,11 +168,11 @@ Address=192.168.x.y
 Port=1433
 Database=database_name
 TDS_Version=7.1
-</code></pre></div><p>To see if this is working, use the <code>osql</code> tool:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ osql -S TEST -U user_name -P password -I /usr/local/etc
-</code></pre></div><p>You can then access this database using good old <code>isql</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ isql TEST user_name password
-</code></pre></div><p><strong>Note</strong> that you may need to put <code>"</code> characters around the password if there are special characters in it.</p>
+</code></pre><p>To see if this is working, use the <code>osql</code> tool:</p>
+<pre tabindex=0><code>$ osql -S TEST -U user_name -P password -I /usr/local/etc
+</code></pre><p>You can then access this database using good old <code>isql</code>:</p>
+<pre tabindex=0><code>$ isql TEST user_name password
+</code></pre><p><strong>Note</strong> that you may need to put <code>"</code> characters around the password if there are special characters in it.</p>
 <h2 id=commentary>Commentary</h2>
 <p>It&rsquo;s quite sad that the popular Open Source databases like MySQL, PostgreSQL and MongoDB all have wonderful, fast, easy to install, native libraries for OS X and Linux, but the big commercial databases like SQL Server and Oracle still require these unpleasant hacks, ancient deprecated libraries or worse, Java!</p>
 <p>A lot of companies are moving their servers off Microsoft Windows and on to Linux, but they still need access to legacy data, and these hacks are just not that elegant or robust enough for true production use. Until these companies can migrate their databases off Microsoft and Oracle, they are going to have to live in transition and hope these hacks hold.</p>

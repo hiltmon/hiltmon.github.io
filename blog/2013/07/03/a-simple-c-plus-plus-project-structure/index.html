@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,23 @@
 <p class=meta-data>
 <span class=post-date>Jul 3, 2013 10:33 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/development>development</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/programming>programming</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/c++>c++</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 A Simple C++ Project Structure
 </h1>
@@ -59,7 +81,7 @@ A Simple C++ Project Structure
 </ul>
 <h2 id=gitignore>.gitignore</h2>
 <p>Since I use <code>git</code> for source code control, the <code>.gitignore</code> file is:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># Ignore the build and lib dirs
+<pre tabindex=0><code># Ignore the build and lib dirs
 build
 lib/*
 
@@ -68,9 +90,9 @@ bin/*
 
 # Ignore Mac specific files
 .DS_Store
-</code></pre></div><h2 id=makefile>Makefile</h2>
+</code></pre><h2 id=makefile>Makefile</h2>
 <p>I do not need the extra effort or platform independence of <a href=http://en.wikipedia.org/wiki/GNU_build_system>autotools</a>. These are great for users, but suck up developer time to make them work. Instead, I opted for a simple yet flexible and generic makefile (see notes below):</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>#
+<pre tabindex=0><code>#
 # TODO: Move `libmongoclient.a` to /usr/local/lib so this can work on production servers
 #
  
@@ -88,16 +110,16 @@ LIB := -pthread -lmongoclient -L lib -lboost_thread-mt -lboost_filesystem-mt -lb
 INC := -I include
 
 $(TARGET): $(OBJECTS)
-	@echo &#34; Linking...&#34;
-	@echo &#34; $(CC) $^ -o $(TARGET) $(LIB)&#34;; $(CC) $^ -o $(TARGET) $(LIB)
+	@echo &quot; Linking...&quot;
+	@echo &quot; $(CC) $^ -o $(TARGET) $(LIB)&quot;; $(CC) $^ -o $(TARGET) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
-	@echo &#34; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;&#34;; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;
+	@echo &quot; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;&quot;; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;
 
 clean:
-	@echo &#34; Cleaning...&#34;; 
-	@echo &#34; $(RM) -r $(BUILDDIR) $(TARGET)&#34;; $(RM) -r $(BUILDDIR) $(TARGET)
+	@echo &quot; Cleaning...&quot;; 
+	@echo &quot; $(RM) -r $(BUILDDIR) $(TARGET)&quot;; $(RM) -r $(BUILDDIR) $(TARGET)
 
 # Tests
 tester:
@@ -108,7 +130,7 @@ ticket:
 	$(CC) $(CFLAGS) spikes/ticket.cpp $(INC) $(LIB) -o bin/ticket
 
 .PHONY: clean
-</code></pre></div><p>Notes on the Makefile:</p>
+</code></pre><p>Notes on the Makefile:</p>
 <ul>
 <li>The <code>TODO</code> at the top reminds me that I am using a different version of a library in development and it must be removed before deployment.</li>
 <li>The <code>TARGET</code> is the main executable of the project, in this case <code>bin/runner</code>. Type <code>make</code> and this is what gets built.</li>

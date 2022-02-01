@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Nov 3, 2013 5:51 PM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 Merge Asana Projects into OmniFocus
 </h1>
@@ -81,16 +88,16 @@ Merge Asana Projects into OmniFocus
 <figure><img src=images/asana_api_key.png width=533 height=341>
 </figure>
 <p>Open the <a href=https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca>script</a> in a text editor and insert your API key and Profile Name at the top.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>...
+<pre tabindex=0><code>...
 class MergeAsanaIntoOmnifocus
 
-	API_KEY = &#39;&lt;YOUR KEY HERE&gt;&#39;
-	ASIGNEE_NAME = &#39;&lt;YOUR PROFILE NAME HERE&gt;&#39;
+	API_KEY = '&lt;YOUR KEY HERE&gt;'
+	ASIGNEE_NAME = '&lt;YOUR PROFILE NAME HERE&gt;'
 	SUBTASKS = true
 
 	def get_json_data(url_string)
 	...
-</code></pre></div><p>Download: <a href=https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca><del>Gist 9786291</del>Gist &ldquo;merge_asana_into_omnifocus.rb&rdquo;</a></p>
+</code></pre><p>Download: <a href=https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca><del>Gist 9786291</del>Gist &ldquo;merge_asana_into_omnifocus.rb&rdquo;</a></p>
 <h3 id=running-it>Running It</h3>
 <p>Make sure that the prerequisites are set up in OmniFocus and Asana.</p>
 <p>Then just run it from the command line:</p>

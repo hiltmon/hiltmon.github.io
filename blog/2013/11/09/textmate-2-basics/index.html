@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Nov 9, 2013 3:00 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/text-editors>Text Editors</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/textmate>TextMate</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 TextMate 2 Basics
 </h1>
@@ -106,11 +123,11 @@ or the <code>schema.rb</code>file (<code>⌘T sch ↩</code>) in Rails projects.
 </li>
 </ul>
 <br>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Security.create!(
+<pre tabindex=0><code>Security.create!(
 	cusip: row[0],
 	isin: row[1]
-</code></pre></div><p>I&rsquo;ll often duplicate the last line to create</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Security.create!(
+</code></pre><p>I&rsquo;ll often duplicate the last line to create</p>
+<pre tabindex=0><code>Security.create!(
 	cusip: row[0],
 	isin: row[1]
 	isin: row[1]
@@ -118,7 +135,7 @@ or the <code>schema.rb</code>file (<code>⌘T sch ↩</code>) in Rails projects.
 	isin: row[1]
 	isin: row[1]
 	isin: row[1]
-</code></pre></div><p>And then use the below keys to navigate quickly around the duplicates to change the labels and indices.</p>
+</code></pre><p>And then use the below keys to navigate quickly around the duplicates to change the labels and indices.</p>
 <ul>
 <li><code>⌥→</code> moves to the next word (add <code>⇧</code> to select) and <code>⌘→</code> moves to the end of a line which is the standard Mac way. So without learning anything new, I can move the caret (cursor to some) around the file a lot quicker. But TextMate 2 goes further, if you do not have it mapped in Mission Control, <code>⌃→</code> moves to the next part in a CamelCase word (I do not use this).</li>
 <li><code>⌥←</code> moves to the previous word (add <code>⇧</code> to select) and <code>⌘←</code> moves to the beginning of a line.</li>

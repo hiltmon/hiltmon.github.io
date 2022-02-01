@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Jan 14, 2015 6:42 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/c++>c++</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Write Timestamps containing Milliseconds to MongoDB in C++11
 </h1>
@@ -42,14 +54,14 @@ Write Timestamps containing Milliseconds to MongoDB in C++11
 <p><span class=light>It took me several hours today to figure this one out, so I thought I&rsquo;d write it up lest I forget.</span></p>
 <p>I have a C++11 application that rapidly writes new documents to a <a href=http://www.mongodb.org>MongoDB</a> instance and I need high-resolution timestamps to determine the order things were written.</p>
 <p>The problem is that the C++ standard <code>time_t</code> structure reports in seconds, so</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>builder.appendTimeT(&#34;updated_at&#34;,
+<pre tabindex=0><code>builder.appendTimeT(&quot;updated_at&quot;,
 		std::chrono::system_clock::to_time_t(std::chrono::system_clock::now())
 );
-</code></pre></div><p>creates an ISODate <em>without</em> milliseconds in MongoDB.</p>
+</code></pre><p>creates an ISODate <em>without</em> milliseconds in MongoDB.</p>
 <p>There are many solutions to be found using <code>Boost::time</code><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, but since my code needs to be dependency-free and pure, I needed a C++11 clean solution.</p>
 <p>MongoDB helps with its own <code>Date_t</code> class which is really just a <code>long long</code> number of milliseconds since the UNIX Epoch. So if I can generate that, we&rsquo;d we dancing.</p>
 <p>The solution in my <code>utilities</code> namespace, <code>DateTime</code> class is:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>namespace utilities {
+<pre tabindex=0><code>namespace utilities {
 
 	struct DateTime {
 
@@ -66,10 +78,10 @@ Write Timestamps containing Milliseconds to MongoDB in C++11
 		...
 	}
 }  
-</code></pre></div><p>This function constructs a C++11 <code>duration</code> object containing the number we need in an internal format, and then converts it to <code>milliseconds</code> for use.</p>
+</code></pre><p>This function constructs a C++11 <code>duration</code> object containing the number we need in an internal format, and then converts it to <code>milliseconds</code> for use.</p>
 <p>The MongoDB c++ code also changes to:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>builder.appendDate(&#34;updated_at&#34;, utilities::DateTime::millisSinceEpoch());
-</code></pre></div><p>And now we have <a href=http://www.mongodb.org>MongoDB</a> ISODates with milliseconds that work perfectly.</p>
+<pre tabindex=0><code>builder.appendDate(&quot;updated_at&quot;, utilities::DateTime::millisSinceEpoch());
+</code></pre><p>And now we have <a href=http://www.mongodb.org>MongoDB</a> ISODates with milliseconds that work perfectly.</p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
 <section class=footnotes role=doc-endnotes>
 <hr>

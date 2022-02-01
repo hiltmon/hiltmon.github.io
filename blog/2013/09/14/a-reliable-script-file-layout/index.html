@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Sep 14, 2013 2:44 PM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 A Reliable Script File Layout
 </h1>
@@ -44,22 +51,22 @@ A Reliable Script File Layout
 <h2 id=the-script-file-layout>The Script File Layout</h2>
 <h3 id=traditional-no-layout-version>Traditional no layout version</h3>
 <p>Most people write scripts the old-fashioned <em>linear</em> way. For example, a script to get a file from an FTP server and upload it into a database would look something like this <span class=light>(not real code)</span>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0>#!/usr/bin/env ruby</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby</span>
 	
-require <span style=color:#87ceeb>&#39;net/ftp&#39;</span>
-require <span style=color:#87ceeb>&#39;pg&#39;</span> <span style=color:#0f0># PostgreSQL Database</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;net/ftp&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;pg&#39;</span> <span style=color:#177500># PostgreSQL Database</span>
 	
-conn = <span style=color:#7fffd4>PG</span>.connect(<span style=color:#f60>dbname</span>: <span style=color:#87ceeb>&#39;d1&#39;</span>)
+<span style=color:#000>conn</span> <span style=color:#000>=</span> <span style=color:#000>PG</span><span style=color:#000>.</span><span style=color:#000>connect</span>(<span style=color:#c41a16>dbname</span>: <span style=color:#c41a16>&#39;d1&#39;</span>)
 	
-<span style=color:#7fffd4>Net</span>::<span style=color:#7fffd4>FTP</span>.open(<span style=color:#87ceeb>&#39;source.com&#39;</span>) <span style=color:red>do</span> |ftp|
-	ftp.login(<span style=color:#87ceeb>&#39;hiltmon&#39;</span>, <span style=color:#87ceeb>&#39;itsasecret&#39;</span>)
-	ftp.chdir(<span style=color:#87ceeb>&#39;pub/data&#39;</span>)
-	ftp.gettextfile(<span style=color:#87ceeb>&#39;the_data.csv&#39;</span>)
-<span style=color:red>end</span>
+<span style=color:#000>Net</span><span style=color:#000>::</span><span style=color:#000>FTP</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#c41a16>&#39;source.com&#39;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>ftp</span><span style=color:#000>|</span>
+	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>login</span>(<span style=color:#c41a16>&#39;hiltmon&#39;</span>, <span style=color:#c41a16>&#39;itsasecret&#39;</span>)
+	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>chdir</span>(<span style=color:#c41a16>&#39;pub/data&#39;</span>)
+	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>gettextfile</span>(<span style=color:#c41a16>&#39;the_data.csv&#39;</span>)
+<span style=color:#a90d91>end</span>
 	
-<span style=color:#7fffd4>CSV</span>.foreach(<span style=color:#87ceeb>&#34;the_data.csv&#34;</span>) <span style=color:red>do</span> |row|
-	conn.exec(<span style=color:#87ceeb>&#34;INSERT INTO t1 (c1, c2) VALUES (&#39;</span><span style=color:#87ceeb>#{</span>row[<span style=color:#f60>0</span>]<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#39;, &#39;</span><span style=color:#87ceeb>#{</span>row[<span style=color:#f60>1</span>]<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#39;;&#34;</span>)
-<span style=color:red>end</span>
+<span style=color:#000>CSV</span><span style=color:#000>.</span><span style=color:#000>foreach</span>(<span style=color:#c41a16>&#34;the_data.csv&#34;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>row</span><span style=color:#000>|</span>
+	<span style=color:#000>conn</span><span style=color:#000>.</span><span style=color:#000>exec</span>(<span style=color:#c41a16>&#34;INSERT INTO t1 (c1, c2) VALUES (&#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;, &#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;;&#34;</span>)
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>In short, connect to the database, get the file, parse the file and brute force insert it into the database. Simple, linear and it works!</p>
 <p>The output is &mldr; there is none.</p>
 <p><strong>There is nothing <em>wrong</em> with this.</strong> Unless you have an excessive number of these to support and maintain. And you can <em>remember</em> the file format (what does <code>row[0]</code> and <code>row[1]</code> contain?) and <em>know</em> the assumptions implicit in this script (the retrieved file is saved in the same folder as the script) and know if it ran or not (there is no visible output or logging).</p>
@@ -75,75 +82,75 @@ conn = <span style=color:#7fffd4>PG</span>.connect(<span style=color:#f60>dbname
 <li>All classes are liberally festooned with <code>puts</code> statements which can be redirected to a log or be used when testing or manually running to see what is happening.</li>
 </ul>
 <p>So lets look at the same above script using my standard format:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0>#!/usr/bin/env ruby</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby</span>
 	
-require <span style=color:#87ceeb>&#39;net/ftp&#39;</span>
-require <span style=color:#87ceeb>&#39;pg&#39;</span> <span style=color:#0f0># PostgreSQL Database</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;net/ftp&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;pg&#39;</span> <span style=color:#177500># PostgreSQL Database</span>
 
-<span style=color:red>class</span> GetDataFile
+<span style=color:#a90d91>class</span> <span style=color:#3f6e75>GetDataFile</span>
   
-  <span style=color:#7fffd4>SOURCE_URL</span> = <span style=color:#87ceeb>&#39;source.com&#39;</span>
-  <span style=color:#7fffd4>SOURCE_PATH</span> = <span style=color:#87ceeb>&#39;pub/data&#39;</span>
-  <span style=color:#7fffd4>FTP_USER</span> = <span style=color:#87ceeb>&#39;hilton&#39;</span>
-  <span style=color:#7fffd4>FTP_PASSWORD</span> = <span style=color:#87ceeb>&#39;itsasecret&#39;</span>
-  <span style=color:#7fffd4>FILE_NAME</span> = <span style=color:#87ceeb>&#39;the_data.txt&#39;</span>
-  <span style=color:#7fffd4>DEST_PATH</span> = <span style=color:#87ceeb>&#39;/tmp/&#39;</span>
+  <span style=color:#000>SOURCE_URL</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;source.com&#39;</span>
+  <span style=color:#000>SOURCE_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;pub/data&#39;</span>
+  <span style=color:#000>FTP_USER</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;hilton&#39;</span>
+  <span style=color:#000>FTP_PASSWORD</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;itsasecret&#39;</span>
+  <span style=color:#000>FILE_NAME</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;the_data.txt&#39;</span>
+  <span style=color:#000>DEST_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;/tmp/&#39;</span>
   
-  <span style=color:#7fffd4>DATABASE</span> = <span style=color:#87ceeb>&#39;d1&#39;</span>
+  <span style=color:#000>DATABASE</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;d1&#39;</span>
 
-  <span style=color:red>def</span> <span style=color:#ff0>initialize</span>
-    @conn = <span style=color:#7fffd4>PG</span>.connect(<span style=color:#f60>dbname</span>: <span style=color:#7fffd4>DATABASE</span>)
-  <span style=color:red>end</span>
+  <span style=color:#a90d91>def</span> <span style=color:#000>initialize</span>
+    <span style=color:#000>@conn</span> <span style=color:#000>=</span> <span style=color:#000>PG</span><span style=color:#000>.</span><span style=color:#000>connect</span>(<span style=color:#c41a16>dbname</span>: <span style=color:#000>DATABASE</span>)
+  <span style=color:#a90d91>end</span>
   
-  <span style=color:#0f0># File name is overwritten every day</span>
-  <span style=color:red>def</span> <span style=color:#ff0>get_file</span>
-    puts <span style=color:#87ceeb>&#34;  GetFile </span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>FILE_NAME</span><span style=color:#87ceeb>}</span><span style=color:#87ceeb>...&#34;</span>
-    dest_file_path = <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span><span style=color:#7fffd4>DEST_PATH</span><span style=color:#87ceeb>}#{</span><span style=color:#7fffd4>FILE_NAME</span><span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;</span>
-    <span style=color:#7fffd4>Net</span>::<span style=color:#7fffd4>FTP</span>.open(<span style=color:#7fffd4>SOURCE_URL</span>) <span style=color:red>do</span> |ftp|
-    	ftp.login(<span style=color:#7fffd4>FTP_USER</span>, <span style=color:#7fffd4>FTP_PASSWORD</span>)
-    	ftp.chdir(<span style=color:#7fffd4>SOURCE_PATH</span>)
-    	ftp.gettextfile(<span style=color:#7fffd4>FILE_NAME</span>, dest_file_path)
-    <span style=color:red>end</span>
-    puts <span style=color:#87ceeb>&#34;  File Saved to </span><span style=color:#87ceeb>#{</span>dest_file_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>...&#34;</span>
-    dest_file_path
-  <span style=color:red>end</span>
+  <span style=color:#177500># File name is overwritten every day</span>
+  <span style=color:#a90d91>def</span> <span style=color:#000>get_file</span>
+    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  GetFile </span><span style=color:#c41a16>#{</span><span style=color:#000>FILE_NAME</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
+    <span style=color:#000>dest_file_path</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>DEST_PATH</span><span style=color:#c41a16>}#{</span><span style=color:#000>FILE_NAME</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>
+    <span style=color:#000>Net</span><span style=color:#000>::</span><span style=color:#000>FTP</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#000>SOURCE_URL</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>ftp</span><span style=color:#000>|</span>
+    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>login</span>(<span style=color:#000>FTP_USER</span>, <span style=color:#000>FTP_PASSWORD</span>)
+    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>chdir</span>(<span style=color:#000>SOURCE_PATH</span>)
+    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>gettextfile</span>(<span style=color:#000>FILE_NAME</span>, <span style=color:#000>dest_file_path</span>)
+    <span style=color:#a90d91>end</span>
+    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  File Saved to </span><span style=color:#c41a16>#{</span><span style=color:#000>dest_file_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
+    <span style=color:#000>dest_file_path</span>
+  <span style=color:#a90d91>end</span>
   
-  <span style=color:#0f0># 2010-01-01,99.0</span>
-  <span style=color:#0f0># 2010-01-02,99.17</span>
-  <span style=color:#0f0># 2010-01-03,99.51</span>
-  <span style=color:#0f0># 2010-01-04,98.73</span>
-  <span style=color:#0f0># 2010-01-05,99.23</span>
-  <span style=color:#0f0># </span>
-  <span style=color:#0f0># File contains 2 columns, price date and the price</span>
-  <span style=color:#0f0># There is no header</span>
-  <span style=color:red>def</span> <span style=color:#ff0>save_file_database</span>(file_path)
-    puts <span style=color:#87ceeb>&#34;  Loading into Database...&#34;</span>
-    count = <span style=color:#f60>0</span>
-    <span style=color:#7fffd4>CSV</span>.foreach(file_path) <span style=color:red>do</span> |row|
-    	@conn.exec(<span style=color:#87ceeb>&#34;INSERT INTO t1 (c1, c2) VALUES (&#39;</span><span style=color:#87ceeb>#{</span>row[<span style=color:#f60>0</span>]<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#39;, &#39;</span><span style=color:#87ceeb>#{</span>row[<span style=color:#f60>1</span>]<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#39;;&#34;</span>)
-      count += <span style=color:#f60>1</span>
-      <span style=color:red>if</span> count % <span style=color:#f60>1000</span> == <span style=color:#f60>0</span>
-        print <span style=color:#87ceeb>&#34;  Loading </span><span style=color:#87ceeb>#{</span>count<span style=color:#87ceeb>}</span><span style=color:#87ceeb> rows...</span><span style=color:#87ceeb>\r</span><span style=color:#87ceeb>&#34;</span>
-        <span style=color:#7fffd4>STDOUT</span>.flush
-      <span style=color:red>end</span>
-    <span style=color:red>end</span>
-    puts <span style=color:#87ceeb>&#34;  Loaded </span><span style=color:#87ceeb>#{</span>count<span style=color:#87ceeb>}</span><span style=color:#87ceeb> rows...&#34;</span>
-  <span style=color:red>end</span>
+  <span style=color:#177500># 2010-01-01,99.0</span>
+  <span style=color:#177500># 2010-01-02,99.17</span>
+  <span style=color:#177500># 2010-01-03,99.51</span>
+  <span style=color:#177500># 2010-01-04,98.73</span>
+  <span style=color:#177500># 2010-01-05,99.23</span>
+  <span style=color:#177500># </span>
+  <span style=color:#177500># File contains 2 columns, price date and the price</span>
+  <span style=color:#177500># There is no header</span>
+  <span style=color:#a90d91>def</span> <span style=color:#000>save_file_database</span>(<span style=color:#000>file_path</span>)
+    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  Loading into Database...&#34;</span>
+    <span style=color:#000>count</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0</span>
+    <span style=color:#000>CSV</span><span style=color:#000>.</span><span style=color:#000>foreach</span>(<span style=color:#000>file_path</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>row</span><span style=color:#000>|</span>
+    	<span style=color:#000>@conn</span><span style=color:#000>.</span><span style=color:#000>exec</span>(<span style=color:#c41a16>&#34;INSERT INTO t1 (c1, c2) VALUES (&#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;, &#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;;&#34;</span>)
+      <span style=color:#000>count</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+      <span style=color:#a90d91>if</span> <span style=color:#000>count</span> <span style=color:#000>%</span> <span style=color:#1c01ce>1000</span> <span style=color:#000>==</span> <span style=color:#1c01ce>0</span>
+        <span style=color:#a90d91>print</span> <span style=color:#c41a16>&#34;  Loading </span><span style=color:#c41a16>#{</span><span style=color:#000>count</span><span style=color:#c41a16>}</span><span style=color:#c41a16> rows...</span><span style=color:#c41a16>\r</span><span style=color:#c41a16>&#34;</span>
+        <span style=color:#000>STDOUT</span><span style=color:#000>.</span><span style=color:#000>flush</span>
+      <span style=color:#a90d91>end</span>
+    <span style=color:#a90d91>end</span>
+    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  Loaded </span><span style=color:#c41a16>#{</span><span style=color:#000>count</span><span style=color:#c41a16>}</span><span style=color:#c41a16> rows...&#34;</span>
+  <span style=color:#a90d91>end</span>
   
-  <span style=color:red>def</span> <span style=color:#ff0>run</span>
-    puts <span style=color:#87ceeb>&#34;GetDataFile Starting...&#34;</span>
-    file_path = get_file
-    save_file_database file_path
-    puts <span style=color:#87ceeb>&#34;GetDataFile Done...&#34;</span>
-  <span style=color:red>end</span>
+  <span style=color:#a90d91>def</span> <span style=color:#000>run</span>
+    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;GetDataFile Starting...&#34;</span>
+    <span style=color:#000>file_path</span> <span style=color:#000>=</span> <span style=color:#000>get_file</span>
+    <span style=color:#000>save_file_database</span> <span style=color:#000>file_path</span>
+    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;GetDataFile Done...&#34;</span>
+  <span style=color:#a90d91>end</span>
   
-<span style=color:red>end</span>
+<span style=color:#a90d91>end</span>
 
-app = <span style=color:#7fffd4>GetDataFile</span>.new
-app.run()
+<span style=color:#000>app</span> <span style=color:#000>=</span> <span style=color:#000>GetDataFile</span><span style=color:#000>.</span><span style=color:#000>new</span>
+<span style=color:#000>app</span><span style=color:#000>.</span><span style=color:#000>run</span>()
 </code></pre></div><p>That&rsquo;s a lot more code, 66 lines vs 16, but it is so much more readable and maintainable.</p>
 <p>The output is more explicit too:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>GetDataFile Starting...
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>GetDataFile Starting...
   GetFile the_data.txt...
   File Saved to /tmp/the_data.txt...
   Loading into Database...

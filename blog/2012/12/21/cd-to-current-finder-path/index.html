@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,31 +40,38 @@
 <p class=meta-data>
 <span class=post-date>Dec 21, 2012 8:29 AM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 CD to Current Finder Path
 </h1>
 <div class=post-body>
 <p>To open a <em>new</em> terminal in the current Finder path in OS X, you can use the built-in service (See below on how to enable). But if you are <em>already</em> in a Terminal session, you need to leave the keyboard, mouse to Finder and drag and drop the path back. Here’s a trick that gets you to the frontmost Finder path without leaving the Terminal or keyboard.</p>
 <p>Add the following to your <code>.bash_profile</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#0f0>## Get the frontmost finder path</span>
-fp () {
-	osascript <span style=color:#87ceeb>&lt;&lt; EOT
-</span><span style=color:#87ceeb>
-</span><span style=color:#87ceeb>	tell application &#34;Finder&#34;
-</span><span style=color:#87ceeb>		if (${1-1} &lt;= (count Finder windows)) then
-</span><span style=color:#87ceeb>			get POSIX path of (target of window ${1-1} as alias)
-</span><span style=color:#87ceeb>		else
-</span><span style=color:#87ceeb>			get POSIX path of (desktop as alias)
-</span><span style=color:#87ceeb>		end if
-</span><span style=color:#87ceeb>	end tell
-</span><span style=color:#87ceeb>
-</span><span style=color:#87ceeb>	EOT</span>
-}
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#177500>## Get the frontmost finder path</span>
+fp <span style=color:#000>()</span> <span style=color:#000>{</span>
+	osascript <span style=color:#c41a16>&lt;&lt; EOT
+</span><span style=color:#c41a16>
+</span><span style=color:#c41a16>	tell application &#34;Finder&#34;
+</span><span style=color:#c41a16>		if (${1-1} &lt;= (count Finder windows)) then
+</span><span style=color:#c41a16>			get POSIX path of (target of window ${1-1} as alias)
+</span><span style=color:#c41a16>		else
+</span><span style=color:#c41a16>			get POSIX path of (desktop as alias)
+</span><span style=color:#c41a16>		end if
+</span><span style=color:#c41a16>	end tell
+</span><span style=color:#c41a16>
+</span><span style=color:#c41a16>	EOT</span>
+<span style=color:#000>}</span>
 
-<span style=color:#0f0>## alias to cd to the frontmost finder path</span>
-alias <span style=color:#eedd82>cdf</span>=<span style=color:#87ceeb>&#39;cd &#34;`fp`&#34;&#39;</span>
-<span style=color:#0f0>## alias to copy it to the clipboard</span>
-alias <span style=color:#eedd82>cfp</span>=<span style=color:#87ceeb>&#39;fp | pbcopy&#39;</span>
+<span style=color:#177500>## alias to cd to the frontmost finder path</span>
+<span style=color:#a90d91>alias</span> <span style=color:#000>cdf</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;cd &#34;`fp`&#34;&#39;</span>
+<span style=color:#177500>## alias to copy it to the clipboard</span>
+<span style=color:#a90d91>alias</span> <span style=color:#000>cfp</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;fp | pbcopy&#39;</span>
 </code></pre></div><p>In a <em>new</em> Terminal (or reload the current), you now have the following commands available:</p>
 <ul>
 <li><code>cdf</code> which will <code>cd</code> you to the frontmost finder path</li>

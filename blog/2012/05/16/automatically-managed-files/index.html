@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>May 16, 2012 4:02 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Automatically Managed Files
 </h1>
@@ -54,8 +66,8 @@ Automatically Managed Files
 <figure><img src=images/hazel-empty-working-folder.png width=640 height=230>
 </figure>
 <p>Another use I have for Hazel is to archive my old nvAlt documents. In order for this to work, I had to install <a href=http://code.google.com/p/openmeta/>openmeta</a> to enable tagging and enable super-secret openmeta mode in Hazel</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>defaults write com.noodlesoft.Hazel OMToolPath /usr/local/bin/openmeta
-</code></pre></div><p>Now, when I tag an article in <a href=http://brettterpstra.com/project/nvalt/>nvAlt</a> as <code>archive</code>, Hazel moves it to an archive folder and clears it out of nvAlt.</p>
+<pre tabindex=0><code>defaults write com.noodlesoft.Hazel OMToolPath /usr/local/bin/openmeta
+</code></pre><p>Now, when I tag an article in <a href=http://brettterpstra.com/project/nvalt/>nvAlt</a> as <code>archive</code>, Hazel moves it to an archive folder and clears it out of nvAlt.</p>
 <figure><img src=images/hazel-archive-tag.png width=640 height=205>
 </figure>
 <p>The other folder I leave in a mess is handled by default by Hazel. All trashed files that are there for more than a week are deleted. I apply the same rule to the downloads folder. I also use the App Sweep feature whereby when I delete an application, Hazel looks for and deletes all the matching hidden files as well, such as preferences and local data, keeping my system much cleaner.</p>

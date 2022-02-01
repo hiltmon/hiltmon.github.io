@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,23 @@
 <p class=meta-data>
 <span class=post-date>Mar 20, 2013 4:42 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/development>Development</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/tips-and-tricks>Tips and Tricks</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Mixing Legacy and Modern Web Development on OS X Mountain Lion
 </h1>
@@ -100,17 +122,17 @@ $ curl get.pow.cx | sh
 <p>If you try your <em>modern</em> sites now (in my case, say <code>https://hiltmon.dev</code>), they should still work. Pow still takes over the DNS handling of the <code>.dev</code> domain, but now it redirects all calls to Apache, which then passes them through to the Pow web server. A smidge slower performance, but it works.</p>
 <p>Time to set up the legacy sites. We need to tell Apache to serve these and <em>not</em> pass them through.</p>
 <p>Create a file in <code>/etc/apache2/other</code> called <em>yoursite</em>.conf (where <em>yoursite</em> is the site name). For example, I have a <code>testwordpress</code> site so the file name is <code>testwordpress.conf</code>. Then add the following text to it:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-xml data-lang=xml>&lt;VirtualHost *:80&gt;
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-xml data-lang=xml><span style=color:#000>&lt;VirtualHost</span> <span style=color:#000>*:80</span><span style=color:#000>&gt;</span>
     DocumentRoot /Users/Hiltmon/Projects/Wordpress/code/testwordpress
 	ServerName testwordpress.dev
 
-    &lt;Directory &#34;/Users/Hiltmon/Projects/Wordpress/code/testwordpress&#34;&gt;
+    <span style=color:#000>&lt;Directory</span> <span style=color:#000>&#34;/Users/Hiltmon/Projects/Wordpress/code/testwordpress&#34;</span><span style=color:#000>&gt;</span>
         Options Indexes FollowSymLinks
 	    AllowOverride All
     	Order allow,deny
       	Allow from all
-	&lt;/Directory&gt;
-&lt;/VirtualHost&gt;
+	<span style=color:#000>&lt;/Directory&gt;</span>
+<span style=color:#000>&lt;/VirtualHost&gt;</span>
 </code></pre></div><p>Replace <code>/Users/Hiltmon/Projects/Wordpress/code/testwordpress</code> with the path to the root of your legacy site and make sure that the <code>ServerName</code> matches the <code>.dev</code> domain you would like to use.</p>
 <p>Then start MySQL and restart apache</p>
 <pre><code>$ sudo /usr/local/mysql/support-files/mysql.server start

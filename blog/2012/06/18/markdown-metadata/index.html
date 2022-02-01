@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Jun 18, 2012 1:31 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/markdown>Markdown</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Markdown Metadata
 </h1>
@@ -42,7 +59,7 @@ Markdown Metadata
 <p>As you all know, I write everything in <a href=http://daringfireball.net/projects/markdown/>Markdown</a>, see my <a href=https://hiltmon.com/blog/2012/02/20/the-markdown-mindset/>The Markdown Mindset</a>. It would be nice, though, to also save metadata - information <em>about</em> the document - in the document, to make it searchable, but not to have it appear in the final output.</p>
 <p>Turns out, <a href=https://github.com/fletcher/MultiMarkdown>MultiMarkdown</a> (and other new Markdown processors) do support this. It&rsquo;s easy.</p>
 <p>Simply add the metadata to the top of a markdown file as follows:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Title:       |  
+<pre tabindex=0><code>Title:       |  
 Subtitle:    |  
 Project:     |  
 Author:      Hilton Lipschitz  
@@ -51,14 +68,14 @@ Web:         http://www.noverse.com
 Date:        June 18, 2012  
 
 Your first paragraph starts here
-</code></pre></div><p>The metadata is just a set of key-value pairs, where the key is before the <code>:</code> and the value after. The keys can be anything you want them to be, although Fletcher Penney, creator of MultiMarkdown, has recommended some standard ones <a href=https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide>here</a>. From what I can tell, adding your own makes no difference. So I do.</p>
+</code></pre><p>The metadata is just a set of key-value pairs, where the key is before the <code>:</code> and the value after. The keys can be anything you want them to be, although Fletcher Penney, creator of MultiMarkdown, has recommended some standard ones <a href=https://github.com/fletcher/MultiMarkdown/wiki/MultiMarkdown-Syntax-Guide>here</a>. From what I can tell, adding your own makes no difference. So I do.</p>
 <p>Also:</p>
 <ul>
 <li>It is recommended to end each line of the metadata with two spaces before the newline, so that older Markdown processors do not turn the metadata into a single line.</li>
 <li>The metadata block ends with the first blank line.</li>
 <li>You can have more than one value for a key on a new line, e.g. in my Call Note metadata header:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>Called:         Donald  
+<pre tabindex=0><code>Called:         Donald  
 In Conference:  Huey
                 Duey
                 Louis  
@@ -69,7 +86,7 @@ Web:            http://www.noverse.com
 Date:           June 11, 2012 16:48
 
 Call notes start here
-</code></pre></div><p>A search for <code>called donald huey</code> will find this document easily, even if Huey was quiet for the whole call and does not appear in the notes. Yet if I format this document for HTML or PDF using <a href=http://markedapp.com>Marked</a>, the metadata disappears. Just the way I want it.</p>
+</code></pre><p>A search for <code>called donald huey</code> will find this document easily, even if Huey was quiet for the whole call and does not appear in the notes. Yet if I format this document for HTML or PDF using <a href=http://markedapp.com>Marked</a>, the metadata disappears. Just the way I want it.</p>
 <figure><img src=images/marked-no-metadata.png width=579 height=276>
 </figure>
 <p>I use this so much, I have <a href=http://smilesoftware.com/TextExpander/>TextExpander</a> snippets that generate metadata block, fill in the dates for me, and place the cursor at the title line. Just <strong>New Document</strong>, type <code>;mmt</code> (for MultiMarkdown Title) or <code>;mmc</code> (for MultiMarkdown Call) and I have a new markdown document with the metadata block all set up and ready to go.</p>

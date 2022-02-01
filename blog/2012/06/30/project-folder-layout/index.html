@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Jun 30, 2012 12:32 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Project Folder Layout
 </h1>
@@ -77,44 +89,44 @@ Project Folder Layout
 <p><em>Note: I store all my personal scripts and utilities in <code>~/Scripts</code> and I&rsquo;m lazy in that I generally hardcode this path.</em></p>
 <p><a href=http://cl.ly/2b0N1H27433P0T1Y1u3C>Download a ZIP file with the script and blank VoodooPad document</a>.</p>
 <p>The <code>new_project.sh</code> script creates the folder tree and and VoodooPad document for a new project. The script uses the first parameter as the project name, e.g.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>$ ~/Scripts/new_project NewProjectName
-</code></pre></div><p><em>Note that I always use single-word project names</em> because I hate spaces in paths, and because I am graybeard enough to remember tools that used to fail when there were spaces in paths. The script will <em>not</em> work for projects names with spaces in them.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#e5e5e5>#! /bin/bash
-</span><span style=color:#e5e5e5></span>
-<span style=color:#0f0># new_project.sh</span>
-<span style=color:#0f0># Hilton Lipschitz (https://hiltmon.com)</span>
-<span style=color:#0f0># Use and modify freely, attribution appreciated</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># Script to create a new project tree with all the folders I need.</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># Requirements:</span>
-<span style=color:#0f0># - Set the PROJECT_ROOT to your projects folder</span>
-<span style=color:#0f0># - Set the BLANK_VPDOC_PATH to your blank VoodooPad file</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># Usage: new_project.sh &lt;ProjectName&gt;</span>
+<pre tabindex=0><code>$ ~/Scripts/new_project NewProjectName
+</code></pre><p><em>Note that I always use single-word project names</em> because I hate spaces in paths, and because I am graybeard enough to remember tools that used to fail when there were spaces in paths. The script will <em>not</em> work for projects names with spaces in them.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#633820>#! /bin/bash
+</span><span style=color:#633820></span>
+<span style=color:#177500># new_project.sh</span>
+<span style=color:#177500># Hilton Lipschitz (https://hiltmon.com)</span>
+<span style=color:#177500># Use and modify freely, attribution appreciated</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># Script to create a new project tree with all the folders I need.</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># Requirements:</span>
+<span style=color:#177500># - Set the PROJECT_ROOT to your projects folder</span>
+<span style=color:#177500># - Set the BLANK_VPDOC_PATH to your blank VoodooPad file</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># Usage: new_project.sh &lt;ProjectName&gt;</span>
 
-<span style=color:#0f0># Set these first</span>
-<span style=color:#eedd82>PROJECT_ROOT</span>=<span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$HOME</span><span style=color:#87ceeb>/Projects&#34;</span>
-<span style=color:#eedd82>BLANK_VPDOC_PATH</span>=<span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$HOME</span><span style=color:#87ceeb>/Scripts/BlankProject.vpdoc&#34;</span>
+<span style=color:#177500># Set these first</span>
+<span style=color:#000>PROJECT_ROOT</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;</span><span style=color:#000>$HOME</span><span style=color:#c41a16>/Projects&#34;</span>
+<span style=color:#000>BLANK_VPDOC_PATH</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;</span><span style=color:#000>$HOME</span><span style=color:#c41a16>/Scripts/BlankProject.vpdoc&#34;</span>
 
-<span style=color:#eedd82>PROJECT_NAME</span>=<span style=color:#eedd82>$1</span>
-<span style=color:#eedd82>PROJECT_PATH</span>=<span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$PROJECT_ROOT</span><span style=color:#87ceeb>/</span><span style=color:#eedd82>$PROJECT_NAME</span><span style=color:#87ceeb>&#34;</span>
+<span style=color:#000>PROJECT_NAME</span><span style=color:#000>=</span><span style=color:#000>$1</span>
+<span style=color:#000>PROJECT_PATH</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;</span><span style=color:#000>$PROJECT_ROOT</span><span style=color:#c41a16>/</span><span style=color:#000>$PROJECT_NAME</span><span style=color:#c41a16>&#34;</span>
 
-echo <span style=color:#87ceeb>&#34;Creating </span><span style=color:#eedd82>$PROJECT_PATH</span><span style=color:#87ceeb>...&#34;</span>
+<span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;Creating </span><span style=color:#000>$PROJECT_PATH</span><span style=color:#c41a16>...&#34;</span>
 
-<span style=color:red>if</span> [ -e <span style=color:#eedd82>$PROJECT_PATH</span> ]; <span style=color:red>then</span>
-    echo <span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$PROJECT_NAME</span><span style=color:#87ceeb> already exists!&#34;</span>
-    exit
-<span style=color:red>fi</span>
+<span style=color:#a90d91>if</span> <span style=color:#000>[</span> -e <span style=color:#000>$PROJECT_PATH</span> <span style=color:#000>]</span>; <span style=color:#a90d91>then</span>
+    <span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;</span><span style=color:#000>$PROJECT_NAME</span><span style=color:#c41a16> already exists!&#34;</span>
+    <span style=color:#a90d91>exit</span>
+<span style=color:#a90d91>fi</span>
 
-mkdir <span style=color:#eedd82>$PROJECT_PATH</span>
-<span style=color:red>for</span> folder in <span style=color:#87ceeb>&#39;archive&#39;</span> <span style=color:#87ceeb>&#39;artwork&#39;</span> <span style=color:#87ceeb>&#39;code&#39;</span> <span style=color:#87ceeb>&#39;data&#39;</span> <span style=color:#87ceeb>&#39;design&#39;</span> <span style=color:#87ceeb>&#39;documents&#39;</span> <span style=color:#87ceeb>&#39;management&#39;</span> <span style=color:#87ceeb>&#39;notes&#39;</span> <span style=color:#87ceeb>&#39;media&#39;</span> <span style=color:#87ceeb>&#39;marketing&#39;</span> <span style=color:#87ceeb>&#39;support&#39;</span> <span style=color:#87ceeb>&#39;partners&#39;</span> <span style=color:#87ceeb>&#39;tools&#39;</span>; <span style=color:red>do</span>
-    mkdir <span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$PROJECT_PATH</span><span style=color:#87ceeb>/</span><span style=color:#eedd82>$folder</span><span style=color:#87ceeb>&#34;</span>
-<span style=color:red>done</span>
+mkdir <span style=color:#000>$PROJECT_PATH</span>
+<span style=color:#a90d91>for</span> folder in <span style=color:#c41a16>&#39;archive&#39;</span> <span style=color:#c41a16>&#39;artwork&#39;</span> <span style=color:#c41a16>&#39;code&#39;</span> <span style=color:#c41a16>&#39;data&#39;</span> <span style=color:#c41a16>&#39;design&#39;</span> <span style=color:#c41a16>&#39;documents&#39;</span> <span style=color:#c41a16>&#39;management&#39;</span> <span style=color:#c41a16>&#39;notes&#39;</span> <span style=color:#c41a16>&#39;media&#39;</span> <span style=color:#c41a16>&#39;marketing&#39;</span> <span style=color:#c41a16>&#39;support&#39;</span> <span style=color:#c41a16>&#39;partners&#39;</span> <span style=color:#c41a16>&#39;tools&#39;</span>; <span style=color:#a90d91>do</span>
+    mkdir <span style=color:#c41a16>&#34;</span><span style=color:#000>$PROJECT_PATH</span><span style=color:#c41a16>/</span><span style=color:#000>$folder</span><span style=color:#c41a16>&#34;</span>
+<span style=color:#a90d91>done</span>
 
-cp -R <span style=color:#eedd82>$BLANK_VPDOC_PATH</span> <span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$PROJECT_PATH</span><span style=color:#87ceeb>/</span><span style=color:#eedd82>$PROJECT_NAME</span><span style=color:#87ceeb>.vpdoc&#34;</span>
+cp -R <span style=color:#000>$BLANK_VPDOC_PATH</span> <span style=color:#c41a16>&#34;</span><span style=color:#000>$PROJECT_PATH</span><span style=color:#c41a16>/</span><span style=color:#000>$PROJECT_NAME</span><span style=color:#c41a16>.vpdoc&#34;</span>
 
-echo <span style=color:#87ceeb>&#34;Tree for </span><span style=color:#eedd82>$PROJECT_NAME</span><span style=color:#87ceeb> created at </span><span style=color:#eedd82>$PROJECT_PATH</span><span style=color:#87ceeb>&#34;</span>
+<span style=color:#a90d91>echo</span> <span style=color:#c41a16>&#34;Tree for </span><span style=color:#000>$PROJECT_NAME</span><span style=color:#c41a16> created at </span><span style=color:#000>$PROJECT_PATH</span><span style=color:#c41a16>&#34;</span>
 
 </code></pre></div><h2 id=the-result>The result</h2>
 <p>So, right now I have 9 active projects in my <strong>Projects</strong> folder. All of them are using this folder structure. It&rsquo;s new, and it seems to be working well.</p>

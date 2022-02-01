@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,8 @@
 <p class=meta-data>
 <span class=post-date>Mar 5, 2016 5:20 PM</span>
 </p>
+<div class=tag-group>
+</div>
 <h1 class=post-title>
 Minimal Project Management
 </h1>
@@ -72,10 +79,10 @@ Minimal Project Management
 <h2 id=the-statement-of-work>The Statement of Work</h2>
 <p>A Statement of Work (SOW) is a <em>short</em> document that defines the objective, tasks and deliverables of a task or project. It can optionally contain assumptions and dependencies, and it may have details added later (designs, appendices, sample data, notes). But in essence, it&rsquo;s a document that defines <strong>what</strong> needs to be done and how we know when it has been done.</p>
 <p>My Statement of Work template is a simple <a href=https://hiltmon.com/blog/categories/markdown/>Markdown</a> text document as follows:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-Markdown data-lang=Markdown>    Kind: Statement of Work
-    Title: &lt;Task or Project Name&gt;
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-Markdown data-lang=Markdown>    Kind: Statement of Work
+    Title: &lt;<span style=color:#000>Task</span> <span style=color:#836c28>or</span> <span style=color:#836c28>Project</span> <span style=color:#836c28>Name</span>&gt;
     Author: Hilton Lipschitz
-    Affiliation: &lt;Company Name&gt;
+    Affiliation: &lt;<span style=color:#000>Company</span> <span style=color:#836c28>Name</span>&gt;
     Date: 2016-03-04
     Version: 0.1
     
@@ -83,24 +90,24 @@ Minimal Project Management
     
     ## Overview
     
-    &lt;What is the objective/goal is of this work&gt;
+    &lt;<span style=color:#000>What</span> <span style=color:#836c28>is</span> <span style=color:#836c28>the</span> <span style=color:#836c28>objective</span><span style=color:#000>/</span><span style=color:#836c28>goal</span> <span style=color:#836c28>is</span> <span style=color:#836c28>of</span> <span style=color:#836c28>this</span> <span style=color:#836c28>work</span>&gt;
         
     ## Tasks
     
-    &lt;A list of the tasks to be performed — very high level, clearly written&gt;
+    &lt;<span style=color:#000>A</span> <span style=color:#836c28>list</span> <span style=color:#836c28>of</span> <span style=color:#836c28>the</span> <span style=color:#836c28>tasks</span> <span style=color:#836c28>to</span> <span style=color:#836c28>be</span> <span style=color:#836c28>performed</span> <span style=color:#000>—</span> <span style=color:#836c28>very</span> <span style=color:#836c28>high</span> <span style=color:#836c28>level</span><span style=color:#000>,</span> <span style=color:#836c28>clearly</span> <span style=color:#836c28>written</span>&gt;
     
     ## Deliverables
     
-    &lt;The deliverables of the project, so we know when it is complete&gt;
+    &lt;<span style=color:#000>The</span> <span style=color:#836c28>deliverables</span> <span style=color:#836c28>of</span> <span style=color:#836c28>the</span> <span style=color:#836c28>project</span><span style=color:#000>,</span> <span style=color:#836c28>so</span> <span style=color:#836c28>we</span> <span style=color:#836c28>know</span> <span style=color:#836c28>when</span> <span style=color:#836c28>it</span> <span style=color:#836c28>is</span> <span style=color:#836c28>complete</span>&gt;
 </code></pre></div><p>Optional additional sections are</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>    ## Dependencies
+<pre tabindex=0><code>    ## Dependencies
     
     &lt;SOWs that need to be done first for this to be viable&gt;
     
     ## Assumptions
     
     &lt;Any assumption made in why this work needs to be done&gt;
-</code></pre></div><p>That’s all there is to it.</p>
+</code></pre><p>That’s all there is to it.</p>
 <p>A good Statement of Work is less than one (1) page long, complex ones get to a massive 2 pages, never more. It limits the scope of work and defines the tasks to be performed and deliverables to create. It does not detail each task, merely adds them as simple checklist items to be sure they get completed along the way. It does not say <strong>how</strong>, <strong>when</strong> or <strong>who</strong> will do the work. The <strong>how</strong> is up to the developer, the <strong>when</strong> and <strong>who</strong> is up to me, the Project Manager.</p>
 <p>Most importantly, <strong>the person tasked to do the work writes the Statement of Work</strong>, not the Project Manager, not the user, not some Business Analyst.</p>
 <p>There are many reasons for this:</p>

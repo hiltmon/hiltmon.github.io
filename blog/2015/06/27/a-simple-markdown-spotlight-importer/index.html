@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Jun 27, 2015 2:33 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/markdown>Markdown</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 A simple Markdown Spotlight importer
 </h1>
@@ -44,7 +56,7 @@ A simple Markdown Spotlight importer
 <p>This did. <em>Huge thanks to Gereon Sommer for the idea in <a href=https://gist.github.com/gereon/3150445>Mac OS X Spotlight Enhancement</a>.</em></p>
 <p>The idea is to use a built-in importer, in this case RichText, to do all the work for you. <span class=light>Note that this will probably need to be repeated on each Operating System install or upgrade.</span></p>
 <p>Edit <code>/System/Library/Spotlight/RichText.mdimporter/Contents/Info.plist</code> and add <code>&lt;string>net.daringfireball.markdown&lt;/string></code> under <code>LSItemContentTypes</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>...
+<pre tabindex=0><code>...
 	&lt;key&gt;LSItemContentTypes&lt;/key&gt;
 	&lt;array&gt;
 			&lt;string&gt;public.rtf&lt;/string&gt;
@@ -59,12 +71,12 @@ A simple Markdown Spotlight importer
 		&lt;string&gt;net.daringfireball.markdown&lt;/string&gt;
 	&lt;/array&gt;
 ...		
-</code></pre></div><p><span class=light>You will need an admin password to save the changes.</span></p>
+</code></pre><p><span class=light>You will need an admin password to save the changes.</span></p>
 <p>Restart the Rich Text importer</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>mdimport -r /System/Library/Spotlight/RichText.mdimporter
-</code></pre></div><p>And force a Spotlight re-index</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>	sudo mdutil -E /
-</code></pre></div><p>To test this I created a new Markdown file in <a href=http://www.barebones.com/products/bbedit/>BBEdit</a> and added the word <code>wagga</code> to it. After a few minutes of re-indexing, Spotlight found this file in a <code>wagga</code> search.</p>
+<pre tabindex=0><code>mdimport -r /System/Library/Spotlight/RichText.mdimporter
+</code></pre><p>And force a Spotlight re-index</p>
+<pre tabindex=0><code>	sudo mdutil -E /
+</code></pre><p>To test this I created a new Markdown file in <a href=http://www.barebones.com/products/bbedit/>BBEdit</a> and added the word <code>wagga</code> to it. After a few minutes of re-indexing, Spotlight found this file in a <code>wagga</code> search.</p>
 <p>Good to go.</p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
 </div>

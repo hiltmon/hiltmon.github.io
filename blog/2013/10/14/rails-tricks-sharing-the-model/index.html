@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Oct 14, 2013 1:58 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/ruby-on-rails>Ruby on Rails</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Rails Tricks - Sharing the Model
 </h1>
@@ -57,24 +69,24 @@ cd Reporting
 </code></pre>
 <p><strong>Do not create any models or migrations in this project, you do them all in <em>Master</em>.</strong></p>
 <p>To copy the models, create a new <code>rake</code> task in a new file in <em>Reporting</em> called <code>lib/tasks/sync.rake</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>namespace <span style=color:#f60>:sync</span> <span style=color:red>do</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>namespace</span> <span style=color:#c41a16>:sync</span> <span style=color:#a90d91>do</span>
   
-  desc <span style=color:#87ceeb>&#39;Copy common models and tests from Master&#39;</span>
-  task <span style=color:#f60>:copy</span> <span style=color:red>do</span>
-    source_path = <span style=color:#87ceeb>&#39;/Users/Hiltmon/Projects/Master&#39;</span>
-    dest_path = <span style=color:#87ceeb>&#39;/Users/Hiltmon/Projects/Reporting&#39;</span>
+  <span style=color:#000>desc</span> <span style=color:#c41a16>&#39;Copy common models and tests from Master&#39;</span>
+  <span style=color:#000>task</span> <span style=color:#c41a16>:copy</span> <span style=color:#a90d91>do</span>
+    <span style=color:#000>source_path</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;/Users/Hiltmon/Projects/Master&#39;</span>
+    <span style=color:#000>dest_path</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;/Users/Hiltmon/Projects/Reporting&#39;</span>
         
-    <span style=color:#0f0># Copy all models &amp; tests</span>
-    <span style=color:#87ceeb>%x{cp </span><span style=color:#87ceeb>#{</span>source_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/app/models/*.rb </span><span style=color:#87ceeb>#{</span>dest_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/app/models/}</span>
-    <span style=color:#87ceeb>%x{cp </span><span style=color:#87ceeb>#{</span>source_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/test/models/*_test.rb </span><span style=color:#87ceeb>#{</span>dest_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/test/models/}</span>
+    <span style=color:#177500># Copy all models &amp; tests</span>
+    <span style=color:#c41a16>%x{cp </span><span style=color:#c41a16>#{</span><span style=color:#000>source_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/app/models/*.rb </span><span style=color:#c41a16>#{</span><span style=color:#000>dest_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/app/models/}</span>
+    <span style=color:#c41a16>%x{cp </span><span style=color:#c41a16>#{</span><span style=color:#000>source_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/test/models/*_test.rb </span><span style=color:#c41a16>#{</span><span style=color:#000>dest_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/test/models/}</span>
 
-    <span style=color:#0f0># Fixtures</span>
-    <span style=color:#87ceeb>%x{cp </span><span style=color:#87ceeb>#{</span>source_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/test/fixtures/*.yml </span><span style=color:#87ceeb>#{</span>dest_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/test/fixtures/}</span>
+    <span style=color:#177500># Fixtures</span>
+    <span style=color:#c41a16>%x{cp </span><span style=color:#c41a16>#{</span><span style=color:#000>source_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/test/fixtures/*.yml </span><span style=color:#c41a16>#{</span><span style=color:#000>dest_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/test/fixtures/}</span>
     
-    <span style=color:#0f0># Database YML</span>
-    <span style=color:#87ceeb>%x{cp </span><span style=color:#87ceeb>#{</span>source_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/config/database.yml </span><span style=color:#87ceeb>#{</span>dest_path<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/config/database.yml}</span>
-  <span style=color:red>end</span>
-<span style=color:red>end</span>
+    <span style=color:#177500># Database YML</span>
+    <span style=color:#c41a16>%x{cp </span><span style=color:#c41a16>#{</span><span style=color:#000>source_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/config/database.yml </span><span style=color:#c41a16>#{</span><span style=color:#000>dest_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/config/database.yml}</span>
+  <span style=color:#a90d91>end</span>
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>Change the <code>source_path</code> to point to the root of the <em>Master</em> project and the <code>dest_path</code> to point to the root of the <em>Reporting</em> project. The run it:</p>
 <pre><code>rake sync:copy
 </code></pre>

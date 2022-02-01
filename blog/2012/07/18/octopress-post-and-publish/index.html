@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Jul 18, 2012 6:01 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/octopress>Octopress</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Octopress Post and Publish
 </h1>
@@ -46,18 +63,18 @@ Octopress Post and Publish
 <h3 id=the-old-standard-way>The old, standard way</h3>
 <p>To create a post in Octopress, isolate it and preview it in the browser, you need to run the following steps:</p>
 <p>Create the Post:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ rake new_post[<span style=color:#87ceeb>&#34;Octopress Post and Publish&#34;</span>]
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ rake new_post<span style=color:#000>[</span><span style=color:#c41a16>&#34;Octopress Post and Publish&#34;</span><span style=color:#000>]</span>
 </code></pre></div><p>Isolate the post using the generated file name:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>rake isolate[<span style=color:#87ceeb>&#34;octopress-post-and-publish&#34;</span>]
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>rake isolate<span style=color:#000>[</span><span style=color:#c41a16>&#34;octopress-post-and-publish&#34;</span><span style=color:#000>]</span>
 </code></pre></div><p>And generate and start the preview thread:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>rake generate
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>rake generate
 rake preview
 </code></pre></div><p>Note that I have already hacked the <code>new_post</code> function in my Rakefile to also log this to <a href=http://dayoneapp.com>Day One</a> and launch <a href=http://bywordapp.com>Byword</a>, see my post on <a href=https://hiltmon.com/blog/2012/01/23/bread-crumbs-in-day-one/>Bread Crumbs in Day One</a>, so those steps are not shown.</p>
 <h3 id=the-new-way>The new way</h3>
 <p>For this post, I typed in:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ post Octopress Post and Publish
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ post Octopress Post and Publish
 </code></pre></div><p>Note that there is no punctuation after the <code>post</code> command, less for me to type. The script concatenates all parameters into a single title string. The result of the command shows that it does all the steps I did manually, including figuring out the file name, and leaving me in a preview thread:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>:: rake new_post[&#34;Octopress Post and Publish&#34;]
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>:: rake new_post[&#34;Octopress Post and Publish&#34;]
 mkdir -p source/_posts
 :: rake isolate[&#34;octopress-post-and-publish&#34;]
 :: rake generate
@@ -69,65 +86,65 @@ mkdir -p source/_posts
 <h2 id=publish>Publish</h2>
 <h3 id=the-old-standard-way-1>The old, standard way</h3>
 <p>I would use <code>^C</code> to stop the preview thread, then:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ rake integrate
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ rake integrate
 $ rake gen_deploy
 </code></pre></div><h3 id=the-new-way-1>The new way</h3>
 <p>Now I just use <code>^C</code> to stop the preview thread, and:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ publish
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ publish
 </code></pre></div><p> </p>
 <h2 id=the-macros-and-scripts>The macros and scripts</h2>
 <p>I created the following ruby script to handle the post function. If you want the &ldquo;Open in Byword&rdquo; function, uncomment Line 29: <code>open "#{path}" -a Byword</code> (Untested)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0>#! /usr/bin/ruby</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#! /usr/bin/ruby</span>
 
-<span style=color:#0f0># post.rb</span>
-<span style=color:#0f0># Hilton Lipschitz (https://hiltmon.com) @hiltmon</span>
-<span style=color:#0f0># Use and modify freely, attribution appreciated</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># Create a new Octopress post, isolate it, generate the</span>
-<span style=color:#0f0># site and leave me with a preview thread running.</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># MUST BE RUN in the Octopress root folder</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># Usage</span>
-<span style=color:#0f0># $ new This is a post</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># NOTE: Do not wrap the parameters in quotes</span>
+<span style=color:#177500># post.rb</span>
+<span style=color:#177500># Hilton Lipschitz (https://hiltmon.com) @hiltmon</span>
+<span style=color:#177500># Use and modify freely, attribution appreciated</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># Create a new Octopress post, isolate it, generate the</span>
+<span style=color:#177500># site and leave me with a preview thread running.</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># MUST BE RUN in the Octopress root folder</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># Usage</span>
+<span style=color:#177500># $ new This is a post</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># NOTE: Do not wrap the parameters in quotes</span>
 
-<span style=color:#0f0># Make the title</span>
-post_title = <span style=color:#7fffd4>ARGV</span>.join(<span style=color:#87ceeb>&#39; &#39;</span>)
+<span style=color:#177500># Make the title</span>
+<span style=color:#000>post_title</span> <span style=color:#000>=</span> <span style=color:#000>ARGV</span><span style=color:#000>.</span><span style=color:#000>join</span>(<span style=color:#c41a16>&#39; &#39;</span>)
 
-<span style=color:#0f0># Create the post</span>
-puts <span style=color:#87ceeb>&#34;:: rake new_post[</span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>#{</span>post_title<span style=color:#87ceeb>}</span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>]&#34;</span>
-process = <span style=color:#87ceeb>`rake new_post[&#34;</span><span style=color:#87ceeb>#{</span>post_title<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;]`</span>
+<span style=color:#177500># Create the post</span>
+<span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake new_post[</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>post_title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>]&#34;</span>
+<span style=color:#000>process</span> <span style=color:#000>=</span> <span style=color:#c41a16>`rake new_post[&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>post_title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;]`</span>
 
-<span style=color:#0f0># Parse out the generated filename</span>
-file_key = <span style=color:red>nil</span>
-process.split(<span style=color:#87ceeb>&#39;\r&#39;</span>).each <span style=color:red>do</span> |line|
-  <span style=color:red>next</span> <span style=color:red>unless</span> line =~ <span style=color:#87ceeb>/Creating new post:/</span>
-  path = line.split(<span style=color:#87ceeb>&#39;: &#39;</span>)[<span style=color:#f60>1</span>]
-  <span style=color:#0f0># `open &#34;#{path}&#34; -a Byword`</span>
-  file_basename = path.sub(<span style=color:#87ceeb>&#39;source/_posts/&#39;</span>, <span style=color:#87ceeb>&#39;&#39;</span>).sub(<span style=color:#87ceeb>&#39;.markdown&#39;</span>, <span style=color:#87ceeb>&#39;&#39;</span>)
-  file_key = file_basename[<span style=color:#f60>11</span>..(file_basename.length)].chomp
-<span style=color:red>end</span>
+<span style=color:#177500># Parse out the generated filename</span>
+<span style=color:#000>file_key</span> <span style=color:#000>=</span> <span style=color:#a90d91>nil</span>
+<span style=color:#000>process</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;\r&#39;</span>)<span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>line</span><span style=color:#000>|</span>
+  <span style=color:#a90d91>next</span> <span style=color:#a90d91>unless</span> <span style=color:#000>line</span> <span style=color:#000>=~</span> <span style=color:#c41a16>/Creating new post:/</span>
+  <span style=color:#000>path</span> <span style=color:#000>=</span> <span style=color:#000>line</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;: &#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span>
+  <span style=color:#177500># `open &#34;#{path}&#34; -a Byword`</span>
+  <span style=color:#000>file_basename</span> <span style=color:#000>=</span> <span style=color:#000>path</span><span style=color:#000>.</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#39;source/_posts/&#39;</span>, <span style=color:#c41a16>&#39;&#39;</span>)<span style=color:#000>.</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#39;.markdown&#39;</span>, <span style=color:#c41a16>&#39;&#39;</span>)
+  <span style=color:#000>file_key</span> <span style=color:#000>=</span> <span style=color:#000>file_basename</span><span style=color:#000>[</span><span style=color:#1c01ce>11</span><span style=color:#000>..</span>(<span style=color:#000>file_basename</span><span style=color:#000>.</span><span style=color:#000>length</span>)<span style=color:#000>].</span><span style=color:#000>chomp</span>
+<span style=color:#a90d91>end</span>
 
-<span style=color:#0f0># Isolate, generate and preview</span>
-<span style=color:red>unless</span> file_key.nil?
-  puts <span style=color:#87ceeb>&#34;:: rake isolate[</span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>#{</span>file_key<span style=color:#87ceeb>}</span><span style=color:#87ceeb>\&#34;</span><span style=color:#87ceeb>]&#34;</span>
-  <span style=color:#87ceeb>`rake isolate[&#34;</span><span style=color:#87ceeb>#{</span>file_key<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;]`</span>
-  puts <span style=color:#87ceeb>&#34;:: rake generate&#34;</span>
-  <span style=color:#87ceeb>`rake generate`</span>
-  puts <span style=color:#87ceeb>&#34;:: rake preview&#34;</span>
-  <span style=color:#87ceeb>`rake preview`</span>
-<span style=color:red>end</span>
+<span style=color:#177500># Isolate, generate and preview</span>
+<span style=color:#a90d91>unless</span> <span style=color:#000>file_key</span><span style=color:#000>.</span><span style=color:#000>nil?</span>
+  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake isolate[</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>file_key</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>]&#34;</span>
+  <span style=color:#c41a16>`rake isolate[&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>file_key</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;]`</span>
+  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake generate&#34;</span>
+  <span style=color:#c41a16>`rake generate`</span>
+  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake preview&#34;</span>
+  <span style=color:#c41a16>`rake preview`</span>
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>I then added the following two macros to my <code>.bash_profile</code> (OS X users only). Note that I keep all my custom scripts in <code>~/Scripts/</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:red>function</span> post {
-  ~/Scripts/post.rb <span style=color:#eedd82>$*</span>
-}
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#a90d91>function</span> post <span style=color:#000>{</span>
+  ~/Scripts/post.rb <span style=color:#000>$*</span>
+<span style=color:#000>}</span>
 
-<span style=color:red>function</span> publish {
+<span style=color:#a90d91>function</span> publish <span style=color:#000>{</span>
   rake integrate
   rake gen_deploy
-}
+<span style=color:#000>}</span>
 </code></pre></div><p>These work for all my Octopress sites. It allows me to get to the post faster, preview that it looks right and publish the site with ease.</p>
 </div>
 <p class=post-mark>

@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Feb 9, 2019 1:55 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/c++>C++</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Testing C++17 Projects in Xcode with XCTest
 </h1>
@@ -45,10 +57,10 @@ Testing C++17 Projects in Xcode with XCTest
 <h2 id=setting-up-the-library>Setting Up the Library</h2>
 <h3 id=create-the-project>Create the Project</h3>
 <p>I am going to start with my standard, designed for cross platform, C++17 library project. In a terminal, lets create the folders needed:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash>cd Projects
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=color:#a90d91>cd</span> Projects
 mkdir HiltmonLibrary
-cd HiltmonLibrary/
-mkdir -p doc include/hmlib src test
+<span style=color:#a90d91>cd</span> HiltmonLibrary/
+mkdir -p doc include/hmlib src <span style=color:#a90d91>test</span>
 touch README.md
 git init
 </code></pre></div><p><span class=light>NOTE: <code>hmlib</code> above is the namespace I will be using for the standard library project.</span></p>
@@ -122,57 +134,57 @@ Create the C++ File, in this case <code>string_utilities</code>, make sure creat
 </figure>
 <p>Ok, lets create some code to test, say a function that converts a string to lowercase.</p>
 <p>In <code>string_utilities.hpp</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===------------------------------------------------------------*- C++ -*-===//
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  string_utilities.hpp
-</span><span style=color:#0f0>//  HiltmonLibrary
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
-</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
-</span><span style=color:#0f0></span>
-<span style=color:#e5e5e5>#ifndef hmlib_string_utilities_hpp
-</span><span style=color:#e5e5e5>#define hmlib_string_utilities_hpp
-</span><span style=color:#e5e5e5></span>
-<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;algorithm&gt;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;string&gt;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-<span style=color:red>namespace</span> hmlib::utilities {
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#177500>//===------------------------------------------------------------*- C++ -*-===//
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  string_utilities.hpp
+</span><span style=color:#177500>//  HiltmonLibrary
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#177500>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//===----------------------------------------------------------------------===//
+</span><span style=color:#177500></span>
+<span style=color:#633820>#ifndef hmlib_string_utilities_hpp
+</span><span style=color:#633820>#define hmlib_string_utilities_hpp
+</span><span style=color:#633820></span>
+<span style=color:#633820>#include</span> <span style=color:#633820>&lt;algorithm&gt;</span><span style=color:#633820>
+</span><span style=color:#633820>#include</span> <span style=color:#633820>&lt;string&gt;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#a90d91>namespace</span> <span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span> {
 
-  <span style=color:#0f0>/// @brief Copy a string to a lower case string
-</span><span style=color:#0f0></span>  <span style=color:#0f0>/// NOTE: The copy is intentional
-</span><span style=color:#0f0></span>  std::string toLower(
-    <span style=color:red>const</span> std::string&amp; sourceString
+  <span style=color:#177500>/// @brief Copy a string to a lower case string
+</span><span style=color:#177500></span>  <span style=color:#177500>/// NOTE: The copy is intentional
+</span><span style=color:#177500></span>  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>toLower</span>(
+    <span style=color:#a90d91>const</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span><span style=color:#000>&amp;</span> <span style=color:#000>sourceString</span>
   );
 
-} <span style=color:#0f0>// Namespace hmlib::utilities
-</span><span style=color:#0f0></span>
-<span style=color:#e5e5e5>#endif </span><span style=color:#0f0>// hmlib_string_utilities_hpp
+} <span style=color:#177500>// Namespace hmlib::utilities
+</span><span style=color:#177500></span>
+<span style=color:#633820>#endif </span><span style=color:#177500>// hmlib_string_utilities_hpp
 </span></code></pre></div><p>In <code>string_utilities.cpp</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===------------------------------------------------------------*- C++ -*-===//
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  string_utilities.cpp
-</span><span style=color:#0f0>//  HiltmonLibrary
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
-</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
-</span><span style=color:#0f0></span>
-<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;string_utilities.hpp&#34;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-<span style=color:red>namespace</span> hmlib::utilities {
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#177500>//===------------------------------------------------------------*- C++ -*-===//
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  string_utilities.cpp
+</span><span style=color:#177500>//  HiltmonLibrary
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#177500>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//===----------------------------------------------------------------------===//
+</span><span style=color:#177500></span>
+<span style=color:#633820>#include</span> <span style=color:#633820>&#34;string_utilities.hpp&#34;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#a90d91>namespace</span> <span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span> {
 
-  std::string toLower(<span style=color:red>const</span> std::string&amp; sourceString)
+  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>toLower</span>(<span style=color:#a90d91>const</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span><span style=color:#000>&amp;</span> <span style=color:#000>sourceString</span>)
   {
-    std::string destString = sourceString; <span style=color:#0f0>// Copy Mutable
-</span><span style=color:#0f0></span>    std::transform(destString.begin(), destString.end(),
-      destString.begin(), ::tolower);
-    <span style=color:red>return</span> destString;
+    <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>destString</span> <span style=color:#000>=</span> <span style=color:#000>sourceString</span>; <span style=color:#177500>// Copy Mutable
+</span><span style=color:#177500></span>    <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>transform</span>(<span style=color:#000>destString</span>.<span style=color:#000>begin</span>(), <span style=color:#000>destString</span>.<span style=color:#000>end</span>(),
+      <span style=color:#000>destString</span>.<span style=color:#000>begin</span>(), <span style=color:#000>::</span><span style=color:#000>tolower</span>);
+    <span style=color:#a90d91>return</span> <span style=color:#000>destString</span>;
   }
 
-} <span style=color:#0f0>// Namespace hmlib::utilities
+} <span style=color:#177500>// Namespace hmlib::utilities
 </span></code></pre></div><p>Compile with <code>CMD-B</code> and the library should compile OK. If you expand the <code>Products</code> folder, you should see the compiled library. <em>Note that a bug in Xcode 10 means that you may need to restart Xcode for it to stop showing as red.</em></p>
 <h2 id=setting-up-the-tests>Setting Up the Tests</h2>
 <p>Great, we have an awesome library, how do we go about testing it?</p>
@@ -257,47 +269,47 @@ Create the C++ File, in this case <code>string_utilities</code>, make sure creat
 <ul>
 <li>Include the header of the class being tested</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;string_utilities.hpp&#34;</span><span style=color:#e5e5e5>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#include</span> <span style=color:#633820>&#34;string_utilities.hpp&#34;</span><span style=color:#633820>
 </span></code></pre></div><ul>
 <li>Remove the current functions and add the test function</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>- (<span style=color:violet>void</span>)testCaseChanges {
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#000>-</span> (<span style=color:#a90d91>void</span>)<span style=color:#000>testCaseChanges</span> {
 
 }
 </code></pre></div><p><strong>FOR XCTEST TO WORK, THE FUNCTION MUST START WITH <code>test.</code></strong></p>
 <ul>
 <li>Add the test code:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  std::string upper1 = <span style=color:#87ceeb>&#34;HILTMON.COM&#34;</span>;
-  XCTAssert(hmlib::utilities::toLower(upper1) == <span style=color:#87ceeb>&#34;hiltmon.com&#34;</span>);
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>upper1</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;HILTMON.COM&#34;</span>;
+  <span style=color:#000>XCTAssert</span>(<span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span><span style=color:#000>::</span><span style=color:#000>toLower</span>(<span style=color:#000>upper1</span>) <span style=color:#000>==</span> <span style=color:#c41a16>&#34;hiltmon.com&#34;</span>);
 </code></pre></div><p>The <code>XCTAssert</code> macro is used to evaluate an expression and pass if <code>true</code>.</p>
 <p>The final file should look like:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===---------------------------------------------------------*- objC++ -*-===//
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  TestStringUtilities.mm
-</span><span style=color:#0f0>//  TestHiltmonLibrary
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
-</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
-</span><span style=color:#0f0></span>
-<span style=color:#e5e5e5>#import &lt;XCTest/XCTest.h&gt;
-</span><span style=color:#e5e5e5></span>
-<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;string_utilities.hpp&#34;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-@interface TestStringUtilities : XCTestCase
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#177500>//===---------------------------------------------------------*- objC++ -*-===//
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  TestStringUtilities.mm
+</span><span style=color:#177500>//  TestHiltmonLibrary
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#177500>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//===----------------------------------------------------------------------===//
+</span><span style=color:#177500></span>
+<span style=color:#633820>#import &lt;XCTest/XCTest.h&gt;
+</span><span style=color:#633820></span>
+<span style=color:#633820>#include</span> <span style=color:#633820>&#34;string_utilities.hpp&#34;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#000>@</span><span style=color:#000>interface</span> <span style=color:#000>TestStringUtilities</span> : <span style=color:#000>XCTestCase</span>
 
-@end
+<span style=color:#000>@</span><span style=color:#000>end</span>
 
-@implementation TestStringUtilities
+<span style=color:#000>@</span><span style=color:#000>implementation</span> <span style=color:#000>TestStringUtilities</span>
 
-- (<span style=color:violet>void</span>)testCaseChanges {
-  std::string upper1 = <span style=color:#87ceeb>&#34;HILTMON.COM&#34;</span>;
-  XCTAssert(hmlib::utilities::toLower(upper1) == <span style=color:#87ceeb>&#34;hiltmon.com&#34;</span>);
+<span style=color:#000>-</span> (<span style=color:#a90d91>void</span>)<span style=color:#000>testCaseChanges</span> {
+  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>upper1</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;HILTMON.COM&#34;</span>;
+  <span style=color:#000>XCTAssert</span>(<span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span><span style=color:#000>::</span><span style=color:#000>toLower</span>(<span style=color:#000>upper1</span>) <span style=color:#000>==</span> <span style=color:#c41a16>&#34;hiltmon.com&#34;</span>);
 }
 
-@end
+<span style=color:#000>@</span><span style=color:#000>end</span>
 </code></pre></div><p><figure class=image-right><img src=images/hmlib-14.png>
 </figure>
 Press <code>CMD-U</code> to run the tests. Xcode will run the tests and put a bezel up that tests have passed and puts a green checkmark next to the test functions that passed.</p>
@@ -305,27 +317,27 @@ Press <code>CMD-U</code> to run the tests. Xcode will run the tests and put a be
 <ul>
 <li>Add to the <code>testCaseChanges</code> code:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>  std::string lower1 = &#34;hiltmon.com&#34;;
-  XCTAssert(hmlib::utilities::toUpper(lower1) == &#34;HILTMON.COM&#34;);
-</code></pre></div><p>And press <code>CMD-U</code>. Xcode compiles the tests and fails because the <code>toUpper</code> function has not yet been written. As expected.</p>
+<pre tabindex=0><code>  std::string lower1 = &quot;hiltmon.com&quot;;
+  XCTAssert(hmlib::utilities::toUpper(lower1) == &quot;HILTMON.COM&quot;);
+</code></pre><p>And press <code>CMD-U</code>. Xcode compiles the tests and fails because the <code>toUpper</code> function has not yet been written. As expected.</p>
 <p>Lets add it:</p>
 <ul>
 <li>In <code>string_utilities.hpp</code>, add:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  <span style=color:#0f0>/// @brief Copy a string to an upper case string
-</span><span style=color:#0f0></span>  <span style=color:#0f0>/// NOTE: The copy is intentional
-</span><span style=color:#0f0></span>  std::string toUpper(
-    <span style=color:red>const</span> std::string&amp; sourceString
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  <span style=color:#177500>/// @brief Copy a string to an upper case string
+</span><span style=color:#177500></span>  <span style=color:#177500>/// NOTE: The copy is intentional
+</span><span style=color:#177500></span>  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>toUpper</span>(
+    <span style=color:#a90d91>const</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span><span style=color:#000>&amp;</span> <span style=color:#000>sourceString</span>
   );
 </code></pre></div><ul>
 <li>In <code>string_utilities.cpp</code>, add:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  std::string toUpper(<span style=color:red>const</span> std::string&amp; sourceString)
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++>  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>toUpper</span>(<span style=color:#a90d91>const</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span><span style=color:#000>&amp;</span> <span style=color:#000>sourceString</span>)
   {
-    std::string destString = sourceString; <span style=color:#0f0>// Copy Mutable
-</span><span style=color:#0f0></span>    std::transform(destString.begin(), destString.end(),
-      destString.begin(), ::toupper);
-    <span style=color:red>return</span> destString;
+    <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>destString</span> <span style=color:#000>=</span> <span style=color:#000>sourceString</span>; <span style=color:#177500>// Copy Mutable
+</span><span style=color:#177500></span>    <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>transform</span>(<span style=color:#000>destString</span>.<span style=color:#000>begin</span>(), <span style=color:#000>destString</span>.<span style=color:#000>end</span>(),
+      <span style=color:#000>destString</span>.<span style=color:#000>begin</span>(), <span style=color:#000>::</span><span style=color:#000>toupper</span>);
+    <span style=color:#a90d91>return</span> <span style=color:#000>destString</span>;
   }
 </code></pre></div><p>Ok, lets test again. Press <code>CMD-U</code>. Tests succeeded.</p>
 <h2 id=adding-more-test-targets>Adding More Test Targets</h2>
@@ -333,38 +345,38 @@ Press <code>CMD-U</code> to run the tests. Xcode will run the tests and put a be
 <ul>
 <li>Create <code>numeric_utilities.hpp</code> (Header File only) under <code>include/hmlib</code> as:</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===------------------------------------------------------------*- C++ -*-===//
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  numeric_utilities.hpp
-</span><span style=color:#0f0>//  HiltmonLibrary
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
-</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
-</span><span style=color:#0f0></span>
-<span style=color:#e5e5e5>#ifndef hmlib_numeric_utilities_hpp
-</span><span style=color:#e5e5e5>#define hmlib_numeric_utilities_hpp
-</span><span style=color:#e5e5e5></span>
-<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;iostream&gt;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&lt;cmath&gt;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-<span style=color:red>namespace</span> hmlib::utilities {
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#177500>//===------------------------------------------------------------*- C++ -*-===//
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  numeric_utilities.hpp
+</span><span style=color:#177500>//  HiltmonLibrary
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#177500>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//===----------------------------------------------------------------------===//
+</span><span style=color:#177500></span>
+<span style=color:#633820>#ifndef hmlib_numeric_utilities_hpp
+</span><span style=color:#633820>#define hmlib_numeric_utilities_hpp
+</span><span style=color:#633820></span>
+<span style=color:#633820>#include</span> <span style=color:#633820>&lt;iostream&gt;</span><span style=color:#633820>
+</span><span style=color:#633820>#include</span> <span style=color:#633820>&lt;cmath&gt;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#a90d91>namespace</span> <span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span> {
 
-  <span style=color:#0f0>/// @brief Generate a static round function at compile time to get
-</span><span style=color:#0f0></span>  <span style=color:#0f0>/// a given precision. Not bankers, relies on C++ round.
-</span><span style=color:#0f0></span>  <span style=color:red>template</span> &lt;<span style=color:violet>int</span> precision&gt;
-  <span style=color:violet>double</span> roundTo(<span style=color:violet>double</span> value) {
+  <span style=color:#177500>/// @brief Generate a static round function at compile time to get
+</span><span style=color:#177500></span>  <span style=color:#177500>/// a given precision. Not bankers, relies on C++ round.
+</span><span style=color:#177500></span>  <span style=color:#a90d91>template</span> <span style=color:#000>&lt;</span><span style=color:#a90d91>int</span> <span style=color:#000>precision</span><span style=color:#000>&gt;</span>
+  <span style=color:#a90d91>double</span> <span style=color:#000>roundTo</span>(<span style=color:#a90d91>double</span> <span style=color:#000>value</span>) {
 
-    <span style=color:red>static_assert</span>(precision &gt; <span style=color:#f60>0</span>, <span style=color:#87ceeb>&#34;Precision must be &gt; 0&#34;</span>);
+    <span style=color:#a90d91>static_assert</span>(<span style=color:#000>precision</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>0</span>, <span style=color:#c41a16>&#34;Precision must be &gt; 0&#34;</span>);
 
-    <span style=color:violet>double</span> factor = std::pow(<span style=color:#f60>10.0</span>, <span style=color:red>static_cast</span>&lt;<span style=color:violet>double</span>&gt;(precision));
-    <span style=color:red>return</span> std::round(value * factor) / factor;
+    <span style=color:#a90d91>double</span> <span style=color:#000>factor</span> <span style=color:#000>=</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>pow</span>(<span style=color:#1c01ce>10.0</span>, <span style=color:#a90d91>static_cast</span><span style=color:#000>&lt;</span><span style=color:#a90d91>double</span><span style=color:#000>&gt;</span>(<span style=color:#000>precision</span>));
+    <span style=color:#a90d91>return</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>round</span>(<span style=color:#000>value</span> <span style=color:#000>*</span> <span style=color:#000>factor</span>) <span style=color:#000>/</span> <span style=color:#000>factor</span>;
   }
 
-} <span style=color:#0f0>// Namespace hmlib::utilities
-</span><span style=color:#0f0></span>
-<span style=color:#e5e5e5>#endif </span><span style=color:#0f0>// hmlib_numeric_utilities_hpp
+} <span style=color:#177500>// Namespace hmlib::utilities
+</span><span style=color:#177500></span>
+<span style=color:#633820>#endif </span><span style=color:#177500>// hmlib_numeric_utilities_hpp
 </span></code></pre></div><p>Since this is a header-only file, the compiler will pretty much do nothing with it when building the library. So let&rsquo;s add a test to get it to compile and see it this mad round code works.</p>
 <ul>
 <li>Go to the test Navigator. Click the plus and choose <strong>New Unit Test Class&mldr;</strong>.</li>
@@ -374,37 +386,37 @@ Press <code>CMD-U</code> to run the tests. Xcode will run the tests and put a be
 <li>The add a test function and some test Asserts.</li>
 </ul>
 <p>The file will now look like this:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#0f0>//===---------------------------------------------------------*- objC++ -*-===//
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  TestNumericUtilities.mm
-</span><span style=color:#0f0>//  TestHiltmonLibrary
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//  Created by Hilton Lipschitz on 2019-02-09.
-</span><span style=color:#0f0>//  Copyright © 2019 Hiltmon.com. All rights reserved.
-</span><span style=color:#0f0>//
-</span><span style=color:#0f0>//===----------------------------------------------------------------------===//
-</span><span style=color:#0f0></span>
-<span style=color:#e5e5e5>#import &lt;XCTest/XCTest.h&gt;
-</span><span style=color:#e5e5e5></span>
-<span style=color:#e5e5e5>#include</span> <span style=color:#e5e5e5>&#34;numeric_utilities.hpp&#34;</span><span style=color:#e5e5e5>
-</span><span style=color:#e5e5e5></span>
-@interface TestNumericUtilities : XCTestCase
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#177500>//===---------------------------------------------------------*- objC++ -*-===//
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  TestNumericUtilities.mm
+</span><span style=color:#177500>//  TestHiltmonLibrary
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//  Created by Hilton Lipschitz on 2019-02-09.
+</span><span style=color:#177500>//  Copyright © 2019 Hiltmon.com. All rights reserved.
+</span><span style=color:#177500>//
+</span><span style=color:#177500>//===----------------------------------------------------------------------===//
+</span><span style=color:#177500></span>
+<span style=color:#633820>#import &lt;XCTest/XCTest.h&gt;
+</span><span style=color:#633820></span>
+<span style=color:#633820>#include</span> <span style=color:#633820>&#34;numeric_utilities.hpp&#34;</span><span style=color:#633820>
+</span><span style=color:#633820></span>
+<span style=color:#000>@</span><span style=color:#000>interface</span> <span style=color:#000>TestNumericUtilities</span> : <span style=color:#000>XCTestCase</span>
 
-@end
+<span style=color:#000>@</span><span style=color:#000>end</span>
 
-@implementation TestNumericUtilities
+<span style=color:#000>@</span><span style=color:#000>implementation</span> <span style=color:#000>TestNumericUtilities</span>
 
-- (<span style=color:violet>void</span>)testRounding {
+<span style=color:#000>-</span> (<span style=color:#a90d91>void</span>)<span style=color:#000>testRounding</span> {
 
-  <span style=color:violet>double</span> number = <span style=color:#f60>0.123456789</span>;
-  XCTAssert(hmlib::utilities::roundTo&lt;<span style=color:#f60>2</span>&gt;(number) == <span style=color:#f60>0.12</span>);
-  XCTAssert(hmlib::utilities::roundTo&lt;<span style=color:#f60>3</span>&gt;(number) == <span style=color:#f60>0.123</span>);
-  XCTAssert(hmlib::utilities::roundTo&lt;<span style=color:#f60>4</span>&gt;(number) == <span style=color:#f60>0.1235</span>);
-  XCTAssert(hmlib::utilities::roundTo&lt;<span style=color:#f60>5</span>&gt;(number) == <span style=color:#f60>0.12346</span>);
+  <span style=color:#a90d91>double</span> <span style=color:#000>number</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0.123456789</span>;
+  <span style=color:#000>XCTAssert</span>(<span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span><span style=color:#000>::</span><span style=color:#000>roundTo</span><span style=color:#000>&lt;</span><span style=color:#1c01ce>2</span><span style=color:#000>&gt;</span>(<span style=color:#000>number</span>) <span style=color:#000>==</span> <span style=color:#1c01ce>0.12</span>);
+  <span style=color:#000>XCTAssert</span>(<span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span><span style=color:#000>::</span><span style=color:#000>roundTo</span><span style=color:#000>&lt;</span><span style=color:#1c01ce>3</span><span style=color:#000>&gt;</span>(<span style=color:#000>number</span>) <span style=color:#000>==</span> <span style=color:#1c01ce>0.123</span>);
+  <span style=color:#000>XCTAssert</span>(<span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span><span style=color:#000>::</span><span style=color:#000>roundTo</span><span style=color:#000>&lt;</span><span style=color:#1c01ce>4</span><span style=color:#000>&gt;</span>(<span style=color:#000>number</span>) <span style=color:#000>==</span> <span style=color:#1c01ce>0.1235</span>);
+  <span style=color:#000>XCTAssert</span>(<span style=color:#000>hmlib</span><span style=color:#000>::</span><span style=color:#000>utilities</span><span style=color:#000>::</span><span style=color:#000>roundTo</span><span style=color:#000>&lt;</span><span style=color:#1c01ce>5</span><span style=color:#000>&gt;</span>(<span style=color:#000>number</span>) <span style=color:#000>==</span> <span style=color:#1c01ce>0.12346</span>);
 
 }
 
-@end
+<span style=color:#000>@</span><span style=color:#000>end</span>
 
 </code></pre></div><figure class=image-right><img src=images/hmlib-15.png>
 </figure>

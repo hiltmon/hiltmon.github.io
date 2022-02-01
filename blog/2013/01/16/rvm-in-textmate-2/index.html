@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Jan 16, 2013 8:04 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/text-editors>Text Editors</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/textmate>TextMate</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 RVM in TextMate 2
 </h1>
@@ -43,52 +60,52 @@ RVM in TextMate 2
 <p><em><strong>tl;dr</strong>: Set the <code>TM_RUBY</code> variable in preferences or your <code>~/.tm_properties</code> file to the path returned by <code>which rvm-auto-ruby</code> and restart. That will set the internal runner. For external runs from within TextMate 2, also comment out the shebang in the script before pressing <code>⌘R</code> (or run from the terminal directly). <a href=http://www.sublimetext.com/2>Sublime Text 2</a> users, check the end of this post for <code>⌘B</code> use.</em></p>
 <h2 id=testing-the-internal-command-version>Testing the Internal Command Version</h2>
 <p>Of course you knew that you can use TextMate 2 to execute arbitrary ruby code in your file. To test which version is being used, create a new Ruby file in TextMate 2 and type: <code>RUBY_VERSION #⇥</code> which expands to</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#7fffd4>RUBY_VERSION</span> <span style=color:#0f0># =&gt;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>RUBY_VERSION</span> <span style=color:#177500># =&gt;</span>
 </code></pre></div><p>Then press <code>⇧⌃⌘E</code> or choose <code>Execute and Update ‘# =>’ Markers</code> from the gear menu. TextMate will run all the text on all lines before the <code># =></code> marker and place the output to the right. I get the default installed version of ruby:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#7fffd4>RUBY_VERSION</span> <span style=color:#0f0># =&gt; &#34;1.8.7&#34;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>RUBY_VERSION</span> <span style=color:#177500># =&gt; &#34;1.8.7&#34;</span>
 </code></pre></div><p>But if I go to my terminal, I have</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>Galileo:~ $ ruby -v
-ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-darwin12.0.0]
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>Galileo:~ $ ruby -v
+ruby 1.9.3p194 <span style=color:#000>(</span>2012-04-20 revision 35410<span style=color:#000>)</span> <span style=color:#000>[</span>x86_64-darwin12.0.0<span style=color:#000>]</span>
 </code></pre></div><p> </p>
 <h2 id=setting-the-internal-command-version>Setting the Internal Command Version</h2>
 <p>As per the instructions at <a href=https://rvm.io/integration/textmate/>rvm’s TextMate</a> page, you need to find the path to <code>rvm-auto-ruby</code>. In a terminal run:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>Galileo:~ $ which rvm-auto-ruby
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>Galileo:~ $ which rvm-auto-ruby
 /Users/Hiltmon/.rvm/bin/rvm-auto-ruby
 </code></pre></div><p>Set the <code>TM_RUBY</code> variable to this path. You could either do this in <strong>TextMate / Preferences</strong> in the <strong>Variables</strong> tab as shown &mldr;</p>
 <figure><img src=images/textmate-ruby-variable.png width=480 height=350>
 </figure>
 <p>&mldr; or in your <code>~/.tm_properties</code> file.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>...
-<span style=color:#7fffd4>TM_RUBY</span> = <span style=color:#87ceeb>&#34;/Users/Hiltmon/.rvm/bin/rvm-auto-ruby&#34;</span>
-...
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>...</span>
+<span style=color:#000>TM_RUBY</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/Hiltmon/.rvm/bin/rvm-auto-ruby&#34;</span>
+<span style=color:#000>...</span>
 </code></pre></div><p>The restart TextMate 2 and run the internal command test again:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#7fffd4>RUBY_VERSION</span> <span style=color:#0f0># =&gt; &#34;1.9.3&#34;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>RUBY_VERSION</span> <span style=color:#177500># =&gt; &#34;1.9.3&#34;</span>
 </code></pre></div><p>It now matches my <code>rvm</code> version.</p>
 <h2 id=testing-the-external-ruby-run>Testing the External Ruby Run</h2>
 <p>Create a new ruby file in TextMate 2 as follows:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0>#!/usr/bin/env ruby -wKU</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby -wKU</span>
 
-puts <span style=color:#7fffd4>RUBY_VERSION</span>
+<span style=color:#a90d91>puts</span> <span style=color:#000>RUBY_VERSION</span>
 </code></pre></div><p>And hit <code>⌘R</code> to run it. You should see:</p>
 <figure><img src=images/textmate-run-with.png width=638 height=256>
 </figure>
 <p>It seems to be using the <em>system</em> ruby.</p>
 <h2 id=using-the-rvm-ruby>Using the RVM Ruby</h2>
 <p>To make this script use the current <code>rvm</code> ruby installation, just comment out the <em>shebang</em> line. It seems that the default TextMate 2 external script wrapper launches a clean shell that uses the <em>shebang</em> to choose the execution environment, but if there is no <em>shebang</em>, TextMate 2 uses the right one. So:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback># &lt;— COMMENTED OUT #!/usr/bin/env ruby -wKU
+<pre tabindex=0><code># &lt;— COMMENTED OUT #!/usr/bin/env ruby -wKU
 
 puts RUBY_VERSION
-</code></pre></div><p>Gives</p>
+</code></pre><p>Gives</p>
 <figure><img src=images/textmate-run-without.png width=638 height=256>
 </figure>
 <p>It is now using the correct <code>rvm</code> version.</p>
 <p>Don’t forget to uncomment the <em>shebang</em> line when you are finished.</p>
 <h2 id=for-sublime-text-2-users>For Sublime Text 2 Users</h2>
 <p>If you want Sublime Text 2’s runner <code>⌘B</code> to use <code>rvm</code>, you need to open <code>~/Library/Application\ Support/Sublime\ Text\ 2/Packages/Ruby/Ruby.sublime-build</code>and replace the contents with this using the path returned from <code>which rvm-auto-ruby</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>{
-  &#34;cmd&#34;: [ <span style=color:#87ceeb>&#34;/Users/hiltmon/.rvm/bin/rvm-auto-ruby&#34;</span>, <span style=color:#87ceeb>&#34;$file&#34;</span> ],
-  &#34;file_regex&#34;: <span style=color:#87ceeb>&#34;^(...*?):([0-9]*):?([0-9]*)&#34;</span>,
-  &#34;selector&#34;: <span style=color:#87ceeb>&#34;source.ruby&#34;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json>{
+  <span style=color:#000>&#34;cmd&#34;</span>: [ <span style=color:#c41a16>&#34;/Users/hiltmon/.rvm/bin/rvm-auto-ruby&#34;</span>, <span style=color:#c41a16>&#34;$file&#34;</span> ],
+  <span style=color:#000>&#34;file_regex&#34;</span>: <span style=color:#c41a16>&#34;^(...*?):([0-9]*):?([0-9]*)&#34;</span>,
+  <span style=color:#000>&#34;selector&#34;</span>: <span style=color:#c41a16>&#34;source.ruby&#34;</span>
 }
 </code></pre></div><p><em>Note</em> that this will probably get overwritten when the Ruby package gets updated. <em>Note</em> also that neither <code>$HOME</code> or <code>~</code> work here, you need the full path.</p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</em></p>

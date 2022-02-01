@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,23 @@
 <p class=meta-data>
 <span class=post-date>Aug 9, 2015 6:07 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/c++>c++</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/development>development</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/programming>programming</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 C++11 on CentOS 6.6
 </h1>
@@ -43,17 +65,17 @@ C++11 on CentOS 6.6
 <p>Here&rsquo;s how to set one up.</p>
 <h2 id=install-a-c11-compiler>Install a C++11 Compiler</h2>
 <p>We need to get the <code>repo</code> files for DevTools2, a Red Hat package that contains a supported C++11 compiler. As <code>root</code>, run the following command to retrieve the <code>repo</code> file:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O /etc/yum.repos.d/devtools-2.repo
-</code></pre></div><p>Then install the compiler and support tools:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>yum install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
-</code></pre></div><p>Before you can compile C++11 code with the DevTools2 compiler, you need to enable it in a new shell:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>scl enable devtoolset-2 bash
-</code></pre></div><p>All compiles in this new shell will use the new compiler.</p>
+<pre tabindex=0><code>wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O /etc/yum.repos.d/devtools-2.repo
+</code></pre><p>Then install the compiler and support tools:</p>
+<pre tabindex=0><code>yum install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
+</code></pre><p>Before you can compile C++11 code with the DevTools2 compiler, you need to enable it in a new shell:</p>
+<pre tabindex=0><code>scl enable devtoolset-2 bash
+</code></pre><p>All compiles in this new shell will use the new compiler.</p>
 <h2 id=make-it-permanent>Make it permanent</h2>
 <p>In your <code>.bash_profile</code>, add at the bottom:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>echo &#34;WARNING: devtoolset-2 is enabled!&#34;
+<pre tabindex=0><code>echo &quot;WARNING: devtoolset-2 is enabled!&quot;
 . /opt/rh/devtoolset-2/enable
-</code></pre></div><p>All new shells you create will use the new tools.</p>
+</code></pre><p>All new shells you create will use the new tools.</p>
 <p>Enjoy.</p>
 <p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
 </div>

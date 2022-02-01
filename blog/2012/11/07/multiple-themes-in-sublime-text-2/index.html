@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,18 @@
 <p class=meta-data>
 <span class=post-date>Nov 7, 2012 3:09 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/text-editors>Text Editors</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Multiple Themes in Sublime Text 2
 </h1>
@@ -49,20 +66,20 @@ Multiple Themes in Sublime Text 2
 </figure>
 <p>Then set the default theme using <strong>Preferences / Color Scheme</strong> from the <strong>Sublime Text 2</strong> menu. This sets the theme in the default preferences file which resides in <strong>~/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings</strong>.</p>
 <p>The theme line looks like this in the file:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>{
+<pre tabindex=0><code>{
 	…
-	&#34;color_scheme&#34;: &#34;Packages/User/Railscasts.tmTheme&#34;
+	&quot;color_scheme&quot;: &quot;Packages/User/Railscasts.tmTheme&quot;
 	… 
 }
-</code></pre></div><p>Next, open a file type where you would like to use a <em>different</em> theme, for example, open a Markdown file. It will open using the default theme. Now choose <strong>Preferences / Settings More / Syntax Specific - User</strong> from the <strong>Sublime Text 2</strong> menu. Sublime Text 2 will create a new settings file with the selected file type as its name (in my case, the markdown settings file is <strong>Markdown.sublime-settings</strong>). If the file already exists, Sublime will open it for editing.</p>
+</code></pre><p>Next, open a file type where you would like to use a <em>different</em> theme, for example, open a Markdown file. It will open using the default theme. Now choose <strong>Preferences / Settings More / Syntax Specific - User</strong> from the <strong>Sublime Text 2</strong> menu. Sublime Text 2 will create a new settings file with the selected file type as its name (in my case, the markdown settings file is <strong>Markdown.sublime-settings</strong>). If the file already exists, Sublime will open it for editing.</p>
 <p>Set the theme in this file, as well as any other settings you like for that file kind. For example, my <strong>Markdown.sublime-settings</strong> is:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>{
-  &#34;color_scheme&#34;: &#34;Packages/MarkdownEditing/MarkdownEditor.tmTheme&#34;,
-  &#34;line_numbers&#34;: false,
-  &#34;font_face&#34;: &#34;Cousine&#34;,
-  &#34;font_size&#34;: 13
+<pre tabindex=0><code>{
+  &quot;color_scheme&quot;: &quot;Packages/MarkdownEditing/MarkdownEditor.tmTheme&quot;,
+  &quot;line_numbers&quot;: false,
+  &quot;font_face&quot;: &quot;Cousine&quot;,
+  &quot;font_size&quot;: 13
 }
-</code></pre></div><p>You may need to restart Sublime Text 2 after this.</p>
+</code></pre><p>You may need to restart Sublime Text 2 after this.</p>
 <p>Next time you open a file where you have set type-specific user settings, the theme specified will be used. Nice!</p>
 <p>See also <a href=https://hiltmon.com/blog/2012/08/14/my-sublime-text-2-setup/>My Sublime Text 2 Setup</a> and <a href=https://hiltmon.com/blog/2012/11/26/multi-platform-editing-is-sublime/>Multi-Platform Editing Is Sublime</a>. And follow me at <a href=https://https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=https://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</p>
 </div>

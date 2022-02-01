@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Jan 23, 2012 1:09 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/productivity>Productivity</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Bread crumbs in Day One
 </h1>
@@ -44,9 +56,9 @@ Bread crumbs in Day One
 <h3 id=1-bread-crumb-blog-posts>1. Bread crumb blog posts</h3>
 <p>I have updated the Octopress <code>rake</code> file for <code>new_post</code> to also bread crumb the new post in <a href=http://dayoneapp.com/>Day One</a> (and launch <a href=http://bywordapp.com/>Byword</a> for editing).</p>
 <p>Place this at the end of the <code>:new_post</code> task (see below for details on the <code>LogToDayOne.rb</code> script)</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>  <span style=color:#0f0># Log to Day One and open it for editing</span>
-  <span style=color:#87ceeb>%x{~/scripts/LogtoDayOne.rb &#34;@blog </span><span style=color:#87ceeb>#{</span>title<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;}</span>
-  <span style=color:#87ceeb>%x{open &#34;</span><span style=color:#87ceeb>#{</span>filename<span style=color:#87ceeb>}</span><span style=color:#87ceeb>&#34;}</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby>  <span style=color:#177500># Log to Day One and open it for editing</span>
+  <span style=color:#c41a16>%x{~/scripts/LogtoDayOne.rb &#34;@blog </span><span style=color:#c41a16>#{</span><span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;}</span>
+  <span style=color:#c41a16>%x{open &#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>filename</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;}</span>
 </code></pre></div><p>The first line runs the <code>LogToDayOne.rb</code> passing in the blog title. The second line opens the generated markdown file using the default editor (of course <a href=http://bywordapp.com/>Byword</a> is it).</p>
 <p>Here it is in <a href=http://dayoneapp.com/>Day One</a>:</p>
 <figure><img src=images/day-one-sample-1.png width=291 height=120>
@@ -54,12 +66,12 @@ Bread crumbs in Day One
 <h3 id=2-log-all-commits>2. Log all commits</h3>
 <p>I have created a shell macro to log all git commits such that the project and commit message is also logged to <a href=http://dayoneapp.com/>Day One</a>.</p>
 <p>In <code>.bash_profile</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:red>function</span> gca(){
-  <span style=color:#eedd82>msg</span>=<span style=color:#eedd82>$*</span>
-  <span style=color:#eedd82>path</span>=<span style=color:red>$(</span>pwd<span style=color:red>)</span>
-  ~/scripts/LogtoDayOne.rb <span style=color:#87ceeb>&#34;@</span><span style=color:#87ceeb>${</span><span style=color:#eedd82>path</span>##*/<span style=color:#87ceeb>}</span><span style=color:#87ceeb> </span><span style=color:#eedd82>$msg</span><span style=color:#87ceeb>&#34;</span>
-  git commit -am <span style=color:#87ceeb>&#34;</span><span style=color:#eedd82>$msg</span><span style=color:#87ceeb>&#34;</span>
-}
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#a90d91>function</span> gca<span style=color:#000>(){</span>
+  <span style=color:#000>msg</span><span style=color:#000>=</span><span style=color:#000>$*</span>
+  <span style=color:#000>path</span><span style=color:#000>=</span><span style=color:#a90d91>$(</span><span style=color:#a90d91>pwd</span><span style=color:#a90d91>)</span>
+  ~/scripts/LogtoDayOne.rb <span style=color:#c41a16>&#34;@</span><span style=color:#c41a16>${</span><span style=color:#000>path</span>##*/<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#000>$msg</span><span style=color:#c41a16>&#34;</span>
+  git commit -am <span style=color:#c41a16>&#34;</span><span style=color:#000>$msg</span><span style=color:#c41a16>&#34;</span>
+<span style=color:#000>}</span>
 </code></pre></div><p>Now all I do is type <code>gca "The commit message"</code> and its both logged to <a href=http://dayoneapp.com/>Day One</a> and saved in git.</p>
 <p>Here it is in <a href=http://dayoneapp.com/>Day One</a>:</p>
 <figure><img src=images/day-one-sample-2.png width=368 height=64>

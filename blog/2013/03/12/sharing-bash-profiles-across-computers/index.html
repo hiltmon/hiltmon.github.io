@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Mar 12, 2013 1:48 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/tips-and-tricks>Tips and Tricks</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Sharing Bash Profiles across Computers
 </h1>
@@ -47,11 +59,11 @@ $ cp ~/.bash_profile ~/Dropbox/Scripts/bash_profile.sh
 </code></pre>
 <p><em>Note: The leading dots have been removed in Dropbox so the files are not hidden and will sync. I also add file extensions to make editing them easier.</em></p>
 <p>Now that they are shared on each computer, replace your <code>~/.bash_profile</code> with:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=color:#0f0># Copy my shared inputrc (may require 2 loads)</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=color:#177500># Copy my shared inputrc (may require 2 loads)</span>
 cp ~/Dropbox/Scripts/inputrc.txt ~/.inputrc
 
-<span style=color:#0f0># Use my shared profile</span>
-source ~/Dropbox/Scripts/bash_profile.sh
+<span style=color:#177500># Use my shared profile</span>
+<span style=color:#a90d91>source</span> ~/Dropbox/Scripts/bash_profile.sh
 </code></pre></div><p>I have this saved as <code>use_this_bash_profile.sh</code> and, on each computer, just once</p>
 <pre><code>$ cp ~/Dropbox/Scripts/use_this_bash_profile.sh ~/.bash_profile
 </code></pre>

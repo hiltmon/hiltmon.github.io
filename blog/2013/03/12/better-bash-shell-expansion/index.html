@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Mar 12, 2013 12:33 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/tips-and-tricks>Tips and Tricks</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Better Bash Shell Expansion
 </h1>
@@ -52,8 +64,8 @@ Better Bash Shell Expansion
 </code></pre>
 <p>I&rsquo;ll bet it completes to <code>cd ~/Library/Application\ S</code> and stops. That&rsquo;s because there are two folders that could match: <code>Application Scripts</code> and <code>Application Support</code>. Since I never need to use <code>Application Scripts</code>, I&rsquo;d like bash completion to ignore it.</p>
 <p>Add the following in your <code>.bash_profile</code> file:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=color:#0f0># So I can tab to Application Support</span>
-<span style=color:#eedd82>FIGNORE</span>=<span style=color:#87ceeb>&#34;.o:~:Application Scripts&#34;</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=color:#177500># So I can tab to Application Support</span>
+<span style=color:#000>FIGNORE</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;.o:~:Application Scripts&#34;</span>
 </code></pre></div><p>The <code>FIGNORE</code> shell variable tells bash completion to ignore files or folders with the matching patterns (colon separated list). Quit and restart your terminal and</p>
 <pre><code>$ cd ~/Library/App⇥
 </code></pre>

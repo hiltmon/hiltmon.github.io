@@ -1,4 +1,9 @@
 <!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=keywords content>
+<meta name=description content>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="noindex,nofollow">
 <link rel=stylesheet href=/css/main.css>
 <link rel=stylesheet href=/css/all.css>
 <link rel=stylesheet href=/css/fusion.css>
@@ -35,6 +40,13 @@
 <p class=meta-data>
 <span class=post-date>Apr 10, 2013 12:15 PM</span>
 </p>
+<div class=tag-group>
+<div class=tag>
+<span class=tag-text>
+| <a href=/tags/status-board>Status Board</a>
+</span>
+</div>
+</div>
 <h1 class=post-title>
 Google Analytics for Status Board
 </h1>
@@ -61,96 +73,96 @@ $ sudo gem install gattica-0.6.2.gem
 <p><em>Update: Added the <code>bundle install</code> step to install dependencies. No need to install the old gem first as per old instructions and comments below. You may need to <code>sudo bundle install</code> on a production box.</em></p>
 <h3 id=step-2-configure-the-script>Step 2: Configure the Script</h3>
 <p>Download the script from <a href=https://gist.github.com/hiltmon/5356145>this gist</a> or copy and paste it from here:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#0f0>#!/usr/bin/env ruby</span>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby</span>
 
-<span style=color:#0f0># status_board_ga.rb</span>
-<span style=color:#0f0># Hilton Lipschitz </span>
-<span style=color:#0f0># Twitter/ADN: @hiltmon </span>
-<span style=color:#0f0># Web: https://hiltmon.com</span>
-<span style=color:#0f0># Use and modify freely, attribution appreciated</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># Script to generate @panic status board files for Google Analytics web stats.</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># Run this regularly to update status board</span>
-<span style=color:#0f0>#</span>
-<span style=color:#0f0># For how to set up, see https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/</span>
+<span style=color:#177500># status_board_ga.rb</span>
+<span style=color:#177500># Hilton Lipschitz </span>
+<span style=color:#177500># Twitter/ADN: @hiltmon </span>
+<span style=color:#177500># Web: https://hiltmon.com</span>
+<span style=color:#177500># Use and modify freely, attribution appreciated</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># Script to generate @panic status board files for Google Analytics web stats.</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># Run this regularly to update status board</span>
+<span style=color:#177500>#</span>
+<span style=color:#177500># For how to set up, see https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/</span>
 
-<span style=color:#0f0># Include the gems needed</span>
-require <span style=color:#87ceeb>&#39;rubygems&#39;</span>
-require <span style=color:#87ceeb>&#39;gattica&#39;</span>
-require <span style=color:#87ceeb>&#39;date&#39;</span>
-require <span style=color:#87ceeb>&#39;json&#39;</span>
+<span style=color:#177500># Include the gems needed</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;rubygems&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;gattica&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;date&#39;</span>
+<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;json&#39;</span>
 
-<span style=color:#0f0># Your Settings</span>
-google_email   = <span style=color:#87ceeb>&#39;hiltmon@gmail.com&#39;</span>  <span style=color:#0f0># Your google login</span>
-google_pwd     = <span style=color:#87ceeb>&#39;I_aint_sayin&#39;</span>   <span style=color:#0f0># Must be a single use password if 2 factor is set up</span>
-the_title      = <span style=color:#87ceeb>&#34;Hiltmon.Com Stats&#34;</span>  <span style=color:#0f0># The title of the Graph</span>
-file_name      = <span style=color:#87ceeb>&#34;hiltmondotcom&#34;</span>      <span style=color:#0f0># The file name to use (.CSV and .JSON)</span>
-dropbox_folder = <span style=color:#87ceeb>&#34;/Users/Hiltmon/Dropbox/Data&#34;</span> <span style=color:#0f0># The path to a folder on your local DropBox</span>
+<span style=color:#177500># Your Settings</span>
+<span style=color:#000>google_email</span>   <span style=color:#000>=</span> <span style=color:#c41a16>&#39;hiltmon@gmail.com&#39;</span>  <span style=color:#177500># Your google login</span>
+<span style=color:#000>google_pwd</span>     <span style=color:#000>=</span> <span style=color:#c41a16>&#39;I_aint_sayin&#39;</span>   <span style=color:#177500># Must be a single use password if 2 factor is set up</span>
+<span style=color:#000>the_title</span>      <span style=color:#000>=</span> <span style=color:#c41a16>&#34;Hiltmon.Com Stats&#34;</span>  <span style=color:#177500># The title of the Graph</span>
+<span style=color:#000>file_name</span>      <span style=color:#000>=</span> <span style=color:#c41a16>&#34;hiltmondotcom&#34;</span>      <span style=color:#177500># The file name to use (.CSV and .JSON)</span>
+<span style=color:#000>dropbox_folder</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/Hiltmon/Dropbox/Data&#34;</span> <span style=color:#177500># The path to a folder on your local DropBox</span>
 
-<span style=color:#0f0># Configuration </span>
-metrics = [<span style=color:#87ceeb>&#39;pageviews&#39;</span>, <span style=color:#87ceeb>&#39;visitors&#39;</span>, <span style=color:#87ceeb>&#39;newVisits&#39;</span>]
-colors = [<span style=color:#87ceeb>&#39;red&#39;</span>, <span style=color:#87ceeb>&#39;green&#39;</span>, <span style=color:#87ceeb>&#39;blue&#39;</span>]
-days_to_get = <span style=color:#f60>7</span>
+<span style=color:#177500># Configuration </span>
+<span style=color:#000>metrics</span> <span style=color:#000>=</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;pageviews&#39;</span>, <span style=color:#c41a16>&#39;visitors&#39;</span>, <span style=color:#c41a16>&#39;newVisits&#39;</span><span style=color:#000>]</span>
+<span style=color:#000>colors</span> <span style=color:#000>=</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;red&#39;</span>, <span style=color:#c41a16>&#39;green&#39;</span>, <span style=color:#c41a16>&#39;blue&#39;</span><span style=color:#000>]</span>
+<span style=color:#000>days_to_get</span> <span style=color:#000>=</span> <span style=color:#1c01ce>7</span>
 
-<span style=color:#0f0># Login</span>
-ga = <span style=color:#7fffd4>Gattica</span>.new({ 
-    <span style=color:#f60>:email</span> =&gt; google_email, 
-    <span style=color:#f60>:password</span> =&gt; google_pwd
+<span style=color:#177500># Login</span>
+<span style=color:#000>ga</span> <span style=color:#000>=</span> <span style=color:#000>Gattica</span><span style=color:#000>.</span><span style=color:#000>new</span>({ 
+    <span style=color:#c41a16>:email</span> <span style=color:#000>=&gt;</span> <span style=color:#000>google_email</span>, 
+    <span style=color:#c41a16>:password</span> <span style=color:#000>=&gt;</span> <span style=color:#000>google_pwd</span>
 })
 
-<span style=color:#0f0># Get a list of accounts</span>
-accounts = ga.accounts
+<span style=color:#177500># Get a list of accounts</span>
+<span style=color:#000>accounts</span> <span style=color:#000>=</span> <span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>accounts</span>
 
-<span style=color:#0f0># Choose the first account</span>
-ga.profile_id = accounts.first.profile_id
-<span style=color:#0f0># ga.profile_id = accounts[1].profile_id # OR second account</span>
+<span style=color:#177500># Choose the first account</span>
+<span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>profile_id</span> <span style=color:#000>=</span> <span style=color:#000>accounts</span><span style=color:#000>.</span><span style=color:#000>first</span><span style=color:#000>.</span><span style=color:#000>profile_id</span>
+<span style=color:#177500># ga.profile_id = accounts[1].profile_id # OR second account</span>
 
-<span style=color:#0f0># Get the data</span>
-data = ga.get({ 
-    <span style=color:#f60>:start_date</span>   =&gt; (<span style=color:#7fffd4>Date</span>.today - days_to_get).to_s.split(<span style=color:#87ceeb>&#39;T&#39;</span>)[<span style=color:#f60>0</span>],
-    <span style=color:#f60>:end_date</span>     =&gt; <span style=color:#7fffd4>Date</span>.today.to_s.split(<span style=color:#87ceeb>&#39;T&#39;</span>)[<span style=color:#f60>0</span>],
-    <span style=color:#f60>:dimensions</span>   =&gt; [<span style=color:#87ceeb>&#39;date&#39;</span>],
-    <span style=color:#f60>:metrics</span>      =&gt; metrics,
+<span style=color:#177500># Get the data</span>
+<span style=color:#000>data</span> <span style=color:#000>=</span> <span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>get</span>({ 
+    <span style=color:#c41a16>:start_date</span>   <span style=color:#000>=&gt;</span> (<span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>today</span> <span style=color:#000>-</span> <span style=color:#000>days_to_get</span>)<span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>,
+    <span style=color:#c41a16>:end_date</span>     <span style=color:#000>=&gt;</span> <span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>today</span><span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>,
+    <span style=color:#c41a16>:dimensions</span>   <span style=color:#000>=&gt;</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>]</span>,
+    <span style=color:#c41a16>:metrics</span>      <span style=color:#000>=&gt;</span> <span style=color:#000>metrics</span>,
 })
 
-<span style=color:#0f0># Make the CSV file</span>
-<span style=color:#7fffd4>File</span>.open(<span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>dropbox_folder<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/</span><span style=color:#87ceeb>#{</span>file_name<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.csv&#34;</span>, <span style=color:#87ceeb>&#34;w&#34;</span>) <span style=color:red>do</span> |f|
-  f.write <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>the_title<span style=color:#87ceeb>}</span><span style=color:#87ceeb>,</span><span style=color:#87ceeb>#{</span>metrics.join(<span style=color:#87ceeb>&#39;,&#39;</span>)<span style=color:#87ceeb>}</span><span style=color:#87ceeb>\n</span><span style=color:#87ceeb>&#34;</span>
-  data.to_h[<span style=color:#87ceeb>&#39;points&#39;</span>].each <span style=color:red>do</span> |point|
-    the_date = <span style=color:#7fffd4>Date</span>.parse(point.to_h[<span style=color:#87ceeb>&#34;dimensions&#34;</span>].first[<span style=color:#f60>:date</span>]).to_s.split(<span style=color:#87ceeb>&#39;T&#39;</span>)[<span style=color:#f60>0</span>]
-    the_data = point.to_h[<span style=color:#87ceeb>&#34;metrics&#34;</span>].map { |e| e.values.first }
-    f.write the_date + <span style=color:#87ceeb>&#34;,&#34;</span> + the_data.join(<span style=color:#87ceeb>&#39;,&#39;</span>) + <span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>\n</span><span style=color:#87ceeb>&#34;</span>
-  <span style=color:red>end</span>
-<span style=color:red>end</span>
+<span style=color:#177500># Make the CSV file</span>
+<span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>dropbox_folder</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/</span><span style=color:#c41a16>#{</span><span style=color:#000>file_name</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.csv&#34;</span>, <span style=color:#c41a16>&#34;w&#34;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>f</span><span style=color:#000>|</span>
+  <span style=color:#000>f</span><span style=color:#000>.</span><span style=color:#000>write</span> <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>the_title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>,</span><span style=color:#c41a16>#{</span><span style=color:#000>metrics</span><span style=color:#000>.</span><span style=color:#000>join</span>(<span style=color:#c41a16>&#39;,&#39;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16>\n</span><span style=color:#c41a16>&#34;</span>
+  <span style=color:#000>data</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;points&#39;</span><span style=color:#000>].</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>point</span><span style=color:#000>|</span>
+    <span style=color:#000>the_date</span> <span style=color:#000>=</span> <span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;dimensions&#34;</span><span style=color:#000>].</span><span style=color:#000>first</span><span style=color:#000>[</span><span style=color:#c41a16>:date</span><span style=color:#000>]</span>)<span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>
+    <span style=color:#000>the_data</span> <span style=color:#000>=</span> <span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;metrics&#34;</span><span style=color:#000>].</span><span style=color:#000>map</span> { <span style=color:#000>|</span><span style=color:#000>e</span><span style=color:#000>|</span> <span style=color:#000>e</span><span style=color:#000>.</span><span style=color:#000>values</span><span style=color:#000>.</span><span style=color:#000>first</span> }
+    <span style=color:#000>f</span><span style=color:#000>.</span><span style=color:#000>write</span> <span style=color:#000>the_date</span> <span style=color:#000>+</span> <span style=color:#c41a16>&#34;,&#34;</span> <span style=color:#000>+</span> <span style=color:#000>the_data</span><span style=color:#000>.</span><span style=color:#000>join</span>(<span style=color:#c41a16>&#39;,&#39;</span>) <span style=color:#000>+</span> <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>\n</span><span style=color:#c41a16>&#34;</span>
+  <span style=color:#a90d91>end</span>
+<span style=color:#a90d91>end</span>
 
-<span style=color:#0f0># Make the JSON file</span>
-graph = <span style=color:#7fffd4>Hash</span>.new
-graph[<span style=color:#f60>:title</span>] = the_title
-graph[<span style=color:#f60>:type</span>] = <span style=color:#87ceeb>&#39;bar&#39;</span>
-index = <span style=color:#f60>0</span>
-graph[<span style=color:#f60>:datasequences</span>] = Array.new
+<span style=color:#177500># Make the JSON file</span>
+<span style=color:#000>graph</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
+<span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:title</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>the_title</span>
+<span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:type</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;bar&#39;</span>
+<span style=color:#000>index</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0</span>
+<span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:datasequences</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#a90d91>Array</span><span style=color:#000>.</span><span style=color:#000>new</span>
 
-metrics.each <span style=color:red>do</span> |element|
-  sequence = <span style=color:#7fffd4>Hash</span>.new
-  sequence[<span style=color:#f60>:title</span>] = element
-  sequence_data = Array.new
-  data.to_h[<span style=color:#87ceeb>&#39;points&#39;</span>].each <span style=color:red>do</span> |point|
-    the_title = <span style=color:#7fffd4>Date</span>.parse(point.to_h[<span style=color:#87ceeb>&#34;dimensions&#34;</span>].first[<span style=color:#f60>:date</span>]).to_s.split(<span style=color:#87ceeb>&#39;T&#39;</span>)[<span style=color:#f60>0</span>]
-    the_value = point.to_h[<span style=color:#87ceeb>&#34;metrics&#34;</span>][index][element.to_sym]
-    sequence_data &lt;&lt; { <span style=color:#f60>:title</span> =&gt; the_title, <span style=color:#f60>:value</span> =&gt; the_value }
-  <span style=color:red>end</span>
-  sequence[<span style=color:#f60>:datapoints</span>] = sequence_data
-  sequence[<span style=color:#f60>:color</span>] = colors[index]
-  index += <span style=color:#f60>1</span>
-  graph[<span style=color:#f60>:datasequences</span>] &lt;&lt; sequence
-<span style=color:red>end</span>
+<span style=color:#000>metrics</span><span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>element</span><span style=color:#000>|</span>
+  <span style=color:#000>sequence</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
+  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:title</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>element</span>
+  <span style=color:#000>sequence_data</span> <span style=color:#000>=</span> <span style=color:#a90d91>Array</span><span style=color:#000>.</span><span style=color:#000>new</span>
+  <span style=color:#000>data</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;points&#39;</span><span style=color:#000>].</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>point</span><span style=color:#000>|</span>
+    <span style=color:#000>the_title</span> <span style=color:#000>=</span> <span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;dimensions&#34;</span><span style=color:#000>].</span><span style=color:#000>first</span><span style=color:#000>[</span><span style=color:#c41a16>:date</span><span style=color:#000>]</span>)<span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>
+    <span style=color:#000>the_value</span> <span style=color:#000>=</span> <span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;metrics&#34;</span><span style=color:#000>][</span><span style=color:#000>index</span><span style=color:#000>][</span><span style=color:#000>element</span><span style=color:#000>.</span><span style=color:#000>to_sym</span><span style=color:#000>]</span>
+    <span style=color:#000>sequence_data</span> <span style=color:#000>&lt;&lt;</span> { <span style=color:#c41a16>:title</span> <span style=color:#000>=&gt;</span> <span style=color:#000>the_title</span>, <span style=color:#c41a16>:value</span> <span style=color:#000>=&gt;</span> <span style=color:#000>the_value</span> }
+  <span style=color:#a90d91>end</span>
+  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:datapoints</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>sequence_data</span>
+  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:color</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>colors</span><span style=color:#000>[</span><span style=color:#000>index</span><span style=color:#000>]</span>
+  <span style=color:#000>index</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+  <span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:datasequences</span><span style=color:#000>]</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>sequence</span>
+<span style=color:#a90d91>end</span>
 
-<span style=color:#7fffd4>File</span>.open(<span style=color:#87ceeb>&#34;</span><span style=color:#87ceeb>#{</span>dropbox_folder<span style=color:#87ceeb>}</span><span style=color:#87ceeb>/</span><span style=color:#87ceeb>#{</span>file_name<span style=color:#87ceeb>}</span><span style=color:#87ceeb>.json&#34;</span>, <span style=color:#87ceeb>&#34;w&#34;</span>) <span style=color:red>do</span> |f|
-  wrapper = <span style=color:#7fffd4>Hash</span>.new
-  wrapper[<span style=color:#f60>:graph</span>] = graph
-  f.write wrapper.to_json
-<span style=color:red>end</span>
+<span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>dropbox_folder</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/</span><span style=color:#c41a16>#{</span><span style=color:#000>file_name</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.json&#34;</span>, <span style=color:#c41a16>&#34;w&#34;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>f</span><span style=color:#000>|</span>
+  <span style=color:#000>wrapper</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
+  <span style=color:#000>wrapper</span><span style=color:#000>[</span><span style=color:#c41a16>:graph</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>graph</span>
+  <span style=color:#000>f</span><span style=color:#000>.</span><span style=color:#000>write</span> <span style=color:#000>wrapper</span><span style=color:#000>.</span><span style=color:#000>to_json</span>
+<span style=color:#a90d91>end</span>
 </code></pre></div><p>Edit the script to change:</p>
 <ul>
 <li>The <strong>email</strong> and <strong>password</strong> you use to access Google Analytics.</li>
@@ -161,9 +173,9 @@ metrics.each <span style=color:red>do</span> |element|
 <h3 id=step-3-schedule-it-to-run>Step 3: Schedule it to Run</h3>
 <p>We&rsquo;re going to run this script every 5 minutes. <em>Note: These are the OS X instructions, use a <code>crontab</code> entry on Linux systems.</em></p>
 <p>Create the following file <code>com.hiltmon.status_board_ga.plist</code> (modified for your path of course):</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#000;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
-&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;
-&lt;plist version=&#34;1.0&#34;&gt;
+<pre tabindex=0><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
 &lt;dict&gt;
     &lt;key&gt;Label&lt;/key&gt;
     &lt;string&gt;com.hiltmon.status_board_ga&lt;/string&gt;
@@ -175,7 +187,7 @@ metrics.each <span style=color:red>do</span> |element|
     &lt;integer&gt;300&lt;/integer&gt;
 &lt;/dict&gt;
 &lt;/plist&gt;
-</code></pre></div><p>Then copy it (you may need to create the folder) and start it:</p>
+</code></pre><p>Then copy it (you may need to create the folder) and start it:</p>
 <pre><code>$ cp com.hiltmon.status_board_ga.plist ~/Library/LaunchAgents
 $ launchctl load -w ~/Library/LaunchAgents/com.hiltmon.status_board_ga.plist
 </code></pre>
