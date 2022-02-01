@@ -1,7 +1,7 @@
 ---
 title: "2011 Platforms - Objective-C and iOS"
 date: 2011-12-26 11:54:00-0400
-tags: 
+
 ---
 
 *Part 1 of the platforms I used in 2011 to make products. See [Part 2 - Ruby on Rails](https://hiltmon.com/blog/2011/12/26/2011-platforms-ruby-on-rails/).*
