@@ -1,4 +1,6 @@
-baseURL = "https://hiltmon.github.io"
+# baseURL = "https://hiltmon.github.io"
+baseURL = "https://hiltmon.com"
+canonifyurls = true
 languageCode = "en-us"
 DefaultContentLanguage = "en"
 title = "Hiltmon"
@@ -29,12 +31,12 @@ blog = "/blog/:year/:month/:day/:filename/"
   url = "/code/"
   weight = -80
   
-  [[menu.main]]
-  identifier = "products"
-  name = "Products"
-  title = "products"
-  url = "/products/"
-  weight = -60
+  # [[menu.main]]
+  # identifier = "products"
+  # name = "Products"
+  # title = "products"
+  # url = "/products/"
+  # weight = -60
 
   [[menu.main]]
   identifier = "blog"
