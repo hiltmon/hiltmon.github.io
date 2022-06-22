@@ -1,230 +1,82 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>Simple C++ Testing with Catch in Xcode</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Oct 26, 2014 2:34 PM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/development>development</a>
-</span>
-</div>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/programming>programming</a>
-</span>
-</div>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/c++>c++</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-Simple C++ Testing with Catch in Xcode
-</h1>
-<div class=post-body>
-<figure class=image-right><img src=images/catch-logo-small.png width=300 height=145>
-</figure>
-<p><a href=https://github.com/philsquared/Catch>Catch</a> is a simple, open-source, <em>dependency-free</em> unit testing framework for C++ projects. In this post I show you how to use it in a <a href=https://hiltmon.com/blog/2013/07/05/xcode-and-the-simple-c-plus-plus-project-structure/>Simple C++ Project</a> from Xcode.</p>
-<h3 id=why-catch>Why Catch?</h3>
-<p>I am writing fast C++ libraries for work and need to wrap them in unit tests to ensure that they continue to operate and perform as they evolve. <em>My number one constraint is that these libraries must be dependency-free.</em> The only tools that I may use to compile or install these libraries on any platform (in my case OS X and Linux) is a C++11 compiler and a C++ standard library. Nothing else.</p>
-<p>This dependency-free requirement precludes the use of excellent popular testing frameworks such as <a href=http://www.boost.org/doc/libs/1_49_0/libs/test/doc/html/index.html>Boost Test</a> (a dependency), <a href=http://sourceforge.net/projects/cppunit/>cppunit</a> (not up to C++11 yet), <a href=https://code.google.com/p/googletest/>google-test</a> (uses a dylib or library depending on the platform) or XCTest (Xcode only and not C++).</p>
-<p><a href=https://github.com/philsquared/Catch>Catch</a> is a single header only, dependency-free, lightweight testing framework that&rsquo;s perfect for my needs. It&rsquo;s simple to add to a project, simple to create tests cases and scenarios and simple to run. It also allows the user to run only a subset of tests using tags, which is really cool.</p>
-<p>And that&rsquo;s why I chose it.</p>
-<h3 id=install-catch>Install Catch</h3>
-<p>Just include <code>catch.hpp</code> in a target and you&rsquo;re halfway there.</p>
-<p>The <code>catch.hpp</code> file can be downloaded from <a href=http://builds.catch-lib.net/>http://builds.catch-lib.net/</a>. You can find the full source at <a href=https://github.com/philsquared/Catch>https://github.com/philsquared/Catch</a>.</p>
-<h3 id=sample-tests>Sample Tests</h3>
-<p>Catch is well documented. I recommend you follow the <a href=https://github.com/philsquared/Catch/blob/master/docs/tutorial.md>tutorial</a> for simple functional unit tests and how to use the product. Since there is no point in me repeating how to write simple tests, go ahead and read through the <a href=https://github.com/philsquared/Catch/blob/master/docs/tutorial.md>tutorial</a>, and I&rsquo;ll wait until you return.</p>
-<p><span class=light>PLAYS ON-HOLD MUSAK</span></p>
-<p>Ok, back? Good. You have seen how simple it is to spin up a <code>TEST_CASE</code>, break it down into several <code>SECTION</code> elements and test results using <code>CHECK</code> and <code>REQUIRE</code>.</p>
-<p>Lets do something more complex, lets test a sample class. This sample project is what I used to test Catch when I first saw it and helped me choose it.</p>
-<p>First, the tests:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#include</span> <span style=color:#633820>&#34;catch.hpp&#34;</span><span style=color:#633820>
-</span><span style=color:#633820></span>
-<span style=color:#633820>#include</span> <span style=color:#633820>&#34;SampleClass.h&#34;</span><span style=color:#633820>
-</span><span style=color:#633820></span>
-<span style=color:#000>TEST_CASE</span>(<span style=color:#c41a16>&#34;Testing Sample Class&#34;</span>) {
-  <span style=color:#000>SampleClass</span> <span style=color:#000>sc</span>;
-  
-  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;setting the str&#34;</span>) {
-    <span style=color:#000>INFO</span>(<span style=color:#c41a16>&#34;Using TestStr&#34;</span>) <span style=color:#177500>// Only appears on a FAIL
-</span><span style=color:#177500></span>    <span style=color:#000>sc</span>.<span style=color:#000>setStr</span>(<span style=color:#c41a16>&#34;TestStr&#34;</span>);
-    <span style=color:#000>CAPTURE</span>(<span style=color:#000>sc</span>.<span style=color:#000>getStr</span>()); <span style=color:#177500>// Displays this variable on a FAIL
-</span><span style=color:#177500></span>    
-    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getStr</span>() <span style=color:#000>==</span> <span style=color:#c41a16>&#34;TestStr&#34;</span>);
-  }
-  
-  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;test bigStr&#34;</span>) {
-    <span style=color:#000>sc</span>.<span style=color:#000>setStr</span>(<span style=color:#c41a16>&#34;TestStr&#34;</span>);
-    <span style=color:#000>REQUIRE</span>(<span style=color:#000>sc</span>.<span style=color:#000>bigStr</span>() <span style=color:#000>==</span> <span style=color:#c41a16>&#34;TestStr : 7&#34;</span>);
-  }
-  
-  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;Test doubles&#34;</span>) {
-    <span style=color:#000>sc</span>.<span style=color:#000>setD</span>(<span style=color:#1c01ce>1</span>);
-    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getD</span>() <span style=color:#000>==</span> <span style=color:#1c01ce>1</span>);
-    <span style=color:#000>sc</span>.<span style=color:#000>setD</span>(<span style=color:#1c01ce>1.0</span><span style=color:#000>/</span><span style=color:#1c01ce>3.0</span>);
-    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getD</span>() <span style=color:#000>==</span> <span style=color:#000>Approx</span>(<span style=color:#1c01ce>0.33333</span>)); <span style=color:#177500>// Nice
-</span><span style=color:#177500></span>  }
-}
-</code></pre></div><p>In this example, we have a single <code>TEST_CASE</code> and three sections. Inside the <code>TEST_CASE</code> we instantiate the object and each <code>SECTION</code> tests a function in the sample class. Note that in the example, I arbitrarily switch between <code>CHECK</code> (no stop test) and <code>REQUIRE</code> (stop test), whereas in a real testing environment, I use them appropriately.</p>
-<p>Here&rsquo;s the sample class that we&rsquo;re testing&rsquo;s header, it really is quite a useless class but gives us a range of things to try:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#include</span> <span style=color:#633820>&lt;string&gt;</span><span style=color:#633820>
-</span><span style=color:#633820></span>
-<span style=color:#a90d91>class</span> <span style=color:#3f6e75>SampleClass</span> {
- 
-<span style=color:#a90d91>public</span><span style=color:#000>:</span>
-  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>getStr</span>() { <span style=color:#a90d91>return</span> <span style=color:#000>_str</span>; };
-  <span style=color:#a90d91>void</span> <span style=color:#000>setStr</span>(<span style=color:#a90d91>const</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span><span style=color:#000>&amp;</span> <span style=color:#000>s</span>) { <span style=color:#000>_str</span> <span style=color:#000>=</span> <span style=color:#000>s</span>; };
-  
-  <span style=color:#a90d91>double</span> <span style=color:#000>getD</span>() { <span style=color:#a90d91>return</span> <span style=color:#000>_d</span>; };
-  <span style=color:#a90d91>void</span> <span style=color:#000>setD</span>(<span style=color:#a90d91>double</span> <span style=color:#000>x</span>) { <span style=color:#000>_d</span> <span style=color:#000>=</span> <span style=color:#000>x</span>; };
-  
-  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>bigStr</span>();
-  
-<span style=color:#a90d91>private</span><span style=color:#000>:</span>
-  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>_str</span>;
-  <span style=color:#a90d91>double</span> <span style=color:#000>_d</span>;
-};
-</code></pre></div><p>And its body:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#include</span> <span style=color:#633820>&#34;SampleClass.h&#34;</span><span style=color:#633820>
-</span><span style=color:#633820></span>
-<span style=color:#633820>#include</span> <span style=color:#633820>&lt;sstream&gt;</span><span style=color:#633820>
-</span><span style=color:#633820></span>
-<span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>SampleClass</span><span style=color:#000>::</span><span style=color:#000>bigStr</span>()
-{
-  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>stringstream</span> <span style=color:#000>ss</span>;
-  <span style=color:#000>ss</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>_str</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#c41a16>&#34; : &#34;</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>_str</span>.<span style=color:#000>length</span>();
-  <span style=color:#a90d91>return</span> <span style=color:#000>ss</span>.<span style=color:#000>str</span>();
-}
-</code></pre></div><h3 id=testing-in-xcode>Testing In Xcode</h3>
-<figure class=image-right><img src=images/catch-tests.png width=255 height=276>
-</figure>
-<p>I setup testing in Xcode using a separate tests folder and a second tests target and scheme. In this sample case, the main project code is in the <code>SampleProject</code> group (usually a library project) and the test target code is in the <code>TestSampleProject</code> group. This group (and its matching file system folder) are automatically created when you add an Xcode command-line target.</p>
-<p>To create this target, select the project at the top and click <code>+</code> or choose <strong>File</strong> \ <strong>New</strong> \ <strong>Target</strong> from the menu, choose <strong>OS X</strong> \ <strong>Application</strong> \ <strong>Command Line Tool</strong>, choose <code>C++</code> as the language and give it a name.</p>
-<p>I then add <code>catch.hpp</code> and edit the <code>main.cpp</code> file. The <code>main.cpp</code> in the test target uses the default Catch main function, there is no point in writing my own:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=color:#633820>#define CATCH_CONFIG_MAIN  </span><span style=color:#177500>// This tells Catch to provide a main() - only do this in one cpp file
-</span><span style=color:#177500></span><span style=color:#633820>#include</span> <span style=color:#633820>&#34;catch.hpp&#34;</span><span style=color:#633820>
-</span></code></pre></div><p>I also add the following command-line options to the test target scheme and toggle when needed:</p>
-<figure class=image-right><img src=images/catch-command-line.png>
-</figure>
-<ul>
-<li><code>-r console</code> sets up readable console output (not necessary but a good reminder)</li>
-<li><code>-d yes</code> shows the time taken on each test (usually disabled)</li>
-<li><code>s</code> verbosely displays tests (usually disabled)</li>
-<li>You could also add any test tags you want to run as an option, but I find most of my test projects run sufficiently fast that I usually leave this out and run all tests. <em>It also protects me from forgetting to run the full test suite.</em></li>
-</ul>
-<p>I then start to add <code>.cpp</code> files for each test case and write my tests.</p>
-<figure class=image-right><img src=images/catch-include-target.png width=197 height=96>
-</figure>
-<p>Finally, you also need to add each class that is being tested to the Test target as well or it will not compile.</p>
-<p>Running the test target delivers the following console output <em>on success</em>:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-plain data-lang=plain>===============================================================================
-All tests passed (8 assertions in 2 test cases)
-</code></pre></div><p>If any test cases fail, you get:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-plain data-lang=plain>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-TestSampleProject is a Catch v1.0 b53 host application.
-Run with -? for options
-
--------------------------------------------------------------------------------
-Testing Sample Class
-  test bigStr
--------------------------------------------------------------------------------
-/Users/Hiltmon/Projects/Spikes/TestCatch/TestSampleProject/testSampleClass.cpp:13
-...............................................................................
-
-/Users/Hiltmon/Projects/Spikes/TestCatch/TestSampleProject/testSampleClass.cpp:26: FAILED:
-  REQUIRE( sc.bigStr() == &#34;TestStr : 8&#34; )
-with expansion:
-  &#34;TestStr : 7&#34; == &#34;TestStr : 8&#34;
-
-===============================================================================
-test cases: 2 | 1 passed | 1 failed
-assertions: 8 | 7 passed | 1 failed
-</code></pre></div><p>Correct the failures. Then add more tests. Run. Iterate, iterate, iterate. You know how to unit test.</p>
-<h3 id=sample-project>Sample Project</h3>
-<p>You can download the sample project to see how it works from <a href=https://hiltmon.com/files/TestCatch.zip>here</a>.</p>
-<h3 id=experience>Experience</h3>
-<p>I have been using <a href=https://github.com/philsquared/Catch>Catch</a> for several weeks now in multiple C++ projects and it&rsquo;s been wonderful. Setup is easy, adding test cases is simple, running tests is a keystroke away and evolving my core dependency-free libraries is easier and more reliable than ever.</p>
-<p>My thanks to <a href=http://www.levelofindirection.com>Phil Nash</a> (<a href=https://twitter.com/phil_nash>@phil_nash</a>) for creating and maintaining this wonderful tool.</p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>Simple C++ Testing with Catch in Xcode</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Oct 26, 2014 2:34 PM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/development>development</a></span></div><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/programming>programming</a></span></div><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/c++>c++</a></span></div></div><h1 class=post-title>Simple C++ Testing with Catch in Xcode</h1><div class=post-body><figure class=image-right><img src=images/catch-logo-small.png width=300 height=145></figure><p><a href=https://github.com/philsquared/Catch>Catch</a> is a simple, open-source, <em>dependency-free</em> unit testing framework for C++ projects. In this post I show you how to use it in a <a href=https://hiltmon.com/blog/2013/07/05/xcode-and-the-simple-c-plus-plus-project-structure/>Simple C++ Project</a> from Xcode.</p><h3 id=why-catch>Why Catch?</h3><p>I am writing fast C++ libraries for work and need to wrap them in unit tests to ensure that they continue to operate and perform as they evolve. <em>My number one constraint is that these libraries must be dependency-free.</em> The only tools that I may use to compile or install these libraries on any platform (in my case OS X and Linux) is a C++11 compiler and a C++ standard library. Nothing else.</p><p>This dependency-free requirement precludes the use of excellent popular testing frameworks such as <a href=http://www.boost.org/doc/libs/1_49_0/libs/test/doc/html/index.html>Boost Test</a> (a dependency), <a href=http://sourceforge.net/projects/cppunit/>cppunit</a> (not up to C++11 yet), <a href=https://code.google.com/p/googletest/>google-test</a> (uses a dylib or library depending on the platform) or XCTest (Xcode only and not C++).</p><p><a href=https://github.com/philsquared/Catch>Catch</a> is a single header only, dependency-free, lightweight testing framework that&rsquo;s perfect for my needs. It&rsquo;s simple to add to a project, simple to create tests cases and scenarios and simple to run. It also allows the user to run only a subset of tests using tags, which is really cool.</p><p>And that&rsquo;s why I chose it.</p><h3 id=install-catch>Install Catch</h3><p>Just include <code>catch.hpp</code> in a target and you&rsquo;re halfway there.</p><p>The <code>catch.hpp</code> file can be downloaded from <a href=http://builds.catch-lib.net/>http://builds.catch-lib.net/</a>. You can find the full source at <a href=https://github.com/philsquared/Catch>https://github.com/philsquared/Catch</a>.</p><h3 id=sample-tests>Sample Tests</h3><p>Catch is well documented. I recommend you follow the <a href=https://github.com/philsquared/Catch/blob/master/docs/tutorial.md>tutorial</a> for simple functional unit tests and how to use the product. Since there is no point in me repeating how to write simple tests, go ahead and read through the <a href=https://github.com/philsquared/Catch/blob/master/docs/tutorial.md>tutorial</a>, and I&rsquo;ll wait until you return.</p><p><span class=light>PLAYS ON-HOLD MUSAK</span></p><p>Ok, back? Good. You have seen how simple it is to spin up a <code>TEST_CASE</code>, break it down into several <code>SECTION</code> elements and test results using <code>CHECK</code> and <code>REQUIRE</code>.</p><p>Lets do something more complex, lets test a sample class. This sample project is what I used to test Catch when I first saw it and helped me choose it.</p><p>First, the tests:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=display:flex><span><span style=color:#633820>#include</span> <span style=color:#633820>&#34;catch.hpp&#34;</span><span style=color:#633820>
+</span></span></span><span style=display:flex><span><span style=color:#633820></span>
+</span></span><span style=display:flex><span><span style=color:#633820>#include</span> <span style=color:#633820>&#34;SampleClass.h&#34;</span><span style=color:#633820>
+</span></span></span><span style=display:flex><span><span style=color:#633820></span>
+</span></span><span style=display:flex><span><span style=color:#000>TEST_CASE</span>(<span style=color:#c41a16>&#34;Testing Sample Class&#34;</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#000>SampleClass</span> <span style=color:#000>sc</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;setting the str&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#000>INFO</span>(<span style=color:#c41a16>&#34;Using TestStr&#34;</span>) <span style=color:#177500>// Only appears on a FAIL
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>    <span style=color:#000>sc</span>.<span style=color:#000>setStr</span>(<span style=color:#c41a16>&#34;TestStr&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#000>CAPTURE</span>(<span style=color:#000>sc</span>.<span style=color:#000>getStr</span>()); <span style=color:#177500>// Displays this variable on a FAIL
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>    
+</span></span><span style=display:flex><span>    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getStr</span>() <span style=color:#000>==</span> <span style=color:#c41a16>&#34;TestStr&#34;</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;test bigStr&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#000>sc</span>.<span style=color:#000>setStr</span>(<span style=color:#c41a16>&#34;TestStr&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#000>REQUIRE</span>(<span style=color:#000>sc</span>.<span style=color:#000>bigStr</span>() <span style=color:#000>==</span> <span style=color:#c41a16>&#34;TestStr : 7&#34;</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#000>SECTION</span>(<span style=color:#c41a16>&#34;Test doubles&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#000>sc</span>.<span style=color:#000>setD</span>(<span style=color:#1c01ce>1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getD</span>() <span style=color:#000>==</span> <span style=color:#1c01ce>1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#000>sc</span>.<span style=color:#000>setD</span>(<span style=color:#1c01ce>1.0</span><span style=color:#000>/</span><span style=color:#1c01ce>3.0</span>);
+</span></span><span style=display:flex><span>    <span style=color:#000>CHECK</span>(<span style=color:#000>sc</span>.<span style=color:#000>getD</span>() <span style=color:#000>==</span> <span style=color:#000>Approx</span>(<span style=color:#1c01ce>0.33333</span>)); <span style=color:#177500>// Nice
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>In this example, we have a single <code>TEST_CASE</code> and three sections. Inside the <code>TEST_CASE</code> we instantiate the object and each <code>SECTION</code> tests a function in the sample class. Note that in the example, I arbitrarily switch between <code>CHECK</code> (no stop test) and <code>REQUIRE</code> (stop test), whereas in a real testing environment, I use them appropriately.</p><p>Here&rsquo;s the sample class that we&rsquo;re testing&rsquo;s header, it really is quite a useless class but gives us a range of things to try:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=display:flex><span><span style=color:#633820>#include</span> <span style=color:#633820>&lt;string&gt;</span><span style=color:#633820>
+</span></span></span><span style=display:flex><span><span style=color:#633820></span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>SampleClass</span> {
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#a90d91>public</span><span style=color:#000>:</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>getStr</span>() { <span style=color:#a90d91>return</span> <span style=color:#000>_str</span>; };
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>void</span> <span style=color:#000>setStr</span>(<span style=color:#a90d91>const</span> <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span><span style=color:#000>&amp;</span> <span style=color:#000>s</span>) { <span style=color:#000>_str</span> <span style=color:#000>=</span> <span style=color:#000>s</span>; };
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>double</span> <span style=color:#000>getD</span>() { <span style=color:#a90d91>return</span> <span style=color:#000>_d</span>; };
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>void</span> <span style=color:#000>setD</span>(<span style=color:#a90d91>double</span> <span style=color:#000>x</span>) { <span style=color:#000>_d</span> <span style=color:#000>=</span> <span style=color:#000>x</span>; };
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>bigStr</span>();
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#a90d91>private</span><span style=color:#000>:</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>_str</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>double</span> <span style=color:#000>_d</span>;
+</span></span><span style=display:flex><span>};
+</span></span></code></pre></div><p>And its body:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=display:flex><span><span style=color:#633820>#include</span> <span style=color:#633820>&#34;SampleClass.h&#34;</span><span style=color:#633820>
+</span></span></span><span style=display:flex><span><span style=color:#633820></span>
+</span></span><span style=display:flex><span><span style=color:#633820>#include</span> <span style=color:#633820>&lt;sstream&gt;</span><span style=color:#633820>
+</span></span></span><span style=display:flex><span><span style=color:#633820></span>
+</span></span><span style=display:flex><span><span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>string</span> <span style=color:#000>SampleClass</span><span style=color:#000>::</span><span style=color:#000>bigStr</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#000>std</span><span style=color:#000>::</span><span style=color:#000>stringstream</span> <span style=color:#000>ss</span>;
+</span></span><span style=display:flex><span>  <span style=color:#000>ss</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>_str</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#c41a16>&#34; : &#34;</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>_str</span>.<span style=color:#000>length</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>return</span> <span style=color:#000>ss</span>.<span style=color:#000>str</span>();
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=testing-in-xcode>Testing In Xcode</h3><figure class=image-right><img src=images/catch-tests.png width=255 height=276></figure><p>I setup testing in Xcode using a separate tests folder and a second tests target and scheme. In this sample case, the main project code is in the <code>SampleProject</code> group (usually a library project) and the test target code is in the <code>TestSampleProject</code> group. This group (and its matching file system folder) are automatically created when you add an Xcode command-line target.</p><p>To create this target, select the project at the top and click <code>+</code> or choose <strong>File</strong> \ <strong>New</strong> \ <strong>Target</strong> from the menu, choose <strong>OS X</strong> \ <strong>Application</strong> \ <strong>Command Line Tool</strong>, choose <code>C++</code> as the language and give it a name.</p><p>I then add <code>catch.hpp</code> and edit the <code>main.cpp</code> file. The <code>main.cpp</code> in the test target uses the default Catch main function, there is no point in writing my own:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c++ data-lang=c++><span style=display:flex><span><span style=color:#633820>#define CATCH_CONFIG_MAIN  </span><span style=color:#177500>// This tells Catch to provide a main() - only do this in one cpp file
+</span></span></span><span style=display:flex><span><span style=color:#177500></span><span style=color:#633820>#include</span> <span style=color:#633820>&#34;catch.hpp&#34;</span><span style=color:#633820>
+</span></span></span></code></pre></div><p>I also add the following command-line options to the test target scheme and toggle when needed:</p><figure class=image-right><img src=images/catch-command-line.png></figure><ul><li><code>-r console</code> sets up readable console output (not necessary but a good reminder)</li><li><code>-d yes</code> shows the time taken on each test (usually disabled)</li><li><code>s</code> verbosely displays tests (usually disabled)</li><li>You could also add any test tags you want to run as an option, but I find most of my test projects run sufficiently fast that I usually leave this out and run all tests. <em>It also protects me from forgetting to run the full test suite.</em></li></ul><p>I then start to add <code>.cpp</code> files for each test case and write my tests.</p><figure class=image-right><img src=images/catch-include-target.png width=197 height=96></figure><p>Finally, you also need to add each class that is being tested to the Test target as well or it will not compile.</p><p>Running the test target delivers the following console output <em>on success</em>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-plain data-lang=plain><span style=display:flex><span>===============================================================================
+</span></span><span style=display:flex><span>All tests passed (8 assertions in 2 test cases)
+</span></span></code></pre></div><p>If any test cases fail, you get:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-plain data-lang=plain><span style=display:flex><span>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</span></span><span style=display:flex><span>TestSampleProject is a Catch v1.0 b53 host application.
+</span></span><span style=display:flex><span>Run with -? for options
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>-------------------------------------------------------------------------------
+</span></span><span style=display:flex><span>Testing Sample Class
+</span></span><span style=display:flex><span>  test bigStr
+</span></span><span style=display:flex><span>-------------------------------------------------------------------------------
+</span></span><span style=display:flex><span>/Users/Hiltmon/Projects/Spikes/TestCatch/TestSampleProject/testSampleClass.cpp:13
+</span></span><span style=display:flex><span>...............................................................................
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>/Users/Hiltmon/Projects/Spikes/TestCatch/TestSampleProject/testSampleClass.cpp:26: FAILED:
+</span></span><span style=display:flex><span>  REQUIRE( sc.bigStr() == &#34;TestStr : 8&#34; )
+</span></span><span style=display:flex><span>with expansion:
+</span></span><span style=display:flex><span>  &#34;TestStr : 7&#34; == &#34;TestStr : 8&#34;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>===============================================================================
+</span></span><span style=display:flex><span>test cases: 2 | 1 passed | 1 failed
+</span></span><span style=display:flex><span>assertions: 8 | 7 passed | 1 failed
+</span></span></code></pre></div><p>Correct the failures. Then add more tests. Run. Iterate, iterate, iterate. You know how to unit test.</p><h3 id=sample-project>Sample Project</h3><p>You can download the sample project to see how it works from <a href=https://hiltmon.com/files/TestCatch.zip>here</a>.</p><h3 id=experience>Experience</h3><p>I have been using <a href=https://github.com/philsquared/Catch>Catch</a> for several weeks now in multiple C++ projects and it&rsquo;s been wonderful. Setup is easy, adding test cases is simple, running tests is a keystroke away and evolving my core dependency-free libraries is easier and more reliable than ever.</p><p>My thanks to <a href=http://www.levelofindirection.com>Phil Nash</a> (<a href=https://twitter.com/phil_nash>@phil_nash</a>) for creating and maintaining this wonderful tool.</p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Oct 26, 2014 2:34 PM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2014/10/26/lose-the-www/>&larr; Lose the WWW</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2014/10/18/gist-textmate-bundle-updated-for-yosemite/>Gist TextMate Bundle updated for Yosemite &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Oct 26, 2014 2:34 PM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2014/10/26/lose-the-www/>&larr; Lose the WWW</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2014/10/18/gist-textmate-bundle-updated-for-yosemite/>Gist TextMate Bundle updated for Yosemite &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

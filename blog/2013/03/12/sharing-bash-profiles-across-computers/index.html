@@ -1,114 +1,13 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>Sharing Bash Profiles across Computers</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Mar 12, 2013 1:48 PM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/tips-and-tricks>Tips and Tricks</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-Sharing Bash Profiles across Computers
-</h1>
-<div class=post-body>
-<p>If you use more than one computer, keeping your <em>dotfiles</em> in sync is difficult. You either need to run a sync program like <a href=http://www.econtechnologies.com/pages/cs/chrono_overview.html>ChronoSync</a> or set up your own <code>rsync</code> scripts. <strong>And then remember to run them.</strong></p>
-<p>I&rsquo;m lazy, I just want it to work. So here is a lightweight way to share your key <em>dotfiles</em> across computers using <a href=https://www.dropbox.com>Dropbox</a>.</p>
-<p>Create a folder in Dropbox called <code>Scripts</code> and save your <em>dotfiles</em> there:</p>
-<pre><code>$ cp ~/.inputrc ~/Dropbox/Scripts/inputrc.txt
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>Sharing Bash Profiles across Computers</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Mar 12, 2013 1:48 PM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/tips-and-tricks>Tips and Tricks</a></span></div></div><h1 class=post-title>Sharing Bash Profiles across Computers</h1><div class=post-body><p>If you use more than one computer, keeping your <em>dotfiles</em> in sync is difficult. You either need to run a sync program like <a href=http://www.econtechnologies.com/pages/cs/chrono_overview.html>ChronoSync</a> or set up your own <code>rsync</code> scripts. <strong>And then remember to run them.</strong></p><p>I&rsquo;m lazy, I just want it to work. So here is a lightweight way to share your key <em>dotfiles</em> across computers using <a href=https://www.dropbox.com>Dropbox</a>.</p><p>Create a folder in Dropbox called <code>Scripts</code> and save your <em>dotfiles</em> there:</p><pre><code>$ cp ~/.inputrc ~/Dropbox/Scripts/inputrc.txt
 $ cp ~/.bash_profile ~/Dropbox/Scripts/bash_profile.sh
-</code></pre>
-<p><em>Note: The leading dots have been removed in Dropbox so the files are not hidden and will sync. I also add file extensions to make editing them easier.</em></p>
-<p>Now that they are shared on each computer, replace your <code>~/.bash_profile</code> with:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=color:#177500># Copy my shared inputrc (may require 2 loads)</span>
-cp ~/Dropbox/Scripts/inputrc.txt ~/.inputrc
-
-<span style=color:#177500># Use my shared profile</span>
-<span style=color:#a90d91>source</span> ~/Dropbox/Scripts/bash_profile.sh
-</code></pre></div><p>I have this saved as <code>use_this_bash_profile.sh</code> and, on each computer, just once</p>
-<pre><code>$ cp ~/Dropbox/Scripts/use_this_bash_profile.sh ~/.bash_profile
-</code></pre>
-<p>Boom, edit <em>dotfiles</em> once, shared on all computers automatically.</p>
-<p><em>Bonus Tip: Plonk all your other common scripts in the same shared folder and add it to your PATH.</em></p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+</code></pre><p><em>Note: The leading dots have been removed in Dropbox so the files are not hidden and will sync. I also add file extensions to make editing them easier.</em></p><p>Now that they are shared on each computer, replace your <code>~/.bash_profile</code> with:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#177500># Copy my shared inputrc (may require 2 loads)</span>
+</span></span><span style=display:flex><span>cp ~/Dropbox/Scripts/inputrc.txt ~/.inputrc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Use my shared profile</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>source</span> ~/Dropbox/Scripts/bash_profile.sh
+</span></span></code></pre></div><p>I have this saved as <code>use_this_bash_profile.sh</code> and, on each computer, just once</p><pre><code>$ cp ~/Dropbox/Scripts/use_this_bash_profile.sh ~/.bash_profile
+</code></pre><p>Boom, edit <em>dotfiles</em> once, shared on all computers automatically.</p><p><em>Bonus Tip: Plonk all your other common scripts in the same shared folder and add it to your PATH.</em></p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Mar 12, 2013 1:48 PM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/03/12/guessing-the-wall-street-journal-agenda-for-apple/>&larr; Guessing the Wall Street Journal Agenda for Apple</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2013/03/12/better-bash-shell-expansion/>Better Bash Shell Expansion &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Mar 12, 2013 1:48 PM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2013/03/12/guessing-the-wall-street-journal-agenda-for-apple/>&larr; Guessing the Wall Street Journal Agenda for Apple</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2013/03/12/better-bash-shell-expansion/>Better Bash Shell Expansion &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

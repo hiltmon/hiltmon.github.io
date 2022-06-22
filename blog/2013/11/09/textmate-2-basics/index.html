@@ -1,133 +1,16 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>TextMate 2 Basics</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Nov 9, 2013 3:00 PM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/text-editors>Text Editors</a>
-</span>
-</div>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/textmate>TextMate</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-TextMate 2 Basics
-</h1>
-<div class=post-body>
-<figure class=image-right><img src=images/textmate.png width=128 height=128>
-</figure>
-<p>I have been using <a href=http://macromates.com>TextMate</a> for years as my primary programmer&rsquo;s editor, but it turns out that I only use a subset of its amazing features. I&rsquo;ve been speaking with users of other awesome programmer&rsquo;s editors and they wanted to know what it is in TextMate that I love so much and keeps me using it.</p>
-<p>So here are the basic parts of TextMate 2 that I use regularly. Maybe you can divine some tips from it.</p>
-<p><span class=light>Note that it all starts with the fact that TextMate 2 is the most Mac-like of programmer&rsquo;s editors. It uses all of the standard Apple keystrokes and text features so that I do not have to know another set. I&rsquo;ll assume you know the platform keys and features and move on to the TextMate features straight away.</span></p>
-<h2 id=bundles>Bundles</h2>
-<p>The true power of TextMate can be found in its bundles. Whether you code in Ruby and Shell like I do, or in some esoteric language, chances are that there is a bundle that will not only provide syntax highlighting for that language but include a whole bunch of snippets to make programming easier. There are bundles for programming languages, build systems, source code control, testing languages and odd file formats. Even the themes are bundles.</p>
-<figure class=image-right><img src=images/tm-basics-1.jpg width=300 height=182>
-</figure>
-<p>I don&rsquo;t install all the bundles, I only install them as needed (and remove the ones I do not need). <span class=light>In the <em>good old days</em> when TextMate 1 was still growing, this prevented keystroke and scope conflicts.</span></p>
-<p>To install a language or feature bundle, open <strong>Preferences&mldr;</strong> or press <code>⌘,</code> and click on <strong>Bundles</strong>. Check a bundle to install, uncheck to remove. <em>Or just open an unrecognized file and TextMate 2 will recommend a bundle to install.</em></p>
-<figure class=image-right><img src=images/tm-basics-2.jpg width=220 height=81>
-</figure>
-<p>There are many ways to learn about what&rsquo;s in a bundle. You could go to the <strong>Bundle / Edit Bundles&mldr;</strong> menu (or press <code>⌃⌥⌘B</code>) and then click on a bundle to see its contents. Or you could click on the gear menu (see image right) at the bottom of an opened file to see what&rsquo;s available.</p>
-<p>Or best of all, use <code>⌘⌃T</code> to bring up the bundle search dialog to find what&rsquo;s there. Type in what you think could exist or what it may be called, and chances are, there it is. That is how I found the available snippets and keystrokes that I use every day.</p>
-<h2 id=default-file>Default file</h2>
-<figure class=image-right><img src=images/tm-basics-3.jpg width=250 height=167>
-</figure>
-<p><code>⌘N</code> is a programmer&rsquo;s friend, it creates a new file in any editor. In TextMate 2, the shipped default is a plain text file which really makes no sense in a programmer&rsquo;s editor. I set it to my most common format, Ruby, as <em>most of the time</em>, that&rsquo;s what I need. To set the default file type, open <strong>Preferences&mldr;</strong> and on the <strong>Files</strong> tab, set your preferred new document type.</p>
-<h2 id=favorites>Favorites</h2>
-<p>I find myself opening the same projects over and over again in TextMate 2. In TextMate 1 we had project files, but I never really used them. So I used to open projects by opening a terminal, <code>cd</code> to the project folder and type the command <code>mate .</code> to open the project folder (and then created TextExpander scripts to do this, see <a href=https://hiltmon.com/blog/2012/07/15/textexpander-in-terminal/>TextExpander in Terminal</a>).<figure class=image-right><img src=images/tm-basics-4.jpg width=272 height=121>
-</figure>
-</p>
-<p>In TextMate 2, the Favorites feature works better for me. To set up a favorite, use the file browser in TextMate 2 to navigate to the folder <em>above</em> your projects.</p>
-<figure class=image-right><img src=images/tm-basics-5.jpg width=271 height=98>
-</figure>
-<p>Then, to create a favorite, right click on the project folder and choose &ldquo;Add &lt;folder> to Favorites&rdquo;.</p>
-<figure class=image-right><img src=images/tm-basics-6.jpg width=429 height=301>
-</figure>
-<p>Next time you want to open an project, just press <code>⇧⌘O</code> (O not zero) to open the <strong>Open Favorite</strong> dialog, then type or click to open the project. I just love this. <span class=light><em>Note that in the current alphas of TextMate 2, you need to restart the application for the favorites to be updated.</em></span></p>
-<h2 id=mate-and-rmate><code>mate</code> and <code>rmate</code></h2>
-<p>Since I spend most of my day in the shell, I use the <code>mate</code> command a lot to open and edit files in TextMate 2. To install the <code>mate</code> command, open <strong>Preferences&mldr;</strong>, click on the <strong>Terminal</strong> tab and click install. Then you can just type <code>mate &lt;filename></code> to open a file for editing from anywhere.</p>
-<p>I also <code>ssh</code> to a lot of virtual servers to edit and maintain them. <code>vi</code> works great for simple edits, but I use <code>rmate</code> from these remote machines to launch TextMate 2 <em>on my computer</em> to perform more complex edits.</p>
-<p>To set up <code>rmate</code> on the server, <code>ssh</code> into the server and use sudo if necessary. Type in the following commands to download the script and enable it&rsquo;s execution:</p>
-<pre><code>curl -Lo /usr/local/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>TextMate 2 Basics</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Nov 9, 2013 3:00 PM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/text-editors>Text Editors</a></span></div><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/textmate>TextMate</a></span></div></div><h1 class=post-title>TextMate 2 Basics</h1><div class=post-body><figure class=image-right><img src=images/textmate.png width=128 height=128></figure><p>I have been using <a href=http://macromates.com>TextMate</a> for years as my primary programmer&rsquo;s editor, but it turns out that I only use a subset of its amazing features. I&rsquo;ve been speaking with users of other awesome programmer&rsquo;s editors and they wanted to know what it is in TextMate that I love so much and keeps me using it.</p><p>So here are the basic parts of TextMate 2 that I use regularly. Maybe you can divine some tips from it.</p><p><span class=light>Note that it all starts with the fact that TextMate 2 is the most Mac-like of programmer&rsquo;s editors. It uses all of the standard Apple keystrokes and text features so that I do not have to know another set. I&rsquo;ll assume you know the platform keys and features and move on to the TextMate features straight away.</span></p><h2 id=bundles>Bundles</h2><p>The true power of TextMate can be found in its bundles. Whether you code in Ruby and Shell like I do, or in some esoteric language, chances are that there is a bundle that will not only provide syntax highlighting for that language but include a whole bunch of snippets to make programming easier. There are bundles for programming languages, build systems, source code control, testing languages and odd file formats. Even the themes are bundles.</p><figure class=image-right><img src=images/tm-basics-1.jpg width=300 height=182></figure><p>I don&rsquo;t install all the bundles, I only install them as needed (and remove the ones I do not need). <span class=light>In the <em>good old days</em> when TextMate 1 was still growing, this prevented keystroke and scope conflicts.</span></p><p>To install a language or feature bundle, open <strong>Preferences&mldr;</strong> or press <code>⌘,</code> and click on <strong>Bundles</strong>. Check a bundle to install, uncheck to remove. <em>Or just open an unrecognized file and TextMate 2 will recommend a bundle to install.</em></p><figure class=image-right><img src=images/tm-basics-2.jpg width=220 height=81></figure><p>There are many ways to learn about what&rsquo;s in a bundle. You could go to the <strong>Bundle / Edit Bundles&mldr;</strong> menu (or press <code>⌃⌥⌘B</code>) and then click on a bundle to see its contents. Or you could click on the gear menu (see image right) at the bottom of an opened file to see what&rsquo;s available.</p><p>Or best of all, use <code>⌘⌃T</code> to bring up the bundle search dialog to find what&rsquo;s there. Type in what you think could exist or what it may be called, and chances are, there it is. That is how I found the available snippets and keystrokes that I use every day.</p><h2 id=default-file>Default file</h2><figure class=image-right><img src=images/tm-basics-3.jpg width=250 height=167></figure><p><code>⌘N</code> is a programmer&rsquo;s friend, it creates a new file in any editor. In TextMate 2, the shipped default is a plain text file which really makes no sense in a programmer&rsquo;s editor. I set it to my most common format, Ruby, as <em>most of the time</em>, that&rsquo;s what I need. To set the default file type, open <strong>Preferences&mldr;</strong> and on the <strong>Files</strong> tab, set your preferred new document type.</p><h2 id=favorites>Favorites</h2><p>I find myself opening the same projects over and over again in TextMate 2. In TextMate 1 we had project files, but I never really used them. So I used to open projects by opening a terminal, <code>cd</code> to the project folder and type the command <code>mate .</code> to open the project folder (and then created TextExpander scripts to do this, see <a href=https://hiltmon.com/blog/2012/07/15/textexpander-in-terminal/>TextExpander in Terminal</a>).<figure class=image-right><img src=images/tm-basics-4.jpg width=272 height=121></figure></p><p>In TextMate 2, the Favorites feature works better for me. To set up a favorite, use the file browser in TextMate 2 to navigate to the folder <em>above</em> your projects.</p><figure class=image-right><img src=images/tm-basics-5.jpg width=271 height=98></figure><p>Then, to create a favorite, right click on the project folder and choose &ldquo;Add &lt;folder> to Favorites&rdquo;.</p><figure class=image-right><img src=images/tm-basics-6.jpg width=429 height=301></figure><p>Next time you want to open an project, just press <code>⇧⌘O</code> (O not zero) to open the <strong>Open Favorite</strong> dialog, then type or click to open the project. I just love this. <span class=light><em>Note that in the current alphas of TextMate 2, you need to restart the application for the favorites to be updated.</em></span></p><h2 id=mate-and-rmate><code>mate</code> and <code>rmate</code></h2><p>Since I spend most of my day in the shell, I use the <code>mate</code> command a lot to open and edit files in TextMate 2. To install the <code>mate</code> command, open <strong>Preferences&mldr;</strong>, click on the <strong>Terminal</strong> tab and click install. Then you can just type <code>mate &lt;filename></code> to open a file for editing from anywhere.</p><p>I also <code>ssh</code> to a lot of virtual servers to edit and maintain them. <code>vi</code> works great for simple edits, but I use <code>rmate</code> from these remote machines to launch TextMate 2 <em>on my computer</em> to perform more complex edits.</p><p>To set up <code>rmate</code> on the server, <code>ssh</code> into the server and use sudo if necessary. Type in the following commands to download the script and enable it&rsquo;s execution:</p><pre><code>curl -Lo /usr/local/bin/rmate https://raw.github.com/textmate/rmate/master/bin/rmate
 chmod a+x /usr/local/bin/rmate
-</code></pre>
-<p>You also need to create a reverse tunnel when you <code>ssh</code> for <code>rmate</code> to work. In your <code>~/.ssh/config</code> file, create an entry for each remote server as follows:</p>
-<pre><code>Host nimitz
+</code></pre><p>You also need to create a reverse tunnel when you <code>ssh</code> for <code>rmate</code> to work. In your <code>~/.ssh/config</code> file, create an entry for each remote server as follows:</p><pre><code>Host nimitz
 	User hiltmon
 	HostName 192.168.xx.xxx
 	RemoteForward 52698 localhost:52698
-</code></pre>
-<p>You can now <code>ssh</code> to that server and use <code>rmate</code> to edit in TextMate 2. For example:</p>
-<pre><code>**local** $ ssh nimitz
+</code></pre><p>You can now <code>ssh</code> to that server and use <code>rmate</code> to edit in TextMate 2. For example:</p><pre><code>**local** $ ssh nimitz
 **nimitz** $ rmate .bash_profile
-</code></pre>
-<p>will open the <code>.bash_profile</code> file from the remote server in your local TextMate 2.</p>
-<h2 id=muscle-memory-keys>Muscle memory keys</h2>
-<figure class=image-right><img src=images/tm-basics-7.jpg width=412 height=249>
-</figure>
-<p>As a Mac user, I already have the Mac editing keys in my muscle memory. Here are some additional keys that I use all the time in TextMate 2 to maximize my productivity:</p>
-<ul>
-<li><code>⌘T</code> is my favorite key, it brings up the <strong>Go to File</strong> dialog which allows you to type a few letters and TextMate 2 intelligently finds all matching files in the project for you. Common uses are for opening the <code>routes.rb</code> file (<code>⌘T rou ↩</code>)
-or the <code>schema.rb</code>file (<code>⌘T sch ↩</code>) in Rails projects.</li>
-</ul>
-<figure class=image-right><img src=images/tm-basics-8.jpg width=250 height=216>
-</figure>
-<ul>
-<li>
-<p><code>⌘R</code> runs the current file. I do not like the default where the results are displayed at the bottom of the editor window, so I change it to <strong>New window</strong> in the <strong>Preferences</strong>, <strong>Projects</strong> tab.</p>
-</li>
-<li>
-<p><code>⇧⌃D</code> duplicates a line (or the current selection). I use this a lot to duplicate code patterns and then change the parameters. For example, when writing code from a CSV import to add to an ActiveRecord such as</p>
-</li>
-</ul>
-<br>
-<pre tabindex=0><code>Security.create!(
+</code></pre><p>will open the <code>.bash_profile</code> file from the remote server in your local TextMate 2.</p><h2 id=muscle-memory-keys>Muscle memory keys</h2><figure class=image-right><img src=images/tm-basics-7.jpg width=412 height=249></figure><p>As a Mac user, I already have the Mac editing keys in my muscle memory. Here are some additional keys that I use all the time in TextMate 2 to maximize my productivity:</p><ul><li><code>⌘T</code> is my favorite key, it brings up the <strong>Go to File</strong> dialog which allows you to type a few letters and TextMate 2 intelligently finds all matching files in the project for you. Common uses are for opening the <code>routes.rb</code> file (<code>⌘T rou ↩</code>)
+or the <code>schema.rb</code>file (<code>⌘T sch ↩</code>) in Rails projects.</li></ul><figure class=image-right><img src=images/tm-basics-8.jpg width=250 height=216></figure><ul><li><p><code>⌘R</code> runs the current file. I do not like the default where the results are displayed at the bottom of the editor window, so I change it to <strong>New window</strong> in the <strong>Preferences</strong>, <strong>Projects</strong> tab.</p></li><li><p><code>⇧⌃D</code> duplicates a line (or the current selection). I use this a lot to duplicate code patterns and then change the parameters. For example, when writing code from a CSV import to add to an ActiveRecord such as</p></li></ul><br><pre tabindex=0><code>Security.create!(
 	cusip: row[0],
 	isin: row[1]
-</code></pre><p>I&rsquo;ll often duplicate the last line to create</p>
-<pre tabindex=0><code>Security.create!(
+</code></pre><p>I&rsquo;ll often duplicate the last line to create</p><pre tabindex=0><code>Security.create!(
 	cusip: row[0],
 	isin: row[1]
 	isin: row[1]
@@ -135,97 +18,13 @@ or the <code>schema.rb</code>file (<code>⌘T sch ↩</code>) in Rails projects.
 	isin: row[1]
 	isin: row[1]
 	isin: row[1]
-</code></pre><p>And then use the below keys to navigate quickly around the duplicates to change the labels and indices.</p>
-<ul>
-<li><code>⌥→</code> moves to the next word (add <code>⇧</code> to select) and <code>⌘→</code> moves to the end of a line which is the standard Mac way. So without learning anything new, I can move the caret (cursor to some) around the file a lot quicker. But TextMate 2 goes further, if you do not have it mapped in Mission Control, <code>⌃→</code> moves to the next part in a CamelCase word (I do not use this).</li>
-<li><code>⌥←</code> moves to the previous word (add <code>⇧</code> to select) and <code>⌘←</code> moves to the beginning of a line.</li>
-<li><code>⌘↩</code> creates a new line <em>from anywhere in the line</em> which saves moving to the end to do so, especially since TextMate auto-inserts closing braces and quotes for you to the right of your caret.</li>
-<li><code>⌘]</code> indents the current line. TextMate 2 usually does this for you when typing, but does not always clean up when deleting.</li>
-<li><code>⌘[</code> un-indents the current line.</li>
-<li><code>⌘/</code> comments out a line, or uncomments it if commented out. I use this a lot to activate debug print statements in code when testing and then deactivate them after the bug is found. Select multiple lines to comment out blocks with this keystroke.</li>
-<li><code>⇧⌘]</code> navigates to the next open tab, useful when working between views, controllers and helpers. Interestingly, the Ruby bundle does have macros to switch between these, but I don&rsquo;t use them either.</li>
-<li><code>⇧⌘[</code> navigates to the previous open tab</li>
-</ul>
-<h2 id=column-mode>Column mode</h2>
-<p>I use column mode a lot in TextMate 2, especially when working with SQL fields. In TextMate 1 this was a real column mode where everything had to be squared up, but in TextMate 2, it really means having multiple carets.</p>
-<p>Multiple carets are awesome, you can make the same changes all over the document with a few keystrokes. Once you get used to having and using multiple carets, you really feel the power of TextMate 2.</p>
-<p>For example, lets say I have the following CREATE TABLE command from SQL Server:</p>
-<pre><code>CREATE TABLE Securities(
+</code></pre><p>And then use the below keys to navigate quickly around the duplicates to change the labels and indices.</p><ul><li><code>⌥→</code> moves to the next word (add <code>⇧</code> to select) and <code>⌘→</code> moves to the end of a line which is the standard Mac way. So without learning anything new, I can move the caret (cursor to some) around the file a lot quicker. But TextMate 2 goes further, if you do not have it mapped in Mission Control, <code>⌃→</code> moves to the next part in a CamelCase word (I do not use this).</li><li><code>⌥←</code> moves to the previous word (add <code>⇧</code> to select) and <code>⌘←</code> moves to the beginning of a line.</li><li><code>⌘↩</code> creates a new line <em>from anywhere in the line</em> which saves moving to the end to do so, especially since TextMate auto-inserts closing braces and quotes for you to the right of your caret.</li><li><code>⌘]</code> indents the current line. TextMate 2 usually does this for you when typing, but does not always clean up when deleting.</li><li><code>⌘[</code> un-indents the current line.</li><li><code>⌘/</code> comments out a line, or uncomments it if commented out. I use this a lot to activate debug print statements in code when testing and then deactivate them after the bug is found. Select multiple lines to comment out blocks with this keystroke.</li><li><code>⇧⌘]</code> navigates to the next open tab, useful when working between views, controllers and helpers. Interestingly, the Ruby bundle does have macros to switch between these, but I don&rsquo;t use them either.</li><li><code>⇧⌘[</code> navigates to the previous open tab</li></ul><h2 id=column-mode>Column mode</h2><p>I use column mode a lot in TextMate 2, especially when working with SQL fields. In TextMate 1 this was a real column mode where everything had to be squared up, but in TextMate 2, it really means having multiple carets.</p><p>Multiple carets are awesome, you can make the same changes all over the document with a few keystrokes. Once you get used to having and using multiple carets, you really feel the power of TextMate 2.</p><p>For example, lets say I have the following CREATE TABLE command from SQL Server:</p><pre><code>CREATE TABLE Securities(
 cusip varchar(9),
 isin varchar(13),
 name varchar(255),
 ...
-</code></pre>
-<p>And want to change it to an inline <code>cusip, isin, name</code> for use in an INSERT statement, I can do the following using multiple carets:</p>
-<ol>
-<li>Select to where I want the carets to be with the selection start being the first location and the selection end being the last.</li>
-<li>Tap the <code>⌥</code> key to switch to multiple carets.</li>
-<li><code>⌥→</code> to move to the end of the field name, then <code>⇧⌘→</code> to select to the end of the line.<figure><img src=images/tm-basics-9.jpg width=660 height=92>
-</figure>
-</li>
-<li><code>DELETE</code> to remove the excess baggage.</li>
-<li><code>→</code> once to cross over the newline, <code>DELETE</code> to remove the new line.</li>
-<li>Type a comma to separate the elements, <code>⇧→</code> to highlight the excess spaces, <code>SPACE</code> to replace them and finally <code>⌘⇧L</code> to select the line.<figure><img src=images/tm-basics-A.jpg width=660 height=92>
-</figure>
-</li>
-</ol>
-<p>And now I have what I need to paste into the INSERT statement. Its a lot easier than typing out all the fields, especially for large tables.</p>
-<h2 id=searching>Searching</h2>
-<p>As with all editors, TextMate has full search and replace functionality. For me, I use the in-file search and replace a lot, as well as the <em>find in project</em> features, so much so that I have memorized those keystrokes as well.</p>
-<p>For searching and navigating within a file, I usually start with a <code>⌘E</code> to use the current selection for a find. <code>⌘G</code> then finds and moves the selection to the next occurrence of that text in the file. <code>⇧⌘G</code> finds the previous occurrence. This is great for finding where a function is used in a file. Select the function name, <code>⌘E </code>to set it up for search, then <code>⌘G</code> again and again to see where its used.</p>
-<p>I also use this to make fast replacements. Use <code>⌘E</code> to set the selection to search. Then replace the selection with the new text. Select that and press <code>⇧⌘E</code> to tell TextMate that the new selection is the replacement text. If you are brave, press <code>⌃⌘G</code> and all occurrences of the original text are replaced with the replacement text in the file. Very sweet.</p>
-<p>If you do not have a selection to start with, <code>⌘F</code> is your friend. Press <code>⌘F</code> to open the <strong>Find</strong> dialog, type in the search phrase and press return to start searching. You can then use <code>⌘G</code> and <code>⇧⌘G</code> to find next and previous.</p>
-<p>And to search across all files in a project, <code>⇧⌘F</code> brings up the <strong>Find</strong> dialog scoped to all files in the project.</p>
-<p><strong>Cool tip</strong>: If you have already created a selection to find in a file using <code>⌘E</code> or a replacement using <code>⇧⌘E</code>, that will be used in <code>⌘F</code> (Find in file) or <code>⇧⌘F</code> (Find in project) as well.</p>
-<h2 id=html-and-erb>HTML and ERB</h2>
-<p>The final set of keystrokes I&rsquo;d like to share with you today are used to create HTML or ERB tags, and I use these a lot too.</p>
-<p><code>⌃⇧,</code> (<code>⌃&lt;</code>) creates a new HTML tag and selects the tag name. Just type to change the start <em>and end</em> tag. So press <code>⌃⇧,</code> to create a <code>&lt;p>&lt;/p></code> tag and then type <code>div</code> to create a <code>&lt;div>&lt;/div></code> tag. TextMate 2 also stops copying the tag name to the end tag on space.</p>
-<p>For ERB tags, use <code>⌃⇧.</code> (<code>⌃></code>) to create a new <code>&lt;%= | %></code> tag with the cursor where the pipe is. Press it again to change the tag to <code>&lt;% | %></code>, again to get <code>&lt;%- -%></code> and again for <code>&lt;%# %></code> and again to cycle back. That is far faster than typing the whole thing.</p>
-<h2 id=fin>Fin</h2>
-<p>So those the basic TextMate 2 features that I use <em>all the time</em>, its only just over 20 keystrokes to get used to using.</p>
-<p>I am quite certain that you can do all of the above in your programmer&rsquo;s editor of choice just as efficiently. But for me, it&rsquo;s the Mac basics and TextMate features and keystroke muscle memory that makes me so productive in TextMate 2.</p>
-<p><strong>Update</strong>: I have written a follow-up post with even <a href=https://hiltmon.com/blog/2014/01/20/more-textmate-2-basics/>More TextMate 2 Basics</a>. Check it out.</p>
-<p><em>If you have any awesome TextMate 2 features or keys you cannot live without, please share them in the comments.</em></p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+</code></pre><p>And want to change it to an inline <code>cusip, isin, name</code> for use in an INSERT statement, I can do the following using multiple carets:</p><ol><li>Select to where I want the carets to be with the selection start being the first location and the selection end being the last.</li><li>Tap the <code>⌥</code> key to switch to multiple carets.</li><li><code>⌥→</code> to move to the end of the field name, then <code>⇧⌘→</code> to select to the end of the line.<figure><img src=images/tm-basics-9.jpg width=660 height=92></figure></li><li><code>DELETE</code> to remove the excess baggage.</li><li><code>→</code> once to cross over the newline, <code>DELETE</code> to remove the new line.</li><li>Type a comma to separate the elements, <code>⇧→</code> to highlight the excess spaces, <code>SPACE</code> to replace them and finally <code>⌘⇧L</code> to select the line.<figure><img src=images/tm-basics-A.jpg width=660 height=92></figure></li></ol><p>And now I have what I need to paste into the INSERT statement. Its a lot easier than typing out all the fields, especially for large tables.</p><h2 id=searching>Searching</h2><p>As with all editors, TextMate has full search and replace functionality. For me, I use the in-file search and replace a lot, as well as the <em>find in project</em> features, so much so that I have memorized those keystrokes as well.</p><p>For searching and navigating within a file, I usually start with a <code>⌘E</code> to use the current selection for a find. <code>⌘G</code> then finds and moves the selection to the next occurrence of that text in the file. <code>⇧⌘G</code> finds the previous occurrence. This is great for finding where a function is used in a file. Select the function name, <code>⌘E </code>to set it up for search, then <code>⌘G</code> again and again to see where its used.</p><p>I also use this to make fast replacements. Use <code>⌘E</code> to set the selection to search. Then replace the selection with the new text. Select that and press <code>⇧⌘E</code> to tell TextMate that the new selection is the replacement text. If you are brave, press <code>⌃⌘G</code> and all occurrences of the original text are replaced with the replacement text in the file. Very sweet.</p><p>If you do not have a selection to start with, <code>⌘F</code> is your friend. Press <code>⌘F</code> to open the <strong>Find</strong> dialog, type in the search phrase and press return to start searching. You can then use <code>⌘G</code> and <code>⇧⌘G</code> to find next and previous.</p><p>And to search across all files in a project, <code>⇧⌘F</code> brings up the <strong>Find</strong> dialog scoped to all files in the project.</p><p><strong>Cool tip</strong>: If you have already created a selection to find in a file using <code>⌘E</code> or a replacement using <code>⇧⌘E</code>, that will be used in <code>⌘F</code> (Find in file) or <code>⇧⌘F</code> (Find in project) as well.</p><h2 id=html-and-erb>HTML and ERB</h2><p>The final set of keystrokes I&rsquo;d like to share with you today are used to create HTML or ERB tags, and I use these a lot too.</p><p><code>⌃⇧,</code> (<code>⌃&lt;</code>) creates a new HTML tag and selects the tag name. Just type to change the start <em>and end</em> tag. So press <code>⌃⇧,</code> to create a <code>&lt;p>&lt;/p></code> tag and then type <code>div</code> to create a <code>&lt;div>&lt;/div></code> tag. TextMate 2 also stops copying the tag name to the end tag on space.</p><p>For ERB tags, use <code>⌃⇧.</code> (<code>⌃></code>) to create a new <code>&lt;%= | %></code> tag with the cursor where the pipe is. Press it again to change the tag to <code>&lt;% | %></code>, again to get <code>&lt;%- -%></code> and again for <code>&lt;%# %></code> and again to cycle back. That is far faster than typing the whole thing.</p><h2 id=fin>Fin</h2><p>So those the basic TextMate 2 features that I use <em>all the time</em>, its only just over 20 keystrokes to get used to using.</p><p>I am quite certain that you can do all of the above in your programmer&rsquo;s editor of choice just as efficiently. But for me, it&rsquo;s the Mac basics and TextMate features and keystroke muscle memory that makes me so productive in TextMate 2.</p><p><strong>Update</strong>: I have written a follow-up post with even <a href=https://hiltmon.com/blog/2014/01/20/more-textmate-2-basics/>More TextMate 2 Basics</a>. Check it out.</p><p><em>If you have any awesome TextMate 2 features or keys you cannot live without, please share them in the comments.</em></p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Nov 9, 2013 3:00 PM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/12/06/the-day-he-walked-to-freedom/>&larr; The day he walked to freedom</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2013/11/03/merge-asana-projects-into-omnifocus/>Merge Asana Projects into OmniFocus &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Nov 9, 2013 3:00 PM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2013/12/06/the-day-he-walked-to-freedom/>&larr; The day he walked to freedom</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2013/11/03/merge-asana-projects-into-omnifocus/>Merge Asana Projects into OmniFocus &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

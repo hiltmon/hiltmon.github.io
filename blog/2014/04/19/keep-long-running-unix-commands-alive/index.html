@@ -1,144 +1,15 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>Keep long running UNIX commands alive</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Apr 19, 2014 12:43 PM</span>
-</p>
-<div class=tag-group>
-</div>
-<h1 class=post-title>
-Keep long running UNIX commands alive
-</h1>
-<div class=post-body>
-<p>Here&rsquo;s the situation: you have a UNIX script that takes a long time to run, but gets killed when your computer goes to sleep and the SSH terminal or VPN disconnects. <em>Ouch</em>.</p>
-<p>I know of three ways to kick long running scripts off and not worry about sleeping computers or disconnections: <code>nohup</code>, <code>disown</code> or <code>tmux</code>.</p>
-<h2 id=simple-nohup>Simple: <code>nohup</code></h2>
-<p>From the <code>man</code> page:</p>
-<pre><code>nohup -- invoke a utility immune to hangups
-</code></pre>
-<p>Which really does not tell the story. When the parent terminal session terminates, it sends a hangup (SIGHUP) to all child processes, causing them to terminate as well. <code>nohup</code> tells a process to ignore that hangup.</p>
-<p>However, if the process is still part of the primary thread of a terminal, it dies anyway because it&rsquo;s parent terminates.</p>
-<p>To kick off a long running process on unix, type</p>
-<pre><code>$ nohup &lt;the command&gt; &amp;
-</code></pre>
-<p>This tells <code>&lt;the command></code> to ignore hangups, and detaches the process from the current terminal, so the kill signal is also ignored.</p>
-<p>To see what is going on in this thread:</p>
-<pre><code>$ tail -f nohup.out
-</code></pre>
-<p><code>nohup</code> helpfully appends standard output and standard error to this file.</p>
-<p>Go ahead and try it, kick off a command using <code>nohup ... &</code>, close the terminal, create a new terminal session and tail the <strong>nohup.out</strong> file to see that the process is still running.</p>
-<h2 id=oops-i-forgot-disown>Oops I Forgot: <code>disown</code></h2>
-<p>If you forget to kick off a process using <code>nohup</code>, never fear, <code>disown</code> is your friend. The only negative is that this does not create an output file, so you need to use <code>ps</code> to track progress.</p>
-<p>To <code>disown</code> a process, you need to suspend it (⌃Z), put it into the background (like the <code>&</code> in the <code>nohup</code> line) and then <code>disown</code> it as follows:</p>
-<pre><code># press Ctrl+Z to suspend the program
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>Keep long running UNIX commands alive</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Apr 19, 2014 12:43 PM</span></p><div class=tag-group></div><h1 class=post-title>Keep long running UNIX commands alive</h1><div class=post-body><p>Here&rsquo;s the situation: you have a UNIX script that takes a long time to run, but gets killed when your computer goes to sleep and the SSH terminal or VPN disconnects. <em>Ouch</em>.</p><p>I know of three ways to kick long running scripts off and not worry about sleeping computers or disconnections: <code>nohup</code>, <code>disown</code> or <code>tmux</code>.</p><h2 id=simple-nohup>Simple: <code>nohup</code></h2><p>From the <code>man</code> page:</p><pre><code>nohup -- invoke a utility immune to hangups
+</code></pre><p>Which really does not tell the story. When the parent terminal session terminates, it sends a hangup (SIGHUP) to all child processes, causing them to terminate as well. <code>nohup</code> tells a process to ignore that hangup.</p><p>However, if the process is still part of the primary thread of a terminal, it dies anyway because it&rsquo;s parent terminates.</p><p>To kick off a long running process on unix, type</p><pre><code>$ nohup &lt;the command&gt; &amp;
+</code></pre><p>This tells <code>&lt;the command></code> to ignore hangups, and detaches the process from the current terminal, so the kill signal is also ignored.</p><p>To see what is going on in this thread:</p><pre><code>$ tail -f nohup.out
+</code></pre><p><code>nohup</code> helpfully appends standard output and standard error to this file.</p><p>Go ahead and try it, kick off a command using <code>nohup ... &</code>, close the terminal, create a new terminal session and tail the <strong>nohup.out</strong> file to see that the process is still running.</p><h2 id=oops-i-forgot-disown>Oops I Forgot: <code>disown</code></h2><p>If you forget to kick off a process using <code>nohup</code>, never fear, <code>disown</code> is your friend. The only negative is that this does not create an output file, so you need to use <code>ps</code> to track progress.</p><p>To <code>disown</code> a process, you need to suspend it (⌃Z), put it into the background (like the <code>&</code> in the <code>nohup</code> line) and then <code>disown</code> it as follows:</p><pre><code># press Ctrl+Z to suspend the program
 $ bg
 $ disown
-</code></pre>
-<p>It&rsquo;s now safe to let the terminal session die, the process will run to completion.</p>
-<h2 id=complex-tmux>Complex: <code>tmux</code></h2>
-<p>If you already use <code>tmux</code> sessions, this is the simplest solution. If you do not, you need to set it up before you run the long running command.</p>
-<p>To start a <code>tmux</code> terminal, just type</p>
-<pre><code>$ tmux new -s long-running-session
-</code></pre>
-<p>Run the program in this session as normal, no need for <code>nohup</code> or <code>disown</code>.</p>
-<p>Before closing the terminal, detach the session:</p>
-<pre><code>$ tmux detach
-</code></pre>
-<p>Or <code>⌃b d</code> from within the <code>tmux</code> terminal.</p>
-<p>To get it back later, just re-attach the session:</p>
-<pre><code>$ tmux a
-</code></pre>
-<p>or</p>
-<pre><code>$ tmux a -t long-running-session
-</code></pre>
-<p>And the long running command will still be running (or completed).</p>
-<p>I won&rsquo;t go into setting up <code>tmux</code>, Daniel Miessler wrote a great <a href=http://www.danielmiessler.com/study/tmux/>tmux Tutorial and Primer</a> to show you how to do this.</p>
-<h2 id=iterm-2>iTerm 2</h2>
-<p>Since I use iTerm 2 profiles to <code>ssh</code> to my servers (See <a href=https://hiltmon.com/blog/2013/07/18/fast-ssh-windows-with-iterm-2/>Fast SSH Windows with iTerm 2</a>), the simple <code>nohup ... &</code> version is the one I use all the time to kick off and log long-running UNIX commands.</p>
-<p>For example, to run a long running command on <strong>Farragut</strong>, I</p>
-<ul>
-<li>Launch iTerm 2: <code>⇧⌃t</code></li>
-<li><code>ssh</code> to Farragut: <code>⌃⌘F</code></li>
-<li><code>nohup &lt;the command> &</code></li>
-</ul>
-<p>And if my VPN session disconnects, I can always get back an see what happened in the <strong>nohup.out</strong> file.</p>
-<p>Enjoy.</p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+</code></pre><p>It&rsquo;s now safe to let the terminal session die, the process will run to completion.</p><h2 id=complex-tmux>Complex: <code>tmux</code></h2><p>If you already use <code>tmux</code> sessions, this is the simplest solution. If you do not, you need to set it up before you run the long running command.</p><p>To start a <code>tmux</code> terminal, just type</p><pre><code>$ tmux new -s long-running-session
+</code></pre><p>Run the program in this session as normal, no need for <code>nohup</code> or <code>disown</code>.</p><p>Before closing the terminal, detach the session:</p><pre><code>$ tmux detach
+</code></pre><p>Or <code>⌃b d</code> from within the <code>tmux</code> terminal.</p><p>To get it back later, just re-attach the session:</p><pre><code>$ tmux a
+</code></pre><p>or</p><pre><code>$ tmux a -t long-running-session
+</code></pre><p>And the long running command will still be running (or completed).</p><p>I won&rsquo;t go into setting up <code>tmux</code>, Daniel Miessler wrote a great <a href=http://www.danielmiessler.com/study/tmux/>tmux Tutorial and Primer</a> to show you how to do this.</p><h2 id=iterm-2>iTerm 2</h2><p>Since I use iTerm 2 profiles to <code>ssh</code> to my servers (See <a href=https://hiltmon.com/blog/2013/07/18/fast-ssh-windows-with-iterm-2/>Fast SSH Windows with iTerm 2</a>), the simple <code>nohup ... &</code> version is the one I use all the time to kick off and log long-running UNIX commands.</p><p>For example, to run a long running command on <strong>Farragut</strong>, I</p><ul><li>Launch iTerm 2: <code>⇧⌃t</code></li><li><code>ssh</code> to Farragut: <code>⌃⌘F</code></li><li><code>nohup &lt;the command> &</code></li></ul><p>And if my VPN session disconnects, I can always get back an see what happened in the <strong>nohup.out</strong> file.</p><p>Enjoy.</p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Apr 19, 2014 12:43 PM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2014/04/27/the-markdown-payoff/>&larr; The Markdown Payoff</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2014/04/02/social-network-precedents-for-connecting-and-friending/>Social Network Precedents for Connecting and Friending &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Apr 19, 2014 12:43 PM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2014/04/27/the-markdown-payoff/>&larr; The Markdown Payoff</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2014/04/02/social-network-precedents-for-connecting-and-friending/>Social Network Precedents for Connecting and Friending &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

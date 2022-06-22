@@ -1,164 +1,92 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>Hourly Analytics for Status Board</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Apr 15, 2013 10:23 AM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/status-board>Status Board</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-Hourly Analytics for Status Board
-</h1>
-<div class=post-body>
-<p><span class=light>Google has finally deprecated their GAPI interface which this used to talk to Google Analytics, sorry folks, it will no longer work. See the <a href=https://hiltmon.com/blog/2015/06/07/new-google-analytics-for-status-board-server-edition/>New Google Analytics for Status Board Server Edition</a> for an updated version. </span></p>
-<p>Following up last week&rsquo;s <a href=https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/>Google Analytics for Status Board</a> graph and <a href=https://hiltmon.com/blog/2013/04/10/top-pages-in-status-board/>Top Pages</a> table on <a href="https://itunes.apple.com/us/app/status-board/id449955536?mt=8&uo=4&at=10l894">Status Board</a>, a reader asked for <strong>hourly stats</strong> instead of daily, so I created it (see the bottom-right graph).</p>
-<p><span class=light>See also <a href=https://hiltmon.com/blog/2013/04/10/top-pages-in-status-board/>Top Pages in Status Board</a>, <a href=https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/>Daily Stats</a> and <a href=https://hiltmon.com/blog/2013/04/17/add-ga-os-and-browser-to-status-board/>OS and Browser Stats</a>.</span></p>
-<figure><img src=images/status-board-hourly.jpg width=640 height=480>
-</figure>
-<p>The script creates a 24-hour rotating window of stats using your local time-zone for reference. <em>Note that I have only tested this in US EST, but it should work elsewhere.</em></p>
-<p>The steps are all the same as <a href=https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/>Google Analytics for Status Board</a>, so follow along, only replace that script and the launcher files with these.</p>
-<ul>
-<li>Install the <code>json</code> and <code>gattica</code> gems</li>
-<li>Configure the script with your own parameters (and optionally change the Google Analytics account using the script at <a href=https://gist.github.com/hiltmon/5373934>https://gist.github.com/hiltmon/5373934</a> to get the index and uncomment line 45 to set it).</li>
-<li>Schedule the script to run by modifying the <code>.plist</code> file below to reflect your path to the script, then copying it to <code>~/Library/LaunchAgents</code> and loading it with <code>launchctl</code></li>
-</ul>
-<p>The script code is in <code>status_board_hourly.rb</code>:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby</span>
-
-<span style=color:#177500># status_board_hourly.rb</span>
-<span style=color:#177500># Hilton Lipschitz </span>
-<span style=color:#177500># Twitter/ADN: @hiltmon </span>
-<span style=color:#177500># Web: https://hiltmon.com</span>
-<span style=color:#177500># Use and modify freely, attribution appreciated</span>
-<span style=color:#177500>#</span>
-<span style=color:#177500># Script to generate @panic status board files for Google Analytics web stats. This one generates a </span>
-<span style=color:#177500># line graph for a 24 hour window</span>
-<span style=color:#177500>#</span>
-<span style=color:#177500># Run this regularly to update status board</span>
-<span style=color:#177500>#</span>
-<span style=color:#177500># For how to set up, see https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/</span>
-
-<span style=color:#177500># Include the gems needed</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;rubygems&#39;</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;gattica&#39;</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;date&#39;</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;json&#39;</span>
-
-<span style=color:#177500># Your Settings</span>
-<span style=color:#000>google_email</span>   <span style=color:#000>=</span> <span style=color:#c41a16>&#39;hiltmon@gmail.com&#39;</span>  <span style=color:#177500># Your google login</span>
-<span style=color:#000>google_pwd</span>     <span style=color:#000>=</span> <span style=color:#c41a16>&#39;I_aint_sayin&#39;</span>   <span style=color:#177500># Must be a single use password if 2 factor is set up</span>
-<span style=color:#000>the_title</span>      <span style=color:#000>=</span> <span style=color:#c41a16>&#34;Hiltmon.Com Hourly&#34;</span> <span style=color:#177500># The title of the Graph</span>
-<span style=color:#000>file_name</span>      <span style=color:#000>=</span> <span style=color:#c41a16>&#34;hiltmonhourly&#34;</span>      <span style=color:#177500># The file name to use (.CSV and .JSON)</span>
-<span style=color:#000>dropbox_folder</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/Hiltmon/Dropbox/Data&#34;</span> <span style=color:#177500># The path to a folder on your local DropBox</span>
-
-<span style=color:#177500># Configuration </span>
-<span style=color:#000>metrics</span> <span style=color:#000>=</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;pageviews&#39;</span>, <span style=color:#c41a16>&#39;visitors&#39;</span>, <span style=color:#c41a16>&#39;newVisits&#39;</span><span style=color:#000>]</span>
-<span style=color:#000>colors</span> <span style=color:#000>=</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;red&#39;</span>, <span style=color:#c41a16>&#39;green&#39;</span>, <span style=color:#c41a16>&#39;blue&#39;</span><span style=color:#000>]</span>
-<span style=color:#000>days_to_get</span> <span style=color:#000>=</span> <span style=color:#1c01ce>7</span>
-
-<span style=color:#177500># Login</span>
-<span style=color:#000>ga</span> <span style=color:#000>=</span> <span style=color:#000>Gattica</span><span style=color:#000>.</span><span style=color:#000>new</span>({ 
-    <span style=color:#c41a16>:email</span> <span style=color:#000>=&gt;</span> <span style=color:#000>google_email</span>, 
-    <span style=color:#c41a16>:password</span> <span style=color:#000>=&gt;</span> <span style=color:#000>google_pwd</span>
-})
-
-<span style=color:#177500># Get a list of accounts</span>
-<span style=color:#000>accounts</span> <span style=color:#000>=</span> <span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>accounts</span>
-
-<span style=color:#177500># Choose the first account</span>
-<span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>profile_id</span> <span style=color:#000>=</span> <span style=color:#000>accounts</span><span style=color:#000>.</span><span style=color:#000>first</span><span style=color:#000>.</span><span style=color:#000>profile_id</span>
-<span style=color:#177500># ga.profile_id = accounts[1].profile_id # OR second account</span>
-
-<span style=color:#177500># Get the data</span>
-<span style=color:#000>data</span> <span style=color:#000>=</span> <span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>get</span>({ 
-    <span style=color:#c41a16>:start_date</span>   <span style=color:#000>=&gt;</span> (<span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>today</span> <span style=color:#000>-</span> <span style=color:#1c01ce>1</span>)<span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>,
-    <span style=color:#c41a16>:end_date</span>     <span style=color:#000>=&gt;</span> <span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>today</span><span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>,
-    <span style=color:#c41a16>:dimensions</span>   <span style=color:#000>=&gt;</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span>, <span style=color:#c41a16>&#39;hour&#39;</span><span style=color:#000>]</span>,
-    <span style=color:#c41a16>:metrics</span>      <span style=color:#000>=&gt;</span> <span style=color:#000>metrics</span>,
-})
-
-<span style=color:#177500># Make the JSON file</span>
-<span style=color:#000>graph</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
-<span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:title</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>the_title</span>
-<span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:type</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;line&#39;</span>
-<span style=color:#000>index</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0</span>
-<span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:datasequences</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#a90d91>Array</span><span style=color:#000>.</span><span style=color:#000>new</span>
-
-<span style=color:#000>metrics</span><span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>element</span><span style=color:#000>|</span>
-  <span style=color:#000>sequence</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
-  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:title</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>element</span>
-  <span style=color:#000>sequence_data</span> <span style=color:#000>=</span> <span style=color:#a90d91>Array</span><span style=color:#000>.</span><span style=color:#000>new</span>
-  <span style=color:#000>data</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;points&#39;</span><span style=color:#000>].</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>point</span><span style=color:#000>|</span>
-    <span style=color:#000>the_date</span> <span style=color:#000>=</span> <span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;dimensions&#34;</span><span style=color:#000>].</span><span style=color:#000>first</span><span style=color:#000>[</span><span style=color:#c41a16>:date</span><span style=color:#000>]</span>)<span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>
-    <span style=color:#000>the_hour</span> <span style=color:#000>=</span> <span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;dimensions&#34;</span><span style=color:#000>][</span><span style=color:#1c01ce>1</span><span style=color:#000>][</span><span style=color:#c41a16>:hour</span><span style=color:#000>]</span>
-    <span style=color:#000>the_window</span> <span style=color:#000>=</span> <span style=color:#000>DateTime</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>the_date</span><span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#c41a16>#{</span><span style=color:#000>the_hour</span><span style=color:#c41a16>}</span><span style=color:#c41a16>:00 </span><span style=color:#c41a16>#{</span><span style=color:#000>DateTime</span><span style=color:#000>.</span><span style=color:#000>now</span><span style=color:#000>.</span><span style=color:#000>strftime</span>(<span style=color:#c41a16>&#34;%z&#34;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>) 
-    <span style=color:#a90d91>next</span> <span style=color:#a90d91>if</span> <span style=color:#000>the_window</span> <span style=color:#000>&lt;</span> (<span style=color:#000>DateTime</span><span style=color:#000>.</span><span style=color:#000>now</span> <span style=color:#000>-</span> <span style=color:#1c01ce>1</span>)
-    <span style=color:#a90d91>next</span> <span style=color:#a90d91>if</span> <span style=color:#000>the_window</span> <span style=color:#000>&gt;</span> <span style=color:#000>DateTime</span><span style=color:#000>.</span><span style=color:#000>now</span>
-    <span style=color:#000>the_title</span> <span style=color:#000>=</span> <span style=color:#000>the_window</span><span style=color:#000>.</span><span style=color:#000>hour</span><span style=color:#000>.</span><span style=color:#000>to_s</span>
-    <span style=color:#000>the_value</span> <span style=color:#000>=</span> <span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;metrics&#34;</span><span style=color:#000>][</span><span style=color:#000>index</span><span style=color:#000>][</span><span style=color:#000>element</span><span style=color:#000>.</span><span style=color:#000>to_sym</span><span style=color:#000>]</span>
-    <span style=color:#000>sequence_data</span> <span style=color:#000>&lt;&lt;</span> { <span style=color:#c41a16>:title</span> <span style=color:#000>=&gt;</span> <span style=color:#000>the_title</span>, <span style=color:#c41a16>:value</span> <span style=color:#000>=&gt;</span> <span style=color:#000>the_value</span> }
-  <span style=color:#a90d91>end</span>
-  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:datapoints</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>sequence_data</span>
-  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:color</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>colors</span><span style=color:#000>[</span><span style=color:#000>index</span><span style=color:#000>]</span>
-  <span style=color:#000>index</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
-  <span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:datasequences</span><span style=color:#000>]</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>sequence</span>
-<span style=color:#a90d91>end</span>
-
-<span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>dropbox_folder</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/</span><span style=color:#c41a16>#{</span><span style=color:#000>file_name</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.json&#34;</span>, <span style=color:#c41a16>&#34;w&#34;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>f</span><span style=color:#000>|</span>
-  <span style=color:#000>wrapper</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
-  <span style=color:#000>wrapper</span><span style=color:#000>[</span><span style=color:#c41a16>:graph</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>graph</span>
-  <span style=color:#000>f</span><span style=color:#000>.</span><span style=color:#000>write</span> <span style=color:#000>wrapper</span><span style=color:#000>.</span><span style=color:#000>to_json</span>
-<span style=color:#a90d91>end</span>
-</code></pre></div><p>Once again, edit the script to change:</p>
-<ul>
-<li>The <strong>email</strong> and <strong>password</strong> you use to access Google Analytics.</li>
-<li>The <strong>title</strong>, <strong>file_name</strong> and <strong>dropbox_path</strong> to save the data on your computer and dropbox.</li>
-</ul>
-<p>The launcher code is in <code>com.hiltmon.status_board_hourly.plist</code>:</p>
-<pre tabindex=0><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=&quot;1.0&quot;&gt;
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>Hourly Analytics for Status Board</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Apr 15, 2013 10:23 AM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/status-board>Status Board</a></span></div></div><h1 class=post-title>Hourly Analytics for Status Board</h1><div class=post-body><p><span class=light>Google has finally deprecated their GAPI interface which this used to talk to Google Analytics, sorry folks, it will no longer work. See the <a href=https://hiltmon.com/blog/2015/06/07/new-google-analytics-for-status-board-server-edition/>New Google Analytics for Status Board Server Edition</a> for an updated version.</span></p><p>Following up last week&rsquo;s <a href=https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/>Google Analytics for Status Board</a> graph and <a href=https://hiltmon.com/blog/2013/04/10/top-pages-in-status-board/>Top Pages</a> table on <a href="https://itunes.apple.com/us/app/status-board/id449955536?mt=8&uo=4&at=10l894">Status Board</a>, a reader asked for <strong>hourly stats</strong> instead of daily, so I created it (see the bottom-right graph).</p><p><span class=light>See also <a href=https://hiltmon.com/blog/2013/04/10/top-pages-in-status-board/>Top Pages in Status Board</a>, <a href=https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/>Daily Stats</a> and <a href=https://hiltmon.com/blog/2013/04/17/add-ga-os-and-browser-to-status-board/>OS and Browser Stats</a>.</span></p><figure><img src=images/status-board-hourly.jpg width=640 height=480></figure><p>The script creates a 24-hour rotating window of stats using your local time-zone for reference. <em>Note that I have only tested this in US EST, but it should work elsewhere.</em></p><p>The steps are all the same as <a href=https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/>Google Analytics for Status Board</a>, so follow along, only replace that script and the launcher files with these.</p><ul><li>Install the <code>json</code> and <code>gattica</code> gems</li><li>Configure the script with your own parameters (and optionally change the Google Analytics account using the script at <a href=https://gist.github.com/hiltmon/5373934>https://gist.github.com/hiltmon/5373934</a> to get the index and uncomment line 45 to set it).</li><li>Schedule the script to run by modifying the <code>.plist</code> file below to reflect your path to the script, then copying it to <code>~/Library/LaunchAgents</code> and loading it with <code>launchctl</code></li></ul><p>The script code is in <code>status_board_hourly.rb</code>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#177500>#!/usr/bin/env ruby</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># status_board_hourly.rb</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Hilton Lipschitz </span>
+</span></span><span style=display:flex><span><span style=color:#177500># Twitter/ADN: @hiltmon </span>
+</span></span><span style=display:flex><span><span style=color:#177500># Web: https://hiltmon.com</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Use and modify freely, attribution appreciated</span>
+</span></span><span style=display:flex><span><span style=color:#177500>#</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Script to generate @panic status board files for Google Analytics web stats. This one generates a </span>
+</span></span><span style=display:flex><span><span style=color:#177500># line graph for a 24 hour window</span>
+</span></span><span style=display:flex><span><span style=color:#177500>#</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Run this regularly to update status board</span>
+</span></span><span style=display:flex><span><span style=color:#177500>#</span>
+</span></span><span style=display:flex><span><span style=color:#177500># For how to set up, see https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Include the gems needed</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;rubygems&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;gattica&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;date&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;json&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Your Settings</span>
+</span></span><span style=display:flex><span><span style=color:#000>google_email</span>   <span style=color:#000>=</span> <span style=color:#c41a16>&#39;hiltmon@gmail.com&#39;</span>  <span style=color:#177500># Your google login</span>
+</span></span><span style=display:flex><span><span style=color:#000>google_pwd</span>     <span style=color:#000>=</span> <span style=color:#c41a16>&#39;I_aint_sayin&#39;</span>   <span style=color:#177500># Must be a single use password if 2 factor is set up</span>
+</span></span><span style=display:flex><span><span style=color:#000>the_title</span>      <span style=color:#000>=</span> <span style=color:#c41a16>&#34;Hiltmon.Com Hourly&#34;</span> <span style=color:#177500># The title of the Graph</span>
+</span></span><span style=display:flex><span><span style=color:#000>file_name</span>      <span style=color:#000>=</span> <span style=color:#c41a16>&#34;hiltmonhourly&#34;</span>      <span style=color:#177500># The file name to use (.CSV and .JSON)</span>
+</span></span><span style=display:flex><span><span style=color:#000>dropbox_folder</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/Hiltmon/Dropbox/Data&#34;</span> <span style=color:#177500># The path to a folder on your local DropBox</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Configuration </span>
+</span></span><span style=display:flex><span><span style=color:#000>metrics</span> <span style=color:#000>=</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;pageviews&#39;</span>, <span style=color:#c41a16>&#39;visitors&#39;</span>, <span style=color:#c41a16>&#39;newVisits&#39;</span><span style=color:#000>]</span>
+</span></span><span style=display:flex><span><span style=color:#000>colors</span> <span style=color:#000>=</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;red&#39;</span>, <span style=color:#c41a16>&#39;green&#39;</span>, <span style=color:#c41a16>&#39;blue&#39;</span><span style=color:#000>]</span>
+</span></span><span style=display:flex><span><span style=color:#000>days_to_get</span> <span style=color:#000>=</span> <span style=color:#1c01ce>7</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Login</span>
+</span></span><span style=display:flex><span><span style=color:#000>ga</span> <span style=color:#000>=</span> <span style=color:#000>Gattica</span><span style=color:#000>.</span><span style=color:#000>new</span>({ 
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>:email</span> <span style=color:#000>=&gt;</span> <span style=color:#000>google_email</span>, 
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>:password</span> <span style=color:#000>=&gt;</span> <span style=color:#000>google_pwd</span>
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Get a list of accounts</span>
+</span></span><span style=display:flex><span><span style=color:#000>accounts</span> <span style=color:#000>=</span> <span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>accounts</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Choose the first account</span>
+</span></span><span style=display:flex><span><span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>profile_id</span> <span style=color:#000>=</span> <span style=color:#000>accounts</span><span style=color:#000>.</span><span style=color:#000>first</span><span style=color:#000>.</span><span style=color:#000>profile_id</span>
+</span></span><span style=display:flex><span><span style=color:#177500># ga.profile_id = accounts[1].profile_id # OR second account</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Get the data</span>
+</span></span><span style=display:flex><span><span style=color:#000>data</span> <span style=color:#000>=</span> <span style=color:#000>ga</span><span style=color:#000>.</span><span style=color:#000>get</span>({ 
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>:start_date</span>   <span style=color:#000>=&gt;</span> (<span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>today</span> <span style=color:#000>-</span> <span style=color:#1c01ce>1</span>)<span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>,
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>:end_date</span>     <span style=color:#000>=&gt;</span> <span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>today</span><span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>,
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>:dimensions</span>   <span style=color:#000>=&gt;</span> <span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span>, <span style=color:#c41a16>&#39;hour&#39;</span><span style=color:#000>]</span>,
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>:metrics</span>      <span style=color:#000>=&gt;</span> <span style=color:#000>metrics</span>,
+</span></span><span style=display:flex><span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Make the JSON file</span>
+</span></span><span style=display:flex><span><span style=color:#000>graph</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
+</span></span><span style=display:flex><span><span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:title</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>the_title</span>
+</span></span><span style=display:flex><span><span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:type</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;line&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#000>index</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0</span>
+</span></span><span style=display:flex><span><span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:datasequences</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#a90d91>Array</span><span style=color:#000>.</span><span style=color:#000>new</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>metrics</span><span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>element</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>sequence</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:title</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>element</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>sequence_data</span> <span style=color:#000>=</span> <span style=color:#a90d91>Array</span><span style=color:#000>.</span><span style=color:#000>new</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>data</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;points&#39;</span><span style=color:#000>].</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>point</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>the_date</span> <span style=color:#000>=</span> <span style=color:#000>Date</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;dimensions&#34;</span><span style=color:#000>].</span><span style=color:#000>first</span><span style=color:#000>[</span><span style=color:#c41a16>:date</span><span style=color:#000>]</span>)<span style=color:#000>.</span><span style=color:#000>to_s</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;T&#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>the_hour</span> <span style=color:#000>=</span> <span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;dimensions&#34;</span><span style=color:#000>][</span><span style=color:#1c01ce>1</span><span style=color:#000>][</span><span style=color:#c41a16>:hour</span><span style=color:#000>]</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>the_window</span> <span style=color:#000>=</span> <span style=color:#000>DateTime</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>the_date</span><span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#c41a16>#{</span><span style=color:#000>the_hour</span><span style=color:#c41a16>}</span><span style=color:#c41a16>:00 </span><span style=color:#c41a16>#{</span><span style=color:#000>DateTime</span><span style=color:#000>.</span><span style=color:#000>now</span><span style=color:#000>.</span><span style=color:#000>strftime</span>(<span style=color:#c41a16>&#34;%z&#34;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>) 
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>next</span> <span style=color:#a90d91>if</span> <span style=color:#000>the_window</span> <span style=color:#000>&lt;</span> (<span style=color:#000>DateTime</span><span style=color:#000>.</span><span style=color:#000>now</span> <span style=color:#000>-</span> <span style=color:#1c01ce>1</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>next</span> <span style=color:#a90d91>if</span> <span style=color:#000>the_window</span> <span style=color:#000>&gt;</span> <span style=color:#000>DateTime</span><span style=color:#000>.</span><span style=color:#000>now</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>the_title</span> <span style=color:#000>=</span> <span style=color:#000>the_window</span><span style=color:#000>.</span><span style=color:#000>hour</span><span style=color:#000>.</span><span style=color:#000>to_s</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>the_value</span> <span style=color:#000>=</span> <span style=color:#000>point</span><span style=color:#000>.</span><span style=color:#000>to_h</span><span style=color:#000>[</span><span style=color:#c41a16>&#34;metrics&#34;</span><span style=color:#000>][</span><span style=color:#000>index</span><span style=color:#000>][</span><span style=color:#000>element</span><span style=color:#000>.</span><span style=color:#000>to_sym</span><span style=color:#000>]</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>sequence_data</span> <span style=color:#000>&lt;&lt;</span> { <span style=color:#c41a16>:title</span> <span style=color:#000>=&gt;</span> <span style=color:#000>the_title</span>, <span style=color:#c41a16>:value</span> <span style=color:#000>=&gt;</span> <span style=color:#000>the_value</span> }
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:datapoints</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>sequence_data</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>sequence</span><span style=color:#000>[</span><span style=color:#c41a16>:color</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>colors</span><span style=color:#000>[</span><span style=color:#000>index</span><span style=color:#000>]</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>index</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>graph</span><span style=color:#000>[</span><span style=color:#c41a16>:datasequences</span><span style=color:#000>]</span> <span style=color:#000>&lt;&lt;</span> <span style=color:#000>sequence</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>dropbox_folder</span><span style=color:#c41a16>}</span><span style=color:#c41a16>/</span><span style=color:#c41a16>#{</span><span style=color:#000>file_name</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.json&#34;</span>, <span style=color:#c41a16>&#34;w&#34;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>f</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>wrapper</span> <span style=color:#000>=</span> <span style=color:#000>Hash</span><span style=color:#000>.</span><span style=color:#000>new</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>wrapper</span><span style=color:#000>[</span><span style=color:#c41a16>:graph</span><span style=color:#000>]</span> <span style=color:#000>=</span> <span style=color:#000>graph</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>f</span><span style=color:#000>.</span><span style=color:#000>write</span> <span style=color:#000>wrapper</span><span style=color:#000>.</span><span style=color:#000>to_json</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span></code></pre></div><p>Once again, edit the script to change:</p><ul><li>The <strong>email</strong> and <strong>password</strong> you use to access Google Analytics.</li><li>The <strong>title</strong>, <strong>file_name</strong> and <strong>dropbox_path</strong> to save the data on your computer and dropbox.</li></ul><p>The launcher code is in <code>com.hiltmon.status_board_hourly.plist</code>:</p><pre tabindex=0><code>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;!DOCTYPE plist PUBLIC &#34;-//Apple//DTD PLIST 1.0//EN&#34; &#34;http://www.apple.com/DTDs/PropertyList-1.0.dtd&#34;&gt;
+&lt;plist version=&#34;1.0&#34;&gt;
 &lt;dict&gt;
     &lt;key&gt;Label&lt;/key&gt;
     &lt;string&gt;com.hiltmon.status_board_hourly&lt;/string&gt;
@@ -170,58 +98,8 @@ Hourly Analytics for Status Board
     &lt;integer&gt;300&lt;/integer&gt;
 &lt;/dict&gt;
 &lt;/plist&gt;
-</code></pre><p>Update it too for your paths and names, the copy and load it.</p>
-<p><strong>Add it to Status Board</strong></p>
-<p>Follow the instructions in <a href=http://www.panic.com/statusboard/docs/graph_tutorial.pdf>Graph Tutorial (PDF)</a>:</p>
-<ul>
-<li>Share the JSON file on your DropBox</li>
-<li>Mail that link to yourself</li>
-<li>Tap the link in the email on your iPad to open it in Safari</li>
-<li>Copy the link from Safari (minus the bit after the <code>?</code>)</li>
-<li>Add a new <strong>graph</strong> to your Status Board and paste in the link (it offers to do this by default).</li>
-</ul>
-<p>Enjoy.</p>
-<p><em>Update: All the scripts can be downloaded from Github at <a href=https://github.com/hiltmon/status-board-ga>https://github.com/hiltmon/status-board-ga</a>.</em></p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+</code></pre><p>Update it too for your paths and names, the copy and load it.</p><p><strong>Add it to Status Board</strong></p><p>Follow the instructions in <a href=http://www.panic.com/statusboard/docs/graph_tutorial.pdf>Graph Tutorial (PDF)</a>:</p><ul><li>Share the JSON file on your DropBox</li><li>Mail that link to yourself</li><li>Tap the link in the email on your iPad to open it in Safari</li><li>Copy the link from Safari (minus the bit after the <code>?</code>)</li><li>Add a new <strong>graph</strong> to your Status Board and paste in the link (it offers to do this by default).</li></ul><p>Enjoy.</p><p><em>Update: All the scripts can be downloaded from Github at <a href=https://github.com/hiltmon/status-board-ga>https://github.com/hiltmon/status-board-ga</a>.</em></p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Apr 15, 2013 10:23 AM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/04/15/my-textmate-2-setup/>&larr; My TextMate 2 Setup</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2013/04/11/natsukashii-ipulse-sighting/>Natsukashii - iPulse Sighting &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Apr 15, 2013 10:23 AM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2013/04/15/my-textmate-2-setup/>&larr; My TextMate 2 Setup</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2013/04/11/natsukashii-ipulse-sighting/>Natsukashii - iPulse Sighting &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

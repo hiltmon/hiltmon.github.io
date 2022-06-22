@@ -1,182 +1,35 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>TextExpander in Terminal</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Jul 15, 2012 10:21 AM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/productivity>Productivity</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-TextExpander in Terminal
-</h1>
-<div class=post-body>
-<p>I spend a lot of time in Terminal.app mostly running Rails or Git commands. I am also lazy, so I like to use short macros instead of typing in the same thing over and over again. I used to use bash aliases or functions, but I mostly use <a href=http://smilesoftware.com/TextExpander/>TextExpander</a> snippets now because I like to be sure they don&rsquo;t conflict with internal UNIX commands.</p>
-<p>In this post I will show you</p>
-<ul>
-<li>How to setup a TextExpander Group that only runs in the Terminal</li>
-<li>Some of the more common snippets I have added to this group</li>
-</ul>
-<p>Lets get started.</p>
-<h2 id=setup-textexpander-group-for-terminal>Setup TextExpander Group for Terminal</h2>
-<figure class=image-right><img src=images/textexpander-applications.png width=282 height=274>
-</figure>
-<p>If TextExpander is only on your menu bar, click the icon, then choose <strong>Open TextExpander</strong>. In TextExpander, create a new Group. I called mine <strong>HL Terminal Commands</strong>. In the <strong>Group Settings</strong> (see below), choose <strong>Only These Applications&mldr;</strong> and TextExpander will bring up a list of installed applications (see right). Check <strong>Terminal</strong> only. TextExpander will now only expand these snippets in Terminal.app.</p>
-<figure><img src=images/textexpander-group.png width=640 height=357>
-</figure>
-<h2 id=some-core-snippets>Some core Snippets</h2>
-<h3 id=change-to-project-folder>Change to Project Folder</h3>
-<p>One of the first commands I always enter in Terminal is to change to a project folder&rsquo;s code subfolder. It&rsquo;s a lot to type <code>cd ~/Projects/Kifu/code/kifu</code> every time, so I created a snippet abbreviated to <code>;cdki</code> to do it.</p>
-<ul>
-<li><code>;cdki</code> -> <code>cd ~/Projects/Kifu/code/kifu</code></li>
-<li><code>;cdhi</code> -> <code>cd ~/Projects/HiltmonDotCom/code/hiltmon.com</code></li>
-</ul>
-<h3 id=git-commands>Git Commands</h3>
-<p>As we all do, I spend a lot of time typing in Git commands to manage Source Control. Of course, I use <a href=https://github.com/git/git/blob/master/contrib/completion/git-completion.bash>git-completion.bash</a> to speed up typing in branch names. Here are some of my snippets for git:</p>
-<ul>
-<li><code>;gs</code> -> <code>git status</code></li>
-<li><code>;gm</code> -> <code>git merge --no-edit --no-ff </code> <em>(note the space at the end)</em></li>
-<li><code>;gcd</code> -> <code>git checkout develop</code></li>
-<li><code>;ga</code> -> <code>git add .</code></li>
-<li><code>;gb</code> -> <code>git branch</code></li>
-<li><code>;gcb</code> -> <code>git checkout -b </code> <em>(note the space at the end)</em></li>
-<li><code>;gpo</code> -> <code>git push origin</code></li>
-</ul>
-<p>One thing I like to do is log all commits to <a href=http://dayoneapp.com>Day One</a> - see <a href=https://hiltmon.com/blog/2012/01/23/bread-crumbs-in-day-one/>Bread Crumbs in Day One</a>. In this case I use a TextExpander cursor position marker to set where I type the commit message, then use it to run a bash macro.</p>
-<ul>
-<li><code>;gca</code> -> <code>gca "%|"</code></li>
-</ul>
-<p>The bash macro in <code>.bash_profile</code> (OS X) is</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#a90d91>function</span> gca<span style=color:#000>(){</span>
-  <span style=color:#000>msg</span><span style=color:#000>=</span><span style=color:#000>$*</span>
-  <span style=color:#000>path</span><span style=color:#000>=</span><span style=color:#a90d91>$(</span><span style=color:#a90d91>pwd</span><span style=color:#a90d91>)</span>
-  ~/scripts/LogtoDayOne.rb <span style=color:#c41a16>&#34;@</span><span style=color:#c41a16>${</span><span style=color:#000>path</span>##*/<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#000>$msg</span><span style=color:#c41a16>&#34;</span>
-  git commit -am <span style=color:#c41a16>&#34;</span><span style=color:#000>$msg</span><span style=color:#c41a16>&#34;</span>
-<span style=color:#000>}</span>
-</code></pre></div><p>So to commit my current branch and merge it into development I could do the following:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ git status
-$ git add .
-$ git commit -m <span style=color:#c41a16>&#34;Amazing commit message&#34;</span>
-$ ~/scripts/LogtoDayOne.rb <span style=color:#c41a16>&#34;@kifu Amazing commit message&#34;</span>
-$ git checkout develop
-$ git merge --no-edit --no-ff branchname
-$ git push origin
-</code></pre></div><p>or, with TextExpander (showing typing only)</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ ;gs
-$ ;ga
-$ ;gca <span style=color:#c41a16>&#34;Amazing commit message&#34;</span>
-$ ;gcd
-$ ;gm branchname
-$ ;gpo
-</code></pre></div><p>to do the same thing, 62 keystrokes instead of 191! Add that up over a day!</p>
-<h3 id=ssh-to-server>SSH to Server</h3>
-<p>SSH to a server takes too much typing, so I use this:</p>
-<ul>
-<li><code>;sshxxx</code> -> <code>ssh deploy@xxxxxxxx.kifuapp.com</code></li>
-</ul>
-<p><strong>Aside</strong>: I like my remote terminals to look different, so I have set the following functions up in my bash profile:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#a90d91>function</span> tabc<span style=color:#000>()</span> <span style=color:#000>{</span>
-	<span style=color:#000>NAME</span><span style=color:#000>=</span><span style=color:#000>$1</span>; <span style=color:#a90d91>if</span> <span style=color:#000>[</span> -z <span style=color:#c41a16>&#34;</span><span style=color:#000>$NAME</span><span style=color:#c41a16>&#34;</span> <span style=color:#000>]</span>; <span style=color:#a90d91>then</span> <span style=color:#000>NAME</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;Default&#34;</span>; <span style=color:#a90d91>fi</span>
-	osascript -e <span style=color:#c41a16>&#34;tell application \&#34;Terminal\&#34; to set current settings of front window to settings set \&#34;</span><span style=color:#000>$NAME</span><span style=color:#c41a16>\&#34;&#34;</span>
-<span style=color:#000>}</span>
-
-<span style=color:#177500># Change the terminal color when remote</span>
-<span style=color:#a90d91>function</span> ssh <span style=color:#000>{</span>
-  tabc <span style=color:#c41a16>&#34;Hiltmon-Remote&#34;</span>
-  /usr/bin/ssh <span style=color:#c41a16>&#34;</span><span style=color:#000>$@</span><span style=color:#c41a16>&#34;</span>
-  tabc <span style=color:#c41a16>&#34;Hiltmon&#34;</span>
-<span style=color:#000>}</span>
-</code></pre></div><p>Whenever I execute a ssh command, my current terminal gets a new color scheme, which gets restored on exit from the remote session (local to the left, remote to the right).</p>
-<figure><img src=images/terminal-compare.png width=590 height=420>
-</figure>
-<h3 id=open-with-editor>Open with Editor</h3>
-<p>Launching an editor, then opening a recent folder or file takes too much effort too. Here are my editor launcher snippets:</p>
-<ul>
-<li><code>;md</code> -> <code>mate .</code> <em>(Opens the current folder in TextMate 2)</em></li>
-<li><code>;sd</code> -> <code>subl -n .</code> <em>(Opens the current folder in Sublime Text)</em></li>
-<li><code>'bd</code> -> <code>bbedit .</code> <em>(Opens the current folder in BBEdit)</em></li>
-</ul>
-<h2 id=looking-for-more-ideas>Looking for more ideas</h2>
-<p>If you use TextExpander to speed up your use of Terminal, I&rsquo;d love to hear about it. Link in the comments or DM me on Twitter <a href=https://twitter.com/hiltmon>@hiltmon</a>.</p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>TextExpander in Terminal</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Jul 15, 2012 10:21 AM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/productivity>Productivity</a></span></div></div><h1 class=post-title>TextExpander in Terminal</h1><div class=post-body><p>I spend a lot of time in Terminal.app mostly running Rails or Git commands. I am also lazy, so I like to use short macros instead of typing in the same thing over and over again. I used to use bash aliases or functions, but I mostly use <a href=http://smilesoftware.com/TextExpander/>TextExpander</a> snippets now because I like to be sure they don&rsquo;t conflict with internal UNIX commands.</p><p>In this post I will show you</p><ul><li>How to setup a TextExpander Group that only runs in the Terminal</li><li>Some of the more common snippets I have added to this group</li></ul><p>Lets get started.</p><h2 id=setup-textexpander-group-for-terminal>Setup TextExpander Group for Terminal</h2><figure class=image-right><img src=images/textexpander-applications.png width=282 height=274></figure><p>If TextExpander is only on your menu bar, click the icon, then choose <strong>Open TextExpander</strong>. In TextExpander, create a new Group. I called mine <strong>HL Terminal Commands</strong>. In the <strong>Group Settings</strong> (see below), choose <strong>Only These Applications&mldr;</strong> and TextExpander will bring up a list of installed applications (see right). Check <strong>Terminal</strong> only. TextExpander will now only expand these snippets in Terminal.app.</p><figure><img src=images/textexpander-group.png width=640 height=357></figure><h2 id=some-core-snippets>Some core Snippets</h2><h3 id=change-to-project-folder>Change to Project Folder</h3><p>One of the first commands I always enter in Terminal is to change to a project folder&rsquo;s code subfolder. It&rsquo;s a lot to type <code>cd ~/Projects/Kifu/code/kifu</code> every time, so I created a snippet abbreviated to <code>;cdki</code> to do it.</p><ul><li><code>;cdki</code> -> <code>cd ~/Projects/Kifu/code/kifu</code></li><li><code>;cdhi</code> -> <code>cd ~/Projects/HiltmonDotCom/code/hiltmon.com</code></li></ul><h3 id=git-commands>Git Commands</h3><p>As we all do, I spend a lot of time typing in Git commands to manage Source Control. Of course, I use <a href=https://github.com/git/git/blob/master/contrib/completion/git-completion.bash>git-completion.bash</a> to speed up typing in branch names. Here are some of my snippets for git:</p><ul><li><code>;gs</code> -> <code>git status</code></li><li><code>;gm</code> -> <code>git merge --no-edit --no-ff</code> <em>(note the space at the end)</em></li><li><code>;gcd</code> -> <code>git checkout develop</code></li><li><code>;ga</code> -> <code>git add .</code></li><li><code>;gb</code> -> <code>git branch</code></li><li><code>;gcb</code> -> <code>git checkout -b</code> <em>(note the space at the end)</em></li><li><code>;gpo</code> -> <code>git push origin</code></li></ul><p>One thing I like to do is log all commits to <a href=http://dayoneapp.com>Day One</a> - see <a href=https://hiltmon.com/blog/2012/01/23/bread-crumbs-in-day-one/>Bread Crumbs in Day One</a>. In this case I use a TextExpander cursor position marker to set where I type the commit message, then use it to run a bash macro.</p><ul><li><code>;gca</code> -> <code>gca "%|"</code></li></ul><p>The bash macro in <code>.bash_profile</code> (OS X) is</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#a90d91>function</span> gca<span style=color:#000>(){</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>msg</span><span style=color:#000>=</span><span style=color:#000>$*</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>path</span><span style=color:#000>=</span><span style=color:#a90d91>$(</span><span style=color:#a90d91>pwd</span><span style=color:#a90d91>)</span>
+</span></span><span style=display:flex><span>  ~/scripts/LogtoDayOne.rb <span style=color:#c41a16>&#34;@</span><span style=color:#c41a16>${</span><span style=color:#000>path</span>##*/<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#000>$msg</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span>  git commit -am <span style=color:#c41a16>&#34;</span><span style=color:#000>$msg</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>}</span>
+</span></span></code></pre></div><p>So to commit my current branch and merge it into development I could do the following:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span>$ git status
+</span></span><span style=display:flex><span>$ git add .
+</span></span><span style=display:flex><span>$ git commit -m <span style=color:#c41a16>&#34;Amazing commit message&#34;</span>
+</span></span><span style=display:flex><span>$ ~/scripts/LogtoDayOne.rb <span style=color:#c41a16>&#34;@kifu Amazing commit message&#34;</span>
+</span></span><span style=display:flex><span>$ git checkout develop
+</span></span><span style=display:flex><span>$ git merge --no-edit --no-ff branchname
+</span></span><span style=display:flex><span>$ git push origin
+</span></span></code></pre></div><p>or, with TextExpander (showing typing only)</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span>$ ;gs
+</span></span><span style=display:flex><span>$ ;ga
+</span></span><span style=display:flex><span>$ ;gca <span style=color:#c41a16>&#34;Amazing commit message&#34;</span>
+</span></span><span style=display:flex><span>$ ;gcd
+</span></span><span style=display:flex><span>$ ;gm branchname
+</span></span><span style=display:flex><span>$ ;gpo
+</span></span></code></pre></div><p>to do the same thing, 62 keystrokes instead of 191! Add that up over a day!</p><h3 id=ssh-to-server>SSH to Server</h3><p>SSH to a server takes too much typing, so I use this:</p><ul><li><code>;sshxxx</code> -> <code>ssh deploy@xxxxxxxx.kifuapp.com</code></li></ul><p><strong>Aside</strong>: I like my remote terminals to look different, so I have set the following functions up in my bash profile:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#a90d91>function</span> tabc<span style=color:#000>()</span> <span style=color:#000>{</span>
+</span></span><span style=display:flex><span>	<span style=color:#000>NAME</span><span style=color:#000>=</span><span style=color:#000>$1</span>; <span style=color:#a90d91>if</span> <span style=color:#000>[</span> -z <span style=color:#c41a16>&#34;</span><span style=color:#000>$NAME</span><span style=color:#c41a16>&#34;</span> <span style=color:#000>]</span>; <span style=color:#a90d91>then</span> <span style=color:#000>NAME</span><span style=color:#000>=</span><span style=color:#c41a16>&#34;Default&#34;</span>; <span style=color:#a90d91>fi</span>
+</span></span><span style=display:flex><span>	osascript -e <span style=color:#c41a16>&#34;tell application \&#34;Terminal\&#34; to set current settings of front window to settings set \&#34;</span><span style=color:#000>$NAME</span><span style=color:#c41a16>\&#34;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Change the terminal color when remote</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>function</span> ssh <span style=color:#000>{</span>
+</span></span><span style=display:flex><span>  tabc <span style=color:#c41a16>&#34;Hiltmon-Remote&#34;</span>
+</span></span><span style=display:flex><span>  /usr/bin/ssh <span style=color:#c41a16>&#34;</span><span style=color:#000>$@</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span>  tabc <span style=color:#c41a16>&#34;Hiltmon&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>}</span>
+</span></span></code></pre></div><p>Whenever I execute a ssh command, my current terminal gets a new color scheme, which gets restored on exit from the remote session (local to the left, remote to the right).</p><figure><img src=images/terminal-compare.png width=590 height=420></figure><h3 id=open-with-editor>Open with Editor</h3><p>Launching an editor, then opening a recent folder or file takes too much effort too. Here are my editor launcher snippets:</p><ul><li><code>;md</code> -> <code>mate .</code> <em>(Opens the current folder in TextMate 2)</em></li><li><code>;sd</code> -> <code>subl -n .</code> <em>(Opens the current folder in Sublime Text)</em></li><li><code>'bd</code> -> <code>bbedit .</code> <em>(Opens the current folder in BBEdit)</em></li></ul><h2 id=looking-for-more-ideas>Looking for more ideas</h2><p>If you use TextExpander to speed up your use of Terminal, I&rsquo;d love to hear about it. Link in the comments or DM me on Twitter <a href=https://twitter.com/hiltmon>@hiltmon</a>.</p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Jul 15, 2012 10:21 AM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2012/07/16/kinds-of-files-in-a-project-folder/>&larr; Kinds of Files in a Project Folder</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2012/07/14/cheap-programmers-cost-more-and-ship-less/>Cheap programmers cost more and ship less &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Jul 15, 2012 10:21 AM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2012/07/16/kinds-of-files-in-a-project-folder/>&larr; Kinds of Files in a Project Folder</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2012/07/14/cheap-programmers-cost-more-and-ship-less/>Cheap programmers cost more and ship less &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

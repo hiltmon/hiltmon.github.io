@@ -1,281 +1,93 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>A Reliable Script File Layout</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Sep 14, 2013 2:44 PM</span>
-</p>
-<div class=tag-group>
-</div>
-<h1 class=post-title>
-A Reliable Script File Layout
-</h1>
-<div class=post-body>
-<p>I write a surfeit<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> of Ruby scripts that I use every day at work, everything from sending, transforming and retrieving files to monitoring systems to glueing platforms together. Keeping these under control, forgettable<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> and maintainable is very important to me. So over the past few years, I have migrated to a file layout and programming pattern that enables me to spin these up quickly, forget about them and yet get back and maintain them when things change.</p>
-<p>In this post, I&rsquo;ll share this format and the thinking behind it as well as a few Ruby tricks that I rely on. <span class=light>And yes, it works just as well for Python or whatever other language you prefer to use.</span></p>
-<h2 id=the-script-file-layout>The Script File Layout</h2>
-<h3 id=traditional-no-layout-version>Traditional no layout version</h3>
-<p>Most people write scripts the old-fashioned <em>linear</em> way. For example, a script to get a file from an FTP server and upload it into a database would look something like this <span class=light>(not real code)</span>:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby</span>
-	
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;net/ftp&#39;</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;pg&#39;</span> <span style=color:#177500># PostgreSQL Database</span>
-	
-<span style=color:#000>conn</span> <span style=color:#000>=</span> <span style=color:#000>PG</span><span style=color:#000>.</span><span style=color:#000>connect</span>(<span style=color:#c41a16>dbname</span>: <span style=color:#c41a16>&#39;d1&#39;</span>)
-	
-<span style=color:#000>Net</span><span style=color:#000>::</span><span style=color:#000>FTP</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#c41a16>&#39;source.com&#39;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>ftp</span><span style=color:#000>|</span>
-	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>login</span>(<span style=color:#c41a16>&#39;hiltmon&#39;</span>, <span style=color:#c41a16>&#39;itsasecret&#39;</span>)
-	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>chdir</span>(<span style=color:#c41a16>&#39;pub/data&#39;</span>)
-	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>gettextfile</span>(<span style=color:#c41a16>&#39;the_data.csv&#39;</span>)
-<span style=color:#a90d91>end</span>
-	
-<span style=color:#000>CSV</span><span style=color:#000>.</span><span style=color:#000>foreach</span>(<span style=color:#c41a16>&#34;the_data.csv&#34;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>row</span><span style=color:#000>|</span>
-	<span style=color:#000>conn</span><span style=color:#000>.</span><span style=color:#000>exec</span>(<span style=color:#c41a16>&#34;INSERT INTO t1 (c1, c2) VALUES (&#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;, &#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;;&#34;</span>)
-<span style=color:#a90d91>end</span>
-</code></pre></div><p>In short, connect to the database, get the file, parse the file and brute force insert it into the database. Simple, linear and it works!</p>
-<p>The output is &mldr; there is none.</p>
-<p><strong>There is nothing <em>wrong</em> with this.</strong> Unless you have an excessive number of these to support and maintain. And you can <em>remember</em> the file format (what does <code>row[0]</code> and <code>row[1]</code> contain?) and <em>know</em> the assumptions implicit in this script (the retrieved file is saved in the same folder as the script) and know if it ran or not (there is no visible output or logging).</p>
-<h3 id=layout-version>Layout Version</h3>
-<p>Instead, I <em>over-engineer</em> all of these scripts and lay the code out logically. It requires more lines of code, but when things change, I find them a lot easier to find, read and maintain.</p>
-<p>In short, all my Ruby scripts have the following common traits:</p>
-<ul>
-<li>They are created as classes where the class name is the Camel Case version of the file name (the Rails standard). That way the logic can be reused elsewhere. <code>get_data_file.rb</code> becomes <code>GetDataFile</code>.</li>
-<li>All constants appear at the top of the file where it&rsquo;s easy to find and change them.</li>
-<li>All classes have a <code>run</code> method that contains the main loop and each step is a function call, even if it is a single line step.</li>
-<li>All assumptions are documented in the file, but I prefer to make them explicit (for example, declaring where a file is saved).</li>
-<li>Called functions are always higher up in the file that the caller (the old C model still works) so navigating is easier.</li>
-<li>All classes are liberally festooned with <code>puts</code> statements which can be redirected to a log or be used when testing or manually running to see what is happening.</li>
-</ul>
-<p>So lets look at the same above script using my standard format:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby</span>
-	
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;net/ftp&#39;</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;pg&#39;</span> <span style=color:#177500># PostgreSQL Database</span>
-
-<span style=color:#a90d91>class</span> <span style=color:#3f6e75>GetDataFile</span>
-  
-  <span style=color:#000>SOURCE_URL</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;source.com&#39;</span>
-  <span style=color:#000>SOURCE_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;pub/data&#39;</span>
-  <span style=color:#000>FTP_USER</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;hilton&#39;</span>
-  <span style=color:#000>FTP_PASSWORD</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;itsasecret&#39;</span>
-  <span style=color:#000>FILE_NAME</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;the_data.txt&#39;</span>
-  <span style=color:#000>DEST_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;/tmp/&#39;</span>
-  
-  <span style=color:#000>DATABASE</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;d1&#39;</span>
-
-  <span style=color:#a90d91>def</span> <span style=color:#000>initialize</span>
-    <span style=color:#000>@conn</span> <span style=color:#000>=</span> <span style=color:#000>PG</span><span style=color:#000>.</span><span style=color:#000>connect</span>(<span style=color:#c41a16>dbname</span>: <span style=color:#000>DATABASE</span>)
-  <span style=color:#a90d91>end</span>
-  
-  <span style=color:#177500># File name is overwritten every day</span>
-  <span style=color:#a90d91>def</span> <span style=color:#000>get_file</span>
-    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  GetFile </span><span style=color:#c41a16>#{</span><span style=color:#000>FILE_NAME</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
-    <span style=color:#000>dest_file_path</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>DEST_PATH</span><span style=color:#c41a16>}#{</span><span style=color:#000>FILE_NAME</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>
-    <span style=color:#000>Net</span><span style=color:#000>::</span><span style=color:#000>FTP</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#000>SOURCE_URL</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>ftp</span><span style=color:#000>|</span>
-    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>login</span>(<span style=color:#000>FTP_USER</span>, <span style=color:#000>FTP_PASSWORD</span>)
-    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>chdir</span>(<span style=color:#000>SOURCE_PATH</span>)
-    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>gettextfile</span>(<span style=color:#000>FILE_NAME</span>, <span style=color:#000>dest_file_path</span>)
-    <span style=color:#a90d91>end</span>
-    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  File Saved to </span><span style=color:#c41a16>#{</span><span style=color:#000>dest_file_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
-    <span style=color:#000>dest_file_path</span>
-  <span style=color:#a90d91>end</span>
-  
-  <span style=color:#177500># 2010-01-01,99.0</span>
-  <span style=color:#177500># 2010-01-02,99.17</span>
-  <span style=color:#177500># 2010-01-03,99.51</span>
-  <span style=color:#177500># 2010-01-04,98.73</span>
-  <span style=color:#177500># 2010-01-05,99.23</span>
-  <span style=color:#177500># </span>
-  <span style=color:#177500># File contains 2 columns, price date and the price</span>
-  <span style=color:#177500># There is no header</span>
-  <span style=color:#a90d91>def</span> <span style=color:#000>save_file_database</span>(<span style=color:#000>file_path</span>)
-    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  Loading into Database...&#34;</span>
-    <span style=color:#000>count</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0</span>
-    <span style=color:#000>CSV</span><span style=color:#000>.</span><span style=color:#000>foreach</span>(<span style=color:#000>file_path</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>row</span><span style=color:#000>|</span>
-    	<span style=color:#000>@conn</span><span style=color:#000>.</span><span style=color:#000>exec</span>(<span style=color:#c41a16>&#34;INSERT INTO t1 (c1, c2) VALUES (&#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;, &#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;;&#34;</span>)
-      <span style=color:#000>count</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
-      <span style=color:#a90d91>if</span> <span style=color:#000>count</span> <span style=color:#000>%</span> <span style=color:#1c01ce>1000</span> <span style=color:#000>==</span> <span style=color:#1c01ce>0</span>
-        <span style=color:#a90d91>print</span> <span style=color:#c41a16>&#34;  Loading </span><span style=color:#c41a16>#{</span><span style=color:#000>count</span><span style=color:#c41a16>}</span><span style=color:#c41a16> rows...</span><span style=color:#c41a16>\r</span><span style=color:#c41a16>&#34;</span>
-        <span style=color:#000>STDOUT</span><span style=color:#000>.</span><span style=color:#000>flush</span>
-      <span style=color:#a90d91>end</span>
-    <span style=color:#a90d91>end</span>
-    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  Loaded </span><span style=color:#c41a16>#{</span><span style=color:#000>count</span><span style=color:#c41a16>}</span><span style=color:#c41a16> rows...&#34;</span>
-  <span style=color:#a90d91>end</span>
-  
-  <span style=color:#a90d91>def</span> <span style=color:#000>run</span>
-    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;GetDataFile Starting...&#34;</span>
-    <span style=color:#000>file_path</span> <span style=color:#000>=</span> <span style=color:#000>get_file</span>
-    <span style=color:#000>save_file_database</span> <span style=color:#000>file_path</span>
-    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;GetDataFile Done...&#34;</span>
-  <span style=color:#a90d91>end</span>
-  
-<span style=color:#a90d91>end</span>
-
-<span style=color:#000>app</span> <span style=color:#000>=</span> <span style=color:#000>GetDataFile</span><span style=color:#000>.</span><span style=color:#000>new</span>
-<span style=color:#000>app</span><span style=color:#000>.</span><span style=color:#000>run</span>()
-</code></pre></div><p>That&rsquo;s a lot more code, 66 lines vs 16, but it is so much more readable and maintainable.</p>
-<p>The output is more explicit too:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>GetDataFile Starting...
-  GetFile the_data.txt...
-  File Saved to /tmp/the_data.txt...
-  Loading into Database...
-  Loaded 5016 rows...
-GetDataFile Done...
-</code></pre></div><p>Lets look at the key features:</p>
-<ul>
-<li>The constants are explicit and at the top. If the password changes, for example, it is easy to find (even easier with OS X Spotlight).</li>
-<li>The script is a class, with explicit methods for each step, making it easier to find which step has failed and fix that.</li>
-<li>Each step prints out when it starts, keeps you posted on that is happening and when it is finished. Debugging is built right in.</li>
-<li>The output also explicitly states where things are so you can find them, for example, where the file is saved.</li>
-<li>The order of the steps is explicit in the <code>run</code> function.</li>
-<li>A sample of the data being processed is placed in the comment above where it is used so I do not need to open the file to see what is there. I know what to expect.</li>
-<li>The code at the very bottom creates the class and kicks it off.</li>
-</ul>
-<p>This may seem like overkill for such a simple 2 step script, but when you get to 5 or 10 step scripts, and a profusion of them, this pattern starts to make a lot more sense. As does the ability to add or remove steps as needed.</p>
-<h2 id=file-naming-conventions>File Naming Conventions</h2>
-<blockquote>
-<p>There are only two hard things in Computer Science: cache invalidation and naming things.<br>
-Phil Karlton</p>
-</blockquote>
-<p>When you have only a few scripts, naming is quite easy. When you have a plenitude of them, not so much.</p>
-<p>I follow the following approach for script names wherever possible:</p>
-<p><strong>keyword - source - data - transform - action - destination</strong></p>
-<p>Where</p>
-<ul>
-<li><strong>keyword</strong>: What is the script doing?</li>
-<li><strong>source</strong>: From where does it get its data</li>
-<li><strong>data</strong>: What is it working on?</li>
-<li><strong>transform</strong>: If it does any additional work, what is it?</li>
-<li><strong>action</strong>: What does it do with the data?</li>
-<li><strong>destination</strong>: Where does it put it?</li>
-</ul>
-<p>For example:</p>
-<ul>
-<li><strong>load_yahoo_prices_into_d1</strong>: Loads data from yahoo that happens to be prices into database 1.</li>
-<li><strong>start_risk_server</strong>: Kicks off a risk server daemon.</li>
-<li><strong>run_calculate_profit_and_loss</strong>: A script to perform a single task.</li>
-<li><strong>load_city_temperatures_as_celcius_into_d1</strong>: A load script with a transform.</li>
-<li><strong>send_d1_prices_to_freddy</strong>: A script to get prices from database d1 and sends them to whomever freddy is.</li>
-</ul>
-<p>The keywords I use to indicate behavior include:</p>
-<ul>
-<li><strong>start&mldr;</strong> implies kicking off a daemon</li>
-<li><strong>kill&mldr;</strong> implies terminating a daemon</li>
-<li><strong>run&mldr;</strong> implies a task that starts and finishes</li>
-<li><strong>load&mldr;</strong> implies an import of data</li>
-<li><strong>send&mldr;</strong> implies delivery of data</li>
-</ul>
-<p>With this pattern, I do not have to remember what a script is called, I can guess its name based on what I expect it should do. Also, the name of the script tells us all what it does.</p>
-<h2 id=tips-and-tricks>Tips and Tricks</h2>
-<p>Some tips and tricks I use a lot in these scripts:</p>
-<ul>
-<li>
-<p><strong>Starting and Done</strong>: The use of <code>starting</code> in a print statement indicates that a step is commencing. I often precede that with the function name to make it easy to see where the process is or where it failed. I use the <code>done</code> word to indicate successful completion.</p>
-</li>
-<li>
-<p><strong>Indentation</strong>: I indent step messages by 2 spaces, and sub steps by an additional 2 spaces. This makes the depth of the message also explicit and yet I can see where a step starts and finishes, just like functions in code.</p>
-</li>
-<li>
-<p><strong>Color</strong>: For more complex scripts, I also use terminal color output. Warnings are in yellow, errors in red, info in white and success in green.</p>
-</li>
-<li>
-<p><strong>Displaying Progress</strong>: Look at the <code>print</code> statement followed by the <code>STDOUT</code> statement above. For long running steps, it&rsquo;s really nice to see progress, but it sucks if that progress causes the terminal to scroll. The Ruby <code>print</code> statement presents the text to the console without a new line (<code>puts</code> does that). Since there is no new line, terminal does not display the text yet. The <code>STDOUT.flush</code> command causes it to be shown. Note the <code>\r</code> at the end of the text string causes causes the terminal caret to return to the start of the line so the next print overwrites. So instead of seeing</p>
-<p>Processing 1000 rows&mldr;<br>
-Processing 2000 rows&mldr;<br>
-Processing 3000 rows&mldr;<br>
-Processing 4000 rows&mldr;</p>
-<p>you get the same line being overwritten instead:</p>
-<p>Processing 4000 rows&mldr;</p>
-</li>
-</ul>
-<h2 id=properly-named-and-laid-out-scripts>Properly Named and Laid Out Scripts</h2>
-<p>There are a lot of reasons for writing scripts, but I feel there is no reason not to do them properly and in a maintainable way. It does not take more than a few moments more to name them properly, code the structure and self-document the script, which will save you hours later on when things change. <em>And they always do.</em></p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p>excess, overfill, abundance, bellyful, bucketload, glut &ndash; a lot!&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:2 role=doc-endnote>
-<p>No matter how good or smart you are, there is no way you can keep all of the file names, functions and purposes in your head over the long haul. Especially as things change often. Knowing you can forget something yet find it again later is far more valuable.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>A Reliable Script File Layout</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Sep 14, 2013 2:44 PM</span></p><div class=tag-group></div><h1 class=post-title>A Reliable Script File Layout</h1><div class=post-body><p>I write a surfeit<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> of Ruby scripts that I use every day at work, everything from sending, transforming and retrieving files to monitoring systems to glueing platforms together. Keeping these under control, forgettable<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> and maintainable is very important to me. So over the past few years, I have migrated to a file layout and programming pattern that enables me to spin these up quickly, forget about them and yet get back and maintain them when things change.</p><p>In this post, I&rsquo;ll share this format and the thinking behind it as well as a few Ruby tricks that I rely on. <span class=light>And yes, it works just as well for Python or whatever other language you prefer to use.</span></p><h2 id=the-script-file-layout>The Script File Layout</h2><h3 id=traditional-no-layout-version>Traditional no layout version</h3><p>Most people write scripts the old-fashioned <em>linear</em> way. For example, a script to get a file from an FTP server and upload it into a database would look something like this <span class=light>(not real code)</span>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#177500>#!/usr/bin/env ruby</span>
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;net/ftp&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;pg&#39;</span> <span style=color:#177500># PostgreSQL Database</span>
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span><span style=color:#000>conn</span> <span style=color:#000>=</span> <span style=color:#000>PG</span><span style=color:#000>.</span><span style=color:#000>connect</span>(<span style=color:#c41a16>dbname</span>: <span style=color:#c41a16>&#39;d1&#39;</span>)
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span><span style=color:#000>Net</span><span style=color:#000>::</span><span style=color:#000>FTP</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#c41a16>&#39;source.com&#39;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>ftp</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>login</span>(<span style=color:#c41a16>&#39;hiltmon&#39;</span>, <span style=color:#c41a16>&#39;itsasecret&#39;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>chdir</span>(<span style=color:#c41a16>&#39;pub/data&#39;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>gettextfile</span>(<span style=color:#c41a16>&#39;the_data.csv&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span><span style=color:#000>CSV</span><span style=color:#000>.</span><span style=color:#000>foreach</span>(<span style=color:#c41a16>&#34;the_data.csv&#34;</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>row</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>	<span style=color:#000>conn</span><span style=color:#000>.</span><span style=color:#000>exec</span>(<span style=color:#c41a16>&#34;INSERT INTO t1 (c1, c2) VALUES (&#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;, &#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;;&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span></code></pre></div><p>In short, connect to the database, get the file, parse the file and brute force insert it into the database. Simple, linear and it works!</p><p>The output is &mldr; there is none.</p><p><strong>There is nothing <em>wrong</em> with this.</strong> Unless you have an excessive number of these to support and maintain. And you can <em>remember</em> the file format (what does <code>row[0]</code> and <code>row[1]</code> contain?) and <em>know</em> the assumptions implicit in this script (the retrieved file is saved in the same folder as the script) and know if it ran or not (there is no visible output or logging).</p><h3 id=layout-version>Layout Version</h3><p>Instead, I <em>over-engineer</em> all of these scripts and lay the code out logically. It requires more lines of code, but when things change, I find them a lot easier to find, read and maintain.</p><p>In short, all my Ruby scripts have the following common traits:</p><ul><li>They are created as classes where the class name is the Camel Case version of the file name (the Rails standard). That way the logic can be reused elsewhere. <code>get_data_file.rb</code> becomes <code>GetDataFile</code>.</li><li>All constants appear at the top of the file where it&rsquo;s easy to find and change them.</li><li>All classes have a <code>run</code> method that contains the main loop and each step is a function call, even if it is a single line step.</li><li>All assumptions are documented in the file, but I prefer to make them explicit (for example, declaring where a file is saved).</li><li>Called functions are always higher up in the file that the caller (the old C model still works) so navigating is easier.</li><li>All classes are liberally festooned with <code>puts</code> statements which can be redirected to a log or be used when testing or manually running to see what is happening.</li></ul><p>So lets look at the same above script using my standard format:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#177500>#!/usr/bin/env ruby</span>
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;net/ftp&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;pg&#39;</span> <span style=color:#177500># PostgreSQL Database</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>GetDataFile</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#000>SOURCE_URL</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;source.com&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>SOURCE_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;pub/data&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>FTP_USER</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;hilton&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>FTP_PASSWORD</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;itsasecret&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>FILE_NAME</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;the_data.txt&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>DEST_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;/tmp/&#39;</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#000>DATABASE</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#39;d1&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>def</span> <span style=color:#000>initialize</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>@conn</span> <span style=color:#000>=</span> <span style=color:#000>PG</span><span style=color:#000>.</span><span style=color:#000>connect</span>(<span style=color:#c41a16>dbname</span>: <span style=color:#000>DATABASE</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#177500># File name is overwritten every day</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>def</span> <span style=color:#000>get_file</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  GetFile </span><span style=color:#c41a16>#{</span><span style=color:#000>FILE_NAME</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>dest_file_path</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>DEST_PATH</span><span style=color:#c41a16>}#{</span><span style=color:#000>FILE_NAME</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>Net</span><span style=color:#000>::</span><span style=color:#000>FTP</span><span style=color:#000>.</span><span style=color:#000>open</span>(<span style=color:#000>SOURCE_URL</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>ftp</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>login</span>(<span style=color:#000>FTP_USER</span>, <span style=color:#000>FTP_PASSWORD</span>)
+</span></span><span style=display:flex><span>    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>chdir</span>(<span style=color:#000>SOURCE_PATH</span>)
+</span></span><span style=display:flex><span>    	<span style=color:#000>ftp</span><span style=color:#000>.</span><span style=color:#000>gettextfile</span>(<span style=color:#000>FILE_NAME</span>, <span style=color:#000>dest_file_path</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  File Saved to </span><span style=color:#c41a16>#{</span><span style=color:#000>dest_file_path</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>dest_file_path</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#177500># 2010-01-01,99.0</span>
+</span></span><span style=display:flex><span>  <span style=color:#177500># 2010-01-02,99.17</span>
+</span></span><span style=display:flex><span>  <span style=color:#177500># 2010-01-03,99.51</span>
+</span></span><span style=display:flex><span>  <span style=color:#177500># 2010-01-04,98.73</span>
+</span></span><span style=display:flex><span>  <span style=color:#177500># 2010-01-05,99.23</span>
+</span></span><span style=display:flex><span>  <span style=color:#177500># </span>
+</span></span><span style=display:flex><span>  <span style=color:#177500># File contains 2 columns, price date and the price</span>
+</span></span><span style=display:flex><span>  <span style=color:#177500># There is no header</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>def</span> <span style=color:#000>save_file_database</span>(<span style=color:#000>file_path</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  Loading into Database...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>count</span> <span style=color:#000>=</span> <span style=color:#1c01ce>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>CSV</span><span style=color:#000>.</span><span style=color:#000>foreach</span>(<span style=color:#000>file_path</span>) <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>row</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>    	<span style=color:#000>@conn</span><span style=color:#000>.</span><span style=color:#000>exec</span>(<span style=color:#c41a16>&#34;INSERT INTO t1 (c1, c2) VALUES (&#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>0</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;, &#39;</span><span style=color:#c41a16>#{</span><span style=color:#000>row</span><span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#39;;&#34;</span>)
+</span></span><span style=display:flex><span>      <span style=color:#000>count</span> <span style=color:#000>+=</span> <span style=color:#1c01ce>1</span>
+</span></span><span style=display:flex><span>      <span style=color:#a90d91>if</span> <span style=color:#000>count</span> <span style=color:#000>%</span> <span style=color:#1c01ce>1000</span> <span style=color:#000>==</span> <span style=color:#1c01ce>0</span>
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>print</span> <span style=color:#c41a16>&#34;  Loading </span><span style=color:#c41a16>#{</span><span style=color:#000>count</span><span style=color:#c41a16>}</span><span style=color:#c41a16> rows...</span><span style=color:#c41a16>\r</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>STDOUT</span><span style=color:#000>.</span><span style=color:#000>flush</span>
+</span></span><span style=display:flex><span>      <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;  Loaded </span><span style=color:#c41a16>#{</span><span style=color:#000>count</span><span style=color:#c41a16>}</span><span style=color:#c41a16> rows...&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>def</span> <span style=color:#000>run</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;GetDataFile Starting...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>file_path</span> <span style=color:#000>=</span> <span style=color:#000>get_file</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>save_file_database</span> <span style=color:#000>file_path</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;GetDataFile Done...&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>app</span> <span style=color:#000>=</span> <span style=color:#000>GetDataFile</span><span style=color:#000>.</span><span style=color:#000>new</span>
+</span></span><span style=display:flex><span><span style=color:#000>app</span><span style=color:#000>.</span><span style=color:#000>run</span>()
+</span></span></code></pre></div><p>That&rsquo;s a lot more code, 66 lines vs 16, but it is so much more readable and maintainable.</p><p>The output is more explicit too:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text><span style=display:flex><span>GetDataFile Starting...
+</span></span><span style=display:flex><span>  GetFile the_data.txt...
+</span></span><span style=display:flex><span>  File Saved to /tmp/the_data.txt...
+</span></span><span style=display:flex><span>  Loading into Database...
+</span></span><span style=display:flex><span>  Loaded 5016 rows...
+</span></span><span style=display:flex><span>GetDataFile Done...
+</span></span></code></pre></div><p>Lets look at the key features:</p><ul><li>The constants are explicit and at the top. If the password changes, for example, it is easy to find (even easier with OS X Spotlight).</li><li>The script is a class, with explicit methods for each step, making it easier to find which step has failed and fix that.</li><li>Each step prints out when it starts, keeps you posted on that is happening and when it is finished. Debugging is built right in.</li><li>The output also explicitly states where things are so you can find them, for example, where the file is saved.</li><li>The order of the steps is explicit in the <code>run</code> function.</li><li>A sample of the data being processed is placed in the comment above where it is used so I do not need to open the file to see what is there. I know what to expect.</li><li>The code at the very bottom creates the class and kicks it off.</li></ul><p>This may seem like overkill for such a simple 2 step script, but when you get to 5 or 10 step scripts, and a profusion of them, this pattern starts to make a lot more sense. As does the ability to add or remove steps as needed.</p><h2 id=file-naming-conventions>File Naming Conventions</h2><blockquote><p>There are only two hard things in Computer Science: cache invalidation and naming things.<br>Phil Karlton</p></blockquote><p>When you have only a few scripts, naming is quite easy. When you have a plenitude of them, not so much.</p><p>I follow the following approach for script names wherever possible:</p><p><strong>keyword - source - data - transform - action - destination</strong></p><p>Where</p><ul><li><strong>keyword</strong>: What is the script doing?</li><li><strong>source</strong>: From where does it get its data</li><li><strong>data</strong>: What is it working on?</li><li><strong>transform</strong>: If it does any additional work, what is it?</li><li><strong>action</strong>: What does it do with the data?</li><li><strong>destination</strong>: Where does it put it?</li></ul><p>For example:</p><ul><li><strong>load_yahoo_prices_into_d1</strong>: Loads data from yahoo that happens to be prices into database 1.</li><li><strong>start_risk_server</strong>: Kicks off a risk server daemon.</li><li><strong>run_calculate_profit_and_loss</strong>: A script to perform a single task.</li><li><strong>load_city_temperatures_as_celcius_into_d1</strong>: A load script with a transform.</li><li><strong>send_d1_prices_to_freddy</strong>: A script to get prices from database d1 and sends them to whomever freddy is.</li></ul><p>The keywords I use to indicate behavior include:</p><ul><li><strong>start&mldr;</strong> implies kicking off a daemon</li><li><strong>kill&mldr;</strong> implies terminating a daemon</li><li><strong>run&mldr;</strong> implies a task that starts and finishes</li><li><strong>load&mldr;</strong> implies an import of data</li><li><strong>send&mldr;</strong> implies delivery of data</li></ul><p>With this pattern, I do not have to remember what a script is called, I can guess its name based on what I expect it should do. Also, the name of the script tells us all what it does.</p><h2 id=tips-and-tricks>Tips and Tricks</h2><p>Some tips and tricks I use a lot in these scripts:</p><ul><li><p><strong>Starting and Done</strong>: The use of <code>starting</code> in a print statement indicates that a step is commencing. I often precede that with the function name to make it easy to see where the process is or where it failed. I use the <code>done</code> word to indicate successful completion.</p></li><li><p><strong>Indentation</strong>: I indent step messages by 2 spaces, and sub steps by an additional 2 spaces. This makes the depth of the message also explicit and yet I can see where a step starts and finishes, just like functions in code.</p></li><li><p><strong>Color</strong>: For more complex scripts, I also use terminal color output. Warnings are in yellow, errors in red, info in white and success in green.</p></li><li><p><strong>Displaying Progress</strong>: Look at the <code>print</code> statement followed by the <code>STDOUT</code> statement above. For long running steps, it&rsquo;s really nice to see progress, but it sucks if that progress causes the terminal to scroll. The Ruby <code>print</code> statement presents the text to the console without a new line (<code>puts</code> does that). Since there is no new line, terminal does not display the text yet. The <code>STDOUT.flush</code> command causes it to be shown. Note the <code>\r</code> at the end of the text string causes causes the terminal caret to return to the start of the line so the next print overwrites. So instead of seeing</p><p>Processing 1000 rows&mldr;<br>Processing 2000 rows&mldr;<br>Processing 3000 rows&mldr;<br>Processing 4000 rows&mldr;</p><p>you get the same line being overwritten instead:</p><p>Processing 4000 rows&mldr;</p></li></ul><h2 id=properly-named-and-laid-out-scripts>Properly Named and Laid Out Scripts</h2><p>There are a lot of reasons for writing scripts, but I feel there is no reason not to do them properly and in a maintainable way. It does not take more than a few moments more to name them properly, code the structure and self-document the script, which will save you hours later on when things change. <em>And they always do.</em></p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>excess, overfill, abundance, bellyful, bucketload, glut &ndash; a lot!&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>No matter how good or smart you are, there is no way you can keep all of the file names, functions and purposes in your head over the long haul. Especially as things change often. Knowing you can forget something yet find it again later is far more valuable.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Sep 14, 2013 2:44 PM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/09/18/setup-odbc-for-r-on-os-x/>&larr; Setup ODBC for R on OS X</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2013/09/05/not-the-clicky-keyboard/>Not the Clicky Keyboard &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Sep 14, 2013 2:44 PM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2013/09/18/setup-odbc-for-r-on-os-x/>&larr; Setup ODBC for R on OS X</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2013/09/05/not-the-clicky-keyboard/>Not the Clicky Keyboard &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

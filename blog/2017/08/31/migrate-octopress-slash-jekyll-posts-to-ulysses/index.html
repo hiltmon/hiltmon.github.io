@@ -1,150 +1,44 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>Migrate Octopress / Jekyll Posts to Ulysses</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Aug 31, 2017 7:49 AM</span>
-</p>
-<div class=tag-group>
-</div>
-<h1 class=post-title>
-Migrate Octopress / Jekyll Posts to Ulysses
-</h1>
-<div class=post-body>
-<p>I wanted to move my published writing stashed in my Octopress/Jekyll site into my current writing workflow environment, <a href=https://ulyssesapp.com>Ulysses</a>. Dragging and dropping the files from the <code>_posts</code> folder was not an option, because:</p>
-<ul>
-<li>The file names were messy</li>
-<li>There is no title in the file, it&rsquo;s in the Markdown metadata</li>
-<li>I wanted to keep the publication date on the imported files</li>
-</ul>
-<p>So, I wrote a <em>horrible</em> script to do it.</p>
-<p>The script takes a <code>_posts</code> Octopress or Jekyll folder and processes each file into an <code>OUT_PATH</code> as a set of clean Markdown files, making a few changes along the way. It’s a mix of Ruby to handle the YAML front matter and shell commands to do the actual work. And it runs as follows:</p>
-<ul>
-<li>For each file in the <code>IN_PATH</code></li>
-<li>Parse the YAML front matter to get the title and publish date</li>
-<li>Create a new file using the title and write a Markdown H1 to it</li>
-<li>Append the existing file data to the new file</li>
-<li>Depending on how the publish date is formatted (old was a string, new is a time), <em>touch</em> the new file to set the original publish date</li>
-</ul>
-<p>After that, I just dragged and dropped the Markdown files into Ulysses which kept the formatting and dates.</p>
-<p>The script itself is below. <em>Its terrible and you dare not use it.</em> But maybe it has some ideas to help you run your own conversion.</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#!/usr/bin/env ruby</span>
-
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;rubygems&#39;</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;yaml&#39;</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;time&#39;</span>
-  
-<span style=color:#177500># IN_PATH = &#34;/Users/hiltmon/Projects/Personal/HiltmonDotCom/source/_posts/&#34;</span>
-<span style=color:#177500># IN_PATH = &#34;/Users/hiltmon/Projects/Personal/NoverseDotCom/code/noverse/source/_posts/&#34;</span>
-<span style=color:#000>IN_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/hiltmon/Downloads/_posts/&#34;</span>
-<span style=color:#000>OUT_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/hiltmon/Desktop/Blog/&#34;</span>
-
-<span style=color:#000>Dir</span><span style=color:#000>.</span><span style=color:#000>new</span>(<span style=color:#000>IN_PATH</span>)<span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>path</span><span style=color:#000>|</span>
-  <span style=color:#a90d91>next</span> <span style=color:#a90d91>if</span> <span style=color:#000>path</span> <span style=color:#000>=~</span> <span style=color:#c41a16>/^\./</span>
-  
-  <span style=color:#000>basename</span> <span style=color:#000>=</span> <span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>basename</span>(<span style=color:#000>path</span>)
-  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;Processing </span><span style=color:#c41a16>#{</span><span style=color:#000>basename</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
-
-  <span style=color:#000>posthead</span> <span style=color:#000>=</span> <span style=color:#000>YAML</span><span style=color:#000>.</span><span style=color:#000>load_file</span>(<span style=color:#000>IN_PATH</span> <span style=color:#000>+</span> <span style=color:#000>path</span>)
-  <span style=color:#000>title</span> <span style=color:#000>=</span> <span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;title&#39;</span><span style=color:#000>].</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#34;&#39;&#34;</span>, <span style=color:#c41a16>&#39;&#39;</span>)
-  
-  <span style=color:#177500># Create a new file and add the H1</span>
-  <span style=color:#000>cmd2</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;echo </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16># </span><span style=color:#c41a16>#{</span><span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;title&#39;</span><span style=color:#000>].</span><span style=color:#000>strip</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\n\&#34;</span><span style=color:#c41a16> &gt; </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
-  <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd2</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
-  
-  <span style=color:#177500># Append the original Markdown</span>
-  <span style=color:#000>cmd1</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;cat </span><span style=color:#c41a16>#{</span><span style=color:#000>IN_PATH</span> <span style=color:#000>+</span> <span style=color:#000>path</span><span style=color:#c41a16>}</span><span style=color:#c41a16> &gt;&gt; </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
-  <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd1</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
-  
-  <span style=color:#177500># Mess with the file time</span>
-  <span style=color:#a90d91>if</span> <span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>].</span><span style=color:#000>is_a?</span>(<span style=color:#000>Time</span>)
-    <span style=color:#000>cmd3</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;touch -t </span><span style=color:#c41a16>#{</span><span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>].</span><span style=color:#000>strftime</span>(<span style=color:#c41a16>&#34;%Y%m%d%H%M&#34;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
-    <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd3</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
-  <span style=color:#a90d91>else</span>
-    <span style=color:#000>file_date</span> <span style=color:#000>=</span> <span style=color:#000>Time</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>]</span>)
-  
-    <span style=color:#000>cmd3</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;touch -t </span><span style=color:#c41a16>#{</span><span style=color:#000>file_date</span><span style=color:#000>.</span><span style=color:#000>strftime</span>(<span style=color:#c41a16>&#34;%Y%m%d%H%M&#34;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
-    <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd3</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
-  <span style=color:#a90d91>end</span>
-<span style=color:#a90d91>end</span>
-</code></pre></div><p>The result:</p>
-<figure><img src=images/blog-in-ulysses.jpg width=550 height=278>
-</figure>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>Migrate Octopress / Jekyll Posts to Ulysses</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Aug 31, 2017 7:49 AM</span></p><div class=tag-group></div><h1 class=post-title>Migrate Octopress / Jekyll Posts to Ulysses</h1><div class=post-body><p>I wanted to move my published writing stashed in my Octopress/Jekyll site into my current writing workflow environment, <a href=https://ulyssesapp.com>Ulysses</a>. Dragging and dropping the files from the <code>_posts</code> folder was not an option, because:</p><ul><li>The file names were messy</li><li>There is no title in the file, it&rsquo;s in the Markdown metadata</li><li>I wanted to keep the publication date on the imported files</li></ul><p>So, I wrote a <em>horrible</em> script to do it.</p><p>The script takes a <code>_posts</code> Octopress or Jekyll folder and processes each file into an <code>OUT_PATH</code> as a set of clean Markdown files, making a few changes along the way. It’s a mix of Ruby to handle the YAML front matter and shell commands to do the actual work. And it runs as follows:</p><ul><li>For each file in the <code>IN_PATH</code></li><li>Parse the YAML front matter to get the title and publish date</li><li>Create a new file using the title and write a Markdown H1 to it</li><li>Append the existing file data to the new file</li><li>Depending on how the publish date is formatted (old was a string, new is a time), <em>touch</em> the new file to set the original publish date</li></ul><p>After that, I just dragged and dropped the Markdown files into Ulysses which kept the formatting and dates.</p><p>The script itself is below. <em>Its terrible and you dare not use it.</em> But maybe it has some ideas to help you run your own conversion.</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#177500>#!/usr/bin/env ruby</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;rubygems&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;yaml&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;time&#39;</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span><span style=color:#177500># IN_PATH = &#34;/Users/hiltmon/Projects/Personal/HiltmonDotCom/source/_posts/&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#177500># IN_PATH = &#34;/Users/hiltmon/Projects/Personal/NoverseDotCom/code/noverse/source/_posts/&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>IN_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/hiltmon/Downloads/_posts/&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>OUT_PATH</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;/Users/hiltmon/Desktop/Blog/&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#000>Dir</span><span style=color:#000>.</span><span style=color:#000>new</span>(<span style=color:#000>IN_PATH</span>)<span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>path</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>next</span> <span style=color:#a90d91>if</span> <span style=color:#000>path</span> <span style=color:#000>=~</span> <span style=color:#c41a16>/^\./</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#000>basename</span> <span style=color:#000>=</span> <span style=color:#000>File</span><span style=color:#000>.</span><span style=color:#000>basename</span>(<span style=color:#000>path</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;Processing </span><span style=color:#c41a16>#{</span><span style=color:#000>basename</span><span style=color:#c41a16>}</span><span style=color:#c41a16>...&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#000>posthead</span> <span style=color:#000>=</span> <span style=color:#000>YAML</span><span style=color:#000>.</span><span style=color:#000>load_file</span>(<span style=color:#000>IN_PATH</span> <span style=color:#000>+</span> <span style=color:#000>path</span>)
+</span></span><span style=display:flex><span>  <span style=color:#000>title</span> <span style=color:#000>=</span> <span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;title&#39;</span><span style=color:#000>].</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#34;&#39;&#34;</span>, <span style=color:#c41a16>&#39;&#39;</span>)
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#177500># Create a new file and add the H1</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>cmd2</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;echo </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16># </span><span style=color:#c41a16>#{</span><span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;title&#39;</span><span style=color:#000>].</span><span style=color:#000>strip</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\n\&#34;</span><span style=color:#c41a16> &gt; </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd2</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#177500># Append the original Markdown</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>cmd1</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;cat </span><span style=color:#c41a16>#{</span><span style=color:#000>IN_PATH</span> <span style=color:#000>+</span> <span style=color:#000>path</span><span style=color:#c41a16>}</span><span style=color:#c41a16> &gt;&gt; </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd1</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#177500># Mess with the file time</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>if</span> <span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>].</span><span style=color:#000>is_a?</span>(<span style=color:#000>Time</span>)
+</span></span><span style=display:flex><span>    <span style=color:#000>cmd3</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;touch -t </span><span style=color:#c41a16>#{</span><span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>].</span><span style=color:#000>strftime</span>(<span style=color:#c41a16>&#34;%Y%m%d%H%M&#34;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd3</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>else</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>file_date</span> <span style=color:#000>=</span> <span style=color:#000>Time</span><span style=color:#000>.</span><span style=color:#000>parse</span>(<span style=color:#000>posthead</span><span style=color:#000>[</span><span style=color:#c41a16>&#39;date&#39;</span><span style=color:#000>]</span>)
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#000>cmd3</span> <span style=color:#000>=</span> <span style=color:#c41a16>&#34;touch -t </span><span style=color:#c41a16>#{</span><span style=color:#000>file_date</span><span style=color:#000>.</span><span style=color:#000>strftime</span>(<span style=color:#c41a16>&#34;%Y%m%d%H%M&#34;</span>)<span style=color:#c41a16>}</span><span style=color:#c41a16> </span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>OUT_PATH</span> <span style=color:#000>+</span> <span style=color:#000>title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>.md</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#c41a16>%x{</span><span style=color:#c41a16>#{</span><span style=color:#000>cmd3</span><span style=color:#c41a16>}</span><span style=color:#c41a16>}</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span></code></pre></div><p>The result:</p><figure><img src=images/blog-in-ulysses.jpg width=550 height=278></figure><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Aug 31, 2017 7:49 AM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>&larr; Stop and Think</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Aug 31, 2017 7:49 AM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>&larr; Stop and Think</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

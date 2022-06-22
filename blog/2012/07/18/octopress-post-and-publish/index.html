@@ -1,190 +1,71 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>Octopress Post and Publish</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Jul 18, 2012 6:01 PM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/productivity>Productivity</a>
-</span>
-</div>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/octopress>Octopress</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-Octopress Post and Publish
-</h1>
-<div class=post-body>
-<p>Since this site is getting larger and it&rsquo;s running on <a href=http://octopress.org>Octopress</a>, the <code>rake generate</code> and <code>rake preview</code> processes are getting slower. Enter <code>rake isolate["x"]</code> to isolate the site down to the selected post. But isolating requires me to note the file name down, there is too much to remember and type and I am lazy.</p>
-<p>So have created two macros and a script to speed this process up.</p>
-<p><strong>Note: You must run these commands in the root of the Octopress folder, else they will not work at all!</strong></p>
-<h2 id=post>Post</h2>
-<h3 id=the-old-standard-way>The old, standard way</h3>
-<p>To create a post in Octopress, isolate it and preview it in the browser, you need to run the following steps:</p>
-<p>Create the Post:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ rake new_post<span style=color:#000>[</span><span style=color:#c41a16>&#34;Octopress Post and Publish&#34;</span><span style=color:#000>]</span>
-</code></pre></div><p>Isolate the post using the generated file name:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>rake isolate<span style=color:#000>[</span><span style=color:#c41a16>&#34;octopress-post-and-publish&#34;</span><span style=color:#000>]</span>
-</code></pre></div><p>And generate and start the preview thread:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>rake generate
-rake preview
-</code></pre></div><p>Note that I have already hacked the <code>new_post</code> function in my Rakefile to also log this to <a href=http://dayoneapp.com>Day One</a> and launch <a href=http://bywordapp.com>Byword</a>, see my post on <a href=https://hiltmon.com/blog/2012/01/23/bread-crumbs-in-day-one/>Bread Crumbs in Day One</a>, so those steps are not shown.</p>
-<h3 id=the-new-way>The new way</h3>
-<p>For this post, I typed in:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ post Octopress Post and Publish
-</code></pre></div><p>Note that there is no punctuation after the <code>post</code> command, less for me to type. The script concatenates all parameters into a single title string. The result of the command shows that it does all the steps I did manually, including figuring out the file name, and leaving me in a preview thread:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text>:: rake new_post[&#34;Octopress Post and Publish&#34;]
-mkdir -p source/_posts
-:: rake isolate[&#34;octopress-post-and-publish&#34;]
-:: rake generate
-:: rake preview
-[2012-07-18 18:01:34] INFO  WEBrick 1.3.1
-[2012-07-18 18:01:34] INFO  ruby 1.9.2 (2011-07-09) [x86_64-darwin11.2.0]
-[2012-07-18 18:01:34] INFO  WEBrick::HTTPServer#start: pid=35734 port=4000
-</code></pre></div><p> </p>
-<h2 id=publish>Publish</h2>
-<h3 id=the-old-standard-way-1>The old, standard way</h3>
-<p>I would use <code>^C</code> to stop the preview thread, then:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ rake integrate
-$ rake gen_deploy
-</code></pre></div><h3 id=the-new-way-1>The new way</h3>
-<p>Now I just use <code>^C</code> to stop the preview thread, and:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh>$ publish
-</code></pre></div><p> </p>
-<h2 id=the-macros-and-scripts>The macros and scripts</h2>
-<p>I created the following ruby script to handle the post function. If you want the &ldquo;Open in Byword&rdquo; function, uncomment Line 29: <code>open "#{path}" -a Byword</code> (Untested)</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500>#! /usr/bin/ruby</span>
-
-<span style=color:#177500># post.rb</span>
-<span style=color:#177500># Hilton Lipschitz (https://hiltmon.com) @hiltmon</span>
-<span style=color:#177500># Use and modify freely, attribution appreciated</span>
-<span style=color:#177500>#</span>
-<span style=color:#177500># Create a new Octopress post, isolate it, generate the</span>
-<span style=color:#177500># site and leave me with a preview thread running.</span>
-<span style=color:#177500>#</span>
-<span style=color:#177500># MUST BE RUN in the Octopress root folder</span>
-<span style=color:#177500>#</span>
-<span style=color:#177500># Usage</span>
-<span style=color:#177500># $ new This is a post</span>
-<span style=color:#177500>#</span>
-<span style=color:#177500># NOTE: Do not wrap the parameters in quotes</span>
-
-<span style=color:#177500># Make the title</span>
-<span style=color:#000>post_title</span> <span style=color:#000>=</span> <span style=color:#000>ARGV</span><span style=color:#000>.</span><span style=color:#000>join</span>(<span style=color:#c41a16>&#39; &#39;</span>)
-
-<span style=color:#177500># Create the post</span>
-<span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake new_post[</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>post_title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>]&#34;</span>
-<span style=color:#000>process</span> <span style=color:#000>=</span> <span style=color:#c41a16>`rake new_post[&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>post_title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;]`</span>
-
-<span style=color:#177500># Parse out the generated filename</span>
-<span style=color:#000>file_key</span> <span style=color:#000>=</span> <span style=color:#a90d91>nil</span>
-<span style=color:#000>process</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;\r&#39;</span>)<span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>line</span><span style=color:#000>|</span>
-  <span style=color:#a90d91>next</span> <span style=color:#a90d91>unless</span> <span style=color:#000>line</span> <span style=color:#000>=~</span> <span style=color:#c41a16>/Creating new post:/</span>
-  <span style=color:#000>path</span> <span style=color:#000>=</span> <span style=color:#000>line</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;: &#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span>
-  <span style=color:#177500># `open &#34;#{path}&#34; -a Byword`</span>
-  <span style=color:#000>file_basename</span> <span style=color:#000>=</span> <span style=color:#000>path</span><span style=color:#000>.</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#39;source/_posts/&#39;</span>, <span style=color:#c41a16>&#39;&#39;</span>)<span style=color:#000>.</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#39;.markdown&#39;</span>, <span style=color:#c41a16>&#39;&#39;</span>)
-  <span style=color:#000>file_key</span> <span style=color:#000>=</span> <span style=color:#000>file_basename</span><span style=color:#000>[</span><span style=color:#1c01ce>11</span><span style=color:#000>..</span>(<span style=color:#000>file_basename</span><span style=color:#000>.</span><span style=color:#000>length</span>)<span style=color:#000>].</span><span style=color:#000>chomp</span>
-<span style=color:#a90d91>end</span>
-
-<span style=color:#177500># Isolate, generate and preview</span>
-<span style=color:#a90d91>unless</span> <span style=color:#000>file_key</span><span style=color:#000>.</span><span style=color:#000>nil?</span>
-  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake isolate[</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>file_key</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>]&#34;</span>
-  <span style=color:#c41a16>`rake isolate[&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>file_key</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;]`</span>
-  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake generate&#34;</span>
-  <span style=color:#c41a16>`rake generate`</span>
-  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake preview&#34;</span>
-  <span style=color:#c41a16>`rake preview`</span>
-<span style=color:#a90d91>end</span>
-</code></pre></div><p>I then added the following two macros to my <code>.bash_profile</code> (OS X users only). Note that I keep all my custom scripts in <code>~/Scripts/</code>:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#a90d91>function</span> post <span style=color:#000>{</span>
-  ~/Scripts/post.rb <span style=color:#000>$*</span>
-<span style=color:#000>}</span>
-
-<span style=color:#a90d91>function</span> publish <span style=color:#000>{</span>
-  rake integrate
-  rake gen_deploy
-<span style=color:#000>}</span>
-</code></pre></div><p>These work for all my Octopress sites. It allows me to get to the post faster, preview that it looks right and publish the site with ease.</p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>Octopress Post and Publish</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Jul 18, 2012 6:01 PM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/productivity>Productivity</a></span></div><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/octopress>Octopress</a></span></div></div><h1 class=post-title>Octopress Post and Publish</h1><div class=post-body><p>Since this site is getting larger and it&rsquo;s running on <a href=http://octopress.org>Octopress</a>, the <code>rake generate</code> and <code>rake preview</code> processes are getting slower. Enter <code>rake isolate["x"]</code> to isolate the site down to the selected post. But isolating requires me to note the file name down, there is too much to remember and type and I am lazy.</p><p>So have created two macros and a script to speed this process up.</p><p><strong>Note: You must run these commands in the root of the Octopress folder, else they will not work at all!</strong></p><h2 id=post>Post</h2><h3 id=the-old-standard-way>The old, standard way</h3><p>To create a post in Octopress, isolate it and preview it in the browser, you need to run the following steps:</p><p>Create the Post:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span>$ rake new_post<span style=color:#000>[</span><span style=color:#c41a16>&#34;Octopress Post and Publish&#34;</span><span style=color:#000>]</span>
+</span></span></code></pre></div><p>Isolate the post using the generated file name:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span>rake isolate<span style=color:#000>[</span><span style=color:#c41a16>&#34;octopress-post-and-publish&#34;</span><span style=color:#000>]</span>
+</span></span></code></pre></div><p>And generate and start the preview thread:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span>rake generate
+</span></span><span style=display:flex><span>rake preview
+</span></span></code></pre></div><p>Note that I have already hacked the <code>new_post</code> function in my Rakefile to also log this to <a href=http://dayoneapp.com>Day One</a> and launch <a href=http://bywordapp.com>Byword</a>, see my post on <a href=https://hiltmon.com/blog/2012/01/23/bread-crumbs-in-day-one/>Bread Crumbs in Day One</a>, so those steps are not shown.</p><h3 id=the-new-way>The new way</h3><p>For this post, I typed in:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span>$ post Octopress Post and Publish
+</span></span></code></pre></div><p>Note that there is no punctuation after the <code>post</code> command, less for me to type. The script concatenates all parameters into a single title string. The result of the command shows that it does all the steps I did manually, including figuring out the file name, and leaving me in a preview thread:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-text data-lang=text><span style=display:flex><span>:: rake new_post[&#34;Octopress Post and Publish&#34;]
+</span></span><span style=display:flex><span>mkdir -p source/_posts
+</span></span><span style=display:flex><span>:: rake isolate[&#34;octopress-post-and-publish&#34;]
+</span></span><span style=display:flex><span>:: rake generate
+</span></span><span style=display:flex><span>:: rake preview
+</span></span><span style=display:flex><span>[2012-07-18 18:01:34] INFO  WEBrick 1.3.1
+</span></span><span style=display:flex><span>[2012-07-18 18:01:34] INFO  ruby 1.9.2 (2011-07-09) [x86_64-darwin11.2.0]
+</span></span><span style=display:flex><span>[2012-07-18 18:01:34] INFO  WEBrick::HTTPServer#start: pid=35734 port=4000
+</span></span></code></pre></div><p> </p><h2 id=publish>Publish</h2><h3 id=the-old-standard-way-1>The old, standard way</h3><p>I would use <code>^C</code> to stop the preview thread, then:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span>$ rake integrate
+</span></span><span style=display:flex><span>$ rake gen_deploy
+</span></span></code></pre></div><h3 id=the-new-way-1>The new way</h3><p>Now I just use <code>^C</code> to stop the preview thread, and:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span>$ publish
+</span></span></code></pre></div><p> </p><h2 id=the-macros-and-scripts>The macros and scripts</h2><p>I created the following ruby script to handle the post function. If you want the &ldquo;Open in Byword&rdquo; function, uncomment Line 29: <code>open "#{path}" -a Byword</code> (Untested)</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#177500>#! /usr/bin/ruby</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># post.rb</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Hilton Lipschitz (https://hiltmon.com) @hiltmon</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Use and modify freely, attribution appreciated</span>
+</span></span><span style=display:flex><span><span style=color:#177500>#</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Create a new Octopress post, isolate it, generate the</span>
+</span></span><span style=display:flex><span><span style=color:#177500># site and leave me with a preview thread running.</span>
+</span></span><span style=display:flex><span><span style=color:#177500>#</span>
+</span></span><span style=display:flex><span><span style=color:#177500># MUST BE RUN in the Octopress root folder</span>
+</span></span><span style=display:flex><span><span style=color:#177500>#</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Usage</span>
+</span></span><span style=display:flex><span><span style=color:#177500># $ new This is a post</span>
+</span></span><span style=display:flex><span><span style=color:#177500>#</span>
+</span></span><span style=display:flex><span><span style=color:#177500># NOTE: Do not wrap the parameters in quotes</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Make the title</span>
+</span></span><span style=display:flex><span><span style=color:#000>post_title</span> <span style=color:#000>=</span> <span style=color:#000>ARGV</span><span style=color:#000>.</span><span style=color:#000>join</span>(<span style=color:#c41a16>&#39; &#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Create the post</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake new_post[</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>post_title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>]&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>process</span> <span style=color:#000>=</span> <span style=color:#c41a16>`rake new_post[&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>post_title</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;]`</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Parse out the generated filename</span>
+</span></span><span style=display:flex><span><span style=color:#000>file_key</span> <span style=color:#000>=</span> <span style=color:#a90d91>nil</span>
+</span></span><span style=display:flex><span><span style=color:#000>process</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;\r&#39;</span>)<span style=color:#000>.</span><span style=color:#000>each</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>line</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>next</span> <span style=color:#a90d91>unless</span> <span style=color:#000>line</span> <span style=color:#000>=~</span> <span style=color:#c41a16>/Creating new post:/</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>path</span> <span style=color:#000>=</span> <span style=color:#000>line</span><span style=color:#000>.</span><span style=color:#000>split</span>(<span style=color:#c41a16>&#39;: &#39;</span>)<span style=color:#000>[</span><span style=color:#1c01ce>1</span><span style=color:#000>]</span>
+</span></span><span style=display:flex><span>  <span style=color:#177500># `open &#34;#{path}&#34; -a Byword`</span>
+</span></span><span style=display:flex><span>  <span style=color:#000>file_basename</span> <span style=color:#000>=</span> <span style=color:#000>path</span><span style=color:#000>.</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#39;source/_posts/&#39;</span>, <span style=color:#c41a16>&#39;&#39;</span>)<span style=color:#000>.</span><span style=color:#000>sub</span>(<span style=color:#c41a16>&#39;.markdown&#39;</span>, <span style=color:#c41a16>&#39;&#39;</span>)
+</span></span><span style=display:flex><span>  <span style=color:#000>file_key</span> <span style=color:#000>=</span> <span style=color:#000>file_basename</span><span style=color:#000>[</span><span style=color:#1c01ce>11</span><span style=color:#000>..</span>(<span style=color:#000>file_basename</span><span style=color:#000>.</span><span style=color:#000>length</span>)<span style=color:#000>].</span><span style=color:#000>chomp</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500># Isolate, generate and preview</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>unless</span> <span style=color:#000>file_key</span><span style=color:#000>.</span><span style=color:#000>nil?</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake isolate[</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>file_key</span><span style=color:#c41a16>}</span><span style=color:#c41a16>\&#34;</span><span style=color:#c41a16>]&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#c41a16>`rake isolate[&#34;</span><span style=color:#c41a16>#{</span><span style=color:#000>file_key</span><span style=color:#c41a16>}</span><span style=color:#c41a16>&#34;]`</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake generate&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#c41a16>`rake generate`</span>
+</span></span><span style=display:flex><span>  <span style=color:#a90d91>puts</span> <span style=color:#c41a16>&#34;:: rake preview&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#c41a16>`rake preview`</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span></code></pre></div><p>I then added the following two macros to my <code>.bash_profile</code> (OS X users only). Note that I keep all my custom scripts in <code>~/Scripts/</code>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#a90d91>function</span> post <span style=color:#000>{</span>
+</span></span><span style=display:flex><span>  ~/Scripts/post.rb <span style=color:#000>$*</span>
+</span></span><span style=display:flex><span><span style=color:#000>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>function</span> publish <span style=color:#000>{</span>
+</span></span><span style=display:flex><span>  rake integrate
+</span></span><span style=display:flex><span>  rake gen_deploy
+</span></span><span style=display:flex><span><span style=color:#000>}</span>
+</span></span></code></pre></div><p>These work for all my Octopress sites. It allows me to get to the post faster, preview that it looks right and publish the site with ease.</p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Jul 18, 2012 6:01 PM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2012/07/19/international-terpstra-day/>&larr; International Terpstra Day</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2012/07/18/estimating-software-like-it-is/>Estimating Software like it is &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Jul 18, 2012 6:01 PM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2012/07/19/international-terpstra-day/>&larr; International Terpstra Day</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2012/07/18/estimating-software-like-it-is/>Estimating Software like it is &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

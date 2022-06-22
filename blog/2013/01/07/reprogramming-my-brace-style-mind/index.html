@@ -1,169 +1,47 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>Reprogramming my Brace Style Mind</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Jan 7, 2013 1:24 PM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/programming>programming</a>
-</span>
-</div>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/c++>c++</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-Reprogramming my Brace Style Mind
-</h1>
-<div class=post-body>
-<p>Each and every programmer has their own style of coding, their own preferences for how code should look, and are generally happy to argue the case for their preference. Somehow these discussions became heated, and the most fights happen over <strong>spaces vs tabs</strong> (See <a href=http://www.jwz.org/doc/tabs-vs-spaces.html>Tabs versus Spaces: An Eternal Holy War.</a> and <a href=http://www.codinghorror.com/blog/2009/04/death-to-the-space-infidels.html>Death to the Space Infidels!</a>), <strong>the 80 column rule</strong> (See <a href=http://zuzu-curl.blogspot.com/2010/02/in-defense-of-80-column-rule.html>In defense of the 80-column rule</a>) and <strong>brace indent style</strong>.</p>
-<p>Recently, I have had to change my choices, they were wrong. But a bit of history first.</p>
-<h2 id=the-1980s1990s-compact-style>The 1980’s/1990’s Compact Style</h2>
-<p>When I started programming, we use <em>tab</em> characters because it kept files smaller, limited code to <em>80-columns</em> because we had to print out code <em>a lot</em> on 80-column dot-matrix printers and we followed Kernighan and Ritchie’s <em>original</em> <a href="http://www.amazon.com/gp/product/0131103628/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=hiltmon-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0131103628">C Programming Language</a> book’s convention of braces on the same line. Code looked like this:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c data-lang=c><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> <span style=color:#000>*</span><span style=color:#000>argv</span>[]) {
-        <span style=color:#a90d91>int</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#000>rand</span>() <span style=color:#000>%</span> <span style=color:#1c01ce>100</span>;
-        <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>25</span>) {
-                <span style=color:#000>call_a_function</span>();
-                <span style=color:#000>call_another_function</span>();
-        } <span style=color:#a90d91>else</span> {
-                <span style=color:#000>call_b_function</span>();
-        } <span style=color:#177500>// end if
-</span><span style=color:#177500></span>} <span style=color:#177500>// end main
-</span></code></pre></div><p>This style worked. Tabs in those days were always 8 stops wide, which meant that you could not indent much before slamming into the 80-column limit, forcing you create lots of smaller functions, a good thing. And braces on the same line meant more code would appear printed on each page.</p>
-<p>But there were some bad things too. We started using shorter variable names to gain additional indent levels within files, making the code harder to read and maintain. We did not put any whitespace between lines of code to cram more on the printed page, making the start and end of blocks harder to find (and so we would comment block ends so we’d know what they were). And we lost a lot of limited coding space because the indents were so wide.</p>
-<h2 id=2000s-expansive-style>2000’s Expansive Style</h2>
-<p>In the 2000’s, we all seemed to switch to Microsoft’s C and C# conventions, namely 4 spaces instead of tabs, unlimited line length and all braces on their own lines, like so:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c# data-lang=c#><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> *<span style=color:#000>argv</span>[])
-{
-    <span style=color:#a90d91>int</span> <span style=color:#000>a</span> = <span style=color:#000>rand</span>() % <span style=color:#1c01ce>100</span>;
-	
-    <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> &gt; <span style=color:#1c01ce>25</span>)
-    {
-        <span style=color:#000>call_a_function</span>();
-        <span style=color:#000>call_another_function</span>();
-    } 
-    <span style=color:#a90d91>else</span>
-    {
-        <span style=color:#000>call_b_function</span>();
-    }
-}
-</code></pre></div><p>Spaces for indents meant we did not have to deal with different editors’ tab sizes (or their fickle users’ preferences). And since we had stopped printing code, we could focus on trying to make it more readable using white space, longer variable names and braces on blank lines to make our blocks stand out (so we could see the start and end of block by matching columns).</p>
-<p>But that too led to problems. With unlimited line lengths (and larger screens), we no longer felt the need to limit the number of indents in a function and started to create larger monolithic functions. And since editors at that time did not wrap code very well, programmers would often find themselves unable to see the code on the left while horizontally scrolled and working on the end of a long line to the right. Code became harder to read, and side-by-side comparisons became impossible.</p>
-<p>So in the early-2000’s, I chose my side in these arguments: I agreed with 4 spaces because it took editors out of the equation, kept the 80-column rule to force-limit indenting and changed to braces on their own lines to improve readability.</p>
-<p>I stuck with it, argued it like all geeks do, and thought I’d never change.</p>
-<h2 id=2010s-canonical-style>2010’s Canonical Style</h2>
-<p>Until now. Or really until I started using Xcode 4’s intelligence and snippets.</p>
-<p>You see, Xcode defaults to 4 space indents, so that stays the same. I think it handles limited line lengths rather well with intelligent wrapping, which means the scroll to the right issue and the 2-up issues are resolved. But it started to drive me nuts that it’s default brace style in snippets seemed <em>inconsistent</em>. Sometimes braces would be on the <em>same</em> line and sometimes on their <em>own</em>. What? No! I need consistency.</p>
-<p>Take the default <code>initWithNibName</code> code snippet:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-objective-c data-lang=objective-c>- (<span style=color:#a90d91>id</span>)<span style=color:#000>initWithNibName:</span>(<span style=color:#000>NSString</span> <span style=color:#000>*</span>)<span style=color:#000>nibNameOrNil</span> <span style=color:#000>bundle:</span>(<span style=color:#000>NSBundle</span> <span style=color:#000>*</span>)<span style=color:#000>nibBundleOrNil</span>
-{
-    <span style=color:#a90d91>self</span> <span style=color:#000>=</span> [<span style=color:#a90d91>super</span> <span style=color:#000>initWithNibName</span>:<span style=color:#000>nibNameOrNil</span> <span style=color:#000>bundle</span>:<span style=color:#000>nibBundleOrNil</span>];
-    <span style=color:#a90d91>if</span> (<span style=color:#a90d91>self</span>) {
-        <span style=color:#a90d91>self</span>.<span style=color:#000>title</span> <span style=color:#000>=</span> <span style=color:#000>NSLocalizedString</span>(<span style=color:#c41a16>@&#34;Detail&#34;</span>, <span style=color:#c41a16>@&#34;Detail&#34;</span>);
-    }
-    <span style=color:#a90d91>return</span> <span style=color:#a90d91>self</span>;
-}
-</code></pre></div><p><em>The function block braces are on their own line, ala 2000’s C#, but the <code>if</code> block braces are not, ala 1990’s C style.</em> Surely this is a royal screw-up! From Apple! The style gurus!</p>
-<p>It turns out that no, it’s not a screwup, the hybrid brace style that they are using is the <em>original</em> Kernighan and Ritchie style which was <em>messed up in the early printings of the C book</em> to save space. The brace style rules, as per K&R are:</p>
-<blockquote>
-<p>When adhering to K&R, each function has its opening brace at the next line on the same indentation level as its header, the statements within the braces are indented, and the closing brace at the end is on the same indentation level as the header of the function at a line of its own. The blocks inside a function, however, have their opening braces at the same line as their respective control statements; closing braces remain in a line of their own, unless followed by an else or while keyword.<br>
-Wikipedia <a href=http://en.wikipedia.org/wiki/Indent_style#K.26R_style>http://en.wikipedia.org/wiki/Indent_style#K.26R_style</a></p>
-</blockquote>
-<p>It turns out, that this <em>true</em> K&R style is the <em>canonical</em> form for braces for all C derivative languages, including C++, C# and Objective-C. That’s from the designers of the languages themselves.</p>
-<p>Guess I’ve been doing it wrong and arguing it wrong all these years.</p>
-<p>So I have changed my brace style mind. I am still a 4 space man. I still run a 80-column page guide, and try to keep within it, but now rely more on the editor to smart-wrap long lines. But I now adhere to the <em>true</em> K&R brace style:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c data-lang=c><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> <span style=color:#000>*</span><span style=color:#000>argv</span>[]) 
-{
-    <span style=color:#a90d91>int</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#000>rand</span>() <span style=color:#000>%</span> <span style=color:#1c01ce>100</span>;
-		
-    <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>25</span>) {
-        <span style=color:#000>call_a_function</span>();
-        <span style=color:#000>call_another_function</span>();
-    } <span style=color:#a90d91>else</span> {
-        <span style=color:#000>call_b_function</span>();
-    }
-}
-</code></pre></div><p>I’m still getting used to it.</p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>Reprogramming my Brace Style Mind</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Jan 7, 2013 1:24 PM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/programming>programming</a></span></div><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/c++>c++</a></span></div></div><h1 class=post-title>Reprogramming my Brace Style Mind</h1><div class=post-body><p>Each and every programmer has their own style of coding, their own preferences for how code should look, and are generally happy to argue the case for their preference. Somehow these discussions became heated, and the most fights happen over <strong>spaces vs tabs</strong> (See <a href=http://www.jwz.org/doc/tabs-vs-spaces.html>Tabs versus Spaces: An Eternal Holy War.</a> and <a href=http://www.codinghorror.com/blog/2009/04/death-to-the-space-infidels.html>Death to the Space Infidels!</a>), <strong>the 80 column rule</strong> (See <a href=http://zuzu-curl.blogspot.com/2010/02/in-defense-of-80-column-rule.html>In defense of the 80-column rule</a>) and <strong>brace indent style</strong>.</p><p>Recently, I have had to change my choices, they were wrong. But a bit of history first.</p><h2 id=the-1980s1990s-compact-style>The 1980’s/1990’s Compact Style</h2><p>When I started programming, we use <em>tab</em> characters because it kept files smaller, limited code to <em>80-columns</em> because we had to print out code <em>a lot</em> on 80-column dot-matrix printers and we followed Kernighan and Ritchie’s <em>original</em> <a href="http://www.amazon.com/gp/product/0131103628/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=hiltmon-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0131103628">C Programming Language</a> book’s convention of braces on the same line. Code looked like this:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> <span style=color:#000>*</span><span style=color:#000>argv</span>[]) {
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>int</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#000>rand</span>() <span style=color:#000>%</span> <span style=color:#1c01ce>100</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>25</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#000>call_a_function</span>();
+</span></span><span style=display:flex><span>                <span style=color:#000>call_another_function</span>();
+</span></span><span style=display:flex><span>        } <span style=color:#a90d91>else</span> {
+</span></span><span style=display:flex><span>                <span style=color:#000>call_b_function</span>();
+</span></span><span style=display:flex><span>        } <span style=color:#177500>// end if
+</span></span></span><span style=display:flex><span><span style=color:#177500></span>} <span style=color:#177500>// end main
+</span></span></span></code></pre></div><p>This style worked. Tabs in those days were always 8 stops wide, which meant that you could not indent much before slamming into the 80-column limit, forcing you create lots of smaller functions, a good thing. And braces on the same line meant more code would appear printed on each page.</p><p>But there were some bad things too. We started using shorter variable names to gain additional indent levels within files, making the code harder to read and maintain. We did not put any whitespace between lines of code to cram more on the printed page, making the start and end of blocks harder to find (and so we would comment block ends so we’d know what they were). And we lost a lot of limited coding space because the indents were so wide.</p><h2 id=2000s-expansive-style>2000’s Expansive Style</h2><p>In the 2000’s, we all seemed to switch to Microsoft’s C and C# conventions, namely 4 spaces instead of tabs, unlimited line length and all braces on their own lines, like so:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c# data-lang=c#><span style=display:flex><span><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> *<span style=color:#000>argv</span>[])
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>int</span> <span style=color:#000>a</span> = <span style=color:#000>rand</span>() % <span style=color:#1c01ce>100</span>;
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> &gt; <span style=color:#1c01ce>25</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#000>call_a_function</span>();
+</span></span><span style=display:flex><span>        <span style=color:#000>call_another_function</span>();
+</span></span><span style=display:flex><span>    } 
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>else</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#000>call_b_function</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Spaces for indents meant we did not have to deal with different editors’ tab sizes (or their fickle users’ preferences). And since we had stopped printing code, we could focus on trying to make it more readable using white space, longer variable names and braces on blank lines to make our blocks stand out (so we could see the start and end of block by matching columns).</p><p>But that too led to problems. With unlimited line lengths (and larger screens), we no longer felt the need to limit the number of indents in a function and started to create larger monolithic functions. And since editors at that time did not wrap code very well, programmers would often find themselves unable to see the code on the left while horizontally scrolled and working on the end of a long line to the right. Code became harder to read, and side-by-side comparisons became impossible.</p><p>So in the early-2000’s, I chose my side in these arguments: I agreed with 4 spaces because it took editors out of the equation, kept the 80-column rule to force-limit indenting and changed to braces on their own lines to improve readability.</p><p>I stuck with it, argued it like all geeks do, and thought I’d never change.</p><h2 id=2010s-canonical-style>2010’s Canonical Style</h2><p>Until now. Or really until I started using Xcode 4’s intelligence and snippets.</p><p>You see, Xcode defaults to 4 space indents, so that stays the same. I think it handles limited line lengths rather well with intelligent wrapping, which means the scroll to the right issue and the 2-up issues are resolved. But it started to drive me nuts that it’s default brace style in snippets seemed <em>inconsistent</em>. Sometimes braces would be on the <em>same</em> line and sometimes on their <em>own</em>. What? No! I need consistency.</p><p>Take the default <code>initWithNibName</code> code snippet:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-objective-c data-lang=objective-c><span style=display:flex><span>- (<span style=color:#a90d91>id</span>)<span style=color:#000>initWithNibName:</span>(<span style=color:#000>NSString</span> <span style=color:#000>*</span>)<span style=color:#000>nibNameOrNil</span> <span style=color:#000>bundle:</span>(<span style=color:#000>NSBundle</span> <span style=color:#000>*</span>)<span style=color:#000>nibBundleOrNil</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>self</span> <span style=color:#000>=</span> [<span style=color:#a90d91>super</span> <span style=color:#000>initWithNibName</span>:<span style=color:#000>nibNameOrNil</span> <span style=color:#000>bundle</span>:<span style=color:#000>nibBundleOrNil</span>];
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> (<span style=color:#a90d91>self</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a90d91>self</span>.<span style=color:#000>title</span> <span style=color:#000>=</span> <span style=color:#000>NSLocalizedString</span>(<span style=color:#c41a16>@&#34;Detail&#34;</span>, <span style=color:#c41a16>@&#34;Detail&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>return</span> <span style=color:#a90d91>self</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p><em>The function block braces are on their own line, ala 2000’s C#, but the <code>if</code> block braces are not, ala 1990’s C style.</em> Surely this is a royal screw-up! From Apple! The style gurus!</p><p>It turns out that no, it’s not a screwup, the hybrid brace style that they are using is the <em>original</em> Kernighan and Ritchie style which was <em>messed up in the early printings of the C book</em> to save space. The brace style rules, as per K&R are:</p><blockquote><p>When adhering to K&R, each function has its opening brace at the next line on the same indentation level as its header, the statements within the braces are indented, and the closing brace at the end is on the same indentation level as the header of the function at a line of its own. The blocks inside a function, however, have their opening braces at the same line as their respective control statements; closing braces remain in a line of their own, unless followed by an else or while keyword.<br>Wikipedia <a href=http://en.wikipedia.org/wiki/Indent_style#K.26R_style>http://en.wikipedia.org/wiki/Indent_style#K.26R_style</a></p></blockquote><p>It turns out, that this <em>true</em> K&R style is the <em>canonical</em> form for braces for all C derivative languages, including C++, C# and Objective-C. That’s from the designers of the languages themselves.</p><p>Guess I’ve been doing it wrong and arguing it wrong all these years.</p><p>So I have changed my brace style mind. I am still a 4 space man. I still run a 80-column page guide, and try to keep within it, but now rely more on the editor to smart-wrap long lines. But I now adhere to the <em>true</em> K&R brace style:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#a90d91>int</span> <span style=color:#000>main</span>(<span style=color:#a90d91>int</span> <span style=color:#000>argc</span>, <span style=color:#a90d91>char</span> <span style=color:#000>*</span><span style=color:#000>argv</span>[]) 
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>int</span> <span style=color:#000>a</span> <span style=color:#000>=</span> <span style=color:#000>rand</span>() <span style=color:#000>%</span> <span style=color:#1c01ce>100</span>;
+</span></span><span style=display:flex><span>		
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>if</span> (<span style=color:#000>a</span> <span style=color:#000>&gt;</span> <span style=color:#1c01ce>25</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#000>call_a_function</span>();
+</span></span><span style=display:flex><span>        <span style=color:#000>call_another_function</span>();
+</span></span><span style=display:flex><span>    } <span style=color:#a90d91>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#000>call_b_function</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>I’m still getting used to it.</p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Jan 7, 2013 1:24 PM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/01/11/ruby-tempfile-aggressive-unlink/>&larr; Ruby Tempfile Aggressive Unlink</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2013/01/07/the-entirety-of-information/>The Entirety Of Information &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Jan 7, 2013 1:24 PM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2013/01/11/ruby-tempfile-aggressive-unlink/>&larr; Ruby Tempfile Aggressive Unlink</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2013/01/07/the-entirety-of-information/>The Entirety Of Information &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

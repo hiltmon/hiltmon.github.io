@@ -1,129 +1,24 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>CD to Current Finder Path</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Dec 21, 2012 8:29 AM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/productivity>Productivity</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-CD to Current Finder Path
-</h1>
-<div class=post-body>
-<p>To open a <em>new</em> terminal in the current Finder path in OS X, you can use the built-in service (See below on how to enable). But if you are <em>already</em> in a Terminal session, you need to leave the keyboard, mouse to Finder and drag and drop the path back. Here’s a trick that gets you to the frontmost Finder path without leaving the Terminal or keyboard.</p>
-<p>Add the following to your <code>.bash_profile</code>:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=color:#177500>## Get the frontmost finder path</span>
-fp <span style=color:#000>()</span> <span style=color:#000>{</span>
-	osascript <span style=color:#c41a16>&lt;&lt; EOT
-</span><span style=color:#c41a16>
-</span><span style=color:#c41a16>	tell application &#34;Finder&#34;
-</span><span style=color:#c41a16>		if (${1-1} &lt;= (count Finder windows)) then
-</span><span style=color:#c41a16>			get POSIX path of (target of window ${1-1} as alias)
-</span><span style=color:#c41a16>		else
-</span><span style=color:#c41a16>			get POSIX path of (desktop as alias)
-</span><span style=color:#c41a16>		end if
-</span><span style=color:#c41a16>	end tell
-</span><span style=color:#c41a16>
-</span><span style=color:#c41a16>	EOT</span>
-<span style=color:#000>}</span>
-
-<span style=color:#177500>## alias to cd to the frontmost finder path</span>
-<span style=color:#a90d91>alias</span> <span style=color:#000>cdf</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;cd &#34;`fp`&#34;&#39;</span>
-<span style=color:#177500>## alias to copy it to the clipboard</span>
-<span style=color:#a90d91>alias</span> <span style=color:#000>cfp</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;fp | pbcopy&#39;</span>
-</code></pre></div><p>In a <em>new</em> Terminal (or reload the current), you now have the following commands available:</p>
-<ul>
-<li><code>cdf</code> which will <code>cd</code> you to the frontmost finder path</li>
-<li><code>cfp</code> which will copy the frontmost finder path onto the pasteboard</li>
-</ul>
-<p>I usually leave my current working folder visible in Finder so I can see the files available while working in Terminal. To get back to that folder, a quick <code>cdf</code> and I’m there.</p>
-<hr>
-<h3 id=or-enable-the-service><strong>OR: Enable the Service</strong></h3>
-<p>To open a new terminal window at the current Finder path from Finder, you need the <code>New Terminal at Folder</code> service enabled. Make sure it’s checked in <strong>System Preferences</strong> / <strong>Keyboard</strong> / <strong>Keyboard Shortcuts</strong> / <strong>Services</strong> under <strong>Files and Folders</strong>.</p>
-<p>Once enabled, you can right click on any folder in Finder, choose <strong>Services</strong> / <strong>New Terminal at Folder</strong> to open a new Terminal at that location.</p>
-<figure><img src=images/new-terminal-at-folder.jpg width=568 height=287>
-</figure>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>CD to Current Finder Path</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Dec 21, 2012 8:29 AM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/productivity>Productivity</a></span></div></div><h1 class=post-title>CD to Current Finder Path</h1><div class=post-body><p>To open a <em>new</em> terminal in the current Finder path in OS X, you can use the built-in service (See below on how to enable). But if you are <em>already</em> in a Terminal session, you need to leave the keyboard, mouse to Finder and drag and drop the path back. Here’s a trick that gets you to the frontmost Finder path without leaving the Terminal or keyboard.</p><p>Add the following to your <code>.bash_profile</code>:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#177500>## Get the frontmost finder path</span>
+</span></span><span style=display:flex><span>fp <span style=color:#000>()</span> <span style=color:#000>{</span>
+</span></span><span style=display:flex><span>	osascript <span style=color:#c41a16>&lt;&lt; EOT
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>	tell application &#34;Finder&#34;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>		if (${1-1} &lt;= (count Finder windows)) then
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>			get POSIX path of (target of window ${1-1} as alias)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>		else
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>			get POSIX path of (desktop as alias)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>		end if
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>	end tell
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>	EOT</span>
+</span></span><span style=display:flex><span><span style=color:#000>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#177500>## alias to cd to the frontmost finder path</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>alias</span> <span style=color:#000>cdf</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;cd &#34;`fp`&#34;&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#177500>## alias to copy it to the clipboard</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>alias</span> <span style=color:#000>cfp</span><span style=color:#000>=</span><span style=color:#c41a16>&#39;fp | pbcopy&#39;</span>
+</span></span></code></pre></div><p>In a <em>new</em> Terminal (or reload the current), you now have the following commands available:</p><ul><li><code>cdf</code> which will <code>cd</code> you to the frontmost finder path</li><li><code>cfp</code> which will copy the frontmost finder path onto the pasteboard</li></ul><p>I usually leave my current working folder visible in Finder so I can see the files available while working in Terminal. To get back to that folder, a quick <code>cdf</code> and I’m there.</p><hr><h3 id=or-enable-the-service><strong>OR: Enable the Service</strong></h3><p>To open a new terminal window at the current Finder path from Finder, you need the <code>New Terminal at Folder</code> service enabled. Make sure it’s checked in <strong>System Preferences</strong> / <strong>Keyboard</strong> / <strong>Keyboard Shortcuts</strong> / <strong>Services</strong> under <strong>Files and Folders</strong>.</p><p>Once enabled, you can right click on any folder in Finder, choose <strong>Services</strong> / <strong>New Terminal at Folder</strong> to open a new Terminal at that location.</p><figure><img src=images/new-terminal-at-folder.jpg width=568 height=287></figure><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter or <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Dec 21, 2012 8:29 AM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2012/12/26/2012-year-end-ipad-essentials/>&larr; 2012 Year End iPad Essentials</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2012/12/19/how-to-flexify-a-class/>How to Flexify a Class &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Dec 21, 2012 8:29 AM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2012/12/26/2012-year-end-ipad-essentials/>&larr; 2012 Year End iPad Essentials</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2012/12/19/how-to-flexify-a-class/>How to Flexify a Class &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

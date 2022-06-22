@@ -1,244 +1,89 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>Magical Migrations</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Feb 8, 2014 11:46 AM</span>
-</p>
-<div class=tag-group>
-</div>
-<h1 class=post-title>
-Magical Migrations
-</h1>
-<div class=post-body>
-<p><span class=light>As I am writing this, I am using magical migrations to perform a full data transplant across three servers, each with 100+GB of data, with a single command. Yep, I&rsquo;m chilling and writing a blog post while replacing the entire data scaffolding of my firm as if it were just another cold Saturday. Magical indeed.</span></p>
-<p><em>TL;DR: <a href=https://guides.rubyonrails.org/migrations.html>Rails migrations</a> and <a href=http://capistranorb.com>Capistrano</a> deploys create a stable, reliable, testable, reversible and no-fault way to manage and execute production database changes, no matter the platform size or complexity.</em></p>
-<p>When I started at the current firm, I knew I would be designing and developing a wholly new, proprietary platform. At the time, all I knew was that it would be big and complex and that I did not yet have a handle on what it would be.</p>
-<p>But I did know these to be true (for that matter not-knowing that you do <em>not</em> know something is knowledge in itself):</p>
-<ul>
-<li>I did not know the complete requirements at the start, and most likely would not know the complete requirements in the middle.</li>
-<li>I would not get the database design and architecture right the first time, and probably not the second time either.</li>
-<li>Things will change. The business, requirements and architecture will change and continue to do so. Which means I needed to be flexible in choosing what to do and how to do things.</li>
-<li>I will have more than one database server, many in fact. Some as backups or read-slaves, some as replicas, some as islands, and some for testing and modeling.</li>
-<li>I need to be able to track, manage and automate the myriad of changes to all of these servers using tools because there is no way I could do it in my head.</li>
-<li>I would probably be the only person doing this for the first year or so.</li>
-</ul>
-<p>In the past, the way I have done this was to create separate database projects for each database and then created SQL files to save the queries and data definition commands to change these databases. Then, in preparation for deploy, we&rsquo;d backup the production databases to a staging area, then manually run the SQL to migrate the database and then run a test suite to see if we got it all. If it all worked, we&rsquo;d then spend a weekend doing this on the production servers. More often than not, something had been forgotten, not placed in the database project, or not updated as things changed, and we&rsquo;d leave production deploy alone until the staging model was rebuilt and tried again.</p>
-<p>And <em>that</em> was better than the older ad-hoc method of just having a dedicated Database Administrator patch the databases manually on deployment days (which is how it worked in the dark past and still does in a lot of firms).</p>
-<p>I needed a way to automate all database changes, a way that was integrated in my development workflow and a way to deploy these changes with ease.</p>
-<p>The solution: <a href=https://guides.rubyonrails.org/migrations.html>Rails migrations</a> and <a href=http://capistranorb.com>Capistrano</a> deploys.</p>
-<p><span class=light>Aside: Fortunately I am using Rails for a few of the web servers on the platform which made choosing Rails migrations easy. But I am also running a bunch of <a href=http://www.sinatrarb.com>Sinatra</a> servers for web services, Python programs for analytics, C++ programs for high-speed work and looking at <a href=http://nodejs.org>Node.js</a> and <a href=http://golang.org>GoLang</a> for future projects that all access our databases. And who knows what else will access them in the future.</span></p>
-<p>For the main database, I created a single master <a href=https://rubyonrails.org/>Ruby on Rails</a> project. I then share that model between all my Rails projects, see my <a href=https://hiltmon.com/blog/2013/10/14/rails-tricks-sharing-the-model/>Rails Tricks - Sharing the Model</a>. All other projects just assume the current schema. For other databases, more Rails projects, several of which have no web interface at all, or are in support of a non-Ruby project.</p>
-<h3 id=creating-and-managing-database-schema-migrations>Creating and Managing Database Schema Migrations</h3>
-<p>But lets focus on the main database.</p>
-<p>In my environment, this runs on a pair of servers in a remote data center for production and on an additional database server used for analytics. Development is done locally, as is staging. All three of these main servers are accessible from the same code base, so they all need to have the exact same schema. And all have over 100GB of data in them which is <em>business critical</em> and so I cannot screw up deploys and changes.</p>
-<p><strong>All database changes are in Rails migrations.</strong></p>
-<p><strong>All of them.</strong> No exceptions.</p>
-<p>Create a new table, its a migration. Add a column, another migration. New index, another migration. Add seed data, a migration.</p>
-<p>As a developer then, it&rsquo;s easy to use and test. Create and edit a migration (or Rails model for new tables) and <code>rake db:migrate</code> to apply the changes. Not perfect, <code>rake db:rollback</code>, correct the model or migration and <code>rake db:migrate</code> again.</p>
-<p>I never, ever use SQL directly on the database to make schema changes. It violates the protocol. All changes are in migrations, all of them.</p>
-<p>A few Rails migration tips:</p>
-<ul>
-<li>Create all tables as Rails models which create migrations. It adds a bit of code to the project, but makes it easy to test the database or create web views of the data later. For example:</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash>$ rails generate model Table description:string price:decimal<span style=color:#000>{</span>12-2<span style=color:#000>}</span>
-</code></pre></div><ul>
-<li><strong>Do not be afraid to use raw SQL in migrations</strong>. That which Rails migrations cannot do, can be done with SQL in migrations. I use it all the time to transform or backup data. For example:</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#000>...</span>
-<span style=color:#177500># Fixup codes</span>
-<span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;LKD&#39;&#34;</span>
-<span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;ADJ&#39;&#34;</span>
-<span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;SPC&#39;&#34;</span>
-<span style=color:#000>...</span>
-</code></pre></div><ul>
-<li><strong>Make all <code>up</code> migrations reversible</strong>. This is easy as Rails takes care of most of these as long as the migrations are non-destructive. For destructive migrations, such as when you are moving data to new tables or removing columns, I create temporary tables or dump files to save the data being deleted, and reverse these in the <code>down</code> part. Only when I am very sure that these changes are fixed and deployed to production do I create migrations to drop these temporary tables - these being the only non-reversible migrations I have. For example, in an <code>up</code> migration for a changing table, I first back it up:</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>def</span> <span style=color:#000>up</span>
-	<span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
-</span><span style=color:#c41a16>		CREATE TABLE ex_table (
-</span><span style=color:#c41a16>			id     INTEGER     NOT NULL,
-</span><span style=color:#c41a16>			column_1 character varying(255),
-</span><span style=color:#c41a16>			...
-</span><span style=color:#c41a16>		CONSTRAINT ex_table_pkey UNIQUE(id)
-</span><span style=color:#c41a16>	);}</span>
-    
-    <span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
-</span><span style=color:#c41a16>    	INSERT INTO ex_table (id, column_1, ...)
-</span><span style=color:#c41a16>    	SELECT id, column_1, ...
-</span><span style=color:#c41a16>		FROM table;
-</span><span style=color:#c41a16>	}</span>
-    
-	<span style=color:#000>remove_column</span> <span style=color:#c41a16>:table</span>, <span style=color:#c41a16>:column_1</span>
-<span style=color:#a90d91>end</span>
-</code></pre></div><p>In some cases, I even dump data to files to enable reverses or just to have backup copies. For example, in a <code>down</code> (reverse) migration where I dropped a table in the <code>up</code>, I may have:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>def</span> <span style=color:#000>up</span>
-	<span style=color:#177500># Save the data for Justin Case :)</span>
-	<span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
-</span><span style=color:#c41a16>		COPY (SELECT cusip, price_date, price, yield) 
-</span><span style=color:#c41a16>		FROM historical_prices) TO &#39;/tmp/hp.csv&#39; WITH CSV;
-</span><span style=color:#c41a16>	}</span>
-	<span style=color:#000>drop_table</span> <span style=color:#c41a16>:historical_prices</span>
-<span style=color:#a90d91>end</span>
-	
-<span style=color:#a90d91>def</span> <span style=color:#000>down</span>
-    <span style=color:#000>create_table</span> <span style=color:#c41a16>:historical_prices</span>, { <span style=color:#a90d91>id</span>: <span style=color:#a90d91>false</span> } <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
-		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:cusip</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>9</span>
-		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>date</span> <span style=color:#c41a16>:price_date</span>
-		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>decimal</span> <span style=color:#c41a16>:price</span>, <span style=color:#c41a16>precision</span>: <span style=color:#1c01ce>12</span>, <span style=color:#c41a16>scale</span>: <span style=color:#1c01ce>4</span>
-		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>decimal</span> <span style=color:#c41a16>:yield</span>, <span style=color:#c41a16>precision</span>: <span style=color:#1c01ce>12</span>, <span style=color:#c41a16>scale</span>: <span style=color:#1c01ce>6</span>
-    <span style=color:#a90d91>end</span>
-    
-    <span style=color:#177500># Get it back</span>
-    <span style=color:#000>execute</span> <span style=color:#c41a16>&#34;%Q{
-</span><span style=color:#c41a16>    	COPY historical_prices (cusip, price_date, price, yield) 
-</span><span style=color:#c41a16>    	FROM &#39;/tmp/hp.csv&#39; WITH CSV;
-</span><span style=color:#c41a16>    }
-</span><span style=color:#c41a16>    
-</span><span style=color:#c41a16>    add_index :historical_prices, :cusip
-</span><span style=color:#c41a16>    add_index :historical_prices, :price_date
-</span><span style=color:#c41a16>end
-</span></code></pre></div><ul>
-<li>One big negative of Rails migrations when creating tables is that they create an <code>id</code> field automatically. This is useful if running a Rails web app or using ActiveModel. But for tables that have no need of these, or are being accessed by applications that do not need <code>id</code> columns, here&rsquo;s how to get rid of it: Just add <code>{ id: false }</code> to the <code>create_table</code> line as in:</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CreateNoIDTable</span> <span style=color:#000>&lt;</span> <span style=color:#000>ActiveRecord</span><span style=color:#000>::</span><span style=color:#000>Migration</span>
-	<span style=color:#a90d91>def</span> <span style=color:#000>change</span>
-		<span style=color:#000>create_table</span> <span style=color:#c41a16>:no_id_table</span>, { <span style=color:#a90d91>id</span>: <span style=color:#a90d91>false</span> } <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
-			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:my_key</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>9</span>
-			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:my_text</span>
-
-			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>timestamps</span>
-    	<span style=color:#a90d91>end</span>
-	<span style=color:#a90d91>end</span>
-<span style=color:#a90d91>end</span>
-</code></pre></div><p>You can also get rid of the Rails <code>created_at</code> and <code>updated_at</code> columns by commenting out the <code>t.timestamps</code> code.</p>
-<ul>
-<li><strong>Seed data in migrations</strong>. Sometimes you need to put data into tables when creating them, for example when creating code to string reference tables. Put the data into the migration and have the migration load it. For example, using Rails model creates:</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CreatePurposeClasses</span> <span style=color:#000>&lt;</span> <span style=color:#000>ActiveRecord</span><span style=color:#000>::</span><span style=color:#000>Migration</span>
-	<span style=color:#a90d91>def</span> <span style=color:#000>up</span>
-		<span style=color:#000>create_table</span> <span style=color:#c41a16>:purpose_classes</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
-			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:class_code</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>4</span>
-			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:class_name</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>32</span>
-
-			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>timestamps</span>
-		<span style=color:#a90d91>end</span>
-		
-		<span style=color:#000>add_index</span> <span style=color:#c41a16>:purpose_classes</span>, <span style=color:#c41a16>:class_code</span>, <span style=color:#c41a16>unique</span>: <span style=color:#a90d91>true</span>
-    
-		<span style=color:#177500># Populate</span>
-		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;AUTH&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Authority&#39;</span>)
-		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;BAN&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Bond Anticipation Note&#39;</span>)
-		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;BLDG&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Building &#39;</span>)
-		<span style=color:#000>...</span>
-</code></pre></div><h3 id=deploying-database-schema-migrations>Deploying Database Schema Migrations</h3>
-<p>I have been using <a href=http://capistranorb.com>Capistrano</a> for years to deploy Rails applications. And it works well. I use it now to deploy my main database Rails project that contains all the necessary migrations to all servers.</p>
-<p>It takes just one command to send the code over and one more to make all the changes and I can be sure all my staging and production databases are perfect.</p>
-<p>To deploy:</p>
-<pre><code>$ cap production deploy
-</code></pre>
-<p>To migrate:</p>
-<pre><code>$ cap production deploy:migrate
-</code></pre>
-<p>I prefer to do this in two steps in case the initial deploy fails, in which case Capistrano rolls it back safely without affecting the database. I do worry about Mr Murphy.</p>
-<p>In order to choose <em>which</em> server and database to migrate, I use Capistrano&rsquo;s multistage extension. Each database gets a stage. For example, I have the following at the top of my main project&rsquo;s <code>config/deploy.rb</code> file:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=color:#177500># Enable multi-stage support</span>
-<span style=color:#000>set</span> <span style=color:#c41a16>:stages</span>, <span style=color:#c41a16>%w(staging analytics production)</span>
-<span style=color:#000>set</span> <span style=color:#c41a16>:default_stage</span>, <span style=color:#c41a16>&#34;production&#34;</span>
-<span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;capistrano/ext/multistage&#39;</span>
-</code></pre></div><p>I then have separate files in the <code>config/deploy/</code> folder for each server (stage) that sets the server names and roles. For example the <code>config/deploy/analytics.rb</code> file sets the <code>:db</code> role to the analytics database server, and the <code>config/deploy/production.rb</code> file sets <code>:db</code> to the production server.</p>
-<p>I can then easily run:</p>
-<pre><code>$ cap analytics deploy:migrate
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>Magical Migrations</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Feb 8, 2014 11:46 AM</span></p><div class=tag-group></div><h1 class=post-title>Magical Migrations</h1><div class=post-body><p><span class=light>As I am writing this, I am using magical migrations to perform a full data transplant across three servers, each with 100+GB of data, with a single command. Yep, I&rsquo;m chilling and writing a blog post while replacing the entire data scaffolding of my firm as if it were just another cold Saturday. Magical indeed.</span></p><p><em>TL;DR: <a href=https://guides.rubyonrails.org/migrations.html>Rails migrations</a> and <a href=http://capistranorb.com>Capistrano</a> deploys create a stable, reliable, testable, reversible and no-fault way to manage and execute production database changes, no matter the platform size or complexity.</em></p><p>When I started at the current firm, I knew I would be designing and developing a wholly new, proprietary platform. At the time, all I knew was that it would be big and complex and that I did not yet have a handle on what it would be.</p><p>But I did know these to be true (for that matter not-knowing that you do <em>not</em> know something is knowledge in itself):</p><ul><li>I did not know the complete requirements at the start, and most likely would not know the complete requirements in the middle.</li><li>I would not get the database design and architecture right the first time, and probably not the second time either.</li><li>Things will change. The business, requirements and architecture will change and continue to do so. Which means I needed to be flexible in choosing what to do and how to do things.</li><li>I will have more than one database server, many in fact. Some as backups or read-slaves, some as replicas, some as islands, and some for testing and modeling.</li><li>I need to be able to track, manage and automate the myriad of changes to all of these servers using tools because there is no way I could do it in my head.</li><li>I would probably be the only person doing this for the first year or so.</li></ul><p>In the past, the way I have done this was to create separate database projects for each database and then created SQL files to save the queries and data definition commands to change these databases. Then, in preparation for deploy, we&rsquo;d backup the production databases to a staging area, then manually run the SQL to migrate the database and then run a test suite to see if we got it all. If it all worked, we&rsquo;d then spend a weekend doing this on the production servers. More often than not, something had been forgotten, not placed in the database project, or not updated as things changed, and we&rsquo;d leave production deploy alone until the staging model was rebuilt and tried again.</p><p>And <em>that</em> was better than the older ad-hoc method of just having a dedicated Database Administrator patch the databases manually on deployment days (which is how it worked in the dark past and still does in a lot of firms).</p><p>I needed a way to automate all database changes, a way that was integrated in my development workflow and a way to deploy these changes with ease.</p><p>The solution: <a href=https://guides.rubyonrails.org/migrations.html>Rails migrations</a> and <a href=http://capistranorb.com>Capistrano</a> deploys.</p><p><span class=light>Aside: Fortunately I am using Rails for a few of the web servers on the platform which made choosing Rails migrations easy. But I am also running a bunch of <a href=http://www.sinatrarb.com>Sinatra</a> servers for web services, Python programs for analytics, C++ programs for high-speed work and looking at <a href=http://nodejs.org>Node.js</a> and <a href=http://golang.org>GoLang</a> for future projects that all access our databases. And who knows what else will access them in the future.</span></p><p>For the main database, I created a single master <a href=https://rubyonrails.org/>Ruby on Rails</a> project. I then share that model between all my Rails projects, see my <a href=https://hiltmon.com/blog/2013/10/14/rails-tricks-sharing-the-model/>Rails Tricks - Sharing the Model</a>. All other projects just assume the current schema. For other databases, more Rails projects, several of which have no web interface at all, or are in support of a non-Ruby project.</p><h3 id=creating-and-managing-database-schema-migrations>Creating and Managing Database Schema Migrations</h3><p>But lets focus on the main database.</p><p>In my environment, this runs on a pair of servers in a remote data center for production and on an additional database server used for analytics. Development is done locally, as is staging. All three of these main servers are accessible from the same code base, so they all need to have the exact same schema. And all have over 100GB of data in them which is <em>business critical</em> and so I cannot screw up deploys and changes.</p><p><strong>All database changes are in Rails migrations.</strong></p><p><strong>All of them.</strong> No exceptions.</p><p>Create a new table, its a migration. Add a column, another migration. New index, another migration. Add seed data, a migration.</p><p>As a developer then, it&rsquo;s easy to use and test. Create and edit a migration (or Rails model for new tables) and <code>rake db:migrate</code> to apply the changes. Not perfect, <code>rake db:rollback</code>, correct the model or migration and <code>rake db:migrate</code> again.</p><p>I never, ever use SQL directly on the database to make schema changes. It violates the protocol. All changes are in migrations, all of them.</p><p>A few Rails migration tips:</p><ul><li>Create all tables as Rails models which create migrations. It adds a bit of code to the project, but makes it easy to test the database or create web views of the data later. For example:</li></ul><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>$ rails generate model Table description:string price:decimal<span style=color:#000>{</span>12-2<span style=color:#000>}</span>
+</span></span></code></pre></div><ul><li><strong>Do not be afraid to use raw SQL in migrations</strong>. That which Rails migrations cannot do, can be done with SQL in migrations. I use it all the time to transform or backup data. For example:</li></ul><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#000>...</span>
+</span></span><span style=display:flex><span><span style=color:#177500># Fixup codes</span>
+</span></span><span style=display:flex><span><span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;LKD&#39;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;ADJ&#39;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>execute</span> <span style=color:#c41a16>&#34;UPDATE securities SET coupon_type = &#39;FIX&#39; WHERE coupon_type = &#39;SPC&#39;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#000>...</span>
+</span></span></code></pre></div><ul><li><strong>Make all <code>up</code> migrations reversible</strong>. This is easy as Rails takes care of most of these as long as the migrations are non-destructive. For destructive migrations, such as when you are moving data to new tables or removing columns, I create temporary tables or dump files to save the data being deleted, and reverse these in the <code>down</code> part. Only when I am very sure that these changes are fixed and deployed to production do I create migrations to drop these temporary tables - these being the only non-reversible migrations I have. For example, in an <code>up</code> migration for a changing table, I first back it up:</li></ul><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>up</span>
+</span></span><span style=display:flex><span>	<span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>		CREATE TABLE ex_table (
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>			id     INTEGER     NOT NULL,
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>			column_1 character varying(255),
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>			...
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>		CONSTRAINT ex_table_pkey UNIQUE(id)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>	);}</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    	INSERT INTO ex_table (id, column_1, ...)
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    	SELECT id, column_1, ...
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>		FROM table;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>	}</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>	<span style=color:#000>remove_column</span> <span style=color:#c41a16>:table</span>, <span style=color:#c41a16>:column_1</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span></code></pre></div><p>In some cases, I even dump data to files to enable reverses or just to have backup copies. For example, in a <code>down</code> (reverse) migration where I dropped a table in the <code>up</code>, I may have:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>up</span>
+</span></span><span style=display:flex><span>	<span style=color:#177500># Save the data for Justin Case :)</span>
+</span></span><span style=display:flex><span>	<span style=color:#000>execute</span> <span style=color:#c41a16>%Q{
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>		COPY (SELECT cusip, price_date, price, yield) 
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>		FROM historical_prices) TO &#39;/tmp/hp.csv&#39; WITH CSV;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>	}</span>
+</span></span><span style=display:flex><span>	<span style=color:#000>drop_table</span> <span style=color:#c41a16>:historical_prices</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span><span style=color:#a90d91>def</span> <span style=color:#000>down</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>create_table</span> <span style=color:#c41a16>:historical_prices</span>, { <span style=color:#a90d91>id</span>: <span style=color:#a90d91>false</span> } <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:cusip</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>9</span>
+</span></span><span style=display:flex><span>		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>date</span> <span style=color:#c41a16>:price_date</span>
+</span></span><span style=display:flex><span>		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>decimal</span> <span style=color:#c41a16>:price</span>, <span style=color:#c41a16>precision</span>: <span style=color:#1c01ce>12</span>, <span style=color:#c41a16>scale</span>: <span style=color:#1c01ce>4</span>
+</span></span><span style=display:flex><span>		<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>decimal</span> <span style=color:#c41a16>:yield</span>, <span style=color:#c41a16>precision</span>: <span style=color:#1c01ce>12</span>, <span style=color:#c41a16>scale</span>: <span style=color:#1c01ce>6</span>
+</span></span><span style=display:flex><span>    <span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#177500># Get it back</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>execute</span> <span style=color:#c41a16>&#34;%Q{
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    	COPY historical_prices (cusip, price_date, price, yield) 
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    	FROM &#39;/tmp/hp.csv&#39; WITH CSV;
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    }
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    add_index :historical_prices, :cusip
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>    add_index :historical_prices, :price_date
+</span></span></span><span style=display:flex><span><span style=color:#c41a16>end
+</span></span></span></code></pre></div><ul><li>One big negative of Rails migrations when creating tables is that they create an <code>id</code> field automatically. This is useful if running a Rails web app or using ActiveModel. But for tables that have no need of these, or are being accessed by applications that do not need <code>id</code> columns, here&rsquo;s how to get rid of it: Just add <code>{ id: false }</code> to the <code>create_table</code> line as in:</li></ul><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CreateNoIDTable</span> <span style=color:#000>&lt;</span> <span style=color:#000>ActiveRecord</span><span style=color:#000>::</span><span style=color:#000>Migration</span>
+</span></span><span style=display:flex><span>	<span style=color:#a90d91>def</span> <span style=color:#000>change</span>
+</span></span><span style=display:flex><span>		<span style=color:#000>create_table</span> <span style=color:#c41a16>:no_id_table</span>, { <span style=color:#a90d91>id</span>: <span style=color:#a90d91>false</span> } <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:my_key</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>9</span>
+</span></span><span style=display:flex><span>			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:my_text</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>timestamps</span>
+</span></span><span style=display:flex><span>    	<span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>	<span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>end</span>
+</span></span></code></pre></div><p>You can also get rid of the Rails <code>created_at</code> and <code>updated_at</code> columns by commenting out the <code>t.timestamps</code> code.</p><ul><li><strong>Seed data in migrations</strong>. Sometimes you need to put data into tables when creating them, for example when creating code to string reference tables. Put the data into the migration and have the migration load it. For example, using Rails model creates:</li></ul><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#a90d91>class</span> <span style=color:#3f6e75>CreatePurposeClasses</span> <span style=color:#000>&lt;</span> <span style=color:#000>ActiveRecord</span><span style=color:#000>::</span><span style=color:#000>Migration</span>
+</span></span><span style=display:flex><span>	<span style=color:#a90d91>def</span> <span style=color:#000>up</span>
+</span></span><span style=display:flex><span>		<span style=color:#000>create_table</span> <span style=color:#c41a16>:purpose_classes</span> <span style=color:#a90d91>do</span> <span style=color:#000>|</span><span style=color:#000>t</span><span style=color:#000>|</span>
+</span></span><span style=display:flex><span>			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:class_code</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>4</span>
+</span></span><span style=display:flex><span>			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>string</span> <span style=color:#c41a16>:class_name</span>, <span style=color:#c41a16>limit</span>: <span style=color:#1c01ce>32</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>			<span style=color:#000>t</span><span style=color:#000>.</span><span style=color:#000>timestamps</span>
+</span></span><span style=display:flex><span>		<span style=color:#a90d91>end</span>
+</span></span><span style=display:flex><span>		
+</span></span><span style=display:flex><span>		<span style=color:#000>add_index</span> <span style=color:#c41a16>:purpose_classes</span>, <span style=color:#c41a16>:class_code</span>, <span style=color:#c41a16>unique</span>: <span style=color:#a90d91>true</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>		<span style=color:#177500># Populate</span>
+</span></span><span style=display:flex><span>		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;AUTH&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Authority&#39;</span>)
+</span></span><span style=display:flex><span>		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;BAN&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Bond Anticipation Note&#39;</span>)
+</span></span><span style=display:flex><span>		<span style=color:#000>PurposeClass</span><span style=color:#000>.</span><span style=color:#000>create!</span>(<span style=color:#c41a16>class_code</span>: <span style=color:#c41a16>&#39;BLDG&#39;</span>, <span style=color:#c41a16>class_name</span>: <span style=color:#c41a16>&#39;Building &#39;</span>)
+</span></span><span style=display:flex><span>		<span style=color:#000>...</span>
+</span></span></code></pre></div><h3 id=deploying-database-schema-migrations>Deploying Database Schema Migrations</h3><p>I have been using <a href=http://capistranorb.com>Capistrano</a> for years to deploy Rails applications. And it works well. I use it now to deploy my main database Rails project that contains all the necessary migrations to all servers.</p><p>It takes just one command to send the code over and one more to make all the changes and I can be sure all my staging and production databases are perfect.</p><p>To deploy:</p><pre><code>$ cap production deploy
+</code></pre><p>To migrate:</p><pre><code>$ cap production deploy:migrate
+</code></pre><p>I prefer to do this in two steps in case the initial deploy fails, in which case Capistrano rolls it back safely without affecting the database. I do worry about Mr Murphy.</p><p>In order to choose <em>which</em> server and database to migrate, I use Capistrano&rsquo;s multistage extension. Each database gets a stage. For example, I have the following at the top of my main project&rsquo;s <code>config/deploy.rb</code> file:</p><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-ruby data-lang=ruby><span style=display:flex><span><span style=color:#177500># Enable multi-stage support</span>
+</span></span><span style=display:flex><span><span style=color:#000>set</span> <span style=color:#c41a16>:stages</span>, <span style=color:#c41a16>%w(staging analytics production)</span>
+</span></span><span style=display:flex><span><span style=color:#000>set</span> <span style=color:#c41a16>:default_stage</span>, <span style=color:#c41a16>&#34;production&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#a90d91>require</span> <span style=color:#c41a16>&#39;capistrano/ext/multistage&#39;</span>
+</span></span></code></pre></div><p>I then have separate files in the <code>config/deploy/</code> folder for each server (stage) that sets the server names and roles. For example the <code>config/deploy/analytics.rb</code> file sets the <code>:db</code> role to the analytics database server, and the <code>config/deploy/production.rb</code> file sets <code>:db</code> to the production server.</p><p>I can then easily run:</p><pre><code>$ cap analytics deploy:migrate
 $ cap production deploy:migrate
-</code></pre>
-<p>I really rely on Capistrano&rsquo;s ability to rollback code deploy errors, and on Rails migrations ability to rollback database migration errors to prevent massive failure situations.</p>
-<h3 id=the-benefits>The Benefits</h3>
-<p>I get a lot of benefits from using <a href=https://guides.rubyonrails.org/migrations.html>Rails migrations</a> and <a href=http://capistranorb.com>Capistrano</a> deploys (Magic Migrations):</p>
-<ul>
-<li>Database management is part of my development process, not an add-on, separate process to be scheduled and managed.</li>
-<li>I do not need to &lsquo;remember&rsquo; the state of databases.</li>
-<li>I do not need to document changes, I have a log of them in the migration files.</li>
-<li>I do not need to insert data into tables after migrations as the seed data is included.</li>
-<li>One command to deploy and one to migrate. I get my weekends back.</li>
-<li>If anything goes wrong, it can be undone and rolled back as if nothing has happened.</li>
-<li>I just know that each database has the latest and correct schema for all my systems and can access them with confidence.</li>
-</ul>
-<p>So here we are, I&rsquo;m running one of these right now that is significantly changing the core architecture of my firm&rsquo;s platform and instead of manually doing the work, or staring helpless at the process, or even having to worry if it fails, I&rsquo;m writing this post.</p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+</code></pre><p>I really rely on Capistrano&rsquo;s ability to rollback code deploy errors, and on Rails migrations ability to rollback database migration errors to prevent massive failure situations.</p><h3 id=the-benefits>The Benefits</h3><p>I get a lot of benefits from using <a href=https://guides.rubyonrails.org/migrations.html>Rails migrations</a> and <a href=http://capistranorb.com>Capistrano</a> deploys (Magic Migrations):</p><ul><li>Database management is part of my development process, not an add-on, separate process to be scheduled and managed.</li><li>I do not need to &lsquo;remember&rsquo; the state of databases.</li><li>I do not need to document changes, I have a log of them in the migration files.</li><li>I do not need to insert data into tables after migrations as the seed data is included.</li><li>One command to deploy and one to migrate. I get my weekends back.</li><li>If anything goes wrong, it can be undone and rolled back as if nothing has happened.</li><li>I just know that each database has the latest and correct schema for all my systems and can access them with confidence.</li></ul><p>So here we are, I&rsquo;m running one of these right now that is significantly changing the core architecture of my firm&rsquo;s platform and instead of manually doing the work, or staring helpless at the process, or even having to worry if it fails, I&rsquo;m writing this post.</p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Feb 8, 2014 11:46 AM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2014/02/17/choose-not-to-be-anonymous/>&larr; I Choose not to be Anonymous</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2014/02/04/view-on-an-insider-as-ceo-for-microsoft/>View on an Insider as CEO for Microsoft &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Feb 8, 2014 11:46 AM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2014/02/17/choose-not-to-be-anonymous/>&larr; I Choose not to be Anonymous</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2014/02/04/view-on-an-insider-as-ceo-for-microsoft/>View on an Insider as CEO for Microsoft &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>

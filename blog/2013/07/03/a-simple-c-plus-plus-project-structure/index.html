@@ -1,87 +1,4 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=keywords content>
-<meta name=description content>
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-4573209-1','auto'),ga('send','pageview'))</script>
-<meta name=robots content="noindex,nofollow">
-<link rel=stylesheet href=/css/main.css>
-<link rel=stylesheet href=/css/all.css>
-<link rel=stylesheet href=/css/carbon.css>
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic" rel=stylesheet type=text/css>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
-<title>A Simple C++ Project Structure</title>
-</head>
-<body>
-<div id=container><header id=header>
-<img id=logo src=/images/hiltmon-logo-174.png>
-<h1 id=title><a href=/>Hiltmon</a></h1>
-<h2 id=sub-title>On walkabout in life and technology</h2>
-</header>
-<nav id=menu>
-<ul>
-<li>
-<a href=/about/ title="about me">About</a>
-</li>
-<li>
-<a href=/code/ title=code>Code</a>
-</li>
-<li>
-<a href=/products/ title=products>Products</a>
-</li>
-<li>
-<a href=/ title="blog section">Blog</a>
-</li>
-<li>
-<a href=/archives/ title="archives section">Archives</a>
-</li>
-</ul>
-</nav>
-<section id=content><p class=meta-data>
-<span class=post-date>Jul 3, 2013 10:33 PM</span>
-</p>
-<div class=tag-group>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/development>development</a>
-</span>
-</div>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/programming>programming</a>
-</span>
-</div>
-<div class=tag>
-<span class=tag-text>
-| <a href=/tags/c++>c++</a>
-</span>
-</div>
-</div>
-<h1 class=post-title>
-A Simple C++ Project Structure
-</h1>
-<div class=post-body>
-<p>One of the things I need in my new job is a bunch of blazingly fast <a href=http://en.wikipedia.org/wiki/Daemon_(computing)>daemons</a> to capture market information and trade data. I prototyped them in Ruby to see what comes down the line, but <strong>I have the need, the need for speed.</strong> Which means I need a UNIX C or C++ framework.</p>
-<p>So I went old-school. Retro even. Plain old C++. <a href=https://hiltmon.com/blog/2013/01/14/back-to-textmate-2/>My favorite programmer&rsquo;s editor</a>. And the good old terminal, er, <a href=https://hiltmon.com/blog/2013/02/13/make-iterm-2-more-mac-like/>iTerm 2, just Mac-like</a>.</p>
-<p>Since I am planning on creating a lot of these little projects, developing them on my Mac and deploying them to Linux servers, I decided to create a generic project folder layout and generic Makefile for each. And share it with you.</p>
-<h2 id=the-project-folder-tree>The Project Folder Tree</h2>
-<p><strong>Note</strong>: I&rsquo;m not making these to go outside my company, so the full GNU C++ standard project is overkill. Much of what follows does conform to the basics of their standard C++ project design though.</p>
-<figure><img src=images/simple-cpp-folders.jpg width=500 height=319>
-</figure>
-<p>For each application, the folders are:</p>
-<ul>
-<li><strong>bin</strong>: The output executables go here, both for the app and for any tests and spikes.</li>
-<li><strong>build</strong>: This folder contains all object files, and is removed on a <code>clean</code>.</li>
-<li><strong>doc</strong>: Any notes, like my assembly notes and configuration files, are here. I decided to create the development and production config files in here instead of in a separate <code>config</code> folder as they &ldquo;document&rdquo; the configuration.</li>
-<li><strong>include</strong>: All project header files. All necessary third-party header files that do not exist under <code>/usr/local/include</code> are also placed here.</li>
-<li><strong>lib</strong>: Any libs that get compiled by the project, third party or any needed in development. Prior to deployment, third party libraries get moved to <code>/usr/local/lib</code> where they belong, leaving the project clean enough to compile on our Linux deployment servers. I really use this to test different library versions than the standard.</li>
-<li><strong>spike</strong>: I often write smaller classes or files to test technologies or ideas, and keep them around for future reference. They go here, where they do not dilute the real application&rsquo;s files, but can still be found later.</li>
-<li><strong>src</strong>: The application and only the application&rsquo;s source files.</li>
-<li><strong>test</strong>: All test code files. You do write tests, no?</li>
-</ul>
-<h2 id=gitignore>.gitignore</h2>
-<p>Since I use <code>git</code> for source code control, the <code>.gitignore</code> file is:</p>
-<pre tabindex=0><code># Ignore the build and lib dirs
+<!doctype html><html><head><meta charset=utf-8><meta name=keywords content><meta name=description content><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-4573209-1","auto"),ga("send","pageview"))</script><meta name=robots content="noindex,nofollow"><link rel=stylesheet href=https://hiltmon.com/css/main.css><link rel=stylesheet href=https://hiltmon.com/css/all.css><link rel=stylesheet href=https://hiltmon.com/css/carbon.css><link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel=stylesheet type=text/css><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script><title>A Simple C++ Project Structure</title></head><body><div id=container><header id=header><img id=logo src=https://hiltmon.com/images/hiltmon-logo-174.png><h1 id=title><a href=https://hiltmon.com/>Hiltmon</a></h1><h2 id=sub-title>On walkabout in life and technology</h2></header><nav id=menu><ul><li><a href=https://hiltmon.com/about/ title="about me">About</a></li><li><a href=https://hiltmon.com/code/ title=code>Code</a></li><li><a href=https://hiltmon.com/ title="blog section">Blog</a></li><li><a href=https://hiltmon.com/archives/ title="archives section">Archives</a></li></ul></nav><section id=content><p class=meta-data><span class=post-date>Jul 3, 2013 10:33 PM</span></p><div class=tag-group><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/development>development</a></span></div><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/programming>programming</a></span></div><div class=tag><span class=tag-text>| <a href=https://hiltmon.com/tags/c++>c++</a></span></div></div><h1 class=post-title>A Simple C++ Project Structure</h1><div class=post-body><p>One of the things I need in my new job is a bunch of blazingly fast <a href=http://en.wikipedia.org/wiki/Daemon_(computing)>daemons</a> to capture market information and trade data. I prototyped them in Ruby to see what comes down the line, but <strong>I have the need, the need for speed.</strong> Which means I need a UNIX C or C++ framework.</p><p>So I went old-school. Retro even. Plain old C++. <a href=https://hiltmon.com/blog/2013/01/14/back-to-textmate-2/>My favorite programmer&rsquo;s editor</a>. And the good old terminal, er, <a href=https://hiltmon.com/blog/2013/02/13/make-iterm-2-more-mac-like/>iTerm 2, just Mac-like</a>.</p><p>Since I am planning on creating a lot of these little projects, developing them on my Mac and deploying them to Linux servers, I decided to create a generic project folder layout and generic Makefile for each. And share it with you.</p><h2 id=the-project-folder-tree>The Project Folder Tree</h2><p><strong>Note</strong>: I&rsquo;m not making these to go outside my company, so the full GNU C++ standard project is overkill. Much of what follows does conform to the basics of their standard C++ project design though.</p><figure><img src=images/simple-cpp-folders.jpg width=500 height=319></figure><p>For each application, the folders are:</p><ul><li><strong>bin</strong>: The output executables go here, both for the app and for any tests and spikes.</li><li><strong>build</strong>: This folder contains all object files, and is removed on a <code>clean</code>.</li><li><strong>doc</strong>: Any notes, like my assembly notes and configuration files, are here. I decided to create the development and production config files in here instead of in a separate <code>config</code> folder as they &ldquo;document&rdquo; the configuration.</li><li><strong>include</strong>: All project header files. All necessary third-party header files that do not exist under <code>/usr/local/include</code> are also placed here.</li><li><strong>lib</strong>: Any libs that get compiled by the project, third party or any needed in development. Prior to deployment, third party libraries get moved to <code>/usr/local/lib</code> where they belong, leaving the project clean enough to compile on our Linux deployment servers. I really use this to test different library versions than the standard.</li><li><strong>spike</strong>: I often write smaller classes or files to test technologies or ideas, and keep them around for future reference. They go here, where they do not dilute the real application&rsquo;s files, but can still be found later.</li><li><strong>src</strong>: The application and only the application&rsquo;s source files.</li><li><strong>test</strong>: All test code files. You do write tests, no?</li></ul><h2 id=gitignore>.gitignore</h2><p>Since I use <code>git</code> for source code control, the <code>.gitignore</code> file is:</p><pre tabindex=0><code># Ignore the build and lib dirs
 build
 lib/*
 
@@ -90,9 +7,7 @@ bin/*
 
 # Ignore Mac specific files
 .DS_Store
-</code></pre><h2 id=makefile>Makefile</h2>
-<p>I do not need the extra effort or platform independence of <a href=http://en.wikipedia.org/wiki/GNU_build_system>autotools</a>. These are great for users, but suck up developer time to make them work. Instead, I opted for a simple yet flexible and generic makefile (see notes below):</p>
-<pre tabindex=0><code>#
+</code></pre><h2 id=makefile>Makefile</h2><p>I do not need the extra effort or platform independence of <a href=http://en.wikipedia.org/wiki/GNU_build_system>autotools</a>. These are great for users, but suck up developer time to make them work. Instead, I opted for a simple yet flexible and generic makefile (see notes below):</p><pre tabindex=0><code>#
 # TODO: Move `libmongoclient.a` to /usr/local/lib so this can work on production servers
 #
  
@@ -110,16 +25,16 @@ LIB := -pthread -lmongoclient -L lib -lboost_thread-mt -lboost_filesystem-mt -lb
 INC := -I include
 
 $(TARGET): $(OBJECTS)
-	@echo &quot; Linking...&quot;
-	@echo &quot; $(CC) $^ -o $(TARGET) $(LIB)&quot;; $(CC) $^ -o $(TARGET) $(LIB)
+	@echo &#34; Linking...&#34;
+	@echo &#34; $(CC) $^ -o $(TARGET) $(LIB)&#34;; $(CC) $^ -o $(TARGET) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
-	@echo &quot; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;&quot;; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;
+	@echo &#34; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;&#34;; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;
 
 clean:
-	@echo &quot; Cleaning...&quot;; 
-	@echo &quot; $(RM) -r $(BUILDDIR) $(TARGET)&quot;; $(RM) -r $(BUILDDIR) $(TARGET)
+	@echo &#34; Cleaning...&#34;; 
+	@echo &#34; $(RM) -r $(BUILDDIR) $(TARGET)&#34;; $(RM) -r $(BUILDDIR) $(TARGET)
 
 # Tests
 tester:
@@ -130,72 +45,8 @@ ticket:
 	$(CC) $(CFLAGS) spikes/ticket.cpp $(INC) $(LIB) -o bin/ticket
 
 .PHONY: clean
-</code></pre><p>Notes on the Makefile:</p>
-<ul>
-<li>The <code>TODO</code> at the top reminds me that I am using a different version of a library in development and it must be removed before deployment.</li>
-<li>The <code>TARGET</code> is the main executable of the project, in this case <code>bin/runner</code>. Type <code>make</code> and this is what gets built.</li>
-<li>I&rsquo;m using <code>g++</code> because it&rsquo;s the same on Mac OS X and on the production Linux boxes.</li>
-<li>If I uncomment the <code>clang</code> line, I get a failed link as the libraries are incompatible (or comment out the last line under <code>$(TARGET):</code>). But then I get the benefit of a <code>clang</code> static analyzer run help me make my code better, well worth it.</li>
-<li>I use the fewest number of compiler <code>CFLAGS</code> when developing as possible, optimization happens later.</li>
-<li>The <code>SOURCES</code> list is dynamic, I don&rsquo;t want to manually have to maintain this list as I program. Anything in the <code>src</code> folder will be included in the compile as long as it has a <code>SRCEXT</code> extension.</li>
-<li>The <code>OBJECTS</code> list is also dynamic and uses a Makefile trick to build the list based on available sources.</li>
-<li>The <code>LIB</code> in this case uses a local library for <a href=http://www.mongodb.org>MongoDB</a> as I am testing it, but uses the default <a href=http://mxcl.github.io/homebrew/>homebrew</a> or <a href=http://yum.baseurl.org>yum</a> installed libraries for boost. I normally do not use boost, but Mongo needs it.</li>
-<li>The <code>INC</code> ensures all headers in the <code>include</code> folder are accessible.</li>
-<li>I like to see the commands that run, hence the multitude of <code>@echo's</code>.</li>
-<li>Since there are so few of them, I manually add spikes and test builds as a new Makefile target, see the <code>ticket:</code> target for example.</li>
-<li>The <code>.PHONY</code> clean is brilliant, it nukes the build folder and the main executable. It does not clean spike or test executables though.</li>
-</ul>
-<p><strong>Aside: Why separate the includes and the sources?</strong> This is fundamentally not necessary for most of my expected projects as they will be stand-alone daemons. But I do expect to build a few shared libraries for these daemons, and having the <code>include</code> files separate makes them easier to deploy later on. So I may as well get into the practice of keeping them separate.</p>
-<h2 id=retro-programming>Retro Programming</h2>
-<p>So the retro <code>code-compile-run</code> loop looks like this:</p>
-<ul>
-<li>Code in TextMate 2.</li>
-<li>⌘⇥ to a terminal and <code>make</code>.</li>
-<li>⌘⇥ Fix any errors in TextMate 2.</li>
-<li>⌘⇥ to a terminal and <code>make</code> again until it compiles.</li>
-<li>Type <code>bin\runner params</code> in terminal to run the application. <strong>Tip: Use shell <code>!</code> expansion</strong>: <code>!b</code> alone means that I have to type even less to run the last executable with the same parameter list.</li>
-</ul>
-<p>There is nothing fancy about this setup, <em>but that is the whole point</em>. A simple, retro environment for simple retro C++ programs.</p>
-<p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
-</div>
-<p class=post-mark>
-<span class="fas fa-envelope"></span>
+</code></pre><p>Notes on the Makefile:</p><ul><li>The <code>TODO</code> at the top reminds me that I am using a different version of a library in development and it must be removed before deployment.</li><li>The <code>TARGET</code> is the main executable of the project, in this case <code>bin/runner</code>. Type <code>make</code> and this is what gets built.</li><li>I&rsquo;m using <code>g++</code> because it&rsquo;s the same on Mac OS X and on the production Linux boxes.</li><li>If I uncomment the <code>clang</code> line, I get a failed link as the libraries are incompatible (or comment out the last line under <code>$(TARGET):</code>). But then I get the benefit of a <code>clang</code> static analyzer run help me make my code better, well worth it.</li><li>I use the fewest number of compiler <code>CFLAGS</code> when developing as possible, optimization happens later.</li><li>The <code>SOURCES</code> list is dynamic, I don&rsquo;t want to manually have to maintain this list as I program. Anything in the <code>src</code> folder will be included in the compile as long as it has a <code>SRCEXT</code> extension.</li><li>The <code>OBJECTS</code> list is also dynamic and uses a Makefile trick to build the list based on available sources.</li><li>The <code>LIB</code> in this case uses a local library for <a href=http://www.mongodb.org>MongoDB</a> as I am testing it, but uses the default <a href=http://mxcl.github.io/homebrew/>homebrew</a> or <a href=http://yum.baseurl.org>yum</a> installed libraries for boost. I normally do not use boost, but Mongo needs it.</li><li>The <code>INC</code> ensures all headers in the <code>include</code> folder are accessible.</li><li>I like to see the commands that run, hence the multitude of <code>@echo's</code>.</li><li>Since there are so few of them, I manually add spikes and test builds as a new Makefile target, see the <code>ticket:</code> target for example.</li><li>The <code>.PHONY</code> clean is brilliant, it nukes the build folder and the main executable. It does not clean spike or test executables though.</li></ul><p><strong>Aside: Why separate the includes and the sources?</strong> This is fundamentally not necessary for most of my expected projects as they will be stand-alone daemons. But I do expect to build a few shared libraries for these daemons, and having the <code>include</code> files separate makes them easier to deploy later on. So I may as well get into the practice of keeping them separate.</p><h2 id=retro-programming>Retro Programming</h2><p>So the retro <code>code-compile-run</code> loop looks like this:</p><ul><li>Code in TextMate 2.</li><li>⌘⇥ to a terminal and <code>make</code>.</li><li>⌘⇥ Fix any errors in TextMate 2.</li><li>⌘⇥ to a terminal and <code>make</code> again until it compiles.</li><li>Type <code>bin\runner params</code> in terminal to run the application. <strong>Tip: Use shell <code>!</code> expansion</strong>: <code>!b</code> alone means that I have to type even less to run the last executable with the same parameter list.</li></ul><p>There is nothing fancy about this setup, <em>but that is the whole point</em>. A simple, retro environment for simple retro C++ programs.</p><p><em>Follow the author as <a href=https://twitter.com/hiltmon>@hiltmon</a> on Twitter and <a href=http://alpha.app.net/hiltmon>@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p></div><p class=post-mark><span class="fas fa-envelope"></span>
 <span>Posted By Hilton Lipschitz</span>
 &#183;
 <span class="fas fa-clock"></span>
-<span>Jul 3, 2013 10:33 PM</span>
-</p>
-<div class=pagination>
-<ul>
-<li class=post-previous><a href=https://hiltmon.github.io/blog/2013/07/04/rip-doug-engelbart/>&larr; RIP Doug Engelbart</a></li>
-<li class=post-center>&nbsp;</li>
-<li class=post-next><a href=https://hiltmon.github.io/blog/2013/07/03/keep-building/>Keep Building &rarr;</a></li>
-</ul>
-</div>
-</section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script>
-<section>
-<div id=carbonads></div>
-&nbsp;
-</section>
-<section>
-<h1>The Hiltmon Dot Com</h1>
-<p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p>
-</section><section>
-<h1>Recent Posts</h1>
-<ul>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2018/06/17/stop-and-think/>Stop and Think</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/12/notification-city/>Notification City</a></li>
-<li><a class=sidebar-link href=https://hiltmon.github.io/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li>
-</ul>
-<section></aside><footer id=footer>
-<p>Copyright &copy; 2022 Hilton Lipschitz</p>
-</footer></div>
-</body>
-</html>
+<span>Jul 3, 2013 10:33 PM</span></p><div class=pagination><ul><li class=post-previous><a href=https://hiltmon.com/blog/2013/07/04/rip-doug-engelbart/>&larr; RIP Doug Engelbart</a></li><li class=post-center>&nbsp;</li><li class=post-next><a href=https://hiltmon.com/blog/2013/07/03/keep-building/>Keep Building &rarr;</a></li></ul></div></section><aside id=sidebar><script async type=text/javascript src="//cdn.carbonads.com/carbon.js?serve=CKYI52JE&placement=hiltmoncom" id=_carbonads_js></script><section><div id=carbonads></div>&nbsp;</section><section><h1>The Hiltmon Dot Com</h1><p><strong>Hilton Lipschitz</strong> (<a href=https://twitter.com/hiltmon>@hiltmon</a>) is CTO of an up and coming Hedge Fund, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products. Before this he was an independent software consultant, designer and developer at <a href=http://www.noverse.com>Noverse LLC</a>.</p></section><section><h1>Recent Posts</h1><ul><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/06/07/working-from-home-88-days-later/>Working from Home ... 88 Days Later</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2020/03/14/working-from-home-dot-dot-dot-here-we-go/>Working from Home ... here we go!</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/12/31/the-theater-was-empty/>The Theater was Empty</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/16/an-ipad-and-a-pencil/>An iPad and a Pencil</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2019/02/09/testing-c-plus-plus-17-project-in-xcode-with-xctest/>Testing C++17 Projects in Xcode with XCTest</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/on-removing-comments/>On Removing Comments</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2018/06/17/stop-and-think/>Stop and Think</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/08/31/migrate-octopress-slash-jekyll-posts-to-ulysses/>Migrate Octopress / Jekyll Posts to Ulysses</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/12/notification-city/>Notification City</a></li><li><a class=sidebar-link href=https://hiltmon.com/blog/2017/03/05/coding-style-standards-in-2017/>Coding Style Standards in 2017</a></li></ul><section></aside><footer id=footer><p>Copyright &copy; 2022 Hilton Lipschitz</p></footer></div></body></html>
