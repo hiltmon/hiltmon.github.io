@@ -9,6 +9,8 @@ author = "Hilton Lipschitz"
 
 MetaDataFormat = "yaml"
 
+enableRobotsTXT = true
+
 googleAnalytics = "UA-4573209-1"
 
 # To Match the old OctoPresss paths

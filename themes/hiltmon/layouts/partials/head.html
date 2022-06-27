@@ -10,7 +10,7 @@
   {{ if eq (getenv "HUGO_ENV") "production" }}
 		<meta name="robots" content="index,follow">
 	{{ else }}
-		<meta name="robots" content="noindex,nofollow">
+		<meta name="robots" content="index,follow">
 	{{ end }}
 	
 	{{ range .AlternativeOutputFormats -}}
