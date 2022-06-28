@@ -18,7 +18,7 @@ I had a free app and a paid app.  When I made the free app 0.99c for a few weeks
 
 ### Myth #2: Making an iPhone app is fast and cheap
 
-I have covered this before in [How Much Does It Cost to Develop an iPhone Application?](https://www.noverse.com/blog/2010/12/how-much-does-it-cost-to-develop-an-iphone-application/) and agree with Emeric here.
+I have covered this before in [How Much Does It Cost to Develop an iPhone Application?](https://noverse.com/blog/2010/12/how-much-does-it-cost-to-develop-an-iphone-application/) and agree with Emeric here.
 
 If it costs less than $100,000, you'll never be competitive.
 

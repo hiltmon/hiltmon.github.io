@@ -19,7 +19,7 @@ I know we built it right. We spent years looking at the market for non-profit ma
 
 When I committed the first line of code on July 5, 2011 at 11:14PM, we *knew* we had a great product idea for a massive, hungry market. This was a winning idea. We even decided to bootstrap the product, give up our time, effort and potential income to make this thing.
 
-At the time I was independent, running my own company ([Noverse](https://www.noverse.com)), designing and developing systems for Hedge Funds and iOS applications for my own clients. I decided to take the chance that [Kifu](http://www.kifuapp.com) would work out. So I stopped taking on new clients, I completed the iOS work I had, and I started to spend all my time developing the minimum viable product that was to be [Kifu](http://www.kifuapp.com) version 1.0.
+At the time I was independent, running my own company ([Noverse](https://noverse.com)), designing and developing systems for Hedge Funds and iOS applications for my own clients. I decided to take the chance that [Kifu](http://www.kifuapp.com) would work out. So I stopped taking on new clients, I completed the iOS work I had, and I started to spend all my time developing the minimum viable product that was to be [Kifu](http://www.kifuapp.com) version 1.0.
 
 It was fun.
 
@@ -63,7 +63,7 @@ They simply did not come.
 
 This confused me. I did not understand why these good folks were prepared to spend more money on inferior systems that were rife with faults, workarounds and were easy to defraud. I did not understand why they were prepared to spend more to do things manually, incorrectly and frustrate *their* constituents. I did not understand why they loved my product, spent vast amounts of time and effort discussing and reviewing it, but would not commit to it.
 
-Luckily for me I had [Noverse](https://www.noverse.com), new clients, new projects and new challenges to get me out of the funk, and put a few dollars in the bank. The rest of the [Kifu](http://www.kifuapp.com) team were out there marketing, and I provided technical support, new features and demos.
+Luckily for me I had [Noverse](https://noverse.com), new clients, new projects and new challenges to get me out of the funk, and put a few dollars in the bank. The rest of the [Kifu](http://www.kifuapp.com) team were out there marketing, and I provided technical support, new features and demos.
 
 By May 2013, we realized that this was not going anywhere. But we wanted to give it another try, a new marketing push. The product had been out for many months, it was stable and the existing customers were exceptionally happy with it.
 

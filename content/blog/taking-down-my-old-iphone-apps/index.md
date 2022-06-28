@@ -6,7 +6,7 @@ date: 2012-02-13 10:16:00-0400
 
 Its time.
 
-As of right now, my first two iPhone App Store apps, **Emergency List** and **Sights to See** are [no longer available for sale](https://www.noverse.com/blog/2012/02/end-of-life-sights-to-see-and-emergency-list/), anywhere. I have taken them down.
+As of right now, my first two iPhone App Store apps, **Emergency List** and **Sights to See** are [no longer available for sale](https://noverse.com/blog/2012/02/end-of-life-sights-to-see-and-emergency-list/), anywhere. I have taken them down.
 
 > These apps were developed two years ago, for old versions of the iPhone, and no longer represent the best we can do. We were learning iOS at the time, did not have access to the right designers and did the best we could back then. It got us the business we did the last 2 years. But they are not good enough to keep alive.
 
@@ -14,4 +14,4 @@ It's sad to do this, these apps put me on the indie developer map, got me my fir
 
 So off they go.
 
-For more see [End of Life - Sights to See and Emergency List](https://www.noverse.com/blog/2012/02/end-of-life-sights-to-see-and-emergency-list/) at [noverse.com](https://www.noverse.com).
+For more see [End of Life - Sights to See and Emergency List](https://noverse.com/blog/2012/02/end-of-life-sights-to-see-and-emergency-list/) at [noverse.com](https://noverse.com).

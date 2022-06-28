@@ -4,7 +4,7 @@ date: 2012-03-05 11:18:00-0400
 
 ---
 
-One of the key reasons I separated [hiltmon.com](https://hiltmon.com) and [noverse.com](https://www.noverse.com) at the start of this year was to separate my serious business voice from my larrakin personal voice.
+One of the key reasons I separated [hiltmon.com](https://hiltmon.com) and [noverse.com](https://noverse.com) at the start of this year was to separate my serious business voice from my larrakin personal voice.
 
 Last evening, on twitter, it seems some of the indie celebs are doing the same:
 

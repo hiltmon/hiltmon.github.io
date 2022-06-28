@@ -4,7 +4,7 @@ date: 2012-07-12 15:56:00-0400
 tags: [Software]
 ---
 
-[Noverse LLC](https://www.noverse.com) (my company) and the [The Shukai Company LLC](http://www.shukaico.com), is very pleased to announce that [Kifu](http://www.kifuapp.com) v1.0.0 has shipped. And our first customers are already happily using [Kifu](http://www.kifuapp.com) in production. We want to thank all our beta testers and beta clients for testing [Kifu](http://www.kifuapp.com) and helping us make such a great product.
+[Noverse LLC](https://noverse.com) (my company) and the [The Shukai Company LLC](http://www.shukaico.com), is very pleased to announce that [Kifu](http://www.kifuapp.com) v1.0.0 has shipped. And our first customers are already happily using [Kifu](http://www.kifuapp.com) in production. We want to thank all our beta testers and beta clients for testing [Kifu](http://www.kifuapp.com) and helping us make such a great product.
 
 *[Kifu](http://www.kifuapp.com) is an intuitive, easy-to-use software product for small non-profits and community organizations to easily manage their community and its events. Kifu has a comprehensive people database and implements membership, communications, billing, statements, payments, and donations, all in a single integrated environment available on the web. For more see the [Kifu](http://www.kifuapp.com) web site and play with the demo.*
 
