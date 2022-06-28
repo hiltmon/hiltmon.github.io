@@ -10,8 +10,9 @@ author = "Hilton Lipschitz"
 MetaDataFormat = "yaml"
 
 enableRobotsTXT = true
-
-googleAnalytics = "UA-4573209-1"
+	
+# googleAnalytics = "UA-4573209-1"
+googleAnalytics = "G-ZFJ7SZKLR0"
 
 # To Match the old OctoPresss paths
 [permalinks]
