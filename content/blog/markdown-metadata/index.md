@@ -16,7 +16,7 @@ Subtitle:    |
 Project:     |  
 Author:      Hilton Lipschitz  
 Affiliation: Noverse LLC  
-Web:         http://www.noverse.com  
+Web:         https://www.noverse.com  
 Date:        June 18, 2012  
 
 Your first paragraph starts here
@@ -38,7 +38,7 @@ In Conference:  Huey
 Project:        Fake Disney App
 Author:         Hilton Lipschitz  
 Affiliation:    Noverse LLC  
-Web:            http://www.noverse.com  
+Web:            https://www.noverse.com  
 Date:           June 11, 2012 16:48
 
 Call notes start here

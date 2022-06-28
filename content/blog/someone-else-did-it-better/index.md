@@ -46,6 +46,6 @@ Since I need to find something negative to write to make this *feely* part of th
 
 *One thing about being a developer is that even though we compete for jobs, clients and revenue, this community also supports and encourages and genuinely wants everyone to succeed. We follow each-other, use each other's products and ideas, and even congratulate our competition if we think their version has a better feature.* I suspect we do this because we know just how much time and effort goes in to making great products. So I really hope that [InteractiveMonday](http://www.analyticstilesapp.com) has huge success with [Analytics Tiles](https://itunes.apple.com/us/app/analytics-tiles-app/id527147208?mt=8&uo=4&at=10l894).
 
-Go out and buy [Analytics Tiles](https://itunes.apple.com/us/app/analytics-tiles-app/id527147208?mt=8&uo=4&at=10l894) if it scratches your itch too. <span class="light">(Affiliate link so I may get a few pennies if you do).</span> And I'll go off and work other ideas (or yours if you [hire me](http://www.noverse.com/hire-us/)).
+Go out and buy [Analytics Tiles](https://itunes.apple.com/us/app/analytics-tiles-app/id527147208?mt=8&uo=4&at=10l894) if it scratches your itch too. <span class="light">(Affiliate link so I may get a few pennies if you do).</span> And I'll go off and work other ideas (or yours if you [hire me](https://www.noverse.com/hire-us/)).
 
 *Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*

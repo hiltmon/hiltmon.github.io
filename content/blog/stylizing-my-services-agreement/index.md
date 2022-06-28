@@ -4,7 +4,7 @@ date: 2012-05-22 14:31:00-0400
 tags: [Business]
 ---
 
-I believe that everything that a person or company delivers to another should reflect their image, style, nature, professionalism and character. Which is why the look of the [Noverse](http://www.noverse.com) Professional Services Agreement drove me mad.
+I believe that everything that a person or company delivers to another should reflect their image, style, nature, professionalism and character. Which is why the look of the [Noverse](https://www.noverse.com) Professional Services Agreement drove me mad.
 
 Don't get me wrong. My attorney and his team are absolutely brilliant. The contract content is the best, it's well written, well balanced, contains all the right terms and conditions for both sides, and my clients are all very happy to sign it as is. Between the content of the agreement and the great advice, the legal side of my business is well taken care of.
 

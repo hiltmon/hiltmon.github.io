@@ -73,5 +73,5 @@ In short, switching to [Octopress][1] 18 months ago was a brilliant decision for
 [14]:	http://dreamhost.com
 [15]:	https://twitter.com/imathis
 [16]:	http://mattgemmell.com
-[17]:	http://www.noverse.com
+[17]:	https://www.noverse.com
 [18]:	http://www.shukaico.com

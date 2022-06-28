@@ -8,9 +8,9 @@ Can you believe it, the iPad has been around only *two* years, two! Yet it feels
 
 I was one of those who pre-ordered the original iPad on launch (and the iPad 2 on its launch). I also wrote three blog posts back then, and it seems my usage patterns have not changed that much:
 
-* **Apr 4, 2010** [iPad First Impressions](http://www.noverse.com/blog/2010/04/ipad-first-impressions/) - written after 24 hours of use
-* **Apr 12,2010** [It's Been One Week Since You Looked at Me](http://www.noverse.com/blog/2010/04/its-been-one-week-since-you-looked-at-me/) - after 1 week of use
-* **May 15, 2010** [iPad Update - After Almost a Month Traveling With It](http://www.noverse.com/blog/2010/05/ipad-update-after-almost-a-month-traveling-with-it/) - in Eastern Europe as my only computing device.
+* **Apr 4, 2010** [iPad First Impressions](https://www.noverse.com/blog/2010/04/ipad-first-impressions/) - written after 24 hours of use
+* **Apr 12,2010** [It's Been One Week Since You Looked at Me](https://www.noverse.com/blog/2010/04/its-been-one-week-since-you-looked-at-me/) - after 1 week of use
+* **May 15, 2010** [iPad Update - After Almost a Month Traveling With It](https://www.noverse.com/blog/2010/05/ipad-update-after-almost-a-month-traveling-with-it/) - in Eastern Europe as my only computing device.
 
 Back then, email, news, and twitter were primarily consumed on the iPad using the built-in mail app, using [NetNewsWire](http://itunes.apple.com/us/app/netnewswire-for-ipad/id363704172?mt=8) and [Twitterrific](http://itunes.apple.com/us/app/twitterrific-for-ipad/id359914600?mt=8). Today, still the same, just using [Reeder](http://itunes.apple.com/us/app/reeder-for-ipad/id375661689?mt=8) and the amazing [Tweetbot](http://itunes.apple.com/us/app/tweetbot-twitter-client-personality/id498801050?mt=8) instead.
 

@@ -10,7 +10,7 @@ Go ahead and download, contribute to and use them. **Please do me the courtesy  
 
 If you like my code, plugins or themes, just send me a email. Good karma, better looks and awesomer tools  will result.
 
-<!-- If you want to hire me for your own development projects, Hedge Fund, web, Macintosh or iOS, check out my business, [Noverse LLC](http://www.noverse.com). -->
+<!-- If you want to hire me for your own development projects, Hedge Fund, web, Macintosh or iOS, check out my business, [Noverse LLC](https://www.noverse.com). -->
 
 ## Gists for TextMate and Command Line
 

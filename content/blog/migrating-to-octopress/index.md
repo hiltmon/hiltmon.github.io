@@ -8,7 +8,7 @@ Over the years I have created a series of blogs, but never found my voice.  It's
 
 <!--more-->
 
-So, from now on, I am consolidating all but one of my old blogs into this one.  I still wish to keep the [Noverse blog](http://www.noverse.com/blog) separate as I do talk about some pretty dry business topics there and do not wish to bore my regular readers with that stuff.
+So, from now on, I am consolidating all but one of my old blogs into this one.  I still wish to keep the [Noverse blog](https://www.noverse.com/blog) separate as I do talk about some pretty dry business topics there and do not wish to bore my regular readers with that stuff.
 
 Here, I will rant and rave like I did at [There Is Only One](https://hiltmon.blogspot.com/), talk about software in more words than [One Line App Reviews](http://onelineappreviews.tumblr.com/), show off fun photos instead of [tumblr](https://hiltmon.tumblr.com/), and point out the nasty like I did at [misrepresentation](http://misrepresentation.tumblr.com/).
 

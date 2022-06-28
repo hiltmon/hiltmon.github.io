@@ -7,7 +7,7 @@ date: 2013-08-15 22:45:00-0400
 
 I have been using the excellent [ChronoSync][cs1] for years to ensure that the *Documents* and *Projects* folders on my personal laptop are kept in sync, and therefore backed up, with my home OS X server.
 
-These days I have two laptops, the personal one that lives at home and is used for [Noverse](http://www.noverse.com) work, and the work one for my day job at the fund. But sometimes when a Noverse Client calls, I'm at the office and do not have access to my personal laptop which contains *their* software and files.
+These days I have two laptops, the personal one that lives at home and is used for [Noverse](https://www.noverse.com) work, and the work one for my day job at the fund. But sometimes when a Noverse Client calls, I'm at the office and do not have access to my personal laptop which contains *their* software and files.
 
 When this happens, I use *Back to My Mac* to access my home server, download their files, do the work, and then manually upload them back <span class="light">(see below how to do this, it's pretty easy)</span>.
 

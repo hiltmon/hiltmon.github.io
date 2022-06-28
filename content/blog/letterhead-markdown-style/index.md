@@ -28,7 +28,7 @@ Subtitle:
 Project:        hiltmon.com   
 Author:         Hilton Lipschitz  
 Affiliation:    Noverse LLC  
-Web:            http://www.noverse.com  
+Web:            https://www.noverse.com  
 Date:           May 22, 2013  
 
 ![](noverse-logo-160-40.png)  

@@ -5,7 +5,7 @@ date: 2013-01-03 11:27:00-0400
 
 **Assembly Notes** are documentation that a programmer creates to record all the steps they go through when crafting an application, setting up a new server or configuring a new device. The idea is to log all the things they do *and all the commands they type in* so that they can reproduce the process again later. Assembly Notes are personal or project internal, not shared.
 
-I started writing these when I launched [Noverse](http://www.noverse.com), and use them on all projects. I have notes for each step I performed when creating each application, more notes for how all servers are set up and configured and even notes on how the development environments are set up. In my case, I break these up into weekly files by project, store them in my [standard project folder’s](https://hiltmon.com/blog/2012/06/30/project-folder-layout/) Notes folder and use these logs as the source when reporting progress to clients as well.
+I started writing these when I launched [Noverse](https://www.noverse.com), and use them on all projects. I have notes for each step I performed when creating each application, more notes for how all servers are set up and configured and even notes on how the development environments are set up. In my case, I break these up into weekly files by project, store them in my [standard project folder’s](https://hiltmon.com/blog/2012/06/30/project-folder-layout/) Notes folder and use these logs as the source when reporting progress to clients as well.
 
 *By noting everything, you miss nothing. And you have a script to reproduce what you did.*
 
@@ -20,7 +20,7 @@ Title:    Kifu Assembly Notes
 Subtitle: Week 38 (Week 45 of Project)  
 Author: Hilton Lipschitz  
 Affiliation: Noverse LLC  
-Web:    http://www.noverse.com  
+Web:    https://www.noverse.com  
 Date:   March 2, 2012  
 
 # Optimization 
@@ -213,7 +213,7 @@ Subtitle:       Week %filltext:default=2:width=10% of Project
 Project:        %filltext:name=Project:default=Kifu%  
 Author:         Hilton Lipschitz  
 Affiliation:    Noverse LLC  
-Web:            http://www.noverse.com  
+Web:            https://www.noverse.com  
 Date:           %B %e, %Y  
 
 ```
