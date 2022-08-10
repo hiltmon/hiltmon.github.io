@@ -1,7 +1,7 @@
 ---
 title: "Code Review is not all about the Code"
 date: 2022-08-10T12:12:49-04:00
-draft: true
+draft: false
 author: Hilton Lipschitz
 ---
 
