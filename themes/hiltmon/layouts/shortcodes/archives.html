@@ -9,23 +9,22 @@
       <article class="archives-block">
         <span class="archives-date">{{ .Date.Format "2006-03-02" }}</span>
         <span class="archives-link">
+		<a href="{{ .Permalink }}">
+			{{ .Title }}&nbsp;
+		</a>
 
-					<a href="{{ .Permalink }}">
-						{{ .Title }}&nbsp;
-					</a>
+		{{ if eq .Layout "writing"}}
+			<span class="fas fa-pencil-alt"></span>
+		{{ end }}
 
-					{{ if eq .Layout "writing"}}
-						<span class="fas fa-pencil-alt"></span>
-					{{ end }}
-
-					{{ if eq .Layout "hiltmonism"}}
-						<span class="fas fa-cog"></span>
-					{{ end }}
-					
-					{{ if eq .Layout "news"}}
-						<span class="fas fa-newspaper"></span>
-					{{ end }}
-				</span>
+		{{ if eq .Layout "hiltmonism"}}
+			<span class="fas fa-cog"></span>
+		{{ end }}
+		
+		{{ if eq .Layout "news"}}
+			<span class="fas fa-newspaper"></span>
+		{{ end }}
+		</span>
       </article>
       
     {{ end }}

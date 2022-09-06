@@ -6,11 +6,13 @@ author: Hilton Lipschitz
 
 This page contains a list of the *free* products, plugins, themes or source code that I have made available to fellow developers. For products and paid applications, see my [products](https://hiltmon.com/products) page.
 
+**Note that these are all quite old and are no longer under any development.**
+
 Go ahead and download, contribute to and use them. **Please do me the courtesy  of letting me know if you do**. The source code assumes you are a developer and know how to use it, so I cannot provide support.
 
 If you like my code, plugins or themes, just send me a email. Good karma, better looks and awesomer tools  will result.
 
-<!-- If you want to hire me for your own development projects, Hedge Fund, web, Macintosh or iOS, check out my business, [Noverse LLC](https://noverse.com). -->
+If you want to hire me for your own development projects, Hedge Fund, web, Macintosh or iOS, check out my business, [Noverse LLC](https://noverse.com).
 
 ## Gists for TextMate and Command Line
 
@@ -32,21 +34,4 @@ I created a TextMate 2 bundle to enable me to easily generate `tmTheme` files to
 
 Repo: [https://github.com/hiltmon/textmate-theme-csv](https://github.com/hiltmon/textmate-theme-csv).
 
-## Critic Markup
-
-I created my own repo of [Critic Markup](http://criticmarkup.com). At the same time, Christian Tietze ([@DivineDominion](http://twitter.com/DivineDominion)) created one too and his was added to the official toolkit. So we merged repos and I contributed more commands to it.
-
-Reference Repo: [https://github.com/DivineDominion/criticmarkup.tmbundle](https://github.com/DivineDominion/criticmarkup.tmbundle)
-
-## Slogger
-
-I contributed the **Google Analytics Logger** and **Yahoo Finance Logger** to Slogger, Brett Terpstra's magnificent toolkit to log daily information to Day One.
-
-Reference Repo: [https://github.com/ttscoff/Slogger](https://github.com/ttscoff/Slogger).
-
-## EmergencyList
-
-I created this app to learn iOS and sold it on the App Store for several years. I recently made it available on GitHub to show a few friends a few old-school app tricks. *Warning:* This is very old code, it has not been updated since iOS 3.
-
-Repo: [https://github.com/hiltmon/emergencylist](https://github.com/hiltmon/emergencylist).
 

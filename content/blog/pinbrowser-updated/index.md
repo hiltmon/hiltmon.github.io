@@ -1,7 +1,7 @@
 ---
 title: "Pinbrowser for Pinboard Updated"
 date: 2013-06-19 21:09:00-0400
-tags: [ reviews ]
+tags: [ Reviews ]
 ---
 
 {{< figure src="images/Pinbrowser-for-Pinboard.png" width=128 height=128 class="image-right" >}}

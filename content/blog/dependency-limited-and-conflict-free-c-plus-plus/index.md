@@ -1,7 +1,7 @@
 ---
 title: "Dependency Limited and Conflict Free C++"
 date: 2016-03-25 08:57:53 -0400
-tags: [ c++, development, programming ]
+tags: [ C++, Development, Programming ]
 ---
 
 <span class="light">TL;DR: Beware of libraries you need to compile yourself and copy-pasted code, the performance, maintenance and other hellscapes you create are not worth it in the medium and long run:</span>

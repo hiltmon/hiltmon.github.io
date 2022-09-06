@@ -1,7 +1,7 @@
 ---
 title: "The Productive Mac Mindset"
 date: 2015-08-15 12:42:13 -0400
-tags: [ productivity ]
+tags: [ Productivity ]
 ---
 
 I have been using a set of productivity enhancement tools on my Mac for so long now that the standard, out-of-box OS X user experience seems challenging, crawling, cumbersome and somewhat convoluted.

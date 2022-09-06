@@ -1,7 +1,7 @@
 ---
 title: "C++11 on CentOS 6.6"
 date: 2015-08-09 18:07:25 -0400
-tags: [ c++, development, programming ]
+tags: [ C++, Development, Programming ]
 ---
 
 As mentioned in previous [articles](https://hiltmon.com/blog/2015/08/01/simple-c-plus-plus-from-makefiles-to-xcode-builds/), I write a lot of C++11 code on OS X but deploy it on CentOS Linux 6.6 servers. But CentOS 6.6 does not contain a C++11 development environment by default. 

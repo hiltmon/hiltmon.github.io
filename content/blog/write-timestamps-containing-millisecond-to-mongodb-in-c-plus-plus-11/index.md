@@ -1,7 +1,7 @@
 ---
 title: "Write Timestamps containing Milliseconds to MongoDB in C++11"
 date: 2015-01-14 18:42:40 -0500
-tags: [ c++ ]
+tags: [ C++ ]
 ---
 
 <span class="light">It took me several hours today to figure this one out, so I thought I'd write it up lest I forget.</span>

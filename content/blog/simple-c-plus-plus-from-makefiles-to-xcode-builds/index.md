@@ -1,7 +1,7 @@
 ---
 title: "Simple C++: From Makefiles to Xcode Builds"
 date: 2015-08-01 11:25:51 -0400
-tags: [ programming, development, c++ ]
+tags: [ Programming, Development, C++ ]
 ---
 
 This post will present a step-by-step process to convert C++/C++11 Makefile-based projects to Xcode build tools. I use it all the time to set up, convert, build and debug Unix/Linux executables that I develop on my Macintosh.

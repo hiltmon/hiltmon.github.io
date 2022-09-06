@@ -1,7 +1,7 @@
 ---
 title: "A Simple C++ Project Structure"
 date: 2013-07-03 22:33:00-0400
-tags: [development, programming, c++]
+tags: [Development, Programming, C++]
 ---
 
 One of the things I need in my new job is a bunch of blazingly fast [daemons][wp1] to capture market information and trade data. I prototyped them in Ruby to see what comes down the line, but **I have the need, the need for speed.** Which means I need a UNIX C or C++ framework.

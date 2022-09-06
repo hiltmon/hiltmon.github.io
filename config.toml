@@ -26,6 +26,13 @@ blog = "/blog/:year/:month/:day/:filename/"
   title = "about me"
   url = "/about/"
   weight = -100
+
+  [[menu.main]]
+  identifier = "blog"
+  name = "Blog"
+  title = "blog section"
+  url = "/"
+  weight = -80
   
   [[menu.main]]
   identifier = "code"
@@ -42,12 +49,12 @@ blog = "/blog/:year/:month/:day/:filename/"
   # weight = -60
 
   [[menu.main]]
-  identifier = "blog"
-  name = "Blog"
-  title = "blog section"
-  url = "/"
-  weight = -50
-
+  identifier = "tags"
+  name = "Tags"
+  title = "tags section"
+  url = "/tags/"
+  weight = -40
+  
   [[menu.main]]
   identifier = "archives"
   name = "Archives"

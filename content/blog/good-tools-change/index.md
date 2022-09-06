@@ -1,7 +1,7 @@
 ---
 title: "Good Tools Change"
 date: 2013-07-07 11:02:00-0400
-tags: [ tools, productivity ]
+tags: [ Tools, Productivity ]
 ---
 
 In [Good Tools](http://www.b-list.org/weblog/2013/apr/05/good-tools/), James Bennett writes a compelling article on how his investment in learning his most used tool, emacs, has paid huge dividends in his productivity for years and years. I recommend you read it, his arguments are cogent and his points well founded and well made. He writes:

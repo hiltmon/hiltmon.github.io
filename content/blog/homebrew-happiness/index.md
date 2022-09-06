@@ -1,7 +1,7 @@
 ---
 title: "Homebrew Happiness"
 date: 2013-09-29 12:12:00-0400
-tags: [ development, macintosh, unix, tips and tricks ]
+tags: [ Development, Macintosh, Unix, Tips and Tricks ]
 ---
 
 <span class="light"><em>If you are expecting an article about beer, this is not it. This is about the best product that helps install and manage the Open Source software on the Macintosh computer that Apple decided not to include in OS X.</em></span>

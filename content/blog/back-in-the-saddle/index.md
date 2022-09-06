@@ -1,7 +1,7 @@
 ---
 title: "Back in the Saddle"
 date: 2013-06-25 22:39:00-0400
-tags: [ business ]
+tags: [ Business ]
 ---
 
 {{< figure src="images/handshake.jpg" width=125 height=100 class="image-right" >}}

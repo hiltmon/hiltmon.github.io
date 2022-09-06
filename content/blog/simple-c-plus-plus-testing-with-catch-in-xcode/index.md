@@ -1,7 +1,7 @@
 ---
 title: "Simple C++ Testing with Catch in Xcode"
 date: 2014-10-26 14:34:32 -0400
-tags: [development, programming, c++]
+tags: [Development, Programming, C++]
 ---
 
 {{< figure src="images/catch-logo-small.png" width=300 height=145 class="image-right" >}}

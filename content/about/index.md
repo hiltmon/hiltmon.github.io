@@ -9,15 +9,13 @@ author: Hilton Lipschitz
 
 My name is **Hilton Lipschitz**, but everybody calls me **hiltmon**.
 
-Currently, I am Chief Technology Officer (CTO) in an awesome small, growing New York Hedge Fund, designing and building the most amazing trading technology ever. Before this, I was the designer, consultant,  programmer, and owner of [Noverse LLC](https://noverse.com), an independent iOS (iPad, iPhone and iPod Touch), Macintosh (OS X) and Web (Ruby on Rails) product development company, based in New York, USA.
+Recently, I was Chief Technology Officer (CTO) at my third awesome growing New York Financial Asset Manager, designing and building the most amazing trading technology ever. Before this, I was the designer, consultant,  programmer, and owner of [Noverse LLC](https://noverse.com), an independent iOS (iPad, iPhone and iPod Touch), Macintosh (OS X) and Web (Ruby on Rails) product development company, based in New York, USA.
 
-My background is varied: born in South Africa, bred in Australia, lived in Japan and now in New York.  I have been a programmer for over 31 years, a project manager on some large and complex projects in the 1990's and more recently, a CTO at two (now three) hedge funds.  Having been there and done that, I decided for a time to go indie, to consult, to make my own products and to help others make amazing brilliant software products.
-
-**And then I got back into the CTO game and built my third asset manager technology platform.**
+My background is varied: born in South Africa, bred in Australia, lived in Japan and now in New York.  I have been a programmer for over 32 years, a project manager on some large and complex projects in the 1990's and more recently, a CTO at three hedge funds.  Having been there and done that, I decided for a time to go indie, to consult, to make my own products and to help others make amazing brilliant software products.
 
 I have released a whole bunch of free code, bundles and themes for developers to share, see my [code]({{< ref "code.md" >}}) page.
 
-You can get in touch with me using any of the methods below.<span class="light"> **Note**: If you’re interested in contacting me for business reasons, **don't**, the consulting business is on hold. If you still just *have* to do it, use the contact information on my business site, [Noverse.com](https://noverse.com).</span>
+You can get in touch with me using any of the methods below.
 
 ## Contact Me
 

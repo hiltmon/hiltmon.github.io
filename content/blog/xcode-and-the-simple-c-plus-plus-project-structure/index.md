@@ -1,7 +1,7 @@
 ---
 title: "Xcode and the Simple C++ Project Structure"
 date: 2013-07-05 11:31:00-0400
-tags: [ development, programming, c++ ]
+tags: [ Development, Programming, C++ ]
 ---
 
 In a previous post, I talked about a [A Simple C++ Project Structure](https://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/) that I am using to create a bunch of high-speed daemons for work.

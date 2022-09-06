@@ -1,7 +1,7 @@
 ---
 title: "Accessing SQL Server from OS X"
 date: 2013-06-09 10:56:00-0400
-tags: [ Scripting, python, ruby, microsoft ]
+tags: [ Scripting, Python, Ruby, Microsoft ]
 ---
 
 Every once in a while I need to access a Microsoft SQL Server database from my Mac, usually to create a data migration script. In the past I used a [commercial ODBC driver](http://www.actualtech.com). But ODBC on OS X was deprecated ages ago.
