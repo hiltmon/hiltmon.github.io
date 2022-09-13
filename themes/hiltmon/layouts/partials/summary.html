@@ -11,8 +11,12 @@
     {{ .Summary  }}
   </p>
   
-  <p class="read-on">
-    <a href="{{.Permalink}}" >{{ i18n "readOn" }} &rarr;</a>
-  </p>
+  {{ if .Truncated }}
+	  <!-- This <div> includes a read more link, but only if the summary is truncated... -->
+	  <p class="read-on">
+	    <a href="{{.Permalink}}" >{{ i18n "readOn" }} &rarr;</a>
+	  </p>
+  
+  {{ end }}
 
 </div>
