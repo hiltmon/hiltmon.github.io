@@ -1,6 +1,6 @@
 ---
 layout: hiltmonism
-title: "Hiltmonism - No more than Five"
+title: "No more than Five"
 date: 2012-06-09 13:35:00-0400
 tags: [ Hiltmonism ]
 ---

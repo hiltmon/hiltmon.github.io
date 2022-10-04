@@ -1,6 +1,6 @@
 ---
 layout: hiltmonism
-title: Hiltmonism - Talk to Drivers, not Mechanics
+title: Talk to Drivers, not Mechanics
 date: 2016-03-14 20:26:13 -0400
 tags: [ Hiltmonism ]
 ---

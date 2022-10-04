@@ -1,6 +1,6 @@
 ---
 layout: hiltmonism
-title: "Hiltmonism - Lead the Business"
+title: "Lead the Business"
 date: 2012-08-01 13:37:00-0400
 tags: [ Hiltmonism ]
 ---

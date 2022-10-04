@@ -1,12 +1,13 @@
 ---
-title: "Hiltmonism - Fix instead of Blame"
+layout: hiltmonism
+title: "Fix instead of Blame"
 date: 2012-02-11 09:49:00-0400
 tags: [ Hiltmonism ]
 ---
 
 *I was saving this one up for later, but events of this week prompted me to write it now.*
 
-Whenever something goes wrong, the first reaction of many people is to find someone else to blame. Arguments and vitriol erupt, things are said or smashed, as each team member tries to protect themselves from being blamed. 
+Whenever something goes wrong, the first reaction of many people is to find someone else to blame. Arguments and vitriol erupt, things are said or smashed, as each team member tries to protect themselves from being blamed.
 
 I, for one, do not ever again want to be on a team that does this. Nor should you.
 
@@ -14,7 +15,7 @@ Things go wrong, people make mistakes, software fails. It's what unintentionally
 
 When something goes wrong, the first reaction of a team *should* be to identify and fix the problem. Find the error, correct it, write a test. Find the design flaw, solve for the best way to fix it, and implement the fix. And then, get back to creating the product you were working on. No blame, no vitriol, just professional calm.
 
-Back in the late 1990's, when I was a Project Manager, several of my engagements were to see if I, as an external person, could jump in and "fix" some broken projects. Its crazy to think back that a 20-something year-old whippersnapper Project Manager would be called in for this, but it shows how messed up these projects were. In all but two cases(<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>), the projects had stalled because things had gone wrong and the team had become lost in a never-ending cycle of blame and coverage, so much so, that they spent all their time doing this and none of of in actually doing the work. The people were angry, hurt and scared they would lose their jobs. Clients were unhappy because they were not getting their projects completed. 
+Back in the late 1990's, when I was a Project Manager, several of my engagements were to see if I, as an external person, could jump in and "fix" some broken projects. Its crazy to think back that a 20-something year-old whippersnapper Project Manager would be called in for this, but it shows how messed up these projects were. In all but two cases(<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>), the projects had stalled because things had gone wrong and the team had become lost in a never-ending cycle of blame and coverage, so much so, that they spent all their time doing this and none of of in actually doing the work. The people were angry, hurt and scared they would lose their jobs. Clients were unhappy because they were not getting their projects completed.
 
 The solution was to get rid of the blaming and get back to the doing. Sounds simple, but hard to implement of you are in the blame circle. As an independent, I could stay out of the fray, focus on the project instead of the anger, and re-motivate the people back to work. To do this, the first thing that had to happen was the removal of any histrionics, what someone said or did before I arrived was taken off the table. Anyone who went back to sayings and doings before I arrived was shot down, and in some cases, taken off the team as they destroyed morale. The second step was to encourage communication again between the team members, it makes it easier when they felt like they were starting from scratch. And the third step was to encourage the now communicating team to find issues, describe the found issues clearly in terms of the product and practice getting together to resolve them. Oh, and blame was banned.
 

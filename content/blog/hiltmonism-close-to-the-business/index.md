@@ -1,5 +1,6 @@
 ---
-title: "Hiltmonism - Close to the Business"
+layout: hiltmonism
+title: "Close to the Business"
 date: 2011-12-01 21:20:00-0400
 tags: [ Hiltmonism ]
 ---
@@ -12,7 +13,7 @@ Most IT people have the opposite experience. They are placed in a corner, on ano
 
 I learned this *Hiltmonism* from a retail company back in Cape Town in the 1980's who came across it quite by accident. They had automated their business, but their old head office wiring could not take the load. So they purchased a few shipping containers, plonked them down in the parking lot, installed their minicomputers and phone lines in them, wired in external power and air conditioning and squeezed their IT personnel inside. These containers quickly became hot and stuffy and very unpleasant. The CTO did not want his staff working under these sweatbox conditions, so placed them wherever he could find a spot in the old building, usually in the same space as the departments for which they were building and maintaining software.
 
-*And something wonderful happened.* The analysts got to know their users, what their users actually did, and why, and how. They got to talking with them and then started applying their knowledge of technology to the problems identified by their customers. Slowly, tentatively, they started recommending newer and better processes, initially small shortcuts and later full solutions, ways to automate repetitive tasks, improve the performance of processes, leverage technology better and even do things differently. And slowly they became part of the planning and decision making process in that department as well.  
+*And something wonderful happened.* The analysts got to know their users, what their users actually did, and why, and how. They got to talking with them and then started applying their knowledge of technology to the problems identified by their customers. Slowly, tentatively, they started recommending newer and better processes, initially small shortcuts and later full solutions, ways to automate repetitive tasks, improve the performance of processes, leverage technology better and even do things differently. And slowly they became part of the planning and decision making process in that department as well.
 
 Because his IT staff was close to the business, they made better software that better met the needs of the business. Lesson learned because the wiring was old!
 

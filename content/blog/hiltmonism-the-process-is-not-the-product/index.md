@@ -1,6 +1,6 @@
 ---
 layout: hiltmonism
-title: "Hiltmonism - The Process is not the Product"
+title: "The Process is not the Product"
 date: 2013-04-29 19:49:00-0400
 tags: [ Hiltmonism ]
 ---

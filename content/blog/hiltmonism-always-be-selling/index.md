@@ -1,5 +1,6 @@
 ---
-title: "Hiltmonism - Always Be Selling"
+layout: hiltmonism
+title: "Always Be Selling"
 date: 2012-01-09 18:43:00-0400
 tags: [ Hiltmonism ]
 ---
@@ -10,7 +11,7 @@ There is no right time to start selling.
 * If you have an alpha level product, you should be finding beta testers, you should be selling it.
 * If you have a beta level product, you should know what the final product will look like, you should be selling it.
 * If the product is done, you should be selling it.
-* If you meet someone, you should tell them what you are doing, you should be selling it. 
+* If you meet someone, you should tell them what you are doing, you should be selling it.
 * If you are in a bar, and are trying to meet girls, you should be selling it (in this case, yourself).
 * When you run down the street for some milk, dress nice, you never know if you will bump into someone, you should be selling.
 

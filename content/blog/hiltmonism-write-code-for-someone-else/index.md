@@ -1,6 +1,6 @@
 ---
 layout: hiltmonism
-title: "Hiltmonism - Write code for someone else"
+title: "Write code for someone else"
 date: 2011-12-12 09:25:00-0400
 tags: [ Hiltmonism ]
 ---

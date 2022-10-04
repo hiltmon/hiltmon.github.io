@@ -1,6 +1,6 @@
 ---
 layout: hiltmonism
-title: "Hiltmonism - Operations by Exception"
+title: "Operations by Exception"
 date: 2012-01-23 17:14:00-0400
 tags: [ Hiltmonism ]
 ---
