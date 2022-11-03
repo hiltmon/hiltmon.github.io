@@ -9,7 +9,7 @@ Recently, GitHub updated actions from Node 12 to Node 16 (See [GitHub Actions: A
 
 To make it work again, you need to update your `gh-pages.yml` in the hidden `.github/workflows` folder to reflect the new Ubuntu and `checkout` versions:
 
-<!--more -->
+<!-- more -->
 
 ```
 ...
