@@ -7,7 +7,7 @@ tags: [ Hugo, GitHub ]
 
 Recently, GitHub updated actions from Node 12 to Node 16 (See [GitHub Actions: All Actions will begin running on Node16 instead of Node12](https://github.blog/changelog/2022-09-22-github-actions-all-actions-will-begin-running-on-node16-instead-of-node12/)). As a result, Hugo deploys will fail. All I saw was that I committed the updated site, and the deploy did not happen.
 
-To make it work again, you need to update your `gh-pages.yml` in the hidden `.github/workflows` folder to refelect the new Ubuntu and `checkout` versions:
+To make it work again, you need to update your `gh-pages.yml` in the hidden `.github/workflows` folder to reflect the new Ubuntu and `checkout` versions:
 
 <!--more -->
 
