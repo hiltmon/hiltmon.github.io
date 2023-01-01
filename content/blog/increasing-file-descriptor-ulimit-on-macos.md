@@ -1,5 +1,5 @@
 ---
-title: "Increasing File Descriptor Ulimit on MacOs"
+title: "Increasing File Descriptor Ulimit on MacOS"
 date: 2023-01-01T11:17:10-05:00
 author: Hilton Lipschitz
 tags: [ Development, Macintosh, "Tips and Tricks", "OS X" ]
