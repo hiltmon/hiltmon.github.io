@@ -1,7 +1,6 @@
 ---
 title: "Adversarial Review Making Ai Challenge Its Own Conclusions"
 date: 2026-07-17T15:55:17-04:00
-draft: true
 author: Hilton Lipschitz
 layout: news
 ---
