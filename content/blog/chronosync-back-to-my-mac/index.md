@@ -1,6 +1,6 @@
 ---
 title: "ChronoSync Back to My Mac"
-date: 2013-08-15 22:45:00-0400
+date: 2013-08-15T22:45:00-04:00
 ---
 
 *TL;DR: You can use [ChronoSync][cs1] to access a remote [ChronoAgent][ca1] if [Back to My Mac][btmm] is turned on for both computers. Which means you can sync from anywhere!*
@@ -19,7 +19,7 @@ I started to enable the sync of *Documents* and *Projects* folder on the server 
 
 How cool is this.
 
-Here is how to set it up. 
+Here is how to set it up.
 
 **Note: You do need ChronoAgent set up on the destination computer for this to work!**.
 
@@ -29,14 +29,14 @@ In ChronoSync, go to **Preferences** and choose the **Connections** tab. While o
 
 As you can see, there are two references for `Kepler` (the name of my home server):
 
-* `ChronoAgent@Kepler`, the usual LAN ChronoAgent, and 
+* `ChronoAgent@Kepler`, the usual LAN ChronoAgent, and
 * Another `ChronoAgent@Kepler` with `XXXXXXX.members.btmm.icloud.com` as its domain. That's the *Back to My Mac* one. I set this up as a new connection called  `KeplerRemote`.
 
 Then in the sync documents, I simply used the new `KeplerRemote` agent connection instead of the regular `Kepler` agent connection:
 
 {{< figure src="images/chrono-remote.jpg" width=645 height=234 >}}
 
-Now I can sit at the office, or in a coffee shop, and use ChronoSync to sync files between my work or home laptop and the home server via *Back to My Mac*! No more wasting time downloading and uploading when a client calls! 
+Now I can sit at the office, or in a coffee shop, and use ChronoSync to sync files between my work or home laptop and the home server via *Back to My Mac*! No more wasting time downloading and uploading when a client calls!
 
 **Top Tip**: Use ChronoSync's built-in scheduler to schedule these syncs regularly and you can forget about worrying whether you have the latest files again.
 
@@ -86,7 +86,7 @@ For `ssh`, make sure the home computer has **Remote Login** enabled and the comm
 
 Happy remoting.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [cs1]: http://www.econtechnologies.com/pages/cs/chrono_overview.html
 [ca1]: http://www.econtechnologies.com/pages/ca/agent_overview.html

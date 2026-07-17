@@ -1,6 +1,6 @@
 ---
 title: "Slicy Photoshop Artwork"
-date: 2012-07-11 21:50:00-0400
+date: 2012-07-11T21:50:00-04:00
 tags: [Reviews]
 ---
 
@@ -12,7 +12,7 @@ I have been using the same process to export application artwork using [Adobe Ph
 
 The first thing I do with all artwork is create a set of Photoshop master files for each major element, such as the splash screen and icon. I then create additional master files for all buttons, another for all icons and more for any additional image elements needed. Since retina came along, my masters are all retina sized.
 
-Then, to create the `.png` files that I use in the application, I would manually use Photoshop's `Save for Web...` dialog to save the retina version, then run it again to to scale it down and save the regular version. That's fine for one file with one element. But with icon sets or button sets it gets worse. 
+Then, to create the `.png` files that I use in the application, I would manually use Photoshop's `Save for Web...` dialog to save the retina version, then run it again to to scale it down and save the regular version. That's fine for one file with one element. But with icon sets or button sets it gets worse.
 
 Say I have five buttons in my button set, each having a standard and pushed version. I'd have a shape layer for the regular state, a shape layer for the pushed state and text layers and image layers for each button variant. I would then create ten layer comps, one for each combination of button layers to reflect each button state image desired. It looks like this:
 
@@ -28,13 +28,13 @@ This week, I needed image buttons for a [Cocos2d](http://www.cocos2d-iphone.org)
 
 **Aside: In-Game Compositing***. I am aware that I could have just created the button background and button pushed state background images and used code to composite the buttons in real time in the game code. Unfortunately, the fonts I need are not licensed for distribution with games, so I needed to create static images here.*
 
-> When one gets sufficiently frustrated with a process, eventually one goes out and looks for a better solution.  
+> When one gets sufficiently frustrated with a process, eventually one goes out and looks for a better solution.
 > Me, Now
 
 
 And the good people at [MacRabbit](http://macrabbit.com) had just the thing. I have been using their excellent [CSSEdit](http://macrabbit.com/espresso/) product for years (now merged with Espresso). The product is called [Slicy](http://macrabbit.com/slicy), the idea is simple and the execution is wonderful.
 
-In Photoshop, create layer groups for each element in the file, *and name the group with the file name you want it exported as.* Like this: 
+In Photoshop, create layer groups for each element in the file, *and name the group with the file name you want it exported as.* Like this:
 
 {{< figure src="images/photoshop-layer-cake.png" width=640 height=683 >}}
 

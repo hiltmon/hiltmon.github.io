@@ -1,6 +1,6 @@
 ---
 title: "Magical Migrations"
-date: 2014-02-08 11:46:50 -0500
+date: 2014-02-08T11:46:50-05:00
 
 ---
 
@@ -19,7 +19,7 @@ But I did know these to be true (for that matter not-knowing that you do *not* k
 * I need to be able to track, manage and automate the myriad of changes to all of these servers using tools because there is no way I could do it in my head.
 * I would probably be the only person doing this for the first year or so.
 
-In the past, the way I have done this was to create separate database projects for each database and then created SQL files to save the queries and data definition commands to change these databases. Then, in preparation for deploy, we'd backup the production databases to a staging area, then manually run the SQL to migrate the database and then run a test suite to see if we got it all. If it all worked, we'd then spend a weekend doing this on the production servers. More often than not, something had been forgotten, not placed in the database project, or not updated as things changed, and we'd leave production deploy alone until the staging model was rebuilt and tried again. 
+In the past, the way I have done this was to create separate database projects for each database and then created SQL files to save the queries and data definition commands to change these databases. Then, in preparation for deploy, we'd backup the production databases to a staging area, then manually run the SQL to migrate the database and then run a test suite to see if we got it all. If it all worked, we'd then spend a weekend doing this on the production servers. More often than not, something had been forgotten, not placed in the database project, or not updated as things changed, and we'd leave production deploy alone until the staging model was rebuilt and tried again.
 
 And *that* was better than the older ad-hoc method of just having a dedicated Database Administrator patch the databases manually on deployment days (which is how it worked in the dark past and still does in a lot of firms).
 
@@ -43,7 +43,7 @@ In my environment, this runs on a pair of servers in a remote data center for pr
 
 Create a new table, its a migration. Add a column, another migration. New index, another migration. Add seed data, a migration.
 
-As a developer then, it's easy to use and test. Create and edit a migration (or Rails model for new tables) and `rake db:migrate` to apply the changes. Not perfect, `rake db:rollback`, correct the model or migration and `rake db:migrate` again. 
+As a developer then, it's easy to use and test. Create and edit a migration (or Rails model for new tables) and `rake db:migrate` to apply the changes. Not perfect, `rake db:rollback`, correct the model or migration and `rake db:migrate` again.
 
 I never, ever use SQL directly on the database to make schema changes. It violates the protocol. All changes are in migrations, all of them.
 
@@ -77,13 +77,13 @@ def up
 			...
 		CONSTRAINT ex_table_pkey UNIQUE(id)
 	);}
-    
+
     execute %Q{
     	INSERT INTO ex_table (id, column_1, ...)
     	SELECT id, column_1, ...
 		FROM table;
 	}
-    
+
 	remove_column :table, :column_1
 end
 ```
@@ -94,12 +94,12 @@ In some cases, I even dump data to files to enable reverses or just to have back
 def up
 	# Save the data for Justin Case :)
 	execute %Q{
-		COPY (SELECT cusip, price_date, price, yield) 
+		COPY (SELECT cusip, price_date, price, yield)
 		FROM historical_prices) TO '/tmp/hp.csv' WITH CSV;
 	}
 	drop_table :historical_prices
 end
-	
+
 def down
     create_table :historical_prices, { id: false } do |t|
 		t.string :cusip, limit: 9
@@ -107,13 +107,13 @@ def down
 		t.decimal :price, precision: 12, scale: 4
 		t.decimal :yield, precision: 12, scale: 6
     end
-    
+
     # Get it back
     execute "%Q{
-    	COPY historical_prices (cusip, price_date, price, yield) 
+    	COPY historical_prices (cusip, price_date, price, yield)
     	FROM '/tmp/hp.csv' WITH CSV;
     }
-    
+
     add_index :historical_prices, :cusip
     add_index :historical_prices, :price_date
 end
@@ -135,7 +135,7 @@ end
 ```
 
 You can also get rid of the Rails `created_at` and `updated_at` columns by commenting out the `t.timestamps` code.
-	
+
 * **Seed data in migrations**. Sometimes you need to put data into tables when creating them, for example when creating code to string reference tables. Put the data into the migration and have the migration load it. For example, using Rails model creates:
 
 ``` ruby
@@ -147,16 +147,16 @@ class CreatePurposeClasses < ActiveRecord::Migration
 
 			t.timestamps
 		end
-		
+
 		add_index :purpose_classes, :class_code, unique: true
-    
+
 		# Populate
 		PurposeClass.create!(class_code: 'AUTH', class_name: 'Authority')
 		PurposeClass.create!(class_code: 'BAN', class_name: 'Bond Anticipation Note')
 		PurposeClass.create!(class_code: 'BLDG', class_name: 'Building ')
 		...
 ```
-	
+
 ### Deploying Database Schema Migrations
 
 I have been using [Capistrano][CAP] for years to deploy Rails applications. And it works well. I use it now to deploy my main database Rails project that contains all the necessary migrations to all servers.
@@ -166,11 +166,11 @@ It takes just one command to send the code over and one more to make all the cha
 To deploy:
 
 	$ cap production deploy
-	
+
 To migrate:
 
 	$ cap production deploy:migrate
-	
+
 I prefer to do this in two steps in case the initial deploy fails, in which case Capistrano rolls it back safely without affecting the database. I do worry about Mr Murphy.
 
 In order to choose *which* server and database to migrate, I use Capistrano's multistage extension. Each database gets a stage. For example, I have the following at the top of my main project's `config/deploy.rb` file:
@@ -188,7 +188,7 @@ I can then easily run:
 
 	$ cap analytics deploy:migrate
 	$ cap production deploy:migrate
-	
+
 I really rely on Capistrano's ability to rollback code deploy errors, and on Rails migrations ability to rollback database migration errors to prevent massive failure situations.
 
 ### The Benefits
@@ -198,14 +198,14 @@ I get a lot of benefits from using [Rails migrations][RM] and [Capistrano][CAP] 
 * Database management is part of my development process, not an add-on, separate process to be scheduled and managed.
 * I do not need to 'remember' the state of databases.
 * I do not need to document changes, I have a log of them in the migration files.
-* I do not need to insert data into tables after migrations as the seed data is included. 
+* I do not need to insert data into tables after migrations as the seed data is included.
 * One command to deploy and one to migrate. I get my weekends back.
 * If anything goes wrong, it can be undone and rolled back as if nothing has happened.
 * I just know that each database has the latest and correct schema for all my systems and can access them with confidence.
 
 So here we are, I'm running one of these right now that is significantly changing the core architecture of my firm's platform and instead of manually doing the work, or staring helpless at the process, or even having to worry if it fails, I'm writing this post.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [RM]: https://guides.rubyonrails.org/migrations.html
 [CAP]: http://capistranorb.com

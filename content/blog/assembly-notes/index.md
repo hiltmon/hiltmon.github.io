@@ -1,6 +1,6 @@
 ---
 title: "Assembly Notes"
-date: 2013-01-03 11:27:00-0400
+date: 2013-01-03T11:27:00-04:00
 ---
 
 **Assembly Notes** are documentation that a programmer creates to record all the steps they go through when crafting an application, setting up a new server or configuring a new device. The idea is to log all the things they do *and all the commands they type in* so that they can reproduce the process again later. Assembly Notes are personal or project internal, not shared.
@@ -16,14 +16,14 @@ Assembly notes are different to to-do’s (although they often contain to-do not
 Here is a sample of the top of one of my Assembly Notes for Kifu (scroll down as it’s quite long):
 
 ```
-Title:    Kifu Assembly Notes  
-Subtitle: Week 38 (Week 45 of Project)  
-Author: Hilton Lipschitz  
-Affiliation: Noverse LLC  
-Web:    https://noverse.com  
-Date:   March 2, 2012  
+Title:    Kifu Assembly Notes
+Subtitle: Week 38 (Week 45 of Project)
+Author: Hilton Lipschitz
+Affiliation: Noverse LLC
+Web:    https://noverse.com
+Date:   March 2, 2012
 
-# Optimization 
+# Optimization
 
 Now that we have a large dataset, need to speed things up. Running performance stats to find the bottlenecks.
 
@@ -34,7 +34,7 @@ BRANCH: optimize-1
 Here goes
 
     rails generate performance_test aging_by_event_summary
-    
+
 And added the `DevelopmentProfiler` class
 
 Use as
@@ -42,7 +42,7 @@ Use as
     DevelopmentProfiler::prof("<profile_file_name>") do
       # CODE TO PROFILE
     end
-    
+
 ## Improvements
 
 Start @36.02
@@ -107,7 +107,7 @@ Here is an except from another project’s Server Build Notes:
 As per `http://yum.postgresql.org/howtoyum.php`, edit the repo to exclude their postgres builds.
 
 	cd /etc/yum.repos.d
-	
+
 And edit the file appending `exclude=postgresql*` to _[base]_ and _[updates]_
 
 Download the RPM from the above link
@@ -115,27 +115,27 @@ Download the RPM from the above link
 On local, from _downloads_
 
 	scp -p pgdg-centos91-9.1-4.noarch.rpm root@client.com:/root/
-	
+
 On server
 
 	rpm -i pgdg-centos91-9.1-4.noarch.rpm
-	
+
 	yum install postgresql-libs
 	yum install postgresql postgresql-server
-	
+
 	service postgresql-9.1 initdb
-	
+
 NOTE: No need to add IP access as its local only. This will change when we move it to another server.
 
 	service postgresql-9.1 start
 	chkconfig --level 345 postgresql-9.1 on
-	
+
 	su - postgres
 	createuser noverse
 	createdb -O noverse reportingdb_production
-	
-In `/var/lib/pgsql/9.1/data/pg_hba.conf` replace _ident_ with _trust_. 
-	
+
+In `/var/lib/pgsql/9.1/data/pg_hba.conf` replace _ident_ with _trust_.
+
 Test after restart to make _trust_ work (as root)
 
 	service postgresql-9.1 stop
@@ -151,13 +151,13 @@ Database is UP!
 On server, as root
 
 	yum install openssl-devel zlib-devel gcc gcc-c++ make autoconf readline-devel curl-devel expat-devel gettext-devel
-	
+
 Download [Ruby 1.9.3-p194](http://www.ruby-lang.org/en/downloads/)
 
 On local
 
 	scp -p ruby-1.9.3-p194.tar root@client.com:/root/
-	
+
 On server
 
 Install libyaml as per [http://collectiveidea.com/blog/archives/2011/10/31/install-ruby-193-with-libyaml-on-centos/]()
@@ -169,7 +169,7 @@ Install libyaml as per [http://collectiveidea.com/blog/archives/2011/10/31/insta
 	make
 	make install
 
-Make ruby 
+Make ruby
 
     cd
 	tar -C /tmp -xvf ruby-1.9.3-p194.tar
@@ -177,12 +177,12 @@ Make ruby
 	./configure --enable-shared --enable-pthread --prefix=/usr
 	make -j4
 	make install
-	
+
 Test
-	
+
 	ruby --version
 	gem --version
-		
+
 OK
 ```
 
@@ -208,13 +208,13 @@ One gets a lot of benefit from these including:
 I use a lot of snippets to make these. The Assembly Note header is a [TextExpander](https://itunes.apple.com/us/app/textexpander-for-mac/id405274824?mt=12&uo=4&at=10l894) snippet `;mma` that uses fill-ins and a form as follows:
 
 ```
-Title:          %filltext:name=Project:default=Kifu% Assembly Notes  
-Subtitle:       Week %filltext:default=2:width=10% of Project  
-Project:        %filltext:name=Project:default=Kifu%  
-Author:         Hilton Lipschitz  
-Affiliation:    Noverse LLC  
-Web:            https://noverse.com  
-Date:           %B %e, %Y  
+Title:          %filltext:name=Project:default=Kifu% Assembly Notes
+Subtitle:       Week %filltext:default=2:width=10% of Project
+Project:        %filltext:name=Project:default=Kifu%
+Author:         Hilton Lipschitz
+Affiliation:    Noverse LLC
+Web:            https://noverse.com
+Date:           %B %e, %Y
 
 ```
 
@@ -253,4 +253,4 @@ Creating Assembly Notes and keeping them up to date requires discipline and habi
 
 Try creating Assembly Notes from now on, one file a week, and ensure you ALT-TAB to this file when you are between tasks, or thinking or planning or running commands and write what you do. Before you know it, it will become habit and you will have an excellent log to work with.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

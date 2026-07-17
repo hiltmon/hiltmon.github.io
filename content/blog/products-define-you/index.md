@@ -1,6 +1,6 @@
 ---
 title: "Products define you"
-date: 2012-01-16 13:03:00-0400
+date: 2012-01-16T13:03:00-04:00
 tags: [ Apple ]
 ---
 

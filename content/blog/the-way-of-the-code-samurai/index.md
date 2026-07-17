@@ -1,6 +1,6 @@
 ---
 title: "The Way of the Code Samurai"
-date: 2011-11-23 00:02:00-0400
+date: 2011-11-23T00:02:00-04:00
 
 ---
 

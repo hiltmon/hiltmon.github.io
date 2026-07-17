@@ -1,6 +1,6 @@
 ---
 title: "Windows 8 Launch MIA"
-date: 2012-10-25 14:07:00-0400
+date: 2012-10-25T14:07:00-04:00
 tags: [ Microsoft ]
 ---
 

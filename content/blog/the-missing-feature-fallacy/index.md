@@ -1,6 +1,6 @@
 ---
 title: "The Missing Feature Fallacy"
-date: 2012-05-26 14:56:00-0400
+date: 2012-05-26T14:56:00-04:00
 tags: [Business]
 ---
 

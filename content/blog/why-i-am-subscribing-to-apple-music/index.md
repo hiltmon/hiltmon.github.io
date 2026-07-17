@@ -1,6 +1,6 @@
 ---
 title: "Why I Subscribed to Apple Music"
-date: 2015-10-04 13:54:22 -0400
+date: 2015-10-04T13:54:22-04:00
 
 ---
 
@@ -8,7 +8,7 @@ date: 2015-10-04 13:54:22 -0400
 
 Just over 3 months ago, Apple released [Apple Music](http://www.apple.com/music/) and I signed up for the free trial as we all did. My expectation was that I would play with it for a few days, get over it and never use it again. I expected the same experience I got from Spotify and Pandora before and I never subscribed to them. I expected the same old same old and no reason to use it.
 
-I did **not** expect to actually pay for it or even want to pay for it. 
+I did **not** expect to actually pay for it or even want to pay for it.
 
 Five days ago, I happily paid and will do so from now on.
 
@@ -30,7 +30,7 @@ With Pandora and Spotify, I found the mixes to be boring, generic and pedestrian
 
 I have not been a music buyer for quite a while (excluding the few albums I picked up on iTunes). I do have a massive 500+ CD collection taking up space in boxes below my bed. I ripped them - quite badly - years ago and have listened to these rips for years.
 
-I think I stopped buying music in general because 
+I think I stopped buying music in general because
 
 * I stopped listening to the radio and therefore stopped discovering new music.
 * The music I do hear seems so generic, the same songs by the same few artists over and over again. We used to call it the Stock Aitken Waterman effect back in my day, where everything seemed to be bubblegum pop.

@@ -1,12 +1,12 @@
 ---
 title: "The Pummeling Pages"
-date: 2011-11-23 17:34:00-0400
+date: 2011-11-23T17:34:00-04:00
 
 ---
 
-[Brent Simmons](http://www.inessential.com), original author of [NetNewsWire](http://netnewswireapp.com/) and [MarsEdit](http://www.red-sweater.com/marsedit/), on visiting modern publication websites:
+[Brent Simmons](http://www.inessential.com), original author of [NetNewsWire](http://netnewswireapp.com/) and MarsEdit, on visiting modern publication websites:
 
-> They’re filled with ads and social-media sharing buttons — and more ads. And Google plus-onesies and Facebook likeys. And also more ads. Plus tweet-this-es. Plus ads. (And, under-the-hood, a whole cruise-ship-full of analytics. The page required well-more than 100 http calls.)
+> They're filled with ads and social-media sharing buttons — and more ads. And Google plus-onesies and Facebook likeys. And also more ads. Plus tweet-this-es. Plus ads. (And, under-the-hood, a whole cruise-ship-full of analytics. The page required well-more than 100 http calls.)
 
 No wonder we all like [InstaPaper](http://www.instapaper.com/) and Safari's Reader mode.
 

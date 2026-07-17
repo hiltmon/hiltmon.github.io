@@ -1,10 +1,10 @@
 ---
 title: "Mixing Legacy and Modern Web Development on OS X Mountain Lion"
-date: 2013-03-20 16:42:00-0400
+date: 2013-03-20T16:42:00-04:00
 tags: [ Development, Productivity, Tips and Tricks ]
 ---
 
-Over the past few years I have been developing *modern* web applications like [Kifu][kifuapp] on my laptop using [Ruby on Rails][rubyonrails], [Sinatra][sinatrarb], [Octopress][octopress], and [Node.js][nodejs] powered by [Pow][pow]. But over the next few weeks I'll be helping a friend upgrade a bunch of older legacy static (plain HTML), [PHP][php] and [Wordpress][wordpress] sites.
+Over the past few years I have been developing *modern* web applications like Kifu on my laptop using [Ruby on Rails][rubyonrails], [Sinatra][sinatrarb], [Octopress][octopress], and [Node.js][nodejs] powered by [Pow][pow]. But over the next few weeks I'll be helping a friend upgrade a bunch of older legacy static (plain HTML), [PHP][php] and [Wordpress][wordpress] sites.
 
 I *do* want to keep using the same smooth workflow processes as I have now. But I do *not* want to clutter up my pristine OS X installation to do it. So this is how I have my *modern* web development environment set up, and how I have added *almost seamless* legacy development capability to it.
 
@@ -21,7 +21,7 @@ The *modern* platform is:
 * I use [rvm][rvm] to manage the versions of ruby and the gemsets I need for each project (and it works automatically with [Pow][pow]).
 * I use the [foreman][github 2] gem to launch and manage additional services needed, such as [redis][redis], worker threads and a development web server.
 
-So, lets say I want to **work** on [Kifu][kifuapp]. I have a [Keyboard Maestro][linksynergy] macro that does the following:
+So, lets say I want to **work** on Kifu. I have a [Keyboard Maestro][linksynergy] macro that does the following:
 
 * Starts [Postgres.app][postgresapp] if it is *not* already running.
 * Opens a new [iTerm 2][iterm2] session, and `cd`'s to the Kifu folder.
@@ -38,20 +38,20 @@ A key benefit of the *modern* setup is since my blog is an [Octopress][octopress
 
 So my *modern* environment relies on [Pow][pow] for serving most pages and [Keyboard Maestro][linksynergy] macros to start and stop what I need. Its quick to start up, and does not chew up resources when I do not need it.
 
-## Enabling Legacy 
+## Enabling Legacy
 
 The legacy sites I *will* be working on need a few things my current environment does not support:
 
 * A [MySQL][mysql] database for [Wordpress][wordpress]
 * A server to process [PHP][php] ([Pow][pow] does not do PHP)
 
-[MAMP][mamp] is the platform most developers use on OS X when they need to deal with MySQL or PHP because it's *easy* to set up, *easy* to start and *easy* to use. 
+[MAMP][mamp] is the platform most developers use on OS X when they need to deal with MySQL or PHP because it's *easy* to set up, *easy* to start and *easy* to use.
 
 But it does *not* work for me. *Here's why*:
 
 1. First, both Apache and PHP are already installed on OS X and I do not want to have to launch something else just to *demo* a site. I am spoilt by Pow.
 2. Secondly, if you are working on more than one site, you need to purchase and install the Pro version of [MAMP][mamp].
-3. Thirdly, I deleted [MAMP][mamp] once before and forgot that I had a valuable database in it's folder, ouch! 
+3. Thirdly, I deleted [MAMP][mamp] once before and forgot that I had a valuable database in it's folder, ouch!
 
 For my needs, it's just easier to bite the bullet and run a local MySql Server *when* I need it.
 
@@ -68,7 +68,7 @@ One solution to this lunacy is to purchase and install OS X Server which kindly 
 The third option is to use the terminal to start Apache:
 
 	sudo apachectl restart
-	
+
 The *good* part about this is that OS X *remembers* that you started Apache before and does so again on the next reboot. No need to run this command again.
 
 But with [Pow][pow] installed, how do you access Apache and PHP for *legacy* work since Pow redirects *all* local web requests to it's own server for *modern* work? I configured the [37signals][37signals] trick to serve *legacy* from Apache and *modern* from Pow.
@@ -113,7 +113,7 @@ Then start MySQL and restart apache
 
 	$ sudo /usr/local/mysql/support-files/mysql.server start
 	$ sudo apachectl restart
-	
+
 If you go to your *legacy* `.dev` path from your browser (in my case `http://testwordpress.dev`), you should get the *legacy* site back. Apache and PHP are happily serving it. Try a *modern* `.dev` path (`https://hiltmon.dev` again), and after a tick, it should come up too as Pow serves it. Brilliant!
 
 To make this work for me the same as *modern* development, I created a [Keyboard Maestro][linksynergy] macro on ⇧⌃⌥⌘O to start and stop MySQL<a href="#fn:2" id="fnref:2"><sup>[2]</sup></a>. I leave Apache running like Pow, it does not use any resources when not in use.
@@ -147,21 +147,19 @@ Now to see if I remember any PHP!
 {{< figure src="images/toggle-databases.jpg" width=700 height=579 >}}
 
 [37signals]: http://37signals.com
-[app]: http://alpha.app.net/hiltmon
 [clickontyler]: http://clickontyler.com/blog/2012/02/web-sharing-mountain-lion/
 [github]: http://mxcl.github.com/homebrew/
 [github 2]: https://github.com/ddollar/foreman
 [github 3]: https://github.com/textmate/textmate
 [github 4]: https://github.com/37signals/pow/wiki/Running-Pow-with-Apache
 [iterm2]: http://www.iterm2.com/#/section/home
-[kifuapp]: http://www.kifuapp.com
 [linksynergy]: http://www.keyboardmaestro.com/main/
 [linksynergy 2]: http://manytricks.com/moom/
 [mamp]: http://www.mamp.info/en/index.html
 [mysql]: http://www.mysql.com
 [mysql 2]: http://dev.mysql.com/downloads/mysql/
 [nodejs]: http://nodejs.org
-[octopress]: http://octopress.org
+[octopress]: https://github.com/octopress/octopress
 [php]: http://php.net
 [postgresapp]: http://postgresapp.com
 [postgresql]: http://www.postgresql.org

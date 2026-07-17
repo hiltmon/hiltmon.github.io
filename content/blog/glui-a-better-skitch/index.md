@@ -1,6 +1,6 @@
 ---
 title: "Glui - a better Skitch"
-date: 2013-02-20 19:09:00-0400
+date: 2013-02-20T19:09:00-04:00
 tags: [ Productivity, Reviews ]
 ---
 
@@ -26,4 +26,4 @@ In comparison, I’ve tried, and still use:
 
 But for quick image capture, annotate and share, I’ll be using [Glui](https://itunes.apple.com/us/app/glui/id601359958?mt=12&uo=4&at=10l894).
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

@@ -1,6 +1,6 @@
 ---
 title: "There’d be something called a mini"
-date: 2012-10-23 20:15:00-0400
+date: 2012-10-23T20:15:00-04:00
 tags: [ Apple ]
 ---
 
@@ -24,7 +24,7 @@ Again, I do not understand the keeping of the iPad 2 in the lineup, unless it is
 
 ## iPad Mini
 
-I still believe the new iPad mini is going to be the *must-have* gift this season. The iPad 2 internals are excellent, the size and weight are brilliant, and the screen size and pixel density means that all current iPad apps work just fine. It really is just a smaller, improved, iPad 2 with full access to the whole ecosystem. I was hoping for a Retina screen, that will happen in the next year or two as the price of Retina screens comes down. 
+I still believe the new iPad mini is going to be the *must-have* gift this season. The iPad 2 internals are excellent, the size and weight are brilliant, and the screen size and pixel density means that all current iPad apps work just fine. It really is just a smaller, improved, iPad 2 with full access to the whole ecosystem. I was hoping for a Retina screen, that will happen in the next year or two as the price of Retina screens comes down.
 
 I also think that Apple has something in the pricing, its a lot higher that the competition who are selling far cheaper products *at no margin*. Apple wants the middle and top end of the market and has priced the iPad mini at the sweet spot just above the market followers (where people buying any other tablet will receive raised eyebrows and hints of cheapskateness or insanity), and where they will sell every one they can make with enough margin to make a hefty profit. Too bad Wall Street analysts are too stupid to work out that margins are good.
 
@@ -48,6 +48,6 @@ The other big release today is iBooks. It’s about time someone realized that e
 
 All in all, the rumor sites guessed it all except for the new iMac and Fusion Drive. And Wall Street killed Apple stock because they just don’t get it as usual. There was no mention of new displays, the Mac Pro, the new iTunes, a TV, jet packs, quantum batteries or warp drive, *nor was any mention expected*, yet both analysts and pundits reported these as failures.
 
-Tim Cook and Phil Schiller put on an great show and released a suite of products that any other company would die for. I think Schiller actually had to rush parts of his presentation because they had too much material. 
+Tim Cook and Phil Schiller put on an great show and released a suite of products that any other company would die for. I think Schiller actually had to rush parts of his presentation because they had too much material.
 
 I’m looking forward to Microsoft and Google’s attempts to get even close to this standard. And to seeing their stocks plunge as they also fail to announce their own jet packs, quantum batteries or warp drives.

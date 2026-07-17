@@ -1,6 +1,6 @@
 ---
 title: "Entitlement"
-date: 2012-09-28 14:29:00-0400
+date: 2012-09-28T14:29:00-04:00
 tags: [ iPhone ]
 ---
 

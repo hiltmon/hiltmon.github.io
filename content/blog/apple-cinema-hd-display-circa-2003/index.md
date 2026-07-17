@@ -1,6 +1,6 @@
 ---
 title: "Apple Cinema HD Display circa 2003"
-date: 2012-05-16 16:26:00-0400
+date: 2012-05-16T16:26:00-04:00
 tags: [Apple, Computers]
 ---
 

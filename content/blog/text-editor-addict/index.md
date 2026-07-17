@@ -1,6 +1,6 @@
 ---
 title: "Text Editor Addict"
-date: 2012-08-25 13:10:00-0400
+date: 2012-08-25T13:10:00-04:00
 tags: [Text Editors, Productivity]
 ---
 
@@ -36,7 +36,7 @@ And I have purchased (if not free), but no longer use
 - [MultiMarkdown Composer](http://multimarkdown.com): Lovely Markdown editing and preview tool, really the reference application, but a tad rustic for my needs. It’s still installed though, just in case.
 - [Espresso](http://macrabbit.com/espresso/): Used to be my static web site tool, moved to Coda 2.
 - [Writeroom](http://www.hogbaysoftware.com/products/writeroom/): The original distraction-free editor, now replaced with Byword and iA Writer.
-- [MarsEdit](http://www.red-sweater.com/marsedit/): One of my oldest tools, used to do all my blogging against Blogger and Wordpress in it. Now using [Octopress](http://octopress.org) and Byword, so no longer need it
+- [MarsEdit]: One of my oldest tools, used to do all my blogging against Blogger and Wordpress in it. Now using [Octopress](https://github.com/octopress/octopress) and Byword, so no longer need it
 - [Yojimbo](http://www.barebones.com/products/yojimbo/): Text notes containing all my secret and personal data, nicely packaged, tagged and encrypted. Mostly moved to [1Password](https://agilebits.com/onepassword) for codes, serial numbers and other key numbers.
 
 And I am testing:

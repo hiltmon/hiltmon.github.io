@@ -1,6 +1,6 @@
 ---
 title: "The Work Computer Software Loadout"
-date: 2013-07-19 07:23:00-0400
+date: 2013-07-19T07:23:00-04:00
 
 ---
 
@@ -136,4 +136,4 @@ The two things that I am missing *natively* is a a copy of **XenCenter** that ru
 
 Using all these tools, I have been able to launch straight into the work at the new firm, and start off very productively. There is not much I *cannot* do with this loadout and laptop.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

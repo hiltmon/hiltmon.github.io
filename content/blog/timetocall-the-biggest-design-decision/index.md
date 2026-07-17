@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - The Biggest Design Decision"
-date: 2013-01-31 11:42:00-0400
+date: 2013-01-31T11:42:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -34,7 +34,7 @@ But then the app looks and feels less cool. First-time users will try to rearran
 
 Since I really wanted users to be okay with handing their iPhones or iPads over to friends and colleagues to show them *Times to Call* without worrying that they would accidentally change, I chose the separate Edit view in my design. I also chose to make sure it looked very different so that the user, at a glance, can tell when they are editing and when they are ‘playing’ with time.
 
-But, if I followed this model religiously, there would be one pain point. The one thing that the application excels at is enabling the user to ‘play’ with time, to visualize when is the best time to call. But this ‘play’ would be hidden away on the Edit screen in a canonical implementation. It would be frustrating to have to edit the *Time to Call* each time just to find the best time. Since the whole point of the app is to enable users to ‘play’ with time, that should be the *front-and-center feature*, and so that belongs on the Detail view. 
+But, if I followed this model religiously, there would be one pain point. The one thing that the application excels at is enabling the user to ‘play’ with time, to visualize when is the best time to call. But this ‘play’ would be hidden away on the Edit screen in a canonical implementation. It would be frustrating to have to edit the *Time to Call* each time just to find the best time. Since the whole point of the app is to enable users to ‘play’ with time, that should be the *front-and-center feature*, and so that belongs on the Detail view.
 
 As a result of this decision, other opportunities arose. It enabled me to create the possibly unintuitive, but fun way to trigger the optimizer by allowing users to tap the `AM` or `PM` markers to get the optimal earliest call time and optimal latest call time. And it enabled me to create the double-tap on the slider to go to ‘now’ and double-tap to go back.
 
@@ -43,9 +43,9 @@ My point is that it did take me a while to make this decision as it affects the 
 **Next:** [Part 4: Presenting the Clock](https://hiltmon.com/blog/2013/02/01/timetocall-presenting-the-clock/).
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

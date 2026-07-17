@@ -1,6 +1,6 @@
 ---
 title: "Omnifocus My Way"
-date: 2014-05-26 15:39:03 -0400
+date: 2014-05-26T15:39:03-04:00
 tags: [ Productivity ]
 ---
 
@@ -10,7 +10,7 @@ I've been using [OmniFocus](https://www.omnigroup.com/omnifocus) as my primary t
 
 ### My World
 
-I'm a software designer, developer, project manager and part-time writer. I work at a Hedge Fund by day, run my consulting firm at night, write this blog and have a personal life. As of writing this post, I have 260 active line items in OmniFocus. That is a lot of things to stay on top of. 
+I'm a software designer, developer, project manager and part-time writer. I work at a Hedge Fund by day, run my consulting firm at night, write this blog and have a personal life. As of writing this post, I have 260 active line items in OmniFocus. That is a lot of things to stay on top of.
 
 But with a bit of structure, a taste of discipline and a comfortable workflow, OmniFocus helps me stay on top of all of these things.
 
@@ -33,7 +33,7 @@ I create all of the projects that I am involved in within each area folder. In m
 I also create a few 'special' tasks in each project:
 
 *  The **Project Ideas** task is used to capture {{< figure src="images/omnifocus-my-way-4.png" width=263 height=229 class="image-right" >}} (as sub-tasks) thoughts and ideas on what could be done but is not planned, yet.  I do not want to lose any ideas no matter the source while I am working on the project.
- 
+
 * The **Project On-Hold** task is for sub-tasks that have been placed on hold, but we may still get back to.
 * The **Project Later** task for sub-tasks that I have intentionally deferred until later versions of that project.
 
@@ -118,10 +118,10 @@ The rest of the day is spent working, clearing flags, capturing new tasks as the
 
 ### I do it *my way*
 
-I do not use OmniFocus the GTD way (at least I do not think I do given that I have not read the book). I do use OmniFocus the way that works best for me. 
+I do not use OmniFocus the GTD way (at least I do not think I do given that I have not read the book). I do use OmniFocus the way that works best for me.
 
 OmniFocus and this *my way* workflow ensures that I never forget a task, a commitment or an action, mine and others. It keeps me focussed on what I need to be doing now. It reminds me what to do next. It helps build an agenda for what to discuss with people, and what was talked about before. It helps me know what was done and why.
 
 Without it, I could not manage the myriad of projects, tasks, actions, commitments and reminders I deal with every day. And to make things even better, OmniFocus 2 evolved towards *my way* and added ease of use and features where *my way* needed it the most. I am sure that for many of you of you, the GTD way works well. For others, you have your own ways to use OmniFocus. This was mine.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

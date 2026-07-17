@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "Fix instead of Blame"
-date: 2012-02-11 09:49:00-0400
+date: 2012-02-11T09:49:00-04:00
 tags: [ Hiltmonism ]
 ---
 

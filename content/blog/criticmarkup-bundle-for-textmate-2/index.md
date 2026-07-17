@@ -1,6 +1,6 @@
 ---
 title: "CriticMarkup Bundle for TextMate 2"
-date: 2013-02-15 12:38:00-0400
+date: 2013-02-15T12:38:00-04:00
 tags: [ TextMate, Markdown, Text Editors ]
 ---
 
@@ -26,4 +26,4 @@ Currently, the bundle implements the usual `Markdown` functionality, plus the fi
 
 Enjoy.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

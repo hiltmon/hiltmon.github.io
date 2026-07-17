@@ -1,6 +1,6 @@
 ---
 title: "Spike Solutions"
-date: 2012-04-06 10:12:00-0400
+date: 2012-04-06T10:12:00-04:00
 tags: [Business]
 ---
 

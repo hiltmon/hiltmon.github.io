@@ -1,6 +1,6 @@
 ---
 title: "Working from Home ... 88 Days Later"
-date: 2020-06-07 11:00:50 -0400
+date: 2020-06-07T11:00:50-04:00
 
 ---
 

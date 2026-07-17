@@ -1,6 +1,6 @@
 ---
 title: "Huge Last Week in October 2012 for Tech"
-date: 2012-10-22 12:05:00-0400
+date: 2012-10-22T12:05:00-04:00
 tags: [ Computing ]
 ---
 

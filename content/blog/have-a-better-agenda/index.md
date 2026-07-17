@@ -1,6 +1,6 @@
 ---
 title: "Have a Better Agenda"
-date: 2013-02-27 12:46:00-0400
+date: 2013-02-27T12:46:00-04:00
 
 ---
 
@@ -36,4 +36,4 @@ Overall everybody wins a bit more. The product may take a bit longer and cost a 
 
 I think I finally understand the lessons of that course, just 22 years too late.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

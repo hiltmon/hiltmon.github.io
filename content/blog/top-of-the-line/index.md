@@ -1,6 +1,6 @@
 ---
 title: "Top of the Line"
-date: 2012-03-09 15:12:00-0400
+date: 2012-03-09T15:12:00-04:00
 tags: [ Computers ]
 ---
 

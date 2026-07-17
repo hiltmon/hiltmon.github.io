@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "Lead the Business"
-date: 2012-08-01 13:37:00-0400
+date: 2012-08-01T13:37:00-04:00
 tags: [ Hiltmonism ]
 ---
 

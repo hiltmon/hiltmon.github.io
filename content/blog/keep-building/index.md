@@ -1,6 +1,6 @@
 ---
 title: "Keep Building"
-date: 2013-07-03 20:18:00-0400
+date: 2013-07-03T20:18:00-04:00
 
 ---
 
@@ -12,4 +12,4 @@ The context is how the big internet companies like Facebook, Twitter and Google 
 
 But I think this message applies to more than just the internet, it applies to work and play and socialization and life. We need to keep doing what we did to get to where we are today, to keep building, to overcome the obstructions and maintain what's great about our lifestyles. We need to keep up the effort on freedom, rights, openness, the environment, and anything else that is big and important in our lives. With an open internet, we *can* do it, we *should*  do it.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

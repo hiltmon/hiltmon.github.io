@@ -1,6 +1,6 @@
 ---
 title: "Depersonalize because you can’t quit"
-date: 2012-12-18 12:58:00-0400
+date: 2012-12-18T12:58:00-04:00
 tags: [ Social ]
 ---
 
@@ -10,4 +10,4 @@ Except they didn’t quit. They are all *still* on Twitter and Facebook and will
 
 If you are worried about privacy, but wish to remain on these services, just *depersonalize*.  Turn off locations, use a login and display name that is not yours (but your friends will recognize and accept), remove or fake the remainder of your data, and *never* post photos of yourself, friends and family. Let these services use your depersonalized data however they want, because it’s not you. A falsely advertised recommendation from “xyzzy68000” means *nothing* compared to a real recommendation from “hiltmon”.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

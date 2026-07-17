@@ -1,12 +1,12 @@
 ---
 title: "Yahoo Finance Logger for Slogger"
-date: 2012-12-01 16:24:00-0400
+date: 2012-12-01T16:24:00-04:00
 tags: [ Slogger ]
 ---
 
 One thing I find myself doing every once in a while is trying to find out the [$AAPL](http://www.google.com/finance?q=NASDAQ:AAPL) share price for a given date. This usually requires a trip to Google Finance or Yahoo Finance and a need to download a data table to find what I need.
 
-Wouldn’t it be nice if this information was in my journal?
+Wouldn't it be nice if this information was in my journal?
 
 So I spun up a simple [Slogger](http://ttscoff.github.com/Slogger/) plugin to do it. This plugin:
 
@@ -27,7 +27,7 @@ Given that it uses the Yahoo real-time API, it cannot be used to back fill data.
 
 ## The Result
 
-Here’s what it looks like with and without details:
+Here's what it looks like with and without details:
 
 {{< figure src="images/yahoo-finance-slogger.jpg" width=640 height=480 >}}
 
@@ -45,6 +45,4 @@ Try
 
 Enjoy.
 
-*See also [Google Analytics Logger for Slogger](https://hiltmon.com/blog/2012/11/14/google-analytics-logger-for-slogger/). Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
-
-
+*See also [Google Analytics Logger for Slogger](https://hiltmon.com/blog/2012/11/14/google-analytics-logger-for-slogger/). Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*

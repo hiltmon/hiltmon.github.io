@@ -1,6 +1,6 @@
 ---
 title: "Coding Style Standards in 2017"
-date: 2017-03-05 12:25:52 -0500
+date: 2017-03-05T12:25:52-05:00
 
 ---
 

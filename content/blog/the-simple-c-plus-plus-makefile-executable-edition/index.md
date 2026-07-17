@@ -1,6 +1,6 @@
 ---
 title: "The Simple C++ Makefile - Executable Edition"
-date: 2015-09-28 22:07:23 -0400
+date: 2015-09-28T22:07:23-04:00
 tags: [C++]
 ---
 
@@ -80,9 +80,9 @@ SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 
 # Folder Lists
-# Note: Intentionally excludes the root of the include folder 
+# Note: Intentionally excludes the root of the include folder
 # so the lists are clean
-INCDIRS := 
+INCDIRS :=
   $(shell find include/**/* -name '*.h' -exec dirname {} \; | sort | uniq)
 INCLIST := $(patsubst include/%,-I include/%,$(INCDIRS))
 BUILDLIST := $(patsubst include/%,$(BUILDDIR)/%,$(INCDIRS))
@@ -96,11 +96,11 @@ LIB := -L /usr/local/lib -lsantacruzengine -lsantacruzlib -larcadia \
 # Platform Specific Compiler Flags
 ifeq ($(UNAME_S),Linux)
     CFLAGS += -std=gnu++11 -O2 # -fPIC
-    
+
     # PostgreSQL Special
     PG_VER := 9.3
     INC += -I /usr/pgsql-$(PG_VER)/include
-    LIB += -L /usr/pgsql-$(PG_VER)/lib 
+    LIB += -L /usr/pgsql-$(PG_VER)/lib
 else
 	CFLAGS += -std=c++11 -stdlib=libc++ -O2
 endif
@@ -119,7 +119,7 @@ clean:
 
 install:
 	@echo "Installing $(EXECUTABLE)..."; cp $(TARGET) $(INSTALLBINDIR)
-	
+
 distclean:
 	@echo "Removing $(EXECUTABLE)"; rm $(INSTALLBINDIR)/$(EXECUTABLE)
 
@@ -190,7 +190,7 @@ INCLIST := $(patsubst include/%,-I include/%,$(INCDIRS))
 BUILDLIST := $(patsubst include/%,$(BUILDDIR)/%,$(INCDIRS))
 ```
 
-The next set of lists are used to build the list of include folders and related lists. 
+The next set of lists are used to build the list of include folders and related lists.
 
 <span class="light">Aside: I am one of those quirky C++ programmers that does not use pathed `#includes` (e.g. Instead of `#include "../caches/session_cache.h"` I simply use `#include "session_cache.h"`) and expect the compiler to figure it where things are. This way I can re-arrange the code-base by moving files around, not change anything and it still compiles and runs. Xcode behaves the same way by default.</span>
 
@@ -200,7 +200,7 @@ So, the `$(INCDIRS)` variable contains a unique list of subfolders under the `in
 # Shared Compiler Flags
 CFLAGS := -c
 INC := -I include $(INCLIST) -I /usr/local/include
-LIB := -L /usr/local/lib -lsantacruzengine -lsantacruzlib \ 
+LIB := -L /usr/local/lib -lsantacruzengine -lsantacruzlib \
   -larcadia -lcorinth -lyaml-cpp -lzmq -lhiredis -lbondoas
 ```
 
@@ -214,11 +214,11 @@ The `$(LIB)` variable adds the shared system `/usr/local/lib` folder where the s
 # Platform Specific Compiler Flags
 ifeq ($(UNAME_S),Linux)
   	CFLAGS += -std=gnu++11 -O2 # -fPIC
-  
+
   	# PostgreSQL Special
   	PG_VER := 9.3
   	INC += -I /usr/pgsql-$(PG_VER)/include
-  	LIB += -L /usr/pgsql-$(PG_VER)/lib 
+  	LIB += -L /usr/pgsql-$(PG_VER)/lib
 else
 	CFLAGS += -std=c++11 -stdlib=libc++ -O2
 endif

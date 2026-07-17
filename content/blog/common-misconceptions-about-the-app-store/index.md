@@ -1,6 +1,6 @@
 ---
 title: "Common Misconceptions about the App Store"
-date: 2013-02-14 13:27:00-0400
+date: 2013-09-16T13:17:00-04:00
 tags: [ Apple ]
 ---
 
@@ -16,11 +16,11 @@ TL;DR
 
 ## We do not get buyers information from the Apple
 
-When you purchase an app from the App Store, Apple handles all the licensing, payment and download for us. All we get to know from Apple is that 
+When you purchase an app from the App Store, Apple handles all the licensing, payment and download for us. All we get to know from Apple is that
 
 * a unit was sold
-* on what date 
-* from which store, and 
+* on what date
+* from which store, and
 * what our share will be when Apple finally pays us
 
 Nothing else. No data on who purchased, or for what device, or how it was paid for, nothing else.
@@ -31,7 +31,7 @@ This does not mean that apps *themselves* cannot collect data from users, many d
 >
 > 17.1 Apps cannot transmit data about a user without obtaining the user's prior permission and providing the user with access to information about how and where the data will be used
 >
-> 17.2 Apps that require users to share personal information, such as email address and date of birth, in order to function will be rejected 
+> 17.2 Apps that require users to share personal information, such as email address and date of birth, in order to function will be rejected
 >
 > 17.3 Apps that target minors for data collection will be rejected
 
@@ -53,7 +53,7 @@ Which also means that reviews that point out bugs, or contain feature requests a
 
 ## We cannot do trials or upgrade pricing
 
-The Apple App Store does not have features to enable trial versions of apps, or cheaper upgrade versions for apps. Since those features aren’t there, we cannot offer them. 
+The Apple App Store does not have features to enable trial versions of apps, or cheaper upgrade versions for apps. Since those features aren’t there, we cannot offer them.
 
 Of course, we want them.
 
@@ -67,4 +67,4 @@ Economically speaking, developers really need upgrade pricing as the initial sal
 
 So, unless Apple changes the store, we have no buyer information, no access to reviews, no trials, and no upgrades. If you buy [TimeToCall](https://hiltmon.com/timetocall/), I’ll never know it was you (but feel free to tweet me when you do).
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

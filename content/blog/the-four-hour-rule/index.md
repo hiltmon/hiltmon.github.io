@@ -1,6 +1,6 @@
 ---
 title: "The four hour rule"
-date: 2011-12-03 09:52:00-0400
+date: 2011-12-03T09:52:00-04:00
 
 ---
 
@@ -20,7 +20,7 @@ Once back in The Zone&trade;, they get back to being awesome.
 
 The Zone&trade; time itself is unfortunately bounded by biology, fatigue, or semi-social activities such as lunch, meetings, emails, going home, exercise or personal hygiene. Lucky programmers get two Zones&trade; a day. Once in a blue moon, you get three.
 
-So if you are wondering why a programmer is not working hard half-an-hour before a meeting, or just before lunch, or at the end of they day, know that they have determined that there is no four hour window available to them for the near future, and are doing something else. 
+So if you are wondering why a programmer is not working hard half-an-hour before a meeting, or just before lunch, or at the end of they day, know that they have determined that there is no four hour window available to them for the near future, and are doing something else.
 
 And if you are wondering why they always seem annoyed at you, its because you, yes you dear reader, are *The Zone Destroyer*&trade; for interrupting them.
 

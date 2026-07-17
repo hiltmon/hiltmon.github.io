@@ -1,6 +1,6 @@
 ---
 title: "The Markdown Payoff"
-date: 2014-04-27 12:33:04 -0400
+date: 2014-04-27T12:33:04-04:00
 tags: [Markdown, Scrivener]
 ---
 
@@ -54,7 +54,7 @@ The quantitative payoff, however, comes from the qualitative payoff. These files
 
 Since switching to Markdown, I *want* to write. I *want* to take notes, I *want* to record my thoughts and ideas properly, I *want* to document things. And after two years of doing it, I still *want* to write. This is no fad. Markdown takes the hassle out of writing, and removes the barriers to get started.
 
-Not only do I want to write more, I want to write better. I'm a programmer by trade, not a writer <span class="light">(as can be divined by the quality of writing in this blog)</span>. But because I write more, I want to become a better writer. I want my documentation to be clearer and appear more professional, my blog posts to make more sense and even my emails to be more concise. I feel that as a better writer, I can be come a better communicator and that is best for all. 
+Not only do I want to write more, I want to write better. I'm a programmer by trade, not a writer <span class="light">(as can be divined by the quality of writing in this blog)</span>. But because I write more, I want to become a better writer. I want my documentation to be clearer and appear more professional, my blog posts to make more sense and even my emails to be more concise. I feel that as a better writer, I can be come a better communicator and that is best for all.
 
 The key to Markdown writing is that you focus on the content. Structure, format, look and feel are all secondary. It's pure distraction-free writing. **Which means that you have no choice but to write and think about writing and focus on the content.** Which encourages you to become a better writer.
 
@@ -76,7 +76,7 @@ To answer my starting questions, then:
 
 **I write more, I write better, and I *have* the information I need available at my fingertips.** I also spend less time writing, almost no time formatting (thanks to [Marked][MA]), and am more productive because I always know what is (or was) going on.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [1]:	https://hiltmon.com/blog/categories/markdown/
 [2]:	https://hiltmon.com/blog/2012/04/15/text-notes-going-electronic

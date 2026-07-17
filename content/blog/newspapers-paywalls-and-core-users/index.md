@@ -1,10 +1,10 @@
 ---
 title: "Newspapers, Paywalls, and Core Users"
-date: 2012-01-16 12:44:00-0400
+date: 2012-01-16T12:44:00-04:00
 
 ---
 
-Clay Shirky exposes the story behind [Newspapers, Paywalls, and Core Users](http://www.shirky.com/weblog/2012/01/newspapers-paywalls-and-core-users/). 
+Clay Shirky exposes the story behind [Newspapers, Paywalls, and Core Users](http://www.shirky.com/weblog/2012/01/newspapers-paywalls-and-core-users/).
 
 As a heavy consumer of news, my biggest problem is finding good old-fashioned journalism in a world of spin, hype, agendas, placements and sponsored content. *I worry that we're entering a world where the truth becomes what other people have paid for me to read because journalists have no other way to finance an honest service.*
 

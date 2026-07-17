@@ -1,6 +1,6 @@
 ---
 title: "The value of Apps"
-date: 2012-07-24 08:37:00-0400
+date: 2012-07-24T08:37:00-04:00
 tags: [Software]
 ---
 
@@ -13,14 +13,14 @@ Guy English, in [Software Sea Change](http://kickingbear.com/blog/archives/67):
 and
 
 > Apps are not Applications – they are their own things. They are smaller. They are more fun. Apps are treats atop your technological sundae. They are not potential time sinks. They are neither burden nor investment. They each represent a nugget of fun, of fleeting amusement. Apps are gobbled up in the millions by people who would never rush so willy nilly to buy desktop software. Apps are Pop Software writ large in blinking neon lights.
-> 
+>
 > Are Apps good business? No, they’re not. From a small developer’s perspective the App Store is a total disaster.
 
 Kyle Baxter, in [Entitlement and Acquisition](http://tightwind.net/2012/07/entitlement-and-acquisition/):
 
 > There’s something important to learn here: since the App Store’s primary customers are mass-market, they don’t yet value apps very much, and are therefore only willing to pay a pittance for apps. For them, apps are simply entertainment, sometimes a bit more, but not much more.
 
-Faruk Ates states what the customer’s perception is in [When Selling Out is, In Fact, A Dirty Choice](http://farukat.es/journal/2012/07/661-selling-out-is-dirty): 
+Faruk Ates states what the customer’s perception is in [When Selling Out is, In Fact, A Dirty Choice](http://farukat.es/journal/2012/07/661-selling-out-is-dirty):
 
 > There is an implicit promise in the act of doing business. It is a promise of respect and mutual trust, where the business offers the customer something of value, for which the customer pays money. The free-but-paid-with-advertising model has made this promise blurry, but not absent. When a company sells itself to a bigger company as a talent acquisition, leaving the product—and, consequently, its customers—out in the cold as a result of this acquisition, it is a reneging on that implicit promise.
 

@@ -1,6 +1,6 @@
 ---
 title: "Easy SSH to local linux VM"
-date: 2014-02-22 14:03:54 -0500
+date: 2014-02-22T14:03:54-05:00
 
 ---
 
@@ -43,7 +43,7 @@ When you build the Linux VM (I use CentOS 6), first set the host name to a uniqu
 NETWORKING=yes
 HOSTNAME=witch.noverse.local
 ```
-	
+
 You may need to restart some distributions after doing this.
 
 Then execute the following commands *as root* to install `avahi`
@@ -55,7 +55,7 @@ $ service avahi-daemon start
 ...
 $ chkconfig avahi-daemon on
 ```
-	
+
 This installs the `avahi` daemon, starts it and sets it to start on every reboot.
 
 What the `avahi` daemon does is publishes the VM's basename (the first part of the hostname before the dot) on the [ZeroConf](http://en.wikipedia.org/wiki/Zero-configuration_networking) (or to use Apple's word [Bonjour](https://www.apple.com/support/bonjour/)) network.
@@ -63,9 +63,9 @@ What the `avahi` daemon does is publishes the VM's basename (the first part of t
 Which means you can always see it as `basename.local`. So, instead of `ssh`-ing to an new IP address every time, just `ssh` to the basename and add a `.local`. For example, this works for the above Linux VM:
 
 	ssh deploy@witch.local
-	
+
 Then, no matter where you are or what IP address the VM gets, **you can always access it by the same name**. You can even add this to your `.ssh/config` file as a shortcut, which never changes!
 
 I have been totally surprised how much fiddling and time this simple trick has saved me.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

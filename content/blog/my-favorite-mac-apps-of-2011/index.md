@@ -1,10 +1,10 @@
 ---
 title: "My Favorite Mac Apps of 2011"
-date: 2012-01-05 18:48:00-0400
+date: 2012-01-05T18:48:00-04:00
 
 ---
 
-I've compiled a list of my favorite Mac apps for 2011.  Just wanted to mention the ones that make my life that much easier. I am intentionlly excluding all built-in applications or anything from Apple, such as [iWork](http://www.apple.com/iwork/), [iLife](http://www.apple.com/ilife/) and [Aperture](http://www.apple.com/aperture/) which are mainstays. 
+I've compiled a list of my favorite Mac apps for 2011.  Just wanted to mention the ones that make my life that much easier. I am intentionlly excluding all built-in applications or anything from Apple, such as [iWork](http://www.apple.com/iwork/), [iLife](http://www.apple.com/ilife/) and [Aperture](http://www.apple.com/aperture/) which are mainstays.
 
 Some you may know, some you may not.
 
@@ -13,8 +13,8 @@ Some you may know, some you may not.
 ## Writing and Programming
 
 * [Xcode 4](http://developer.apple.com/xcode/) - Used a lot at the start of the year for iOS programming
-* [BBEdit](http://www.barebones.com/products/bbedit/index.html) - Always running, [BBedit](http://www.barebones.com/products/bbedit/index.html) is my go-to application for viewing files, editing, scratch pad, project note pad and other stuff. I do all my notes in [markdown](http://daringfireball.net/projects/markdown/), and although I own [Marked](http://markedapp.com/), I still use [BBEdit's](http://www.barebones.com/products/bbedit/index.html) preview window with my own CSS for sending notes.
-* [TextMate 2](http://macromates.com/) - I am working on two [Ruby on Rails](https://rubyonrails.org/) projects, lived in [TextMate](http://macromates.com/) 1 until the alpha of 2 was released and am using that one now for all [Ruby on Rails](https://rubyonrails.org/) work.
+* [BBEdit](http://www.barebones.com/products/bbedit/index.html) - Always running, [BBedit](http://www.barebones.com/products/bbedit/index.html) is my go-to application for viewing files, editing, scratch pad, project note pad and other stuff. I do all my notes in [markdown](https://daringfireball.net/projects/markdown/), and although I own [Marked](http://markedapp.com/), I still use [BBEdit's](http://www.barebones.com/products/bbedit/index.html) preview window with my own CSS for sending notes.
+* [TextMate 2](https://macromates.com/) - I am working on two [Ruby on Rails](https://rubyonrails.org/) projects, lived in [TextMate](https://macromates.com/) 1 until the alpha of 2 was released and am using that one now for all [Ruby on Rails](https://rubyonrails.org/) work.
 * [Byword](http://bywordapp.com/) - I really wanted to like [iAWriter](http://www.iawriter.com/), it has a great font, but for writing smaller articles, including this blog post, I rely on [Byword](http://bywordapp.com/). As soon as I open it, I feel like writing.
 * [Scrivener](http://www.literatureandlatte.com/scrivener.php) - For larger documentation projects, nothing comes close to [Scrivener](http://www.literatureandlatte.com/scrivener.php).  I use it for all project documentation deliverables, including specifications and reports, and I love how it keeps everything together.
 
@@ -56,7 +56,7 @@ Some you may know, some you may not.
 * [Skitch](http://skitch.com/) - Grab a screen snap and share
 * [Coda](http://panic.com/coda/) - Managed my old web sites and my professional PHP one, have most of the [Panic](http://panic.com/) apps too.
 * [Espresso](http://macrabbit.com/espresso/) - Since *CSSEdit* is no more, use this for CSS live testing and updates
-* [MarsEdit](http://www.red-sweater.com/marsedit/) - My old favorite blogging tool, replaced with command line and [Byword](http://bywordapp.com/) when I moved to [Octopress](http://octopress.org/) for this blog.  Will go back to it when they figure out a way to make it work with this.
+* MarsEdit - My old favorite blogging tool, replaced with command line and [Byword](http://bywordapp.com/) when I moved to [Octopress](https://github.com/octopress/octopress) for this blog.  Will go back to it when they figure out a way to make it work with this.
 
 You may think there are some glaring ommissions like Microsoft Office, no, not had it installed for almost 6 months now, [iWork](http://www.apple.com/iwork/) does it all. Still on [VMWare Fusion](http://www.vmware.com/products/fusion/overview.html) for VM's. And still cannot get in to [Evernote](http://www.evernote.com/), no matter how hard I try to like it.
 

@@ -1,6 +1,6 @@
 ---
 title: "A Coda 2 Use Case"
-date: 2013-05-12 11:20:00-0400
+date: 2013-05-12T11:20:00-04:00
 tags: [ Tools, Web, Design ]
 ---
 
@@ -34,9 +34,9 @@ I could focus on a single mockup page in [Coda 2][coda], see its changes live in
 
 The result is that I got to create and test these mockups quickly and easily in [Coda 2][coda], run and post the marked-up templates from [BBEdit][bbedit], iterate as necessary, and got the job done on time without further frustration. I don't know of any other product that has live *integrated* pane previews for static HTML sites like [Coda 2][coda] does. Thank you, [Panic][panic], for this use case.
 
-*Follow the author as [@hiltmon][twitter] on Twitter and [@hiltmon][app] on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon][twitter] on Twitter.
 
-[app]: http://alpha.app.net/hiltmon
+
 [panic]: http://www.panic.com
 [coda]: https://itunes.apple.com/us/app/coda-2/id499340368?mt=12&uo=4&at=10l894
 [bbedit]: https://itunes.apple.com/us/app/bbedit/id404009241?mt=12&uo=4&at=10l894

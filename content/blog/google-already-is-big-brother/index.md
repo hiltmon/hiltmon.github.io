@@ -1,6 +1,6 @@
 ---
 title: "Google Already Is Big Brother"
-date: 2013-04-09 17:14:00-0400
+date: 2013-04-09T17:14:00-04:00
 tags: [ Writing ]
 ---
 
@@ -45,4 +45,4 @@ Clearly, Google *is* the Big Brother out of Orwell's 1984 that we mindlessly vol
 
 *Sigh!*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

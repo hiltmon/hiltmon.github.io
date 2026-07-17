@@ -1,6 +1,6 @@
 ---
 title: "Direct Marketing your App to Tip Lines"
-date: 2013-03-28 12:41:00-0400
+date: 2013-03-28T12:41:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -25,13 +25,13 @@ Unfortunately, Christian paid for his PR. I think that if one is *paying*, one s
 
 I guess it's time to step away from the screen and start getting to know the good folks in the press *personally*. First drink is on me.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 ## Aside: The message that was sent
 
 {{< figure src="images/perfect-press-release.jpg" width=300 height=169 class="image-right" >}}
 
-I followed the advice of the folks at the App Design Vault in [The Ultimate Cheat Sheet for Getting iPhone App Reviews](http://www.appdesignvault.com/iphone-app-reviews/) and made it look like   
+I followed the advice of the folks at the App Design Vault in [The Ultimate Cheat Sheet for Getting iPhone App Reviews](http://www.appdesignvault.com/iphone-app-reviews/) and made it look like
 Christopher Phin's [anatomy of a perfect press release](https://twitter.com/chrisphin/status/308672663650463744) example.
 
 In order to get attention, I also

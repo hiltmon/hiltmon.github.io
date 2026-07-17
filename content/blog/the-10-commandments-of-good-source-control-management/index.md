@@ -1,6 +1,6 @@
 ---
 title: "The 10 commandments of good source control management"
-date: 2012-03-05 20:36:00-0400
+date: 2012-03-05T20:36:00-04:00
 tags: [Business]
 ---
 

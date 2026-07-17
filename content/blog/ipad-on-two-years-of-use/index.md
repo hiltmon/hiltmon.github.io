@@ -1,6 +1,6 @@
 ---
 title: "iPad - On Two Years of Use"
-date: 2012-03-09 09:44:00-0400
+date: 2012-03-09T09:44:00-04:00
 tags: [ iPad ]
 ---
 

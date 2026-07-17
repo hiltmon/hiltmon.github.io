@@ -1,6 +1,6 @@
 ---
 title: "VC tries to sell a con"
-date: 2011-11-29 19:26:00-0400
+date: 2011-11-29T19:26:00-04:00
 
 ---
 
@@ -11,9 +11,9 @@ In [Startups Are Hard. So Work More, Cry Less, And Quit All The Whining](http://
 Jamie's response is classic, in [Watch a VC use my name to sell a con](http://www.jwz.org/blog/2011/11/watch-a-vc-use-my-name-to-sell-a-con/), he points out the real truth:
 
 > What is true is that for a VC's business model to work, it's necessary for you to give up your life in order for him to become richer.
-> 
+>
 > ...
-> 
+>
 > So if your goal is to enrich the Arringtons of the world while maybe, if you win the lottery, scooping some of the groundscore that they overlooked, then by all means, bust your ass while the bankers and speculators cheer you on.
 
 I love his final paragraph:

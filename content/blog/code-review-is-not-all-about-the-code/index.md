@@ -19,7 +19,7 @@ Let's look at each part, starting with the business.
 
 Code should be written to achieve certain business goals, to created needed functionality, or to solve a business problem. If the code under review does less (or more) than that, the review should stop there. There is no point spending reviewer hours on looking at code that will not be used because it does not match requirements.
 
-So a reviewer always needs to start with the business context: Why was this code created? Who asked for it? Who approved it? Where are the requirements or designs (if any)? Where are the measures to be used to prove that the code is business correct? The reviewer should never go into a code review without having *and understanding* this big picture context. 
+So a reviewer always needs to start with the business context: Why was this code created? Who asked for it? Who approved it? Where are the requirements or designs (if any)? Where are the measures to be used to prove that the code is business correct? The reviewer should never go into a code review without having *and understanding* this big picture context.
 
 With this business knowledge, they can start to review whether or not the code is worth a more detailed look. In review, let the developer present what the code does at a business or functional level, what its inputs and outputs are (with evidence) and what the test case results look like. The reviewer should have enough context to understand whether the code meets or misses expected specifications, and could challenge the developer on requirements interpretations and missing functionality (or extra functionality - as in "why did they spend time working on code that was not even asked for?").
 

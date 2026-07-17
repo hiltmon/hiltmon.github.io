@@ -1,6 +1,6 @@
 ---
 title: "Moom Corners"
-date: 2012-08-03 13:07:00-0400
+date: 2012-08-03T13:07:00-04:00
 tags: [Productivity]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Brown M&Ms: A Quick Way to Determine Code Quality"
-date: 2015-10-14 19:31:20 -0400
+date: 2015-10-14T19:31:20-04:00
 ---
 
 {{< figure src="images/vanhalenmm.png" width=320 height=320 class="image-right" >}}
@@ -39,7 +39,7 @@ When new code is delivered to us, the first thing we do is scan it for standards
 
 We've seen this time and time again. Code to standard is usually more reliable and correct. And because of that, adherence to standards has become our bowl of M&Ms test.
 
-To be clear, we do not just take the pretty code and push it out. Code still gets reviewed, tested, challenged and examined before it goes out to run the business. If the attention to detail was applied to standardizing the code, then the likelihood of the same level of attention being paid to the functionality and feature set of the code is very high. 
+To be clear, we do not just take the pretty code and push it out. Code still gets reviewed, tested, challenged and examined before it goes out to run the business. If the attention to detail was applied to standardizing the code, then the likelihood of the same level of attention being paid to the functionality and feature set of the code is very high.
 
 {{< figure src="images/vanhalenbrown.png" width=270 height=192 class="image-right" >}}
 

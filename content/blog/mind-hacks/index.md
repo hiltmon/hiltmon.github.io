@@ -1,6 +1,6 @@
 ---
 title: "Mind hacks"
-date: 2012-12-28 13:28:00-0400
+date: 2012-12-28T13:28:00-04:00
 
 ---
 
@@ -32,7 +32,7 @@ Luckily for me, I realized early that it was my lack of focus that was hurting m
 
 So I started to find ways to find focus. This was before medication and shrinks. I tried forcing myself to do things I did not like, but that did not last, it was not enjoyable at all. I tried to find better ways to get things done, but that just encouraged the mind to spin, and nothing got done.
 
-Finally I tried to trick (or hack) myself, by inventing goals and rewards, and turning each thing into an adventure. It started by setting small, yet unachievable at the time, goals like “do all the maths homework before doing something else”, or “listen to the whole song to the very end”, or “play to the end of the current level of the game”, or “build a larger component of a model”. 
+Finally I tried to trick (or hack) myself, by inventing goals and rewards, and turning each thing into an adventure. It started by setting small, yet unachievable at the time, goals like “do all the maths homework before doing something else”, or “listen to the whole song to the very end”, or “play to the end of the current level of the game”, or “build a larger component of a model”.
 
 The adventure part was to let the mind spin on what the end would look like versus what it turned out to be. The trick part was that *achieving the set goal in a single sitting* was the actual goal.
 

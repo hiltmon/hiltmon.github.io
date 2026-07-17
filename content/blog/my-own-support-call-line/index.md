@@ -1,6 +1,6 @@
 ---
 title: "My own support call line"
-date: 2012-05-18 11:08:00-0400
+date: 2012-05-18T11:08:00-04:00
 tags: [Business]
 ---
 
@@ -21,4 +21,3 @@ Lets see how this could work at other companies. HP sells servers to the public 
 I think that companies can and should identify their professional customers, and give them access to better support lines without the script. It builds better customer loyalty and makes both parties happier.
 
 Then add me to these programs.
-

@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "Seeing the Bigger Picture"
-date: 2015-01-31 10:23:51 -0500
+date: 2015-01-31T10:23:51-05:00
 tags: [ Hiltmonism ]
 ---
 

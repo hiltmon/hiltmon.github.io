@@ -1,6 +1,6 @@
 ---
 title: "Dependency Limited and Conflict Free C++"
-date: 2016-03-25 08:57:53 -0400
+date: 2016-03-25T08:57:53-04:00
 tags: [ C++, Development, Programming ]
 ---
 
@@ -76,9 +76,9 @@ To reiterate, my problem is not with Boost, it's awesome, my problem is with how
 
 ### Looking at Rule 3
 
-We all know there are the piles of code that are just too tedious to write and have been done over and over again. Loggers, data structures, parsers, network interfaces, great ideas, and simple Stack Overflow solutions. It's so tempting to just copy and paste that code, get it to compile and move on. I mean seriously, why rewrite a logger class! [^1] 
+We all know there are the piles of code that are just too tedious to write and have been done over and over again. Loggers, data structures, parsers, network interfaces, great ideas, and simple Stack Overflow solutions. It's so tempting to just copy and paste that code, get it to compile and move on. I mean seriously, why rewrite a logger class! [^1]
 
-Just use one that's out there and move on, no? 
+Just use one that's out there and move on, no?
 
 My experience with these have been a case of short term gains with long term pains. Oh sure, I can get it going with less work on my end. But when things go wrong as they always do? Or when the application starts to perform so slowly that nothing seems to fix it? Or its six months later and the pasted code starts to act funny in production?
 

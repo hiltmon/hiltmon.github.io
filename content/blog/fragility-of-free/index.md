@@ -1,6 +1,6 @@
 ---
 title: "Fragility of Free"
-date: 2012-01-29 11:49:00-0400
+date: 2012-01-29T11:49:00-04:00
 tags: [ Business ]
 ---
 

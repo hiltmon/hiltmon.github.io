@@ -1,6 +1,6 @@
 ---
 title: "Simple C++: From Makefiles to Xcode Builds"
-date: 2015-08-01 11:25:51 -0400
+date: 2015-08-01T11:25:51-04:00
 tags: [ Programming, Development, C++ ]
 ---
 
@@ -10,7 +10,7 @@ This post will present a step-by-step process to convert C++/C++11 Makefile-base
 
 ## Context and Benefits
 
-I write a lot of concurrent, complex, real-time C++11 code these days using my Macintosh. I prefer the look, feel, tools and services that the Macintosh and its ecosystem provides. 
+I write a lot of concurrent, complex, real-time C++11 code these days using my Macintosh. I prefer the look, feel, tools and services that the Macintosh and its ecosystem provides.
 
 But the applications I build all run on Linux CentOS 6.6 Servers.
 
@@ -89,7 +89,7 @@ clean:
 install:
 	@echo " Installing...";
 	@echo " cp $(TARGET) $(INSTALLBINDIR)"; cp $(TARGET) $(INSTALLBINDIR)
-	
+
 distclean:
 	@echo " Un-Installing...";
 	@echo " rm /usr/local/bin/CoralSeaServer"; rm /usr/local/bin/CoralSeaServer
@@ -106,13 +106,13 @@ To build this product on any supported platform, I just type the command:
 ```
 make clean; make -j 8
 ```
-	
+
 To install the product:
 
 ```
 sudo make install
 ```
-	
+
 <span class="light">Note: On OS X I do not use `sudo` for installs.</span>
 
 ## Building the Xcode Project
@@ -158,7 +158,7 @@ Unfortunately, Xcode has created a new folder *inside* the project folder and pl
 * In **Finder**, drag and drop the `.xcodeproj` up a folder level to be in the same place as the Makefile.
 
 {{< figure src="images/xbuild-007.png" width=578 height=328 >}}
- 
+
 * Then, delete the project folder created by Xcode
 
 {{< figure src="images/xbuild-008.png" width=578 height=328 >}}
@@ -224,7 +224,7 @@ Now we need to add the libraries that are included in Line **43** of the Makefil
 ```
 LIB := -L /usr/local/lib -lcorinth -lprotobuf -lzmq
 ```
-	
+
 Click **Build Phases** and then expand **Link Binary With Libraries**.
 
 {{< figure src="images/xbuild-019.png" width=720 height=450 >}}
@@ -296,7 +296,7 @@ Open a terminal, `cd` to the project folder and:
 ```
 make clean; make -j 8
 ```
-	
+
 If all is well, the project will compile as well.
 
 If it does not compile, chances are you changed `#include` paths. Add the missing include paths as per my line **44**:
@@ -319,7 +319,3 @@ For more **C++** articles, see my [C++ Category](https://hiltmon.com/blog/catego
 Enjoy
 
 *Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*
-
-
-
-

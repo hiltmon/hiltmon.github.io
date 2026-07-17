@@ -1,6 +1,6 @@
 ---
 title: "2011 Platforms - Ruby on Rails"
-date: 2011-12-26 11:55:00-0400
+date: 2011-12-26T11:55:00-04:00
 tags: [ Ruby, Ruby on Rails, TextMate ]
 ---
 
@@ -22,6 +22,6 @@ My first true Ruby on Rails experience was for one of my iOS applications. My cl
 
 For those unfamiliar with Rails, there are only a few things you need to really know. Its an architecture as well as a platform. Models, views and controllers are separated and linked using naming conventions. REST is the way to go, routes follow the architecture and test driven development is not only encouraged but built right in.
 
-For my two products ([Kifu](http://www.kifuapp.com) being one of them), Ruby on Rails is the perfect platform.  Its easy to add features and grow the product, easy to find issues and resolve them, easy to deploy and easy to maintain.  With `bundler` and `gem` plugins, I am able to add security, background threads, and test frameworks without effort.  The consistency of convention in the platform really helps a lot.  And it enabled me to create not one but two complex web applications in the last 6 months.
+For my two products (Kifu being one of them), Ruby on Rails is the perfect platform.
 
 So here I sit, day in day out, [TextMate](http://macromates.com/) on the left, Safari on the right, terminal below, creating awesome product using a great platform, Ruby on Rails.

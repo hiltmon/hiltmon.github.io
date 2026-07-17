@@ -1,6 +1,6 @@
 ---
 title: "A Reliable Script File Layout"
-date: 2013-09-14 14:44:00-0400
+date: 2013-09-14T14:44:00-04:00
 
 ---
 
@@ -16,18 +16,18 @@ Most people write scripts the old-fashioned *linear* way. For example, a script 
 
 ``` ruby Linear Example
 #!/usr/bin/env ruby
-	
+
 require 'net/ftp'
 require 'pg' # PostgreSQL Database
-	
+
 conn = PG.connect(dbname: 'd1')
-	
+
 Net::FTP.open('source.com') do |ftp|
 	ftp.login('hiltmon', 'itsasecret')
 	ftp.chdir('pub/data')
 	ftp.gettextfile('the_data.csv')
 end
-	
+
 CSV.foreach("the_data.csv") do |row|
 	conn.exec("INSERT INTO t1 (c1, c2) VALUES ('#{row[0]}', '#{row[1]}';")
 end
@@ -56,25 +56,25 @@ So lets look at the same above script using my standard format:
 
 ``` ruby Standard Model
 #!/usr/bin/env ruby
-	
+
 require 'net/ftp'
 require 'pg' # PostgreSQL Database
 
 class GetDataFile
-  
+
   SOURCE_URL = 'source.com'
   SOURCE_PATH = 'pub/data'
   FTP_USER = 'hilton'
   FTP_PASSWORD = 'itsasecret'
   FILE_NAME = 'the_data.txt'
   DEST_PATH = '/tmp/'
-  
+
   DATABASE = 'd1'
 
   def initialize
     @conn = PG.connect(dbname: DATABASE)
   end
-  
+
   # File name is overwritten every day
   def get_file
     puts "  GetFile #{FILE_NAME}..."
@@ -87,13 +87,13 @@ class GetDataFile
     puts "  File Saved to #{dest_file_path}..."
     dest_file_path
   end
-  
+
   # 2010-01-01,99.0
   # 2010-01-02,99.17
   # 2010-01-03,99.51
   # 2010-01-04,98.73
   # 2010-01-05,99.23
-  # 
+  #
   # File contains 2 columns, price date and the price
   # There is no header
   def save_file_database(file_path)
@@ -109,14 +109,14 @@ class GetDataFile
     end
     puts "  Loaded #{count} rows..."
   end
-  
+
   def run
     puts "GetDataFile Starting..."
     file_path = get_file
     save_file_database file_path
     puts "GetDataFile Done..."
   end
-  
+
 end
 
 app = GetDataFile.new
@@ -150,12 +150,12 @@ This may seem like overkill for such a simple 2 step script, but when you get to
 
 ## File Naming Conventions
 
-> There are only two hard things in Computer Science: cache invalidation and naming things.  
+> There are only two hard things in Computer Science: cache invalidation and naming things.
 > Phil Karlton
 
 When you have only a few scripts, naming is quite easy. When you have a plenitude of them, not so much.
 
-I follow the following approach for script names wherever possible: 
+I follow the following approach for script names wherever possible:
 
 **keyword - source - data - transform - action - destination**
 
@@ -195,20 +195,20 @@ Some tips and tricks I use a lot in these scripts:
 * **Color**: For more complex scripts, I also use terminal color output. Warnings are in yellow, errors in red, info in white and success in green.
 * **Displaying Progress**: Look at the `print` statement followed by the `STDOUT` statement above. For long running steps, it's really nice to see progress, but it sucks if that progress causes the terminal to scroll. The Ruby `print` statement presents the text to the console without a new line (`puts` does that). Since there is no new line, terminal does not display the text yet. The `STDOUT.flush` command causes it to be shown. Note the `\r` at the end of the text string causes causes the terminal caret to return to the start of the line so the next print overwrites. So instead of seeing
 
-	Processing 1000 rows...  
-	Processing 2000 rows...  
-	Processing 3000 rows...  
-	Processing 4000 rows...  
-	
+	Processing 1000 rows...
+	Processing 2000 rows...
+	Processing 3000 rows...
+	Processing 4000 rows...
+
 	you get the same line being overwritten instead:
 
-	Processing 4000 rows...  
-	
+	Processing 4000 rows...
+
 ## Properly Named and Laid Out Scripts
 
 There are a lot of reasons for writing scripts, but I feel there is no reason not to do them properly and in a maintainable way. It does not take more than a few moments more to name them properly, code the structure and self-document the script, which will save you hours later on when things change. *And they always do.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.
 
 [^1]: excess, overfill, abundance, bellyful, bucketload, glut -- a lot!
 [^2]: No matter how good or smart you are, there is no way you can keep all of the file names, functions and purposes in your head over the long haul. Especially as things change often. Knowing you can forget something yet find it again later is far more valuable.

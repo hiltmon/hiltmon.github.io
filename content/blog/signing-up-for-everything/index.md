@@ -1,6 +1,6 @@
 ---
 title: "Signing up for Everything"
-date: 2011-11-23 17:45:00-0400
+date: 2011-11-23T17:45:00-04:00
 
 ---
 

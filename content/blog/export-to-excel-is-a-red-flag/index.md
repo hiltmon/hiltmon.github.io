@@ -1,6 +1,6 @@
 ---
 title: "Export to Excel is a Red Flag"
-date: 2012-09-29 15:57:00-0400
+date: 2012-09-29T15:57:00-04:00
 tags: [Software]
 ---
 

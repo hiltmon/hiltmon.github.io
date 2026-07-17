@@ -1,6 +1,6 @@
 ---
 title: "Mischief Managed: Clean Inbox"
-date: 2012-08-06 11:33:00-0400
+date: 2012-08-06T11:33:00-04:00
 tags: [ "Mischief Managed" ]
 ---
 

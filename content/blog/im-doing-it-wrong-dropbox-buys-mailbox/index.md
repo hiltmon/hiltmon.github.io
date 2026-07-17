@@ -1,6 +1,6 @@
 ---
 title: "I'm doing it wrong: Dropbox buys Mailbox"
-date: 2013-03-19 10:17:00-0400
+date: 2013-03-19T10:17:00-04:00
 tags: [ News ]
 ---
 
@@ -11,4 +11,4 @@ On my tweet stream today:
 
 Anyone got ideas for a revenue-free product I can make and sell for 100mm?
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "My TextMate 2 Setup"
-date: 2013-04-15 14:42:00-0400
+date: 2013-04-15T14:42:00-04:00
 tags: [Text Editors, Productivity]
 ---
 
@@ -58,8 +58,8 @@ theme            = 570BB45C-486D-44A6-8683-CFE4F63CE651
 # Hide log, vendor and tmp directories from search popups.
 
 myExtraExcludes = "log,vendor,tmp"
-excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}" 
-excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}" 
+excludeInFileChooser  = "{$excludeInFileChooser,$myExtraExcludes}"
+excludeInFolderSearch = "{$excludeInFolderSearch,$myExtraExcludes}"
 fileBrowserGlob  = "{*,.tm_properties,.htaccess}"
 
 # Variables
@@ -111,7 +111,7 @@ fileType         = source.yaml
 
 This mostly sets tabs and spaces for the most common languages that I use, as well as forces a reset of the theme and font whenever I load the application.
 
-For the [Kifu][kifuapp] project, I have a `.tm_properties` in its root containing:
+For the Kifu project, I have a `.tm_properties` in its root containing:
 
 ```
 projectDirectory = "$CWD"
@@ -133,7 +133,7 @@ With these minor changes, I feel I have the best programmer's editor environment
 
 See also: [TextMate 2 Basics](https://hiltmon.com/blog/2013/11/09/textmate-2-basics/)
 
-*Follow the author as [@hiltmon][twitter] on Twitter and [@hiltmon][app] on App.Net. Mute `#xpost` on one.*
+*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.
 
 [1]:	https://hiltmon.com/blog/2012/08/14/my-sublime-text-2-setup/
 [2]:	https://hiltmon.com/blog/2013/02/22/multiple-themes-in-textmate-2/
@@ -141,8 +141,6 @@ See also: [TextMate 2 Basics](https://hiltmon.com/blog/2013/11/09/textmate-2-bas
 [4]:	https://github.com/hiltmon/hiltons-bundle
 [5]:	https://hiltmon.com/blog/2013/01/16/rvm-in-textmate-2/
 
-[app]: http://alpha.app.net/hiltmon
 [github]: https://github.com/textmate/textmate
-[kifuapp]: http://www.kifuapp.com
 [sublimetext]: http://www.sublimetext.com/2
 [twitter]: https://twitter.com/hiltmon

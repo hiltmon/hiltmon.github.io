@@ -1,6 +1,6 @@
 ---
 title: "No Service Competition in New York"
-date: 2011-12-02 18:47:00-0400
+date: 2011-12-02T18:47:00-04:00
 
 ---
 

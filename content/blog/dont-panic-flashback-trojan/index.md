@@ -1,6 +1,6 @@
 ---
 title: "Don't Panic - Flashback Trojan"
-date: 2012-04-12 10:05:00-0400
+date: 2012-04-12T10:05:00-04:00
 tags: [News]
 ---
 
@@ -17,7 +17,7 @@ Please read the following list in its entirety before acting:
 * You are safe, and may now stop panicking
 * **_Don't do any of the above. There's no point._**
 
-> We investigated >300 breaches in 2011. 100% used malware. 0% detected by AV on targets. In lab 25 AV engines detected 12%.  
+> We investigated >300 breaches in 2011. 100% used malware. 0% detected by AV on targets. In lab 25 AV engines detected 12%.
 > [Nicholas J Percoco](https://twitter.com/#!/c7five/status/191496387031085057)
 
 Didn't read the whole list before acting? Sigh.

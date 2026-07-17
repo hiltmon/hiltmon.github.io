@@ -1,6 +1,6 @@
 ---
 title: "Google Analytics Logger for Slogger"
-date: 2012-11-14 09:14:00-0400
+date: 2012-11-14T09:14:00-04:00
 tags: [ Slogger ]
 ---
 
@@ -9,7 +9,7 @@ This article explains how to set up Brett Terpstra's [Slogger](http://ttscoff.gi
 * Multiple web properties as long as they are under the same Google login.
 * Multiple dates so you can skip a few Slogger run days and catch up (or back fill).
 * Only logs a full day's worth of stats, so if it runs now, it logs up to yesterday's stats.
-* Captures page views, visitors, top 5 sources and top 10 popular pages. If you want different stats, let me know in the comments or via App.net [@hiltmon](http://alpha.app.net/hiltmon) or Twitter [@hiltmon](https://twitter.com/hiltmon).
+* Captures page views, visitors, top 5 sources and top 10 popular pages. If you want different stats, let me know in the comments or via Twitter [@hiltmon](https://twitter.com/hiltmon).
 
 **Warning: This plugin is *alpha* code, so assume the usual no warranty legalize, basically proceed at your own peril.**
 
@@ -37,7 +37,7 @@ Follow these to install and configure the plugin. If any steps are unclear, chec
 
 ### Detailed Installation Instructions
 
-If you are here, I assume you already have Slogger installed and running. As of writing this, I am on version 2.14.2. 
+If you are here, I assume you already have Slogger installed and running. As of writing this, I am on version 2.14.2.
 
 Open a terminal and `cd` to your slogger folder (in my case that's in `~/Scripts/Slogger`. Run all commands from there.
 
@@ -66,7 +66,7 @@ Note that this is a *pre-release* gem, but it's close to final.
 
 **Install the Plugin**
 
-Download and extract the `googleanalyticslogger.rb` plugin file from [Gist 4072068](https://gist.github.com/4072068). Then move the `googleanalyticslogger.rb` file to your Slogger `plugins` folder. 
+Download and extract the `googleanalyticslogger.rb` plugin file from [Gist 4072068](https://gist.github.com/4072068). Then move the `googleanalyticslogger.rb` file to your Slogger `plugins` folder.
 
 Or you can also just create a new `googleanalyticslogger.rb` in your `plugins` folder and paste the raw [gist](https://gist.github.com/4072068) code in.
 
@@ -142,7 +142,7 @@ This is the painful part of OAuth 2.0, you need to authorize this application to
 ./slogger -o Google
 ```
 
-Slogger will open your default browser and request authorization to access your data. 
+Slogger will open your default browser and request authorization to access your data.
 
 {{< figure src="images/slga-step-2-1.jpg" width=640 height=200 >}}
 
@@ -158,7 +158,7 @@ Save and close the file again.
 
 **Acquire the Access Token**
 
-Once more, run 
+Once more, run
 
 ```
 ./slogger -o Google
@@ -173,7 +173,7 @@ Initializing Slogger v2.0 (2.0.14.2)...
   11:13:34 GoogleAnalyticsLogger: Getting access Token...
 ```
 
-If you look in your `slogger_config` now, you should now see an `access_token` and a `refresh_token`. 
+If you look in your `slogger_config` now, you should now see an `access_token` and a `refresh_token`.
 
 {{< figure src="images/slga-step-3.jpg" width=640 height=93 >}}
 
@@ -297,8 +297,8 @@ So just in case, here's how to create your own Google API client keys:
 * Click **Create Client ID**
 
 You should now see a Client ID and Secret for Installed Applications. Copy and paste these into your `slogger_config`.
+Copy and paste these into your `slogger_config`.
 
-As always, feel free to comment below on this post, or follow me on App.Net as [@hiltmon](http://alpha.app.net/hiltmon) or Twitter as [@hiltmon](https://twitter.com/hiltmon).
+As always, feel free to comment below on this post, or follow me on Twitter as [@hiltmon](https://twitter.com/hiltmon).
 
 Enjoy.
-

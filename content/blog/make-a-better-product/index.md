@@ -1,6 +1,6 @@
 ---
 title: "Make a better product"
-date: 2012-01-18 13:12:00-0400
+date: 2012-01-18T13:12:00-04:00
 tags: [ Business ]
 ---
 

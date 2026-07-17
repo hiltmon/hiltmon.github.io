@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "Unreasonable"
-date: 2013-08-04 14:06:00-0400
+date: 2013-08-04T14:06:00-04:00
 
 ---
 
@@ -27,4 +27,4 @@ Now is not the time to get all *reasonable* again and protect the status quo. It
 
 And I for one look forward to what we *unreasonable* people can come up with. There is nothing we *unreasonable* people cannot change, improve or fix if we set our minds to it.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

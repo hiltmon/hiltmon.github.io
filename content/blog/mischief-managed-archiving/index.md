@@ -1,6 +1,6 @@
 ---
 title: "Mischief Managed: Archiving"
-date: 2012-08-06 12:12:00-0400
+date: 2012-08-06T12:12:00-04:00
 tags: [ "Mischief Managed" ]
 ---
 

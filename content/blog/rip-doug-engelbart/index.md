@@ -1,6 +1,6 @@
 ---
 title: "RIP Doug Engelbart"
-date: 2013-07-04 15:43:00-0400
+date: 2013-07-04T15:43:00-04:00
 
 ---
 
@@ -14,4 +14,4 @@ The best way to remember him is this, written by [Brett Victor](http://twitter.c
 
 > The most important question you can ask about Engelbart is, "What world was he trying to create?" By asking that question, you put yourself in a position to create that world yourself.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

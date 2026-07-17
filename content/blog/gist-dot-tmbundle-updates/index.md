@@ -1,6 +1,6 @@
 ---
 title: "Gist.tmbundle Updates"
-date: 2013-03-11 16:59:00-0400
+date: 2013-03-11T16:59:00-04:00
 tags: [ TextMate ]
 ---
 
@@ -12,4 +12,4 @@ I just pushed a few small updates to my [Gists bundle](https://github.com/hiltmo
 
 This Gists bundle is now part of the standard TextMate Bundle distribution. You can find this bundle in **TextMate → Preferences → Bundles → Gist** where it can be enabled.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

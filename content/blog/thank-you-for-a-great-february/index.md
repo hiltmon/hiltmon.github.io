@@ -1,6 +1,6 @@
 ---
 title: "Thank you for a great February"
-date: 2012-03-01 11:13:00-0400
+date: 2012-03-01T11:13:00-04:00
 tags: [Business, Octopress]
 ---
 

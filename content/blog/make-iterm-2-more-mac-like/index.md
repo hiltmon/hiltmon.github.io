@@ -1,6 +1,6 @@
 ---
 title: "Make iTerm 2 more Mac-like"
-date: 2013-02-13 12:08:00-0400
+date: 2013-02-13T12:08:00-04:00
 tags: [ Macintosh ]
 ---
 
@@ -54,7 +54,7 @@ And lowered the line spacing to match Apple’s (**Preferences** / **Profiles** 
 
 ### New iTerm 2 in Current Space
 
-While it’s nice to have the hotkey window, I often find myself working on Desktop 1 (Work) and need to jump to Desktop 2 (Alternate) to do some other stuff *and leave a terminal running there*. Like now, for example, I have a database migration running on Desktop 1 for [Kifu](http://www,kifuapp.com) and am blogging on Desktop 2, both of which require running iTerm 2 windows.
+While it’s nice to have the hotkey window, I often find myself working on Desktop 1 (Work) and need to jump to Desktop 2 (Alternate) to do some other stuff *and leave a terminal running there*. Like now, for example, I have a database migration running on Desktop 1 for Kifu and am blogging on Desktop 2, both of which require running iTerm 2 windows.
 
 If you hit ‘⌘N’ on iTerm 2 (or any other OS X app), OS X switches you to the app’s desktop, *then* creates a new window *over there*, not what I want. If you right-click on the dock and request a new window, it creates it on the *current* desktop. But I leave my dock hidden.
 
@@ -76,7 +76,7 @@ tell application "iTerm"
         activate
         terminate the first session of the first terminal
     end if
-    
+
     tell (make new terminal)
         launch session "Default"
     end tell
@@ -90,4 +90,4 @@ So far, I am really enjoying the small touches that make [iTerm 2](http://www.it
 
 Related Reading: [Fast SSH Windows With iTerm 2](https://hiltmon.com/blog/2013/07/18/fast-ssh-windows-with-iterm-2/)
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

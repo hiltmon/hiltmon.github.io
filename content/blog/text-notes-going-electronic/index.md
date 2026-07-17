@@ -1,6 +1,6 @@
 ---
 title: "Text Notes - Going Electronic"
-date: 2012-04-15 13:45:00-0400
+date: 2012-04-15T13:45:00-04:00
 tags: [Productivity]
 ---
 

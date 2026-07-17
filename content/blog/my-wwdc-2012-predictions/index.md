@@ -1,6 +1,6 @@
 ---
 title: "My WWDC 2012 Predictions"
-date: 2012-06-09 14:36:00-0400
+date: 2012-06-09T14:36:00-04:00
 tags: [Apple]
 ---
 

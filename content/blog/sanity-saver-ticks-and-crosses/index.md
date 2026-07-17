@@ -1,6 +1,6 @@
 ---
 title: "Sanity Saver - Ticks and Crosses"
-date: 2013-05-28 14:11:00-0400
+date: 2013-05-28T14:11:00-04:00
 tags: [ Sanity Saver ]
 ---
 
@@ -16,11 +16,11 @@ So I made them hot keys using [Keyboard Maestro](http://www.keyboardmaestro.com/
 
 <span class="light">**Update:** As per the comment from Jimmy Hartingdon below, change the macro to 'Insert Text by Typing' if you want the clipboard to remain unchanged.</span>
 
-✗ Cool  
-✓ Nerdy  
-✗ Fashionable  
+✗ Cool
+✓ Nerdy
+✗ Fashionable
 ✓ Fun
 
 <span class="light">Batsu (罰) is Japanese for the ✗ symbol, meaning "wrong", as in wrong answer (Wikipedia).</span>
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

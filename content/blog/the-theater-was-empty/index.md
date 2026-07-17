@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "The Theater was Empty"
-date: 2019-12-31 14:14:36 -0500
+date: 2019-12-31T14:14:36-05:00
 
 ---
 
@@ -35,16 +35,16 @@ This time I felt the same awakening of creativity and imagination, a memory of t
 
 It does not matter whether the Star Wars series was good or bad, whether the plots held, the characters evolved, the acting improved, the jokes funny, or the CGI got better. It does not matter which movie was better or worse, or even how the story meandered.
 
-What matters is the imagination, a fictional universe of dirty old starships, shiny light sabers, and odd grungy planets. A place where a scruffy Wookiee can exist and sound eloquent, a princess kicks arse, soldiers wear white, and a tiny green mannequin is the most intelligent and powerful being in it. A universe where personal transport has not invented roofs (or windshields) yet runs on anti-gravity. A technology that enables faster than light travel, supported by artificially intelligent droids, yet still requires manual pilots and people to aim lasers. 
+What matters is the imagination, a fictional universe of dirty old starships, shiny light sabers, and odd grungy planets. A place where a scruffy Wookiee can exist and sound eloquent, a princess kicks arse, soldiers wear white, and a tiny green mannequin is the most intelligent and powerful being in it. A universe where personal transport has not invented roofs (or windshields) yet runs on anti-gravity. A technology that enables faster than light travel, supported by artificially intelligent droids, yet still requires manual pilots and people to aim lasers.
 
 Yet still familiar. People eat, love, fight, cheat, fail, commit crime, laugh, and live. They have homes, and dirty clothes, and drink in bars. Where a culturally familiar story of a bunch of ronin that save it all can and does happen.
 
 What matters is that it opened our minds to new possibilities of design, thought, imagination and creativity. It changed our culture, and the stories that followed.
 
-In my case, I became interested in technology, art, futurism, sci-fi stories, even economics and politics. I found there was more to life than food, sleep, school and football. That there were endless possibilities and paths to follow. 
+In my case, I became interested in technology, art, futurism, sci-fi stories, even economics and politics. I found there was more to life than food, sleep, school and football. That there were endless possibilities and paths to follow.
 
-A huge awakening for an almost 10 year old. 
+A huge awakening for an almost 10 year old.
 
 And reminder of that once again.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.* 
+*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*

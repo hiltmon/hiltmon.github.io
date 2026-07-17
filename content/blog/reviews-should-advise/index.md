@@ -1,6 +1,6 @@
 ---
 title: "Reviews should advise"
-date: 2011-12-28 18:37:00-0400
+date: 2011-12-28T18:37:00-04:00
 
 ---
 
@@ -15,4 +15,3 @@ As Ben Brooks sees it in [Family Apple](http://brooksreview.net/2011/12/apple-si
 Not *one* product review I have seen has been honest enough to say that the reader should stop wasting their time reading this \<insert other tablet name here\> review and just get an iPad.
 
 If our family members know, so should the press.
-

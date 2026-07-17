@@ -1,6 +1,6 @@
 ---
 title: "Google Analytics for Status Board"
-date: 2013-04-10 12:15:00-0400
+date: 2013-04-10T12:15:00-04:00
 tags: [ Status Board ]
 ---
 
@@ -31,7 +31,7 @@ However the `gattica` gem requires a build because the posted one is too old:
 	$ bundle install
 	$ gem build gattica.gemspec
 	$ sudo gem install gattica-0.6.2.gem
-	
+
 *Update: Added the `bundle install` step to install dependencies. No need to install the old gem first as per old instructions and comments below. You may need to `sudo bundle install` on a production box.*
 
 ### Step 2: Configure the Script
@@ -42,8 +42,8 @@ Download the script from [this gist](https://gist.github.com/hiltmon/5356145) or
 #!/usr/bin/env ruby
 
 # status_board_ga.rb
-# Hilton Lipschitz 
-# Twitter/ADN: @hiltmon 
+# Hilton Lipschitz
+# Twitter/ADN: @hiltmon
 # Web: https://hiltmon.com
 # Use and modify freely, attribution appreciated
 #
@@ -66,14 +66,14 @@ the_title      = "Hiltmon.Com Stats"  # The title of the Graph
 file_name      = "hiltmondotcom"      # The file name to use (.CSV and .JSON)
 dropbox_folder = "/Users/Hiltmon/Dropbox/Data" # The path to a folder on your local DropBox
 
-# Configuration 
+# Configuration
 metrics = ['pageviews', 'visitors', 'newVisits']
 colors = ['red', 'green', 'blue']
 days_to_get = 7
 
 # Login
-ga = Gattica.new({ 
-    :email => google_email, 
+ga = Gattica.new({
+    :email => google_email,
     :password => google_pwd
 })
 
@@ -85,7 +85,7 @@ ga.profile_id = accounts.first.profile_id
 # ga.profile_id = accounts[1].profile_id # OR second account
 
 # Get the data
-data = ga.get({ 
+data = ga.get({
     :start_date   => (Date.today - days_to_get).to_s.split('T')[0],
     :end_date     => Date.today.to_s.split('T')[0],
     :dimensions   => ['date'],
@@ -184,8 +184,4 @@ Thanks to [Panic](http://www.panic.com) for creating such a lovely tool.
 
 *Update: All the scripts can be downloaded from Github at [https://github.com/hiltmon/status-board-ga](https://github.com/hiltmon/status-board-ga).*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
-
-
-
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

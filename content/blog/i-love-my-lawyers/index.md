@@ -1,6 +1,6 @@
 ---
 title: "I love my lawyers"
-date: 2012-06-15 11:17:00-0400
+date: 2012-06-15T11:17:00-04:00
 tags: [Business]
 ---
 

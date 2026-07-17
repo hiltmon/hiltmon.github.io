@@ -1,6 +1,6 @@
 ---
 title: "Apples and Rotten Oranges"
-date: 2013-10-23 21:41:00-0400
+date: 2013-10-23T21:41:00-04:00
 ---
 
 So Frank Shaw, Corporate Vice President of Communications at Microsoft wrote a thing called [Apples and Oranges](http://blogs.technet.com/b/microsoft_blog/archive/2013/10/23/apples-and-oranges.aspx) in response to the Apple Laptop, iPad, iWork, iLife and Mac Pro event yesterday, and sadly, it got a lot of coverage.
@@ -179,10 +179,10 @@ No-one, ever, woke up and imagined the Surface to be a better solution (see the 
 
 Yep, like iPad users, Galaxy Tab and Kindle Fire users. Or iPhone and Android users. Heck, even Blackberry users have "a single, simple, affordable device with the power and flexibility to enhance and support their whole day."
 
-Ok, one final dart: The *whole* day? A day is 6 hours? Really? According to [Zdnet](http://www.zdnet.com/surface-pro-2-and-surface-2-trail-behind-os-x-ios-and-android-in-battery-life-tests-7000022262/) 
+Ok, one final dart: The *whole* day? A day is 6 hours? Really? According to [Zdnet](http://www.zdnet.com/surface-pro-2-and-surface-2-trail-behind-os-x-ios-and-android-in-battery-life-tests-7000022262/)
 
 > The Surface Pro 2 trails behind competition in both the web browsing and video playback battery life tests, achieving a runtime of 6.68 and 6.65 hours respectively. Compare this to the Nvidia Shield, which ran for 13.53 and 18.63 hours in the respective tests, or the iPad 4 which could manage 9.48 and 13.45 hours.
 
 BIGGER SMILEY FACE
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

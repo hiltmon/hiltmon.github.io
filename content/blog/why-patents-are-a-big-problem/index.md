@@ -1,6 +1,6 @@
 ---
 title: "Why patents are a big problem"
-date: 2012-01-11 09:39:00-0400
+date: 2012-01-11T09:39:00-04:00
 tags: [ Patents ]
 ---
 

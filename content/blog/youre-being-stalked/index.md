@@ -1,6 +1,6 @@
 ---
 title: "You're being stalked"
-date: 2012-03-27 10:20:00-0400
+date: 2012-03-27T10:20:00-04:00
 tags: [Social]
 ---
 

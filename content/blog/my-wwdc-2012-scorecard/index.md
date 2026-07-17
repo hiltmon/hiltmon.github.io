@@ -1,6 +1,6 @@
 ---
 title: "My WWDC 2012 Scorecard"
-date: 2012-06-11 17:51:00-0400
+date: 2012-06-11T17:51:00-04:00
 tags: [Apple]
 ---
 

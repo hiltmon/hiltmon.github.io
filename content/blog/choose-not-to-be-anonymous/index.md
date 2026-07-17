@@ -1,6 +1,6 @@
 ---
 title: "I Choose not to be Anonymous"
-date: 2014-02-17 11:53:47 -0500
+date: 2014-02-17T11:53:47-05:00
 ---
 
 <span class="light">A simple premise.</span>
@@ -8,12 +8,12 @@ date: 2014-02-17 11:53:47 -0500
 > 1. I always post from my own domains or accounts, all of which are traceable back to me.
 2. I sign and add my true byline, which is me, to all my work.
 3. I always use my name, [hiltmon][hc], when commenting or responding on other sites or services.
-4. Anyone can always get in touch with me via this [web site][hc], [email](https://hiltmon.com/about/), [Twitter](https://twitter.com/hiltmon), [App.Net](http://alpha.app.net/hiltmon), [Facebook](https://www.facebook.com/hiltmoncom), [Google+](https://plus.google.com/+Hiltmon), [Linked-In](www.linkedin.com/in/hiltmon) and other services, I am not hiding.
+4. Anyone can always get in touch with me via this [web site][hc], [email](https://hiltmon.com/about/), [Twitter](https://twitter.com/hiltmon), [Facebook](https://www.facebook.com/hiltmoncom), [Google+](https://plus.google.com/+Hiltmon), [Linked-In](www.linkedin.com/in/hiltmon) and other services, I am not hiding.
 5. There is only one [hiltmon][hc], and it is I. [Google me](http://www.google.com/search?q=hiltmon).
 
 I choose not to be anonymous. Here's why.
 
-There has been an ongoing debate on the internet for years whether anonymous posting or commenting is a good or a bad thing. Debating the goodness or badness of it is a distraction, it's existence and the people's choices are the real issues. 
+There has been an ongoing debate on the internet for years whether anonymous posting or commenting is a good or a bad thing. Debating the goodness or badness of it is a distraction, it's existence and the people's choices are the real issues.
 
 I think its a choice not to be anonymous, but not all of us have the same choices.  Anonymity is absolutely necessary if the poster is being discriminated against, living under some kind of martial law, a victim of a crime, a political refugee or someone who, by posting, will be incarcerated or killed. These folks should have access to anonymous posting so that their stories and the truth can get out. So that we, the rest of the internet, can learn about it, and maybe do something about it. *We should not stand by on principle while they may suffer or die for nothing.*
 
@@ -27,6 +27,6 @@ I cannot (and have no right to) tell folks what to do on the internet, but maybe
 
 I choose not to be anonymous.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [hc]: https://hiltmon.com

@@ -1,6 +1,6 @@
 ---
 title: "2011 Platforms - Objective-C and iOS"
-date: 2011-12-26 11:54:00-0400
+date: 2011-12-26T11:54:00-04:00
 
 ---
 

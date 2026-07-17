@@ -1,6 +1,6 @@
 ---
 title: "Surface Pro Pricing Madness"
-date: 2013-01-23 09:52:00-0400
+date: 2013-01-23T09:52:00-04:00
 tags: [ Microsoft ]
 ---
 
@@ -14,4 +14,4 @@ It does not make sense to me. I guess Surface Pro buyers must be affected by the
 
 *Update: Looks like I'm not the only one, [MG Siegler also does not understand the pricing](http://parislemon.com/post/41226160979/so-i-can-buy-an-entry-level-microsoft-surface-pro). Thanks for pointing it out folks.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

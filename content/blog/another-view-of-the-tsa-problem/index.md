@@ -1,6 +1,6 @@
 ---
 title: "Another view of the TSA problem"
-date: 2012-04-16 13:53:00-0400
+date: 2012-04-16T13:53:00-04:00
 tags:
 ---
 

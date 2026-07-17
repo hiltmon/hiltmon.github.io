@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "Minimize the Glue"
-date: 2012-10-08 15:19:00-0400
+date: 2012-10-08T15:19:00-04:00
 tags: [ Hiltmonism ]
 ---
 

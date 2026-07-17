@@ -1,6 +1,6 @@
 ---
 title: "Someone Else Did It Better"
-date: 2013-03-19 11:48:00-0400
+date: 2013-03-19T11:48:00-04:00
 tags: [ Product ]
 ---
 
@@ -16,7 +16,7 @@ I had already solved the OAuth 2 issue in [Spike Solutions](https://hiltmon.com/
 
 But today I learned about [Analytics Tiles](https://itunes.apple.com/us/app/analytics-tiles-app/id527147208?mt=8&uo=4&at=10l894). It's brilliant, just the product I was developing, but with a cleaner design, more tiles than I had thought of and a better interaction model. All in all, a better product than I was making.
 
-As a result, I purchased [Analytics Tiles](https://itunes.apple.com/us/app/analytics-tiles-app/id527147208?mt=8&uo=4&at=10l894) and have stopped working on mine. 
+As a result, I purchased [Analytics Tiles](https://itunes.apple.com/us/app/analytics-tiles-app/id527147208?mt=8&uo=4&at=10l894) and have stopped working on mine.
 
 ## Thoughts and Feelings
 
@@ -30,7 +30,7 @@ But it was not all a waste. I love designing applications, I love solving proble
 
 Looking back, my iOS skills and web skills improved as I was trying new things. I could fly through the [TimeToCall](https://hiltmon.com/TimeToCall/) iPad implementation because I already had this under my belt. And I learned a lot.
 
-I also had the time, and *chose* to spend my time doing this. I recently got back to it as several of my contracts fell through and was enjoying the activity. 
+I also had the time, and *chose* to spend my time doing this. I recently got back to it as several of my contracts fell through and was enjoying the activity.
 
 Much of what I did I am not going to throw away either. I am sure I'll face the dreaded OAuth 2 again, now I have a library that works. I am sure I'll need pie and graph widgets again, I now have those ready to go too.
 
@@ -38,8 +38,8 @@ Since I need to find something negative to write to make this *feely* part of th
 
 *C'est la vie*. Or for the geeks out there:
 
-> There is always a bigger fish.  
-> **Qui-Gon Jin**, Star Wars  
+> There is always a bigger fish.
+> **Qui-Gon Jin**, Star Wars
 
 &nbsp;
 ## The Community
@@ -48,4 +48,4 @@ Since I need to find something negative to write to make this *feely* part of th
 
 Go out and buy [Analytics Tiles](https://itunes.apple.com/us/app/analytics-tiles-app/id527147208?mt=8&uo=4&at=10l894) if it scratches your itch too. <span class="light">(Affiliate link so I may get a few pennies if you do).</span> And I'll go off and work other ideas (or yours if you [hire me](https://noverse.com/hire-us/)).
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

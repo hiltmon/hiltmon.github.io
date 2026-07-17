@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "Always Be Selling"
-date: 2012-01-09 18:43:00-0400
+date: 2012-01-09T18:43:00-04:00
 tags: [ Hiltmonism ]
 ---
 

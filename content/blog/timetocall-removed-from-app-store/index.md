@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall Removed from App Store"
-date: 2014-10-02 12:14:26 -0400
+date: 2014-10-02T12:14:26-04:00
 
 ---
 
@@ -16,4 +16,4 @@ I have removed TimeToCall from the App Store effective today, for several reason
 
 To those of you who purchased and used the product, thank you.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "Python: It's a Trap"
-date: 2014-01-04 14:38:00-0400
+date: 2014-01-04T14:38:00-04:00
 
 ---
 
@@ -14,7 +14,7 @@ Over the past few weeks, I have been looking at switching to the [Python](http:/
 
 In my research I felt there was something wrong with the picture I was seeing, something on the periphery in the corner of my eye. And then I saw it: The stats on **Python 2.7 usage and compatibility vs Python 3.3 usage and compatibility** make no sense.
 
-As a non-pythonista, my expectation was that after *five* years, Python 3.x would be the *most* used and *most* compatible platform. After 5 years, all libraries should have moved over, all new code should be written in it, all new technologies compatible with it. The reality is that less than 2%[^1] of all work is done in Python 3 even after 5 years! Python 2 is still 98% of the game. WTF? 
+As a non-pythonista, my expectation was that after *five* years, Python 3.x would be the *most* used and *most* compatible platform. After 5 years, all libraries should have moved over, all new code should be written in it, all new technologies compatible with it. The reality is that less than 2%[^1] of all work is done in Python 3 even after 5 years! Python 2 is still 98% of the game. WTF?
 
 That's where the trap lies.
 
@@ -57,6 +57,6 @@ Unfortunately, no real alternative exists for quantitative *scripting*. R is way
 
 Or, if someone could make a numpy and pandas for Ruby (or even Go or Javascript), I'd use that in a New York minute.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [^1]: "Looking at download statistics for the Python Package Index, we can see that Python 3 represents under 2% of package downloads. Worse still, almost no code is written for Python 3." in [About Python 3](http://alexgaynor.net/2013/dec/30/about-python-3/)

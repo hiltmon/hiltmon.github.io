@@ -1,6 +1,6 @@
 ---
 title: "1GHz Titanium PowerBook"
-date: 2012-12-31 11:01:00-0400
+date: 2012-12-31T11:01:00-04:00
 tags: [ Computers, Apple ]
 ---
 

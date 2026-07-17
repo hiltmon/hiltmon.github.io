@@ -1,6 +1,6 @@
 ---
 title: "Simple C++ Testing with Catch in Xcode"
-date: 2014-10-26 14:34:32 -0400
+date: 2014-10-26T14:34:32-04:00
 tags: [Development, Programming, C++]
 ---
 
@@ -43,20 +43,20 @@ First, the tests:
 
 TEST_CASE("Testing Sample Class") {
   SampleClass sc;
-  
+
   SECTION("setting the str") {
     INFO("Using TestStr") // Only appears on a FAIL
     sc.setStr("TestStr");
     CAPTURE(sc.getStr()); // Displays this variable on a FAIL
-    
+
     CHECK(sc.getStr() == "TestStr");
   }
-  
+
   SECTION("test bigStr") {
     sc.setStr("TestStr");
     REQUIRE(sc.bigStr() == "TestStr : 7");
   }
-  
+
   SECTION("Test doubles") {
     sc.setD(1);
     CHECK(sc.getD() == 1);
@@ -74,16 +74,16 @@ Here's the sample class that we're testing's header, it really is quite a useles
 #include <string>
 
 class SampleClass {
- 
+
 public:
   std::string getStr() { return _str; };
   void setStr(const std::string& s) { _str = s; };
-  
+
   double getD() { return _d; };
   void setD(double x) { _d = x; };
-  
+
   std::string bigStr();
-  
+
 private:
   std::string _str;
   double _d;
@@ -175,8 +175,7 @@ You can download the sample project to see how it works from [here](https://hilt
 ### Experience
 
 I have been using [Catch](https://github.com/philsquared/Catch) for several weeks now in multiple C++ projects and it's been wonderful. Setup is easy, adding test cases is simple, running tests is a keystroke away and evolving my core dependency-free libraries is easier and more reliable than ever.
- 
+
 My thanks to [Phil Nash](http://www.levelofindirection.com) ([@phil_nash](https://twitter.com/phil_nash)) for creating and maintaining this wonderful tool.
 
 *Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*
-

@@ -1,6 +1,6 @@
 ---
 title: "Back to Byword from iA Writer"
-date: 2012-11-29 17:26:00-0400
+date: 2012-11-29T17:26:00-04:00
 tags: [Markdown, Productivity]
 ---
 
@@ -29,5 +29,4 @@ Now the “why I prefer one over the other” post looks like this:
 * Prefer the blue caret in iA Writer (sigh)
 ```
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

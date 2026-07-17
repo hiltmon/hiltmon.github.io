@@ -1,10 +1,10 @@
 ---
 title: "Vegemite Sandwich"
-date: 2012-11-22 14:04:00-0400
+date: 2012-11-22T14:04:00-04:00
 tags: [ Food ]
 ---
 
-It's Thanksgiving here in the USA today and all us good Aussies are making our own comfort food, **Vegemite Sandwiches**. If you have listened to the Men at Work song [Down Under](http://www.youtube.com/watch?v=xhnn6yb4Mmc), you've heard of this magical foodstuff. 
+It's Thanksgiving here in the USA today and all us good Aussies are making our own comfort food, **Vegemite Sandwiches**. If you have listened to the Men at Work song [Down Under](http://www.youtube.com/watch?v=xhnn6yb4Mmc), you've heard of this magical foodstuff.
 
 Here's how to do it right.
 
@@ -42,4 +42,4 @@ Yum!
 
 Happy Aussie Thanksgiving everyone.
 
-You can follow me on App.Net at [@hiltmon](http://alpha.app.net/hiltmon) or Twitter at [@hiltmon](https://twitter.com/hiltmon).
+You can follow me on Twitter at [@hiltmon](https://twitter.com/hiltmon).

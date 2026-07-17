@@ -1,6 +1,6 @@
 ---
 title: "Email Etiquette"
-date: 2012-10-24 15:38:00-0400
+date: 2012-10-24T15:38:00-04:00
 tags: [Email, Etiquette]
 ---
 
@@ -18,7 +18,7 @@ And always follow good etiquette. This article contains a comprehensive list of 
 
 ### TO:
 
-Add only the people you expect a response from or have actions for in the `TO` line. Do *not* include addresses for recipients that you do not expect responses or have no actions, they go in the `CC` line. 
+Add only the people you expect a response from or have actions for in the `TO` line. Do *not* include addresses for recipients that you do not expect responses or have no actions, they go in the `CC` line.
 
 Recipients often decide whether to even read an email based on whether they are on the `TO` line or not. Some have mail rules that highlight emails where they are in the `TO` line. I, for example, have a rule that grays out all emails where I am only in the `CC` line so they look less important, and fade email text even further where I am in neither the `TO` or `CC`. That way, `TO` emails to me are the only ones with black text and stand out.
 
@@ -58,7 +58,7 @@ As a recipient, priority flags are rude, as if the email is shouting for attenti
 
 ## Subject
 
-Never send an email without a subject. The subject line of an email helps the recipient decide whether to read the email or not. 
+Never send an email without a subject. The subject line of an email helps the recipient decide whether to read the email or not.
 
 Blank subject lines are plainly unhelpful and show that the sender did not even care enough to write one, so the recipient should not care enough to read it. I know several folks who have an email rule that automatically deletes all blank subject emails, and am thinking of adding one to my email client too (but not yet).
 
@@ -76,7 +76,7 @@ The bodiless email is totally acceptable if the entire message can be written in
 
 ### Body: Greeting
 
-It’s become a common practice to just jump to the body content of the email without a greeting or salutation. Don’t do it. Always start with a greeting, an opener or a salutation. Greet all the people in the `TO` line by name. If you do not know their names (for say support emails or first contact events), you still need an opener, use “Dear Sir/Madam” if you *have* to, or “Dear Awesome Support Ninja” or “Hi Contacts at Noverse LLC”. 
+It’s become a common practice to just jump to the body content of the email without a greeting or salutation. Don’t do it. Always start with a greeting, an opener or a salutation. Greet all the people in the `TO` line by name. If you do not know their names (for say support emails or first contact events), you still need an opener, use “Dear Sir/Madam” if you *have* to, or “Dear Awesome Support Ninja” or “Hi Contacts at Noverse LLC”.
 
 But why start with a greeting?
 
@@ -90,7 +90,7 @@ Once you get past the greeting, if this is the *first* time you are emailing som
 
 The introduction does not have to be long and wordy, just enough that the recipient remembers who you are if you have met them before, or enough to set up the conversation. You don’t need to write a resume with your skills, experiences, education, hobbies and music tastes; just enough to establish your credentials and credibility. Then move on.
 
-You should always include all your contact details in a first email in the body of the email, and be comprehensive about it. Your name, title, company, phones, emails and address should all be included. If you use vCards, and most do not, attach it. Format your contact details such that the data detectors in modern email clients can figure out your contact information so the recipient can use these to add you to their address book. If you have your full contact details in your email signature, consider simplifying that and manually adding your contact details in first emails only. 
+You should always include all your contact details in a first email in the body of the email, and be comprehensive about it. Your name, title, company, phones, emails and address should all be included. If you use vCards, and most do not, attach it. Format your contact details such that the data detectors in modern email clients can figure out your contact information so the recipient can use these to add you to their address book. If you have your full contact details in your email signature, consider simplifying that and manually adding your contact details in first emails only.
 
 It’s up to the recipient to maintain their address books and it’s good email etiquette to do so.
 
@@ -134,7 +134,7 @@ There are also things to avoid. Avoid using abbreviations if possible, unless yo
 
 Write to the language and needs of your audience, observe the cultural mores of the group, but try to keep the email personable as well. Use gender neutral phrases wherever possible, you never know to whom the email will be forwarded. Of course, keep your language clean.
 
-And for all that is precious, stop using clichés and tautological phrases. Don’t “circle back”, “touch base”, “to be honest”, “at the end of the day”, “I personally”, “at this moment in time”, “it’s a nightmare”, “24/7”, “synergize”, “fairly unique”, or “it’s not rocket science”. These violate the concise rule anyway. 
+And for all that is precious, stop using clichés and tautological phrases. Don’t “circle back”, “touch base”, “to be honest”, “at the end of the day”, “I personally”, “at this moment in time”, “it’s a nightmare”, “24/7”, “synergize”, “fairly unique”, or “it’s not rocket science”. These violate the concise rule anyway.
 
 Beware of writing emails when angry or emotional. These turn out to be contentious, say nothing of value and do no more than to inflame the recipient, which serves no purpose. If you are angry, and need to express your outrage, take a breath, calm down, and write a reasoned and well argued message instead. It’s easy to forget sometimes that the recipient is an emotional human too. And that these email outbursts are also archived and may be used against you later.
 
@@ -260,7 +260,7 @@ And as a reminder, don’t have any attachments in your email signature. No vCar
 
 ## Email Don’ts
 
-There are some email features you should never ever use. 
+There are some email features you should never ever use.
 
 Do not use delivery and read receipts, ever. Firstly, they are unreliable. Secondly, all smart email users turn off this feature so it cannot work anyway. And thirdly, it’s rude, it does not imply the recipient’s acceptance to perform the actions or answer the questions, nor absolve the sender’s responsibility for getting those actions done or questions answered.
 
@@ -278,7 +278,7 @@ Email is not and never has been private. Once you send an email, the recipient c
 
 If you can help it, never email confidential information either. Once emailed, confidential information becomes public as email is not private. Even though we hate the damn things, confidentiality agreements do exist to *theoretically* enable people to email confidential stuff around, but they rely on discretion and trust that the recipient agrees the information is confidential. As with private information, if you do need to send confidential information, wrap it in a locked format like PDF, password protect it and encrypt it. But be aware, there is nothing really to prevent the recipient of unlocking the information and still sharing it publicly.
 
-Use your corporate email for work only. Never use it for personal stuff. Corporate email is not private, it is archived, it is monitored, and most have policies against it. Use your private email for personal affairs. 
+Use your corporate email for work only. Never use it for personal stuff. Corporate email is not private, it is archived, it is monitored, and most have policies against it. Use your private email for personal affairs.
 
 While we are at it, a reminder to never send personal messages to a recipient’s corporate addresses, or work emails to their personal one. Good email etiquette is sending the right message to the right mailbox.
 

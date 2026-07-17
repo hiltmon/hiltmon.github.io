@@ -1,6 +1,6 @@
 ---
 title: "Developer and Power Tools"
-date: 2011-12-19 18:21:00-0400
+date: 2011-12-19T18:21:00-04:00
 
 ---
 

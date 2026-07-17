@@ -1,6 +1,6 @@
 ---
 title: "Write Timestamps containing Milliseconds to MongoDB in C++11"
-date: 2015-01-14 18:42:40 -0500
+date: 2015-01-14T18:42:40-05:00
 tags: [ C++ ]
 ---
 
@@ -43,7 +43,7 @@ namespace utilities {
 
 		...
 	}
-}  
+}
 ```
 
 This function constructs a C++11 `duration` object containing the number we need in an internal format, and then converts it to `milliseconds` for use.

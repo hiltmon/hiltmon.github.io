@@ -1,6 +1,6 @@
 ---
 title: "Open Extension-less Files in your Favorite Editor on OS X"
-date: 2015-09-04 09:40:47 -0400
+date: 2015-09-04T09:40:47-04:00
 
 ---
 
@@ -23,4 +23,3 @@ Once its installed, open **Default Apps** from **System Preferences**, go to **A
 <span class="light">I figured out the necessary UTI using the command `mdls Makefile` and seeing that the system had it as "public.data". Many other sites say using "public.text" is the correct mapping but that did *not* work for me on OS X 10.10 Yosemite.</span>
 
 *Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*
-

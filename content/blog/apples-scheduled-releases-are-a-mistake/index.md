@@ -1,6 +1,6 @@
 ---
 title: "Apple's Scheduled Releases are a Mistake"
-date: 2013-04-23 14:32:00-0400
+date: 2013-04-23T14:32:00-04:00
 tags: [ Apple ]
 ---
 
@@ -36,4 +36,3 @@ I think Apple should go back to its flexible release schedule and release on *qu
 
 
 [1]:	https://twitter.com/hiltmon
-[2]:	http://alpha.app.net/hiltmon

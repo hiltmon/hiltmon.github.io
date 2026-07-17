@@ -1,6 +1,6 @@
 ---
 title: "Annual Apple WWDC Disappointment"
-date: 2012-06-05 08:30:00-0400
+date: 2012-06-05T08:30:00-04:00
 tags: [Apple]
 ---
 

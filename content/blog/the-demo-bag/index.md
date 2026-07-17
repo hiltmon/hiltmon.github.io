@@ -1,6 +1,6 @@
 ---
 title: "The Demo Bag"
-date: 2012-06-05 12:31:00-0400
+date: 2012-06-05T12:31:00-04:00
 tags: [Productivity, Reviews]
 ---
 

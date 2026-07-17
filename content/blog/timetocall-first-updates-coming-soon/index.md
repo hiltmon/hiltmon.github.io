@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - First Updates Coming Soon"
-date: 2013-02-28 17:57:00-0400
+date: 2013-02-28T17:57:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -35,14 +35,10 @@ Other changes and bug fixes include:
 
 ## To Update or Not To Update, that is the Question?
 
-I think the new slider and time-now views make this a good update candidate, especially since the two most annoying bugs are also fixed,  but is it enough? 
+I think the new slider and time-now views make this a good update candidate, especially since the two most annoying bugs are also fixed,  but is it enough?
 
 You see, even if I submitted it to Apple today, it will be a week to 10 days before my users get to see it (assuming the review passes). But if I don't submit it today, when? How many more changes are needed to make an *update-and-wait* cycle worthwhile for you and for me.
 
 Since there are glaring bug fixes already completed, and I want these annoyances out of my users' way, I think it's best to get these fixes out there. So I'm pulling the trigger. TimeToCall v1.0.1 has been submitted to the App Store for review.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
-
-
-
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

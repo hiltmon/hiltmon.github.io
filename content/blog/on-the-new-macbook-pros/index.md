@@ -1,6 +1,6 @@
 ---
 title: "On the New MacBook Pros"
-date: 2016-11-06 11:20:29 -0500
+date: 2016-11-06T11:20:29-05:00
 
 ---
 
@@ -8,7 +8,7 @@ Much has been written, tweeted and complained about the new MacBook Pros release
 
 They are probably right. The new MacBook Pros are not ideal, nor for them.
 
-I believe the real issue for these folks is not what Apple did not do, but that there is no viable alternative product out there for them that has the one feature they need and all the benefits of the Mac. 
+I believe the real issue for these folks is not what Apple did not do, but that there is no viable alternative product out there for them that has the one feature they need and all the benefits of the Mac.
 
 Linux on the Desktop is getting better, even Windows is improving, but it's not macOS. The applications professional-level users prefer run better in the Apple ecosystem. Several only exist in the Apple ecosystem. And even if the primary applications are cross-platform, the tools, utilities, and productivity applications we use are not available elsewhere.
 

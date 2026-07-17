@@ -1,6 +1,6 @@
 ---
 title: "Not Your Free Tech Support"
-date: 2012-03-13 12:56:00-0400
+date: 2012-03-13T12:56:00-04:00
 tags: [Business]
 ---
 

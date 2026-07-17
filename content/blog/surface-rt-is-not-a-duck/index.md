@@ -1,6 +1,6 @@
 ---
 title: "Surface RT is not a Duck"
-date: 2012-10-27 16:45:00-0400
+date: 2012-10-27T16:45:00-04:00
 tags: [ Microsoft ]
 ---
 
@@ -8,7 +8,7 @@ What is a duck? Well, if it looks like a duck, floats like a duck, and quacks li
 
 For the record, I have used the real proper Windows 8 on a Samsung tablet before, so my impressions of the Surface and Windows RT are based on that experience.
 
-I spent some time today hands on at the Microsoft popup store in Time Warner Center. I had not planned to, but as I was there, and the popup store was there, and I had the time, and so did the folks there, so I was all over it. 
+I spent some time today hands on at the Microsoft popup store in Time Warner Center. I had not planned to, but as I was there, and the popup store was there, and I had the time, and so did the folks there, so I was all over it.
 
 The device itself looks wonderful, its bright screen and large colorful Metro tiles look good, and attracted a sizable crowd. The thickness and weight was as expected, it felt lighter than the iPad or Samsung tablet but not as solid as either. And it does look good with the kickstand out and a playful keyboard cover in front of it.
 

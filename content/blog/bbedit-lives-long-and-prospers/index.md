@@ -1,6 +1,6 @@
 ---
 title: "BBEdit lives long and prospers"
-date: 2013-09-02 09:16:00-0400
+date: 2013-09-02T09:16:00-04:00
 ---
 
 On Twitter today:
@@ -17,5 +17,5 @@ All our attention is focussed on the race-to-the-bottom, in-app purchase rip-off
 
 Kudos to Rich Siegel ([@siegel](https://twitter.com/siegel)) and his team at [BareBones](http://www.barebones.com) for consistently making such an amazing and useful application.
 
-FYI: The long, stable history of BBEdit is on it's [Wikipedia page](http://en.wikipedia.org/wiki/BBEdit). 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+FYI: The long, stable history of BBEdit is on it's [Wikipedia page](http://en.wikipedia.org/wiki/BBEdit).
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

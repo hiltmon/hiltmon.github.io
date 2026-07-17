@@ -1,6 +1,6 @@
 ---
 title: "Sharing Reminder Lists"
-date: 2013-06-01 08:51:00-0400
+date: 2013-06-01T08:51:00-04:00
 tags: [ Tips and Tricks ]
 ---
 
@@ -12,7 +12,7 @@ My wife and I share a [Reminders.app](http://support.apple.com/kb/HT4970) list c
 
 Reminders.app is an Apple app included in iOS and the Mac that enables you to create lists, set reminder dates or reminder locations. It syncs via iCloud so reminders on any device are automatically distributed to all your other devices.
 
-But, **did you know that you can also share reminder lists between accounts?**  That's how we share our groceries list between our separate accounts. 
+But, **did you know that you can also share reminder lists between accounts?**  That's how we share our groceries list between our separate accounts.
 
 {{< figure src="images/reminders-new.jpg" width=350 height=208 class="image-right" >}}
 
@@ -30,7 +30,6 @@ Whenever you add or change something on this list, it will now replicate to all 
 
 Pretty cool, huh?
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [1]:	http://www.icloud.com/
-

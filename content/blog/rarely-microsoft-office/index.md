@@ -1,10 +1,10 @@
 ---
 title: "Rarely Microsoft Office"
-date: 2012-11-07 12:03:00-0400
+date: 2012-11-07T12:03:00-04:00
 tags: [Microsoft, Scrivener]
 ---
 
-I rarely use Microsoft Office. There, I said it. And it's true. There are electronic cobwebs on my copy. You may now run out of the room screaming. 
+I rarely use Microsoft Office. There, I said it. And it's true. There are electronic cobwebs on my copy. You may now run out of the room screaming.
 
 For many, this is like saying I rarely bathe. I rarely use Microsoft Office because I have absolutely no reason to use it except for two specific cases.
 
@@ -54,6 +54,6 @@ That's all I found.
 
 ### More Productive
 
-Just because I almost never use Microsoft Office does not mean I am less productive. Instead, I find myself being way more productive. I manage my email better in Apple's mail.app with plugins. I write better using Markdown and writing tools. I generate calculation models faster and better in Soulver. I create my presentations faster in Keynote. And I share everything in HTML or PDF. 
+Just because I almost never use Microsoft Office does not mean I am less productive. Instead, I find myself being way more productive. I manage my email better in Apple's mail.app with plugins. I write better using Markdown and writing tools. I generate calculation models faster and better in Soulver. I create my presentations faster in Keynote. And I share everything in HTML or PDF.
 
 I simply don't need Microsoft Office. That's $200 saved. And I see no reason to purchase the iOS version when it comes out next year.

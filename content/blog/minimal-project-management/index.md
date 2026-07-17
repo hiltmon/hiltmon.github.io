@@ -1,6 +1,6 @@
 ---
 title: "Minimal Project Management"
-date: 2016-03-05 17:20:56 -0500
+date: 2016-03-05T17:20:56-05:00
 
 ---
 
@@ -70,19 +70,19 @@ My Statement of Work template is a simple [Markdown](https://hiltmon.com/blog/ca
     Affiliation: <Company Name>
     Date: 2016-03-04
     Version: 0.1
-    
+
     # SOW: [%Title]
-    
+
     ## Overview
-    
+
     <What is the objective/goal is of this work>
-        
+
     ## Tasks
-    
+
     <A list of the tasks to be performed — very high level, clearly written>
-    
+
     ## Deliverables
-    
+
     <The deliverables of the project, so we know when it is complete>
 ```
 
@@ -90,11 +90,11 @@ Optional additional sections are
 
 ```
     ## Dependencies
-    
+
     <SOWs that need to be done first for this to be viable>
-    
+
     ## Assumptions
-    
+
     <Any assumption made in why this work needs to be done>
 ```
 
@@ -159,7 +159,7 @@ And, when the time comes, I can later assign this work back to the original prog
 
 One thing that does ruin the simplicity of **Minimal Project Management** is interruptions. Users find bugs and interrupt, folks ask questions and interrupt, systems fail and interrupt, or some urgent, must be done now, yes bloody now, the place is on fire, task interrupts.
 
-This is where the caliber of the team kicks in and where, as manager, I need to be patient and understanding (and occasionally a hard case). The people I hire and work with expect interruptions, they are realists and are experienced enough. In most cases, they deal with the interruption and move on, managing their own time and getting back to their work, without anyone being the wiser or anyone else being interrupted (until the weekly meeting where these are discussed). 
+This is where the caliber of the team kicks in and where, as manager, I need to be patient and understanding (and occasionally a hard case). The people I hire and work with expect interruptions, they are realists and are experienced enough. In most cases, they deal with the interruption and move on, managing their own time and getting back to their work, without anyone being the wiser or anyone else being interrupted (until the weekly meeting where these are discussed).
 
 If the interruption is a bigger thing, or happening to frequently, they make a judgment call and bring me in. Between the causer of the interruption, the programmer and myself, we’ll quickly discuss the issue. If it is something urgent, we’ll agree to perform the interruption, knowing work will be delayed, to get the interruption resolved. But if the interruption is a bigger issue, and it is up to me to determine that, then its also up to me to get the programmer back to work and the cause documented, scheduled for later resolution and interrupter satisfied — which means I need to be a hard case.
 

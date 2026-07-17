@@ -1,6 +1,6 @@
 ---
 title: "On Ihnatko Switching to Android"
-date: 2013-03-06 11:12:00-0400
+date: 2013-03-06T11:12:00-04:00
 
 ---
 
@@ -16,10 +16,10 @@ Andy has made a choice that he thinks Android is [better](https://hiltmon.com/bl
 
 John Gruber ([@gruber](https://twitter.com/gruber)), of [Daring Fireball](http://daringfireball.net), tweeted it best:
 
-> @gedeon @dmoren Put another way, my stance is not “iPhone good, Android bad”, but rather “Truth and insight good, bullshit bad.”  
+> @gedeon @dmoren Put another way, my stance is not “iPhone good, Android bad”, but rather “Truth and insight good, bullshit bad.”
 > [@gruber](https://twitter.com/gruber/status/309323578724196353)
 
 
 I'm with John on this. I may not be an Android fan, but Andy's article is insightful and *his* truth. Android works [better](https://hiltmon.com/blog/2013/03/02/better/) for him, iPhone works [better](https://hiltmon.com/blog/2013/03/02/better/) for me, and we both can and do respect that.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

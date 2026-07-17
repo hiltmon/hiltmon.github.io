@@ -1,6 +1,6 @@
 ---
 title: "No Sale: It does not have what we can and will not use"
-date: 2012-11-16 12:11:00-0400
+date: 2012-11-16T12:11:00-04:00
 
 ---
 
@@ -10,7 +10,7 @@ As a seller of software, I find potential customers focus on what the product **
 
 As a result, they remain with a painful process or outdated system, one that **does not** do what mine **does** do that they **need** (and why I’m selling to them in the first place).
 
-For example, with regards to my [Kifu](http://www.kifuapp.com) product, these two conversations have happened many times:
+For example, with regards to my Kifu product, these two conversations have happened many times:
 
 * Kifu does not have a report writer module. Instead, it does have a comprehensive set of reports. Several potential customers have stated that without a report writer, they will not buy Kifu. However, their existing software *does* have a report writer which they have *never* used and cannot figure out, and it did not come with any reports. They had to pay extra to hire the vendor to create reports for them (all of which Kifu already provides). We did not create a report writer for this exact reason, no-one except programmers can use report writers, and most clients need the same reports! But no sale because no report writer.
 * Kifu also does not have a user accessible query generator to enable users to create their own database queries. Several potential clients stated that the competitor’s product *which they are using* and wish to replace (which is why they are talking to us) does have this feature, so no sale. But only *one* out of about twenty actually used the feature or even knew how to find it. The remainder did not purchase because of a feature they themselves admitted they could not use. Go figure.
@@ -21,5 +21,4 @@ I was always taught to talk about the benefits of a product, and to be honest ab
 
 *Rant over*.
 
-Follow me on App.net as [@hiltmon](http://alpha.app.net/hiltmon) or Twitter [@hiltmon](https://twitter.com/hiltmon) and share your war stories.
-
+Follow me on Twitter [@hiltmon](https://twitter.com/hiltmon) and share your war stories.

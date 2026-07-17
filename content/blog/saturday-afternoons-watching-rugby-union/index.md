@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "Saturday Afternoons Watching Rugby Union"
-date: 2015-09-20 14:48:38 -0400
+date: 2015-09-20T14:48:38-04:00
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "The missing feature"
-date: 2011-12-19 23:07:00-0400
+date: 2011-12-19T23:07:00-04:00
 
 ---
 
@@ -28,7 +28,7 @@ Applications, especially good ones, spend a lot of time checking and validating 
 
 ### Fraud
 
-One of the reasons I chose to work on [Kifu](http://www.kifuapp.com) is that the incidence of fraud in community based organizations is pretty high, and *most* have no idea that it even happened. The reason? They run their communities on spreadsheets. Fraudsters fail to record deposits on spreadsheets so the organization has no idea they paid themselves. And its very hard to determine whether a numerical error on a spreadsheet was a fat finger, done by another person or was intentionally faked by the fraudster.
+One of the reasons I chose to work on Kifu is that the incidence of fraud in community based organizations is pretty high, and *most* have no idea that it even happened. The reason? They run their communities on spreadsheets. Fraudsters fail to record deposits on spreadsheets so the organization has no idea they paid themselves. And its very hard to determine whether a numerical error on a spreadsheet was a fat finger, done by another person or was intentionally faked by the fraudster.
 
 ### Versions of the Truth
 

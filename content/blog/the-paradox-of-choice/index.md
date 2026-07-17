@@ -1,6 +1,6 @@
 ---
 title: "The paradox of choice"
-date: 2012-02-01 10:41:00-0400
+date: 2012-02-01T10:41:00-04:00
 tags: [ Business ]
 ---
 
@@ -10,7 +10,7 @@ tags: [ Business ]
 
 In short, more people were attracted to the greater selection, but 10 times more people actually made a choice when the selection was smaller.
 
-> That study “raised the hypothesis that the presence of choice might be appealing as a theory,” Professor Iyengar said last year, “but in reality, people might find more and more choice to actually be debilitating.”  
+> That study “raised the hypothesis that the presence of choice might be appealing as a theory,” Professor Iyengar said last year, “but in reality, people might find more and more choice to actually be debilitating.”
 > [New York Times](http://www.nytimes.com/2010/02/27/your-money/27shortcuts.html)
 
 In a similar study, Surgeon Atul Gawande found that 65% of people surveyed said if they were to get cancer, they'd want to choose their own treatment. Among people surveyed who really *do* have cancer, only 12% of patients want to choose their own treatment.

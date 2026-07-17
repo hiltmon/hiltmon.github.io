@@ -1,6 +1,6 @@
 ---
 title: "Using the Spike Folder"
-date: 2013-07-04 17:48:00-0400
+date: 2013-07-04T17:48:00-04:00
 tags: [ Programming, Development, C++ ]
 ---
 
@@ -24,7 +24,7 @@ Another great feature is that you can customize the compile and runtime environm
 
 For TextMate 2 users, you can do the same in TextMate 2. Just open a `.cpp` file that contains an `int main...` and hit ⌘R to run it. But it does not enable you to set parameters or compilation flags like [Code Runner](https://itunes.apple.com/us/app/coderunner/id433335799?mt=12&uo=4&at=10l894) does.
 
-Nowadays, whenever I get stuck or need a scratchpad to see how to do things without affecting the application's code, I just spin up 
+Nowadays, whenever I get stuck or need a scratchpad to see how to do things without affecting the application's code, I just spin up
 [Code Runner](https://itunes.apple.com/us/app/coderunner/id433335799?mt=12&uo=4&at=10l894). If the code is any good, I save these spike programs in the `spike` folder for later when I will need that working code.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

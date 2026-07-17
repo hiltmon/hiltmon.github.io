@@ -1,15 +1,15 @@
 ---
 title: "Quick Process Search"
-date: 2013-07-30 19:45:00-0400
+date: 2013-07-30T19:45:00-04:00
 tags: [ tips-and-tricks, unix ]
 ---
 
 I am forever starting and running background UNIX tasks, either manually or via `cron` jobs. And I am forever checking to see if they are running or not.
 
-The usual command *I used to use* see if a process was running is 
+The usual command *I used to use* see if a process was running is
 
 	ps ax | grep bash
-	
+
 Where `bash` is the process that may or may not be running. It gives (headers added):
 
 	  PID TTY         TIME    CMD
@@ -27,8 +27,8 @@ There are some issues with this:
 A better version is:
 
 	ps auxwww | grep bash
-	
-This gives user, pid, memory and CPU as well as the full command line (headers added): 
+
+This gives user, pid, memory and CPU as well as the full command line (headers added):
 
 	USER             PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND
 	hiltmon          411   0.0  0.0  2433436   1600 s000  Ss    7:44PM   0:00.04 -/bin/bash
@@ -43,22 +43,22 @@ So I created a `bash` function in my `.bash_profile` to make it easier:
 	function psax() {
     	ps auxwww | grep "$@"  | grep -v grep
 	}
-	
+
 Now I just type:
 
 	psax bash
-	
+
 to get a nice clean result:
 
 	hiltmon          411   0.0  0.0  2433436   1600 s000  Ss    7:44PM   0:00.04 -/bin/bash
 	hiltmon          615   0.0  0.0  2433436   1604 s001  Ss    7:48PM   0:00.04 -/bin/bash
-	
+
 **Top tip:** A lot of people use this to get the `pid`'s of processes in order to kill them. All distributions now come with the `killall` command, so it is even easier:
 
 	killall stunnel
-	
+
 Kills all known instances of `stunnel` that you *can* kill.
 
 The `psax` function has been added to all my logins, and I use it a lot!
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

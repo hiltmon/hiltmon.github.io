@@ -1,6 +1,6 @@
 ---
 title: "Hundreds of sites ordered deindexed"
-date: 2011-11-29 18:53:00-0400
+date: 2011-11-29T18:53:00-04:00
 
 ---
 

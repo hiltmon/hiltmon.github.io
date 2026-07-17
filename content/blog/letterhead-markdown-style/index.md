@@ -23,18 +23,25 @@ Preview in [Marked][marked]. Print to PDF. Sent. Easy as Pie.
 The letterhead document source in Markdown looks like this. Note that it contains my standard [Markdown Metadata][metadata] headers as well.
 
 ``` text
-Title:          Sample Letterhead Document  
-Subtitle:         
-Project:        hiltmon.com   
-Author:         Hilton Lipschitz  
-Affiliation:    Noverse LLC  
-Web:            https://noverse.com  
-Date:           May 22, 2013  
+Title:          Sample Letterhead Document
+Subtitle:
+Project:        hiltmon.com
+Author:         Hilton Lipschitz
+Affiliation:    Noverse LLC
+Web:            https://noverse.com
+Date:           May 22, 2013
 
-![](noverse-logo-160-40.png)  
+![](noverse-logo-160-40.png)
 **Noverse LLC**  <span class="light">A New York Company</span>
 
-# Sample Letterhead Document22 May 2013  **Client Company Name**  Client Street Address  New York NY 10019  ## RE: You need a letterhead?
+# Sample Letterhead Document
+22 May 2013
+
+**Client Company Name**
+Client Street Address
+New York NY 10019
+
+## RE: You need a letterhead?
 
 Yadda yadda yadda.
 
@@ -45,8 +52,9 @@ More yadda yadda yadda.
 <br/>
 <br/>
 
-**Hilton Lipschitz**  Noverse LLC
-<span class="light"> **&middot;** +1 (917) 555-1234 **&middot;** www.noverse.com **&middot;** contact@noverse.com **&middot;** @noversellc</span>  
+**Hilton Lipschitz**
+Noverse LLC
+<span class="light"> **&middot;** +1 (917) 555-1234 **&middot;** www.noverse.com **&middot;** contact@noverse.com **&middot;** @noversellc</span>
 <span class="light">--- My Office Street, City, State, Zip ---</span>
 ```
 
@@ -60,7 +68,7 @@ And the result, an "official" looking document while remaining in the [Markdown 
 
 {{< figure src="images/markdown-letterhead.png" width=588 height=470 >}}
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [letterhead]: http://en.wikipedia.org/wiki/Letterhead
 [fax]: http://en.wikipedia.org/wiki/Fax

@@ -1,6 +1,6 @@
 ---
 title: "How I use OS X Tools to build a Linux-only Product"
-date: 2014-03-27 20:43:24 -0400
+date: 2014-03-27T20:43:24-04:00
 
 ---
 
@@ -50,18 +50,18 @@ The VM (called 'Witch') runs on my laptop's installation of VMWare Fusion. Since
 
 {{< figure src="images/linux-only-2.jpg" width=350 height=176 class="image-right" >}}
 
-The settings for the VM in VMware are such that networking is local to my laptop (nice and safe), and it mounts my shared folders automatically so it can get to the code. 
+The settings for the VM in VMware are such that networking is local to my laptop (nice and safe), and it mounts my shared folders automatically so it can get to the code.
 
-And that's the secret. *The VM "sees" the code as local to it while I see it as local to me.* 
+And that's the secret. *The VM "sees" the code as local to it while I see it as local to me.*
 
 {{< figure src="images/linux-only-3.jpg" width=375 height=100 class="left-right" >}}
 
-These shared folders can be found in `/mnt/hgfs` by default (you need to make sure VMWare tools are installed and running). 
+These shared folders can be found in `/mnt/hgfs` by default (you need to make sure VMWare tools are installed and running).
 
 I also set an alias in the VM's `.bash_profile` that enables me to `cd` to my project folder easily:
 
 	alias cdsc='cd /mnt/hgfs/Projects/Client/ProjectName/'
-	
+
 In iTerm 2, I created a profile with a shortcut key (in this case `⌃⌘W` for "Witch") to launch an `ssh` terminal session to this VM using my preferred development login.
 
 {{< figure src="images/linux-only-4.png" width=678 height=410 >}}
@@ -94,4 +94,4 @@ So I found a way to use my OS X tools and shortcuts and productivity aids to bui
 
 Maybe some of the ideas and tricks in this post can help you with your second platform development.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "Browser Windows on all Desktops"
-date: 2013-01-19 14:05:00-0400
+date: 2013-01-19T10:57:00-04:00
 tags: [ Productivity ]
 ---
 
@@ -29,8 +29,8 @@ tell application "Safari"
 end tell
 ```
 
-I usually just leave blank Safari windows open on each Desktop, and as I work and context switch, so the tabs on each desktop fill up with that Desktop’s links. 
+I usually just leave blank Safari windows open on each Desktop, and as I work and context switch, so the tabs on each desktop fill up with that Desktop’s links.
 
 The main benefit is that a context switch back to work means that the browser on *Desktop 1 / Work* is not cluttered with mail or social tabs, and remains displaying the last page browsed for work.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

@@ -1,6 +1,6 @@
 ---
 title: "Microsoft did not always suck"
-date: 2012-04-22 11:27:00-0400
+date: 2012-04-22T11:27:00-04:00
 tags: [Microsoft]
 ---
 

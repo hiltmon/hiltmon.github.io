@@ -1,6 +1,6 @@
 ---
 title: "Multiple Themes in Sublime Text 2"
-date: 2012-11-07 15:09:00-0400
+date: 2012-11-07T15:09:00-04:00
 tags: [Productivity, Text Editors]
 ---
 
@@ -25,11 +25,11 @@ The theme line looks like this in the file:
 {
 	…
 	"color_scheme": "Packages/User/Railscasts.tmTheme"
-	… 
+	…
 }
 ```
 
-Next, open a file type where you would like to use a *different* theme, for example, open a Markdown file. It will open using the default theme. Now choose **Preferences / Settings More / Syntax Specific - User** from the **Sublime Text 2** menu. Sublime Text 2 will create a new settings file with the selected file type as its name (in my case, the markdown settings file is **Markdown.sublime-settings**). If the file already exists, Sublime will open it for editing.  
+Next, open a file type where you would like to use a *different* theme, for example, open a Markdown file. It will open using the default theme. Now choose **Preferences / Settings More / Syntax Specific - User** from the **Sublime Text 2** menu. Sublime Text 2 will create a new settings file with the selected file type as its name (in my case, the markdown settings file is **Markdown.sublime-settings**). If the file already exists, Sublime will open it for editing.
 
 Set the theme in this file, as well as any other settings you like for that file kind.  For example, my **Markdown.sublime-settings** is:
 
@@ -46,4 +46,4 @@ You may need to restart Sublime Text 2 after this.
 
 Next time you open a file where you have set type-specific user settings, the theme specified will be used. Nice!
 
-See also [My Sublime Text 2 Setup](https://hiltmon.com/blog/2012/08/14/my-sublime-text-2-setup/) and [Multi-Platform Editing Is Sublime](https://hiltmon.com/blog/2012/11/26/multi-platform-editing-is-sublime/). And follow me at [@hiltmon](https://https://twitter.com/hiltmon) on Twitter or [@hiltmon](https://alpha.app.net/hiltmon) on App.Net.
+See also [My Sublime Text 2 Setup](https://hiltmon.com/blog/2012/08/14/my-sublime-text-2-setup/) and [Multi-Platform Editing Is Sublime](https://hiltmon.com/blog/2012/11/26/multi-platform-editing-is-sublime/). And follow me at [@hiltmon](https://twitter.com/hiltmon) on Twitter.

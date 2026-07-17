@@ -1,6 +1,6 @@
 ---
 title: "Apple, Please make a Touchscreen Laptop"
-date: 2012-12-03 09:43:00-0400
+date: 2012-12-03T09:43:00-04:00
 tags: [Apple, Microsoft]
 ---
 
@@ -20,4 +20,4 @@ We’ll still have our keyboards, mice and touchpads, they are the best interfac
 
 Apple, please make the next generation Macbook Pro’s with touch screens to enable us to launch, close, switch desktops and select using our fingers. Windows 8 has proven that Steve Jobs was wrong about this. It just makes sense and we now know that it works.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

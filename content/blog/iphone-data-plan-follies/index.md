@@ -1,6 +1,6 @@
 ---
 title: "iPhone Data Plan Follies"
-date: 2012-02-25 10:25:00-0400
+date: 2012-02-25T10:25:00-04:00
 tags: [iPhone, Carriers]
 ---
 

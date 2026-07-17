@@ -1,6 +1,6 @@
 ---
 title: "Augmented Paper"
-date: 2012-04-16 14:00:00-0400
+date: 2012-04-16T14:00:00-04:00
 tags: [Design]
 ---
 

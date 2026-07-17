@@ -1,6 +1,6 @@
 ---
 title: "Data presentation at its best"
-date: 2012-06-28 09:47:00-0400
+date: 2012-06-28T09:47:00-04:00
 
 ---
 

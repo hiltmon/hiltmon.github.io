@@ -1,6 +1,6 @@
 ---
 title: "Using Mission Control Desktops"
-date: 2012-06-03 10:01:00-0400
+date: 2012-06-03T10:01:00-04:00
 tags: [Productivity]
 ---
 

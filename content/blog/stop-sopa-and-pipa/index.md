@@ -1,6 +1,6 @@
 ---
 title: "Stop SOPA and PIPA, a personal request"
-date: 2012-01-18 08:27:00-0400
+date: 2012-01-18T08:27:00-04:00
 
 ---
 

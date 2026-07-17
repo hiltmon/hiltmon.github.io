@@ -1,6 +1,6 @@
 ---
 title: "Quick and Dirty Rails Performance Profiling"
-date: 2012-02-27 22:46:00-0400
+date: 2012-02-27T22:46:00-04:00
 Tags: [ "Ruby On Rails", TextMate ]
 ---
 
@@ -20,29 +20,29 @@ Add the following file [Gist 1929287](https://gist.github.com/hiltmon/1929287) i
 
 ``` ruby
 class DevelopmentProfiler
-  
+
   def self.prof(file_name)
-    
+
     RubyProf.start
     yield
     results = RubyProf.stop
-    
+
     # Print a flat profile to text
     File.open "#{Rails.root}/tmp/performance/#{file_name}-graph.html", 'w' do |file|
       RubyProf::GraphHtmlPrinter.new(results).print(file)
     end
- 
+
     File.open "#{Rails.root}/tmp/performance/#{file_name}-flat.txt", 'w' do |file|
       # RubyProf::FlatPrinter.new(results).print(file)
       RubyProf::FlatPrinterWithLineNumbers.new(results).print(file)
     end
- 
+
     File.open "#{Rails.root}/tmp/performance/#{file_name}-stack.html", 'w' do |file|
       RubyProf::CallStackPrinter.new(results).print(file)
     end
- 
+
   end
-  
+
 end
 ```
 

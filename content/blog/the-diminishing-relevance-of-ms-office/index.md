@@ -1,10 +1,10 @@
 ---
 title: "The diminishing relevance of MS Office"
-date: 2013-03-07 18:25:00-0400
+date: 2013-03-07T18:25:00-04:00
 
 ---
 
-It used to be a given that we purchased our computers to run [MS Office](http://office.microsoft.com/en-us/), because that's all the software we *used* on our computers. But over the years, we started to use our computing devices for more than work and the use and need for MS Office has declined in importance. 
+It used to be a given that we purchased our computers to run [MS Office](http://office.microsoft.com/en-us/), because that's all the software we *used* on our computers. But over the years, we started to use our computing devices for more than work and the use and need for MS Office has declined in importance.
 
 We still regularly need to use MS Office file formats to share documents, but lots of software happily reads and writes these formats. And these days, people are purchasing tablets and mobile computing devices in droves that do not and can not run MS Office and they don't seem to care about it.
 
@@ -58,8 +58,8 @@ It used to be that we did *everything* on our computers in MS Office tools. And 
 
 In my case, for example, I write everything in [Markdown](https://hiltmon.com/blog/2012/02/20/the-markdown-mindset/) and share documents on the web or as PDF files. On the once annual occasion that I need to share a document for review tracking, and need MS Word format, I launch [Pages](http://www.apple.com/iwork/pages/), a cheaper alternative that is more than compatible enough. I do all my work estimates and calculations in [Soulver](https://itunes.apple.com/us/app/soulver/id413965349?mt=12&uo=4&at=10l894), invoices and time tracking in [Billings](https://itunes.apple.com/us/app/billings-pro/id434514810?mt=12&uo=4&at=10l894), accounting in [QuickBooks](http://quickbooks.intuit.com), and my data is in web databases; all of these things used to reside in Excel Spreadsheets. If I need to share data, I spit out JSON or CSV. I do presentations in [Keynote](http://www.apple.com/iwork/keynote/) which is a better Powerpoint and email using [Gmail](http://gmail.google.com) web or Mail.app. I no longer need Outlook for contacts and calendaring because that's built into my operating systems now and synced in the cloud.
 
-I may not be typical, but I am seeing more and more people doing the same. MS Office was magnificent in bringing the power of personal computing to people, but I think that we're all moving beyond it now and are needing and using other stuff more. 
+I may not be typical, but I am seeing more and more people doing the same. MS Office was magnificent in bringing the power of personal computing to people, but I think that we're all moving beyond it now and are needing and using other stuff more.
 
 It is just not as relevant as it used to be.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

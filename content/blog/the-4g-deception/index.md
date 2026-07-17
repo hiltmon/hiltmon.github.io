@@ -1,6 +1,6 @@
 ---
 title: "The 4G deception"
-date: 2012-02-17 12:45:00-0400
+date: 2012-02-17T12:45:00-04:00
 tags: [ Carriers ]
 ---
 

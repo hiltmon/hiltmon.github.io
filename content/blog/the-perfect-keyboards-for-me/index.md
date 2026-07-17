@@ -1,10 +1,10 @@
 ---
 title: "The Perfect Keyboard(s) (for me)"
-date: 2015-03-08 14:14:56 -0400
+date: 2015-03-08T14:14:56-04:00
 
 ---
 
-I'm not a keyboard snob. But I love using my current keyboards now. 
+I'm not a keyboard snob. But I love using my current keyboards now.
 
 Background: I was very happy with the Apple "chicklet" style keyboards and even wrote about it in [Not the Clicky Keyboard](https://hiltmon.com/blog/2013/09/05/not-the-clicky-keyboard/). There I declared that clicky keyboards were not for me.
 

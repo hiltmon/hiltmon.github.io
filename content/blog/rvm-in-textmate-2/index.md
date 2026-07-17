@@ -1,6 +1,6 @@
 ---
 title: "RVM in TextMate 2"
-date: 2013-01-16 20:04:00-0400
+date: 2013-01-16T20:04:00-04:00
 tags: [ Text Editors, TextMate ]
 ---
 
@@ -10,7 +10,7 @@ I use Ruby Version Manager ([rvm](https://rvm.io)) to manage the interpreters an
 
 ## Testing the Internal Command Version
 
-Of course you knew that you can use TextMate 2 to execute arbitrary ruby code in your file. To test which version is being used, create a new Ruby file in TextMate 2 and type: `RUBY_VERSION #⇥` which expands to 
+Of course you knew that you can use TextMate 2 to execute arbitrary ruby code in your file. To test which version is being used, create a new Ruby file in TextMate 2 and type: `RUBY_VERSION #⇥` which expands to
 
 ``` ruby
 RUBY_VERSION # =>
@@ -107,4 +107,4 @@ If you want Sublime Text 2’s runner `⌘B` to use `rvm`, you need to open `~/L
 
 *Note* that this will probably get overwritten when the Ruby package gets updated. *Note* also that neither `$HOME` or `~` work here, you need the full path.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

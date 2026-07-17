@@ -1,6 +1,6 @@
 ---
 title: "Too Many Menu Bar Apps?"
-date: 2012-10-16 17:27:00-0400
+date: 2012-10-16T17:27:00-04:00
 tags: [ Productivity, Slogger ]
 ---
 

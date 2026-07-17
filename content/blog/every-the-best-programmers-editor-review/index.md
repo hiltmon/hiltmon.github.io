@@ -1,6 +1,6 @@
 ---
 title: "Every 'The Best Programmers Editor' Review"
-date: 2013-05-14 17:58:00-0400
+date: 2013-05-14T17:58:00-04:00
 tags: [ Text Editors, Tools ]
 ---
 
@@ -13,7 +13,7 @@ tags: [ Text Editors, Tools ]
 		}
 		return false;
 	}
-	
+
 	onload = function() {
 		setEditor('TextMate 2', 'http://www.macromates.com/');
 	}
@@ -23,17 +23,17 @@ tags: [ Text Editors, Tools ]
 
 <p>
 	Choose your Editor:
-	<a href="#" onclick="return setEditor('TextMate 2', 'http://www.macromates.com/');">TextMate 2</a> | 
-	<a href="#" onclick="return setEditor('Sublime Text 2', 'http://www.sublimetext.com/2');">Sublime Text 2</a> | 
-	<a href="#" onclick="return setEditor('BBEdit', 'http://www.barebones.com/products/bbedit/');">BBEdit</a> | 
-	<a href="#" onclick="return setEditor('Chocolat', 'http://www.chocolatapp.com');">Chocolat</a> | 
-	<a href="#" onclick="return setEditor('Vim', 'http://www.vim.org/');">Vim</a> | 
+	<a href="#" onclick="return setEditor('TextMate 2', 'http://www.macromates.com/');">TextMate 2</a> |
+	<a href="#" onclick="return setEditor('Sublime Text 2', 'http://www.sublimetext.com/2');">Sublime Text 2</a> |
+	<a href="#" onclick="return setEditor('BBEdit', 'http://www.barebones.com/products/bbedit/');">BBEdit</a> |
+	<a href="#" onclick="return setEditor('Chocolat', 'http://www.chocolatapp.com');">Chocolat</a> |
+	<a href="#" onclick="return setEditor('Vim', 'http://www.vim.org/');">Vim</a> |
 	<a href="#" onclick="return setEditor('Emacs', 'http://www.gnu.org/software/emacs/');">Emacs</a>
 </p>
 
 ## My <span class="editor-span">EDITOR</span> Review
 
-> <span class="editor-span">EDITOR</span> is by far the best programmer's editor ever. 
+> <span class="editor-span">EDITOR</span> is by far the best programmer's editor ever.
 
 > **Me**, Now
 
@@ -53,4 +53,4 @@ Look, I am most productive in <span class="editor-span">EDITOR</span>. All the c
 
 **So I highly recommend you use <span class="editor-span">EDITOR</span> as your primary programmer's editor. I cannot imagine programming without it.**
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

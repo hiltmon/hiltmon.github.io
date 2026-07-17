@@ -1,6 +1,6 @@
 ---
 title: "Talent Acquisitions and Product Casualties"
-date: 2012-07-22 10:20:00-0400
+date: 2012-07-22T10:20:00-04:00
 tags: [News]
 ---
 

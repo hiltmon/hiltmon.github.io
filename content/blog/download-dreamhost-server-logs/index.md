@@ -1,6 +1,6 @@
 ---
 title: "Download Dreamhost Server Logs"
-date: 2013-02-10 14:38:00-0400
+date: 2013-02-10T14:38:00-04:00
 tags: [ Web ]
 ---
 
@@ -34,4 +34,4 @@ Lovely!
 
 *Geek Aside: I rarely use this, I get all my stats from Google Analytics, but do occasionally check the `errors.log` file which is how I found that I was missing the [web clip icons](https://hiltmon.com/blog/2013/02/10/add-web-clip-icons-to-octopress/).*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

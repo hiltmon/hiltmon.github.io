@@ -1,12 +1,12 @@
 ---
 title: "Hollywood Accounting and SOPA"
-date: 2012-01-17 20:32:00-0400
+date: 2012-01-17T20:32:00-04:00
 tags:
 ---
 
 Hollywood Accounting refers to the opaque accounting practices used by the film, video and music industry to hyper-inflate expenditures such that their products *never* make any profits so they can then screw artists out of fees and royalties due to them. See a friendlier definition in [wikipedia](http://en.wikipedia.org/wiki/Hollywood_accounting).
 
-> Basically by the terms of my contract, if a set on a WB movie burns down in Botswana, they can charge it against B5's profits.  
+> Basically by the terms of my contract, if a set on a WB movie burns down in Botswana, they can charge it against B5's profits.
 > Michael Strazynski, Writer & Producer of Babylon 5
 
 Three points:

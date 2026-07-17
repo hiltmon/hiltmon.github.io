@@ -1,6 +1,6 @@
 ---
 title: "Unrepairable"
-date: 2012-06-17 14:27:00-0400
+date: 2012-06-17T14:27:00-04:00
 tags: [News, Computers]
 ---
 
@@ -18,7 +18,7 @@ In of itself, it's a good opinion story, although one should note that the expre
 
 So what's this all about?
 
-> All this has happened before. All this will happen again.  
+> All this has happened before. All this will happen again.
 > Pythia, Battlestar Galactica
 
 Friends, this is a non-issue. All this has happened before in other product lines, even in this product market. And we have better, smaller, lighter, more reliable products as a result.

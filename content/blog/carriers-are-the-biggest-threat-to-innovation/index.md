@@ -1,6 +1,6 @@
 ---
 title: "Carriers are the biggest threat to innovation"
-date: 2012-07-05 11:11:00-0400
+date: 2012-07-05T11:11:00-04:00
 tags: [Carriers]
 ---
 
@@ -8,7 +8,7 @@ Nilay Patel, writing for The Verge gets it in [Five years after the iPhone, carr
 
 > Getting a device on a major carrier can take up to 15 months and cost millions of dollars; carriers are notorious for demanding custom devices in order to create customer lock-in. "Exclusivity is the bane of my existence," says one source at a major phone manufacturer. "But it's the only way business gets done."
 
-and 
+and
 
 > Understanding why the industry is cheating us out of innovation is great, but a look at the landscape makes it clear that it's time for the cheating to stop.
 

@@ -1,6 +1,6 @@
 ---
 title: "Expect the Unexpected"
-date: 2012-08-08 11:49:00-0400
+date: 2012-08-08T11:49:00-04:00
 tags: [Software]
 ---
 

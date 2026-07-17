@@ -1,6 +1,6 @@
 ---
 title: "Photoshop Etiquette for Web Designers"
-date: 2012-03-31 12:13:00-0400
+date: 2012-03-31T12:13:00-04:00
 tags: [Etiquette]
 ---
 

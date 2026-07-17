@@ -1,6 +1,6 @@
 ---
 title: "Good news - online retailers do not hate their customers"
-date: 2011-12-06 09:42:00-0400
+date: 2011-12-06T09:42:00-04:00
 
 ---
 
@@ -19,4 +19,3 @@ Oh, and I need to clarify
 
 * Apple does have a store app, but it in not required to access the Apple store from the iPad.
 * The only thing you need to do to make a site work great on an iPad is to use standard HTML5+CSS3 (and not to use flash). iPad optimized sites are really just crappy mobile sites made larger, instead of the real deal done right.
-

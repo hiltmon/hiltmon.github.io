@@ -1,6 +1,6 @@
 ---
 title: "Mischief Managed: Update Tools, Learn New"
-date: 2012-08-06 12:38:00-0400
+date: 2012-08-06T12:38:00-04:00
 tags: [ "Mischief Managed" ]
 ---
 
@@ -20,7 +20,7 @@ Now most Xcode developers usually remain on the same version of OS X and Xcode f
 
 ## Ruby and Rails Work
 
-For Ruby and Rails work, I use [rvm](https://rvm.io). It enables me to have project specific versions of Ruby, Rails and gemsets installed. For example, the [Noverse.com](https://noverse.com) website runs `ruby-1.9.2-p320`, [Kifu](http://www.kifuapp.com) runs on `ruby 1.8.7-p358` and [Hiltmon.com](https://hiltmon.com) is on `ruby-1.9.3-p194`. Hmm, now that Kifu is in production, maybe I should update its toolkit.
+For Ruby and Rails work, I use [rvm](https://rvm.io). It enables me to have project specific versions of Ruby, Rails and gemsets installed. For example, the [Noverse.com](https://noverse.com) website runs `ruby-1.9.2-p320`, Kifu runs on `ruby 1.8.7-p358` and [Hiltmon.com](https://hiltmon.com) is on `ruby-1.9.3-p194`. Hmm, now that Kifu is in production, maybe I should update its toolkit.
 
 With `rvm` I don’t have to worry about platform risk, and can upgrade projects to new versions independently.
 
@@ -28,10 +28,10 @@ But once projects are over, I like to install the latest version of Ruby and Rai
 
 ## New Platforms and Technologies
 
-One thing I love to do between projects is play with and learn new platforms, languages and technologies. Not only do I learn and adopt new things this way, but I also import ideas from these in my more traditional projects. It is because of this ‘playing’ that I moved from Perl to Ruby for scripting, and ASP.Net to Rails for web. 
+One thing I love to do between projects is play with and learn new platforms, languages and technologies. Not only do I learn and adopt new things this way, but I also import ideas from these in my more traditional projects. It is because of this ‘playing’ that I moved from Perl to Ruby for scripting, and ASP.Net to Rails for web.
 
 I believe it’s important for a technologist to study other technologies to become a better technologist.
 
-Right now, I’m playing with [node.js](http://nodejs.org) as a potential platform for some of my next personal projects, and comparing it to the [Sinatra](http://www.sinatrarb.com) via Ruby stack. I have yet to be approached to program a real system using either of these stacks, but who knows what I’ll be working on next, and they are both fun products. 
+Right now, I’m playing with [node.js](http://nodejs.org) as a potential platform for some of my next personal projects, and comparing it to the [Sinatra](http://www.sinatrarb.com) via Ruby stack. I have yet to be approached to program a real system using either of these stacks, but who knows what I’ll be working on next, and they are both fun products.
 
 I’m also looking at the [Clojure](http://clojure.org) and [Haskell](http://haskelllive.com) functional programming languages to see if I can get my head around them for future work. And playing with [Lua](http://www.lua.org) and [Cocos2D](http://www.cocos2d-iphone.org) for game development. This research is but in the early stages.

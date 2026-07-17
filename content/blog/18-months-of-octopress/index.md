@@ -1,6 +1,6 @@
 ---
 title: "18 Months of Octopress"
-date: 2013-04-17 13:23:00-0400
+date: 2013-04-17T13:23:00-04:00
 tags: [ Octopress ]
 ---
 
@@ -55,16 +55,16 @@ Brandon Mathis ([@imathis][15]), the developer behind [Octopress][1], has really
 
 In short, switching to [Octopress][1] 18 months ago was a brilliant decision for me and I still love the platform, the look and writing workflow. If you are looking to replace your outdated, heavy blog with something technical and beautiful, I cannot recommend [Octopress][1] more.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.
 
-[1]:	http://octopress.org
+[1]:	https://github.com/octopress/octopress
 [2]:	https://hiltmon.com
 [3]:	http://wordpress.org
 [4]:	https://itunes.apple.com/us/app/rapidweaver/id402477569?mt=12&uo=4&at=10l894
 [5]:	https://hiltmon.com/blog/2012/02/20/the-markdown-mindset/
-[6]:	http://octopress.org/docs/setup/
-[7]:	http://octopress.org/docs/configuring/
-[8]:	http://octopress.org/docs/deploying/
+https://octopress.org/docs/setup/
+https://octopress.org/docs/configuring/
+https://octopress.org/docs/deploying/
 [9]:	https://github.com/mojombo/jekyll
 [10]:	https://hiltmon.com/blog/2012/07/18/octopress-post-and-publish/
 [11]:	https://itunes.apple.com/us/app/marsedit-blog-editor-for-wordpress/id402376225?mt=12&uo=4&at=10l894
@@ -72,6 +72,5 @@ In short, switching to [Octopress][1] 18 months ago was a brilliant decision for
 [13]:	https://itunes.apple.com/us/app/marked/id448925439?mt=12&uo=4&at=10l894
 [14]:	http://dreamhost.com
 [15]:	https://twitter.com/imathis
-[16]:	http://mattgemmell.com
+[16]:	https://mattgemmell.com
 [17]:	https://noverse.com
-[18]:	http://www.shukaico.com

@@ -1,6 +1,6 @@
 ---
 title: "US Dining Etiquette Failures"
-date: 2012-04-21 18:13:00-0400
+date: 2012-04-21T18:13:00-04:00
 tags: [Etiquette]
 ---
 
@@ -14,7 +14,7 @@ I was taught the Queen's table manners as a child growing up in the Commonwealth
 
 When *all* of the diners have finished eating, only *then* do you clear the table. This rule applies at home too, no-one was allowed to get up until all had rested their cutlery. My mother, from her seat at the table, could reach anywhere in the house to slap us if we tried to leave early.
 
-Yet in the USA, there seems to be an insane eagerness to clear the plate. There is no waiting for other diners to finish, they do not even wait for the cutlery to indicate completion. Instead, someone comes and just takes it away, or worse, interrupts the conversation to ask if *one* of us is finished. Many a time I have been paused in thought preparing a witty response to the current conversation point, or just chewing with the cutlery open on the plate, and this pause has been seen as an indicator to remove my plate, food and all. 
+Yet in the USA, there seems to be an insane eagerness to clear the plate. There is no waiting for other diners to finish, they do not even wait for the cutlery to indicate completion. Instead, someone comes and just takes it away, or worse, interrupts the conversation to ask if *one* of us is finished. Many a time I have been paused in thought preparing a witty response to the current conversation point, or just chewing with the cutlery open on the plate, and this pause has been seen as an indicator to remove my plate, food and all.
 
 Firstly, it's respectful to wait until all diners have finished. Secondly, it's rude to interrupt the table conversation to determine if the plate can be cleared.  And thirdly, it's unconscionable to take away food that the diner still wants to eat.
 

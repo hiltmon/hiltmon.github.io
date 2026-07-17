@@ -1,6 +1,6 @@
 ---
 title: "Software will always trump Hardware"
-date: 2012-07-19 18:59:00-0400
+date: 2012-07-19T18:59:00-04:00
 tags: [Software, Computers]
 ---
 

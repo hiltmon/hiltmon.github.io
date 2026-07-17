@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "If it ain't broke, break it"
-date: 2011-12-17 12:22:00-0400
+date: 2011-12-17T12:22:00-04:00
 tags: [ Hiltmonism ]
 ---
 
@@ -26,4 +26,3 @@ So when it comes to creating new software, or updating existing software, start 
 Stone axes take a long time to make and can only be used a few times before the stone shatters. Metal axes are easier to make and last for years. I can't wait for monofilament axes or light saber axes.
 
 If it ain't broke, break it.
-

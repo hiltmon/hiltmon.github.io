@@ -1,6 +1,6 @@
 ---
 title: "US Aircraft Embarkation Etiquette Failures"
-date: 2012-05-16 14:08:00-0400
+date: 2012-05-16T14:08:00-04:00
 tags: [Etiquette]
 ---
 
@@ -12,7 +12,7 @@ I just returned from a European vacation which involved flying in several aircra
 
 I love the draggy bag. It's a great invention, saving spines and enabling people to move their possessions around with ease. But I wish they would learn to drive these bloody things.
 
-Consider the tractor-trailer, those large 18 wheel articulated trucks that transport most of our goods. They are long, wide and have massive turning circles. When the tractor-trailer driver decides to cross an intersection, they take into account the length of the vehicle so they do not "block the box" or leave their trailer in front of oncoming traffic. When the tractor-trailer driver wishes to negotiate a bend, they take into account the articulation of the vehicle and the fact that the pulled trailer will follow a shorter path round the bend. So they either delay the turn until such time as the trailer is past the apex of the turn then make the turn, or they swing out first, dragging the trailer outwards before making the turn so that the trailer's wheels remain on the road during the turn.  
+Consider the tractor-trailer, those large 18 wheel articulated trucks that transport most of our goods. They are long, wide and have massive turning circles. When the tractor-trailer driver decides to cross an intersection, they take into account the length of the vehicle so they do not "block the box" or leave their trailer in front of oncoming traffic. When the tractor-trailer driver wishes to negotiate a bend, they take into account the articulation of the vehicle and the fact that the pulled trailer will follow a shorter path round the bend. So they either delay the turn until such time as the trailer is past the apex of the turn then make the turn, or they swing out first, dragging the trailer outwards before making the turn so that the trailer's wheels remain on the road during the turn.
 
 It's the same with the draggy bag. You are longer than usual as the bag is behind you. Which means that if you pass across the path of other walking passengers, you may miss them, but the draggy bag will remain in their way, causing them to trip and stumble. You are also wider than usual as the draggy bag is usually dragged by one hand to the side of your body. Which means that if you bump shoulders with another person on the dragging side, the bag will hit them in the center of their mass. And the draggy bag is articulated by your arm and wrist, and is also several inches behind you, which means that when you take a corner, either the bag will take a shortcut if you are turning into the bag, or swing out if the turn is the other way. Either way, any people, children, toes, other bags and poles that are to the inside or outside of your turn may be missed by you, but will certainly get hit by the draggy bag.
 

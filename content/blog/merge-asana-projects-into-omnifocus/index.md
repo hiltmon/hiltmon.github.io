@@ -1,6 +1,6 @@
 ---
 title: "Merge Asana Projects into OmniFocus"
-date: 2013-11-03 17:51:00-0400
+date: 2013-11-03T17:51:00-04:00
 
 ---
 
@@ -16,7 +16,7 @@ So I wrote a script to import Asana Projects and Tasks, and then to update them 
 
 **Download**: [<del>Gist 9786291</del>Gist "merge_asana_into_omnifocus.rb"](https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca) <span class="light">Read below on how to set it up and run it. Warning: Alpha!</span>
 
-What the [script](https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca) does is: 
+What the [script](https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca) does is:
 
 1. Scans Asana for all projects and creates an OmniFocus project in the folder **Asana**. It also ignores archived projects in Asana as you do not need to see those.
 2. Scans each project for tasks and creates an OmniFocus task for it. It also captures the notes and due date for the task. If the task is subsequently completed in Asana, it will complete the task in OmniFocus. If the task does not exist in OmniFocus and is already completed, it will not create it.
@@ -78,7 +78,7 @@ Make sure that the prerequisites are set up in OmniFocus and Asana.
 Then just run it from the command line:
 
 	$ ruby merge_asana_into_omnifocus.rb
-	
+
 It will display each project as it finds it, and each task as it searches for subtasks so you can see progress.
 
 The script is not very quick. It has to run a bunch of AppleScripts to talk to OmniFocus, so please be patient.
@@ -97,4 +97,4 @@ But if you do use it, let me know in the comments or via Twitter. And if you hav
 
 Download: [<del>Gist 9786291</del>Gist "merge_asana_into_omnifocus.rb"](https://gist.github.com/hiltmon/d1f79e95dd11252ce6ca)
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

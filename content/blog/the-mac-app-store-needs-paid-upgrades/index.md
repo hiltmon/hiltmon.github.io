@@ -1,6 +1,6 @@
 ---
 title: "The Mac App Store Needs Paid Upgrades"
-date: 2012-03-27 16:16:00-0400
+date: 2012-03-27T16:16:00-04:00
 tags: [Apple]
 ---
 

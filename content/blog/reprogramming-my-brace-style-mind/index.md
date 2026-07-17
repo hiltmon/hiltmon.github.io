@@ -1,6 +1,6 @@
 ---
 title: "Reprogramming my Brace Style Mind"
-date: 2013-01-07 13:24:00-0400
+date: 2013-01-07T13:24:00-04:00
 tags: [ Programming, C++ ]
 ---
 
@@ -36,12 +36,12 @@ In the 2000’s, we all seemed to switch to Microsoft’s C and C# conventions, 
 int main(int argc, char *argv[])
 {
     int a = rand() % 100;
-	
+
     if (a > 25)
     {
         call_a_function();
         call_another_function();
-    } 
+    }
     else
     {
         call_b_function();
@@ -80,7 +80,7 @@ Take the default `initWithNibName` code snippet:
 
 It turns out that no, it’s not a screwup, the hybrid brace style that they are using is the *original* Kernighan and Ritchie style which was *messed up in the early printings of the C book* to save space. The brace style rules, as per K&R are:
 
-> When adhering to K&R, each function has its opening brace at the next line on the same indentation level as its header, the statements within the braces are indented, and the closing brace at the end is on the same indentation level as the header of the function at a line of its own. The blocks inside a function, however, have their opening braces at the same line as their respective control statements; closing braces remain in a line of their own, unless followed by an else or while keyword.  
+> When adhering to K&R, each function has its opening brace at the next line on the same indentation level as its header, the statements within the braces are indented, and the closing brace at the end is on the same indentation level as the header of the function at a line of its own. The blocks inside a function, however, have their opening braces at the same line as their respective control statements; closing braces remain in a line of their own, unless followed by an else or while keyword.
 > Wikipedia http://en.wikipedia.org/wiki/Indent_style#K.26R_style
 
 It turns out, that this *true* K&R style is the *canonical* form for braces for all C derivative languages, including C++, C# and Objective-C. That’s from the designers of the languages themselves.
@@ -90,10 +90,10 @@ Guess I’ve been doing it wrong and arguing it wrong all these years.
 So I have changed my brace style mind. I am still a 4 space man. I still run a 80-column page guide, and try to keep within it, but now rely more on the editor to smart-wrap long lines. But I now adhere to the *true* K&R brace style:
 
 ``` c
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
     int a = rand() % 100;
-		
+
     if (a > 25) {
         call_a_function();
         call_another_function();
@@ -105,4 +105,4 @@ int main(int argc, char *argv[])
 
 I’m still getting used to it.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

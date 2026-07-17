@@ -1,6 +1,6 @@
 ---
 title: "Open Source Compiles in an Xcode 5.1 World"
-date: 2014-03-20 12:21:04 -0400
+date: 2014-03-20T12:21:04-04:00
 
 ---
 
@@ -21,7 +21,7 @@ To use Xcode 4 and the older `g++`, just select Xcode 4:
 ```
 sudo xcode-select -s /Applications/Xcode4.app/Contents/Developer
 ```
-	
+
 Running `g++ -v` gives me:
 
 ```
@@ -31,13 +31,13 @@ Configured with: /private/var/tmp/llvmgcc42/llvmgcc42-2336.11~182/src/configure 
 Thread model: posix
 gcc version 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
 ```
-	
+
 To use Xcode 5 and the new LLVM/Clang `g++`, just select Xcode 5:
 
 ```
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 ```
-	
+
 Running `g++ -v` now gives:
 
 ```
@@ -58,13 +58,13 @@ alias setxcode5="sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 Now all I have to do is type
 
 	setxcode4
-	
+
 Or
 
 	setxcode5
-	
+
 And my password to switch environments.
 
 With both environments installed and a quick command, you too can work on old code using the old `g++` compiler, and switch back to Xcode 5 and `llvm/clang` for newer projects.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

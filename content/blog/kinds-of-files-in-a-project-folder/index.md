@@ -1,12 +1,12 @@
 ---
 title: "Kinds of Files in a Project Folder"
-date: 2012-07-16 12:47:00-0400
+date: 2012-07-16T12:47:00-04:00
 tags: [Productivity]
 ---
 
 In preparation for a client call, I wrote a quick and dirty script to count the kinds of files in a project folder to show them what's involved. I wanted a nice presentation, and the files grouped into categories. I also added parameters to *exclude* certain folder patterns from the counter.
 
-The command is 
+The command is
 
 ``` sh
 $ ~/Scripts/cfile.rb ~/Projects/Kifu/code/kifu log tmp doc versions
@@ -70,7 +70,7 @@ It aint pretty, as it was written very quickly. The script in a [gist](https://g
 # parameters are treated as exclude folder regexes
 #
 # Requirements:
-# 
+#
 #
 # Examples:
 # cfile ~/Folder/DBFS

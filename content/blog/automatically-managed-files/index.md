@@ -1,6 +1,6 @@
 ---
 title: "Automatically Managed Files"
-date: 2012-05-16 16:02:00-0400
+date: 2012-05-16T16:02:00-04:00
 tags: [Productivity]
 ---
 

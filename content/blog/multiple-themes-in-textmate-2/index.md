@@ -1,6 +1,6 @@
 ---
 title: "Multiple Themes in TextMate 2"
-date: 2013-02-22 18:02:00-0400
+date: 2013-02-22T18:02:00-04:00
 tags: [ Productivity, Text Editors, TextMate ]
 ---
 
@@ -49,4 +49,4 @@ I have also included scripts to generate stand-alone `tmTheme` files from `tmcsv
 
 Enjoy.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

@@ -1,6 +1,6 @@
 ---
 title: "Two kinds of innovations in tech"
-date: 2012-07-19 19:07:00-0400
+date: 2012-07-19T19:07:00-04:00
 tags: [Carriers, News]
 ---
 

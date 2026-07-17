@@ -1,6 +1,6 @@
 ---
 title: "On Designing Web Applications balancing Identity, Usability and Familiarity"
-date: 2011-11-29 22:06:00-0400
+date: 2011-11-29T22:06:00-04:00
 
 ---
 

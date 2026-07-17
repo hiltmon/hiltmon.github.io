@@ -26,6 +26,6 @@ You can get in touch with me using any of the methods below.
 
 ## About this blog
 
-This blog is built and published using [Hugo](https://gohugo.io/), based on the original [Octopress](http://octopress.org) theme designed by [Brandon Mathis](http://brandonmathis.com). Every article (and indeed almost everything I write) is crafted in [Markdown](http://daringfireball.net/projects/markdown/). Huge thanks to [Matt Gemmell](http://mattgemmell.com) for pointing out this technology (and inadvertently providing the framework for this about page).
+This blog is built and published using [Hugo](https://gohugo.io/), based on the original [Octopress](https://github.com/octopress/octopress) theme designed by [Brandon Mathis](https://github.com/imathis). Every article (and indeed almost everything I write) is crafted in [Markdown](https://daringfireball.net/projects/markdown/). Huge thanks to [Matt Gemmell](https://mattgemmell.com) for pointing out this technology (and inadvertently providing the framework for this about page).
 
 All of the content on this site is made available at no charge, for the benefit of the community. Please don’t reproduce the entire content (or very substantial portions) of any article without asking first.

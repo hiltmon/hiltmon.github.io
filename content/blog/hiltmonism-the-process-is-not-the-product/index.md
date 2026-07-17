@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "The Process is not the Product"
-date: 2013-04-29 19:49:00-0400
+date: 2013-04-29T19:49:00-04:00
 tags: [ Hiltmonism ]
 ---
 
@@ -14,7 +14,7 @@ There are so many examples of when the process takes over, and the product never
 - **Too many head chefs**: Projects that are run by committee or need to have "buy-in" from a multitude of people and departments get waylaid by the process to achieve consensus. The number of opinions and egos grows exponentially as the number of owners grow.
 - **Too many deliverables**: Projects get slowed down in project management reports, process documentation, regular presentations and meetings instead freeing the Project Manager to lead the team and get things done.
 - **Bureaucracy**: The growth of a bureaucracy as an organization matures is natural, but it leads to discussions on seniority and turf wars instead of laser focus on product.
-- **Used to Do X**: The continued slavish performance of manual processes that distract and take up time just because "we always did X this way". Look for processes that may not even be necessary any more as the business changed or another process covers it. 
+- **Used to Do X**: The continued slavish performance of manual processes that distract and take up time just because "we always did X this way". Look for processes that may not even be necessary any more as the business changed or another process covers it.
 - **Waiting For**: Incessant "waiting for" others before one can do their task, and accepting this as an excuse for non-performance and an acceptable business practice. This leads to human deadlock, and the inability to move forward on a product.
 - **Minutiae**: Getting lost in the minutia of a product, or "seeing a leaf and missing the trees and the forest". This often manifests in management trying to solve all the problems instead of leaving that up to individual designers or engineers.
 - **Doing all the steps**: Following strict adherence to a development methodology and process without actually creating the product, because the methodology takes over people's time. Methodologies are good, but are not the all.
@@ -37,4 +37,4 @@ Many a product has failed to materialize because the process took over. Look for
 
 *See also the other [Hiltmonisms](https://hiltmon.com/blog/categories/hiltmonism/) in the ongoing series.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

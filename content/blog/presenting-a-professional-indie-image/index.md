@@ -1,6 +1,6 @@
 ---
 title: "Presenting a Professional Indie Image"
-date: 2012-03-05 12:48:00-0400
+date: 2012-03-05T12:48:00-04:00
 tags: [Business]
 ---
 

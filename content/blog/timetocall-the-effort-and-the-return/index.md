@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - The Effort and the Return"
-date: 2013-01-29 19:33:00-0400
+date: 2013-01-29T19:33:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -44,7 +44,7 @@ Creating the application is the investment, income from sales is the return.
 
 I could put this app up on the store for free. After all, it’s my time, my design, my effort and if you ignore the opportunity cost, that makes it theoretically cost free. The return on investment of a free app is zero. There is none. You’re giving it away.
 
-Free does work for some developers. They want this magical unicorn-like thing called exposure. Or they want bragging rights that they have a large number of users. But in reality, they need to support and update the free app *for free*. Or, like many, they either choose to ship and stop, or they run out of money and have to get a real job so they stop. No support, no love for their customers, no real way to build a business or a long term relationship. 
+Free does work for some developers. They want this magical unicorn-like thing called exposure. Or they want bragging rights that they have a large number of users. But in reality, they need to support and update the free app *for free*. Or, like many, they either choose to ship and stop, or they run out of money and have to get a real job so they stop. No support, no love for their customers, no real way to build a business or a long term relationship.
 
 That is no good. There should be a return. Lets say I price the app at 99c a pop and we run a break-even analysis:
 
@@ -82,9 +82,9 @@ I wanted to do this for several reasons:
 **Next:** [Part 2: Building the Core](https://hiltmon.com/blog/2013/01/30/timetocall-building-the-core/).
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "Phone Etiquette"
-date: 2013-04-27 18:02:00-0400
+date: 2013-04-27T18:02:00-04:00
 tags: [ Etiquette ]
 ---
 
@@ -15,7 +15,7 @@ See other articles in [Etiquette](https://hiltmon.com/blog/categories/etiquette/
 
 The caller should:
 
-- **Enable their Caller ID**. It lets the receiver know who is calling so they can choose to take a call or not. It is only fair to offer this choice as they are the one's being interrupted. It also adds the call to the missed call list if not picked up, so the receiver knows you called and can choose to call back. If you disable Caller ID, it comes up as *blocked* or *unknown caller*, so expect most receivers to ignore your call and let it go to voicemail. 
+- **Enable their Caller ID**. It lets the receiver know who is calling so they can choose to take a call or not. It is only fair to offer this choice as they are the one's being interrupted. It also adds the call to the missed call list if not picked up, so the receiver knows you called and can choose to call back. If you disable Caller ID, it comes up as *blocked* or *unknown caller*, so expect most receivers to ignore your call and let it go to voicemail.
 - **Only leave voicemails with strangers**. The caller's friends and colleagues will see the call in their missed calls list, and will know to call back. Leaving the awkward "Er, Hi, It's Hilton, please call me back when you get this" is redundant and a waste of time to both leave and pick up. Callers should also not stay on the line long enough for the Voice Mail message to come up, the blank hangup voicemails are awful. There are many who say you should leave a voicemail when calling a landline, but do not do this. Modern landline phones have missed call lists too.
 - **Send a text if the caller has a one line message** for the recipient. Short calls are intrusive and an unnecessary interruption. And a voicemail with a "Hi, its Hilton, yes, please purchase 1000 widgets" is best sent via text.
 - **Call if the text conversation gets longer than a few messages**. This is known universally as the *Hongo Rule*. It takes more time to plan something or have a core conversation via text, best to go to voice and resolve it.

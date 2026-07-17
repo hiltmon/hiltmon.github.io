@@ -1,6 +1,6 @@
 ---
 title: "Text Editing Fonts and Colors"
-date: 2012-02-23 20:33:00-0400
+date: 2012-02-23T20:33:00-04:00
 tags: [Text Editors, Productivity]
 ---
 

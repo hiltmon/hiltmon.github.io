@@ -1,6 +1,6 @@
 ---
 title: "Distributed Note Taking"
-date: 2012-05-22 09:39:00-0400
+date: 2012-05-22T09:39:00-04:00
 tags: [Productivity]
 ---
 

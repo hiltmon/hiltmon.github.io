@@ -1,6 +1,6 @@
 ---
 title: "Apple at 40"
-date: 2016-04-03 12:13:14 -0400
+date: 2016-04-03T12:13:14-04:00
 ---
 
 {{< figure src="images/apple-at-40-1.png" width=230 height=133 class="image-right" >}}
@@ -49,7 +49,7 @@ By the late 1990s, I was miserable. Something had to change.
 
 {{< figure src="images/apple-at-40-5.png" width=230 height=263 class="image-right" >}}
 
-The return of Steve Jobs via the reverse acquisition of [NeXT](https://en.wikipedia.org/wiki/NeXT) was the trigger for Apple to [Think Different](https://en.wikipedia.org/wiki/Think_different) again. Its moment of change had come. The new iMac design language took hold, from the [Bondi blue model](https://en.wikipedia.org/wiki/IMac_G3) in the late 1990s, through the beautiful [iMac G4 lampshade](https://en.wikipedia.org/wiki/IMac_G4) model to the current slab design on the desktop, the powerful [PowerMac G4 Quicksilvers](https://en.wikipedia.org/wiki/Power_Mac_G4) with their unique handles leading to the amazing all-metal [G5 models](https://en.wikipedia.org/wiki/Power_Mac_G5), the new [Powerbooks G4s](https://en.wikipedia.org/wiki/PowerBook_G4) and later MacBooks. 
+The return of Steve Jobs via the reverse acquisition of [NeXT](https://en.wikipedia.org/wiki/NeXT) was the trigger for Apple to [Think Different](https://en.wikipedia.org/wiki/Think_different) again. Its moment of change had come. The new iMac design language took hold, from the [Bondi blue model](https://en.wikipedia.org/wiki/IMac_G3) in the late 1990s, through the beautiful [iMac G4 lampshade](https://en.wikipedia.org/wiki/IMac_G4) model to the current slab design on the desktop, the powerful [PowerMac G4 Quicksilvers](https://en.wikipedia.org/wiki/Power_Mac_G4) with their unique handles leading to the amazing all-metal [G5 models](https://en.wikipedia.org/wiki/Power_Mac_G5), the new [Powerbooks G4s](https://en.wikipedia.org/wiki/PowerBook_G4) and later MacBooks.
 
 And more. [OS X](https://en.wikipedia.org/wiki/OS_X) was introduced and blossomed. The [Intel transition](https://en.wikipedia.org/wiki/Apple%27s_transition_to_Intel_processors) happened. And the [iPod](https://en.wikipedia.org/wiki/IPod) became the most iconic, must-have product for our generation.
 
@@ -57,7 +57,7 @@ And more. [OS X](https://en.wikipedia.org/wiki/OS_X) was introduced and blossome
 
 **Apple's products became Apple's again.** They had found their bliss. And the market found it with them. Apple changed to doing what it wanted to do, what it loved and that showed. It found its market wanted the same and shared their love of great design, music, experience and reliability.
 
-In parallel, so did I. I replaced the suit and meetings and Windows PC with jeans, an IDE and a [Titanium PowerBook G4](https://hiltmon.com/blog/2012/12/31/1ghz-titanium-powerbook/). I changed countries (twice) and worked on the products that I wanted to work on and make great. 
+In parallel, so did I. I replaced the suit and meetings and Windows PC with jeans, an IDE and a [Titanium PowerBook G4](https://hiltmon.com/blog/2012/12/31/1ghz-titanium-powerbook/). I changed countries (twice) and worked on the products that I wanted to work on and make great.
 
 {{< figure src="images/apple-at-40-7.png" width=230 height=347 class="image-right" >}}
 

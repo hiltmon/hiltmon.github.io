@@ -1,6 +1,6 @@
 ---
 title: "Testing C++17 Projects in Xcode with XCTest"
-date: 2019-02-09 13:55:39 -0500
+date: 2019-02-09T13:55:39-05:00
 tags: [ C++ ]
 ---
 
@@ -168,7 +168,7 @@ Great, we have an awesome library, how do we go about testing it?
 - Make sure `Objective-C` is selected as the language and that the test target is your library (in my case `HiltmonLibrary`)
 - Click **Finish** to create the target
 
-Xcode helpfully shows you the new Target configuration page. 
+Xcode helpfully shows you the new Target configuration page.
 
 ### Update for C++17
 
@@ -414,9 +414,9 @@ The file will now look like this:
 
 {{< figure src="images/hmlib-15.png" class="image-right" >}}
 
-Press `CMD-U` to compile the Library and run the tests. 
+Press `CMD-U` to compile the Library and run the tests.
 
-Since the header file is included in the test compile, the compiler looks at it (and will fail if there are any issues). 
+Since the header file is included in the test compile, the compiler looks at it (and will fail if there are any issues).
 
 If the compilation succeeds, it will run the tests.
 
@@ -434,4 +434,4 @@ Happy Testing C++17 in Xcode with XCtest.
 Reminder: You can find and download the sample project from Github at [HiltmonLibrary-with-XCTest](https://github.com/hiltmon/HiltmonLibrary-with-XCTest).
 
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.* 
+*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*

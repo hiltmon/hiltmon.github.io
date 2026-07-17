@@ -1,6 +1,6 @@
 ---
 title: "Creating games in genres you hate"
-date: 2011-12-30 18:05:00-0400
+date: 2011-12-30T18:05:00-04:00
 
 ---
 

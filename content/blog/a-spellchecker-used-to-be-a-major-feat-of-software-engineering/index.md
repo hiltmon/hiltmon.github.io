@@ -1,6 +1,6 @@
 ---
 title: "A Spellchecker Used to Be a Major Feat of Software Engineering"
-date: 2012-01-23 12:52:00-0400
+date: 2012-01-23T12:52:00-04:00
 tags: [ Software ]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Trade Trade Secrets"
-date: 2012-01-24 09:38:00-0400
+date: 2012-01-24T09:38:00-04:00
 tags: [ Business ]
 ---
 

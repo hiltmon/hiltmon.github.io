@@ -1,12 +1,12 @@
 ---
 title: "Care"
-date: 2012-08-22 08:58:00-0400
+date: 2012-08-22T08:58:00-04:00
 tags: [ "Good Reads" ]
 ---
 
 > As a species , we have proven that there is nothing we can’t do if we set out to do so. We have cured the incurable countless times before. I fervently believe that, if we can send robots to Mars and fix elections with money, we can cure cancer. All it takes is the same thing it always has for every one of those challenges…
 >
->Care.  
+>Care.
 >  [Patrick Rhone](http://patrickrhone.com/2012/08/21/how-to-cure-cancer/)
 
 I don’t know Patrick personally, we’ve never met and probably will never meet. He’s just a guy I follow on Twitter and App.net because his tweets and posts show that his interests and mine align.

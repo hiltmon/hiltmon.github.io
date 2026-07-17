@@ -1,11 +1,11 @@
 ---
 layout: hiltmonism
 title: "Information, not Data"
-date: 2011-12-06 19:22:00-0400
+date: 2011-12-06T19:22:00-04:00
 tags: [ Hiltmonism ]
 ---
 
-How many times have you opened a spreadsheet or a system, and seen pages and pages of numbers and gone 'Ugh, its too hard to find what I want!'. 
+How many times have you opened a spreadsheet or a system, and seen pages and pages of numbers and gone 'Ugh, its too hard to find what I want!'.
 
 Most systems and spreadsheets try to present everything to their users, reams and reams of raw unfettered data. And most users, if you ask them, both want the data and hate the data volume that they have to deal with. Looking closer at the situation, the reason they want the raw data is because they believe they can use the data to get answers to their questions, or use the data to do their jobs. Lets call these answers that they really need 'information'.  Wouldn't it be better if the software simply showed the user the information as and when they needed it, instead of making them work and strain to extract it?
 

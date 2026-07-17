@@ -1,6 +1,6 @@
 ---
 title: "Walled Gardens are Permeable"
-date: 2012-10-15 12:36:00-0400
+date: 2012-10-15T12:36:00-04:00
 tags: [ Computers ]
 ---
 
@@ -67,7 +67,7 @@ But walled garden systems are not all benefits and no costs. Here are some.
 
 Walled gardens limit functionality, there are things you just cannot do in closed systems. In more open systems, you can, if you have the skills, change the system to provide the functionality you need. You cannot change closed systems.
 
-Walled gardens also limit access to services and features that are valuable to those both inside and outside the walled garden. An example would be iCloud or Notification Center on Apple platforms, only available to App Store apps, and not available otherwise. 
+Walled gardens also limit access to services and features that are valuable to those both inside and outside the walled garden. An example would be iCloud or Notification Center on Apple platforms, only available to App Store apps, and not available otherwise.
 
 The decision on what you can and cannot do, can or cannot access, is not yours, it's the closed system maker's decision. If you don't agree, tough. If there are things you want to do, and think it's OK to do, but the maker disagrees, tough.
 

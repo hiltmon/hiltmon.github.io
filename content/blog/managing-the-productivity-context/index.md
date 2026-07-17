@@ -1,6 +1,6 @@
 ---
 title: "Managing the Productivity Context"
-date: 2012-11-06 15:32:00-0400
+date: 2012-11-06T15:32:00-04:00
 tags: [ Apple, Productivity ]
 ---
 
@@ -76,7 +76,7 @@ One thing that is recommended when working in the productivity context is to tak
 
 The final step to establish your productivity context is to lay everything out spatially, both in your workspace and on your screen. If everything is in its place, you should be able to reach it without taking your eyes off the work you are doing, and build muscle memory to hit the targets you need.
 
-Put all the things in your workspace that you may use in the current productivity context within easy reach. Sounds obvious, but look around and see how many people actually do this. But take it further. Make sure that each thing starts in the same place each time. Start with the mouse close to your keyboard and in the middle of a large enough area to use it, where you can move your hand to it without looking. And remove all clutter around it, so when you do mouse around, you do not run into things. Place your other items like pens, notepads, phone, and beverage in the same place every time. You should be able to reach for your drink without looking away from your screen and without risk of spilling it on your computer. Or reach for your pen and scribble a note without moving the pad or looking around. 
+Put all the things in your workspace that you may use in the current productivity context within easy reach. Sounds obvious, but look around and see how many people actually do this. But take it further. Make sure that each thing starts in the same place each time. Start with the mouse close to your keyboard and in the middle of a large enough area to use it, where you can move your hand to it without looking. And remove all clutter around it, so when you do mouse around, you do not run into things. Place your other items like pens, notepads, phone, and beverage in the same place every time. You should be able to reach for your drink without looking away from your screen and without risk of spilling it on your computer. Or reach for your pen and scribble a note without moving the pad or looking around.
 
 Once again, you lose focus and productivity every time you have to look away from your work, or if your mouse snags, or if you have to search your workspace for a needed item. It goes without saying that you should also remove any and all obstacles on your desk, and of course, have nothing on your workspace within reach that you do not need for the current productivity context.
 
@@ -86,9 +86,9 @@ If you use an application that has lots of palettes, such as [Adobe Photoshop](h
 
 If you need multiple applications open for a productivity context, which I find to be the most common case, don’t go full-screen and switch-replace (Alt-Tab) them. I see too many people lose focus when trying to drag and drop on to full-screen applications (which is why I never recommend full-screen email client usage). Instead:
 
-* lay out (resize and position) each application window such that the key information you need to see is visible, even when other applications are in the forefront, 
+* lay out (resize and position) each application window such that the key information you need to see is visible, even when other applications are in the forefront,
 * overlap windows where necessary, they do not have to butt up to each other,
-* trim the chrome on each application to remove unnecessary toolbars, sidebars and status bars to maximize the content view, 
+* trim the chrome on each application to remove unnecessary toolbars, sidebars and status bars to maximize the content view,
 * and save all the windows’ positions and sizes so that you can re-enter this context with everything as you left it
 
 On Windows, try the corner snapping feature, on a Mac look to saving layouts with [Moom](http://manytricks.com/moom/).
@@ -180,7 +180,6 @@ Maintain each productive context by
 * Automate the process
 * Use text expansion
 
-Wrap your productive contexts in tools to sync your status, quick launch applications, manage your inbox, maintain your todo lists, and manage your calendar. Set your system up to sync,  backup and manage your files in the background. 
+Wrap your productive contexts in tools to sync your status, quick launch applications, manage your inbox, maintain your todo lists, and manage your calendar. Set your system up to sync,  backup and manage your files in the background.
 
 Make the computer work for you the way you like it, let it free you up to focus on your current context and bring forth goods and services quickly, efficiently, productively and happily.
-

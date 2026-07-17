@@ -1,6 +1,6 @@
 ---
 title: "Explaining the Internet to Old Powerbrokers"
-date: 2012-04-09 11:39:00-0400
+date: 2012-04-09T11:39:00-04:00
 
 ---
 
@@ -11,15 +11,15 @@ In short, he explains the importance of the internet to a bunch of old, pre-inte
 Some gems:
 
 > My theme that day was that the world is currently run by a generation whose upbringing has left them intellectually unable to be deal with modernity.
-> 
+>
 > ...
-> 
+>
 > You’re all the same age, and upbringing, as the people that the digital generations are so upset with.
-> 
+>
 > ...
-> 
+>
 > We can bitch about it, but Facebook, Twitter, Google and all the rest are, in many ways the very definition of modern life in the democratic west. For many, a functioning internet with freedom of speech, and a good connection to the social networks of our choice is a sign not just of modernity, but of civilization itself.
-> 
+>
 > ...
-> 
+>
 > What’s worse, is that the phrase “security precautions” has become a synonym for “pointless annoying thing to do because politicians are either stupid or oppressive”.

@@ -1,6 +1,6 @@
 ---
 title: "My first computer - Sinclair ZX81"
-date: 2012-08-01 14:24:00-0400
+date: 2012-08-01T14:24:00-04:00
 tags: [Computers]
 ---
 

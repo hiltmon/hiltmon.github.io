@@ -1,6 +1,6 @@
 ---
 title: "Setting up BBEdit for Markdown"
-date: 2012-08-03 11:50:00-0400
+date: 2012-08-03T11:50:00-04:00
 tags: [Text Editors, Productivity]
 ---
 

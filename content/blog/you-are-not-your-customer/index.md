@@ -1,6 +1,6 @@
 ---
 title: "You are not your Customer"
-date: 2011-11-24 12:41:00-0400
+date: 2011-11-24T12:41:00-04:00
 
 ---
 

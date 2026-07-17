@@ -1,6 +1,6 @@
 ---
 title: "Surface Disk Free Space"
-date: 2012-11-05 15:56:00-0400
+date: 2012-11-05T15:56:00-04:00
 tags: [ Microsoft ]
 ---
 

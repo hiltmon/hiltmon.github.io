@@ -1,6 +1,6 @@
 ---
 title: "De Fault with Default"
-date: 2012-12-11 17:03:00-0400
+date: 2012-12-11T17:03:00-04:00
 
 ---
 
@@ -14,4 +14,4 @@ The word **default** has many meanings:
 
 Just a quick reminder to ensure you use the right terms in the right context for the right audience.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

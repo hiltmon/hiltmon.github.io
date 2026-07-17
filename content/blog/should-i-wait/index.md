@@ -1,6 +1,6 @@
 ---
 title: "Should I wait?"
-date: 2011-11-25 15:24:00-0400
+date: 2011-11-25T15:24:00-04:00
 
 ---
 
@@ -9,7 +9,7 @@ As a technologist, I am often asked by friends and family whether they should bu
 I always have the same answer:
 
 > If you need it, buy it now.
- 
+
  <!--more-->
 
 By asking me if you *should* buy the gizmo, you have already identified a *need* for it.  The purchase decision is already made.  You old gizmo is broken, or too slow, or cannot do the things the new gizmo does, so you have already chosen to purchase a new gizmo.

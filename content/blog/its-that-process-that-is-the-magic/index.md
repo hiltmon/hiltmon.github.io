@@ -1,12 +1,12 @@
 ---
 title: "It's that process that is the magic"
-date: 2014-03-29 10:04:40 -0400
+date: 2014-03-29T10:04:40-04:00
 
 ---
 
 > <strong>CRINGLY: What's important to you in the development of a product?</strong>
 
-> <strong>JOBS:</strong> One of the things that really hurt Apple was after I left, John Sculley got a very serious disease. 
+> <strong>JOBS:</strong> One of the things that really hurt Apple was after I left, John Sculley got a very serious disease.
 
 > It's the disease -- I've seen other people get it too -- it's the disease of thinking that a really great idea is 90% of the work.
 
@@ -30,4 +30,4 @@ date: 2014-03-29 10:04:40 -0400
 
 100% true then. 19 years later, still 100% true. Copied here so I never forget it.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

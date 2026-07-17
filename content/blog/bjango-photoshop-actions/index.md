@@ -1,6 +1,6 @@
 ---
 title: "Bjango's Photoshop Actions"
-date: 2013-03-25 16:59:00-0400
+date: 2013-03-25T16:59:00-04:00
 tags: [ Tips and Tricks ]
 ---
 
@@ -18,4 +18,4 @@ Of course, I don't use the slice tools as I use proper Photoshop folder and item
 
 These actions are free, well maintained and can be downloaded from [iOS and Android Photoshop Actions & Workflows](http://bjango.com/articles/actions/). Installation instructions are included in the download.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "Fix the Mac Function Keys with Palua"
-date: 2013-05-01 13:04:00-0400
+date: 2013-05-01T13:04:00-04:00
 tags: [ Productivity, Reviews ]
 ---
 
@@ -28,7 +28,6 @@ Available on the [App Store][linksynergy] for 99c (US) as of writing.
 
 *Follow the author as [@hiltmon][twitter] on Twitter and [@hiltmon][app] on App.Net. Mute `#xpost` on one.*
 
-[app]: http://alpha.app.net/hiltmon
 [indev]: http://www.indev.ca/MailActOn.html
 [linksynergy]: https://itunes.apple.com/us/app/palua/id431494195?mt=12&uo=4&at=10l894
 [macbartender]: http://www.macbartender.com

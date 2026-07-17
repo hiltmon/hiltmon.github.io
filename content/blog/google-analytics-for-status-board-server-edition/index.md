@@ -1,6 +1,6 @@
 ---
 title: "Google Analytics for Status Board Server Edition"
-date: 2013-05-30 16:59:00-0400
+date: 2013-05-30T16:59:00-04:00
 tags: [ Status Board ]
 ---
 
@@ -51,4 +51,4 @@ Why choose these technologies?
 
 If you'd prefer a more modern and robust approach, stick to the previous Ruby and Dropbox workflow at [Google Analytics for Status Board](https://hiltmon.com/blog/2013/04/10/google-analytics-for-status-board/).
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

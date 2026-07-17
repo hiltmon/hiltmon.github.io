@@ -1,6 +1,6 @@
 ---
 title: "My iPhone Home Screen"
-date: 2012-04-26 09:22:00-0400
+date: 2012-04-26T09:22:00-04:00
 tags: [iPhone]
 ---
 
@@ -10,7 +10,7 @@ They are all doing it, so it must be cool.
 
 My home screen on the iPhone is factory original. All the applications are exactly in the same place that Apple put them when the iPhone was first set up. Much cooler. Why? Two reasons.
 
-**So that others can use my phone.** 
+**So that others can use my phone.**
 
 My phone gets passed around all the time like a two-bit hooker. I am always giving it to people so they can read a tweet, look at a photo, interact with an app, play a game, or make a phone call.
 

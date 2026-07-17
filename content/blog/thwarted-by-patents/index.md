@@ -1,6 +1,6 @@
 ---
 title: "Thwarted by Patents"
-date: 2012-08-25 11:33:00-0400
+date: 2012-08-25T11:33:00-04:00
 tags: [ Patents ]
 ---
 
@@ -29,4 +29,3 @@ Used to be that a patent required an invention, an physical implementation of th
 Thwarted.
 
 And oh, yes, I'll be on vacation the next four weeks.
-

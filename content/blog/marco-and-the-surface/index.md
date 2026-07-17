@@ -1,6 +1,6 @@
 ---
 title: "Marco and the Surface"
-date: 2012-10-27 11:39:00-0400
+date: 2012-10-27T11:39:00-04:00
 
 ---
 
@@ -9,4 +9,3 @@ Marco Arment, of [Instapaper](http://instapaper.com) and The Magazine fame, went
 I’m sad to say but I think I may have to agree with his conclusion:
 
 > But it’s not for me at all. Not even for testing, experimenting, or curiosity. It feels too much like using a Windows PC, which was exactly Microsoft’s intention, and it will appeal to people who want that. But that’s a world I fled 8 years ago with no intention of returning.
-

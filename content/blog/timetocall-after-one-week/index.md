@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - After One Week"
-date: 2013-02-14 07:56:00-0400
+date: 2013-02-14T07:56:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -61,5 +61,4 @@ Thank You. **Guess what I did with the profits.**
 
 *For those of you wonderfully anal readers who added up the numbers in the data table above and came out 1 penny short, remember, not all sales are in US dollars, so there is some rounding going on.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

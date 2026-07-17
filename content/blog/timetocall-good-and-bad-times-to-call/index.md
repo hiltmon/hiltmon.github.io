@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - Good and Bad Times to Call"
-date: 2013-02-02 11:38:00-0400
+date: 2013-02-02T11:38:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -18,7 +18,7 @@ But when is ‘good’ and ‘bad’, and how to display it intuitively? These w
 
 I started by trying to determine ‘good’ times to call people. At first blush, standard working hours (9AM - 5PM) seem to be very ‘good’ times to call. But this window of time is too narrow, it’s only 8 hours out of 24. As a result, it’s not possible to overlap working hours with a location more than 8 hours away. I tried to expand this window by a few hours each way, but it remained too narrow.
 
-So I went in the opposite direction, I tried to determine when is a ‘bad’ time to call? For me, it is when people are sleeping, say 10PM to 6AM. But that too is still an 8-hour window, and you still cannot to find overlaps with locations on the opposite side of the world. 
+So I went in the opposite direction, I tried to determine when is a ‘bad’ time to call? For me, it is when people are sleeping, say 10PM to 6AM. But that too is still an 8-hour window, and you still cannot to find overlaps with locations on the opposite side of the world.
 
 So I compromised. I chose 12AM (midnight) to 6AM as the ‘bad’ time. I believe people will generally not mind staying up late for a call, but hate to have their [REM sleep](http://en.wikipedia.org/wiki/Rapid_eye_movement_sleep) interrupted, or have to wake up too early for a call. And I’m old enough to still believe that the 12AM to 6AM calls are the scariest, because those are usually bad news calls.
 
@@ -58,9 +58,9 @@ So, the design to help users to get a feel for when is a ‘good’ *Time to Cal
 **Next:** [Part 6: Sweating the Details](https://hiltmon.com/blog/2013/02/03/timetocall-sweating-the-details/).
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

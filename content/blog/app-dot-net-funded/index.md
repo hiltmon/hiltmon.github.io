@@ -1,6 +1,6 @@
 ---
 title: "App.Net Funded"
-date: 2012-08-13 12:56:00-0400
+date: 2012-08-13T12:56:00-04:00
 tags: [Social]
 ---
 
@@ -11,5 +11,3 @@ Today, [App.Net](https://join.app.net) got funded. Not many of us expected that 
 * **It’s a platform**: The real plan for App.Net is to provide a real-time platform for inter-process communications across the web, with tweets being the first cab off the rank. Twitter is all about mass and messages, not as a common carrier.
 
 If you want to reserve your twitter handle, better back App.Net today before funding closes at [join.app.net](http://join.app.net).
-
-You can find me on Twitter at [@hiltmon](https://twitter.com/hiltmon) and App.Net at [@hiltmon](https://alpha.app.net/hiltmon).

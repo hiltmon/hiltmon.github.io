@@ -1,6 +1,6 @@
 ---
 title: "New iOS6 Cached Maps"
-date: 2012-09-24 16:37:00-0400
+date: 2012-09-24T16:37:00-04:00
 tags: [ iPhone ]
 ---
 

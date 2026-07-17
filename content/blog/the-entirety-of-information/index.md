@@ -1,11 +1,11 @@
 ---
 title: "The Entirety Of Information"
-date: 2013-01-07 12:26:00-0400
+date: 2013-01-07T12:26:00-04:00
 
 ---
 
 > I possess a device in my pocket that is capable of accessing the entirety of information known to man.
-> 
+>
 > I use it to look at pictures of cats and get in arguments with strangers.
 
 In answer to:

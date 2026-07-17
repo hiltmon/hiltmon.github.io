@@ -1,6 +1,6 @@
 ---
 title: "iPhone is 5 today"
-date: 2012-06-29 19:18:00-0400
+date: 2012-06-29T19:18:00-04:00
 tags: [iPhone]
 ---
 
@@ -10,7 +10,7 @@ Five years ago, the first iPhone went on sale. My, have mobile phones changed si
 
 {{< figure src="images/pre-iphone-phones.png" width=640 height=480 >}}
 
-When I first came to the USA, the only phones I could get were pay-as-you-go bricks. After some time, I finally became eligible for a contract phone. 
+When I first came to the USA, the only phones I could get were pay-as-you-go bricks. After some time, I finally became eligible for a contract phone.
 
 My first was the Verizon V710 flip phone (first left). It was sold as the first phone to allow bluetooth sync between the phone and your computer, so I got that one. Then Verizon disabled the bluetooth, lost a class action lawsuit, settled and never fixed it.
 

@@ -1,6 +1,6 @@
 ---
 title: "TextExpander in Terminal"
-date: 2012-07-15 10:21:00-0400
+date: 2012-07-15T10:21:00-04:00
 tags: [Productivity]
 ---
 
@@ -114,7 +114,7 @@ Launching an editor, then opening a recent folder or file takes too much effort 
 
 * `;md` -> `mate .` *(Opens the current folder in TextMate 2)*
 * `;sd` -> `subl -n .` *(Opens the current folder in Sublime Text)*
-* `'bd` -> `bbedit .` *(Opens the current folder in BBEdit)* 
+* `'bd` -> `bbedit .` *(Opens the current folder in BBEdit)*
 
 ## Looking for more ideas
 

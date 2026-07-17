@@ -1,6 +1,6 @@
 ---
 title: "The definition of open"
-date: 2011-12-30 18:33:00-0400
+date: 2011-12-30T18:33:00-04:00
 
 ---
 

@@ -1,17 +1,17 @@
 ---
 title: "Where the light is better"
-date: 2012-01-26 10:30:00-0400
+date: 2012-01-26T10:30:00-04:00
 tags: [ Business ]
 ---
 
 > A woman comes across a man crawling under a street lamp. "I've lost my car keys," he explains.
-> 
+>
 > The woman tries to help the man find his keys. After a few minutes of searching, she asks "Where exactly did you drop them?"
-> 
+>
 > "Down the street, next to my car."
-> 
+>
 > Puzzled, she asks "Then why aren't you looking over there?"
-> 
+>
 > "The light is better here."
 
 People often look where it seems easiest or most convenient to look, rather than in a more difficult, but more correct place. Opinions regarding where the best place to look often comes down to "Where The Light Is Better".
@@ -24,7 +24,7 @@ People often look where it seems easiest or most convenient to look, rather than
 * Architects try to gather existing knowledge informally, through conversations, online forums, and wikis, rather than reading papers and books. *More convenient to ask than to learn, see the success of StackExchange.*
 * Consultants try to gather information on industry practices through reading academic papers, rather than examining real-world work and case-studies. *Hoping someone else saw and solved the problem first.*
 
-Having alternate places to find and gain knowledge is a good thing. But you need to make sure that the alternate location is referring to the same knowledge. And that you truly understand the problem and solution space. Searching where the light is better does not necessarily mean you are searching where the keys are, where the solution exists. 
+Having alternate places to find and gain knowledge is a good thing. But you need to make sure that the alternate location is referring to the same knowledge. And that you truly understand the problem and solution space. Searching where the light is better does not necessarily mean you are searching where the keys are, where the solution exists.
 
 Expedient is not necessarily efficient.
 

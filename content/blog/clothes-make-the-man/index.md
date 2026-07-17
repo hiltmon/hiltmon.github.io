@@ -1,13 +1,13 @@
 ---
 title: "Clothes make the Man"
-date: 2013-01-30 21:11:00-0400
+date: 2013-01-30T21:11:00-04:00
 ---
 
 We all know the old English proverb, “**Clothes don't make the man**", declaring that we should not judge a person by their appearance.
 
 *Yet we do continue to judge people, just these days it's by their devices.*
 
-That person is a Apple fanboy with their walled garden white earbud iPhone and shiny MacBook Air. That person is an open-source neck-beard with their incomprehensible 1976 vintage text editor running on a cheap ChromeBook. That person is a fuddy-duddy corporate-drone Windows user dodging updates and viruses and popups while using PowerPoint for everything. And over there is the rare and exotic Blackberry holdout, spinning their nipple and clicking hopelessly on a thumb sized keyboard. 
+That person is a Apple fanboy with their walled garden white earbud iPhone and shiny MacBook Air. That person is an open-source neck-beard with their incomprehensible 1976 vintage text editor running on a cheap ChromeBook. That person is a fuddy-duddy corporate-drone Windows user dodging updates and viruses and popups while using PowerPoint for everything. And over there is the rare and exotic Blackberry holdout, spinning their nipple and clicking hopelessly on a thumb sized keyboard.
 
 *The reality is that we're all wrong to judge. Each of the above common misperceptions is so badly wrong.*
 
@@ -19,4 +19,4 @@ Maybe **Mark Twain** said it best:
 
 We should go back to judging people by clothes, because devices tell us nothing.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

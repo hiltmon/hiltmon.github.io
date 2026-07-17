@@ -1,10 +1,10 @@
 ---
 title: "Project Specific Data"
-date: 2012-05-27 12:39:00-0400
+date: 2012-05-27T12:39:00-04:00
 tags: [Productivity]
 ---
 
-One of my personal workflow bugbears has always been managing project specific data. Data like project specific contacts (who to call for what for a given project); IP's, logins and passwords (for servers, VPN's, specific applications, client LAN's); and account information (hosting, third party vendors and project specific subscriptions). 
+One of my personal workflow bugbears has always been managing project specific data. Data like project specific contacts (who to call for what for a given project); IP's, logins and passwords (for servers, VPN's, specific applications, client LAN's); and account information (hosting, third party vendors and project specific subscriptions).
 
 I have finally nailed a way to do this that works just great for me and my markdown flow (See [The Markdown Mindset](https://hiltmon.com/blog/2012/02/20/the-markdown-mindset/)). I create project specific wikis using [VoodooPad 5](http://flyingmeat.com/voodoopad/) from [Flying Meat Inc](http://flyingmeat.com/) written by the great Gus Mueller (Blog: [The Shape of Everything](http://shapeof.com/), Twitter: [@ccgus](http://twitter.com/#!/ccgus)).
 

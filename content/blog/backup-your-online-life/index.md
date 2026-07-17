@@ -1,14 +1,14 @@
 ---
 title: "Backup Your Online Life"
-date: 2013-03-14 14:15:00-0400
+date: 2013-03-14T14:15:00-04:00
 tags: [ Slogger ]
 ---
 
-The big tech news today is that Google is shutting down its Reader RSS Sync service, and my Twitter and App.Net feeds are full of people upset about it. 
+The big tech news today is that Google is shutting down its Reader RSS Sync service, and my Twitter and App.Net feeds are full of people upset about it.
 
 *I'm not* because I planned for it. *Free web service shutdowns have happened before and free web service shutdowns will happen again* <span class="light">(with apologies to Pythia)</span>. So I regularly backup my online life. <span class="light">(Links to do so are below.)</span>
 
-By now, we've all been on the Internet long enough to know that *everything* changes, frequently. We all moved from: 
+By now, we've all been on the Internet long enough to know that *everything* changes, frequently. We all moved from:
 
 * [MySpace](http://en.wikipedia.org/wiki/Myspace) → [Facebook](http://www.facebook.com).
 * [AIM](http://en.wikipedia.org/wiki/AOL_Instant_Messenger) → [MSN Messenger](http://en.wikipedia.org/wiki/Windows_Live_Messenger) → [Google Talk](http://www.google.com/talk/) → [iMessage](https://www.apple.com/ios/messages/).
@@ -30,7 +30,7 @@ I am not saying Gmail or Twitter is going to go away tomorrow, but these are fre
 
 **You've been told to backup you computer, you should also backup your online life.**
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 ## The Geeky Part
 

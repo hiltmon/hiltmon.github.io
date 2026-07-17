@@ -1,15 +1,15 @@
 ---
 title: "Better?"
-date: 2013-03-02 12:27:00-0400
+date: 2013-03-02T12:27:00-04:00
 ---
 
-We all seem to spend a lot of time looking for better things, writing about them and arguing that our choices are better than others' choices of things. These jeans are better than those jeans, this laptop is better that that laptop, this app is better than that app, this coffee is better than that one. 
+We all seem to spend a lot of time looking for better things, writing about them and arguing that our choices are better than others' choices of things. These jeans are better than those jeans, this laptop is better that that laptop, this app is better than that app, this coffee is better than that one.
 
 **We're all wrong**, what is better for one is not better for all, because we all have different utility functions. We do not need to stop looking and discussing better, the discussion often does help find it, but we need to understand that that what we think is better may not even be on the care-radar of others.
 
 ## The Theory
 
-> In economics, utility is a representation of preferences over some set of goods and services.  
+> In economics, utility is a representation of preferences over some set of goods and services.
 > [Wikipedia](http://en.wikipedia.org/wiki/Utility)
 
 In economic terms, individuals act to find and acquire that set of goods and services that maximizes their satisfaction. The perfect set differs from person to person because the things they derive satisfaction from varies, based on what they care about. Utility functions can be compared by how much real money a person is prepared to spend to achieve that satisfaction.
@@ -18,7 +18,7 @@ Which means that anytime someone tells you something is *better*, all they are d
 
 ## Real Life Examples
 
-I happily spend over $3000 every few years on a laptop computer. *Nope, not crazy.* I buy the best 15" laptop on the market and maximize its CPU, memory and disk. I do this because I care about the amount of time I spend in front of a computer (all day, every day), the productivity I get from it and the long usable life of the device. Top of the line 15" laptops satisfy *my* utility function. 
+I happily spend over $3000 every few years on a laptop computer. *Nope, not crazy.* I buy the best 15" laptop on the market and maximize its CPU, memory and disk. I do this because I care about the amount of time I spend in front of a computer (all day, every day), the productivity I get from it and the long usable life of the device. Top of the line 15" laptops satisfy *my* utility function.
 
 I'll bet they do *not* satisfy yours. Most people purchase sub-$1000 laptops with the MacBook Airs at the top end for people who's utility functions include cool, sleek and very light; and cheap Best Buy crapware filled boxes for those who just need a bloody computer and don't care which one they get. Those horrible computers suit their utility functions because they do not care about computers. Nor should they.
 
@@ -36,8 +36,8 @@ And then there is coffee. Under my utility function, the [Aussie Flat White](htt
 
 My point is this, is a $200 pair of jeans better that an $30 pair of jeans? If you care about quality, your appearance and fashion, sure; if you care about merely having pants to wear, then no, it's not better. Is a $3000 top-of-the-line laptop better than a $500 netbook? If you care about productivity and performance, then yes; if you just need to look at Facebook pages, then no.
 
-I'm still going to use this blog to showcase tools and processes that I care about and seek satisfaction from. And I'm going to argue that the tools and processes I use are *better*, and why I think it is so. But all I am really doing is showcasing the preferred set of goods and services that fit my utility function. 
+I'm still going to use this blog to showcase tools and processes that I care about and seek satisfaction from. And I'm going to argue that the tools and processes I use are *better*, and why I think it is so. But all I am really doing is showcasing the preferred set of goods and services that fit my utility function.
 
 They are *better* for me and me alone.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

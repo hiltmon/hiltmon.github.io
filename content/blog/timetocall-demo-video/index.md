@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall Demo Video"
-date: 2013-03-05 15:32:00-0400
+date: 2013-03-05T15:32:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -21,4 +21,4 @@ I'd love to hear what you think of my demo video.
 
 [TimeToCall](https://hiltmon.com/timetocall/) is available on the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for just 99c (USA). *Buying it supports this site.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

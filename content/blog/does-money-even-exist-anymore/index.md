@@ -1,6 +1,6 @@
 ---
 title: "Does money even exist anymore?"
-date: 2012-01-06 10:45:00-0400
+date: 2012-01-06T10:45:00-04:00
 
 ---
 

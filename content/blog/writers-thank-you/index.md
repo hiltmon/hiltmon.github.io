@@ -1,13 +1,13 @@
 ---
 layout: writing
 title: "Writers: Thank You"
-date: 2013-12-25 12:03:00-0400
+date: 2013-12-25T12:03:00-04:00
 
 ---
 
 I want to say *thank you* to a bunch of writers, to people who do what they do because they love to do it, from an anonymous one that reads and appreciates what they do every day.
 
-They may never see this, but, in no particular order, a huge **thank you** from me to you all. 
+They may never see this, but, in no particular order, a huge **thank you** from me to you all.
 
 ## Tech and Opinions
 
@@ -53,4 +53,4 @@ I hate shopping, but surprised myself this year by finding two recommendation si
 
 <span class="light">Note: I wanted to keep the list short, being part of a long list makes it less special. And I wanted to focus on individuals or small businesses (except for one), doing what they love, not what they are being paid to do.</span>
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

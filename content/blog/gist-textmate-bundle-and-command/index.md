@@ -1,10 +1,10 @@
 ---
 title: "Gist TextMate Bundle and Command Line"
-date: 2013-02-25 15:44:00-0400
+date: 2013-02-25T15:44:00-04:00
 tags: [ TextMate, Productivity ]
 ---
 
-I was having a conversation on Twitter with Shawn Hansen ([@geekles](https://twitter.com/geekles)) this weekend and he mentioned that [Sublime Text 2](http://www.sublimetext.com) has a great plugin for Github Gists, and [TextMate 2](https://github.com/textmate/textmate) was missing this awesomeness. 
+I was having a conversation on Twitter with Shawn Hansen ([@geekles](https://twitter.com/geekles)) this weekend and he mentioned that [Sublime Text 2](http://www.sublimetext.com) has a great plugin for Github Gists, and [TextMate 2](https://github.com/textmate/textmate) was missing this awesomeness.
 
 Not anymore (the Oscars were on).
 
@@ -38,5 +38,4 @@ I would love to hear how you use these, what additional features you'd like to s
 
 Enjoy.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

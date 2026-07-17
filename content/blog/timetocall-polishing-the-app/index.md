@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - Polishing the App"
-date: 2013-02-04 09:34:00-0400
+date: 2013-02-04T09:34:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -60,7 +60,7 @@ To add a new place to a *Time to Call*, using standard behaviors, you would tap 
 
 After polishing, if you tap on `Tap to Add a New Place`, the app focusses on the search bar and has the keyboard up and waiting. Lovely.
 
-But what if you already have a place in that row and want to change it. What should the app do? Well, if it follows the ‘add’ idea above, the app would jump to search, the user would not be able to see which place was being edited, and has to cancel to browse. Not optimal. Instead, it should show the user the current place in the list so they can decide whether to change it or leave as is. 
+But what if you already have a place in that row and want to change it. What should the app do? Well, if it follows the ‘add’ idea above, the app would jump to search, the user would not be able to see which place was being edited, and has to cancel to browse. Not optimal. Instead, it should show the user the current place in the list so they can decide whether to change it or leave as is.
 
 *That is what users expect, so that’s what it does*.
 
@@ -69,9 +69,9 @@ And that is why we spend the time and effort to polish.
 **Next:** [Part 8: The MacGuffin](https://hiltmon.com/blog/2013/02/05/timetocall-the-macguffin/).
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

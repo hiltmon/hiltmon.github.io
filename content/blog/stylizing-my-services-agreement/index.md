@@ -1,6 +1,6 @@
 ---
 title: "Stylizing my Services Agreement"
-date: 2012-05-22 14:31:00-0400
+date: 2012-05-22T14:31:00-04:00
 tags: [Business]
 ---
 

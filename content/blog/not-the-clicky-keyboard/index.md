@@ -1,6 +1,6 @@
 ---
 title: "Not the Clicky Keyboard"
-date: 2013-09-05 20:32:00-0400
+date: 2013-09-05T20:32:00-04:00
 
 ---
 
@@ -42,4 +42,4 @@ So go on using your big, heavy, reliable, great-feeling, seriously productive me
 
 I'll stay with perfectly matched "not the clicky keyboard" for now.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

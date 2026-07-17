@@ -1,6 +1,6 @@
 ---
 title: "Sharing nvAlt Notes with Ulysses III"
-date: 2013-04-05 10:49:00-0400
+date: 2013-04-05T10:49:00-04:00
 tags: [ Tips and Tricks, Text Editors ]
 ---
 
@@ -26,9 +26,8 @@ More Tips:
 
 More on [Ulysses III][linksynergy] will follow as I continue to test out the product.
 
-*Follow the author as [@hiltmon][twitter] on Twitter and [@hiltmon][app] on App.Net. Mute `#xpost` on one.*
+*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.
 
-[app]: http://alpha.app.net/hiltmon
 [brettterpstra]: http://brettterpstra.com/projects/nvalt/
 [dropbox]: https://www.dropbox.com
 [hiltmon]: https://hiltmon.com/blog/2012/04/15/text-notes-going-electronic/

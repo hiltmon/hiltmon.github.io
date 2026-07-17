@@ -1,6 +1,6 @@
 ---
 title: "On Removing Comments"
-date: 2018-06-17 09:58:09 -0400
+date: 2018-06-17T09:58:09-04:00
 
 ---
 
@@ -13,4 +13,3 @@ I have deleted my Disqus account and regenerated this site. *I have no backup no
 I'm not 100% privacy clean, yet. *Hiltmon.com* still uses Google Analytics for site analytics, and now that Carbon has been sold to BuySellAds, I may, very soon, be removing the ad as well.
 
 *Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*
-

@@ -1,6 +1,6 @@
 ---
 title: "Bye bye Skitch, Hello LittleSnapper"
-date: 2012-09-27 15:29:00-0400
+date: 2012-09-27T15:29:00-04:00
 tags: [Productivity, Reviews]
 ---
 

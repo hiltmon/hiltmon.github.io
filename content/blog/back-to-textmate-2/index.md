@@ -1,6 +1,6 @@
 ---
 title: "Back to TextMate 2"
-date: 2013-01-14 22:01:00-0400
+date: 2013-01-14T22:01:00-04:00
 tags: [ Text Editors, TextMate ]
 ---
 
@@ -16,7 +16,7 @@ But the more I used it, the more I got annoyed with it. Sublime Text 2’s great
 
 In the mean time, the alpha of [TextMate 2](https://github.com/textmate/textmate), to my big and pleasant surprise,  got more and more reliable. Bugs got squashed, new features added, progress made. The bugs, stability and broken features that triggered my search for a new programmer’s editor were mostly fixed. And updates started flowing in again. It’s still not even beta, or fully featured, or polished. Then again, when I started with TextMate 1, it was in the same state. And it just kept on getting better.
 
-In December, I found that I was using `mate .` more often than `subl -n .` to open the Rails folder. I started using `rmate` to edit files on the Linux servers over ssh. I got used to the new quirks of TextMate 2 very quickly (e.g. no file/new from the file browser, you have to do new/tab instead - what?), and found the old keys and expansions were still to my liking, and better than the other editors’ ones. And the new grammars, better undo and ‘smarts’ are delightful. The next thing I know, I’m using it as my primary editor for Rails and scripts again. 
+In December, I found that I was using `mate .` more often than `subl -n .` to open the Rails folder. I started using `rmate` to edit files on the Linux servers over ssh. I got used to the new quirks of TextMate 2 very quickly (e.g. no file/new from the file browser, you have to do new/tab instead - what?), and found the old keys and expansions were still to my liking, and better than the other editors’ ones. And the new grammars, better undo and ‘smarts’ are delightful. The next thing I know, I’m using it as my primary editor for Rails and scripts again.
 
 I do miss the multiple themes and multiple panes from Sublime Text 2 (coming in TM2). And I remain a Sublime Text 2 user on all non-Mac platforms, ST2 is still the best out there. I expect to continue to enhance that setup over the next few months.
 
@@ -26,4 +26,4 @@ And to confirm it to myself, today I reset all my code file associations back to
 
 See also [My TextMate 2 Setup](https://hiltmon.com/blog/2013/04/15/my-textmate-2-setup/) and [TextMate 2 Basics](https://hiltmon.com/blog/2013/11/09/textmate-2-basics/).
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "Email before the Open Web"
-date: 2013-04-30 09:09:00-0400
+date: 2013-04-30T09:09:00-04:00
 tags: [ Writing, Email ]
 ---
 
@@ -39,7 +39,7 @@ But the day after there was a message. It had come back through this ad-hoc netw
 
 [Donald Knuth][6] himself had replied to my Professor's first emailed question.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [1]:	http://info.cern.ch
 [2]:	http://www.uct.ac.za

@@ -1,10 +1,9 @@
 ---
 title: "Shuttle on the Hudson"
-date: 2012-06-06 20:04:00-0400
+date: 2012-06-06T20:04:00-04:00
 
 ---
 
 So this happened when I looked out the window today.
 
 {{< figure src="images/shuttle-on-barge.png" width=640 height=428 >}}
-

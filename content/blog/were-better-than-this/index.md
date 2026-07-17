@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "We're better than this"
-date: 2015-11-25 09:46:47 -0500
+date: 2015-11-25T09:46:47-05:00
 
 ---
 
@@ -25,7 +25,7 @@ date: 2015-11-25 09:46:47 -0500
 
 **We can and should unfollow, muffle, mute or block. We can shut them down together, as only a community can. Then ignore them.**
 
-Lets get back to being who we are, to the real discussion, to sharing our interests, to discussing tech topics, and to making Twitter enjoyable again. 
+Lets get back to being who we are, to the real discussion, to sharing our interests, to discussing tech topics, and to making Twitter enjoyable again.
 
 **Lets tweet a *namaste* (🙏🏽) to each other and put this behind us.**
 

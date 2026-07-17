@@ -1,6 +1,6 @@
 ---
 title: "Windows 8 Preview on a Tablet"
-date: 2012-09-27 17:33:00-0400
+date: 2012-09-27T17:33:00-04:00
 tags: [Microsoft, Windows, Tablet, Reviews]
 ---
 

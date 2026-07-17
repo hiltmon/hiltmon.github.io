@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - Sweating the Details"
-date: 2013-02-03 13:07:00-0400
+date: 2013-02-03T13:07:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -8,7 +8,7 @@ tags: [ TimeToCall ]
 
 ## Sweating the Details
 
-Once the core product is written and the design implemented, the next step is always to *sweat the details*, making sure the little things work right, aligning the planets and making the experience that much better.  **User’s don’t, and should not, notice when you have *sweated the details*, but it is glaringly obvious to them when you have *not* done so**. 
+Once the core product is written and the design implemented, the next step is always to *sweat the details*, making sure the little things work right, aligning the planets and making the experience that much better.  **User’s don’t, and should not, notice when you have *sweated the details*, but it is glaringly obvious to them when you have *not* done so**.
 
 *Sweating the details* and *polish* (see a later post) are the activities and time spent that add the essence of quality to an application. It takes time and thought and iteration, but you cannot produce beautiful software experiences without it.
 
@@ -93,9 +93,9 @@ This GPS compromise means that the first-run *Time to Call* is always from New Y
 **Next:** [Part 7: Polishing the App](https://hiltmon.com/blog/2013/02/04/timetocall-polishing-the-app/).
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

@@ -1,6 +1,6 @@
 ---
 title: "User Experience Shmecsperience"
-date: 2013-09-28 14:11:00-0400
+date: 2013-09-28T14:11:00-04:00
 
 ---
 
@@ -36,6 +36,6 @@ That does not mean that it should remain good enough for us. We do care. And eve
 
 They may think "Experience Shmecsperience", we know better. And I am glad we do.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [^1]: **R**ead **T**he **F**erblenzende **M**anual

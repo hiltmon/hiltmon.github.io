@@ -1,6 +1,6 @@
 ---
 title: "The Post-PC future, iCloud turns one"
-date: 2012-10-14 11:20:00-0400
+date: 2012-10-14T11:20:00-04:00
 tags: [ Apple ]
 ---
 

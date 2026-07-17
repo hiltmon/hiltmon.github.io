@@ -1,6 +1,6 @@
 ---
 title: "Joining the SSD Club"
-date: 2012-07-22 09:32:00-0400
+date: 2012-07-22T09:32:00-04:00
 tags: [Computers]
 ---
 

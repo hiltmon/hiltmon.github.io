@@ -1,6 +1,6 @@
 ---
 title: "My Workspace"
-date: 2013-04-28 11:25:00-0400
+date: 2013-04-28T11:25:00-04:00
 tags: [ Computers ]
 ---
 
@@ -30,4 +30,4 @@ This is where I work and spend my days. **What does yours look like and what do 
 
 *Warning: Some links on this page are affiliate links; I get a few pennies if you buy any of these products.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

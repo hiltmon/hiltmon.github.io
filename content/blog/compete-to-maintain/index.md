@@ -1,6 +1,6 @@
 ---
 title: "Compete to maintain, Disrupt to succeed"
-date: 2012-06-22 12:13:00-0400
+date: 2012-06-22T12:13:00-04:00
 tags: [Business]
 ---
 
@@ -29,14 +29,14 @@ Back when Apple announced the first iPod, there were hundreds of portable media 
 The iPhone is the same disruptive business idea. RIMM's Blackberry and Palm's Treo owned the smartphone market, until the iPhone launched and totally disrupted their business. Today, the iPhone barely holds 2 digits in global smartphone market share, yet rakes in more than two thirds of all global profits from smartphones. In response, all smartphones now look like iPhone clones, which means the other manufacturers are *competing*, not trying to disrupt the iPhone juggernaut. And they are all barely breaking even. Or their businesses are failing.
 
 And the iPad redefined the nascent tablet market. It's running hot as it's still being the main disruptor. To date, the competition is still trying to make a *competing* tablet to the iPad, and none have yet tried to *disrupt* it.
- 
-So, last week, Microsoft announced the Surface tablet. It seems nice. But in making the Surface, Microsoft played it safe and chose to *compete*, not *disrupt*. The Microsoft iPad competes with ultra-thin notebooks and full blown PCs with a traditional keyboard and desktop OS, it competes against the Apple iPad, Android tablets, Amazon's Kindles, B&N Nooks and RIMMs playbook with it's phone Metro interface. In choosing to *compete*, Microsoft blew it's chance to create a stand-out tablet device that could challenge the iPad. And it's a little too late. Competing in this highly competitive and highly dynamic space is unsustainable and unprofitable. 
+
+So, last week, Microsoft announced the Surface tablet. It seems nice. But in making the Surface, Microsoft played it safe and chose to *compete*, not *disrupt*. The Microsoft iPad competes with ultra-thin notebooks and full blown PCs with a traditional keyboard and desktop OS, it competes against the Apple iPad, Android tablets, Amazon's Kindles, B&N Nooks and RIMMs playbook with it's phone Metro interface. In choosing to *compete*, Microsoft blew it's chance to create a stand-out tablet device that could challenge the iPad. And it's a little too late. Competing in this highly competitive and highly dynamic space is unsustainable and unprofitable.
 
 I actually think that Microsoft no longer has the talent to disrupt markets. Their XBox team managed to do it, by changing how social gaming works. Their Zune team did not disrupt. Their Windows Phone team may have a pretty Metro interface, but they are *competing* against Android and iOS, not *disrupting*. And their core operating system, enterprise and office businesses are languishing. They missed their chanced to disrupt even after the lessons learned and success of the XBox. Unfortunately the *compete* mindset has taken over.
 
 And next week, the other big player in this space gets it's chance to make a move, at Google IO. There, they will announce a new version of Android. But all that does is keep them *competing* in the smart phone space. It won't disrupt.
 
-But they will also announce their new Android tablet software, and here they have the chance to disrupt the iPad market. How? By using their core assets to create a disruptive tablet product, from hardware to services, soup to nuts as they say. 
+But they will also announce their new Android tablet software, and here they have the chance to disrupt the iPad market. How? By using their core assets to create a disruptive tablet product, from hardware to services, soup to nuts as they say.
 
 Let me put on my Robert X Cringely tinfoil hat and start making wild predictions based on known Google strengths. Google can do hardware, the Nexus phone hardware and Chromebook are both excellent devices. They can do software, the latest version of Android is excellent. They can do services, is there any data or service not available today that does not have a Google moniker - mail, web browsing, documents, collaboration, finance, social networks, media (books, music and movies), photo sharing, and then some. Integrating their own hardware, with their own operating system and their own services creates a compelling tablet, but that only *competes* with the iPad.
 

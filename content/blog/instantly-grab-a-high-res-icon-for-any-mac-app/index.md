@@ -1,6 +1,6 @@
 ---
 title: "Instantly grab a high-res icon for any Mac app"
-date: 2013-05-01 11:28:00-0400
+date: 2013-05-01T11:28:00-04:00
 tags: [ Tips and Tricks ]
 ---
 
@@ -13,5 +13,4 @@ I wanted the same for **Mac** apps. Turns out, it's a one word change to Brett's
 
 **Usual disclaimer: It works for me, should work for you, and no bunnies were harmed.**
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "Someone is coming to eat you"
-date: 2012-06-28 08:49:00-0400
+date: 2012-06-28T08:49:00-04:00
 tags: [Business]
 ---
 

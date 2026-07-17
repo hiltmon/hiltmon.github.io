@@ -1,6 +1,6 @@
 ---
 title: "Apple and Facebook"
-date: 2012-02-22 14:05:00-0400
+date: 2012-02-22T14:05:00-04:00
 tags: [Apple, Social]
 ---
 
@@ -8,7 +8,7 @@ Ben Parr in Cnet's [Apple vs. Facebook: Why users are the losers](http://news.cn
 
 In the article, he postulates that Apple's favorite social media service is Twitter and that Apple just hates Facebook (really?). He then explains there is no integration between Apple and Facebook because of some old Ping issues and some HP rubbish and some unsubstantiated hatred. Then he mentions that there actually is some Facebook integration, but its sandboxed in iPhoto.
 
-The *real* reason there is no integration between Apple and Facebook is because Apple is *not* in the business of *selling out* its customers. In the Twitterverse, the tweet is the product, and integration requires a login and password with *no* other data sharing with Twitter. With Facebook, the *user* is the product, and integration requires Apple to share the user's information with Facebook to make it work. 
+The *real* reason there is no integration between Apple and Facebook is because Apple is *not* in the business of *selling out* its customers. In the Twitterverse, the tweet is the product, and integration requires a login and password with *no* other data sharing with Twitter. With Facebook, the *user* is the product, and integration requires Apple to share the user's information with Facebook to make it work.
 
 *Apple is not prepared to that with Facebook without their user's consent.* So no general Facebook integration.
 

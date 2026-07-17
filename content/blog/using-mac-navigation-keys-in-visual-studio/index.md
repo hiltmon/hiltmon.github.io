@@ -1,6 +1,6 @@
 ---
 title: "Using Mac Navigation Keys in Visual Studio"
-date: 2013-10-10 12:32:00-0400
+date: 2013-10-10T12:32:00-04:00
 
 ---
 
@@ -66,4 +66,4 @@ I have only just started using this solution, but already its 100% easier for me
 
 Back to coding in Visual Studio on a Mac!
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

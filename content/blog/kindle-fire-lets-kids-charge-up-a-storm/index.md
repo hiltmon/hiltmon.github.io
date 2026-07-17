@@ -1,6 +1,6 @@
 ---
 title: "Kindle Fire lets kids charge up a storm"
-date: 2011-12-07 08:44:00-0400
+date: 2011-12-07T08:44:00-04:00
 
 ---
 

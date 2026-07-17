@@ -1,6 +1,6 @@
 ---
 title: "CodeRunner 2"
-date: 2014-12-11 21:35:50 -0500
+date: 2014-12-11T21:35:50-05:00
 
 ---
 
@@ -16,6 +16,6 @@ Instead, I jump over to [CodeRunner](https://coderunnerapp.com), select my langu
 
 [CodeRunner 2](https://coderunnerapp.com) is no longer available in the App Store, I'm guessing sandbox restrictions. [CodeRunner 2](https://coderunnerapp.com) comes with a bunch of new features including Code Completion, themes, multi-file support and Yosemite support. It's a paltry $9.99 as of writing (or free for those who purchased CodeRunner on the App Store).
 
-Highly recommended. 
+Highly recommended.
 
 *Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*

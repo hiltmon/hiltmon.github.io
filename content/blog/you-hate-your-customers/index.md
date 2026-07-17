@@ -1,6 +1,6 @@
 ---
 title: "If your site does ..., you hate your Customers"
-date: 2011-11-27 11:01:00-0400
+date: 2011-11-27T11:01:00-04:00
 
 ---
 

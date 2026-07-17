@@ -1,6 +1,6 @@
 ---
 title: "iPad 4G Misleading"
-date: 2012-03-27 10:08:00-0400
+date: 2012-03-27T10:08:00-04:00
 tags: [ iPad ]
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: "My Blog Writing Workflow"
-date: 2012-03-15 14:52:00-0400
+date: 2012-03-15T14:52:00-04:00
 tags: [Markdown, Productivity, Octopress]
 ---
 
 With the release of [Byword for iOS](http://itunes.apple.com/us/app/byword/id482063361?mt=8) (iTunes app store link), my blog writing workflow has come full circle.
 
-All posts start as ideas and notes jotted down in [nvAlt](http://brettterpstra.com/project/nvalt/), Brett Terpstra's fork of [Notational Velocity](http://notational.net/). I like this product because the *search* and *use* of notes is fully integrated, and it supports markdown.  I have set it up so that all notes are stored as markdown files in a [Dropbox](http://www.dropbox.com) folder and [Byword](http://bywordapp.com/) has been set up as the external editor.
+All posts start as ideas and notes jotted down in [nvAlt](https://brettterpstra.com/project/nvalt/), Brett Terpstra's fork of [Notational Velocity](http://notational.net/). I like this product because the *search* and *use* of notes is fully integrated, and it supports markdown.  I have set it up so that all notes are stored as markdown files in a [Dropbox](http://www.dropbox.com) folder and [Byword](http://bywordapp.com/) has been set up as the external editor.
 
 This has allowed me to have full access to my notes on the iPad using [Elements](http://www.secondgearsoftware.com/elements/), by pointing it to the same Dropbox folder as nvAlt.
 
@@ -14,7 +14,7 @@ Following a similar process to [Merlin Mann](http://macpowerusers.com/2011/03/mp
 
 The main benefit of this flow is that I can be on the Mac or iPad anywhere, anytime, and either capture a new idea, or work on fleshing out a topic in progress, Mac or iPad. Dropbox takes care of keeping it all in sync.
 
-When the idea is fleshed out, or I just have the time, I write the post using [Byword](http://bywordapp.com/) on the Mac. Since this blog is an [Octopress](http://octopress.org/) blog, all I need to do is run a rake command to kick off the process:
+When the idea is fleshed out, or I just have the time, I write the post using [Byword](http://bywordapp.com/) on the Mac. Since this blog is an [Octopress](https://github.com/octopress/octopress) blog, all I need to do is run a rake command to kick off the process:
 
 ```
 rake new_post["My Blog Writing Workflow"]

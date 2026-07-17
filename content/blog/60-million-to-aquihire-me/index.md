@@ -1,6 +1,6 @@
 ---
 title: "$60 million to aquihire me"
-date: 2013-03-28 11:55:00-0400
+date: 2013-03-28T11:55:00-04:00
 tags: [ News ]
 ---
 
@@ -16,13 +16,13 @@ This has to be the most *puzzling* deal ever!
 
 So here is my *brilliant* offer:
 
-> You can aquihire me for $60 million.  
+> You can aquihire me for $60 million.
 > **Hilton Lipschitz** https://hiltmon.com
 
 And for that ridiculously **cheap** bargain-basement price, I'll give you a better deal with better terms:
 
 * You get a guy, that's me, whose been programming longer than Nick's been alive! I know stuff and get stuff done!  <span class="light">You get the founder.</span>
-* There's no product to shut down ([Kifu](http://www.kifuapp.com) is a separate company), so you don't get any disgruntled users or bad press in this deal.  <span class="light">You get all my other products and no bad press.</span>
+* There's no product to shut down (Kifu is a separate company), so you don't get any disgruntled users or bad press in this deal.  <span class="light">You get all my other products and no bad press.</span>
 * I have no IP that's licensed from anyone else, I can and have made my own, so no strings attached.  <span class="light">You get all the tech.</span>
 * I'll stick around, for years if you like. I won't just hang around the cafeteria for 18 months eating hamburgers and then bug out finish school or start university (Been there, done that!). I'll focus on making your products *awesomer*!  <span class="light">I'll actually do something for you.</span>
 
@@ -30,4 +30,4 @@ And for that ridiculously **cheap** bargain-basement price, I'll give you a bett
 
 I cannot imagine anyone **not** taking this *amazing* cut-price deal up.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

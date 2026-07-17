@@ -1,6 +1,6 @@
 ---
 title: "Is it time to change tools?"
-date: 2013-05-16 18:15:00-0400
+date: 2013-05-16T18:15:00-04:00
 tags: [ Tools ]
 ---
 
@@ -8,7 +8,7 @@ tags: [ Tools ]
 
 > **Winston Churchill**
 
-Every once in a while I wonder if my programming tools, languages and platforms need to be changed. Maybe, just maybe, the software mix I use every day needs to be shaken up. 
+Every once in a while I wonder if my programming tools, languages and platforms need to be changed. Maybe, just maybe, the software mix I use every day needs to be shaken up.
 
 <span class="light">And then my mind starts spinning in circles.</span>
 
@@ -32,7 +32,7 @@ So *maybe* I don't need to change. The languages and tools I use these days are 
 
 <span class="light">Spin.</span>
 
-But I don't want to miss or be late for "next big thing" wave. And I fortunately do have the time to learn new stuff. But what to learn? What to change? 
+But I don't want to miss or be late for "next big thing" wave. And I fortunately do have the time to learn new stuff. But what to learn? What to change?
 
 And what to change to?
 
@@ -76,4 +76,4 @@ Until I find the "right" new things for me, I'll stick with what I have. But I'l
 
 My next project will be a *trusty* Rails project on a trusty Linux platform using my *trusty* Nginx setup against *trusty* PostgreSQL. And my next script will still be in *trusty* Ruby. And I'll still program it all using *trusty* TextMate 2 with my familiar [CombinedCasts](https://hiltmon.com/files/CombinedCasts.tmTheme) theme.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

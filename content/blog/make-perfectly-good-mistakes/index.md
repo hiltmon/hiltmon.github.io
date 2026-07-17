@@ -1,6 +1,6 @@
 ---
 title: "Make Perfectly Good Mistakes"
-date: 2013-04-25 15:31:00-0400
+date: 2013-04-25T15:31:00-04:00
 tags: [ Writing ]
 ---
 
@@ -18,4 +18,4 @@ So go ahead, try things out as I do. And make a lot of *perfectly good mistakes*
 
 **Think of it this way: One needs to make a lot of *perfectly good mistakes* in order to learn new things, grow and develop.**
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

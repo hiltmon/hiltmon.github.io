@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "Kindred-Family"
-date: 2015-07-05 13:43:25 -0400
+date: 2015-07-05T13:43:25-04:00
 
 ---
 

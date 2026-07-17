@@ -1,6 +1,6 @@
 ---
 title: "Less Wasting Time"
-date: 2012-01-26 10:18:00-0400
+date: 2012-01-26T10:18:00-04:00
 tags: [ Productivity ]
 ---
 

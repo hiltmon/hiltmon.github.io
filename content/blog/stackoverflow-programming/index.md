@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "StackOverflow Programming"
-date: 2015-01-17 16:11:13 -0500
+date: 2015-01-17T16:11:13-05:00
 tags: [ Hiltmonism ]
 ---
 

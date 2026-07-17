@@ -1,6 +1,6 @@
 ---
 title: "Bills Doubled in 8 Years"
-date: 2012-12-02 11:21:00-0400
+date: 2012-12-02T11:21:00-04:00
 ---
 
 While shredding old, unnecessary paperwork today, I noticed that the cost of our monthly utilities have more than doubled in 8 years, yet almost nothing in our way of life has changed.
@@ -15,4 +15,4 @@ Lucky for us we live in an apartment where water and heating are included in the
 
 **My Take:** Either consumers are facing some serious inflation here in the USA or the utility monopolies have won. I’m voting the latter as costs have doubled yet service levels have remained dismal.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

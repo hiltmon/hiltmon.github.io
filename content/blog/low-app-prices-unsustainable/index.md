@@ -1,6 +1,6 @@
 ---
 title: "Low app prices unsustainable"
-date: 2012-07-23 19:39:00-0400
+date: 2012-07-23T19:39:00-04:00
 tags: [Software]
 ---
 
@@ -11,7 +11,7 @@ David Barnard, of AppCubby, writing in [The Sparrow Problem](http://appcubby.com
 Craig Hockenberry predicted this in 2008 in an open letter to Steve Jobs in [ringtone apps](http://furbo.org/2008/12/09/ring-tone-apps/):
 
 > The problem now is funding those products.
-> 
+>
 > We have a lot of great ideas for iPhone applications. Unfortunately, we’re not working on the cooler (and more complex) ideas. Instead, we’re working on 99¢ titles that have a limited lifespan and broad appeal. Market conditions make ringtone apps most appealing.
 
 The argument that you can make up for the low price of iOS applications in volume sold has proven to be specious, as predicted by Craig.

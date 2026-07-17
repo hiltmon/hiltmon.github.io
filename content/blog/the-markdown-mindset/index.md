@@ -1,6 +1,6 @@
 ---
 title: "The Markdown Mindset"
-date: 2012-02-20 20:07:00-0400
+date: 2012-02-20T20:07:00-04:00
 tags: [ Markdown ]
 ---
 
@@ -42,10 +42,10 @@ Which also makes each file reusable. The same source file can be used in the web
 
 ## And a whole bunch more
 
-Being plain text is great. 
+Being plain text is great.
 
-* Plain text is searchable, some of the proprietary formats are not. 
-* Plain text works on all platforms, not all formats can be read on them.  
+* Plain text is searchable, some of the proprietary formats are not.
+* Plain text works on all platforms, not all formats can be read on them.
 * Plain text files are small. Plain text is fast to read and write to disk. It makes for small mail attachments.
 
 ## Daily uses of Markdown
@@ -55,7 +55,7 @@ Here are some of the things I do almost every day in Markdown:
 * Update my [DayOne](http://dayoneapp.com/) journal in Markdown
 * Write my software development and project notes in Markdown using [BBEdit](http://www.barebones.com/products/bbedit/index.html)
 * Write a blog post in Markdown using [Byword](http://bywordapp.com/)
-* Add to the [KifuApp](http://www.kifuapp.com) Knowledgebase using [Scrivener](http://www.literatureandlatte.com/scrivener.php) in Markdown
+* Add to the KifuApp Knowledgebase using [Scrivener](http://www.literatureandlatte.com/scrivener.php) in Markdown
 * Maintain the documentation for my projects in Markdown in [TextMate](http://macromates.com/)
 
 And one thing I never expected to do in Markdown:
@@ -76,4 +76,4 @@ You'll be surprised how productive you will be.
 * [MultiMarkdown](http://fletcherpenney.net/multimarkdown/) by Fletcher Penney, which adds new exports, syntax features and document metadata which I love.
 * [Byword MultiMarkdown Guide](http://bywordapp.com/markdown/guide.html), a great one page reference by the makers of [Byword](http://bywordapp.com/).
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

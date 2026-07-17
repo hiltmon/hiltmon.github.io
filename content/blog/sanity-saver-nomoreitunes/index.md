@@ -1,6 +1,6 @@
 ---
 title: "Sanity Saver: NoMoreiTunes"
-date: 2013-01-19 12:54:00-0400
+date: 2013-01-19T12:54:00-04:00
 tags: [ "Safari Extensions", "Sanity Saver" ]
 ---
 
@@ -14,4 +14,4 @@ The [NoMoreiTunes Safari Extension](http://nomoreitunes.einserver.de) prevents t
 
 I also advise you to open Safari **Preferences**, go to the **Extensions** Tab, click on **Updates** and ensure that “Install Updates Automatically” is checked.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

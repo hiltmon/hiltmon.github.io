@@ -1,6 +1,6 @@
 ---
 title: "Gist TextMate 2 Bundle Updates"
-date: 2013-08-11 15:31:00-0400
+date: 2013-08-11T15:31:00-04:00
 tags: [ TextMate ]
 ---
 
@@ -11,4 +11,4 @@ New updates to the [Gist.tmbundle](https://github.com/hiltmon/Gist.tmbundle) for
 
 The update should flow through the TextMate 2 updates process in due time.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

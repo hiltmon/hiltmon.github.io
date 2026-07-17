@@ -1,6 +1,6 @@
 ---
 title: "Solve Tab Hell with Fluid and ChoosyOSX"
-date: 2014-05-23 15:49:52 -0400
+date: 2014-05-23T15:49:52-04:00
 
 ---
 
@@ -64,4 +64,4 @@ And that's all there is to it. My work web applications are all in their own *Si
 
 <span class="light">At the time of writing, [Fluid](http://fluidapp.com) is $5 and [ChoosyOSX](http://www.choosyosx.com) is just $12, the massive time savings are certainly worth a measly $17.</span>
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "The argument for coding standards"
-date: 2011-12-04 10:33:00-0400
+date: 2011-12-04T10:33:00-04:00
 
 ---
 
@@ -15,4 +15,3 @@ Don't forget that using a great architecture, having great conventions and a str
 **Aside**: I also love his definition of a mature programmer (spelling corrected):
 
 > The mature programmer manages their own time and productivity well. The MP knows that maintenance is as much work as the initial writing and code always takes longer than you think. The MP knows that any changes to code can introduce bugs, no matter how seemingly trivial. The MP knows that premature optimization is foolish and dangerous. The MP knows that sexy coding like writing big complex systems from scratch is rarely the best way to go. The MP does not get into ego competitions about who has the prettiest code. The MP achieves the best final result in the minimum amount of time.
-

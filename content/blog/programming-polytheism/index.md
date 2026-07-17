@@ -1,6 +1,6 @@
 ---
 title: "Programming polytheism"
-date: 2011-12-26 12:51:00-0400
+date: 2011-12-26T12:51:00-04:00
 
 ---
 
@@ -21,5 +21,5 @@ So if you are a back-end C# developer, learn HTML5 and Javascript. If you are a 
 And then beg, nag, plead, and do whatever it takes to use these new skills on your next project. It will not only enhance your career and enjoyment of your work, but will extend it indefinitely. And your company will be more nimble and productive than ever.
 
 ---
- 
+
 I was thinking about the above when I wrote the other two articles on this day ([Objective-C and iOS](https://hiltmon.com/blog/2011/12/26/2011-platforms-objective-c-and-ios/) and [Ruby on Rails](https://hiltmon.com/blog/2011/12/26/2011-platforms-ruby-on-rails/)). I was thinking about the differences in languages and platforms I used this year and realized that I had a ball using all of them, made better products because of my experience is a diverse set of tools and platforms, and noticed that my career has been better for it. Programming polytheism for the win.

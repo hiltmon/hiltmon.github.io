@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - The MacGuffin"
-date: 2013-02-05 10:15:00-0400
+date: 2013-02-05T10:15:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -8,7 +8,7 @@ tags: [ TimeToCall ]
 
 ## The MacGuffin
 
-Not all the work [Sweating the Details](https://hiltmon.com/blog/2013/02/03/timetocall-sweating-the-details/) and [Polishing](https://hiltmon.com/blog/2013/02/04/timetocall-polishing-the-app/) is about making things better, correct or even perfect. Sometimes it’s also about personality, giving the application some character, or throwing in a [MacGuffin](http://en.wikipedia.org/wiki/MacGuffin) or two, features that are expected, hidden on purpose, and not really needed. 
+Not all the work [Sweating the Details](https://hiltmon.com/blog/2013/02/03/timetocall-sweating-the-details/) and [Polishing](https://hiltmon.com/blog/2013/02/04/timetocall-polishing-the-app/) is about making things better, correct or even perfect. Sometimes it’s also about personality, giving the application some character, or throwing in a [MacGuffin](http://en.wikipedia.org/wiki/MacGuffin) or two, features that are expected, hidden on purpose, and not really needed.
 
 > The point of this post is to show that all software has features that user’s expect, demand and will most likely never ever use. But you still have to think about it, design it, program it, test it, sweat its details and polish it. It adds time and cost to the application, but just as the MacGuffin is a useless plot point that sets up a movie, so these features are needed to ‘complete’ the application, compete in the market on feature comparison lists, or just check the customer’s “I must have this” list.
 
@@ -50,7 +50,7 @@ Try Los Angeles, Sydney and London, hit `PM` and Los Angeles is in a  ‘bad’ 
 
 So why the ‘bad’ time? The time excluded by the optimizer’s constraints is three hours *longer* than the ‘bad’ hours (see [Good and Bad Times to Call](https://hiltmon.com/blog/2013/02/02/timetocall-good-and-bad-times-to-call/)). It means that there are sets of locations such as the above where at least one location will have a ‘bad’ time picked by the optimizer.
 
-This issue is also easy to fix. I could adjust the optimizer’s constraints to be 6AM on the earliest and 12AM on the latest, and it would work much better (all ‘good’ times to call). But in reality, even though the hours are ‘good’, they are not the way people *normally* work and think. I tried the change, and it made the app feel soulless and mechanical. 
+This issue is also easy to fix. I could adjust the optimizer’s constraints to be 6AM on the earliest and 12AM on the latest, and it would work much better (all ‘good’ times to call). But in reality, even though the hours are ‘good’, they are not the way people *normally* work and think. I tried the change, and it made the app feel soulless and mechanical.
 
 A faulty, or worse, optimizer just *felt* better. Then again, it is the MacGuffin feature.
 
@@ -85,9 +85,9 @@ Once the application is released and in the wild, I will continue to monitor. I�
 **Next:** [Part 9: Dawdle to the Finish](https://hiltmon.com/blog/2013/02/06/timetocall-dawdle-to-the-finish/).
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

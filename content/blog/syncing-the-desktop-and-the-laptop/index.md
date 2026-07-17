@@ -1,6 +1,6 @@
 ---
 title: "Syncing the Desktop and the Laptop"
-date: 2012-06-29 16:05:00-0400
+date: 2012-06-29T16:05:00-04:00
 tags: [Productivity]
 ---
 

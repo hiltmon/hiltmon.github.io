@@ -1,6 +1,6 @@
 ---
 title: "Misconceptions About iOS Multitasking"
-date: 2012-01-02 20:02:00-0400
+date: 2012-01-02T20:02:00-04:00
 
 ---
 

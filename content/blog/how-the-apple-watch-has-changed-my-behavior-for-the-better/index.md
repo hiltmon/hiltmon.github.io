@@ -1,12 +1,12 @@
 ---
 title: "How the Apple Watch has changed my Behavior for the Better"
-date: 2015-08-23 12:49:49 -0400
+date: 2015-08-23T12:49:49-04:00
 
 ---
 
 I have the nerd watch, the [42mm Space Gray Aluminum with the Black Sport Band](http://www.apple.com/shop/buy-watch/apple-watch-sport/42mm-space-gray-aluminum-case-black-sport-band?product=MJ3T2LL/A&step=detail). It was ordered at launch and arrived late. I have been wearing and using it every day since.
 
-The Apple Watch is a perfectly good watch for doing watch-like things, like telling the time. But if you view it as a wrist computer, one that has had a real impact on how one acts and behaves, it is something uniquely special. 
+The Apple Watch is a perfectly good watch for doing watch-like things, like telling the time. But if you view it as a wrist computer, one that has had a real impact on how one acts and behaves, it is something uniquely special.
 
 **And it has changed my behavior patterns, without me knowing about it, for the better.**
 
@@ -36,9 +36,9 @@ And then there are the activity rings: move, exercise and stand. They have chang
 
 One thing has not changed. I have been walking to work (when not working at home) for 15 years now, first in Tokyo and now in New York. I never thought of that as exercise or healthy, just convenient. But I started doing less of that over the past year as my feet and back have started to ache as the wear and tear of many miles kick in. So I started walking less and taking the subway more.
 
-The activity rings on the Apple Watch have lured me back. The blue stand goal is, for me, the easiest to achieve because I use a standing desk at work. The Watch does seem to think I am sitting when standing sometimes, but that's OK (see the stand alert below). 
+The activity rings on the Apple Watch have lured me back. The blue stand goal is, for me, the easiest to achieve because I use a standing desk at work. The Watch does seem to think I am sitting when standing sometimes, but that's OK (see the stand alert below).
 
-The green exercise goal is harder to achieve, but thats where the walking comes in. I now kick off an "Outdoor Walk" exercise when I leave to walk home. Before the Watch, if my feet or back ached, I'd grab the subway. Now, I feel the need to complete the green, so I walk. And I try walk the long way round. It adds minutes to my walk, I walk further, and I get closer to the exercise goal. And when I get home and the green is still not completed, I feel bad. I may then go downstairs and hit the treadmill for more. 
+The green exercise goal is harder to achieve, but thats where the walking comes in. I now kick off an "Outdoor Walk" exercise when I leave to walk home. Before the Watch, if my feet or back ached, I'd grab the subway. Now, I feel the need to complete the green, so I walk. And I try walk the long way round. It adds minutes to my walk, I walk further, and I get closer to the exercise goal. And when I get home and the green is still not completed, I feel bad. I may then go downstairs and hit the treadmill for more.
 
 The red ring, move, is the hardest target to reach, even with the daily commute walk. Mostly because I have set it a tad high. Intentionally so. When I first got the Watch, I took a few days of walking and running to find a reasonably high-exercise day and see what the move (calorie) number was. Then I set the goal to that. I know I will not achieve the move goal on days where I work and then go out at night, thereby skipping additional exercise (I still walk everywhere so the green exercise still gets filled). But on days when I have nothing to do after work, the red ring calls. It draws me into walking more, going places and doing things.
 

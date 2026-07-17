@@ -1,6 +1,6 @@
 ---
 title: "Slogger after 6 Months"
-date: 2013-04-23 10:43:00-0400
+date: 2013-04-23T10:43:00-04:00
 tags: [ Slogger, Tips and Tricks ]
 ---
 
@@ -34,7 +34,7 @@ Let us look at my Friday, April 19th, in [Day One][linksynergy], in order from t
 
 Not shown, since I did not use them that day, are any [Instagram][instagram] pictures I took, music I scrobbled to [Last.fm][last], sites I tagged in [Pinboard][pinboard], or pictures I posted to [Flickr][flickr]. And those are just the services I have set up and enabled. There are many in Slogger that I have not enabled, such as [Facebook][facebook], [OmniFocus][omnigroup] and RSS feeds.
 
-Lets look at some of these entries in more detail. 
+Lets look at some of these entries in more detail.
 
 [{{< figure src="images/slogger-review-2.jpg" width=255 height=295 class="left-right" >}}](https://hiltmon.com/images/slogger-review-2.jpg)
 
@@ -85,9 +85,8 @@ I just love having all my daily activities and key data recorded without effort 
 
 If you operate across many social network services in your daily Internet wanderings and social interactions, or you could use a log of daily statistics in anything you do, you owe it to yourself to use Slogger to log them automatically. Set it up once, and reap the ongoing benefits as I have. **Highly recommended.**
 
-*Follow the author as [@hiltmon][twitter 2] on Twitter and [@hiltmon][app] on App.Net. Mute `#xpost` on one.*
+*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.
 
-[app]: http://alpha.app.net/hiltmon
 [brettterpstra]: http://brettterpstra.com
 [brettterpstra 2]: http://brettterpstra.com/projects/slogger/
 [facebook]: https://www.facebook.com/hiltmoncom

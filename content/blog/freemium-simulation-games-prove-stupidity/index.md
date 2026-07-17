@@ -1,6 +1,6 @@
 ---
 title: "Freemium Simulation Games prove Stupidity"
-date: 2012-03-25 13:26:00-0400
+date: 2012-03-25T13:26:00-04:00
 tags: [Business]
 ---
 
@@ -24,7 +24,7 @@ I put my time in, a lot more than I planned for one article, and this is what I 
 
 I hate doing chores. Don't we all. This game was all chore. I had to keep coming back to stock floors, move the elevator, assign jobs, stock floors, move the elevator, stock floors. And the waiting, always with the waiting, one more hour to stock a floor, one more day for a floor to be built. As the tower grew, the number of chores grew, but the time between chores grew too. You get punished for getting further in the game.
 
-A chore *cannot* be a game. 
+A chore *cannot* be a game.
 
 But there is more that makes these not-games so painful:
 

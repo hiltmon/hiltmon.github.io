@@ -1,6 +1,6 @@
 ---
 title: "You Are Not Ruthless Enough"
-date: 2012-03-05 20:57:00-0400
+date: 2012-03-05T20:57:00-04:00
 tags: [Business]
 ---
 

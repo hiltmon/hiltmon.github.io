@@ -1,6 +1,6 @@
 ---
 title: "Build only what you need"
-date: 2016-02-28 13:24:14 -0500
+date: 2016-02-28T13:24:14-05:00
 ---
 
 <span class="light">A note as a result of a discussion with a colleague.</span>

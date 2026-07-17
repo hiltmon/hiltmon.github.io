@@ -1,6 +1,6 @@
 ---
 title: "Laravel 4 Blade TextMate Bundle"
-date: 2013-07-28 11:37:00-0400
+date: 2013-07-28T11:37:00-04:00
 tags: [ Productivity, TextMate ]
 ---
 
@@ -16,4 +16,4 @@ Enjoy.
 
 **Disclaimer: I don't use Laravel, I just use TextMate 2. All the good work in this bundle was done by [@medalink7](https://twitter.com/medalink7), thank you,  I just packaged it into a TextMate bundle format.**
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

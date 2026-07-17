@@ -1,6 +1,6 @@
 ---
 title: "Go Home"
-date: 2013-04-04 11:30:00-0400
+date: 2013-04-04T11:30:00-04:00
 tags: [ Writing ]
 ---
 
@@ -25,4 +25,3 @@ So, set the precedent now *and go home*. If you stay late, people will expect yo
 *Follow the author as [@hiltmon][1] on Twitter and [@hiltmon][2] on App.Net. Mute `#xpost` on one.*
 
 [1]:	https://twitter.com/hiltmon
-[2]:	http://alpha.app.net/hiltmon

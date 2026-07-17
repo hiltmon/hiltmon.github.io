@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "Automate or Die"
-date: 2011-12-04 09:59:00-0400
+date: 2011-12-04T09:59:00-04:00
 tags: [ Hiltmonism ]
 ---
 

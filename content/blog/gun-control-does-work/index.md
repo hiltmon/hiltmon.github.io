@@ -1,6 +1,6 @@
 ---
 title: "Gun Control does Work"
-date: 2012-12-16 10:06:00-0400
+date: 2012-12-16T10:06:00-04:00
 tags: [ Politics ]
 ---
 

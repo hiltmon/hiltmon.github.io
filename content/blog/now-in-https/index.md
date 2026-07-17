@@ -1,6 +1,6 @@
 ---
 title: "Now in HTTPS"
-date: 2016-01-31 17:05:36 -0500
+date: 2016-01-31T17:05:36-05:00
 
 ---
 
@@ -8,7 +8,7 @@ My host, [Dreamhost](https://www.dreamhost.com/), is offering free web site cert
 
 So I turned it on.
 
-Most browsers will be warning against unecrypted web sites *real soon now*, so I thought it best to do this now. 
+Most browsers will be warning against unecrypted web sites *real soon now*, so I thought it best to do this now.
 
 The only change I seem to need was to change the Google Fonts URLs to `https` as well.
 

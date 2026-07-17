@@ -1,6 +1,6 @@
 ---
 title: "Working from Home ... here we go!"
-date: 2020-03-14 09:57:53 -0400
+date: 2020-03-14T09:57:53-04:00
 
 ---
 

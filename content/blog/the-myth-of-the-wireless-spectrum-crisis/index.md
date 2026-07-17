@@ -1,6 +1,6 @@
 ---
 title: "The myth of the wireless spectrum crisis"
-date: 2012-10-22 17:23:00-0400
+date: 2012-10-22T17:23:00-04:00
 tags: [ Carriers ]
 ---
 

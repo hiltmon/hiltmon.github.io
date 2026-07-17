@@ -1,6 +1,6 @@
 ---
 title: "The Last of the Workstations"
-date: 2012-06-03 13:22:00-0400
+date: 2012-06-03T13:22:00-04:00
 tags: [Computers]
 ---
 
@@ -18,7 +18,7 @@ But these computers, as fast and as great as they are, are getting a tad long in
 
 Workstation class computers are computers designed specifically for high-end technical or scientific applications, intended for a *single user* to enable them to perform massive amounts of computations or process massive amounts of data.  In contrast, the traditional desktop computer is more focussed on running multiple, low compute intensive applications with limited resources.
 
-You can tell them apart by how they are made and the operating systems they run. Workstation class computers have server-grade CPUs (usually with larger caches, more cores and better multiprocessing circuitry), more memory slots running faster RAM, server grade multi-channel backplanes, more reliable components, faster server-grade storage and cost a whole bunch more. They invariably run a variant of UNIX that is optimized for large memory, fast process switching and getting out of the way of running compute-intensive applications. 
+You can tell them apart by how they are made and the operating systems they run. Workstation class computers have server-grade CPUs (usually with larger caches, more cores and better multiprocessing circuitry), more memory slots running faster RAM, server grade multi-channel backplanes, more reliable components, faster server-grade storage and cost a whole bunch more. They invariably run a variant of UNIX that is optimized for large memory, fast process switching and getting out of the way of running compute-intensive applications.
 
 Regular desktops use cheaper CPUs, lower-life disks, single channel backplanes and slower RAM, in order to make them vastly cheaper. They also run consumer-grade operating systems that are tuned to foreground application performance and are RAM limited.
 
@@ -83,6 +83,6 @@ No longer will I have the thrill of watching my 8-cores max out while free RAM d
 
 I love having this workstation power under my desk, and I *use* it all the time. I hope that Apple continues the Mac Pro as a workstation-class computer for a long long time.
 
-> I have the need...  
-> ...the need for speed.  
+> I have the need...
+> ...the need for speed.
 > Maverick and Goose, Top Gun

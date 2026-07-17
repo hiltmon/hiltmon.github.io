@@ -1,6 +1,6 @@
 ---
 title: "More TextMate 2 Basics"
-date: 2014-01-20 14:07:30 -0500
+date: 2014-01-20T14:07:30-05:00
 tags: [Text Editors, TextMate]
 ---
 
@@ -20,25 +20,25 @@ Auto-pairing is when you type in a character that should be paired in code, and 
 
 But TextMate takes it to the next level:
 
-- **Wrap Selected**: Select some text and press the opening key in an auto-pair set. Instead of replacing the selection with the key pressed like other editors do, TextMate wraps that selection in the correct pair. 
+- **Wrap Selected**: Select some text and press the opening key in an auto-pair set. Instead of replacing the selection with the key pressed like other editors do, TextMate wraps that selection in the correct pair.
 
   For example, to to correctly bracket an expression such as `a / b + c`, select the `b + c` bit using ⌥⌘← and hit `(` to get `a / (b + c)`.
-  
+
   <br/>
-  
+
 {{< figure src="images/tm-2-basics-2-2.png" width=200 height=210 class="image-right" >}}
-  
+
 - **String Interpolation**: In Ruby, you can interpolate a variable's value in a string using the `#{}` construct. TextMate is aware of the context and if you press the `#` key inside a string that can be interpolated, TextMate uses auto-pairing to wrap the selection in the interpolation braces.
 
-  For example, to convert `user_name` in the following line `puts "Name: user_name"`, select `user_name` and press `#` to get `puts "Name: #{user_name}"`. 
-  
+  For example, to convert `user_name` in the following line `puts "Name: user_name"`, select `user_name` and press `#` to get `puts "Name: #{user_name}"`.
+
   Note also that if the string does not support interpolation (a single quoted string), pressing `#` inserts a `#` character only. Smart.
-  
+
 Of course the big problem with auto-pairing is that in most other editors, you need to then navigate past the closing pair character to continue working. In TextMate, if you type the closing character manually, it knows, and just moves your caret along without duplicating the close. Or you can use `⌘↩` to go to a new line, leaving the closed pairs behind, or `⌘→` to navigate over all the closes.
 
 ### Tab and Esc Completions
 
-TextMate has two kinds of completions, "tab" (⇥) completions and 
+TextMate has two kinds of completions, "tab" (⇥) completions and
 "esc" (⎋) completions.
 
 {{< figure src="images/tm-2-basics-2-3.png" width=200 height=170 class="image-right" >}}
@@ -46,7 +46,7 @@ TextMate has two kinds of completions, "tab" (⇥) completions and
 **Tab completions** were invented in TextMate and have improved in TextMate 2. Tab completions operate by typing in a few letters and pressing the tab (⇥) key. TextMate attempts to match the characters before the cursor to the tab completions available for that language or context, and if a match is found, it puts the completion in. For example, in Ruby, typing `def⇥` will insert `def function_name\n\nend` and highlights `function_name` for you to overtype.
 
   <br/>
-  
+
 {{< figure src="images/tm-2-basics-2-4.png" width=360 height=231 class="image-right" >}}
 
 You can find the currently available tab completions in the cog menu at the bottom for each language. The best way to learn them is to see what is available and then start using them. For example, in Ruby, I always use `cla⇥` to create Ruby classes, `mod⇥` to create Ruby modules and `ea⇥` for quick `each` loops. I strongly recommend you check out and learn the tab completions for our favorite languages in TextMate. You will save a ton of keystrokes.
@@ -81,7 +81,7 @@ You can also drag a tab out of the tab bar (or double-click on it) to move it to
 
 {{< figure src="images/tm-2-basics-2-6.jpg" width=700 height=245 >}}
 
-Since we all have different tastes and preferences, TextMate comes with a lovely set of built-in themes which are fully customizable. You can change the theme from the **View / Theme** menu. 
+Since we all have different tastes and preferences, TextMate comes with a lovely set of built-in themes which are fully customizable. You can change the theme from the **View / Theme** menu.
 
 To install  a new theme, download a `.tmTheme` file and double-click it. Then look for the new theme on the **View / Theme** menu. I use my own [CombinedCasts.tmTheme](https://hiltmon.com/files/CombinedCasts.tmTheme) theme (See [Multiple Themes in TextMate 2 - The Hiltmon](https://hiltmon.com/blog/2013/02/22/multiple-themes-in-textmate-2/)) but there are hundreds out there to choose from.
 
@@ -124,7 +124,7 @@ If you use git, mercurial or subversion, install the matching bundle. You then g
 I don't know about you, but I often leave `TODO` and `HACK` comments in my code to remind me about things, *and then forget about them*. The TODO bundle in TextMate 2 searches the current project tree for comments with `TODO`, `FIXME`, `CHANGED` and `RADAR` and displays them in the output window. Just hit `⌃⇧T`. You'll never forget again.
 
   <br/>
-  
+
 {{< figure src="images/tm-2-basics-2-A.png" width=300 height=173 class="image-right" >}}
 
 To add your own markers, go to the cog menu, find the TODO bundle and click **Preferences...**. Add a new marker and replace the regular expression to catch the rest of the comment. Hit `Done`, restart TextMate and run TODO again to see your new marker matches.
@@ -155,4 +155,4 @@ If you missed the first post, check out [TextMate 2 Basics](https://hiltmon.com/
 
 *If you have any awesome TextMate 2 features or keys you cannot live without, please share them in the comments.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "An iPad and a Pencil"
-date: 2019-02-16 11:36:39 -0500
+date: 2019-02-16T11:36:39-05:00
 ---
 
 In 2018, I switched to using an iPad Pro and Apple Pencil when not using my computer, replacing notebooks, scraps of paper, Post-It notes, and ink-leaking pens. After a year of being digital, here are some of the processes and habits I have picked up.
@@ -57,7 +57,7 @@ With the iPad and Pencil, I do the same digitally, using the Pencil and **Previe
 
 ## Emergency Tech Support
 
-Since I have my iPad with me when away from my desk, I added a bunch of tools to enable me to provide emergency technical support. I use Panic's amazing [Prompt](https://www.panic.com/prompt/) to provide quick and secure terminal access to my servers to restart processes, [Transmit](https://www.panic.com/transmit/) to get to our FTP servers, [Navicat](https://www.navicat.com/en/products) to access and maintain our databases, and [Working Copy](https://workingcopyapp.com) to check out, review and occasionally patch code. 
+Since I have my iPad with me when away from my desk, I added a bunch of tools to enable me to provide emergency technical support. I use Panic's amazing [Prompt](https://www.panic.com/prompt/) to provide quick and secure terminal access to my servers to restart processes, [Transmit](https://www.panic.com/transmit/) to get to our FTP servers, [Navicat](https://www.navicat.com/en/products) to access and maintain our databases, and [Working Copy](https://workingcopyapp.com) to check out, review and occasionally patch code.
 
 I'm still trying out a bunch of programmer's editors to see which is best, but none seem to stand out. If you have a recommendation, send me a tweet.
 
@@ -93,4 +93,4 @@ By moving mostly-in on digital on the iPad, I find I am able to capture *and fin
 
 An iPad and a Pencil is often all I really need.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.* 
+*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*

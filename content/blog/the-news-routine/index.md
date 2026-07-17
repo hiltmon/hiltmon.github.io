@@ -1,12 +1,12 @@
 ---
 title: "The news routine"
-date: 2012-04-19 13:58:00-0400
+date: 2012-04-19T13:58:00-04:00
 tags: [News]
 ---
 
 Twitter, Facebook, RSS, all wonderful services, all bombarding us with information, all taking time and attention away from things we should be doing. In order to remain productive, I have moved these services onto the iPad and created a *reading* routine to eliminate the temptation to waste hours on these services.
 
-## Two screens are now one 
+## Two screens are now one
 
 Previously, I did all my work on my Mac Pro with dual 24" Dell monitors. The main monitor had my work on it, and the secondary monitor had Mail, iChat, Skype, [Twitterriffic](http://iconfactory.com/software/twitterrific) and [Reeder](http://reederapp.com/) running all the time. Result: The secondary screen always had something happening on it and I constantly interrupted my work to glance over and pay attention to it. 88 new tweets. 34 unread RSS items. 5 unread emails. And my productivity suffered.
 

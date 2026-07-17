@@ -1,6 +1,6 @@
 ---
 title: "Notification City"
-date: 2017-03-12 12:11:29 -0400
+date: 2017-03-12T12:11:29-04:00
 tags: [ Business, "Tips and Tricks" ]
 ---
 

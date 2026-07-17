@@ -1,6 +1,6 @@
 ---
 title: "Homebrew Happiness"
-date: 2013-09-29 12:12:00-0400
+date: 2013-09-29T12:12:00-04:00
 tags: [ Development, Macintosh, Unix, Tips and Tricks ]
 ---
 
@@ -20,7 +20,7 @@ Since OS X is really a Darwin flavored FreeBSD UNIX, which is pretty much [Linux
 | 4. Configure it | `./configure --prefix=/usr/local`
 | 5. Make it |  `make`
 | 6. Install it |  `sudo make install`
-	
+
 Most Open Source packages just worked. *But many did not.* They may have needed some dependencies to be installed first or the *configure* needed special settings to work. Fortunately, the internet was full of fine folks who tried and created findable pages that explained the dependencies or settings. Follow their recipes, and you could too.
 
 *And that is the way I installed and maintained Open Source packages in my Mac for a decade.*
@@ -29,7 +29,7 @@ Most Open Source packages just worked. *But many did not.* They may have needed 
 
 Two major projects sprang up to solve for this mess, [MacPorts][Macports] and [Fink][Fink]. They took the standard recipe or the tweaked ones and make easy-to-use to use installers for Mac. They did became very popular, to the point that tweaked recipes started to become scarce.
 
-But I did not use them. 
+But I did not use them.
 
 I tried both, for a while. But while I may be a messy person in real life, I am OCD tidy on my computer. And both of these projects would basically mess up my system. They'd install products in non-standard locations, and leave a mess when removing products. Which meant that when I tried new things on my OS X install, sometimes things that should have worked did not because of this mess. In my humbly correct opinion, `/opt` is not where you install core products. So I blew my machine away and went back to native build and installs.
 
@@ -60,21 +60,21 @@ It solves *all* the problems mentioned above, including:
 To get started with [Homebrew][brew], you will need a Mac with OS X and Xcode installed (for the developer tools). Then go to the [Homebrew][brew] web site and copy and paste the command into a terminal (or use this)
 
 	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-	
+
 The installer will explain what it does and set up the [Homebrew][brew] environment. Once it's done, do a
 
 	brew update
-	
+
 To ensure all the formulas are the latest. I heartily recommend you do this before any [Homebrew][brew] changes on your system every time.
 
 To install a product, just
 
 	brew install <formula>
-	
+
 To see what formulae are available, use:
 
 	brew search
-	
+
 If you have an idea what you are looking for, use:
 
 	brew search <formula>
@@ -82,7 +82,7 @@ If you have an idea what you are looking for, use:
 To see what you have installed:
 
 	brew list
-	
+
 To update an installed project:
 
 	brew upgrade <formula>
@@ -90,22 +90,22 @@ To update an installed project:
 If you ever want to know where the settings files for a project are, just use
 
 	brew info <formula>
-	
+
 To cleanly uninstall a project:
 
 	brew uninstall <formula>
-	
+
 And if you are OCD clean like me, run this to be sure your [Homebrew][brew] stuff is all *copacetic*:
 
 	brew doctor
-	
+
 The only negative I have found is that [Homebrew][brew] does not have *every* Open Source project or product in it. In some cases, the [Homebrew][brew] brewmasters have even removed formulae which were not being used or made no sense. In my case, I use [QuickFix][qf] and the C++ `libmongoclient.a` which I still had to manually install. But this point is really moot as creating a new [Homebrew][brew] formula to install these is child's play.
 
 With [Homebrew][brew], I have an OCD clean Mac OS X installation running all my favorite and necessary Open Source packages in a clean, consistent and reliable way. And I hope I never need to deal with manual build and install madness again.
 
 [Homebrew][brew] is yet another indispensable tool in my Mac toolbox.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [LSB]: http://www.linuxfoundation.org/collaborate/workgroups/lsb
 [Macports]:	http://www.macports.org
@@ -120,4 +120,3 @@ With [Homebrew][brew], I have an OCD clean Mac OS X installation running all my 
 [rbenv]: https://github.com/sstephenson/rbenv
 [qf]: http://www.quickfixengine.org
 [centos]: http://www.centos.org
-

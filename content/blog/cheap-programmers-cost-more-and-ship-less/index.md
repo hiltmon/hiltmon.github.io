@@ -1,6 +1,6 @@
 ---
 title: "Cheap programmers cost more and ship less"
-date: 2012-07-14 16:34:00-0400
+date: 2012-07-14T16:34:00-04:00
 tags: [Business]
 ---
 
@@ -91,7 +91,7 @@ Some clients learned the hard way to communicate more explicitly, the remainder 
 
 This is how it should work:
 
-> Communicate the overall vision of what you’re trying to create for your customers, and any programmer worth their salt will bring their A-game to solve it from that shared understanding.  
+> Communicate the overall vision of what you’re trying to create for your customers, and any programmer worth their salt will bring their A-game to solve it from that shared understanding.
 > John Larson, JPL Consulting
 
 ### Misconception: You will get a quality product
@@ -114,12 +114,12 @@ Um, **no**. If it were, Noverse would be charging $1,000 per hour, and I would n
 
 All kidding aside, really, the answer is still **no**. It's not about the per hour rate.
 
-> Finding the right skills and the right kind of people is better.  
+> Finding the right skills and the right kind of people is better.
 > The Hiltmon, now
 
 Then pay them what they ask. Here is what to look for:
 
-* **Passion**: A person who assembles Ikea tables is not a carpenter, a person who creates tables from raw wood is. A programmer who treats programming like any normal day job will produce code, but will not help you make a great product. 
+* **Passion**: A person who assembles Ikea tables is not a carpenter, a person who creates tables from raw wood is. A programmer who treats programming like any normal day job will produce code, but will not help you make a great product.
 * **Buy-in**: A programmer who likes the idea of the product is more likely to 'get' the product and produce something nice versus the programmer who is just doing it for the money.
 * **Pride**: A programmer that takes pride in their craft is one who will deliver good code and good product. A programmer who does it as a day job will deliver whatever code they can get away with.
 * **Problem Solving**: A programmer who helps you solve problems, advises you on how things should be done, explains why things are, and interrogates you to ensure they have a proper understanding. Look for a thinker, not a doer, a collaborator, not a worker bee.
@@ -135,7 +135,7 @@ It all boils down to **care**. If the programmer is just doing a job, they do no
 
 You may find care in a 22-year old for $50 an hour, or a grizzled veteran for $250 per hour. It's not about the money. It's about finding the right programmer to turn your idea into a viable and successful product, a product that works, is reliable, scaleable, useable, and maintainable, and then shipping it, supporting it and *getting a return on your investment on it*. And it's about *reducing the risk* that the product will never get built, never finish, never be debugged, never be polished and never ship.
 
-I am sure this has been done with cheap resources, look at most startups these days. But how many of these have released a successful product, or any product at all, without massive VC funding? 
+I am sure this has been done with cheap resources, look at most startups these days. But how many of these have released a successful product, or any product at all, without massive VC funding?
 
 Based on my limited network, going cheap has *not* been a successful or even a viable strategy for the people I speak to. For them, going cheap simply cost more, took more time and none of them have a product at the end of all this to show for it.
 

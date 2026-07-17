@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "Operations by Exception"
-date: 2012-01-23 17:14:00-0400
+date: 2012-01-23T17:14:00-04:00
 tags: [ Hiltmonism ]
 ---
 
@@ -26,4 +26,3 @@ Operations staff, instead of having to execute the operations themselves, can no
 Running operations by exception relieves the burden and stresses on staff, reduces tediousness, increases the amount of fun challenging work they do, and ensures that any exceptions are given their full attention and that they get resolved. It allows businesses to grow and expand without much increase in people's workload, headcount or error rates.
 
 Write operations software that automates 90% of cases, and produces clear exception reports for the remaining 10%. Add components to track and close exceptions, turn it into a game if you must, and get a whole lot more operations done with less.
-

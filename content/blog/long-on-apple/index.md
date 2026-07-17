@@ -1,6 +1,6 @@
 ---
 title: "Long on Apple"
-date: 2013-03-19 11:29:00-0400
+date: 2013-03-19T11:29:00-04:00
 tags: [ News ]
 ---
 
@@ -16,4 +16,4 @@ Point 3 nails it!
 
 *Update: Readers, this post is presenting my agreement with a writer's insight into the media, not investment advice.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

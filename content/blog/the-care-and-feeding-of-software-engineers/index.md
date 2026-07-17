@@ -1,6 +1,6 @@
 ---
 title: "The care and feeding of software engineers"
-date: 2012-06-17 13:21:00-0400
+date: 2012-06-17T13:21:00-04:00
 tags: [Business]
 ---
 

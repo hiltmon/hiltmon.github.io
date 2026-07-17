@@ -1,6 +1,6 @@
 ---
 title: "Adjusting the Cap"
-date: 2012-04-04 19:39:00-0400
+date: 2012-04-04T19:39:00-04:00
 tags: [Carriers]
 ---
 

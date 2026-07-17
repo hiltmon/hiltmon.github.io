@@ -1,6 +1,6 @@
 ---
 title: "Four Keys to Apple's Success"
-date: 2011-11-22 23:47:00-0400
+date: 2011-11-22T23:47:00-04:00
 
 ---
 

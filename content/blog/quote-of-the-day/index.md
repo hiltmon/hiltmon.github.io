@@ -1,6 +1,6 @@
 ---
 title: "Quote of the Day"
-date: 2014-08-09 13:19:36 -0400
+date: 2014-08-09T13:19:36-04:00
 
 ---
 
@@ -10,4 +10,4 @@ date: 2014-08-09 13:19:36 -0400
 
 Replace **Amazon** with any company name of your choice and this remains 100% true.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "This Industry Is Full Of Crap"
-date: 2012-04-25 12:56:00-0400
+date: 2012-04-25T12:56:00-04:00
 
 ---
 
@@ -10,4 +10,4 @@ Lovely rant by Amber Weinberg in [This Industry Is Full of Crap](http://www.ambe
 
 And I'm right with her on this too:
 
-> I love the fact that as a freelancer, I can choose who ever I want to work with – both in terms of clients and other freelancers. 
+> I love the fact that as a freelancer, I can choose who ever I want to work with – both in terms of clients and other freelancers.

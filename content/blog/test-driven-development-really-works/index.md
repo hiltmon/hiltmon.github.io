@@ -1,6 +1,6 @@
 ---
 title: "Test Driven Development Really Works"
-date: 2012-01-26 11:09:00-0400
+date: 2012-01-26T11:09:00-04:00
 tags: [ Business ]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Dog with a Bone"
-date: 2013-01-24 09:38:00-0400
+date: 2013-01-24T09:38:00-04:00
 
 ---
 
@@ -8,7 +8,7 @@ I think one thing that is unique about programmers is that we are tenacious abou
 
 Maybe it’s simply because we can. Or maybe we’re anal or crazy. Or maybe we have wolf genes.
 
-I was thinking about this last night at 2AM after a marathon coding and testing session. It all came about because a client mentioned *in passing* that three memorial dates out of thousands in her copy of [Kifu](http://www.kifuapp.com) were missing. She assumed that there must have been bad data, and I should not worry about it.
+I was thinking about this last night at 2AM after a marathon coding and testing session. It all came about because a client mentioned *in passing* that three memorial dates out of thousands in her copy of Kifu were missing. She assumed that there must have been bad data, and I should not worry about it.
 
 Telling a programmer not to worry about something is like taking a bone away from a dog. It drives us crazy.
 
@@ -22,4 +22,4 @@ To check, I took it to the next level. I wrote a script to take every date in th
 
 I cannot say whether being a perfectionist is a good or a bad thing in life, but it is a necessity when crafting great products. So if there is something in your code-base that irks you, go after it like a dog with a bone and work on it until it is done and done right.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

@@ -1,6 +1,6 @@
 ---
 title: "Great since day one"
-date: 2012-07-11 23:01:00-0400
+date: 2012-07-11T23:01:00-04:00
 
 ---
 
@@ -8,11 +8,11 @@ Marco Arment nails it in [Great since day one](http://www.marco.org/2010/07/04/g
 
 > I never make technology-buying decisions based on future promises, rumors, or potential.
 
-and 
+and
 
 > I buy things that are great today. They’re usually things that have been great since day one. And, more often than not, they’re Apple products.
 
-I agree with Marco, I buy what I need *now*, so I can be productive *now*. 
+I agree with Marco, I buy what I need *now*, so I can be productive *now*.
 
 I do not understand how folks can put up with the frustration with what they have, the inability to get things done or the doing without by waiting for something that may never happen. In my case, not waiting led to:
 

@@ -1,6 +1,6 @@
 ---
 title: "Childlike Wonder"
-date: 2012-02-01 10:31:00-0400
+date: 2012-02-01T10:31:00-04:00
 tags: [Business, Design]
 ---
 
@@ -18,7 +18,7 @@ At some stage in our lives, we stop having this sense of childlike wonder and st
 
 So how does this apply to computer software design and my areas of expertise?
 
-Our users are not children. One cannot deliver unto them a product and expect them to use their childlike wonder to explore the application and build the right mind model for it, no matter how intuitive we think it is. One cannot even give them a manual to explain the product, because they will not understand the text, the terminology or have time to read it. 
+Our users are not children. One cannot deliver unto them a product and expect them to use their childlike wonder to explore the application and build the right mind model for it, no matter how intuitive we think it is. One cannot even give them a manual to explain the product, because they will not understand the text, the terminology or have time to read it.
 
 Instead, software designers have two choices here. The first is to make the product fit a common mind model, the second is to provide demos and training.
 

@@ -1,6 +1,6 @@
 ---
 title: "Is Antivirus Software a Waste of Money?"
-date: 2012-03-05 13:25:00-0400
+date: 2012-03-05T13:25:00-04:00
 tags: [Software]
 ---
 

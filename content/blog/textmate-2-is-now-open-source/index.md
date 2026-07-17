@@ -1,6 +1,6 @@
 ---
 title: "Textmate 2 is now Open Source"
-date: 2012-08-09 11:07:00-0400
+date: 2012-08-09T11:07:00-04:00
 tags: [Text Editors, TextMate]
 ---
 

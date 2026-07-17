@@ -1,6 +1,6 @@
 ---
 title: "Application Context Packs"
-date: 2012-04-26 09:49:00-0400
+date: 2012-04-26T09:49:00-04:00
 tags: [Productivity, Octopress]
 ---
 
@@ -8,9 +8,9 @@ When developing in Rails, I use a certain pack of applications; when coding for 
 
 **The Old Way**
 
-After a clean reboot, I would then have to go through the same dance every time, launch the regular applications manually. Start Mail.app, [OmniFocus](http://www.omnigroup.com/products/omnifocus/), [Billings](http://www.marketcircle.com/billings/), [nvAlt](http://brettterpstra.com/project/nvalt/), [Twitterrific](http://iconfactory.com/software/twitterrific), [Reeder](http://reederapp.com/), iChat and [Skype](http://www.skype.com/), waiting for each to launch before clicking the next one.
+After a clean reboot, I would then have to go through the same dance every time, launch the regular applications manually. Start Mail.app, [OmniFocus](http://www.omnigroup.com/products/omnifocus/), [Billings](http://www.marketcircle.com/billings/), [nvAlt](https://brettterpstra.com/project/nvalt/), [Twitterrific](http://iconfactory.com/software/twitterrific), [Reeder](http://reederapp.com/), iChat and [Skype](http://www.skype.com/), waiting for each to launch before clicking the next one.
 
-Then I would choose what to do next and start the application pack for that context. If I were to be programming in [Rails](https://rubyonrails.org/), that means two terminal sessions, [TextMate](http://macromates.com/), [BBEdit](http://www.barebones.com/products/bbedit/index.html) and Safari. If iOS, then it's Xcode, [BBEdit](http://www.barebones.com/products/bbedit/index.html) and [Photoshop](http://www.photoshop.com/), blogging, [MarsEdit](http://www.red-sweater.com/marsedit/) and Safari.
+Then I would choose what to do next and start the application pack for that context. If I were to be programming in [Rails](https://rubyonrails.org/), that means two terminal sessions, [TextMate](https://macromates.com/), [BBEdit](http://www.barebones.com/products/bbedit/index.html) and Safari. If iOS, then it's Xcode, [BBEdit](http://www.barebones.com/products/bbedit/index.html) and [Photoshop](http://www.photoshop.com/), blogging, MarsEdit and Safari.
 
 To switch contexts, I would manually close the unnecessary applications, and then manually launch the new ones. And then configure them for the project I was working on.
 
@@ -28,11 +28,11 @@ To switch contexts, I have a series of context macros linked to the *same* key c
 
 I can either use the mouse to select a context, or just press `1` for the first, `2` for the second, etc. The macros themselves are pretty simple: if I am already in that context, it terminates the context applications, else it launches them. It determines whether I am in a context by checking if the key application for that context is running. For example, if Xcode is running, then triggering the Xcode context terminates it, else it launches it.
 
-This works great in my blogging context. Trigger the macro and a terminal session is opened *in my blog folder*, ready for me to create a new post. I have modified the `new_post` code in [Octopress](http://octopress.org/) to launch [Byword](http://bywordapp.com/). When I am finished blogging, I trigger the same macro and Byword and Terminal are closed. Back to a clean system.
+This works great in my blogging context. Trigger the macro and a terminal session is opened *in my blog folder*, ready for me to create a new post. I have modified the `new_post` code in [Octopress](https://github.com/octopress/octopress) to launch [Byword](http://bywordapp.com/). When I am finished blogging, I trigger the same macro and Byword and Terminal are closed. Back to a clean system.
 
 It's *almost* same for programming in Rails. Trigger the Rails context and Terminal, TextMate, BBEdit and Safari all launch. The problem is that I work on multiple rails projects at the same time. I could have simply created a context for each Rails project, but given that I bounce between Rails projects while staying in the same context, having to quit and launch the same application pack just wastes time. Instead, I have created a set of TextExpander snippets to handle the configuration of the context.
 
-For example, when I wish to work on [Kifu](http://www.kifuapp.com/), I do the following:
+For example, when I wish to work on Kifu, I do the following:
 
 * Launch the Rails Context using `⌃⌥⇧⌘C` and then press `2`. This launches my Rails application pack and leaves me in the terminal.
 * I type `;cdki` which TextExpander expands to the Kifu source folder path and press enter.

@@ -1,6 +1,6 @@
 ---
 title: "Top Pages in Status Board"
-date: 2013-04-10 16:06:00-0400
+date: 2013-04-10T16:06:00-04:00
 tags: [ Status Board ]
 ---
 
@@ -21,7 +21,7 @@ The script code is in `status_board_pages.rb`:
 
 # status_board_pages.rb
 # Hilton Lipschitz
-# Twitter/ADN: @hiltmon 
+# Twitter/ADN: @hiltmon
 # Web: https://hiltmon.com
 # Use and modify freely, attribution appreciated
 #
@@ -49,8 +49,8 @@ metrics = ['pageviews'] #, 'uniquePageviews', 'newVisits']
 colors = ['red', 'green', 'blue']
 
 # Login
-ga = Gattica.new({ 
-    :email => google_email, 
+ga = Gattica.new({
+    :email => google_email,
     :password => google_pwd
 })
 
@@ -63,7 +63,7 @@ ga.profile_id = accounts.first.profile_id
 # ga.profile_id = accounts[1].profile_id # OR second account
 
 # Get the data
-data = ga.get({ 
+data = ga.get({
     :start_date   => Date.today.to_s.split('T')[0],
     :end_date     => Date.today.to_s.split('T')[0],
     :dimensions   => ['pageTitle'],
@@ -126,6 +126,4 @@ Enjoy.
 
 *Update: All the scripts can be downloaded from Github at [https://github.com/hiltmon/status-board-ga](https://github.com/hiltmon/status-board-ga).*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
-
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

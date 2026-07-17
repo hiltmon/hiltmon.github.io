@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "The Gentleman James V"
-date: 2016-10-07 08:31:11 -0400
+date: 2016-10-07T08:31:11-04:00
 
 ---
 
@@ -37,7 +37,7 @@ Who could this wonderful, kind, generous, person be? Why had they not signed the
 
 ***
 <br/>
-A mystery was present, the game was afoot. 
+A mystery was present, the game was afoot.
 
 This angel of awesomeness was to be unmasked and gratitude expressed.
 

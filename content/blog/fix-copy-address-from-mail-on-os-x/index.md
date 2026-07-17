@@ -1,6 +1,6 @@
 ---
 title: "Fix Copy Address from Mail on OS X"
-date: 2013-03-06 12:03:00-0400
+date: 2013-03-06T12:03:00-04:00
 tags: [ OS X ]
 ---
 
@@ -20,4 +20,4 @@ Quit and restart Mail.app. Copy an email address and you get an email address:
 
 This is one of those simple annoyances on OS X that I wish Apple would just change the default by default.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

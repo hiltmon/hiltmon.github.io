@@ -1,6 +1,6 @@
 ---
 title: "Intentional Complexity"
-date: 2013-08-24 15:21:00-0400
+date: 2013-08-24T15:21:00-04:00
 
 ---
 
@@ -25,7 +25,7 @@ Just look any marketing for enterprise systems and you will see some classic CIO
 * **Supports -INSERT LIST HERE- protocols** - if you think we have a lot of settings now, just wait until you see all the settings for all the protocols we support that you will never need or use but some small firm in Botswana needs.
 * **Installation included** - The product is so complex that we could not create a setup program for it. You need specialists just to install it and to create the initial settings.
 
-*If you buy a piece of software that can do anything, expect it to be able to do nothing out-the-box.* You will need to configure it, customize it, choose the features to use, set up your integrations and choose your protocols, and then, only then, will it *start* working. 
+*If you buy a piece of software that can do anything, expect it to be able to do nothing out-the-box.* You will need to configure it, customize it, choose the features to use, set up your integrations and choose your protocols, and then, only then, will it *start* working.
 
 Software that can do anything is made intentionally that way, and is therefore intentionally complex to set up and use.
 
@@ -74,7 +74,7 @@ This is where is starts:
 
 But the main reason Intentional Complexity remains is this: **nothing gets removed.** Excuses range from the difficulty in removal to backwards compatibility to just-in-case to some random customer still uses this feature. Which means all current and future customers have to intentionally bypass this feature every time they use the system.
 
-And then there is the straw-man argument that users should be able to use the product their way and systems operators should be able to set the product up they way they want, so the product should support that. The software should be un-opinionated. Just because users *can* set something up some way does not mean that they *should*. 
+And then there is the straw-man argument that users should be able to use the product their way and systems operators should be able to set the product up they way they want, so the product should support that. The software should be un-opinionated. Just because users *can* set something up some way does not mean that they *should*.
 
 There is an army of certified professionals who run around setting things up the most complex way because they *can*, not because they *should* and not because that's the best way for the business. Staff and consultants want to create job security and Intentional Complexity used just right can guarantee that.
 
@@ -108,4 +108,4 @@ We need to realize that we do not do things that much differently to everyone el
 
 Unlike Occam's Razor, the simplest solution may not be the best, but the most intentionally complex one is certainly always the worst.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

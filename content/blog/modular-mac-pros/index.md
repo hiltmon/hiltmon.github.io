@@ -1,6 +1,6 @@
 ---
 title: "Modular Mac Pros, the new Burroughs B20?"
-date: 2013-03-09 15:06:00-0400
+date: 2013-03-09T15:06:00-04:00
 tags: [ Writing ]
 ---
 
@@ -8,8 +8,8 @@ I've been watching a conversation on APP.NET speculating about the next Mac Pro 
 
 One of the speculative themes in the discussion is a "modular" Mac Pro, where adding CPU's, drives or expansion cards would be a simple case of stacking another module on and using [thunderbolt](http://en.wikipedia.org/wiki/Thunderbolt_(interface) to keep it all together:
 
-I’m completely convinced that Apple is dropping the enormous Mac Pro tower this year and is coming out with a small modular “pro” Mac to replace it. I don’t need it, but I think many do: http://j.mp/WSBux3  
-> Kevin Hoctor https://alpha.app.net/kevinhoctor/post/3682876#3682819
+I’m completely convinced that Apple is dropping the enormous Mac Pro tower this year and is coming out with a small modular “pro” Mac to replace it. I don’t need it, but I think many do: http://j.mp/WSBux3
+> Kevin Hoctor (on App.Net)
 
 This discussion reminded me of one of the first computers I ever used for work, the Burroughs B20 series, sold by Unisys. I started on a B24 and upgraded to a B26 later.
 
@@ -31,4 +31,4 @@ These days, with thunderbolt speed, maybe the new Mac Pros could be a network of
 
 Wouldn't that be fun.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

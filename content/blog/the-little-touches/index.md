@@ -1,6 +1,6 @@
 ---
 title: "The Little Touches"
-date: 2013-08-11 15:42:00-0400
+date: 2013-08-11T15:42:00-04:00
 tags: [ Apple ]
 ---
 
@@ -34,5 +34,4 @@ Two additional batteries. Such a little touch. Such amazing benefit.
 
 Only $29.99 on the [Apple Store](http://store.apple.com/us/product/MC500LL/A/apple-battery-charger) <span class="light">(not affiliate link)</span>.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

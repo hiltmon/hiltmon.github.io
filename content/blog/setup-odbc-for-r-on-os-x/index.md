@@ -1,6 +1,6 @@
 ---
 title: "Setup ODBC for R on OS X"
-date: 2013-09-18 12:59:00-0400
+date: 2013-09-18T12:59:00-04:00
 
 ---
 
@@ -10,7 +10,7 @@ At work, we use [R][rproj] to analyze data and calculate risk. The data is in a 
 
 But this does not work under Macintosh OS X.
 
-For two reasons. 
+For two reasons.
 
 One, it uses the [iODBC][iodbc] libraries that come with OS X and these do not work out of the box. And two, even if you do install the [ODBC Administrator][odbcadmin] tool and configure iODBC, it does not work with unicode drivers and databases.
 
@@ -90,7 +90,7 @@ and you should see
 	|                                       |
 	+---------------------------------------+
 	SQL>
-	
+
 Ok, ODBC is working and set up.
 
 ## Compile and install RODBC
@@ -132,7 +132,9 @@ All the installer does is test that the library loads. To see if it actually wor
 	odbcDataSources()
 
 The response should be:
-	   database1 	"PostgreSQL"
+
+	   database1
+	"PostgreSQL"
 
 If you get an error message that contains `[iODBC]` in it, or a message that says `named character(0)`, it means you are using the wrong library version (the default and not the newly compiled one). Remove RODBC and start again.
 
@@ -140,7 +142,7 @@ Let me know if this works for you too.
 
 Off to write some database queries now.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [rproj]:	http://www.r-project.org
 [postgres]:	http://www.postgresql.org
@@ -153,4 +155,3 @@ Off to write some database queries now.
 [rodbcsrc]:	http://cran.r-project.org/src/contrib/RODBC_1.3-8.tar.gz
 [rstudio]:	http://www.rstudio.com
 [brew]:	http://brew.sh
-

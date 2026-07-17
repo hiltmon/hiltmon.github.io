@@ -1,10 +1,10 @@
 ---
 title: "Develop Locally, Stage Nearby, Production Anywhere"
-date: 2014-03-15 13:12:08 -0400
+date: 2014-03-15T13:12:08-04:00
 
 ---
 
-One of the things that surprised me as I moved back into the land of corporate software is the number of developers I talk to that commute and work in offices **and yet develop on remote computers**. I thought, as you probably do, that by now *all* software development would be local, as in on the developer's own computer. 
+One of the things that surprised me as I moved back into the land of corporate software is the number of developers I talk to that commute and work in offices **and yet develop on remote computers**. I thought, as you probably do, that by now *all* software development would be local, as in on the developer's own computer.
 
 Instead, it is not uncommon for corporate developers to rely on remote shells or desktop virtualization to access remote development computers and use them to code. It's slow, unproductive, frustrating and so pre-1990's.
 
@@ -16,14 +16,14 @@ In this post, I want to point out how delusional remote development is in the 21
 
 There are several reasons given by Corporates for this old-school behavior, all of which are bogus.
 
-> bo·gus ˈbōgəs/ adjective  
+> bo·gus ˈbōgəs/ adjective
 > 1. not genuine or true; fake.
 
 * **Security and Access Control**: The argument is that companies want to be sure that their developers do not run off with their source code, or that nothing is lost when computers get stolen or lost, that only authorized developers access the right parts of the code and that they can track who did what.
 
 	Bogus because the average developer can still copy the code, or even rewrite it from scratch. Modern source code control systems and good network access control will resolve any security concern. Encrypted hard drives and startup passwords secure computers, even after theft.
 * **Big or Sensitive Data**: The argument is that the amount of data processed by developers is huge, or the data itself is so sensitive, that they need to develop close to the data.
-	
+
 	Bogus because networks are plenty fast, developer databases do not need to be that huge and storage is cheap, so making local (or nearby) copies of data is simple. Bogus because sensitive data can be changed via scripts, or fake data generated.
 * **Cost Savings**: The argument is that companies can share development resources such as licenses and installations and can therefore purchase cheaper computers for their developers.
 
@@ -38,9 +38,9 @@ In each case, the argument put forward for remote development is bogus. Developm
 
 The local development model's mantra is simple, to:
 
-> 1. Develop Locally  
-> 2. Stage Nearby  
-> 3. Production Anywhere  
+> 1. Develop Locally
+> 2. Stage Nearby
+> 3. Production Anywhere
 
 Developers code and compile on their own computers, using locally installed tools. All projects are staged (and continuously integrated) on servers nearby (as in the same office or on the same network). And then code can be deployed anywhere to run in production.
 
@@ -112,10 +112,10 @@ The downsides were the same as modern remote development: key press delays, slow
 
 But since then we've moved on. A computer on every desk (and now lap and pocket) is the norm. Servers and server platforms can run on laptops as well as on big iron in production. Computers are secure and fast, encrypted networking is ubiquitous.
 
-There is no downside to local development. The last 20 years have been spent making local development a reality. The upside is huge. Faster, anytime, anywhere, productive developers result. 
+There is no downside to local development. The last 20 years have been spent making local development a reality. The upside is huge. Faster, anytime, anywhere, productive developers result.
 
 There is no downside to nearby (or even local) staging. The upside is also huge. Better, faster builds, quicker identification of issues, and better testing all result.
 
 Welcome to the 21<sup>st</sup> century. **Develop Locally, Stage Nearby, Production Anywhere.** Remote development's time has passed.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

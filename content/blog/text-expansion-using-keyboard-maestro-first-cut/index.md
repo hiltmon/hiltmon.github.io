@@ -1,6 +1,6 @@
 ---
 title: "Text Expansion using Keyboard Maestro (First Cut)"
-date: 2016-04-08 08:43:08 -0400
+date: 2016-04-08T08:43:08-04:00
 
 ---
 
@@ -70,10 +70,10 @@ Or to create a date heading in an Assembly Note, I can use my `;mmd` macro.
 This types:
 
 	---
-	
+
 	**2016-04-08**
 soul
-	
+
 You can format the date any way you like, of course.
 
 {{< figure src="images/te-to-km-7.png" width=247 height=262 class="image-right" >}}

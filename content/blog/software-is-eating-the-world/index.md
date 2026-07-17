@@ -1,6 +1,6 @@
 ---
 title: "Software is Eating the World"
-date: 2012-01-18 09:33:00-0400
+date: 2012-01-18T09:33:00-04:00
 tags: [ Software ]
 ---
 

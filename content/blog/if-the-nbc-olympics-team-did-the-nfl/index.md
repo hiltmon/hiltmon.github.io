@@ -1,6 +1,6 @@
 ---
 title: "If the NBC Olympics team did the NFL"
-date: 2012-07-30 13:04:00-0400
+date: 2012-07-30T13:04:00-04:00
 
 ---
 

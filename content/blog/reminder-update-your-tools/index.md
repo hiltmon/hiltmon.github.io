@@ -1,6 +1,6 @@
 ---
 title: "Reminder: Update your Tools"
-date: 2014-01-19 12:06:25 -0500
+date: 2014-01-19T12:06:25-05:00
 
 ---
 
@@ -26,4 +26,4 @@ What did I get out of all of this work? On the surface, nothing much. The same o
 
 There is no good time to do this, so do it now. Get it over with for the year. Update your tools now. Or you never will.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

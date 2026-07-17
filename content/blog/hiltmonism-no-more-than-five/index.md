@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "No more than Five"
-date: 2012-06-09 13:35:00-0400
+date: 2012-06-09T13:35:00-04:00
 tags: [ Hiltmonism ]
 ---
 
@@ -17,7 +17,7 @@ And if in doubt, or impossible to remain at five, you can grow to *a maximum of 
 
 ## Why 5 with a maximum of 7?
 
-It really starts with a seminal psychology paper by George A. Miller of Harvard University, written in 1956 and originally published in Psychological Review in 1963, entitled "*The Magical Number Seven, Plus or Minus Two: Some Limits on our Capacity for Processing Information*". (References: [The article](http://psychclassics.yorku.ca/Miller/) or [Wikipedia](http://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two)). 
+It really starts with a seminal psychology paper by George A. Miller of Harvard University, written in 1956 and originally published in Psychological Review in 1963, entitled "*The Magical Number Seven, Plus or Minus Two: Some Limits on our Capacity for Processing Information*". (References: [The article](http://psychclassics.yorku.ca/Miller/) or [Wikipedia](http://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two)).
 
 In short, Miller's experiments proved that the average person can hold 7 plus or minus 2 objects in working memory at one time.
 

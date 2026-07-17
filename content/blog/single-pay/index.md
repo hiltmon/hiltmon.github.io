@@ -1,6 +1,6 @@
 ---
 title: "Single-pay, Ad-pay or Both-pay?"
-date: 2012-06-20 10:10:00-0400
+date: 2012-06-20T10:10:00-04:00
 tags: [Business]
 ---
 
@@ -37,4 +37,3 @@ Or maybe there is no inconsistency at all, just apathy. People feel there is not
 As an individual consumer, who values his time quite highly and is not overly financially strapped, I find myself personally moving away from a 'both-pay' model wherever possible. If something has ads and a purchase price, I tend *not* buy it. I will, do, and have done, however, paid more for an item that has no ads. I perceive the value of the ad-free experience to be worth the higher price, and equate that to a better quality experience and use of my time.
 
 But, based on current market trends, I guess I am in the significant minority. When should 'user-pay' work? When should 'ad-pay' be the model? And when is 'both-pay' best? I have no idea.
-

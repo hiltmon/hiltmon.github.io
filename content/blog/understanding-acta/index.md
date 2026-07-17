@@ -1,6 +1,6 @@
 ---
 title: "Understanding ACTA"
-date: 2012-01-23 18:20:00-0400
+date: 2012-01-23T18:20:00-04:00
 
 ---
 
@@ -38,7 +38,7 @@ THEM: ACTA allows these searches to be performed at the ISP level as well, not j
 
 THEM: ACTA offers no due process for notification, charge, or response. <br/>*US: <q>Oh, add icing on this shitcake!</q>*
 
-> From 16–18 June 2010, a conference was held at the Washington College of Law, attended by "over 90 academics, practitioners and public interest organizations from six continents". Their conclusions were published on 23 June 2010 on the American University Washington College of Law website. They found "that the terms of the publicly released draft of ACTA threaten numerous public interests, including every concern specifically disclaimed by negotiators." A group of 75+ law professors has signed a letter to President Obama demanding a host of changes to the agreement. The letter alleges that no meaningful transparency has been in evidence.  
+> From 16–18 June 2010, a conference was held at the Washington College of Law, attended by "over 90 academics, practitioners and public interest organizations from six continents". Their conclusions were published on 23 June 2010 on the American University Washington College of Law website. They found "that the terms of the publicly released draft of ACTA threaten numerous public interests, including every concern specifically disclaimed by negotiators." A group of 75+ law professors has signed a letter to President Obama demanding a host of changes to the agreement. The letter alleges that no meaningful transparency has been in evidence.
 > [Wikipedia](http://en.wikipedia.org/wiki/Anti-Counterfeiting_Trade_Agreement)
 
 We stopped SOPA and PIPA, but it may be too late to stop ACTA.

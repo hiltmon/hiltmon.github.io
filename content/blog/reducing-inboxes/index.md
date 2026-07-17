@@ -1,6 +1,6 @@
 ---
 title: "Reducing Inboxes"
-date: 2012-11-06 11:54:00-0400
+date: 2012-11-06T11:54:00-04:00
 tags: [Email, Productivity]
 ---
 
@@ -27,7 +27,7 @@ This leaves me with four (4) servers to check:
 
 * **noverse** for all *work* related email
 * **gmail** for all *personal* email
-* **shukaico** for all [Kifu](http://www.kifuapp.com) email
+* **shukaico** for all Kifu email
 * **icloud** for all Apple email (and I'm thinking of forwarding these to **gmail** too)
 
 Now that I have reduced the *number* of inboxes, it's a lot easier to process email. And it's easier for people who email me to know *which* account to use (see the need in my [Email Etiquette](https://hiltmon.com/blog/2012/10/24/email-etiquette/) article).

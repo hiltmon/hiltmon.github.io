@@ -1,6 +1,6 @@
 ---
 title: "Buying a new Suitcase"
-date: 2012-09-19 18:18:00-0400
+date: 2012-09-19T18:18:00-04:00
 tags: [ Purchasing ]
 ---
 
@@ -20,7 +20,7 @@ So, I added the requirement for the suitcase to be light, yet reasonably durable
 
 The zipper choice was easily rejected. All the cheaper polycarbonate suitcase models have zippers that circumnavigate the bag to enable them to open widely for packing. But these zippers are attached to the hard shell using flexible cloth or rubber that is glued on, reducing the structural integrity and durability of the bag to the strength of the glue. In testing, these suitcases tend to bend and stress where the zipper joins the polycarbonate shell, increasing stress on these glued joints. The zippers themselves seemed quite strong.
 
-With clasps however, each suitcase has a more solid polycarbonate ring where the clasps and hinges are, with riveted in metallic or polycarbonate hinges, making the structure that much sturdier and durable. Testing these did not bend or stress in the middle. 
+With clasps however, each suitcase has a more solid polycarbonate ring where the clasps and hinges are, with riveted in metallic or polycarbonate hinges, making the structure that much sturdier and durable. Testing these did not bend or stress in the middle.
 
 We also decided to choose the more durable Japanese-made casters as they seemed to have longer warranties and better recommendations.
 
@@ -34,4 +34,4 @@ In the end, we chose the [GMA-5212](http://item.rakuten.co.jp/la-park/gma-5212/)
 
 *Aside: In order to meet Japanese garbage requirements, we also have to saw our old suitcase into quarters in order to fit it into the local bins. That's going to be fun as my in-laws have a handheld electric band-saw. A boy, a toy and something to destroy, what could possibly go wrong!*
 
-I’m [@hiltmon](https://https://twitter.com/hiltmon) on Twitter and [@hiltmon](https://alpha.app.net/hiltmon) on App.Net. Follow me and let me know what you think.
+I'm [@hiltmon](https://twitter.com/hiltmon) on Twitter. Follow me and let me know what you think.

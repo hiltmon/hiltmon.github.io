@@ -1,6 +1,6 @@
 ---
 title: "Oldest Trace of You on the Internet"
-date: 2013-03-26 10:20:00-0400
+date: 2013-03-26T10:20:00-04:00
 tags: [ Web, Writing ]
 ---
 
@@ -18,13 +18,13 @@ I spent the early to mid 1990's in [Bulletin Boards][wikipedia 3], [CompuServe][
 The earliest trace that Google could find was in a 1998-05-26 press release reported in [The Age | Hard Drive][internetprovidersqld], an Australian Newspaper, <span class="light">highlighting is my own, skipped the bumf to see the reference</span>:
 
 > BRACKIN SIGNS UP A CAST OF HUNDREDS
-> 
+>
 > AAG Holdings chairman and Netbridge managing director Allan Brackin continues to boost his national team, now 250-plus, adding more aces to his Brisbane, Melbourne and Sydney offices.
-> 
+>
 > ...
-> 
+>
 > Project management specialists Jan Priest and <mark>Hilton Lipschitz</mark> join Melbourne and Sydney teams on a contract basis.
-> 
+>
 > ...
 
 The search was performed using **"Hilton Lipschitz"** as the search string (quotes included), then clicking **Search Tools** on the results page and setting a custom range under **Any Time**. *I ignored any references where the page was created later, for example, old school photographs from the 1980's but published in the 2000's.*
@@ -56,30 +56,30 @@ Fax: (+612) 660 1442       //           @ COM TECH @ LOTUSINT (@ NOTES NET)
 
  <span class="light">That's one helluva message signature!</span> And I even spread rumors:
 
-```		
+```
 Hilton Lipschitz  								Oct 26 1995, 3:00 am
-c...@cs.utexas.edu (Jimmy Gunawan Jusuf) wrote: 
->Hi, does anyone know what is the latest version of Notes ODBC driver? 
->I got an ODBC driver from 
->ftp.ccmail.com:/pub/comm/notes/workstn/drivers/notessql. 
->Its version# is 1.01.2203, appears to be made by Casahl Technology for Lotus. 
->I'm looking for an ODBC driver that allows writing to local Notes db 
->using VB's DAO (database access object) or from MS-Access (as attached tables). 
->The driver I have doesn't allow me to do this due to a bug in the driver. 
+c...@cs.utexas.edu (Jimmy Gunawan Jusuf) wrote:
+>Hi, does anyone know what is the latest version of Notes ODBC driver?
+>I got an ODBC driver from
+>ftp.ccmail.com:/pub/comm/notes/workstn/drivers/notessql.
+>Its version# is 1.01.2203, appears to be made by Casahl Technology for Lotus.
+>I'm looking for an ODBC driver that allows writing to local Notes db
+>using VB's DAO (database access object) or from MS-Access (as attached tables).
+>The driver I have doesn't allow me to do this due to a bug in the driver.
 
-Try ViP if you like BASIC and want to play notes and other databases. 
-ODBC and Access only work when there is a unique index and there is no 
-such thing in Notes.  Microsoft - so it is rumoured - is working on 
-this. 
-Hilton 
-===================================================================== 
-Hilton Lipschitz          || Phone: (+612) 566 4729 
-Seltex Ventures Pty Ltd   || Fax: (+612) 566 4724 
-190 Bridge Road           || Mail: hilt...@ozemail.com.au 
-Glebe NSW 2037 AUSTRALIA  || WWW: http://www.ozemail.com.au/~hiltonl 
-===================================================================== 
-         "You want to be somewhere - so there you are!" 
-===================================================================== 
+Try ViP if you like BASIC and want to play notes and other databases.
+ODBC and Access only work when there is a unique index and there is no
+such thing in Notes.  Microsoft - so it is rumoured - is working on
+this.
+Hilton
+=====================================================================
+Hilton Lipschitz          || Phone: (+612) 566 4729
+Seltex Ventures Pty Ltd   || Fax: (+612) 566 4724
+190 Bridge Road           || Mail: hilt...@ozemail.com.au
+Glebe NSW 2037 AUSTRALIA  || WWW: http://www.ozemail.com.au/~hiltonl
+=====================================================================
+         "You want to be somewhere - so there you are!"
+=====================================================================
 ```
 &nbsp;
 ## The Wayback Machine 1996
@@ -99,9 +99,8 @@ The site was taken down in May 1998 when I migrated to the Indaba Solutions doma
 
 I guess anything you do *does* remain on the Internet somewhere.  **What's the oldest *real* trace of you on the Internet?**
 
-*Follow the author as [@hiltmon][twitter] on Twitter and [@hiltmon][app] on App.Net. Mute `#xpost` on one.*
+*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.
 
-[app]: http://alpha.app.net/hiltmon
 [internetprovidersqld]: http://www.internetprovidersqld.com.au/news/1998/5/26/hard-drive/
 [twitter]: https://twitter.com/hiltmon
 [wikipedia]: http://en.wikipedia.org/wiki/UUCP

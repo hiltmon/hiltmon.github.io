@@ -1,6 +1,6 @@
 ---
 title: "Lodsys still trolling"
-date: 2011-12-30 17:40:00-0400
+date: 2011-12-30T17:40:00-04:00
 tags: [ Politics ]
 ---
 

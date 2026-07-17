@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "One version of the truth"
-date: 2011-12-23 10:52:00-0400
+date: 2011-12-23T10:52:00-04:00
 tags: [ Hiltmonism ]
 ---
 
@@ -19,11 +19,11 @@ That way, everybody in the organization is working off the same page, and each r
 
 I learned this Hiltmonism from a clothing retail chain. They were having lots of problems matching inventory with point of sales as they were on different systems. So they redesigned the point of sales system to take in the inventory data. After that, they could only sell what the inventory system said (not what the point of sales system said) and any inventory changes could only be made in one place, *in the inventory system*.  With this 'one version of the truth', they all but eliminated their stock problems.
 
-Of course, 'one version of the truth' is also quite risky. What if the truth is actually a bad piece of information, and this bad information flows to all other systems?  
+Of course, 'one version of the truth' is also quite risky. What if the truth is actually a bad piece of information, and this bad information flows to all other systems?
 
 In theory this is a huge problem, in practice, not so much.
 
-In theory, all other systems report bad information, bad decisions get made on this bad information and business fail.  In practice, the bad data will either cause a later process to fail or a report to produce noticeably incorrect results, in which case the cause is easy to detect and correct, since you know where the truth comes from. In practice, you are always dealing with bad information, but if it's the best you have, you're making the best decisions. Usually though, a few unnoticed bad data points have no impact, so there is no real problem.  
+In theory, all other systems report bad information, bad decisions get made on this bad information and business fail.  In practice, the bad data will either cause a later process to fail or a report to produce noticeably incorrect results, in which case the cause is easy to detect and correct, since you know where the truth comes from. In practice, you are always dealing with bad information, but if it's the best you have, you're making the best decisions. Usually though, a few unnoticed bad data points have no impact, so there is no real problem.
 
 The retailer I mentioned did have invalid information in their systems, especially where 'shrinkage' of stock was occurring, but the impact was negligible, and very quickly picked up.
 

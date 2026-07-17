@@ -1,6 +1,6 @@
 ---
 title: "Hedge Fund Systems"
-date: 2013-05-06 12:45:00-0400
+date: 2013-05-06T12:45:00-04:00
 tags: [ Business, Finance ]
 ---
 
@@ -12,4 +12,4 @@ In short, I **did** successfully architect, plan, design and build a feature-com
 
 Head on over to [The Opportunity](https://noverse.com/blog/2013/05/the-opportunity/) to read more. It's a pretty unbelievable, but true, story.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

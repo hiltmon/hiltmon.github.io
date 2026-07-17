@@ -1,6 +1,6 @@
 ---
 title: "Also Destroyed the Ecosystem"
-date: 2013-03-14 17:56:00-0400
+date: 2013-03-14T17:56:00-04:00
 tags: [ News ]
 ---
 
@@ -19,4 +19,4 @@ Aldo Cortesi in [Google, destroyer of ecosystems](http://corte.si/posts/socialme
 * Luxottica → Eyewear
 * LVMH → Luxury goods
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

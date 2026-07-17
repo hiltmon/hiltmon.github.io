@@ -1,6 +1,6 @@
 ---
 title: "The lost art of the print statement"
-date: 2011-12-12 09:28:00-0400
+date: 2011-12-12T09:28:00-04:00
 
 ---
 

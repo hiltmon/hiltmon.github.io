@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - Presenting the Clock"
-date: 2013-02-01 10:22:00-0400
+date: 2013-02-01T10:22:00-04:00
 tags: [ TimeToCall]
 ---
 
@@ -8,11 +8,11 @@ tags: [ TimeToCall]
 
 ## Presenting The Clock
 
-The second biggest design decision in [TimeToCall](https://hiltmon.com/timetocall/) had to be the clock and its face. The application is all about ‘playing’ with time and time is intuitively associated with clocks. 
+The second biggest design decision in [TimeToCall](https://hiltmon.com/timetocall/) had to be the clock and its face. The application is all about ‘playing’ with time and time is intuitively associated with clocks.
 
 And clocks are cool.
 
-So, what kind of clock? 
+So, what kind of clock?
 
 Yes, friends, what follows is almost 1,000 words on choosing a best way to show time for a simple, 4 view app. As if humanity has not being doing this for thousands of years!
 
@@ -20,7 +20,7 @@ Yes, friends, what follows is almost 1,000 words on choosing a best way to show 
 
 Since a day is 24 hours long, and I wanted users to know when it was day or night elsewhere, I initially went with a digital clock face design. I liked the idea of big, fat LED-style numbers and a blinking colon so it looked like one of those cheap digital clocks you get in hotel rooms or on old VCR’s. I *thought* that 24-hour digital time would be easier to read at a glance.
 
-But that idea died very quickly. 
+But that idea died very quickly.
 
 The first problem is that *most* people still *talk* in AM and PM. Most countries have settled on the 24-hour time for official business, you can tell because your computer will show 24 hour time for your locality (except America, Canada and Australia, they still show as 12 hour time). All military, police and other official conversations are all 24 hour time worldwide, “I arrived at the scene at 14:53.”.  But most people still say “3 o’clock” instead of “fifteen hundred”. And most people still prefer to run their diaries and calendars in 12-hour time. A 24 hour digital clock is correct, but not very user friendly.
 
@@ -57,9 +57,9 @@ I think the clock face turned out well. It is easy to read, differentiate and an
 **Next:** [Part 5: Good and Bad Times to Call](https://hiltmon.com/blog/2013/02/02/timetocall-good-and-bad-times-to-call/).
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

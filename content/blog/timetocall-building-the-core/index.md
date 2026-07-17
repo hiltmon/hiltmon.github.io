@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - Building the Core"
-date: 2013-01-30 11:29:00-0400
+date: 2013-01-30T11:29:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -68,7 +68,7 @@ When I kicked off the project, I *assumed* that the city names I needed would al
 
 How wrong was I.
 
-There are only 411 entries in the TimeZone database, but a lot more major cities. 
+There are only 411 entries in the TimeZone database, but a lot more major cities.
 
 I had forgotten to follow my own rule: *Never make assumptions*.
 
@@ -109,9 +109,9 @@ So I created another class to help with the presentation of a `CallZone`, with t
 **Next:** [Part 3: The Biggest Design Decision](https://hiltmon.com/blog/2013/01/31/timetocall-the-biggest-design-decision/).
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

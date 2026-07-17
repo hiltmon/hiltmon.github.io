@@ -1,6 +1,6 @@
 ---
 title: "Markdown Metadata"
-date: 2012-06-18 13:31:00-0400
+date: 2012-06-18T13:31:00-04:00
 tags: [Productivity, Markdown]
 ---
 
@@ -11,13 +11,13 @@ Turns out, [MultiMarkdown](https://github.com/fletcher/MultiMarkdown) (and other
 Simply add the metadata to the top of a markdown file as follows:
 
 ```
-Title:       |  
-Subtitle:    |  
-Project:     |  
-Author:      Hilton Lipschitz  
-Affiliation: Noverse LLC  
-Web:         https://noverse.com  
-Date:        June 18, 2012  
+Title:       |
+Subtitle:    |
+Project:     |
+Author:      Hilton Lipschitz
+Affiliation: Noverse LLC
+Web:         https://noverse.com
+Date:        June 18, 2012
 
 Your first paragraph starts here
 ```
@@ -31,14 +31,14 @@ Also:
 * You can have more than one value for a key on a new line, e.g. in my Call Note metadata header:
 
 ```
-Called:         Donald  
+Called:         Donald
 In Conference:  Huey
                 Duey
-                Louis  
+                Louis
 Project:        Fake Disney App
-Author:         Hilton Lipschitz  
-Affiliation:    Noverse LLC  
-Web:            https://noverse.com  
+Author:         Hilton Lipschitz
+Affiliation:    Noverse LLC
+Web:            https://noverse.com
 Date:           June 11, 2012 16:48
 
 Call notes start here
@@ -48,4 +48,4 @@ A search for `called donald huey` will find this document easily, even if Huey w
 
 {{< figure src="images/marked-no-metadata.png" width=579 height=276 >}}
 
-I use this so much, I have [TextExpander](http://smilesoftware.com/TextExpander/) snippets that generate metadata block, fill in the dates for me, and place the cursor at the title line. Just **New Document**, type `;mmt` (for MultiMarkdown Title) or `;mmc` (for MultiMarkdown Call) and I have a new markdown document with the metadata block all set up and ready to go.  
+I use this so much, I have [TextExpander](http://smilesoftware.com/TextExpander/) snippets that generate metadata block, fill in the dates for me, and place the cursor at the title line. Just **New Document**, type `;mmt` (for MultiMarkdown Title) or `;mmc` (for MultiMarkdown Call) and I have a new markdown document with the metadata block all set up and ready to go.

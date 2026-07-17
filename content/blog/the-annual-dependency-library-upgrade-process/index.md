@@ -1,6 +1,6 @@
 ---
 title: "The Annual Dependency Library Upgrade Process"
-date: 2016-09-25 14:10:56 -0400
+date: 2016-09-25T14:10:56-04:00
 
 ---
 

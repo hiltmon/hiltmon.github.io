@@ -1,6 +1,6 @@
 ---
 title: "Workable Social Network Connection Heuristics"
-date: 2013-01-12 21:35:00-0400
+date: 2013-01-12T21:35:00-04:00
 tags: [ Social ]
 ---
 
@@ -15,7 +15,6 @@ I’m not sure how other people decide these things, but I have created my own [
 	* Instant Messaging
 * **Internet Friends**: If either of us follow each-other on a popular social network, or we connect via email, comments or this web site, I’d love to connect with you on public social networks. I maintain my public persona there (and leak some of my personal tastes and quirks), am not afraid to express myself, but try to remain polite, humorous, responsive and not too chatty. So lets connect on:
 	* Twitter: [@hiltmon](https://twitter.com/hiltmon)
-	* App.Net: [@hiltmon](http://alpha.app.net/hiltmon)
 	* Instagram: hiltmon
 	* Flickr: [hiltmon](http://www.flickr.com/photos/hiltmon)
 	* Github: [hiltmon](https://github.com/hiltmon)
@@ -30,4 +29,4 @@ As for social networks not mentioned above, I am probably on them as I tend to s
 
 I’m not sure these heuristics will work for you and your network. I *choose* to use Facebook for close friends, LinkedIn for work and love using Twitter and App.Net to connect with everybody. And if in doubt, there is always email.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

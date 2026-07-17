@@ -1,6 +1,6 @@
 ---
 title: "Estimating Software like it is"
-date: 2012-07-18 13:45:00-0400
+date: 2012-07-18T13:45:00-04:00
 tags: [Business]
 ---
 
@@ -18,11 +18,11 @@ I just sent off an estimate for some iOS work to a potential client. But instead
 
 Let me throw out some numbers. The engagement is to create a simple flash card style game. I've done these before, and can whip a new one out in, lets say, 8 days pure programming time. From "Create Project" in Xcode to having the whole thing run from end to end, 8 days. Most software people would estimate 8 days times 8 hours times their hourly rate and be done with it.
 
-**That would be wrong**. That is *estimating software how it could be*. How it could be *if* there was only programming involved, and *all* the art was done, and the product mechanics, experience and feel completely understood, tested, and worked out, all those involved had done several of the same kind of product before, and the program does not need testing as it works the first time. 
+**That would be wrong**. That is *estimating software how it could be*. How it could be *if* there was only programming involved, and *all* the art was done, and the product mechanics, experience and feel completely understood, tested, and worked out, all those involved had done several of the same kind of product before, and the program does not need testing as it works the first time.
 
 *How it could be* is not real. It's not even close. But unfortunately how most seem to send as estimates.
 
-In reality, the product is not yet designed, the art not yet done, the client is new to creating software product, this is the first of their products to be developed, no code has yet been written for reuse, and no other product exists that works like it, feels like it, and has it's same experience. In reality, there is a huge learning curve ahead for all. 
+In reality, the product is not yet designed, the art not yet done, the client is new to creating software product, this is the first of their products to be developed, no code has yet been written for reuse, and no other product exists that works like it, feels like it, and has it's same experience. In reality, there is a huge learning curve ahead for all.
 
 When estimating *how it is*, at least the following additional work (and hence developer time) is required:
 

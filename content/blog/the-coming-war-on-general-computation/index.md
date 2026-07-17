@@ -1,6 +1,6 @@
 ---
 title: "The coming war on general computation"
-date: 2012-01-02 19:43:00-0400
+date: 2012-01-02T19:43:00-04:00
 
 ---
 

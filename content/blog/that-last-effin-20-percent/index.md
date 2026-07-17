@@ -1,12 +1,12 @@
 ---
 title: "That last effin 20%"
-date: 2015-05-29 16:02:43 -0400
+date: 2015-05-29T16:02:43-04:00
 
 ---
 
 I love creating new products. I love shipping new products more. That last effin 20% of work to create a new product that takes 80% of all the development time kills me. I really want to ship, but it has to be right.
 
-For those who do not know the 80/20 rule, it's a variant of the misnamed Pareto Principal wherein Vilfredo Pareto created a mathematical formula in 1906 to describe the unequal distribution of wealth in his country, observing that 20% of the people owned 80% of the wealth. This was then applied to other areas and seemed to hold true. 
+For those who do not know the 80/20 rule, it's a variant of the misnamed Pareto Principal wherein Vilfredo Pareto created a mathematical formula in 1906 to describe the unequal distribution of wealth in his country, observing that 20% of the people owned 80% of the wealth. This was then applied to other areas and seemed to hold true.
 
 In reality, Tom Cargill had it right where the right measure was 180% of the time:
 

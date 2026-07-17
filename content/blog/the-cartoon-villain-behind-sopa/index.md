@@ -1,6 +1,6 @@
 ---
 title: "The cartoon villain behind SOPA"
-date: 2011-12-23 10:59:00-0400
+date: 2011-12-23T10:59:00-04:00
 tags: [ Politics ]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Create a Bootable OS X Installer Drive"
-date: 2014-10-18 12:02:52 -0400
+date: 2014-10-18T12:02:52-04:00
 
 ---
 

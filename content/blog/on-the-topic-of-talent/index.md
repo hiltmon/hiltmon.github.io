@@ -1,6 +1,6 @@
 ---
 title: "On the topic of talent"
-date: 2011-12-16 08:43:00-0400
+date: 2011-12-16T08:43:00-04:00
 
 ---
 
@@ -12,6 +12,6 @@ I'm a very good software designer. Proof? I have a long track record of excellen
 
 I agree with Jorge.  This imaginary 'talent' thing comes from years and years of hard, painstaking work; from failures and picking yourself up again and again; from criticism and despair; and from occasional success.  You know you are getting better when you craft something great, only to fall down on the next endeavor. And it never ends, there is always more to learn, more to improve, more to perfect.
 
-I am a very good software designer **because I have spent the last 21 years of my life learning, practicing and tuning my craft**. 
+I am a very good software designer **because I have spent the last 21 years of my life learning, practicing and tuning my craft**.
 
 And I still have a long way to go.

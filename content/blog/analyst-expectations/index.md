@@ -1,6 +1,6 @@
 ---
 title: "Analyst Expectations"
-date: 2013-04-23 15:37:00-0400
+date: 2013-04-23T15:37:00-04:00
 tags: [ Apple ]
 ---
 
@@ -36,4 +36,3 @@ I am expecting this scenario to play out tonight at the Apple earnings call, and
 
 
 [1]:	https://twitter.com/hiltmon
-[2]:	http://alpha.app.net/hiltmon

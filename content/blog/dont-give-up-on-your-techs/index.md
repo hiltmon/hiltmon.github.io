@@ -1,6 +1,6 @@
 ---
 title: "Don't give up on your techs"
-date: 2011-12-13 22:48:00-0400
+date: 2011-12-13T22:48:00-04:00
 
 ---
 
@@ -10,7 +10,7 @@ My good friend, Brad Lindenberg, writing in [The diminishing value of technical 
 
 I absolutely agree with Brad that you need a bunch of super techs at the start to build the initial product, create the initial architecture and ship the first version. *Disclaimer: I am one of these people.*
 
-But after that - sorry, mate - but I think you have it wrong. If your super techs are twiddling their thumbs, then either your product plan is no good, or your business has stagnated and you're losing value. 
+But after that - sorry, mate - but I think you have it wrong. If your super techs are twiddling their thumbs, then either your product plan is no good, or your business has stagnated and you're losing value.
 
 The first version of a product is never good enough, but the product is worthless until you ship. So you ship it.  You need these techs to fix the edge case errors in the first release, to scale the product to meet demand (scaling is hard), to tweak the experience to meet user expectations, to add the missing features and to optimize all the new bottlenecks you will find.  For the first few iterations (ship, update, ship, update), there is *always* work for them to be doing and significant value for them to add.
 

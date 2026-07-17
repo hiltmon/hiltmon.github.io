@@ -1,6 +1,6 @@
 ---
 title: "Day One updated to v1.7"
-date: 2012-08-02 15:30:00-0400
+date: 2012-08-02T15:30:00-04:00
 tags: [Software]
 ---
 

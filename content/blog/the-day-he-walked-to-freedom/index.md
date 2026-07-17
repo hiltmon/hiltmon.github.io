@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "The day he walked to freedom"
-date: 2013-12-06 08:40:00-0400
+date: 2013-12-06T08:40:00-04:00
 
 ---
 
@@ -57,4 +57,4 @@ Nelson Mandela's great reconciliation began there and then, on that day, in that
 
 That day changed us all. Thank you, Madiba, for teaching us all to be better people. We knew you and will always remember you and what you believed in. Now its our turn to remember the lessons you taught us, to pass them on and to make this world a better place.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

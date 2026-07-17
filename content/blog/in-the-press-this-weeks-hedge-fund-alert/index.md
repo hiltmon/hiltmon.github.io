@@ -1,7 +1,7 @@
 ---
 layout: news
 title: "In the Press: This Week's Hedge Fund Alert"
-date: 2015-08-05 11:14:29 -0400
+date: 2015-08-05T11:14:29-04:00
 
 ---
 

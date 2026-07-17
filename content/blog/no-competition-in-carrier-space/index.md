@@ -1,6 +1,6 @@
 ---
 title: "No competition in Carrier space"
-date: 2012-08-06 14:16:00-0400
+date: 2012-08-06T14:16:00-04:00
 tags: [Carriers]
 ---
 

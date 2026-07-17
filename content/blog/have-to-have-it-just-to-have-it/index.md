@@ -1,6 +1,6 @@
 ---
 title: "Have to Have It Just to Have It"
-date: 2013-04-22 19:43:00-0400
+date: 2013-04-22T19:43:00-04:00
 tags: [ Writing ]
 ---
 
@@ -12,7 +12,7 @@ I'm sorry, but that is not a good enough reason to spend time and money.
 
 It often takes an outsider's mind like mine asking odd questions about why users need something that they *obviously* need or how users use something they have always used before folks start to think about what they do, why they do it and how they use it. When I get unsatisfactory answers to these questions, often an "I don't know" or more commonly "Because we always have", I usually decline to create the requested data, report or export. And, of course, I say why. I don't know how it is used or where else it is needed, so I cannot design or execute it properly.
 
-The first few times I say no to a *have to have because they have to have it* feature, people get frustrated and angry. Who is this *outsider*, this tech nerd, to question the need and the process that has worked just fine for ages? 
+The first few times I say no to a *have to have because they have to have it* feature, people get frustrated and angry. Who is this *outsider*, this tech nerd, to question the need and the process that has worked just fine for ages?
 
 But eventually, folks get over it and start to think. Why did the consultant say no? What reason did he give? And they start to think about how do they really use the thing they asked for, and why did they request it, and what they did with it in the past.
 
@@ -26,4 +26,4 @@ It does *seem* wonderful to have software that does everything you want and prov
 
 It's really hard, though, to identify that which you need versus that which you just *have to have just to have it*. Especially if the business, task or process has been in place for a long time. Using a consultant, like me, with a fresh mind and different outlook to help you think through these questions while designing your next product will result in a simpler, more focussed product. And in a more flexible, nimble, happier and productive team.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

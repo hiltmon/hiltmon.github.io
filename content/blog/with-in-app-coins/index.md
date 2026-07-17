@@ -1,6 +1,6 @@
 ---
 title: "With In-App Coins, We're all Losers"
-date: 2012-03-17 12:06:00-0400
+date: 2012-03-17T12:06:00-04:00
 tags: [Business]
 ---
 

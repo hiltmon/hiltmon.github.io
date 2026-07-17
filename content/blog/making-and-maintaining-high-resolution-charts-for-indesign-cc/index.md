@@ -1,6 +1,6 @@
 ---
 title: "Making and maintaining high resolution charts for Indesign CC"
-date: 2015-11-02 19:41:45 -0500
+date: 2015-11-02T19:41:45-05:00
 
 ---
 

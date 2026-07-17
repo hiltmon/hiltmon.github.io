@@ -1,6 +1,6 @@
 ---
 title: "BBEdit still Rules"
-date: 2012-10-10 09:48:00-0400
+date: 2012-10-10T09:48:00-04:00
 tags: [Text Editors, Macintosh, Productivity]
 ---
 

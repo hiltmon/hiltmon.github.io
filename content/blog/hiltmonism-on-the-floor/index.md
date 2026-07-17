@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "On the floor"
-date: 2014-06-22 11:37:20 -0400
+date: 2014-06-22T11:37:20-04:00
 tags: [ Hiltmonism ]
 ---
 
@@ -33,4 +33,4 @@ Soon, you will no longer be that mysterious IT person, you'll be part of the tea
 
 *This article is part of a series on [Hiltmonisms](https://hiltmon.com/blog/categories/hiltmonism/), a series of catch-phrase ideas that I have been learning, developing and using for years to improve my craft and the craft of those around me.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

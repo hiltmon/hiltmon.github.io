@@ -1,6 +1,6 @@
 ---
 title: "Keep long running UNIX commands alive"
-date: 2014-04-19 12:43:53 -0400
+date: 2014-04-19T12:43:53-04:00
 
 ---
 
@@ -21,13 +21,13 @@ However, if the process is still part of the primary thread of a terminal, it di
 To kick off a long running process on unix, type
 
 	$ nohup <the command> &
-	
+
 This tells `<the command>` to ignore hangups, and detaches the process from the current terminal, so the kill signal is also ignored.
 
 To see what is going on in this thread:
 
 	$ tail -f nohup.out
-	
+
 `nohup` helpfully appends standard output and standard error to this file.
 
 Go ahead and try it, kick off a command using `nohup ... &`, close the terminal, create a new terminal session and tail the **nohup.out** file to see that the process is still running.
@@ -51,23 +51,23 @@ If you already use `tmux` sessions, this is the simplest solution. If you do not
 To start a `tmux` terminal, just type
 
 	$ tmux new -s long-running-session
-	
+
 Run the program in this session as normal, no need for `nohup` or `disown`.
 
 Before closing the terminal, detach the session:
 
 	$ tmux detach
-	
+
 Or `⌃b d` from within the `tmux` terminal.
 
 To get it back later, just re-attach the session:
 
 	$ tmux a
-	
+
 or
 
 	$ tmux a -t long-running-session
-	
+
 And the long running command will still be running (or completed).
 
 I won't go into setting up `tmux`, Daniel Miessler wrote a great [tmux Tutorial and Primer](http://www.danielmiessler.com/study/tmux/) to show you how to do this.
@@ -86,4 +86,4 @@ And if my VPN session disconnects, I can always get back an see what happened in
 
 Enjoy.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

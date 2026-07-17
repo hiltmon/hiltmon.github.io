@@ -1,6 +1,6 @@
 ---
 title: "Markdown Quick Look"
-date: 2012-03-22 15:24:00-0400
+date: 2012-03-22T15:24:00-04:00
 tags: [ Markdown ]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Accessing SQL Server from OS X"
-date: 2013-06-09 10:56:00-0400
+date: 2013-06-09T10:56:00-04:00
 tags: [ Scripting, Python, Ruby, Microsoft ]
 ---
 
@@ -74,9 +74,9 @@ def dump_query(table, query)
 end
 
 @client = TinyTds::Client.new(
-	:username => 'username', 
-	:password => 'password', 
-	:host => '192.168.x.x', 
+	:username => 'username',
+	:password => 'password',
+	:host => '192.168.x.x',
 	:database => 'database _name'
 )
 
@@ -101,9 +101,9 @@ And in a simple script:
 ``` python
 import pymssql
 connection = pymssql.connect(
-	host = r'192.168.x.y:1433', 
-	user = 'username', 
-	password = r'password', 
+	host = r'192.168.x.y:1433',
+	user = 'username',
+	password = r'password',
 	database = 'database_name'
 )
 
@@ -175,10 +175,10 @@ $ isql TEST user_name password
 
 ## Commentary
 
-It's quite sad that the popular Open Source databases like MySQL, PostgreSQL and MongoDB all have wonderful, fast, easy to install, native libraries for OS X and Linux, but the big commercial databases like SQL Server and Oracle still require these unpleasant hacks, ancient deprecated libraries or worse, Java! 
+It's quite sad that the popular Open Source databases like MySQL, PostgreSQL and MongoDB all have wonderful, fast, easy to install, native libraries for OS X and Linux, but the big commercial databases like SQL Server and Oracle still require these unpleasant hacks, ancient deprecated libraries or worse, Java!
 
 A lot of companies are moving their servers off Microsoft Windows and on to Linux, but they still need access to legacy data, and these hacks are just not that elegant or robust enough for true production use. Until these companies can migrate their databases off Microsoft and Oracle, they are going to have to live in transition and hope these hacks hold.
 
 I think it's in Microsoft and Oracle's interest to release public libraries to access their databases from anywhere, including other platforms, in order to stay relevant and in the game.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

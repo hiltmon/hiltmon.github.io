@@ -1,6 +1,6 @@
 ---
 title: "My Next Product"
-date: 2013-05-13 10:56:00-0400
+date: 2013-05-13T10:56:00-04:00
 tags: [ Programming, Product ]
 ---
 
@@ -33,4 +33,3 @@ Never stop learning. Never stop growing. Never stop improving.
 *Follow the author as [@hiltmon][1] on Twitter and [@hiltmon][2] on App.Net. Mute `#xpost` on one.*
 
 [1]:	https://twitter.com/hiltmon
-[2]:	http://alpha.app.net/hiltmon

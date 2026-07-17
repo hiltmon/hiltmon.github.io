@@ -1,6 +1,6 @@
 ---
 title: "Explain the Problem - Not your Solution"
-date: 2011-12-02 09:48:00-0400
+date: 2011-12-02T09:48:00-04:00
 
 ---
 

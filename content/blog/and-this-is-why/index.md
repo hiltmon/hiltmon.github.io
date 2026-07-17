@@ -1,17 +1,17 @@
 ---
 title: "And this is why"
-date: 2012-04-01 12:35:00-0400
+date: 2012-04-01T12:35:00-04:00
 tags: [Business]
 ---
 
 Life, communication, programming, it's all about structuring a rational argument. But too many people are either unable to, or are unwilling to, rationalize.
 
-> "I hold this opinion because I've read the facts and thought it through" matters. "I hold this opinion, and that's it" doesn't.  
+> "I hold this opinion because I've read the facts and thought it through" matters. "I hold this opinion, and that's it" doesn't.
 > [Ian Betteridge](https://twitter.com/#!/ianbetteridge/status/186371647987658752)
 
 Whether the argument is about creative design, system architecture, which restaurant to eat at or politics and religion, it's critically important to express, clarify and declare the rationalization behind it. Failure to do so, or the inability to do so, changes the argument from a rational, reasonable one, to a waste of time, words, and emotions. Unfortunately, rational discourse has given way to spin, faith, linguistic traps, talking points, lies and misrepresentations that are treated with the respect they do not deserve.
 
-> Having taught people who think "it's my opinion and you can't tell me I'm wrong" I see how important the skills of rational argument are.  
+> Having taught people who think "it's my opinion and you can't tell me I'm wrong" I see how important the skills of rational argument are.
 > [Ian Betteridge](https://twitter.com/#!/ianbetteridge/status/186372309559414784)
 
 The only way to beat irrational discourse is not to partake in it, and to avoid people who do. It's not easy, and sometimes not possible, but an irrationally held belief or opinion will not be swayed by rational facts, and I don't know why. Maybe its laziness, maybe its a comfort factor, maybe it conformity, maybe it's to avoid being embarrassed or being perceived as wrong, maybe its just plain stupidity, I do not know.

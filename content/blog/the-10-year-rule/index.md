@@ -1,10 +1,10 @@
 ---
 title: "The 10-year rule"
-date: 2012-07-19 21:44:00-0400
+date: 2012-07-19T21:44:00-04:00
 tags: [Finance]
 ---
 
-> If you aren’t willing to own a stock for 10 years, don’t even think about owning it for 10 minutes.  
+> If you aren’t willing to own a stock for 10 years, don’t even think about owning it for 10 minutes.
 > Warren Buffett
 
 I was just messing around in Google Finance today after reading that Microsoft made its first quarterly loss since going public (see [Washington Post](http://www.washingtonpost.com/business/technology/microsoft-reports-first-quarterly-loss-as-public-company-after-write-down-of-ad-business/2012/07/19/gJQAmtbrwW_story.html)), and decided to take a look at our favorite tech stocks and see how they would have fared under Buffet's 10-year rule.
@@ -36,7 +36,7 @@ I was just messing around in Google Finance today after reading that Microsoft m
 		<tr>
 			<td>Intel</td>
 			<td>41%</td>
-		</tr>	
+		</tr>
 		<tr>
 			<td><em>Dow Jones</em></td>
 			<td><em>38%</em></td>
@@ -55,5 +55,5 @@ Ignoring Apple's crazy numbers, the thing that really stands out to me is that M
 
 I'm not saying I could have predicted any of this 10 years ago, no way, but, come on, Microsoft has been flat since Bill Gates left and the board has done nothing! Sure, Windows and Office are a license to print money, and the XBox is starting to look like a reasonable business, yet everything else they do, all other products lines, acquisitions and initiatives are massive losers. It's pretty embarrassing for the company with the largest revenue stream in history to make a quarterly loss. Maybe it's too late to fix the culture, maybe it's too late to cut some of the loser businesses, or maybe this will stir the board into action. We'll just have to see.
 
-<sup>(1)</sup> Yes, I know, Google is not 10 yet.  
+<sup>(1)</sup> Yes, I know, Google is not 10 yet.
 <sup>(2)</sup> I sold any Microsoft shares I had back in 2004! Glad I did.

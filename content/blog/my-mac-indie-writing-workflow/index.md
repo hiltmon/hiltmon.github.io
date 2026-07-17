@@ -1,6 +1,6 @@
 ---
 title: "My Mac Indie Writing Workflow"
-date: 2013-05-28 12:39:00-0400
+date: 2013-05-28T12:39:00-04:00
 tags: [ Macintosh, Writing, Scrivener ]
 ---
 
@@ -25,7 +25,7 @@ Before I write anything, I jot down what I want to say. I use [nvAlt][nvalt] by 
 
 These start out as bunch of confusing point-form thoughts that I have rattling around. By writing them down, I get a feel for what I am thinking, what I want to say and what will get written, in what order. By writing and reordering these, I usually find out the point I want to make (or whether there is no point, and the post idea dies there). I often surprise myself as I think I am going to write about one thing, and land up writing about something completely different.
 
-For more complex articles, I sometimes build a mind-map using [MindNode Pro][mindnode] by [IdeasOnCanvas][15] in Germany. I got this idea from [Gabe Weatherhead / MacDrifter’s][16] post on [Michael Schechter's Writer Workflow][17]. This allows me to see the structure of the post and reorder the thoughts into a more intelligent structure and flow. I did not do this for earlier series of posts, but I think the articles I do create after mind-mapping turn out a lot better.
+For more complex articles, I sometimes build a mind-map using [MindNode Pro][mindnode] by [IdeasOnCanvas][15] in Germany. I got this idea from [Gabe Weatherhead / MacDrifter's][16] post on [Michael Schechter's Writer Workflow][17]. This allows me to see the structure of the post and reorder the thoughts into a more intelligent structure and flow. I did not do this for earlier series of posts, but I think the articles I do create after mind-mapping turn out a lot better.
 
 ### Drafting: Ulysses III
 
@@ -59,11 +59,11 @@ Once I realize that a post is going to be a longer form series, I switch to writ
 
 ### Article Review: Marked
 
-One of the best ways to review your writing is to send it to an editor. But since I do not have one of those hanging around, I find it best to look at it in another form. I guess I become typo and grammar blind after a while in the same tool, plus I really do like to see the balance and flow of the article in its finished form. 
+One of the best ways to review your writing is to send it to an editor. But since I do not have one of those hanging around, I find it best to look at it in another form. I guess I become typo and grammar blind after a while in the same tool, plus I really do like to see the balance and flow of the article in its finished form.
 
 {{< figure src="images/indie-writing-5.jpg" width=712 height=343 >}}
 
-For that, there is none better than [Brett Terpstra’s][44] [Marked][marked] app. Best of all, it works with both [Scrivener][scrivener] and [Byword][byword] brilliantly. I have [Marked][marked] open on the right of my screen with [Scrivener][scrivener] or [Byword][byword] on the left. As soon as I make changes in the document, [Marked][marked] updates and displays it as it would appear on the blog. Not only that, it scrolls to the latest change to I don’t need to hunt to get back to my review position after correcting.
+For that, there is none better than [Brett Terpstra's][44] [Marked][marked] app. Best of all, it works with both [Scrivener][scrivener] and [Byword][byword] brilliantly. I have [Marked][marked] open on the right of my screen with [Scrivener][scrivener] or [Byword][byword] on the left. As soon as I make changes in the document, [Marked][marked] updates and displays it as it would appear on the blog. Not only that, it scrolls to the latest change to I don't need to hunt to get back to my review position after correcting.
 
 I am also starting to use [Marked][marked] for more than just blog post previews, such as creating documents on [letterhead][53].
 
@@ -75,15 +75,15 @@ For annotated blog images, I seem to be using [Napkin][napkin] from Aged & Disti
 
 ## All Indie Apps
 
-Until I started planning this post, I had not even thought that all of these programs are products of **brilliant small independent developers**, not major corporations. All of these products are a delight to use, the best in their class in my <span class="light">(humble / correct)</span> opinion, and enable terrific productivity. Not only that, but all have amazing competitors also created by indies, so if the indie tools I choose don’t work for you, there are plenty of other great indie products that will.
+Until I started planning this post, I had not even thought that all of these programs are products of **brilliant small independent developers**, not major corporations. All of these products are a delight to use, the best in their class in my <span class="light">(humble / correct)</span> opinion, and enable terrific productivity. Not only that, but all have amazing competitors also created by indies, so if the indie tools I choose don't work for you, there are plenty of other great indie products that will.
 
-**It’s a great time to be a Mac user and writer with all this wonderful indie software out there.**
+**It's a great time to be a Mac user and writer with all this wonderful indie software out there.**
 
 Now I just have to figure out which tools I like on the iPad for writing, I have too many installed.
 
-*Follow the author as [@hiltmon][57] on Twitter or [@hiltmon][58] on App.Net.*
+*Follow the author as [@hiltmon][57] on Twitter.*
 
-[nvalt]:	http://brettterpstra.com/projects/nvalt/
+[nvalt]:	https://brettterpstra.com/projects/nvalt/
 [mindnode]:	https://itunes.apple.com/us/app/mindnode-pro/id402398561?mt=12&uo=4&at=10l894
 [ulysses]:	https://itunes.apple.com/us/app/ulysses-iii/id623795237?mt=12&uo=4&at=10l894
 [byword]:	https://itunes.apple.com/us/app/byword/id420212497?mt=12&uo=4&at=10l894
@@ -92,7 +92,7 @@ Now I just have to figure out which tools I like on the iPad for writing, I have
 [acorn]:	https://itunes.apple.com/us/app/acorn-4-image-editor-for-humans/id634108295?mt=12&uo=4&at=10l894
 [napkin]:	https://itunes.apple.com/us/app/napkin-concise-image-annotation/id581789185?mt=12&uo=4&at=10l894
 [9]:	http://elasticthreads.tumblr.com
-[10]:	http://brettterpstra.com
+[10]:	https://brettterpstra.com
 [12]:	http://notational.net
 [15]:	http://mindnode.com/imprint.html#imprint
 [16]:	http://www.macdrifter.com
@@ -101,13 +101,11 @@ Now I just have to figure out which tools I like on the iPad for writing, I have
 [27]:	http://metaclassy.com
 [29]:	https://hiltmon.com/blog/2012/07/18/octopress-post-and-publish/
 [30]:	https://hiltmon.com/blog/2012/06/18/markdown-metadata/
-[36]:	http://octopress.org
+[36]:	https://github.com/octopress/octopress
 [39]:	http://www.google.com/webfonts/specimen/Cousine
 [41]:	http://www.literatureandlatte.com/about.php
-[44]:	http://brettterpstra.com
+[44]:	https://brettterpstra.com
 [53]:	https://hiltmon.com/blog/2013/05/23/letterhead-markdown-style/
 [56]:	http://flyingmeat.com/about/
 [57]:	https://twitter.com/hiltmon
-[58]:	http://alpha.app.net/hiltmon
 [guy]:	http://kickingbear.com/blog/
-

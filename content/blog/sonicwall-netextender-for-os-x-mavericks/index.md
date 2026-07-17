@@ -1,6 +1,6 @@
 ---
 title: "SonicWall NetExtender for OS X Mavericks"
-date: 2013-09-28 12:22:00-0400
+date: 2013-09-28T12:22:00-04:00
 
 ---
 
@@ -32,4 +32,4 @@ Be aware though that once that is installed and running, you will find yourself 
 
 Back to work.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "Server-sided Swift Speculation"
-date: 2014-06-06 19:02:20 -0400
+date: 2014-06-06T19:02:20-04:00
 tags: [ Apple ]
 ---
 
@@ -32,4 +32,4 @@ But with Swift, we may be able to go further. *One language to rule them all*. S
 
 It would be amazing.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

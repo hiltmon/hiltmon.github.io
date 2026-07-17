@@ -1,6 +1,6 @@
 ---
 title: "2012 Year End iPad Essentials"
-date: 2012-12-26 13:47:00-0400
+date: 2012-12-26T13:47:00-04:00
 tags: [iPad]
 ---
 
@@ -9,7 +9,7 @@ I posted my [2012 iPad Essentials](https://hiltmon.com/blog/2012/03/17/2012-ipad
 ## New Additions
 
 * [The Magazine](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252Fthe-magazine.%252Fid557744510%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) - Technically not an app, The Magazine is a brilliant new take on how a magazine should work, with great writing on a wide variety of interesting topics.
-* [NetBot](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252Fnetbot-for-app.net-ipad-edition%252Fid563596528%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) - Joins [TweetBot](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252Ftweetbot-for-twitter-ipad%252Fid498801050%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) at the top of my most popular apps page. I trust you will all join [App.Net](https://join.app.net) and follow me there as [@hiltmon](http://alpha.app.net/hiltmon). I find the level and depth of conversation on App.Net so much better than Twitter.
+* [NetBot](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252Fnetbot-for-app.net-ipad-edition%252Fid563596528%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) - Joins [TweetBot](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252Ftweetbot-for-twitter-ipad%252Fid498801050%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) at the top of my most popular apps page. I trust you will all join [App.Net](https://join.app.net) and follow me there. I find the level and depth of conversation on App.Net so much better than Twitter.
 * [500px](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252F500px%252Fid471965292%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) - to show off my very best pictures. Better go out and take some more.
 * [Paper by Fifty Three](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252Fpaper-by-fiftythree%252Fid506003812%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) - has become my go-to drawing and scratchpad app, it’s unique take on pens and color is amazing. I find myself spending more time in design just because this app creates such good looking sketches.
 * [Tweet Library](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252Ftweet-library%252Fid365768793%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) - to save old tweets that did not make it into [DayOne](http://click.linksynergy.com/fs-bin/stat?id=V41G*FiMqjc&offerid=146261&type=3&subid=0&tmpid=1826&RD_PARM1=https%253A%252F%252Fitunes.apple.com%252Fus%252Fapp%252Fday-one-journal%252Fid421706526%253Fmt%253D8%2526uo%253D4%2526partnerId%253D30) via [Slogger](http://ttscoff.github.com/Slogger/).
@@ -51,4 +51,4 @@ I posted my [2012 iPad Essentials](https://hiltmon.com/blog/2012/03/17/2012-ipad
 
 *Note: The links above to the App Store are affiliate links, so if you purchase any of these products, I get a few pennies.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

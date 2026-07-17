@@ -1,10 +1,10 @@
 ---
 title: "What to write about next?"
-date: 2014-11-15 15:27:06 -0500
+date: 2014-11-15T15:27:06-05:00
 tags: [ Writing ]
 ---
 
-I was asked in a [blog comment](https://hiltmon.com/blog/2013/05/28/my-mac-indie-writing-workflow/#comment-1694439329) today how I decide *what* to write about. And once decided, how do I go about doing it. In this case, the answer was easy, I decided to try to answer the question. And deconstruct the process I go through as it happens. 
+I was asked in a [blog comment](https://hiltmon.com/blog/2013/05/28/my-mac-indie-writing-workflow/#comment-1694439329) today how I decide *what* to write about. And once decided, how do I go about doing it. In this case, the answer was easy, I decided to try to answer the question. And deconstruct the process I go through as it happens.
 
 **Instructions: Read this post in black font first, then come back and look at the gray which deconstructs my thinking.**
 
@@ -70,7 +70,7 @@ The best part is there are so many ideas here that I have trouble sorting which 
 
 <span class="light">I try to be clear in my reference topics. For example, I intensely dislike product reviews where the reviewer leaves the decision as to whether something is good or bad up to the reader. If a review talks about a product but does not have a why, when and how, then what's the point of the review? Another example, a post on a data structure in computer science needs to explain why that data structure is good, when to use it and how is it better in that situation, else it too is useless. **It's a tough standard, but interesting is tough.**</span>
 
-Reference topic writing also helps me in other areas. Explaining complex software constructs or convoluted business processes is hard. Writing about them helps me find the words to express them simply and clearly. 
+Reference topic writing also helps me in other areas. Explaining complex software constructs or convoluted business processes is hard. Writing about them helps me find the words to express them simply and clearly.
 
 A reference topic, therefore needs to have one addition to the factual details, the why, when and how to apply the knowledge gained.  <span class="light">For example: [Xcode and the Simple C++ Project Structure](https://hiltmon.com/blog/2013/07/05/xcode-and-the-simple-c-plus-plus-project-structure/) or [Letterhead - Markdown Style](https://hiltmon.com/blog/2013/05/23/letterhead-markdown-style/)</span>
 

@@ -1,6 +1,6 @@
 ---
 title: "AT&T effs users again"
-date: 2012-08-18 12:41:00-0400
+date: 2012-08-18T12:41:00-04:00
 tags: [Carriers, News]
 ---
 

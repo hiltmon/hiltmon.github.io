@@ -1,6 +1,6 @@
 ---
 title: "One-Key Format Presets in Scrivener"
-date: 2015-03-07 17:37:51 -0500
+date: 2015-03-07T17:37:51-05:00
 tags: [ Scrivener ]
 ---
 

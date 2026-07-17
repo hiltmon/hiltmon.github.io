@@ -1,6 +1,6 @@
 ---
 title: "Xcode 4 Code Completion for External Build Projects"
-date: 2013-07-07 21:53:00-0400
+date: 2013-07-07T21:53:00-04:00
 tags: [ Programming, C++ ]
 ---
 
@@ -30,4 +30,4 @@ Any time you add a new file to the main project, make sure you add it's source t
 
 Now we have a cross-platform external build C++ project that also takes advantage of Xcode's autocomplete and jump to definition features.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

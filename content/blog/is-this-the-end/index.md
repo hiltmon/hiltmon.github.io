@@ -1,6 +1,6 @@
 ---
 title: "Is this the end?"
-date: 2013-04-08 12:32:00-0400
+date: 2013-04-08T12:32:00-04:00
 tags: [ Writing ]
 ---
 
@@ -14,7 +14,7 @@ But when an indie is quiet, there is nothing worse, no lower low. No clients to 
 
 Sure, we choose our pricing to take these down times into account. We know we're not going to be *fully employed*. But it's a balance trying to predict just how *under-employed* we will be and how much we can charge. Some years we have little or no down time and do well; other years, we have too much down time and do badly.
 
-These ups and downs are caused by a singular constraint, the indie themselves, the fact that they are a one person band. It's hard to spend the time to market themselves and to create brilliant products for clients at the same time. *So the marketing stops.*  As a result, when the products are shipped and the current clients satisfied, most indies have no *next* client or project to work on. They have had no time to market. 
+These ups and downs are caused by a singular constraint, the indie themselves, the fact that they are a one person band. It's hard to spend the time to market themselves and to create brilliant products for clients at the same time. *So the marketing stops.*  As a result, when the products are shipped and the current clients satisfied, most indies have no *next* client or project to work on. They have had no time to market.
 
 *And the down-cycle begins.*
 
@@ -30,4 +30,4 @@ And when we're quiet and leads are not calling in, or the first conversations ar
 
 Each time we hit a low, we wonder: Is this the end?
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "A Simple C++ Project Structure"
-date: 2013-07-03 22:33:00-0400
+date: 2013-07-03T22:33:00-04:00
 tags: [Development, Programming, C++]
 ---
 
@@ -51,13 +51,13 @@ I do not need the extra effort or platform independence of [autotools](http://en
 #
 # TODO: Move `libmongoclient.a` to /usr/local/lib so this can work on production servers
 #
- 
+
 CC := g++ # This is the main compiler
 # CC := clang --analyze # and comment out the linker last line for sanity
 SRCDIR := src
 BUILDDIR := build
 TARGET := bin/runner
- 
+
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
@@ -74,7 +74,7 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 clean:
-	@echo " Cleaning..."; 
+	@echo " Cleaning...";
 	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
 
 # Tests
@@ -117,6 +117,6 @@ So the retro `code-compile-run` loop looks like this:
 
 There is nothing fancy about this setup, *but that is the whole point*. A simple, retro environment for simple retro C++ programs.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.
 
 [wp1]:	http://en.wikipedia.org/wiki/Daemon_(computing)

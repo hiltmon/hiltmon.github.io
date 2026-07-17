@@ -1,6 +1,6 @@
 ---
 title: "On the Nexus 7"
-date: 2012-06-28 09:07:00-0400
+date: 2012-06-28T09:07:00-04:00
 tags: [Computers, Software]
 ---
 

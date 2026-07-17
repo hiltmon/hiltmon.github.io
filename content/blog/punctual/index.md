@@ -1,17 +1,17 @@
 ---
 layout: writing
 title: "Punctual"
-date: 2013-04-25 12:27:00-0400
+date: 2013-04-25T12:27:00-04:00
 tags: [ Writing, Etiquette ]
 ---
 
 <span class="light">**punc·tu·al /ˈpəNGkCHo͞oəl/**</span>
 
-<span class="light">Adjective  
-1. Happening or doing something at the agreed or proper time; on time.  
+<span class="light">Adjective
+1. Happening or doing something at the agreed or proper time; on time.
 2. Denoting or relating to an action that takes place at a particular point in time.</span>
 
-<span class="light">Synonyms  
+<span class="light">Synonyms
 precise - exact - accurate - prompt</span>
 
 
@@ -44,4 +44,4 @@ A person who is punctual:
 
 **So next time *we* schedule something, know that I will be there on-time out of respect for you and your time.** I expect you to do the same. And if you are going to be late, text me, let me know *in advance* so I can manage my time better. Surely that's a small thing to ask and an even smaller thing to grant.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

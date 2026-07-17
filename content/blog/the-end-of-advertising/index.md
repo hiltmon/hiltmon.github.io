@@ -1,6 +1,6 @@
 ---
 title: "The End of Advertising"
-date: 2012-03-01 11:03:00-0400
+date: 2012-03-01T11:03:00-04:00
 
 ---
 

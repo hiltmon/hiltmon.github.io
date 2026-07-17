@@ -1,11 +1,11 @@
 ---
 title: "Natsukashii - iPulse Sighting"
-date: 2013-04-11 13:37:00-0400
+date: 2013-04-11T13:37:00-04:00
 tags: [ Software ]
 ---
 
  <span class="light">Natsukashii (懐かしい) is a Japanese word for "feeling nostalgic" or "with fond memories".</span>
- 
+
 {{< figure src="images/ipulse.jpg" width=156 height=156 class="image-right" >}}
 
 I happened to click on a Mike Zornek ([@zorn](https://twitter.com/zorn)) link today and noticed that he is still running [iPulse](http://iconfactory.com/software/ipulse) on his desktop. I used to run it back in the early days of OS X on my [Titanium Powerbook](https://hiltmon.com/blog/2012/12/31/1ghz-titanium-powerbook/).
@@ -28,4 +28,4 @@ It is nice to see some of the old ways still in use.
 
 Then again, I still use [BBEdit](https://itunes.apple.com/us/app/bbedit/id404009241?mt=12&uo=4&at=10l894) every day.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

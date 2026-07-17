@@ -1,6 +1,6 @@
 ---
 title: "Fast SSH Windows with iTerm 2"
-date: 2013-07-18 22:14:00-0400
+date: 2013-07-18T22:14:00-04:00
 tags: [ Macintosh ]
 ---
 
@@ -16,7 +16,7 @@ Enter [iTerm 2](http://www.iterm2.com/#/section/home) profiles with shortcut key
 
 ## Using iTerm 2 Profiles
 
-In [iTerm 2](http://www.iterm2.com/#/section/home) preferences, access profiles and add a new profile. I name these after the my server *colloquial* names (because who can remember those IT names like `XYZZYDEVDBWX907.domainname.local`). 
+In [iTerm 2](http://www.iterm2.com/#/section/home) preferences, access profiles and add a new profile. I name these after the my server *colloquial* names (because who can remember those IT names like `XYZZYDEVDBWX907.domainname.local`).
 
 {{< figure src="images/iterm-profiles.jpg" width=700 height=410 >}}
 
@@ -63,4 +63,4 @@ Or just use [iTerm 2's](http://www.iterm2.com/#/section/home) profiles.
 
 Related Reading: [Make iTerm 2 more Mac-like](https://hiltmon.com/blog/2013/02/13/make-iterm-2-more-mac-like/)
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,13 +1,13 @@
 ---
 title: "The Markdown File Extension"
-date: 2012-03-07 11:39:00-0400
+date: 2012-03-07T11:39:00-04:00
 tags: [ Markdown ]
 ---
 
 The correct file extension for markdown files is:
 
 `.markdown`
-	
+
 That is all. No others.
 
 Make it so!

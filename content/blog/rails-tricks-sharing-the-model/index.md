@@ -1,6 +1,6 @@
 ---
 title: "Rails Tricks - Sharing the Model"
-date: 2013-10-14 13:58:00-0400
+date: 2013-10-14T13:58:00-04:00
 tags: [ Ruby on Rails ]
 ---
 
@@ -24,26 +24,26 @@ Lets now create a reporting app, called *Reporting* that will use the same model
 	cd ..
 	rails new Reporting --database postgresql
 	cd Reporting
-	
+
 **Do not create any models or migrations in this project, you do them all in *Master*.**
 
 To copy the models, create a new `rake` task in a new file in *Reporting* called `lib/tasks/sync.rake`:
 
 ``` ruby
 namespace :sync do
-  
+
   desc 'Copy common models and tests from Master'
   task :copy do
     source_path = '/Users/Hiltmon/Projects/Master'
     dest_path = '/Users/Hiltmon/Projects/Reporting'
-        
+
     # Copy all models & tests
     %x{cp #{source_path}/app/models/*.rb #{dest_path}/app/models/}
     %x{cp #{source_path}/test/models/*_test.rb #{dest_path}/test/models/}
 
     # Fixtures
     %x{cp #{source_path}/test/fixtures/*.yml #{dest_path}/test/fixtures/}
-    
+
     # Database YML
     %x{cp #{source_path}/config/database.yml #{dest_path}/config/database.yml}
   end
@@ -53,7 +53,7 @@ end
 Change the `source_path` to point to the root of the *Master* project and the `dest_path` to point to the root of the *Reporting* project. The run it:
 
 	rake sync:copy
-	
+
 The script copies the `app/models`, `test/models`, `test/fixtures` and `database.yml` files from *Master* to *Reporting*. As far as Rails is concerned, these were created via genuine rails commands and the Rails engine will make these models available in your reporting views and controllers. The `database.yml` file will also make Rails point to the same database as *Master*.
 
 Two rules need to be followed to make this work:
@@ -76,4 +76,4 @@ I also could have used `git` submodules to provide a common repository for the c
 
 As a result of sharing (ok, copying) the models this way, I have several Rails applications running off different servers providing different services to different users all running off the same back-end database. Each application is smaller, simpler, easier to manage and easier to code and maintain. As long as discipline is maintained in that the models and migrations are only performed in the *Master* project, this trick works great.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

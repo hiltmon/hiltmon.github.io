@@ -1,6 +1,6 @@
 ---
 title: "Sharing Bash Profiles across Computers"
-date: 2013-03-12 13:48:00-0400
+date: 2013-03-12T13:48:00-04:00
 tags: [ Tips and Tricks ]
 ---
 
@@ -12,7 +12,7 @@ Create a folder in Dropbox called `Scripts` and save your *dotfiles* there:
 
 	$ cp ~/.inputrc ~/Dropbox/Scripts/inputrc.txt
 	$ cp ~/.bash_profile ~/Dropbox/Scripts/bash_profile.sh
-	
+
 *Note: The leading dots have been removed in Dropbox so the files are not hidden and will sync. I also add file extensions to make editing them easier.*
 
 Now that they are shared on each computer, replace your `~/.bash_profile` with:
@@ -33,4 +33,4 @@ Boom, edit *dotfiles* once, shared on all computers automatically.
 
 *Bonus Tip: Plonk all your other common scripts in the same shared folder and add it to your PATH.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

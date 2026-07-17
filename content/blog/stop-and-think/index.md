@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: "Stop and Think"
-date: 2018-06-17 09:21:04 -0400
+date: 2018-06-17T09:21:04-04:00
 tags: [ Hiltmonism ]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Melding Scrivener and Marked"
-date: 2014-05-05 20:07:17 -0400
+date: 2014-05-05T20:07:17-04:00
 tags: [Markdown, Scrivener]
 ---
 
@@ -83,7 +83,7 @@ In this case, the `Star Trek Systems Design` is the Scrivener document in the **
 
 ### Scrivener Setup and Tips
 
-I use a monospaced font with no indent while writing in Markdown. This gives the the feel of working in plain text and gets rid of any Markdown issues with indents. 
+I use a monospaced font with no indent while writing in Markdown. This gives the the feel of working in plain text and gets rid of any Markdown issues with indents.
 
 {{< figure src="images/meld-document-setup.png" width=595 height=445 >}}
 
@@ -111,7 +111,7 @@ If you now open the Scrivener document in Marked, you will see it in the style y
 
 **To complete the document and set heading numbers?**
 
-Since all my business documents need automatic heading numbers, I set them up in Scrivener's compile options. 
+Since all my business documents need automatic heading numbers, I set them up in Scrivener's compile options.
 
 Choose **File / Compile...** or press ⌥⌘E. Click the **Formatting** option and tick off the title for all document levels, we want them included. Also, set the **Compile For** to `MultiMarkdown`.
 
@@ -119,10 +119,10 @@ Choose **File / Compile...** or press ⌥⌘E. Click the **Formatting** option a
 
 {{< figure src="images/meld-heading-numbers.png" width=300 height=267 class="image-right" >}}
 
-Then, *for each row*, click **Section Layout...**. Type in 
- 
+Then, *for each row*, click **Section Layout...**. Type in
+
  	<$hn>⇥
- 	
+
 That's `<$hn>TAB` in the Prefix box.
 
 This will tell the Scrivener compiler to put heading numbering in for each title. **You must do this for each level.** *You only have to do this the first time, after this Scrivener remembers these settings in your document.*
@@ -167,4 +167,4 @@ It sure looks like a lot of work to get this set up and working, but when you do
 
 I create a lot of larger, complex business documents this way in [Scrivener](http://www.literatureandlatte.com/scrivener.php). It allows me to focus on the content and structure and yet generate a consistent document format each time using [Marked](http://marked2app.com).
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. `Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

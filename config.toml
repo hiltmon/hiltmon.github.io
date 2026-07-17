@@ -1,22 +1,23 @@
 # baseURL = "https://hiltmon.github.io"
 baseURL = "https://hiltmon.com"
-canonifyurls = true
-languageCode = "en-us"
-DefaultContentLanguage = "en"
+enableCanonicalizationURLs = true
+locale = "en-US"
+defaultContentLanguage = "en"
 title = "Hiltmon"
 theme = "hiltmon"
 author = "Hilton Lipschitz"
 
-MetaDataFormat = "yaml"
+
 
 enableRobotsTXT = true
-	
+
 # googleAnalytics = "UA-4573209-1"
-googleAnalytics = "G-ZFJ7SZKLR0"
+[services.googleAnalytics]
+id = "G-ZFJ7SZKLR0"
 
 # To Match the old OctoPresss paths
 [permalinks]
-blog = "/blog/:year/:month/:day/:filename/"
+blog = "/blog/:year/:month/:day/:contentbasename/"
 
 [menu]
 
@@ -33,14 +34,14 @@ blog = "/blog/:year/:month/:day/:filename/"
   title = "blog section"
   url = "/"
   weight = -80
-  
+
   [[menu.main]]
   identifier = "code"
   name = "Code"
   title = "code"
   url = "/code/"
   weight = -80
-  
+
   # [[menu.main]]
   # identifier = "products"
   # name = "Products"
@@ -54,7 +55,7 @@ blog = "/blog/:year/:month/:day/:filename/"
   title = "tags section"
   url = "/tags/"
   weight = -40
-  
+
   [[menu.main]]
   identifier = "archives"
   name = "Archives"
@@ -73,12 +74,12 @@ blog = "/blog/:year/:month/:day/:filename/"
   changefreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
-  
+
 [markup]
 
   # To allow html in the article
   defaultMarkdownHandler = "goldmark"
-  
+
   [markup.goldmark]
     [markup.goldmark.extensions]
       definitionList = true
@@ -98,7 +99,7 @@ blog = "/blog/:year/:month/:day/:filename/"
       hardWraps = false
       unsafe = true
       xhtml = false
-      
+
 #   [markup.highlight]
 #     codeFences = true
 #     guessSyntax = true

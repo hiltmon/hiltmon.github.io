@@ -1,6 +1,6 @@
 ---
 title: "Merge Asana Projects into OmniFocus (Updated)"
-date: 2015-03-01 18:18:59 -0500
+date: 2015-03-01T18:18:59-05:00
 
 ---
 
@@ -23,15 +23,15 @@ Open it in a text editor and insert Your API Key and Profile Name in the slots p
 
 ```
 class MergeAsanaIntoOmnifocus
-  
+
   API_KEY = '<YOUR KEY HERE>'
   ASIGNEE_NAME = '<YOUR PROFILE NAME HERE>'
   SUBTASKS = true
   DATE_FORMAT = '%A %B %d, %Y at %H:%M:%S' # (Try http://strftimer.com to build your own)
  ```
- 
+
  Make sure the prerequisites are in-place from the old post and then run it
- 
+
 ```
 $ ruby merge_asana_into_omnifocus.rb
 ```
@@ -41,5 +41,3 @@ $ ruby merge_asana_into_omnifocus.rb
 But if you do use it, let me know in the comments or via Twitter. And if you have any ideas for changes or enhancements, let me know.
 
 *Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*
- 
- 

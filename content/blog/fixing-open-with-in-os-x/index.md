@@ -1,6 +1,6 @@
 ---
 title: "Fixing Open With in OS X"
-date: 2012-10-13 12:11:00-0400
+date: 2012-10-13T12:11:00-04:00
 tags: [ OS X ]
 ---
 

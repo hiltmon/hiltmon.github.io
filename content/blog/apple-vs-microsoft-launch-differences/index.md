@@ -1,6 +1,6 @@
 ---
 title: "Apple vs Microsoft Launch Differences"
-date: 2012-10-25 12:41:00-0400
+date: 2012-10-25T12:41:00-04:00
 tags: [Apple, Microsoft]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Can't innovate anymore, my ass"
-date: 2013-12-27 09:26:00-0400
+date: 2013-12-27T09:26:00-04:00
 ---
 
 Over the past few days I have seen so many references to the Quartz post [2013 was a lost year for tech](http://qz.com/161443/2013-was-a-lost-year-for-tech/) that it has become a [meme](http://en.wikipedia.org/wiki/Meme). "Innovation is dead", "2013 proves it", "RIP Innovation", it screams.
@@ -9,7 +9,7 @@ Rubbish!
 
 2013 was a great year for innovation in the tech space.
 
-> **in·no·vate  /ˈinəˌvāt/  verb**  
+> **in·no·vate  /ˈinəˌvāt/  verb**
 > 1. make changes in something established, esp. by introducing new methods, ideas, or products.
 
 Remember, innovation is not about creating something completely new (that's *invention*), it is about making changes to established products that significantly improve their abilities or experience. And we got that in spades in 2013.
@@ -49,4 +49,4 @@ And lets not forget all those developers who took the opportunity when updating 
 
 When Apple's Phil Schiller said that on stage at WWDC, he was taking a poke at the tech press and the memes that scream innovation is dead. The only place innovation is truly dead is where they have published its obituary.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

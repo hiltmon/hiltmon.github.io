@@ -1,6 +1,6 @@
 ---
 title: "TimeToCall - Shipping"
-date: 2013-02-07 08:18:00-0400
+date: 2013-02-07T08:18:00-04:00
 tags: [ TimeToCall ]
 ---
 
@@ -12,10 +12,10 @@ Probably the hardest part of the process to craft a quality application is to de
 
 In a way, the decision is easy:
 
-> Good developers develop,  
+> Good developers develop,
 > Great developers ship.
 
-But most developers have a hard time getting there. 
+But most developers have a hard time getting there.
 
 ## Why would it *not* be ready to ship?
 
@@ -35,12 +35,12 @@ Shipping fear affects all developers, we are perfectionists and we never believe
 
 Or recite the Dune Litany of Fear to get through it:
 
-> I will not fear.  
-> Fear is the mind-killer.  
-> I will face my fear.  
-> I will let it pass through me.  
-> Where the fear has gone,  
-> there shall be nothing.  
+> I will not fear.
+> Fear is the mind-killer.
+> I will face my fear.
+> I will let it pass through me.
+> Where the fear has gone,
+> there shall be nothing.
 > Only I will remain.
 
 ### Feature Creep
@@ -67,9 +67,9 @@ But I have added none of these.
 
 ## Yes It Is Ready!
 
-At some point, the product needs to ship. To repeat, *the key is to find the minimal feature set to ship at version 1.0, and then add additional features afterwards*. 
+At some point, the product needs to ship. To repeat, *the key is to find the minimal feature set to ship at version 1.0, and then add additional features afterwards*.
 
-This does mean that the product may be missing significant functionality on initial shipping compared to its competitors. As a developer, you need the confidence and the courage to ship and *know* that you can add features later. As a client, you need the app out there to help you get things done. Both parties need to get over shipping fear. Stand up, put your shoulders back, raise your chin, bring up your best steely gaze, recite the *Litany of Fear* and ship. 
+This does mean that the product may be missing significant functionality on initial shipping compared to its competitors. As a developer, you need the confidence and the courage to ship and *know* that you can add features later. As a client, you need the app out there to help you get things done. Both parties need to get over shipping fear. Stand up, put your shoulders back, raise your chin, bring up your best steely gaze, recite the *Litany of Fear* and ship.
 
 You and the client will then need the thick skins to deal with people who will tell you that they will *not* purchase your product because something is missing, or its too expensive, or there is something wrong with how you do things. But you have to get it out there for this conversation to even start.
 
@@ -80,9 +80,9 @@ At the end of the day, you cannot sell the product and start to earn the return 
 **I shipped [TimeToCall](https://hiltmon.com/timetocall/). You can buy it in the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8).**
 
 ---
-&nbsp;  
+&nbsp;
 *[TimeToCall](https://hiltmon.com/timetocall/) can be downloaded from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8) for 99c.*
 
 *I hope you enjoy [this series of articles](https://hiltmon.com/blog/categories/timetocall/) on what goes in to the design and development of an iPhone or iPad application, and have a better feel for why these things take so much time and cost so much. If you like them, buy [TimeToCall](https://hiltmon.com/timetocall/) from the [App Store](https://itunes.apple.com/us/app/timetocall/id596429979?ls=1&mt=8), it helps me continue to write, and please tell your friends about these articles and this product.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

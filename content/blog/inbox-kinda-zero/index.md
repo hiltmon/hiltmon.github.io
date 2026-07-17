@@ -1,6 +1,6 @@
 ---
 title: "Inbox Kinda Zero"
-date: 2012-12-01 14:02:00-0400
+date: 2012-12-01T14:02:00-04:00
 tags: [Email, Productivity]
 ---
 
@@ -36,4 +36,4 @@ With [Mail Act-On](http://www.indev.ca/MailActOn.html), when I comes to processi
 
 And if the message is left in the inbox, it’s always there whenever I look, nagging me to do something about it.
 
-*See also [Email Etiquette](https://hiltmon.com/blog/2012/10/24/email-etiquette/). Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+*See also [Email Etiquette](https://hiltmon.com/blog/2012/10/24/email-etiquette/). Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

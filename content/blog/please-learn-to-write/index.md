@@ -1,6 +1,6 @@
 ---
 title: "Please Learn to Write"
-date: 2012-05-25 16:11:00-0400
+date: 2012-05-25T16:11:00-04:00
 
 ---
 

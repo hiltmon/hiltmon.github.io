@@ -1,6 +1,6 @@
 ---
 title: "I just want a Hamburger"
-date: 2011-11-25 12:30:00-0400
+date: 2011-11-25T12:30:00-04:00
 
 ---
 
@@ -25,12 +25,12 @@ And so we tend to offer too many choices to our users.  Like Microsoft did in Wi
 
 > A total of fifteen different ways to shut down a laptop that you're expected to choose from.
 > ...
-> iPods don't even have an on/off switch.  
+> iPods don't even have an on/off switch.
 > Joel Spolsky, [Choices = Headaches](http://www.joelonsoftware.com/items/2006/11/21.html)
 
 Anyone who has spent any time in usability labs has observed this problem.  Users, in a lab, when given a task, move their mouse over the list of choices, and hover above them trying to make the choice.  They do not click.  They stop.  They dither. They do not want to make the 'wrong' choice.  Wordpress gets it:
 
-> Ultimately these choices end up being technical ones, choices that the average end user has no interest in. It's our duty as developers to make smart design decisions and avoid putting the weight of technical choices on our end users.  
+> Ultimately these choices end up being technical ones, choices that the average end user has no interest in. It's our duty as developers to make smart design decisions and avoid putting the weight of technical choices on our end users.
 > [Wordpress](http://wordpress.org/about/philosophy/)
 
 Just because we can expose a setting or function to the user with a few lines of code doesn’t mean we should.  We need to consider the impact of adding one more menu item or one more button to the UI before we do. It might be a simple line of code, but it could greatly impact our product.

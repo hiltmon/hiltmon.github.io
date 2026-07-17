@@ -1,10 +1,10 @@
 ---
 title: "Guessing the Wall Street Journal Agenda for Apple"
-date: 2013-03-12 15:52:00-0400
+date: 2013-03-12T15:52:00-04:00
 tags: [ Apple, News ]
 ---
 
-I'm not a subscriber to the Wall Street Journal, but I have noted the past few months that the WSJ seems to issue regular negative *news*, no, *opinions*, no, *rumors*, no, *rubbish* on Apple. 
+I'm not a subscriber to the Wall Street Journal, but I have noted the past few months that the WSJ seems to issue regular negative *news*, no, *opinions*, no, *rumors*, no, *rubbish* on Apple.
 
 So I ran a test, I Googled `wsj apple`.
 
@@ -30,13 +30,13 @@ Here are the headlines that came up. I only read the blurb because the content i
 15. **Apple Working On a Less-Expensive iPhone** that does not exist.
 16. **Apple Moves Closer to Making TV Set** that does not exist.
 17. **Will China Save Apple?** from the WSJ?
-18. **Apple's New Front in Battle for TV** that does not exist. 
+18. **Apple's New Front in Battle for TV** that does not exist.
 19. **WSJ: Apple testing iWatch designs with Foxconn** that do not exist.
 20. **WSJ sues blogger for silly article**, ok, so *I* made that one up.
 
 
-Is there any doubt that the WSJ has its own agenda, and pumping out anti-Apple words is the execution of said agenda? 
+Is there any doubt that the WSJ has its own agenda, and pumping out anti-Apple words is the execution of said agenda?
 
 Come on, friends, it's not serious or insidious, the WSJ agenda is simply to sell more papers and get more clicks. Nothing does that more than any article with the word Apple in its headline, and reporting and fairness and truth have nothing to do with making money for the WSJ.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

@@ -1,6 +1,6 @@
 ---
 title: "First they came for..."
-date: 2014-02-01 14:52:23 -0500
+date: 2014-02-01T14:52:23-05:00
 
 ---
 
@@ -32,7 +32,7 @@ date: 2014-02-01 14:52:23 -0500
 
 > And then there was nowhere to go<br/>and nothing left to do.
 
-> **The Hiltmon** 2014 
+> **The Hiltmon** 2014
 
 ## The Original Version
 
@@ -47,4 +47,4 @@ date: 2014-02-01 14:52:23 -0500
 > **Martin Niemöller** 1946 [http://en.wikipedia.org/wiki/Martin_Niemöller](http://en.wikipedia.org/wiki/Martin_Niemöller)
 
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

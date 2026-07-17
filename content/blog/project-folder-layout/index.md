@@ -1,6 +1,6 @@
 ---
 title: "Project Folder Layout"
-date: 2012-06-30 12:32:00-0400
+date: 2012-06-30T12:32:00-04:00
 tags: [Productivity]
 ---
 
@@ -53,7 +53,7 @@ My **Projects** folder is in the root of my home folder (in my case `/Users/Hilt
 
 [Download a ZIP file with the script and blank VoodooPad document](http://cl.ly/2b0N1H27433P0T1Y1u3C).
 
-The `new_project.sh` script creates the folder tree and and VoodooPad document for a new project. The script uses the first parameter as the project name, e.g. 
+The `new_project.sh` script creates the folder tree and and VoodooPad document for a new project. The script uses the first parameter as the project name, e.g.
 
 ```
 $ ~/Scripts/new_project NewProjectName
@@ -106,5 +106,3 @@ echo "Tree for $PROJECT_NAME created at $PROJECT_PATH"
 So, right now I have 9 active projects in my **Projects** folder. All of them are using this folder structure. It's new, and it seems to be working well.
 
 How do you structure your project folders, product files and client files? I'd love to know, and improve on this structure. Send me a link in the discussion below or catch me on twitter [@hiltmon](https://https://twitter.com/hiltmon).
-
- 

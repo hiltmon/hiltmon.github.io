@@ -1,6 +1,6 @@
 ---
 title: "MathJax in Markdown"
-date: 2017-01-28 14:39:08 -0500
+date: 2017-01-28T14:39:08-05:00
 
 ---
 
@@ -69,7 +69,7 @@ Next time iA Writer, Byword or Ulysses loads its preview pane and renders the pa
 
 ### Preview: Marked 2
 
-On the other hand, if you use the magnificent [Marked 2](http://marked2app.com) program to render your HTML, well, it has MathJax support built-in. Under **Preferences**, choose the **Style** tab and check **Enable MathJax**. 
+On the other hand, if you use the magnificent [Marked 2](http://marked2app.com) program to render your HTML, well, it has MathJax support built-in. Under **Preferences**, choose the **Style** tab and check **Enable MathJax**.
 
 **Note**: Marked 2 does *not* have the intermittent problem of failing to render MathJax properly while you are editing the document.
 

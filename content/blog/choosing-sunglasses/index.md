@@ -1,6 +1,6 @@
 ---
 title: "Choosing Sunglasses"
-date: 2012-08-13 15:33:00-0400
+date: 2012-08-13T15:33:00-04:00
 tags: [ Purchasing ]
 ---
 

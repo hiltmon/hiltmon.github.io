@@ -1,10 +1,10 @@
 ---
 title: "Stop with the old Text Editors already"
-date: 2012-10-08 19:11:00-0400
+date: 2012-10-08T19:11:00-04:00
 tags: [Text Editors, Productivity]
 ---
 
-Over the past few years, it has become *a thing* to stop using IDE’s and modern text editors in favor of Vim. I understand older programmers using Vim out of habit, but the new generation of programmers? I don’t get it. Every-time I write about text editors, this growing group tweets to give modern GUI editors up and switch to old trusty rusty crusty terminal-based Vim. 
+Over the past few years, it has become *a thing* to stop using IDE’s and modern text editors in favor of Vim. I understand older programmers using Vim out of habit, but the new generation of programmers? I don’t get it. Every-time I write about text editors, this growing group tweets to give modern GUI editors up and switch to old trusty rusty crusty terminal-based Vim.
 
 Stop it! I’m not going to do that.
 
@@ -12,7 +12,7 @@ My reasoning is not religious fervor or hatred. Folks, I’m a graybeard, I used
 
 But `vi` on a VT100 was more than 22 years ago. Technology has changed.
 
-We use GUI’s and mice and touch screens now and have for a long time. We’re no longer limited to 80x25 and a keyboard and fixed-width fonts. We’re no longer sharing limited memory or CPU cycles on time-sharing mini-computers. 
+We use GUI’s and mice and touch screens now and have for a long time. We’re no longer limited to 80x25 and a keyboard and fixed-width fonts. We’re no longer sharing limited memory or CPU cycles on time-sharing mini-computers.
 
 And text editors have progressed and improved a lot in 20 years. Autocompletion, color-coding, language recognition and macros are all part of modern text editors. Sure, these things have been back-ported and bolted on to `vi` to make Vim, but how has the process of producing, editing, reviewing and reading text improved?
 
@@ -28,4 +28,4 @@ Alex Payne writing in [On The Flight to Old Text Editors](http://al3x.net/2008/1
 
 I, for one, want text editors to get even better than what we have and would purchase and use that leap forward product in an instant. Anything that makes text editors *better* and *me more productive* is a good thing. [BBEdit](http://www.barebones.com/products/bbedit/index.html), [TextMate 2](https://github.com/textmate/textmate) and [Sublime Text 2](http://www.sublimetext.com/2) are currently the leaders, but I want to know what’s next and who is working on this next leap forward. I’ll happily switch to it.
 
-*I’m [@hiltmon](https://https://twitter.com/hiltmon) on Twitter and [@hiltmon](https://alpha.app.net/hiltmon) on App.Net. Follow me and let me know what you think.*
+*I'm [@hiltmon](https://twitter.com/hiltmon) on Twitter. Follow me and let me know what you think.*

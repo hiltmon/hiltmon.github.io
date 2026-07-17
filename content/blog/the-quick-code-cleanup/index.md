@@ -1,6 +1,6 @@
 ---
 title: "The Quick Code Cleanup"
-date: 2014-09-02 23:29:19 -0400
+date: 2014-09-02T23:29:19-04:00
 
 ---
 
@@ -14,7 +14,7 @@ Here are some of the things to do in a quick code cleanup:
 
 ### Fix Bad Names
 
-Naming classes, functions and variables is hard. Knowing how they *may* be used or evolve is almost impossible beforehand. When you name new classes, functions or variables, you have an idea of how *you think* they will be used. But as the program evolves, these old names may no longer be sufficiently explanatory or correct. 
+Naming classes, functions and variables is hard. Knowing how they *may* be used or evolve is almost impossible beforehand. When you name new classes, functions or variables, you have an idea of how *you think* they will be used. But as the program evolves, these old names may no longer be sufficiently explanatory or correct.
 
 In a quick code cleanup, you revisit naming after-the-fact, but close enough to remember your thinking, knowing how the elements are *now* being used. You will find that you have a much easier time finding and choosing better names in cleanup. It also means that, when writing new code, you can relax a bit knowing you'll come back and rename the items you are unsure of.
 
@@ -24,7 +24,7 @@ In a quick code cleanup, you revisit naming after-the-fact, but close enough to 
 
 While coding, we often forget to format our code properly. Or the IDE (I'm glaring at you, Xcode) *helpfully* generates its own code layouts for you.
 
-In a quick code cleanup, you reformat the code to whatever standard you prefer, add white space, and rearrange the functions in files to make more sense. For example, I like to have functions that call each other closer to each other in the file so it's easier to see them on the same screen. At coding time, I may not have written them or know which, at cleanup time I do. I also like to separate *paragraphs* of code with white space and comments, which I add in cleanup. 
+In a quick code cleanup, you reformat the code to whatever standard you prefer, add white space, and rearrange the functions in files to make more sense. For example, I like to have functions that call each other closer to each other in the file so it's easier to see them on the same screen. At coding time, I may not have written them or know which, at cleanup time I do. I also like to separate *paragraphs* of code with white space and comments, which I add in cleanup.
 
 *It makes the code a lot more readable and browsable for later.*
 
@@ -50,7 +50,7 @@ Other than renaming classes and variables, a quick code cleanup also usually ent
 
 * Pulling up common and duplicated code into functions, or replacing long, complex, deep `if` clauses with function calls
 * Adding standard file headers (if necessary)
-* Hiding public variables behind setters and getters (one or both) 
+* Hiding public variables behind setters and getters (one or both)
 * Commenting out or deleting surplus debug statements
 * Adding missing `asserts` to document your assumptions
 
@@ -64,4 +64,4 @@ The quick code cleanup may not seem to be a productive use of your time, but it 
 
 You can start doing quick code cleanups anytime.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

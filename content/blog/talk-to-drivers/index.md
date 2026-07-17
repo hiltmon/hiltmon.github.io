@@ -1,7 +1,7 @@
 ---
 layout: hiltmonism
 title: Talk to Drivers, not Mechanics
-date: 2016-03-14 20:26:13 -0400
+date: 2016-03-14T20:26:13-04:00
 tags: [ Hiltmonism ]
 ---
 
@@ -55,7 +55,7 @@ It works both ways. If the tech rambles on too long, finds themselves needing to
 
 Keep in mind that, unlike mechanics, techs do deal with different audiences. Each audience is vague or detailed in its *own* way, uses its *own* terminology, has its *own* assumptions and its *own* measures of success or failure.  Each different audience has its *own* norms. Yet none of these audiences has the time or patience to discuss or learn all the dark details. They may seem different, but they are all essentially drivers.
 
-*The tech team **needs** to understand this about their audience to become part of it.* They need to know how to speak to each audience in the language they understand, using the terms and levels of accuracy the audience expects. 
+*The tech team **needs** to understand this about their audience to become part of it.* They need to know how to speak to each audience in the language they understand, using the terms and levels of accuracy the audience expects.
 
 **To talk like drivers to drivers**.
 
@@ -70,7 +70,7 @@ Keep in mind that, unlike mechanics, techs do deal with different audiences. Eac
 
 ### Talk to Drivers, not Mechanics
 
-Finding that balance, the balance between detail and vagueness, between the correct term and the common one, between enough information and too much information, between saying more and shutting up is hard for tech teams. 
+Finding that balance, the balance between detail and vagueness, between the correct term and the common one, between enough information and too much information, between saying more and shutting up is hard for tech teams.
 
 But a good team can find this balance as long as it knows what the communication issues are.
 

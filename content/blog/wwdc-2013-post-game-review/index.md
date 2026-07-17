@@ -1,6 +1,6 @@
 ---
 title: "WWDC 2013 Post-Game Review"
-date: 2013-06-15 12:22:00-0400
+date: 2013-06-15T12:22:00-04:00
 tags: [ Apple ]
 ---
 
@@ -36,7 +36,7 @@ I installed it on my old iPhone 4 just to get a feel for it. And when I showed i
 
 Considering that they had only 7 months to come up with this *Developer Preview* look, I think we can all look forward to some amazingly rapid changes before the final release and years of Apple's legendary iteration on this look and experience. I think iOS just seems to *work* better with the new look.
 
-**Other likes**: The radio service, the new photos interface, AirDrop, lost iPhone features.  
+**Other likes**: The radio service, the new photos interface, AirDrop, lost iPhone features.
 **Meh**: iCloud keychain ([1Password](https://itunes.apple.com/us/app/1password-password-manager/id568903335?mt=8&uo=4&at=10l894) for ever!), apps near me.
 
 ## OS X Mavericks
@@ -57,8 +57,8 @@ I do like the new calendar look and feel, and finally someone has intelligently 
 
 On the geeky side, the new compressed memory, coalesced timers, app nap and click-to-play flash look fantastic and I am looking forward to seeing them in action.
 
-**Other likes**: Maps and notification actions.  
-**Meh**: iCloud Keychain, iBooks.  
+**Other likes**: Maps and notification actions.
+**Meh**: iCloud Keychain, iBooks.
 **Dislike**: The name -- I don't know the place, but it feels like a plural name applied to a singular item, and therefore just wrong.
 
 ## Haswell Macbook Air
@@ -117,7 +117,7 @@ The other is the ability to use an OS X Server as a Continuous Integration serve
 
 ## Other Announcements
 
-The iWork in the cloud announcement did not really excite me. It is amazing what they could do in a browser, but I would have preferred newer desktop and iOS versions. Keynote is almost as old as my laptop, and with all the new technology that Apple has released over the years, it is in dire need of an update. 
+The iWork in the cloud announcement did not really excite me. It is amazing what they could do in a browser, but I would have preferred newer desktop and iOS versions. Keynote is almost as old as my laptop, and with all the new technology that Apple has released over the years, it is in dire need of an update.
 
 And where are the collaboration features? Why else would you create web versions unless you want to help people collaborate?
 
@@ -137,6 +137,6 @@ I don't really care that WWDC 2013 sold out in 71 seconds, there's no chance I w
 
 I really do think that the 2013 WWDC announcements are awesome, the best in years. Both operating systems get huge updates, new Air's, and the new Mac Pro show that Tim Cook's Apple is still at the very top of its game in design, focus, innovation and delivery. I am really excited to use the new hardware and software as my daily drivers.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [1]:	https://developer.apple.com/osx/whats-new/

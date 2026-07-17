@@ -1,6 +1,6 @@
 ---
 title: "Recent Travels and Tech"
-date: 2012-05-15 10:46:00-0400
+date: 2012-05-15T10:46:00-04:00
 
 ---
 

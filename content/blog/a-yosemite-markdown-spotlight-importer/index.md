@@ -1,6 +1,6 @@
 ---
 title: "A Yosemite Markdown Spotlight importer"
-date: 2015-11-17 12:26:13 -0500
+date: 2015-11-17T12:26:13-05:00
 tags: [ Markdown ]
 ---
 
@@ -35,13 +35,13 @@ Or use the following command:
 ```
 sudo mdutil -E /
 ```
-	
+
 To see if this is working, run
 
 ```
 mdimport -L
 ```
-	 
+
 I get
 
 ```

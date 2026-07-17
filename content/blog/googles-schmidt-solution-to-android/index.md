@@ -1,6 +1,6 @@
 ---
 title: "Google's Schmidt Solution to Android"
-date: 2012-01-16 17:37:00-0400
+date: 2012-01-16T17:37:00-04:00
 
 ---
 

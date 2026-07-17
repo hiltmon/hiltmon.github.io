@@ -1,6 +1,6 @@
 ---
 title: "Say NO to Spec Work"
-date: 2012-10-19 11:55:00-0400
+date: 2012-10-19T11:55:00-04:00
 tags: [ Business ]
 ---
 

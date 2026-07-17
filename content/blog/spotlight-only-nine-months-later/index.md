@@ -1,6 +1,6 @@
 ---
 title: "Spotlight Only - Nine Months Later"
-date: 2016-04-10 11:20:22 -0400
+date: 2016-04-10T11:20:22-04:00
 tags: [ Productivity ]
 ---
 
@@ -21,31 +21,31 @@ So here's a core set of Spotlight features — it's a short list — and how it 
 Spotlight launches applications just as well as the others, including with abbreviations. For example, to launch Navicat Premium Essentials, a Spotlight of `npe` puts it at the top as expected.
 
 <span class="light">**Result**: Just as good and quick.</span>
-	
+
 ### Text/File Finder
 
 Type a few words and it finds matching files and their contents very quickly. Unlike the commercial applications, Spotlight returns far fewer results in the HUD screen, but you rarely need more than the top four to find the file you want. Also, since El-Capitan, it now searches on partial strings. Note that I also needed to add a [Markdown Plugin](https://hiltmon.com/blog/2015/11/17/a-yosemite-markdown-spotlight-importer/) to make it work perfectly for me.
 
 <span class="light">**Result**: Mostly the same, a longer and customizable result list would be nicer. I know you can resize the Spotlight screen, but I want more results per category, not a larger screen showing more categories.</span>
-	
+
 ### Contacts
 
 Type the first few letters of a person's name and Spotlight shows their contact card. Move the mouse over an email or phone to get a click-through icon to send a message, etc. The commercial applications are much better here, allowing you to keep your hands on the keyboard and select an action from the card.
 
 <span class="light">**Result**: Not as good, but enough for me to see the phone number I need to punch in.</span>
-	
+
 ### Web Search
 
 Spotlight does have the ability to search the web via Bing (shudder). I do not use this. If Spotlight could use Google or DuckDuckGo it would be a different story. Instead I have a keyboard shortcut in Keyboard Maestro that launches Safari and allows me to search DuckDuckGo in one keypress. So I turned this off on Day 1, Bing search is rubbish.
 
 <span class="light">**Result**: The third party applications do this way better.</span>
-	
+
 ### Actions on Results
 
 One thing Spotlight does *not* do is provide more actions once a result is found. You cannot do anything more with a found result except open an application, you cannot even select the application to use or run a macro on it. Since I never used that feature, I don't miss it.
 
 <span class="light">**Result**: If this is your primary way of using Alfred or LaunchBar, and I suspect thats how most of you use them, this missing feature is a showstopper.</span>
-	
+
 ### Other
 
 I rarely use Spotlight to search for a stock price, weather, sports score or local movie time, these things are all far more conveniently available on my iPhone (and I have notifications set up for the important stuff).

@@ -1,6 +1,6 @@
 ---
 title: "Add GA OS and Browser to Status Board"
-date: 2013-04-17 11:02:00-0400
+date: 2013-04-17T11:02:00-04:00
 tags: [ Status Board ]
 ---
 
@@ -34,6 +34,4 @@ The script to generate the browser file is at [https://raw.github.com/hiltmon/st
 
 Enjoy.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
-
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

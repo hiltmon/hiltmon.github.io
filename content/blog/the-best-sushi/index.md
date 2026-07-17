@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "The best Sushi"
-date: 2012-09-20 20:02:00-0400
+date: 2012-09-20T20:02:00-04:00
 tags: [ Food ]
 ---
 
@@ -15,7 +15,7 @@ The restaurant is in Kanazawa city on the Japan Sea side of Japan, about 450 km 
 
 ## The Place
 
-It’s called *Komatsu Yasuke* (小松弥助) and it’s the restaurant that the top sushi chefs in Tokyo go to eat and study the best. Its situated on the ground floor of a hotel in an unremarkable building in an unremarkable street in Kanazawa, about 15 mins from the main station by Taxi. 
+It’s called *Komatsu Yasuke* (小松弥助) and it’s the restaurant that the top sushi chefs in Tokyo go to eat and study the best. Its situated on the ground floor of a hotel in an unremarkable building in an unremarkable street in Kanazawa, about 15 mins from the main station by Taxi.
 
 You need to book early. We called from New York a few months ago to get this reservation. The couple sitting next to us were regulars who travel from Tokyo to spend one night in Kanazawa and have lunch here. It was full when we arrived, it was full when we left.
 

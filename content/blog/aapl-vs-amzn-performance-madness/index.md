@@ -1,10 +1,10 @@
 ---
 title: "AAPL vs AMZN Performance Madness"
-date: 2012-11-05 13:26:00-0400
+date: 2012-11-05T13:26:00-04:00
 tags: [ Apple ]
 ---
 
-Philip Elmer-DeWitt	noted something interesting on Saturday in Fortune magazine, [Amazon's price-to-earnings ratio is now 2,767. Apple's is 13](http://tech.fortune.cnn.com/2012/11/03/amazons-price-to-earnings-ratio-is-now-2767-apples-is-13/)! In the last quarter, Apple's earnings were **up** and the stock went **down**, whereas Amazon reported a loss and the stock went up. 
+Philip Elmer-DeWitt	noted something interesting on Saturday in Fortune magazine, [Amazon's price-to-earnings ratio is now 2,767. Apple's is 13](http://tech.fortune.cnn.com/2012/11/03/amazons-price-to-earnings-ratio-is-now-2767-apples-is-13/)! In the last quarter, Apple's earnings were **up** and the stock went **down**, whereas Amazon reported a loss and the stock went up.
 
 When a company reports bumper earnings, I assume its stock price should rise, and when a company takes a loss, the stock price should fall. After all, the stock price is really the public valuation of the company. So this response to earnings makes no sense to me. I decided to investigate this madness to see if there are any other rational indicators that explain it. Instead, I found support for my thesis, and no answer to why this is happening.
 
@@ -38,7 +38,7 @@ This is the number that triggered this post. The **Price / Earnings Ratio** (P/E
 
 {{< figure src="images/aapl-amzn-pe.png" width=480 height=348 >}}
 
-{{< figure src="images/aapl-amzn-pe-full.png" width=280 height=203 class="image-right" >}}  
+{{< figure src="images/aapl-amzn-pe-full.png" width=280 height=203 class="image-right" >}}
 
 AAPL, MSFT and PEP are nice and steady, with AAPL's P/E dropping as it's profitability increases, *as expected*. AMZN's P/E is quite high and volatile. But over the last year, the P/E for AMZN has popped right off the chart. See the chart to the right. AMZN's P/E on Sep 30 was 3,633 vs AAPL's of 15.11. Or in other words, AAPL will pay back in 15 years and AMZN when the sun goes cold. Using P/E as an indicator to make investment decisions, AMZN's volatile P/E means you should not buy it (and sell what you have) and the upwards jump indicates an urgent sell and a do-not-touch. Yet *still* the AMZN share price went up. What?
 

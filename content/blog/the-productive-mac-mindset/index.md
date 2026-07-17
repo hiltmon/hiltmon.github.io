@@ -1,6 +1,6 @@
 ---
 title: "The Productive Mac Mindset"
-date: 2015-08-15 12:42:13 -0400
+date: 2015-08-15T12:42:13-04:00
 tags: [ Productivity ]
 ---
 

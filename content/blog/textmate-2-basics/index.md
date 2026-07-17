@@ -1,6 +1,6 @@
 ---
 title: "TextMate 2 Basics"
-date: 2013-11-09 15:00:00-0400
+date: 2013-11-09T15:00:00-04:00
 tags: [Text Editors, TextMate]
 ---
 
@@ -24,7 +24,7 @@ To install a language or feature bundle, open **Preferences...** or press `⌘,`
 
 {{< figure src="images/tm-basics-2.jpg"  width=220 height=81 class="image-right" >}}
 
-There are many ways to learn about what's in a bundle. You could go to the **Bundle / Edit Bundles...** menu (or press `⌃⌥⌘B`) and then click on a bundle to see its contents. Or you could click on the gear menu (see image right) at the bottom of an opened file to see what's available. 
+There are many ways to learn about what's in a bundle. You could go to the **Bundle / Edit Bundles...** menu (or press `⌃⌥⌘B`) and then click on a bundle to see its contents. Or you could click on the gear menu (see image right) at the bottom of an opened file to see what's available.
 
 Or best of all, use `⌘⌃T` to bring up the bundle search dialog to find what's there. Type in what you think could exist or what it may be called, and chances are, there it is. That is how I found the available snippets and keystrokes that I use every day.
 
@@ -38,13 +38,13 @@ Or best of all, use `⌘⌃T` to bring up the bundle search dialog to find what'
 
 I find myself opening the same projects over and over again in TextMate 2. In TextMate 1 we had project files, but I never really used them. So I used to open projects by opening a terminal, `cd` to the project folder and type the command `mate .` to open the project folder (and then created TextExpander scripts to do this, see [TextExpander in Terminal](https://hiltmon.com/blog/2012/07/15/textexpander-in-terminal/)).{{< figure src="images/tm-basics-4.jpg" width=272 height=121 class="image-right" >}}
 
-In TextMate 2, the Favorites feature works better for me. To set up a favorite, use the file browser in TextMate 2 to navigate to the folder *above* your projects. 
+In TextMate 2, the Favorites feature works better for me. To set up a favorite, use the file browser in TextMate 2 to navigate to the folder *above* your projects.
 
 {{< figure src="images/tm-basics-5.jpg"  width=271 height=98 class="image-right" >}}
 
 Then, to create a favorite, right click on the project folder and choose "Add &lt;folder&gt; to Favorites".
 
-{{< figure src="images/tm-basics-6.jpg" width=429 height=301 class="image-right" >}} 
+{{< figure src="images/tm-basics-6.jpg" width=429 height=301 class="image-right" >}}
 
 Next time you want to open an project, just press `⇧⌘O` (O not zero) to open the **Open Favorite** dialog, then type or click to open the project. I just love this. <span class="light">*Note that in the current alphas of TextMate 2, you need to restart the application for the favorites to be updated.*</span>
 
@@ -169,7 +169,7 @@ For ERB tags, use `⌃⇧.` (`⌃>`) to create a new `<%= | %>` tag with the cur
 
 ## Fin
 
-So those the basic TextMate 2 features that I use *all the time*, its only just over 20 keystrokes to get used to using. 
+So those the basic TextMate 2 features that I use *all the time*, its only just over 20 keystrokes to get used to using.
 
 I am quite certain that you can do all of the above in your programmer's editor of choice just as efficiently. But for me, it's the Mac basics and TextMate features and keystroke muscle memory that makes me so productive in TextMate 2.
 
@@ -177,4 +177,4 @@ I am quite certain that you can do all of the above in your programmer's editor 
 
 *If you have any awesome TextMate 2 features or keys you cannot live without, please share them in the comments.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

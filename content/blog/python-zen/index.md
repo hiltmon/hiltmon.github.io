@@ -1,6 +1,6 @@
 ---
 title: "Python Zen"
-date: 2012-11-15 16:18:00-0400
+date: 2012-11-15T16:18:00-04:00
 tags: [ Python ]
 ---
 
@@ -29,4 +29,3 @@ The first thing I learned about [Python](http://www.python.org) is the [Zen of P
 - Namespaces are one honking great idea -- let's do more of those!
 
 I think this really applies to all languages and programming in general.
-

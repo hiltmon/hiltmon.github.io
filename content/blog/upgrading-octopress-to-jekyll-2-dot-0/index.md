@@ -1,6 +1,6 @@
 ---
 title: "Upgrading Octopress to Jekyll 2.0"
-date: 2014-06-21 16:28:04 -0400
+date: 2014-06-21T16:28:04-04:00
 tags: [ Octopress ]
 ---
 
@@ -24,7 +24,7 @@ Finally, I got ready - update source, clean caches and generate the blog. Note t
 	rake update_source
 	rake clean
 	rake generate
-	
+
 **And it failed.**
 
 One thing went wrong and it was because of a old change in [Jekyll](http://jekyllrb.com). You see, before the upgrade I was using the positively ancient [Jekyll](http://jekyllrb.com) 0.12. Since 1.11, [Jekyll](http://jekyllrb.com) has added `excerpts`, where it takes the first markdown paragraph in a post and generates that as the excerpt, which it then runs through [Liquid](http://liquidmarkup.org). However, I often start a post with the [blockquote](http://octopress.org/docs/plugins/blockquote/) tag and many of these quotes have multiple paragraphs. The result:
@@ -52,4 +52,4 @@ The site now generates just fine.
 
 <span class="light">Once again, my utmost respect and thanks to [Brandon Mathis](http://brandonmathis.com) for creating and maintaining this lovely [Octopress](http://octopress.org) blog wrapper on top of the excellent work by [Tom Preston Werner](http://tom.preston-werner.com) and the team who create and maintain [Jekyll](http://jekyllrb.com).</span>
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

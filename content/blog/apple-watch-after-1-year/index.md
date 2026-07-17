@@ -1,6 +1,6 @@
 ---
 title: "Apple Watch - After 1 Year"
-date: 2016-04-24 10:56:49 -0400
+date: 2016-04-24T10:56:49-04:00
 ---
 
 {{< figure src="images/watch-1yr-0.png" width=312 height=356 class="image-right" >}}
@@ -37,7 +37,7 @@ But over the year I have done something few people have. I have added new notifi
 
 I was a watch wearer before, and will be for life. The device on my wrist needs to be an excellent time piece, in design, feel, engineering and in allowing me to glance and "know" the time. Prior to the Apple Watch, I wore a Titanium Special Pilot Edition Citizen Eco-Drive watch, a solar-powered engineering marvel. Its face was as familiar to me as my own.
 
-For much of the year, I used the Utility face on the Apple Watch to transition with an analog display. It took no time to get used to. And the wrist flick needed to activate the screen works every time for me. It's the same movement I guesses I used with the old watch. I still switch to Utility for dress-up. 
+For much of the year, I used the Utility face on the Apple Watch to transition with an analog display. It took no time to get used to. And the wrist flick needed to activate the screen works every time for me. It's the same movement I guesses I used with the old watch. I still switch to Utility for dress-up.
 
 These days I run modular to see more data in the same glance. And reading that, too, has become habit.
 

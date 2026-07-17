@@ -1,6 +1,6 @@
 ---
 title: "The App Store playing field"
-date: 2012-02-16 18:52:00-0400
+date: 2012-02-16T18:52:00-04:00
 tags: [ Apple ]
 ---
 

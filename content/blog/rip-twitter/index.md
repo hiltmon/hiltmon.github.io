@@ -1,6 +1,6 @@
 ---
 title: "RIP Twitter"
-date: 2012-08-17 08:26:00-0400
+date: 2012-08-17T08:26:00-04:00
 tags: [Social]
 ---
 
@@ -48,8 +48,7 @@ I’ll stay on Twitter until it dies, or all those that I follow have moved to a
 
 “*Nice plumage.*”
 
-I’m [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Follow me and let me know what you think.
+I'm [@hiltmon](https://twitter.com/hiltmon) on Twitter. Follow me and let me know what you think.
 
-*[1] Twitter’s own apps are woefully out of date.*  
+*[1] Twitter’s own apps are woefully out of date.*
 *[2] When Loren Brichter worked there, their Tweetie app was excellent, but that died years ago.*
-

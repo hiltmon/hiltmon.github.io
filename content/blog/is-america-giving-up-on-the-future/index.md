@@ -1,6 +1,6 @@
 ---
 title: "Is America Giving Up on the Future?"
-date: 2011-12-26 15:23:00-0400
+date: 2011-12-26T15:23:00-04:00
 tags: [ Politics ]
 ---
 

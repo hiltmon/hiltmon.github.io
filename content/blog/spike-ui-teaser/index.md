@@ -1,6 +1,6 @@
 ---
 title: "Spike UI Teaser"
-date: 2012-04-19 18:49:00-0400
+date: 2012-04-19T18:49:00-04:00
 tags: [Software]
 ---
 

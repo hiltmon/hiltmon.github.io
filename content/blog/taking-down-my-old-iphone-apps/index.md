@@ -1,6 +1,6 @@
 ---
 title: "Taking down my old iPhone Apps"
-date: 2012-02-13 10:16:00-0400
+date: 2012-02-13T10:16:00-04:00
 
 ---
 

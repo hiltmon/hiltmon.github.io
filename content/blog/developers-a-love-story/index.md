@@ -1,6 +1,6 @@
 ---
 title: "Developers, A Love Story"
-date: 2012-01-23 12:58:00-0400
+date: 2012-01-23T12:58:00-04:00
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: writing
 title: "Horizons"
-date: 2013-06-06 18:11:00-0400
+date: 2013-06-06T18:11:00-04:00
 tags: [ Writing ]
 ---
 
@@ -59,6 +59,6 @@ Going back to the people I was in contact without horizons, many of them cannot 
 
 As individuals we no longer have horizons, and this is wonderful. We can talk and share and care with anyone anywhere at any time. As a group, we need to find ways to eliminate the artificial ones. Then we can all gather to tackle the big issues the way we do now as local communities, just bigger, without horizons.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 <span class="light" style="font-size:8pt">Images from [The Noun Project](http://thenounproject.com), including some by Louie McPherson, Mark McRory, and Catia G.</span>

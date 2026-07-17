@@ -1,6 +1,6 @@
 ---
 title: "A simple Markdown Spotlight importer"
-date: 2015-06-27 14:33:43 -0400
+date: 2015-06-27T14:33:43-04:00
 tags: [ Markdown ]
 ---
 
@@ -29,7 +29,7 @@ Edit `/System/Library/Spotlight/RichText.mdimporter/Contents/Info.plist` and add
 			<string>org.openxmlformats.wordprocessingml.document</string>
 		<string>net.daringfireball.markdown</string>
 	</array>
-...		
+...
 ```
 
 <span class="light">You will need an admin password to save the changes.</span>
@@ -51,4 +51,3 @@ To test this I created a new Markdown file in [BBEdit](http://www.barebones.com/
 Good to go.
 
 *Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.*
-

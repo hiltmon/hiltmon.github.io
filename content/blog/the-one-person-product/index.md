@@ -1,6 +1,6 @@
 ---
 title: "The One-Person Product"
-date: 2013-05-20 18:45:00-0400
+date: 2013-05-20T18:45:00-04:00
 tags: [ News ]
 ---
 
@@ -16,4 +16,4 @@ However, **I also know** of many founders who love to *think* they are great vis
 
 We can't all be Steve Jobs or David Karp. But we sure can try to emulate their strengths.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

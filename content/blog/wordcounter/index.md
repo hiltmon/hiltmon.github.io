@@ -1,6 +1,6 @@
 ---
 title: "WordCounter"
-date: 2014-07-14 18:24:10 -0400
+date: 2014-07-14T18:24:10-04:00
 
 ---
 
@@ -16,4 +16,4 @@ Most writers I know use several different software tools while writing, like [nv
 
 Available direct at [http://wordcounterapp.com](http://wordcounterapp.com).
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

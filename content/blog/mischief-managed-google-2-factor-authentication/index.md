@@ -1,6 +1,6 @@
 ---
 title: "Mischief Managed: Google 2-Factor Authentication"
-date: 2012-08-06 11:45:00-0400
+date: 2012-08-06T11:45:00-04:00
 tags: [ "Mischief Managed" ]
 ---
 

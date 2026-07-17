@@ -1,6 +1,6 @@
 ---
 title: "First impressions of the new iPad"
-date: 2012-03-16 14:19:00-0400
+date: 2012-03-16T14:19:00-04:00
 tags: [ iPad ]
 ---
 

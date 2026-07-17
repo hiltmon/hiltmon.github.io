@@ -1,6 +1,6 @@
 ---
 title: "2012 iPad Essentials"
-date: 2012-03-17 13:30:00-0400
+date: 2012-03-17T13:30:00-04:00
 tags: [iPad]
 ---
 
@@ -43,4 +43,4 @@ Surprise dropouts (applications I though I would have loaded but did not):
 
 *Note: The links above to the App Store are affiliate links, so if you purchase any of these products, I get a few pennies.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

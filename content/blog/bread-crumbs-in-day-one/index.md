@@ -1,6 +1,6 @@
 ---
 title: "Bread crumbs in Day One"
-date: 2012-01-23 13:09:00-0400
+date: 2012-01-23T13:09:00-04:00
 tags: [ Productivity ]
 ---
 
@@ -60,5 +60,3 @@ Logging commits was not my idea. I got the `LogToDayOne.rb` script from Brett Te
 As a result of these, I have a comprehensive journal of what happened each day over and above my project and coding notes.
 
 Anyone else got some cool scripts for [Day One](http://dayoneapp.com/)? I'd love it to become more like [Momento](http://www.momentoapp.com/) for the Mac.
-
-

@@ -1,6 +1,6 @@
 ---
 title: "Xcode and the Simple C++ Project Structure"
-date: 2013-07-05 11:31:00-0400
+date: 2013-07-05T11:31:00-04:00
 tags: [ Development, Programming, C++ ]
 ---
 
@@ -90,5 +90,4 @@ Also, don't forget to commit these changes when done.
 
 Now we have a Simple C++ Project that can and will compile under Linux using command-line tools, and a GUI IDE environment to develop and test it on the Mac.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
-
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute

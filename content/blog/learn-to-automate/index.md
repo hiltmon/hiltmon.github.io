@@ -1,6 +1,6 @@
 ---
 title: "Learn to Automate"
-date: 2012-06-20 08:57:00-0400
+date: 2012-06-20T08:57:00-04:00
 tags: [Business, Productivity, Hiltmonism]
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Adverse Apple Articles"
-date: 2012-11-08 11:30:00-0400
+date: 2012-11-08T11:30:00-04:00
 tags: [ Apple ]
 ---
 
@@ -12,7 +12,7 @@ In short, the evidence points to a concerted effort to create a negative impress
 
 Instead of being my own cherry picker, I used a third party news aggregator to perform the selection of articles for this research. [Trove](http://www.trove.com/) is a personalized news and information engine run out of the well respected Washington Post news organization, so any bias is theirs, not mine. Go to [Trove's Apple channel](http://www.trove.com/channel/38928/Apple) to see for yourself the articles I refer to below.
 
-So, armed with a list of articles from Trove, I stripped out the technical ones and chose just the business ones. That was easy. 
+So, armed with a list of articles from Trove, I stripped out the technical ones and chose just the business ones. That was easy.
 
 ### The Adverse Articles
 

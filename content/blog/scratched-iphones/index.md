@@ -1,6 +1,6 @@
 ---
 title: "Scratched iPhones"
-date: 2012-10-10 10:58:00-0400
+date: 2012-10-10T10:58:00-04:00
 tags: [Apple, iPhone]
 ---
 

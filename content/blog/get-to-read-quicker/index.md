@@ -1,6 +1,6 @@
 ---
 title: "Get to read quicker"
-date: 2012-03-14 19:43:00-0400
+date: 2012-03-14T19:43:00-04:00
 tags: [Productivity]
 ---
 

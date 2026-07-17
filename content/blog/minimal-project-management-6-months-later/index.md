@@ -1,6 +1,6 @@
 ---
 title: "Minimal Project Management - 6 Months Later"
-date: 2016-08-28 12:53:50 -0400
+date: 2016-08-28T12:53:50-04:00
 
 ---
 

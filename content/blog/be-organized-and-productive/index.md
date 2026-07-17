@@ -1,10 +1,10 @@
 ---
 title: "Be Organized and Productive"
-date: 2012-12-26 16:59:00-0400
+date: 2012-12-26T16:59:00-04:00
 tags: [ Productivity, Slogger ]
 ---
 
-The theme of 2012 was all about getting organized and productive using software. I may have spent 2012 developing [Kifu](http://www.kifuapp.com) and some internal applications for clients, but I spent a lot of time this year getting better organized and more productive on my Mac. *It’s ridiculous how much this has paid off.*
+The theme of 2012 was all about getting organized and productive using software. I may have spent 2012 developing Kifu and some internal applications for clients, but I spent a lot of time this year getting better organized and more productive on my Mac. *It's ridiculous how much this has paid off.*
 
 So, instead of a *cool-products-of-2012-year-in-review* post, here are many of the things I do and tools I use to be organized and productive, with thanks to those to shared the ideas with us. Maybe these ideas, tools and folks can help you too.
 
@@ -73,4 +73,4 @@ With special mentions to:
 
 *Note: The links above to the App Store are affiliate links, so if you purchase any of these products, I get a few pennies. The rest are direct to the developers home pages or Twitter pages, please support them however you can.*
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter or [@hiltmon](http://alpha.app.net/hiltmon) on App.Net.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter.

@@ -1,6 +1,6 @@
 ---
 title: "From Tool Maker to Tool User"
-date: 2014-03-02 10:04:34 -0500
+date: 2014-03-02T10:04:34-05:00
 
 ---
 
@@ -30,7 +30,7 @@ Our desktops were Intel PC's running new fangled [Windows](http://en.wikipedia.o
 
 Being able to see multiple VT-100 terminal sessions on one screen was leading edge, a huge improvement over the teletypes from before and a huge productivity boost. And using a database meant that data storage and retrieval were written for us. But the tools were rudimentary. We needed to write everything, from the protocols between systems to the libraries that processed the data.
 
-*1 task, 1 platform, 2 languages, 1 library, 1 IDE, 1 database.* 
+*1 task, 1 platform, 2 languages, 1 library, 1 IDE, 1 database.*
 
 **90% tool maker, 10% tool user.**
 
@@ -70,11 +70,11 @@ Back then, the tool-maker had to be able to program at a low level and know all 
 
 We still need the tool-makers, the ones who create the platforms, languages, libraries and IDE's. But the majority of us have lost that skill if we ever had it. The point is that *using* these tools, the products we tool-users create are better, faster, more reliable, easier to extend than ever before and we produce them so much quicker.
 
-And because we *use* these tools, we can do a lot more every day and create a lot more products. Just look at the scope of work and the numbers above. Back then we worked on a single component of a single product for weeks at a time. Now, we work on a portfolio of products simultaneously. 
+And because we *use* these tools, we can do a lot more every day and create a lot more products. Just look at the scope of work and the numbers above. Back then we worked on a single component of a single product for weeks at a time. Now, we work on a portfolio of products simultaneously.
 
 Back then, as tool-makers the work we do now was not possible. Now as tool-users, it is what we do all the time.
 
-*Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter and [@hiltmon](http://alpha.app.net/hiltmon) on App.Net. Mute `#xpost` on one.*
+Follow the author as [@hiltmon](https://twitter.com/hiltmon) on Twitter. Mute
 
 [PLANE]:	http://en.wikipedia.org/wiki/Plane_(tool)
 [CPGM]:	http://en.wikipedia.org/wiki/C_(programming_language)

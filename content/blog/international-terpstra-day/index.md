@@ -1,6 +1,6 @@
 ---
 title: "International Terpstra Day"
-date: 2012-07-19 11:06:00-0400
+date: 2012-07-19T11:06:00-04:00
 
 ---
 
@@ -13,7 +13,7 @@ One of the nicest things I have ever seen for one of the nicest guys on our corn
 * Michael Schechter at A Better Mess: [Celebrate Terpstra Day](http://bettermess.com/celebrate-terpstra-day/)
 * Eddie Smith at Practically Efficient: [Terpstra Day](http://www.practicallyefficient.com/2012/07/19/terpstra/)
 
-For the few of you who do not know of him, Brett is the developer of [Marked.app](http://markedapp.com) that I use every day for preview and export of markdown files, he's the developer of [nvAlt](http://brettterpstra.com/project/nvalt/) which I recommend for all your notes, he writes as part of [Read & Trust](http://readandtrust.com), has a new Podcast called [Systematic](http://5by5.tv/systematic), and he gives away huge numbers of [free tools and scripts](http://brettterpstra.com/code/). 
+For the few of you who do not know of him, Brett is the developer of [Marked.app](http://markedapp.com) that I use every day for preview and export of markdown files, he's the developer of [nvAlt](http://brettterpstra.com/project/nvalt/) which I recommend for all your notes, he writes as part of [Read & Trust](http://readandtrust.com), has a new Podcast called [Systematic](http://5by5.tv/systematic), and he gives away huge numbers of [free tools and scripts](http://brettterpstra.com/code/).
 
 *His work inspires me to be better at what I do.*
 
