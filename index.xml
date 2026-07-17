@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hiltmon</title><link>https://hiltmon.com/</link><description>Recent content on Hiltmon</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 03 Mar 2023 09:36:12 -0500</lastBuildDate><atom:link href="https://hiltmon.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Xcode's Assistant Editor struggling with C++</title><link>https://hiltmon.com/blog/2023/03/03/xcodes-assistant-editor-struggling-with-cpp/</link><pubDate>Fri, 03 Mar 2023 09:36:12 -0500</pubDate><guid>https://hiltmon.com/blog/2023/03/03/xcodes-assistant-editor-struggling-with-cpp/</guid><description>&lt;p&gt;One of the best features of Xcode for C++ programmers is its Assistant Editor. This is an editor panel to the right of the main editor where you are working that automatically (and somewhat magically) displays the counterpart to the file you are editing. So for example if I am working on &lt;code&gt;service.cpp&lt;/code&gt;, the assistant displays its header &lt;code&gt;service.h&lt;/code&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hiltmon</title><link>https://hiltmon.com/</link><description>Recent content on Hiltmon</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 17 Jul 2026 15:55:17 -0400</lastBuildDate><atom:link href="https://hiltmon.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Adversarial Review Making Ai Challenge Its Own Conclusions</title><link>https://hiltmon.com/blog/2026/07/17/adversarial-review-making-ai-challenge-its-own-conclusions/</link><pubDate>Fri, 17 Jul 2026 15:55:17 -0400</pubDate><guid>https://hiltmon.com/blog/2026/07/17/adversarial-review-making-ai-challenge-its-own-conclusions/</guid><description>&lt;p&gt;AI agents have bias. The one writing code wants it accepted. The one reviewing wants to find problems. Neither reliably verifies its own conclusions.&lt;/p&gt;
+&lt;p&gt;Adversarial review fixes this: agents find issues, then skeptic agents try to disprove them. Only what survives gets reported.&lt;/p&gt;
+&lt;p&gt;I ran one on a core library we&amp;rsquo;ve used for years. What came back wasn&amp;rsquo;t a long complaint list — it was a small set of real, reproducible issues. Including a few we&amp;rsquo;d unknowingly built workarounds for.&lt;/p&gt;</description></item><item><title>Xcode's Assistant Editor struggling with C++</title><link>https://hiltmon.com/blog/2023/03/03/xcodes-assistant-editor-struggling-with-cpp/</link><pubDate>Fri, 03 Mar 2023 09:36:12 -0500</pubDate><guid>https://hiltmon.com/blog/2023/03/03/xcodes-assistant-editor-struggling-with-cpp/</guid><description>&lt;p&gt;One of the best features of Xcode for C++ programmers is its Assistant Editor. This is an editor panel to the right of the main editor where you are working that automatically (and somewhat magically) displays the counterpart to the file you are editing. So for example if I am working on &lt;code&gt;service.cpp&lt;/code&gt;, the assistant displays its header &lt;code&gt;service.h&lt;/code&gt;.&lt;/p&gt;
 &lt;figure&gt;&lt;img src="https://hiltmon.com/blog/2023/03/03/xcodes-assistant-editor-struggling-with-cpp/images/AssistantEditor.png" width="484" height="170"&gt;
 &lt;/figure&gt;
 
@@ -27,6 +29,25 @@
 &lt;p&gt;Yet even though its short form and standard format, it takes too much time and effort to produce these, so we developers conveniently &amp;ldquo;forget&amp;rdquo; to create these valuable documents (or mess up structure of them).&lt;/p&gt;
 &lt;p&gt;I have found &lt;em&gt;my&lt;/em&gt; way to optimize the creation of these so I can spin them up quickly, deliver the information needed correctly, send them out and get back to coding.&lt;/p&gt;</description></item><item><title>Code Review is not all about the Code</title><link>https://hiltmon.com/blog/2022/08/10/code-review-is-not-all-about-the-code/</link><pubDate>Wed, 10 Aug 2022 12:12:49 -0400</pubDate><guid>https://hiltmon.com/blog/2022/08/10/code-review-is-not-all-about-the-code/</guid><description>&lt;p&gt;We all understand the benefits of the code review process in reducing the risk of software issues making it out into the wild, and in improving the skills of developers. Frequently though, the code review focusses wholly on the code and on an eyeball search for potential bugs and no more. There is a better way.&lt;/p&gt;
 &lt;p&gt;As developers, we read and write code all day, it&amp;rsquo;s our superpower and wholly inside our comfort zone. So it&amp;rsquo;s easy and convenient for us to jump straight into reading the code and poking around for bugs. As a result, we miss out on the true objectives of the review process, and on the true benefits that it should yield. In reality, a huge amount of time is wasted on reading, analyzing and understanding code that will likely be thrown away.&lt;/p&gt;</description></item><item><title>Archives</title><link>https://hiltmon.com/archives/</link><pubDate>Sat, 20 Jun 2020 16:44:34 -0400</pubDate><guid>https://hiltmon.com/archives/</guid><description>&lt;article class="archives-block"&gt;
+ &lt;span class="archives-date"&gt;2026-03-17&lt;/span&gt;
+ &lt;span class="archives-link"&gt;
+		&lt;a href="https://hiltmon.com/blog/2026/07/17/adversarial-review-making-ai-challenge-its-own-conclusions/"&gt;
+			Adversarial Review Making Ai Challenge Its Own Conclusions&amp;nbsp;
+		&lt;/a&gt;
+
+		
+
+		
+		
+		
+			&lt;span class="fas fa-newspaper"&gt;&lt;/span&gt;
+		
+		&lt;/span&gt;
+ &lt;/article&gt;
+ 
+ 
+ 
+ &lt;article class="archives-block"&gt;
  &lt;span class="archives-date"&gt;2023-09-03&lt;/span&gt;
  &lt;span class="archives-link"&gt;
 		&lt;a href="https://hiltmon.com/blog/2023/03/03/xcodes-assistant-editor-struggling-with-cpp/"&gt;
