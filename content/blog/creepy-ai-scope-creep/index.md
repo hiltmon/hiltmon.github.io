@@ -1,7 +1,6 @@
 ---
 title: "Creepy AI Scope Creep"
 date: 2026-09-01T11:54:00-04:00
-draft: true
 author: Hilton Lipschitz
 ---
 
